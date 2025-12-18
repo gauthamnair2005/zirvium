@@ -116,22 +116,29 @@ class MenuConfig:
             "arch": {
                 "title": "Processor & Architecture",
                 "items": [
-                    ConfigOption("CONFIG_X86_64", "x86_64 (64-bit)", "y",
-                                conflicts=["CONFIG_X86", "CONFIG_ARM", "CONFIG_ARM64"],
-                                help_text="Intel/AMD 64-bit architecture"),
+                    ConfigOption("CONFIG_X86_64", "x86_64 (64-bit)", "n",
+                                conflicts=["CONFIG_X86", "CONFIG_ARM", "CONFIG_ARM64", "CONFIG_RISCV", "CONFIG_PPC"],
+                                help_text="Intel/AMD 64-bit - Select during compilation"),
                     ConfigOption("CONFIG_X86", "x86 (32-bit)", "n",
-                                conflicts=["CONFIG_X86_64", "CONFIG_ARM", "CONFIG_ARM64"]),
+                                conflicts=["CONFIG_X86_64", "CONFIG_ARM", "CONFIG_ARM64", "CONFIG_RISCV", "CONFIG_PPC"],
+                                help_text="Intel/AMD 32-bit - Select during compilation"),
                     ConfigOption("CONFIG_ARM64", "ARM64 (AArch64)", "n",
-                                conflicts=["CONFIG_X86", "CONFIG_X86_64", "CONFIG_ARM"]),
+                                conflicts=["CONFIG_X86", "CONFIG_X86_64", "CONFIG_ARM", "CONFIG_RISCV", "CONFIG_PPC"],
+                                help_text="64-bit ARM - Select during compilation"),
                     ConfigOption("CONFIG_ARM", "ARM (32-bit)", "n",
-                                conflicts=["CONFIG_X86", "CONFIG_X86_64", "CONFIG_ARM64"]),
+                                conflicts=["CONFIG_X86", "CONFIG_X86_64", "CONFIG_ARM64", "CONFIG_RISCV", "CONFIG_PPC"],
+                                help_text="32-bit ARM - Select during compilation"),
                     ConfigOption("CONFIG_RISCV", "RISC-V", "n",
-                                conflicts=["CONFIG_X86", "CONFIG_X86_64"]),
+                                conflicts=["CONFIG_X86", "CONFIG_X86_64", "CONFIG_ARM", "CONFIG_ARM64", "CONFIG_PPC"],
+                                help_text="RISC-V architecture - Select during compilation"),
+                    ConfigOption("CONFIG_PPC", "PowerPC", "n",
+                                conflicts=["CONFIG_X86", "CONFIG_X86_64", "CONFIG_ARM", "CONFIG_ARM64", "CONFIG_RISCV"],
+                                help_text="PowerPC architecture - Select during compilation"),
                     ConfigOption("CONFIG_SMP", "Symmetric Multi-Processing", "y",
                                 help_text="Support for multiple CPUs"),
-                    ConfigOption("CONFIG_HYPER_THREADING", "Hyper-Threading (SMT)", "y",
-                                depends=["CONFIG_SMP", "CONFIG_X86_64"],
-                                help_text="Intel Hyper-Threading technology"),
+                    ConfigOption("CONFIG_HYPER_THREADING", "Hyper-Threading (SMT)", "n",
+                                depends=["CONFIG_SMP"],
+                                help_text="Intel HT/AMD SMT technology (x86/x64 only)"),
                     ConfigOption("CONFIG_NR_CPUS", "Maximum CPUs", "64",
                                 depends=["CONFIG_SMP"], option_type="int"),
                 ]
@@ -263,7 +270,13 @@ class MenuConfig:
             return "arm64"
         elif self.config.get("CONFIG_X86") == "y":
             return "x86"
-        return "unknown"
+        elif self.config.get("CONFIG_ARM") == "y":
+            return "arm"
+        elif self.config.get("CONFIG_RISCV") == "y":
+            return "riscv"
+        elif self.config.get("CONFIG_PPC") == "y":
+            return "ppc"
+        return "not selected"
     
     def check_conflicts(self, option: ConfigOption) -> List[str]:
         """Check for conflicts with current configuration"""
@@ -322,7 +335,9 @@ class MenuConfig:
         
         # Title bar
         self.stdscr.attron(curses.color_pair(1) | curses.A_BOLD)
-        title = f" Zirvium Kernel Configuration v0.2.0 [{self.get_arch()}] "
+        arch = self.get_arch()
+        arch_str = f" [{arch}]" if arch != "not selected" else ""
+        title = f" Zirvium Kernel Configuration v0.2.1{arch_str} "
         self.stdscr.addstr(0, (width - len(title)) // 2, title)
         self.stdscr.attroff(curses.color_pair(1) | curses.A_BOLD)
         
