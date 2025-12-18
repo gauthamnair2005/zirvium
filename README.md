@@ -24,7 +24,7 @@ make all
 make run
 ```
 
-Requires QEMU with OVMF UEFI firmware.
+Note: Currently uses QEMU multiboot loading. UEFI bootloader is optional.
 
 ## Architecture
 

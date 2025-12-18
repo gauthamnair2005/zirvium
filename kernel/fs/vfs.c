@@ -38,6 +38,7 @@ void vfs_init(void) {
 }
 
 vfs_node_t *vfs_open(const char *path, uint64_t flags) {
+    (void)flags;
     vfs_node_t *node = root_fs;
     
     while (node) {

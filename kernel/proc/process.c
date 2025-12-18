@@ -36,6 +36,7 @@ process_t *proc_create(void (*entry)(void)) {
 }
 
 void proc_exit(int status) {
+    (void)status;
     if (!current_process) return;
     
     current_process->state = PROC_STATE_ZOMBIE;

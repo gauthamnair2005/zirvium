@@ -42,25 +42,16 @@ typedef uint64_t EFI_STATUS;
 
 extern void kernel_entry(void);
 
-static void print_string(EFI_SYSTEM_TABLE *SystemTable, const char *str) {
+static void print_string(EFI_SYSTEM_TABLE *SystemTable, const uint16_t *str) {
     SIMPLE_TEXT_OUTPUT_INTERFACE *ConOut = (SIMPLE_TEXT_OUTPUT_INTERFACE*)SystemTable->ConOut;
-    uint16_t buffer[128];
-    int i = 0;
-    
-    while (str[i] && i < 127) {
-        buffer[i] = (uint16_t)str[i];
-        i++;
-    }
-    buffer[i] = 0;
-    
-    ConOut->OutputString(ConOut, buffer);
+    ConOut->OutputString(ConOut, (uint16_t*)str);
 }
 
 EFI_STATUS efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable) {
     (void)ImageHandle;
     
-    print_string(SystemTable, L"Zirvium UEFI Bootloader\r\n");
-    print_string(SystemTable, L"Loading kernel...\r\n");
+    print_string(SystemTable, u"Zirvium UEFI Bootloader\r\n");
+    print_string(SystemTable, u"Loading kernel...\r\n");
     
     kernel_entry();
     

@@ -4,6 +4,7 @@
 #include <kernel/kernel.h>
 
 static int64_t sys_read(int fd, void *buf, size_t count) {
+    (void)fd; (void)buf; (void)count;
     return 0;
 }
 
@@ -19,10 +20,12 @@ static int64_t sys_write(int fd, const void *buf, size_t count) {
 }
 
 static int64_t sys_open(const char *path, int flags) {
+    (void)path; (void)flags;
     return -1;
 }
 
 static int64_t sys_close(int fd) {
+    (void)fd;
     return 0;
 }
 
@@ -31,6 +34,7 @@ static int64_t sys_fork(void) {
 }
 
 static int64_t sys_exec(const char *path, char *const argv[]) {
+    (void)path; (void)argv;
     return -1;
 }
 
@@ -45,6 +49,7 @@ static int64_t sys_getpid(void) {
 }
 
 static int64_t sys_kill(pid_t pid, int sig) {
+    (void)pid; (void)sig;
     return -1;
 }
 
@@ -53,6 +58,7 @@ void syscall_init(void) {
 
 int64_t syscall_handler(uint64_t syscall_num, uint64_t arg1, uint64_t arg2, 
                         uint64_t arg3, uint64_t arg4, uint64_t arg5) {
+    (void)arg4; (void)arg5;
     switch (syscall_num) {
         case SYS_READ:
             return sys_read((int)arg1, (void*)arg2, (size_t)arg3);
