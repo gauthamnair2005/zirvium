@@ -1,30 +1,40 @@
-# Zirvium OS - UNIX-like Kernel for x64 UEFI
+# Zirvium OS - UNIX-like Kernel for x64
 
-A minimal UNIX-like operating system kernel designed for x64 architecture with UEFI boot support.
+A modular UNIX-like operating system kernel designed for x86 architecture with Linux-like build system.
 
 ## Features
 
-- **UEFI Boot Support**: Native UEFI bootloader
+- **Modular Build System**: Linux-like Kconfig and menuconfig
+- **Compressed Kernel**: vmzirvium image (similar to vmlinuz)
 - **Memory Management**: Physical and virtual memory management with paging
 - **Process Management**: Multi-tasking with process scheduling
-- **System Calls**: UNIX-like system call interface
+- **System Calls**: UNIX-like system call interface (9 syscalls)
 - **VFS**: Virtual File System layer
-- **Device Drivers**: Basic device driver framework
-- **Shell**: Simple command-line interface
+- **Device Drivers**: Modular device driver framework
+- **Configuration**: Interactive menuconfig for kernel options
 
-## Building
+## Quick Start
 
+### Configure
 ```bash
-make all
+make menuconfig
 ```
 
-## Running
+### Build
+```bash
+make vmzirvium
+```
 
+### Run
 ```bash
 make run
 ```
 
-Note: Currently uses QEMU multiboot loading. UEFI bootloader is optional.
+## Build Products
+
+- **vmzirvium** - Compressed kernel image (3.4 KB)
+- **zirvium** - Uncompressed ELF kernel (13 KB)
+- **zirvium.iso** - Bootable ISO with GRUB
 
 ## Architecture
 

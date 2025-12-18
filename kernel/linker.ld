@@ -1,10 +1,13 @@
-ENTRY(kernel_entry)
+ENTRY(_start)
 
 SECTIONS {
-    . = 0xFFFFFFFF80100000;
+    . = 1M;
+    
+    .multiboot : {
+        *(.multiboot)
+    }
     
     .text : {
-        *(.text.entry)
         *(.text)
     }
     

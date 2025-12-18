@@ -5,7 +5,7 @@
 #define VGA_HEIGHT 25
 #define VGA_MEMORY 0xB8000
 
-static uint16_t *vga_buffer = (uint16_t*)VGA_MEMORY;
+static uint16_t *vga_buffer = (uint16_t*)((uintptr_t)VGA_MEMORY);
 static int cursor_x = 0;
 static int cursor_y = 0;
 static uint8_t color = 0x07;
