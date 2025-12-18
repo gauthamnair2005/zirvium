@@ -40,17 +40,55 @@ make run
 
 ```
 zirvium/
-├── boot/           # UEFI bootloader
+├── boot/           # UEFI bootloader (optional)
 ├── kernel/         # Kernel core
-│   ├── arch/       # Architecture-specific code (x64)
-│   ├── mm/         # Memory management
-│   ├── proc/       # Process management
-│   ├── fs/         # File system
-│   ├── drivers/    # Device drivers
-│   └── syscall/    # System call implementation
+│   ├── arch/       # Architecture-specific code (x86)
+│   ├── mm/         # Memory management module
+│   ├── proc/       # Process management module
+│   ├── fs/         # File system module
+│   ├── drivers/    # Device drivers module
+│   └── syscall/    # System call module
 ├── lib/            # Kernel libraries
-└── include/        # Header files
+├── include/        # Header files
+├── scripts/        # Build scripts (menuconfig)
+├── docs/           # Documentation
+├── .config         # Kernel configuration
+└── Kconfig         # Configuration definitions
 ```
+
+## Build System
+
+Zirvium uses a Linux-like build system:
+
+### Configuration
+```bash
+make menuconfig     # Interactive configuration menu
+make help           # Show all build targets
+```
+
+### Build Targets
+```bash
+make vmzirvium      # Build compressed kernel (default)
+make iso            # Build bootable ISO
+make clean          # Remove build artifacts
+make mrproper       # Clean everything including .config
+```
+
+### Testing
+```bash
+make run            # Run in QEMU
+make run-debug      # Run with debug output
+```
+
+## Documentation
+
+- **README.md** - This file
+- **QUICKSTART.md** - Getting started guide
+- **docs/ARCHITECTURE.md** - System architecture
+- **docs/BUILDING.md** - Build instructions
+- **docs/BUILD_SYSTEM.md** - Modular build system guide
+- **docs/SYSCALLS.md** - System call API reference
+- **docs/DEVELOPMENT.md** - Developer guide
 
 ## License
 
