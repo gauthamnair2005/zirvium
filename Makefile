@@ -75,7 +75,11 @@ endif
 
 # Configuration menu
 menuconfig:
-	@./scripts/menuconfig.sh
+	@if command -v python3 >/dev/null 2>&1; then \
+		python3 scripts/menuconfig.py; \
+	else \
+		./scripts/menuconfig.sh; \
+	fi
 
 config:
 	@echo "Edit .config manually or run 'make menuconfig'"

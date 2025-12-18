@@ -1,0 +1,6 @@
+# Minimal driver Kconfig for now
+menu "Device Drivers"
+config DRIVERS
+    bool "Device driver support"
+    default y
+endmenu
