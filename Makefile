@@ -76,9 +76,9 @@ endif
 # Configuration menu
 menuconfig:
 	@if command -v python3 >/dev/null 2>&1; then \
-		python3 scripts/menuconfig.py; \
+		python3 scripts/menuconfig_advanced.py; \
 	else \
-		./scripts/menuconfig.sh; \
+		python3 scripts/menuconfig.py 2>/dev/null || ./scripts/menuconfig.sh; \
 	fi
 
 config:
