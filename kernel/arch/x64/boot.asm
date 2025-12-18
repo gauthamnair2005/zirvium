@@ -28,10 +28,25 @@ _start:
     cli
     mov esp, stack_top
     
-    ; Write 'Z' to screen to show we booted
+    ; Clear screen and write boot message
     mov eax, 0xB8000
-    mov byte [eax], 'Z'
-    mov byte [eax+1], 0x0F
+    mov ecx, 80*25
+    mov word [eax], 0x0F20  ; Clear with white on black
+.clear_loop:
+    add eax, 2
+    loop .clear_loop
+    
+    ; Write "Zirvium" at top
+    mov edi, 0xB8000
+    mov esi, boot_msg
+    mov ah, 0x0F
+.write_loop:
+    lodsb
+    test al, al
+    jz .write_done
+    stosw
+    jmp .write_loop
+.write_done:
     
     call kernel_main
     
@@ -39,3 +54,6 @@ _start:
 .hang:
     hlt
     jmp .hang
+
+section .rodata
+boot_msg: db 'Zirvium OS Booting...', 0
