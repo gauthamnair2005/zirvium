@@ -1,0 +1,676 @@
+
+menu "Sensor_Pressure Drivers"
+
+config SENSOR_PRESSURE_BMP280_I2C_R0
+    tristate "Pressure BMP280 I2C Rev0"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev0 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_I2C_R1
+    tristate "Pressure BMP280 I2C Rev1"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev1 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_I2C_R2
+    tristate "Pressure BMP280 I2C Rev2"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev2 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_I2C_R3
+    tristate "Pressure BMP280 I2C Rev3"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev3 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_I2C_R4
+    tristate "Pressure BMP280 I2C Rev4"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev4 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_I2C_R5
+    tristate "Pressure BMP280 I2C Rev5"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev5 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_I2C_R6
+    tristate "Pressure BMP280 I2C Rev6"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev6 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_I2C_R7
+    tristate "Pressure BMP280 I2C Rev7"
+    default n
+    help
+      Support for Pressure BMP280 I2C Rev7 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R0
+    tristate "Pressure BMP280 SPI Rev0"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev0 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R1
+    tristate "Pressure BMP280 SPI Rev1"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev1 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R2
+    tristate "Pressure BMP280 SPI Rev2"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev2 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R3
+    tristate "Pressure BMP280 SPI Rev3"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev3 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R4
+    tristate "Pressure BMP280 SPI Rev4"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev4 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R5
+    tristate "Pressure BMP280 SPI Rev5"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev5 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R6
+    tristate "Pressure BMP280 SPI Rev6"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev6 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_SPI_R7
+    tristate "Pressure BMP280 SPI Rev7"
+    default n
+    help
+      Support for Pressure BMP280 SPI Rev7 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R0
+    tristate "Pressure BMP280 UART Rev0"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev0 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R1
+    tristate "Pressure BMP280 UART Rev1"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev1 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R2
+    tristate "Pressure BMP280 UART Rev2"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev2 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R3
+    tristate "Pressure BMP280 UART Rev3"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev3 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R4
+    tristate "Pressure BMP280 UART Rev4"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev4 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R5
+    tristate "Pressure BMP280 UART Rev5"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev5 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R6
+    tristate "Pressure BMP280 UART Rev6"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev6 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP280_UART_R7
+    tristate "Pressure BMP280 UART Rev7"
+    default n
+    help
+      Support for Pressure BMP280 UART Rev7 (BMP280)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R0
+    tristate "Pressure BMP180 I2C Rev0"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev0 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R1
+    tristate "Pressure BMP180 I2C Rev1"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev1 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R2
+    tristate "Pressure BMP180 I2C Rev2"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev2 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R3
+    tristate "Pressure BMP180 I2C Rev3"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev3 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R4
+    tristate "Pressure BMP180 I2C Rev4"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev4 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R5
+    tristate "Pressure BMP180 I2C Rev5"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev5 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R6
+    tristate "Pressure BMP180 I2C Rev6"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev6 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_I2C_R7
+    tristate "Pressure BMP180 I2C Rev7"
+    default n
+    help
+      Support for Pressure BMP180 I2C Rev7 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R0
+    tristate "Pressure BMP180 SPI Rev0"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev0 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R1
+    tristate "Pressure BMP180 SPI Rev1"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev1 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R2
+    tristate "Pressure BMP180 SPI Rev2"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev2 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R3
+    tristate "Pressure BMP180 SPI Rev3"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev3 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R4
+    tristate "Pressure BMP180 SPI Rev4"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev4 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R5
+    tristate "Pressure BMP180 SPI Rev5"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev5 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R6
+    tristate "Pressure BMP180 SPI Rev6"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev6 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_SPI_R7
+    tristate "Pressure BMP180 SPI Rev7"
+    default n
+    help
+      Support for Pressure BMP180 SPI Rev7 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R0
+    tristate "Pressure BMP180 UART Rev0"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev0 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R1
+    tristate "Pressure BMP180 UART Rev1"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev1 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R2
+    tristate "Pressure BMP180 UART Rev2"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev2 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R3
+    tristate "Pressure BMP180 UART Rev3"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev3 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R4
+    tristate "Pressure BMP180 UART Rev4"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev4 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R5
+    tristate "Pressure BMP180 UART Rev5"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev5 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R6
+    tristate "Pressure BMP180 UART Rev6"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev6 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_BMP180_UART_R7
+    tristate "Pressure BMP180 UART Rev7"
+    default n
+    help
+      Support for Pressure BMP180 UART Rev7 (BMP180)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R0
+    tristate "Pressure MS5611 I2C Rev0"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev0 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R1
+    tristate "Pressure MS5611 I2C Rev1"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev1 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R2
+    tristate "Pressure MS5611 I2C Rev2"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev2 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R3
+    tristate "Pressure MS5611 I2C Rev3"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev3 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R4
+    tristate "Pressure MS5611 I2C Rev4"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev4 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R5
+    tristate "Pressure MS5611 I2C Rev5"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev5 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R6
+    tristate "Pressure MS5611 I2C Rev6"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev6 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_I2C_R7
+    tristate "Pressure MS5611 I2C Rev7"
+    default n
+    help
+      Support for Pressure MS5611 I2C Rev7 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R0
+    tristate "Pressure MS5611 SPI Rev0"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev0 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R1
+    tristate "Pressure MS5611 SPI Rev1"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev1 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R2
+    tristate "Pressure MS5611 SPI Rev2"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev2 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R3
+    tristate "Pressure MS5611 SPI Rev3"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev3 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R4
+    tristate "Pressure MS5611 SPI Rev4"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev4 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R5
+    tristate "Pressure MS5611 SPI Rev5"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev5 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R6
+    tristate "Pressure MS5611 SPI Rev6"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev6 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_SPI_R7
+    tristate "Pressure MS5611 SPI Rev7"
+    default n
+    help
+      Support for Pressure MS5611 SPI Rev7 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R0
+    tristate "Pressure MS5611 UART Rev0"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev0 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R1
+    tristate "Pressure MS5611 UART Rev1"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev1 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R2
+    tristate "Pressure MS5611 UART Rev2"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev2 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R3
+    tristate "Pressure MS5611 UART Rev3"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev3 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R4
+    tristate "Pressure MS5611 UART Rev4"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev4 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R5
+    tristate "Pressure MS5611 UART Rev5"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev5 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R6
+    tristate "Pressure MS5611 UART Rev6"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev6 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_MS5611_UART_R7
+    tristate "Pressure MS5611 UART Rev7"
+    default n
+    help
+      Support for Pressure MS5611 UART Rev7 (MS5611)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R0
+    tristate "Pressure LPS25H I2C Rev0"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev0 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R1
+    tristate "Pressure LPS25H I2C Rev1"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev1 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R2
+    tristate "Pressure LPS25H I2C Rev2"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev2 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R3
+    tristate "Pressure LPS25H I2C Rev3"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev3 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R4
+    tristate "Pressure LPS25H I2C Rev4"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev4 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R5
+    tristate "Pressure LPS25H I2C Rev5"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev5 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R6
+    tristate "Pressure LPS25H I2C Rev6"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev6 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_I2C_R7
+    tristate "Pressure LPS25H I2C Rev7"
+    default n
+    help
+      Support for Pressure LPS25H I2C Rev7 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R0
+    tristate "Pressure LPS25H SPI Rev0"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev0 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R1
+    tristate "Pressure LPS25H SPI Rev1"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev1 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R2
+    tristate "Pressure LPS25H SPI Rev2"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev2 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R3
+    tristate "Pressure LPS25H SPI Rev3"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev3 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R4
+    tristate "Pressure LPS25H SPI Rev4"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev4 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R5
+    tristate "Pressure LPS25H SPI Rev5"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev5 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R6
+    tristate "Pressure LPS25H SPI Rev6"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev6 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_SPI_R7
+    tristate "Pressure LPS25H SPI Rev7"
+    default n
+    help
+      Support for Pressure LPS25H SPI Rev7 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R0
+    tristate "Pressure LPS25H UART Rev0"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev0 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R1
+    tristate "Pressure LPS25H UART Rev1"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev1 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R2
+    tristate "Pressure LPS25H UART Rev2"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev2 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R3
+    tristate "Pressure LPS25H UART Rev3"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev3 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R4
+    tristate "Pressure LPS25H UART Rev4"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev4 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R5
+    tristate "Pressure LPS25H UART Rev5"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev5 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R6
+    tristate "Pressure LPS25H UART Rev6"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev6 (LPS25H)
+      Category: sensor_pressure
+
+config SENSOR_PRESSURE_LPS25H_UART_R7
+    tristate "Pressure LPS25H UART Rev7"
+    default n
+    help
+      Support for Pressure LPS25H UART Rev7 (LPS25H)
+      Category: sensor_pressure
+
+endmenu

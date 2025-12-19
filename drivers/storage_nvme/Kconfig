@@ -1,0 +1,1474 @@
+
+menu "Storage_Nvme Drivers"
+
+config STORAGE_NVME_INTEL_PCIe3_X2_R0
+    tristate "Intel NVMe PCIe3 x2 Rev0"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x2 Rev0 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X2_R1
+    tristate "Intel NVMe PCIe3 x2 Rev1"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x2 Rev1 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X2_R2
+    tristate "Intel NVMe PCIe3 x2 Rev2"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x2 Rev2 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X2_R3
+    tristate "Intel NVMe PCIe3 x2 Rev3"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x2 Rev3 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X2_R4
+    tristate "Intel NVMe PCIe3 x2 Rev4"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x2 Rev4 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X4_R0
+    tristate "Intel NVMe PCIe3 x4 Rev0"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x4 Rev0 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X4_R1
+    tristate "Intel NVMe PCIe3 x4 Rev1"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x4 Rev1 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X4_R2
+    tristate "Intel NVMe PCIe3 x4 Rev2"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x4 Rev2 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X4_R3
+    tristate "Intel NVMe PCIe3 x4 Rev3"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x4 Rev3 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe3_X4_R4
+    tristate "Intel NVMe PCIe3 x4 Rev4"
+    default n
+    help
+      Support for Intel NVMe PCIe3 x4 Rev4 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X2_R0
+    tristate "Intel NVMe PCIe4 x2 Rev0"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x2 Rev0 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X2_R1
+    tristate "Intel NVMe PCIe4 x2 Rev1"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x2 Rev1 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X2_R2
+    tristate "Intel NVMe PCIe4 x2 Rev2"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x2 Rev2 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X2_R3
+    tristate "Intel NVMe PCIe4 x2 Rev3"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x2 Rev3 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X2_R4
+    tristate "Intel NVMe PCIe4 x2 Rev4"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x2 Rev4 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X4_R0
+    tristate "Intel NVMe PCIe4 x4 Rev0"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x4 Rev0 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X4_R1
+    tristate "Intel NVMe PCIe4 x4 Rev1"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x4 Rev1 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X4_R2
+    tristate "Intel NVMe PCIe4 x4 Rev2"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x4 Rev2 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X4_R3
+    tristate "Intel NVMe PCIe4 x4 Rev3"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x4 Rev3 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe4_X4_R4
+    tristate "Intel NVMe PCIe4 x4 Rev4"
+    default n
+    help
+      Support for Intel NVMe PCIe4 x4 Rev4 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X2_R0
+    tristate "Intel NVMe PCIe5 x2 Rev0"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x2 Rev0 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X2_R1
+    tristate "Intel NVMe PCIe5 x2 Rev1"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x2 Rev1 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X2_R2
+    tristate "Intel NVMe PCIe5 x2 Rev2"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x2 Rev2 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X2_R3
+    tristate "Intel NVMe PCIe5 x2 Rev3"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x2 Rev3 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X2_R4
+    tristate "Intel NVMe PCIe5 x2 Rev4"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x2 Rev4 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X4_R0
+    tristate "Intel NVMe PCIe5 x4 Rev0"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x4 Rev0 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X4_R1
+    tristate "Intel NVMe PCIe5 x4 Rev1"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x4 Rev1 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X4_R2
+    tristate "Intel NVMe PCIe5 x4 Rev2"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x4 Rev2 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X4_R3
+    tristate "Intel NVMe PCIe5 x4 Rev3"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x4 Rev3 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_INTEL_PCIe5_X4_R4
+    tristate "Intel NVMe PCIe5 x4 Rev4"
+    default n
+    help
+      Support for Intel NVMe PCIe5 x4 Rev4 (Intel)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X2_R0
+    tristate "Samsung NVMe PCIe3 x2 Rev0"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x2 Rev0 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X2_R1
+    tristate "Samsung NVMe PCIe3 x2 Rev1"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x2 Rev1 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X2_R2
+    tristate "Samsung NVMe PCIe3 x2 Rev2"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x2 Rev2 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X2_R3
+    tristate "Samsung NVMe PCIe3 x2 Rev3"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x2 Rev3 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X2_R4
+    tristate "Samsung NVMe PCIe3 x2 Rev4"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x2 Rev4 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X4_R0
+    tristate "Samsung NVMe PCIe3 x4 Rev0"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x4 Rev0 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X4_R1
+    tristate "Samsung NVMe PCIe3 x4 Rev1"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x4 Rev1 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X4_R2
+    tristate "Samsung NVMe PCIe3 x4 Rev2"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x4 Rev2 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X4_R3
+    tristate "Samsung NVMe PCIe3 x4 Rev3"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x4 Rev3 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe3_X4_R4
+    tristate "Samsung NVMe PCIe3 x4 Rev4"
+    default n
+    help
+      Support for Samsung NVMe PCIe3 x4 Rev4 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X2_R0
+    tristate "Samsung NVMe PCIe4 x2 Rev0"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x2 Rev0 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X2_R1
+    tristate "Samsung NVMe PCIe4 x2 Rev1"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x2 Rev1 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X2_R2
+    tristate "Samsung NVMe PCIe4 x2 Rev2"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x2 Rev2 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X2_R3
+    tristate "Samsung NVMe PCIe4 x2 Rev3"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x2 Rev3 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X2_R4
+    tristate "Samsung NVMe PCIe4 x2 Rev4"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x2 Rev4 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X4_R0
+    tristate "Samsung NVMe PCIe4 x4 Rev0"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x4 Rev0 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X4_R1
+    tristate "Samsung NVMe PCIe4 x4 Rev1"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x4 Rev1 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X4_R2
+    tristate "Samsung NVMe PCIe4 x4 Rev2"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x4 Rev2 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X4_R3
+    tristate "Samsung NVMe PCIe4 x4 Rev3"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x4 Rev3 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe4_X4_R4
+    tristate "Samsung NVMe PCIe4 x4 Rev4"
+    default n
+    help
+      Support for Samsung NVMe PCIe4 x4 Rev4 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X2_R0
+    tristate "Samsung NVMe PCIe5 x2 Rev0"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x2 Rev0 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X2_R1
+    tristate "Samsung NVMe PCIe5 x2 Rev1"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x2 Rev1 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X2_R2
+    tristate "Samsung NVMe PCIe5 x2 Rev2"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x2 Rev2 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X2_R3
+    tristate "Samsung NVMe PCIe5 x2 Rev3"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x2 Rev3 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X2_R4
+    tristate "Samsung NVMe PCIe5 x2 Rev4"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x2 Rev4 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X4_R0
+    tristate "Samsung NVMe PCIe5 x4 Rev0"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x4 Rev0 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X4_R1
+    tristate "Samsung NVMe PCIe5 x4 Rev1"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x4 Rev1 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X4_R2
+    tristate "Samsung NVMe PCIe5 x4 Rev2"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x4 Rev2 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X4_R3
+    tristate "Samsung NVMe PCIe5 x4 Rev3"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x4 Rev3 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_SAMSUNG_PCIe5_X4_R4
+    tristate "Samsung NVMe PCIe5 x4 Rev4"
+    default n
+    help
+      Support for Samsung NVMe PCIe5 x4 Rev4 (Samsung)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X2_R0
+    tristate "WD NVMe PCIe3 x2 Rev0"
+    default n
+    help
+      Support for WD NVMe PCIe3 x2 Rev0 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X2_R1
+    tristate "WD NVMe PCIe3 x2 Rev1"
+    default n
+    help
+      Support for WD NVMe PCIe3 x2 Rev1 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X2_R2
+    tristate "WD NVMe PCIe3 x2 Rev2"
+    default n
+    help
+      Support for WD NVMe PCIe3 x2 Rev2 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X2_R3
+    tristate "WD NVMe PCIe3 x2 Rev3"
+    default n
+    help
+      Support for WD NVMe PCIe3 x2 Rev3 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X2_R4
+    tristate "WD NVMe PCIe3 x2 Rev4"
+    default n
+    help
+      Support for WD NVMe PCIe3 x2 Rev4 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X4_R0
+    tristate "WD NVMe PCIe3 x4 Rev0"
+    default n
+    help
+      Support for WD NVMe PCIe3 x4 Rev0 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X4_R1
+    tristate "WD NVMe PCIe3 x4 Rev1"
+    default n
+    help
+      Support for WD NVMe PCIe3 x4 Rev1 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X4_R2
+    tristate "WD NVMe PCIe3 x4 Rev2"
+    default n
+    help
+      Support for WD NVMe PCIe3 x4 Rev2 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X4_R3
+    tristate "WD NVMe PCIe3 x4 Rev3"
+    default n
+    help
+      Support for WD NVMe PCIe3 x4 Rev3 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe3_X4_R4
+    tristate "WD NVMe PCIe3 x4 Rev4"
+    default n
+    help
+      Support for WD NVMe PCIe3 x4 Rev4 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X2_R0
+    tristate "WD NVMe PCIe4 x2 Rev0"
+    default n
+    help
+      Support for WD NVMe PCIe4 x2 Rev0 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X2_R1
+    tristate "WD NVMe PCIe4 x2 Rev1"
+    default n
+    help
+      Support for WD NVMe PCIe4 x2 Rev1 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X2_R2
+    tristate "WD NVMe PCIe4 x2 Rev2"
+    default n
+    help
+      Support for WD NVMe PCIe4 x2 Rev2 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X2_R3
+    tristate "WD NVMe PCIe4 x2 Rev3"
+    default n
+    help
+      Support for WD NVMe PCIe4 x2 Rev3 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X2_R4
+    tristate "WD NVMe PCIe4 x2 Rev4"
+    default n
+    help
+      Support for WD NVMe PCIe4 x2 Rev4 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X4_R0
+    tristate "WD NVMe PCIe4 x4 Rev0"
+    default n
+    help
+      Support for WD NVMe PCIe4 x4 Rev0 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X4_R1
+    tristate "WD NVMe PCIe4 x4 Rev1"
+    default n
+    help
+      Support for WD NVMe PCIe4 x4 Rev1 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X4_R2
+    tristate "WD NVMe PCIe4 x4 Rev2"
+    default n
+    help
+      Support for WD NVMe PCIe4 x4 Rev2 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X4_R3
+    tristate "WD NVMe PCIe4 x4 Rev3"
+    default n
+    help
+      Support for WD NVMe PCIe4 x4 Rev3 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe4_X4_R4
+    tristate "WD NVMe PCIe4 x4 Rev4"
+    default n
+    help
+      Support for WD NVMe PCIe4 x4 Rev4 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X2_R0
+    tristate "WD NVMe PCIe5 x2 Rev0"
+    default n
+    help
+      Support for WD NVMe PCIe5 x2 Rev0 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X2_R1
+    tristate "WD NVMe PCIe5 x2 Rev1"
+    default n
+    help
+      Support for WD NVMe PCIe5 x2 Rev1 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X2_R2
+    tristate "WD NVMe PCIe5 x2 Rev2"
+    default n
+    help
+      Support for WD NVMe PCIe5 x2 Rev2 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X2_R3
+    tristate "WD NVMe PCIe5 x2 Rev3"
+    default n
+    help
+      Support for WD NVMe PCIe5 x2 Rev3 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X2_R4
+    tristate "WD NVMe PCIe5 x2 Rev4"
+    default n
+    help
+      Support for WD NVMe PCIe5 x2 Rev4 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X4_R0
+    tristate "WD NVMe PCIe5 x4 Rev0"
+    default n
+    help
+      Support for WD NVMe PCIe5 x4 Rev0 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X4_R1
+    tristate "WD NVMe PCIe5 x4 Rev1"
+    default n
+    help
+      Support for WD NVMe PCIe5 x4 Rev1 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X4_R2
+    tristate "WD NVMe PCIe5 x4 Rev2"
+    default n
+    help
+      Support for WD NVMe PCIe5 x4 Rev2 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X4_R3
+    tristate "WD NVMe PCIe5 x4 Rev3"
+    default n
+    help
+      Support for WD NVMe PCIe5 x4 Rev3 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_WD_PCIe5_X4_R4
+    tristate "WD NVMe PCIe5 x4 Rev4"
+    default n
+    help
+      Support for WD NVMe PCIe5 x4 Rev4 (WD)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X2_R0
+    tristate "SK_Hynix NVMe PCIe3 x2 Rev0"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x2 Rev0 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X2_R1
+    tristate "SK_Hynix NVMe PCIe3 x2 Rev1"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x2 Rev1 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X2_R2
+    tristate "SK_Hynix NVMe PCIe3 x2 Rev2"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x2 Rev2 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X2_R3
+    tristate "SK_Hynix NVMe PCIe3 x2 Rev3"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x2 Rev3 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X2_R4
+    tristate "SK_Hynix NVMe PCIe3 x2 Rev4"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x2 Rev4 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X4_R0
+    tristate "SK_Hynix NVMe PCIe3 x4 Rev0"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x4 Rev0 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X4_R1
+    tristate "SK_Hynix NVMe PCIe3 x4 Rev1"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x4 Rev1 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X4_R2
+    tristate "SK_Hynix NVMe PCIe3 x4 Rev2"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x4 Rev2 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X4_R3
+    tristate "SK_Hynix NVMe PCIe3 x4 Rev3"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x4 Rev3 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe3_X4_R4
+    tristate "SK_Hynix NVMe PCIe3 x4 Rev4"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe3 x4 Rev4 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X2_R0
+    tristate "SK_Hynix NVMe PCIe4 x2 Rev0"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x2 Rev0 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X2_R1
+    tristate "SK_Hynix NVMe PCIe4 x2 Rev1"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x2 Rev1 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X2_R2
+    tristate "SK_Hynix NVMe PCIe4 x2 Rev2"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x2 Rev2 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X2_R3
+    tristate "SK_Hynix NVMe PCIe4 x2 Rev3"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x2 Rev3 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X2_R4
+    tristate "SK_Hynix NVMe PCIe4 x2 Rev4"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x2 Rev4 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X4_R0
+    tristate "SK_Hynix NVMe PCIe4 x4 Rev0"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x4 Rev0 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X4_R1
+    tristate "SK_Hynix NVMe PCIe4 x4 Rev1"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x4 Rev1 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X4_R2
+    tristate "SK_Hynix NVMe PCIe4 x4 Rev2"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x4 Rev2 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X4_R3
+    tristate "SK_Hynix NVMe PCIe4 x4 Rev3"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x4 Rev3 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe4_X4_R4
+    tristate "SK_Hynix NVMe PCIe4 x4 Rev4"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe4 x4 Rev4 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X2_R0
+    tristate "SK_Hynix NVMe PCIe5 x2 Rev0"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x2 Rev0 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X2_R1
+    tristate "SK_Hynix NVMe PCIe5 x2 Rev1"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x2 Rev1 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X2_R2
+    tristate "SK_Hynix NVMe PCIe5 x2 Rev2"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x2 Rev2 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X2_R3
+    tristate "SK_Hynix NVMe PCIe5 x2 Rev3"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x2 Rev3 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X2_R4
+    tristate "SK_Hynix NVMe PCIe5 x2 Rev4"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x2 Rev4 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X4_R0
+    tristate "SK_Hynix NVMe PCIe5 x4 Rev0"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x4 Rev0 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X4_R1
+    tristate "SK_Hynix NVMe PCIe5 x4 Rev1"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x4 Rev1 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X4_R2
+    tristate "SK_Hynix NVMe PCIe5 x4 Rev2"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x4 Rev2 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X4_R3
+    tristate "SK_Hynix NVMe PCIe5 x4 Rev3"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x4 Rev3 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_SK_HYNIX_PCIe5_X4_R4
+    tristate "SK_Hynix NVMe PCIe5 x4 Rev4"
+    default n
+    help
+      Support for SK_Hynix NVMe PCIe5 x4 Rev4 (SK_Hynix)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X2_R0
+    tristate "Micron NVMe PCIe3 x2 Rev0"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x2 Rev0 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X2_R1
+    tristate "Micron NVMe PCIe3 x2 Rev1"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x2 Rev1 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X2_R2
+    tristate "Micron NVMe PCIe3 x2 Rev2"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x2 Rev2 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X2_R3
+    tristate "Micron NVMe PCIe3 x2 Rev3"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x2 Rev3 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X2_R4
+    tristate "Micron NVMe PCIe3 x2 Rev4"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x2 Rev4 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X4_R0
+    tristate "Micron NVMe PCIe3 x4 Rev0"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x4 Rev0 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X4_R1
+    tristate "Micron NVMe PCIe3 x4 Rev1"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x4 Rev1 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X4_R2
+    tristate "Micron NVMe PCIe3 x4 Rev2"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x4 Rev2 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X4_R3
+    tristate "Micron NVMe PCIe3 x4 Rev3"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x4 Rev3 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe3_X4_R4
+    tristate "Micron NVMe PCIe3 x4 Rev4"
+    default n
+    help
+      Support for Micron NVMe PCIe3 x4 Rev4 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X2_R0
+    tristate "Micron NVMe PCIe4 x2 Rev0"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x2 Rev0 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X2_R1
+    tristate "Micron NVMe PCIe4 x2 Rev1"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x2 Rev1 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X2_R2
+    tristate "Micron NVMe PCIe4 x2 Rev2"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x2 Rev2 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X2_R3
+    tristate "Micron NVMe PCIe4 x2 Rev3"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x2 Rev3 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X2_R4
+    tristate "Micron NVMe PCIe4 x2 Rev4"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x2 Rev4 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X4_R0
+    tristate "Micron NVMe PCIe4 x4 Rev0"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x4 Rev0 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X4_R1
+    tristate "Micron NVMe PCIe4 x4 Rev1"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x4 Rev1 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X4_R2
+    tristate "Micron NVMe PCIe4 x4 Rev2"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x4 Rev2 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X4_R3
+    tristate "Micron NVMe PCIe4 x4 Rev3"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x4 Rev3 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe4_X4_R4
+    tristate "Micron NVMe PCIe4 x4 Rev4"
+    default n
+    help
+      Support for Micron NVMe PCIe4 x4 Rev4 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X2_R0
+    tristate "Micron NVMe PCIe5 x2 Rev0"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x2 Rev0 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X2_R1
+    tristate "Micron NVMe PCIe5 x2 Rev1"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x2 Rev1 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X2_R2
+    tristate "Micron NVMe PCIe5 x2 Rev2"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x2 Rev2 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X2_R3
+    tristate "Micron NVMe PCIe5 x2 Rev3"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x2 Rev3 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X2_R4
+    tristate "Micron NVMe PCIe5 x2 Rev4"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x2 Rev4 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X4_R0
+    tristate "Micron NVMe PCIe5 x4 Rev0"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x4 Rev0 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X4_R1
+    tristate "Micron NVMe PCIe5 x4 Rev1"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x4 Rev1 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X4_R2
+    tristate "Micron NVMe PCIe5 x4 Rev2"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x4 Rev2 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X4_R3
+    tristate "Micron NVMe PCIe5 x4 Rev3"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x4 Rev3 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_MICRON_PCIe5_X4_R4
+    tristate "Micron NVMe PCIe5 x4 Rev4"
+    default n
+    help
+      Support for Micron NVMe PCIe5 x4 Rev4 (Micron)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X2_R0
+    tristate "Phison NVMe PCIe3 x2 Rev0"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x2 Rev0 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X2_R1
+    tristate "Phison NVMe PCIe3 x2 Rev1"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x2 Rev1 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X2_R2
+    tristate "Phison NVMe PCIe3 x2 Rev2"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x2 Rev2 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X2_R3
+    tristate "Phison NVMe PCIe3 x2 Rev3"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x2 Rev3 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X2_R4
+    tristate "Phison NVMe PCIe3 x2 Rev4"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x2 Rev4 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X4_R0
+    tristate "Phison NVMe PCIe3 x4 Rev0"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x4 Rev0 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X4_R1
+    tristate "Phison NVMe PCIe3 x4 Rev1"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x4 Rev1 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X4_R2
+    tristate "Phison NVMe PCIe3 x4 Rev2"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x4 Rev2 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X4_R3
+    tristate "Phison NVMe PCIe3 x4 Rev3"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x4 Rev3 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe3_X4_R4
+    tristate "Phison NVMe PCIe3 x4 Rev4"
+    default n
+    help
+      Support for Phison NVMe PCIe3 x4 Rev4 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X2_R0
+    tristate "Phison NVMe PCIe4 x2 Rev0"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x2 Rev0 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X2_R1
+    tristate "Phison NVMe PCIe4 x2 Rev1"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x2 Rev1 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X2_R2
+    tristate "Phison NVMe PCIe4 x2 Rev2"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x2 Rev2 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X2_R3
+    tristate "Phison NVMe PCIe4 x2 Rev3"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x2 Rev3 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X2_R4
+    tristate "Phison NVMe PCIe4 x2 Rev4"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x2 Rev4 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X4_R0
+    tristate "Phison NVMe PCIe4 x4 Rev0"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x4 Rev0 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X4_R1
+    tristate "Phison NVMe PCIe4 x4 Rev1"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x4 Rev1 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X4_R2
+    tristate "Phison NVMe PCIe4 x4 Rev2"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x4 Rev2 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X4_R3
+    tristate "Phison NVMe PCIe4 x4 Rev3"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x4 Rev3 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe4_X4_R4
+    tristate "Phison NVMe PCIe4 x4 Rev4"
+    default n
+    help
+      Support for Phison NVMe PCIe4 x4 Rev4 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X2_R0
+    tristate "Phison NVMe PCIe5 x2 Rev0"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x2 Rev0 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X2_R1
+    tristate "Phison NVMe PCIe5 x2 Rev1"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x2 Rev1 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X2_R2
+    tristate "Phison NVMe PCIe5 x2 Rev2"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x2 Rev2 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X2_R3
+    tristate "Phison NVMe PCIe5 x2 Rev3"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x2 Rev3 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X2_R4
+    tristate "Phison NVMe PCIe5 x2 Rev4"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x2 Rev4 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X4_R0
+    tristate "Phison NVMe PCIe5 x4 Rev0"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x4 Rev0 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X4_R1
+    tristate "Phison NVMe PCIe5 x4 Rev1"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x4 Rev1 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X4_R2
+    tristate "Phison NVMe PCIe5 x4 Rev2"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x4 Rev2 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X4_R3
+    tristate "Phison NVMe PCIe5 x4 Rev3"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x4 Rev3 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_PHISON_PCIe5_X4_R4
+    tristate "Phison NVMe PCIe5 x4 Rev4"
+    default n
+    help
+      Support for Phison NVMe PCIe5 x4 Rev4 (Phison)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X2_R0
+    tristate "Kingston NVMe PCIe3 x2 Rev0"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x2 Rev0 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X2_R1
+    tristate "Kingston NVMe PCIe3 x2 Rev1"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x2 Rev1 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X2_R2
+    tristate "Kingston NVMe PCIe3 x2 Rev2"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x2 Rev2 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X2_R3
+    tristate "Kingston NVMe PCIe3 x2 Rev3"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x2 Rev3 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X2_R4
+    tristate "Kingston NVMe PCIe3 x2 Rev4"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x2 Rev4 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X4_R0
+    tristate "Kingston NVMe PCIe3 x4 Rev0"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x4 Rev0 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X4_R1
+    tristate "Kingston NVMe PCIe3 x4 Rev1"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x4 Rev1 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X4_R2
+    tristate "Kingston NVMe PCIe3 x4 Rev2"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x4 Rev2 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X4_R3
+    tristate "Kingston NVMe PCIe3 x4 Rev3"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x4 Rev3 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe3_X4_R4
+    tristate "Kingston NVMe PCIe3 x4 Rev4"
+    default n
+    help
+      Support for Kingston NVMe PCIe3 x4 Rev4 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X2_R0
+    tristate "Kingston NVMe PCIe4 x2 Rev0"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x2 Rev0 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X2_R1
+    tristate "Kingston NVMe PCIe4 x2 Rev1"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x2 Rev1 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X2_R2
+    tristate "Kingston NVMe PCIe4 x2 Rev2"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x2 Rev2 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X2_R3
+    tristate "Kingston NVMe PCIe4 x2 Rev3"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x2 Rev3 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X2_R4
+    tristate "Kingston NVMe PCIe4 x2 Rev4"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x2 Rev4 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X4_R0
+    tristate "Kingston NVMe PCIe4 x4 Rev0"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x4 Rev0 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X4_R1
+    tristate "Kingston NVMe PCIe4 x4 Rev1"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x4 Rev1 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X4_R2
+    tristate "Kingston NVMe PCIe4 x4 Rev2"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x4 Rev2 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X4_R3
+    tristate "Kingston NVMe PCIe4 x4 Rev3"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x4 Rev3 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe4_X4_R4
+    tristate "Kingston NVMe PCIe4 x4 Rev4"
+    default n
+    help
+      Support for Kingston NVMe PCIe4 x4 Rev4 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X2_R0
+    tristate "Kingston NVMe PCIe5 x2 Rev0"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x2 Rev0 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X2_R1
+    tristate "Kingston NVMe PCIe5 x2 Rev1"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x2 Rev1 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X2_R2
+    tristate "Kingston NVMe PCIe5 x2 Rev2"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x2 Rev2 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X2_R3
+    tristate "Kingston NVMe PCIe5 x2 Rev3"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x2 Rev3 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X2_R4
+    tristate "Kingston NVMe PCIe5 x2 Rev4"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x2 Rev4 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X4_R0
+    tristate "Kingston NVMe PCIe5 x4 Rev0"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x4 Rev0 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X4_R1
+    tristate "Kingston NVMe PCIe5 x4 Rev1"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x4 Rev1 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X4_R2
+    tristate "Kingston NVMe PCIe5 x4 Rev2"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x4 Rev2 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X4_R3
+    tristate "Kingston NVMe PCIe5 x4 Rev3"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x4 Rev3 (Kingston)
+      Category: storage_nvme
+
+config STORAGE_NVME_KINGSTON_PCIe5_X4_R4
+    tristate "Kingston NVMe PCIe5 x4 Rev4"
+    default n
+    help
+      Support for Kingston NVMe PCIe5 x4 Rev4 (Kingston)
+      Category: storage_nvme
+
+endmenu

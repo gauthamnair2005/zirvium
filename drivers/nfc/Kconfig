@@ -1,0 +1,8 @@
+# NFC driver Kconfig for Zirvium
+
+config NFC_PN533_DRIVER
+    tristate "PN533 NFC driver implementation"
+    depends on NFC_PN533
+    default m
+    help
+      NXP PN533 NFC controller driver.

@@ -1,0 +1,8 @@
+# GPIO driver Kconfig for Zirvium
+
+config GPIO_INTEL_DRIVER
+    tristate "Intel GPIO driver implementation"
+    depends on GPIO_INTEL
+    default y
+    help
+      Intel GPIO controller driver.

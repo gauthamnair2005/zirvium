@@ -1,0 +1,375 @@
+# Device Drivers Configuration
+
+menu "Device Drivers"
+
+config DRIVERS
+    bool "Device driver support"
+    default y
+
+menu "Network Device Support"
+    depends on DRIVERS
+
+config NETDEVICES
+    bool "Network device support"
+    default y
+    help
+      Enable network device drivers for Ethernet, WiFi, and other
+      network adapters.
+
+if NETDEVICES
+
+menu "Wireless LAN"
+
+menu "Realtek Wireless Adapters"
+
+config RTL8723DE
+    tristate "Realtek RTL8723DE WiFi+Bluetooth combo (PRIORITY)"
+    default m
+    help
+      This is the driver for Realtek RTL8723DE wireless combo chip.
+      
+      RTL8723DE is one of the most common WiFi+Bluetooth combo chips
+      found in budget and mid-range laptops. It supports:
+      - 802.11bgn (2.4GHz only)
+      - Bluetooth 4.2
+      - Single spatial stream (1x1)
+      
+      Very common in Dell, HP, Lenovo laptops (2017-2020).
+      
+      If unsure, say M.
+
+config RTL8822BE
+    tristate "Realtek RTL8822BE WiFi+Bluetooth"
+    default m
+    help
+      Support for Realtek RTL8822BE 802.11ac Wave2 adapter.
+      Supports 2.4GHz/5GHz dual-band, Bluetooth 5.0, 2x2 MIMO.
+
+config RTL8821CE
+    tristate "Realtek RTL8821CE WiFi+Bluetooth"
+    default m
+    help
+      Support for Realtek RTL8821CE 802.11ac adapter.
+      Supports 2.4GHz/5GHz dual-band, Bluetooth 4.2, 1x1 antenna.
+
+config RTL8822CE
+    tristate "Realtek RTL8822CE WiFi 5 + Bluetooth 5.0"
+    default m
+
+config RTL8852AE
+    tristate "Realtek RTL8852AE WiFi 6 + Bluetooth 5.2"
+    default m
+
+config RTL8852BE
+    tristate "Realtek RTL8852BE WiFi 6 + Bluetooth 5.2"
+    default m
+
+config RTL8852CE
+    tristate "Realtek RTL8852CE WiFi 6E + Bluetooth 5.3"
+    default m
+
+endmenu
+
+menu "Intel Wireless Adapters"
+
+config IWLWIFI
+    tristate "Intel Wireless WiFi Link Driver"
+    default m
+    help
+      Support for Intel wireless adapters including:
+      - WiFi 6 (802.11ax): AX200, AX201, AX210, AX211
+      - WiFi 5 (802.11ac): 9560, 9260, 8265, 8260, 7265
+      
+      Very common in business laptops and desktops.
+
+config IWLWIFI_AX200
+    bool "Intel WiFi 6 AX200/AX201 support"
+    depends on IWLWIFI
+    default y
+
+config IWLWIFI_AX210
+    bool "Intel WiFi 6E AX210/AX211 support"
+    depends on IWLWIFI
+    default y
+
+config IWLWIFI_9000
+    bool "Intel WiFi 9000 series support"
+    depends on IWLWIFI
+    default y
+
+config IWLWIFI_8000
+    bool "Intel WiFi 8000 series support"
+    depends on IWLWIFI
+    default y
+
+config IWLWIFI_7000
+    bool "Intel WiFi 7000 series support"
+    depends on IWLWIFI
+    default y
+
+endmenu
+
+menu "Broadcom Wireless Adapters"
+
+config BRCMFMAC
+    tristate "Broadcom FullMAC WiFi Driver"
+    default m
+    help
+      Support for Broadcom BCM43xx wireless adapters.
+      Common in Apple MacBooks and some Dell/HP laptops.
+
+config BCM4360
+    bool "Broadcom BCM4360 (802.11ac)"
+    depends on BRCMFMAC
+    default y
+
+config BCM43602
+    bool "Broadcom BCM43602 (802.11ac 3x3)"
+    depends on BRCMFMAC
+    default y
+
+config BCM4350
+    bool "Broadcom BCM4350 series"
+    depends on BRCMFMAC
+    default y
+
+config BCM4356
+    bool "Broadcom BCM4356 (802.11ac Wave2)"
+    depends on BRCMFMAC
+    default y
+
+config BCM4371
+    bool "Broadcom BCM4371"
+    depends on BRCMFMAC
+    default y
+
+endmenu
+
+menu "Qualcomm Atheros Wireless Adapters"
+
+config ATH10K
+    tristate "Qualcomm Atheros 802.11ac Driver"
+    default m
+    help
+      Support for QCA988x, QCA6174, QCA9377 wireless adapters.
+
+config ATH11K
+    tristate "Qualcomm Atheros 802.11ax (WiFi 6) Driver"
+    default m
+
+config QCA988X
+    bool "QCA988x support"
+    depends on ATH10K
+    default y
+
+config QCA6174
+    bool "QCA6174 support (WiFi+BT)"
+    depends on ATH10K
+    default y
+
+config QCA9377
+    bool "QCA9377 support (WiFi+BT)"
+    depends on ATH10K
+    default y
+
+endmenu
+
+menu "MediaTek Wireless Adapters"
+
+config MT7921
+    tristate "MediaTek MT7921 WiFi 6 + Bluetooth 5.2"
+    default m
+    help
+      Support for MediaTek MT7921 802.11ax wireless adapter.
+      Supports dual-band, OFDMA, MU-MIMO.
+
+config MT7922
+    tristate "MediaTek MT7922 WiFi 6E + Bluetooth 5.3"
+    default m
+
+config MT7921E
+    bool "PCIe interface support"
+    depends on MT7921
+    default y
+
+config MT7921S
+    bool "SDIO interface support"
+    depends on MT7921
+    default y
+
+endmenu
+
+menu "Marvell Wireless Adapters"
+
+config MWIFIEX
+    tristate "Marvell WiFi-Ex Driver"
+    default m
+
+config MWIFIEX_PCIE
+    bool "Marvell WiFi PCIe support"
+    depends on MWIFIEX
+    default y
+
+config MWIFIEX_SDIO
+    bool "Marvell WiFi SDIO support"
+    depends on MWIFIEX
+    default y
+
+endmenu
+
+endmenu
+
+menu "Ethernet Drivers"
+
+config NET_ETHERNET
+    bool "Ethernet driver support"
+    default y
+
+if NET_ETHERNET
+
+menu "Realtek Ethernet"
+
+config R8169
+    tristate "Realtek RTL8169/8111 Gigabit Ethernet"
+    default y
+    help
+      Very common Gigabit Ethernet controller on motherboards.
+
+config R8125
+    tristate "Realtek RTL8125 2.5G Ethernet"
+    default m
+
+endmenu
+
+menu "Intel Ethernet"
+
+config E1000E
+    tristate "Intel PRO/1000 PCI Express"
+    default y
+    help
+      Common on Intel motherboards and business laptops.
+
+config IGB
+    tristate "Intel 82575/82576 Gigabit Ethernet"
+    default m
+
+config IXGBE
+    tristate "Intel 10 Gigabit Ethernet"
+    default m
+
+config I40E
+    tristate "Intel Ethernet 700 Series"
+    default m
+
+config ICE
+    tristate "Intel Ethernet 800 Series"
+    default m
+
+endmenu
+
+menu "Broadcom Ethernet"
+
+config TIGON3
+    tristate "Broadcom Tigon3 (BCM5xxx)"
+    default m
+
+config BNX2X
+    tristate "Broadcom NetXtreme II 10Gb"
+    default m
+
+endmenu
+
+menu "Other Ethernet Adapters"
+
+config PCNET32
+    tristate "AMD PCnet32 PCI"
+    default m
+
+config ATL1C
+    tristate "Atheros/Qualcomm AR813x/AR815x"
+    default m
+
+config VIA_RHINE
+    tristate "VIA Rhine Fast Ethernet"
+    default m
+
+endmenu
+
+endif # NET_ETHERNET
+
+endmenu
+
+endif # NETDEVICES
+
+endmenu
+
+menu "Bluetooth Support"
+    depends on DRIVERS
+
+config BT
+    tristate "Bluetooth subsystem support"
+    default m
+    help
+      Bluetooth is a low-power wireless protocol for connecting
+      devices over short distances.
+
+if BT
+
+config BT_REALTEK
+    tristate "Realtek Bluetooth support"
+    depends on BT
+    default m
+    help
+      Support for Realtek Bluetooth adapters integrated with
+      RTL8723DE, RTL8822BE, RTL8821CE WiFi combo chips.
+
+config BT_INTEL
+    tristate "Intel Bluetooth support"
+    depends on BT
+    default m
+    help
+      Support for Intel Bluetooth adapters integrated with
+      Intel WiFi cards (AX200, AX201, 9560, etc.).
+
+config BT_BCM
+    tristate "Broadcom Bluetooth support"
+    depends on BT
+    default m
+
+config BT_QCA
+    tristate "Qualcomm Atheros Bluetooth support"
+    depends on BT
+    default m
+
+config BT_MTK
+    tristate "MediaTek Bluetooth support"
+    depends on BT
+    default m
+
+config BT_MARVELL
+    tristate "Marvell Bluetooth support"
+    depends on BT
+    default m
+
+config BT_HCIBTUSB
+    tristate "Generic USB Bluetooth HCI driver"
+    depends on BT
+    default y
+    help
+      Generic driver for USB Bluetooth adapters using HCI protocol.
+
+config BT_HCIUART
+    tristate "HCI UART driver"
+    depends on BT
+    default m
+
+config BT_HCIBCM203X
+    tristate "HCI BCM203x USB driver"
+    depends on BT
+    default m
+
+endif # BT
+
+endmenu
+
+endmenu

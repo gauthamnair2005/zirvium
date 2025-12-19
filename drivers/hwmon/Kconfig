@@ -1,0 +1,8 @@
+# Hardware monitoring driver Kconfig for Zirvium
+
+config SENSORS_CORETEMP_DRIVER
+    tristate "Intel Core temperature driver implementation"
+    depends on SENSORS_CORETEMP
+    default y
+    help
+      Intel Core temperature monitoring driver.

@@ -1,0 +1,2104 @@
+
+menu "Camera Drivers"
+
+config CAMERA_WEBCAM_LOGITECH_0
+    tristate "Logitech Webcam model 0"
+    default n
+    help
+      Support for Logitech Webcam model 0 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_1
+    tristate "Logitech Webcam model 1"
+    default n
+    help
+      Support for Logitech Webcam model 1 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_2
+    tristate "Logitech Webcam model 2"
+    default n
+    help
+      Support for Logitech Webcam model 2 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_3
+    tristate "Logitech Webcam model 3"
+    default n
+    help
+      Support for Logitech Webcam model 3 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_4
+    tristate "Logitech Webcam model 4"
+    default n
+    help
+      Support for Logitech Webcam model 4 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_5
+    tristate "Logitech Webcam model 5"
+    default n
+    help
+      Support for Logitech Webcam model 5 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_6
+    tristate "Logitech Webcam model 6"
+    default n
+    help
+      Support for Logitech Webcam model 6 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_7
+    tristate "Logitech Webcam model 7"
+    default n
+    help
+      Support for Logitech Webcam model 7 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_8
+    tristate "Logitech Webcam model 8"
+    default n
+    help
+      Support for Logitech Webcam model 8 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_9
+    tristate "Logitech Webcam model 9"
+    default n
+    help
+      Support for Logitech Webcam model 9 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_10
+    tristate "Logitech Webcam model 10"
+    default n
+    help
+      Support for Logitech Webcam model 10 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_11
+    tristate "Logitech Webcam model 11"
+    default n
+    help
+      Support for Logitech Webcam model 11 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_12
+    tristate "Logitech Webcam model 12"
+    default n
+    help
+      Support for Logitech Webcam model 12 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_13
+    tristate "Logitech Webcam model 13"
+    default n
+    help
+      Support for Logitech Webcam model 13 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_14
+    tristate "Logitech Webcam model 14"
+    default n
+    help
+      Support for Logitech Webcam model 14 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_15
+    tristate "Logitech Webcam model 15"
+    default n
+    help
+      Support for Logitech Webcam model 15 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_16
+    tristate "Logitech Webcam model 16"
+    default n
+    help
+      Support for Logitech Webcam model 16 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_17
+    tristate "Logitech Webcam model 17"
+    default n
+    help
+      Support for Logitech Webcam model 17 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_18
+    tristate "Logitech Webcam model 18"
+    default n
+    help
+      Support for Logitech Webcam model 18 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_19
+    tristate "Logitech Webcam model 19"
+    default n
+    help
+      Support for Logitech Webcam model 19 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_20
+    tristate "Logitech Webcam model 20"
+    default n
+    help
+      Support for Logitech Webcam model 20 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_21
+    tristate "Logitech Webcam model 21"
+    default n
+    help
+      Support for Logitech Webcam model 21 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_22
+    tristate "Logitech Webcam model 22"
+    default n
+    help
+      Support for Logitech Webcam model 22 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_23
+    tristate "Logitech Webcam model 23"
+    default n
+    help
+      Support for Logitech Webcam model 23 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_24
+    tristate "Logitech Webcam model 24"
+    default n
+    help
+      Support for Logitech Webcam model 24 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_25
+    tristate "Logitech Webcam model 25"
+    default n
+    help
+      Support for Logitech Webcam model 25 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_26
+    tristate "Logitech Webcam model 26"
+    default n
+    help
+      Support for Logitech Webcam model 26 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_27
+    tristate "Logitech Webcam model 27"
+    default n
+    help
+      Support for Logitech Webcam model 27 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_28
+    tristate "Logitech Webcam model 28"
+    default n
+    help
+      Support for Logitech Webcam model 28 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_29
+    tristate "Logitech Webcam model 29"
+    default n
+    help
+      Support for Logitech Webcam model 29 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_30
+    tristate "Logitech Webcam model 30"
+    default n
+    help
+      Support for Logitech Webcam model 30 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_31
+    tristate "Logitech Webcam model 31"
+    default n
+    help
+      Support for Logitech Webcam model 31 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_32
+    tristate "Logitech Webcam model 32"
+    default n
+    help
+      Support for Logitech Webcam model 32 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_33
+    tristate "Logitech Webcam model 33"
+    default n
+    help
+      Support for Logitech Webcam model 33 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_34
+    tristate "Logitech Webcam model 34"
+    default n
+    help
+      Support for Logitech Webcam model 34 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_35
+    tristate "Logitech Webcam model 35"
+    default n
+    help
+      Support for Logitech Webcam model 35 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_36
+    tristate "Logitech Webcam model 36"
+    default n
+    help
+      Support for Logitech Webcam model 36 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_37
+    tristate "Logitech Webcam model 37"
+    default n
+    help
+      Support for Logitech Webcam model 37 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_38
+    tristate "Logitech Webcam model 38"
+    default n
+    help
+      Support for Logitech Webcam model 38 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_39
+    tristate "Logitech Webcam model 39"
+    default n
+    help
+      Support for Logitech Webcam model 39 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_40
+    tristate "Logitech Webcam model 40"
+    default n
+    help
+      Support for Logitech Webcam model 40 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_41
+    tristate "Logitech Webcam model 41"
+    default n
+    help
+      Support for Logitech Webcam model 41 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_42
+    tristate "Logitech Webcam model 42"
+    default n
+    help
+      Support for Logitech Webcam model 42 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_43
+    tristate "Logitech Webcam model 43"
+    default n
+    help
+      Support for Logitech Webcam model 43 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_44
+    tristate "Logitech Webcam model 44"
+    default n
+    help
+      Support for Logitech Webcam model 44 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_45
+    tristate "Logitech Webcam model 45"
+    default n
+    help
+      Support for Logitech Webcam model 45 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_46
+    tristate "Logitech Webcam model 46"
+    default n
+    help
+      Support for Logitech Webcam model 46 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_47
+    tristate "Logitech Webcam model 47"
+    default n
+    help
+      Support for Logitech Webcam model 47 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_48
+    tristate "Logitech Webcam model 48"
+    default n
+    help
+      Support for Logitech Webcam model 48 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_49
+    tristate "Logitech Webcam model 49"
+    default n
+    help
+      Support for Logitech Webcam model 49 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_50
+    tristate "Logitech Webcam model 50"
+    default n
+    help
+      Support for Logitech Webcam model 50 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_51
+    tristate "Logitech Webcam model 51"
+    default n
+    help
+      Support for Logitech Webcam model 51 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_52
+    tristate "Logitech Webcam model 52"
+    default n
+    help
+      Support for Logitech Webcam model 52 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_53
+    tristate "Logitech Webcam model 53"
+    default n
+    help
+      Support for Logitech Webcam model 53 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_54
+    tristate "Logitech Webcam model 54"
+    default n
+    help
+      Support for Logitech Webcam model 54 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_55
+    tristate "Logitech Webcam model 55"
+    default n
+    help
+      Support for Logitech Webcam model 55 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_56
+    tristate "Logitech Webcam model 56"
+    default n
+    help
+      Support for Logitech Webcam model 56 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_57
+    tristate "Logitech Webcam model 57"
+    default n
+    help
+      Support for Logitech Webcam model 57 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_58
+    tristate "Logitech Webcam model 58"
+    default n
+    help
+      Support for Logitech Webcam model 58 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_LOGITECH_59
+    tristate "Logitech Webcam model 59"
+    default n
+    help
+      Support for Logitech Webcam model 59 (Logitech)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_0
+    tristate "Microsoft Webcam model 0"
+    default n
+    help
+      Support for Microsoft Webcam model 0 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_1
+    tristate "Microsoft Webcam model 1"
+    default n
+    help
+      Support for Microsoft Webcam model 1 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_2
+    tristate "Microsoft Webcam model 2"
+    default n
+    help
+      Support for Microsoft Webcam model 2 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_3
+    tristate "Microsoft Webcam model 3"
+    default n
+    help
+      Support for Microsoft Webcam model 3 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_4
+    tristate "Microsoft Webcam model 4"
+    default n
+    help
+      Support for Microsoft Webcam model 4 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_5
+    tristate "Microsoft Webcam model 5"
+    default n
+    help
+      Support for Microsoft Webcam model 5 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_6
+    tristate "Microsoft Webcam model 6"
+    default n
+    help
+      Support for Microsoft Webcam model 6 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_7
+    tristate "Microsoft Webcam model 7"
+    default n
+    help
+      Support for Microsoft Webcam model 7 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_8
+    tristate "Microsoft Webcam model 8"
+    default n
+    help
+      Support for Microsoft Webcam model 8 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_9
+    tristate "Microsoft Webcam model 9"
+    default n
+    help
+      Support for Microsoft Webcam model 9 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_10
+    tristate "Microsoft Webcam model 10"
+    default n
+    help
+      Support for Microsoft Webcam model 10 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_11
+    tristate "Microsoft Webcam model 11"
+    default n
+    help
+      Support for Microsoft Webcam model 11 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_12
+    tristate "Microsoft Webcam model 12"
+    default n
+    help
+      Support for Microsoft Webcam model 12 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_13
+    tristate "Microsoft Webcam model 13"
+    default n
+    help
+      Support for Microsoft Webcam model 13 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_14
+    tristate "Microsoft Webcam model 14"
+    default n
+    help
+      Support for Microsoft Webcam model 14 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_15
+    tristate "Microsoft Webcam model 15"
+    default n
+    help
+      Support for Microsoft Webcam model 15 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_16
+    tristate "Microsoft Webcam model 16"
+    default n
+    help
+      Support for Microsoft Webcam model 16 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_17
+    tristate "Microsoft Webcam model 17"
+    default n
+    help
+      Support for Microsoft Webcam model 17 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_18
+    tristate "Microsoft Webcam model 18"
+    default n
+    help
+      Support for Microsoft Webcam model 18 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_19
+    tristate "Microsoft Webcam model 19"
+    default n
+    help
+      Support for Microsoft Webcam model 19 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_20
+    tristate "Microsoft Webcam model 20"
+    default n
+    help
+      Support for Microsoft Webcam model 20 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_21
+    tristate "Microsoft Webcam model 21"
+    default n
+    help
+      Support for Microsoft Webcam model 21 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_22
+    tristate "Microsoft Webcam model 22"
+    default n
+    help
+      Support for Microsoft Webcam model 22 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_23
+    tristate "Microsoft Webcam model 23"
+    default n
+    help
+      Support for Microsoft Webcam model 23 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_24
+    tristate "Microsoft Webcam model 24"
+    default n
+    help
+      Support for Microsoft Webcam model 24 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_25
+    tristate "Microsoft Webcam model 25"
+    default n
+    help
+      Support for Microsoft Webcam model 25 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_26
+    tristate "Microsoft Webcam model 26"
+    default n
+    help
+      Support for Microsoft Webcam model 26 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_27
+    tristate "Microsoft Webcam model 27"
+    default n
+    help
+      Support for Microsoft Webcam model 27 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_28
+    tristate "Microsoft Webcam model 28"
+    default n
+    help
+      Support for Microsoft Webcam model 28 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_29
+    tristate "Microsoft Webcam model 29"
+    default n
+    help
+      Support for Microsoft Webcam model 29 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_30
+    tristate "Microsoft Webcam model 30"
+    default n
+    help
+      Support for Microsoft Webcam model 30 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_31
+    tristate "Microsoft Webcam model 31"
+    default n
+    help
+      Support for Microsoft Webcam model 31 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_32
+    tristate "Microsoft Webcam model 32"
+    default n
+    help
+      Support for Microsoft Webcam model 32 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_33
+    tristate "Microsoft Webcam model 33"
+    default n
+    help
+      Support for Microsoft Webcam model 33 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_34
+    tristate "Microsoft Webcam model 34"
+    default n
+    help
+      Support for Microsoft Webcam model 34 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_35
+    tristate "Microsoft Webcam model 35"
+    default n
+    help
+      Support for Microsoft Webcam model 35 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_36
+    tristate "Microsoft Webcam model 36"
+    default n
+    help
+      Support for Microsoft Webcam model 36 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_37
+    tristate "Microsoft Webcam model 37"
+    default n
+    help
+      Support for Microsoft Webcam model 37 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_38
+    tristate "Microsoft Webcam model 38"
+    default n
+    help
+      Support for Microsoft Webcam model 38 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_39
+    tristate "Microsoft Webcam model 39"
+    default n
+    help
+      Support for Microsoft Webcam model 39 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_40
+    tristate "Microsoft Webcam model 40"
+    default n
+    help
+      Support for Microsoft Webcam model 40 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_41
+    tristate "Microsoft Webcam model 41"
+    default n
+    help
+      Support for Microsoft Webcam model 41 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_42
+    tristate "Microsoft Webcam model 42"
+    default n
+    help
+      Support for Microsoft Webcam model 42 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_43
+    tristate "Microsoft Webcam model 43"
+    default n
+    help
+      Support for Microsoft Webcam model 43 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_44
+    tristate "Microsoft Webcam model 44"
+    default n
+    help
+      Support for Microsoft Webcam model 44 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_45
+    tristate "Microsoft Webcam model 45"
+    default n
+    help
+      Support for Microsoft Webcam model 45 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_46
+    tristate "Microsoft Webcam model 46"
+    default n
+    help
+      Support for Microsoft Webcam model 46 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_47
+    tristate "Microsoft Webcam model 47"
+    default n
+    help
+      Support for Microsoft Webcam model 47 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_48
+    tristate "Microsoft Webcam model 48"
+    default n
+    help
+      Support for Microsoft Webcam model 48 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_49
+    tristate "Microsoft Webcam model 49"
+    default n
+    help
+      Support for Microsoft Webcam model 49 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_50
+    tristate "Microsoft Webcam model 50"
+    default n
+    help
+      Support for Microsoft Webcam model 50 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_51
+    tristate "Microsoft Webcam model 51"
+    default n
+    help
+      Support for Microsoft Webcam model 51 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_52
+    tristate "Microsoft Webcam model 52"
+    default n
+    help
+      Support for Microsoft Webcam model 52 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_53
+    tristate "Microsoft Webcam model 53"
+    default n
+    help
+      Support for Microsoft Webcam model 53 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_54
+    tristate "Microsoft Webcam model 54"
+    default n
+    help
+      Support for Microsoft Webcam model 54 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_55
+    tristate "Microsoft Webcam model 55"
+    default n
+    help
+      Support for Microsoft Webcam model 55 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_56
+    tristate "Microsoft Webcam model 56"
+    default n
+    help
+      Support for Microsoft Webcam model 56 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_57
+    tristate "Microsoft Webcam model 57"
+    default n
+    help
+      Support for Microsoft Webcam model 57 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_58
+    tristate "Microsoft Webcam model 58"
+    default n
+    help
+      Support for Microsoft Webcam model 58 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_MICROSOFT_59
+    tristate "Microsoft Webcam model 59"
+    default n
+    help
+      Support for Microsoft Webcam model 59 (Microsoft)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_0
+    tristate "Creative Webcam model 0"
+    default n
+    help
+      Support for Creative Webcam model 0 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_1
+    tristate "Creative Webcam model 1"
+    default n
+    help
+      Support for Creative Webcam model 1 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_2
+    tristate "Creative Webcam model 2"
+    default n
+    help
+      Support for Creative Webcam model 2 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_3
+    tristate "Creative Webcam model 3"
+    default n
+    help
+      Support for Creative Webcam model 3 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_4
+    tristate "Creative Webcam model 4"
+    default n
+    help
+      Support for Creative Webcam model 4 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_5
+    tristate "Creative Webcam model 5"
+    default n
+    help
+      Support for Creative Webcam model 5 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_6
+    tristate "Creative Webcam model 6"
+    default n
+    help
+      Support for Creative Webcam model 6 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_7
+    tristate "Creative Webcam model 7"
+    default n
+    help
+      Support for Creative Webcam model 7 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_8
+    tristate "Creative Webcam model 8"
+    default n
+    help
+      Support for Creative Webcam model 8 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_9
+    tristate "Creative Webcam model 9"
+    default n
+    help
+      Support for Creative Webcam model 9 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_10
+    tristate "Creative Webcam model 10"
+    default n
+    help
+      Support for Creative Webcam model 10 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_11
+    tristate "Creative Webcam model 11"
+    default n
+    help
+      Support for Creative Webcam model 11 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_12
+    tristate "Creative Webcam model 12"
+    default n
+    help
+      Support for Creative Webcam model 12 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_13
+    tristate "Creative Webcam model 13"
+    default n
+    help
+      Support for Creative Webcam model 13 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_14
+    tristate "Creative Webcam model 14"
+    default n
+    help
+      Support for Creative Webcam model 14 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_15
+    tristate "Creative Webcam model 15"
+    default n
+    help
+      Support for Creative Webcam model 15 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_16
+    tristate "Creative Webcam model 16"
+    default n
+    help
+      Support for Creative Webcam model 16 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_17
+    tristate "Creative Webcam model 17"
+    default n
+    help
+      Support for Creative Webcam model 17 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_18
+    tristate "Creative Webcam model 18"
+    default n
+    help
+      Support for Creative Webcam model 18 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_19
+    tristate "Creative Webcam model 19"
+    default n
+    help
+      Support for Creative Webcam model 19 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_20
+    tristate "Creative Webcam model 20"
+    default n
+    help
+      Support for Creative Webcam model 20 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_21
+    tristate "Creative Webcam model 21"
+    default n
+    help
+      Support for Creative Webcam model 21 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_22
+    tristate "Creative Webcam model 22"
+    default n
+    help
+      Support for Creative Webcam model 22 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_23
+    tristate "Creative Webcam model 23"
+    default n
+    help
+      Support for Creative Webcam model 23 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_24
+    tristate "Creative Webcam model 24"
+    default n
+    help
+      Support for Creative Webcam model 24 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_25
+    tristate "Creative Webcam model 25"
+    default n
+    help
+      Support for Creative Webcam model 25 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_26
+    tristate "Creative Webcam model 26"
+    default n
+    help
+      Support for Creative Webcam model 26 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_27
+    tristate "Creative Webcam model 27"
+    default n
+    help
+      Support for Creative Webcam model 27 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_28
+    tristate "Creative Webcam model 28"
+    default n
+    help
+      Support for Creative Webcam model 28 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_29
+    tristate "Creative Webcam model 29"
+    default n
+    help
+      Support for Creative Webcam model 29 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_30
+    tristate "Creative Webcam model 30"
+    default n
+    help
+      Support for Creative Webcam model 30 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_31
+    tristate "Creative Webcam model 31"
+    default n
+    help
+      Support for Creative Webcam model 31 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_32
+    tristate "Creative Webcam model 32"
+    default n
+    help
+      Support for Creative Webcam model 32 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_33
+    tristate "Creative Webcam model 33"
+    default n
+    help
+      Support for Creative Webcam model 33 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_34
+    tristate "Creative Webcam model 34"
+    default n
+    help
+      Support for Creative Webcam model 34 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_35
+    tristate "Creative Webcam model 35"
+    default n
+    help
+      Support for Creative Webcam model 35 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_36
+    tristate "Creative Webcam model 36"
+    default n
+    help
+      Support for Creative Webcam model 36 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_37
+    tristate "Creative Webcam model 37"
+    default n
+    help
+      Support for Creative Webcam model 37 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_38
+    tristate "Creative Webcam model 38"
+    default n
+    help
+      Support for Creative Webcam model 38 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_39
+    tristate "Creative Webcam model 39"
+    default n
+    help
+      Support for Creative Webcam model 39 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_40
+    tristate "Creative Webcam model 40"
+    default n
+    help
+      Support for Creative Webcam model 40 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_41
+    tristate "Creative Webcam model 41"
+    default n
+    help
+      Support for Creative Webcam model 41 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_42
+    tristate "Creative Webcam model 42"
+    default n
+    help
+      Support for Creative Webcam model 42 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_43
+    tristate "Creative Webcam model 43"
+    default n
+    help
+      Support for Creative Webcam model 43 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_44
+    tristate "Creative Webcam model 44"
+    default n
+    help
+      Support for Creative Webcam model 44 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_45
+    tristate "Creative Webcam model 45"
+    default n
+    help
+      Support for Creative Webcam model 45 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_46
+    tristate "Creative Webcam model 46"
+    default n
+    help
+      Support for Creative Webcam model 46 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_47
+    tristate "Creative Webcam model 47"
+    default n
+    help
+      Support for Creative Webcam model 47 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_48
+    tristate "Creative Webcam model 48"
+    default n
+    help
+      Support for Creative Webcam model 48 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_49
+    tristate "Creative Webcam model 49"
+    default n
+    help
+      Support for Creative Webcam model 49 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_50
+    tristate "Creative Webcam model 50"
+    default n
+    help
+      Support for Creative Webcam model 50 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_51
+    tristate "Creative Webcam model 51"
+    default n
+    help
+      Support for Creative Webcam model 51 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_52
+    tristate "Creative Webcam model 52"
+    default n
+    help
+      Support for Creative Webcam model 52 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_53
+    tristate "Creative Webcam model 53"
+    default n
+    help
+      Support for Creative Webcam model 53 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_54
+    tristate "Creative Webcam model 54"
+    default n
+    help
+      Support for Creative Webcam model 54 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_55
+    tristate "Creative Webcam model 55"
+    default n
+    help
+      Support for Creative Webcam model 55 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_56
+    tristate "Creative Webcam model 56"
+    default n
+    help
+      Support for Creative Webcam model 56 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_57
+    tristate "Creative Webcam model 57"
+    default n
+    help
+      Support for Creative Webcam model 57 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_58
+    tristate "Creative Webcam model 58"
+    default n
+    help
+      Support for Creative Webcam model 58 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_CREATIVE_59
+    tristate "Creative Webcam model 59"
+    default n
+    help
+      Support for Creative Webcam model 59 (Creative)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_0
+    tristate "Razer Webcam model 0"
+    default n
+    help
+      Support for Razer Webcam model 0 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_1
+    tristate "Razer Webcam model 1"
+    default n
+    help
+      Support for Razer Webcam model 1 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_2
+    tristate "Razer Webcam model 2"
+    default n
+    help
+      Support for Razer Webcam model 2 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_3
+    tristate "Razer Webcam model 3"
+    default n
+    help
+      Support for Razer Webcam model 3 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_4
+    tristate "Razer Webcam model 4"
+    default n
+    help
+      Support for Razer Webcam model 4 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_5
+    tristate "Razer Webcam model 5"
+    default n
+    help
+      Support for Razer Webcam model 5 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_6
+    tristate "Razer Webcam model 6"
+    default n
+    help
+      Support for Razer Webcam model 6 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_7
+    tristate "Razer Webcam model 7"
+    default n
+    help
+      Support for Razer Webcam model 7 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_8
+    tristate "Razer Webcam model 8"
+    default n
+    help
+      Support for Razer Webcam model 8 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_9
+    tristate "Razer Webcam model 9"
+    default n
+    help
+      Support for Razer Webcam model 9 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_10
+    tristate "Razer Webcam model 10"
+    default n
+    help
+      Support for Razer Webcam model 10 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_11
+    tristate "Razer Webcam model 11"
+    default n
+    help
+      Support for Razer Webcam model 11 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_12
+    tristate "Razer Webcam model 12"
+    default n
+    help
+      Support for Razer Webcam model 12 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_13
+    tristate "Razer Webcam model 13"
+    default n
+    help
+      Support for Razer Webcam model 13 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_14
+    tristate "Razer Webcam model 14"
+    default n
+    help
+      Support for Razer Webcam model 14 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_15
+    tristate "Razer Webcam model 15"
+    default n
+    help
+      Support for Razer Webcam model 15 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_16
+    tristate "Razer Webcam model 16"
+    default n
+    help
+      Support for Razer Webcam model 16 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_17
+    tristate "Razer Webcam model 17"
+    default n
+    help
+      Support for Razer Webcam model 17 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_18
+    tristate "Razer Webcam model 18"
+    default n
+    help
+      Support for Razer Webcam model 18 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_19
+    tristate "Razer Webcam model 19"
+    default n
+    help
+      Support for Razer Webcam model 19 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_20
+    tristate "Razer Webcam model 20"
+    default n
+    help
+      Support for Razer Webcam model 20 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_21
+    tristate "Razer Webcam model 21"
+    default n
+    help
+      Support for Razer Webcam model 21 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_22
+    tristate "Razer Webcam model 22"
+    default n
+    help
+      Support for Razer Webcam model 22 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_23
+    tristate "Razer Webcam model 23"
+    default n
+    help
+      Support for Razer Webcam model 23 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_24
+    tristate "Razer Webcam model 24"
+    default n
+    help
+      Support for Razer Webcam model 24 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_25
+    tristate "Razer Webcam model 25"
+    default n
+    help
+      Support for Razer Webcam model 25 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_26
+    tristate "Razer Webcam model 26"
+    default n
+    help
+      Support for Razer Webcam model 26 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_27
+    tristate "Razer Webcam model 27"
+    default n
+    help
+      Support for Razer Webcam model 27 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_28
+    tristate "Razer Webcam model 28"
+    default n
+    help
+      Support for Razer Webcam model 28 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_29
+    tristate "Razer Webcam model 29"
+    default n
+    help
+      Support for Razer Webcam model 29 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_30
+    tristate "Razer Webcam model 30"
+    default n
+    help
+      Support for Razer Webcam model 30 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_31
+    tristate "Razer Webcam model 31"
+    default n
+    help
+      Support for Razer Webcam model 31 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_32
+    tristate "Razer Webcam model 32"
+    default n
+    help
+      Support for Razer Webcam model 32 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_33
+    tristate "Razer Webcam model 33"
+    default n
+    help
+      Support for Razer Webcam model 33 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_34
+    tristate "Razer Webcam model 34"
+    default n
+    help
+      Support for Razer Webcam model 34 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_35
+    tristate "Razer Webcam model 35"
+    default n
+    help
+      Support for Razer Webcam model 35 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_36
+    tristate "Razer Webcam model 36"
+    default n
+    help
+      Support for Razer Webcam model 36 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_37
+    tristate "Razer Webcam model 37"
+    default n
+    help
+      Support for Razer Webcam model 37 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_38
+    tristate "Razer Webcam model 38"
+    default n
+    help
+      Support for Razer Webcam model 38 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_39
+    tristate "Razer Webcam model 39"
+    default n
+    help
+      Support for Razer Webcam model 39 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_40
+    tristate "Razer Webcam model 40"
+    default n
+    help
+      Support for Razer Webcam model 40 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_41
+    tristate "Razer Webcam model 41"
+    default n
+    help
+      Support for Razer Webcam model 41 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_42
+    tristate "Razer Webcam model 42"
+    default n
+    help
+      Support for Razer Webcam model 42 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_43
+    tristate "Razer Webcam model 43"
+    default n
+    help
+      Support for Razer Webcam model 43 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_44
+    tristate "Razer Webcam model 44"
+    default n
+    help
+      Support for Razer Webcam model 44 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_45
+    tristate "Razer Webcam model 45"
+    default n
+    help
+      Support for Razer Webcam model 45 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_46
+    tristate "Razer Webcam model 46"
+    default n
+    help
+      Support for Razer Webcam model 46 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_47
+    tristate "Razer Webcam model 47"
+    default n
+    help
+      Support for Razer Webcam model 47 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_48
+    tristate "Razer Webcam model 48"
+    default n
+    help
+      Support for Razer Webcam model 48 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_49
+    tristate "Razer Webcam model 49"
+    default n
+    help
+      Support for Razer Webcam model 49 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_50
+    tristate "Razer Webcam model 50"
+    default n
+    help
+      Support for Razer Webcam model 50 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_51
+    tristate "Razer Webcam model 51"
+    default n
+    help
+      Support for Razer Webcam model 51 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_52
+    tristate "Razer Webcam model 52"
+    default n
+    help
+      Support for Razer Webcam model 52 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_53
+    tristate "Razer Webcam model 53"
+    default n
+    help
+      Support for Razer Webcam model 53 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_54
+    tristate "Razer Webcam model 54"
+    default n
+    help
+      Support for Razer Webcam model 54 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_55
+    tristate "Razer Webcam model 55"
+    default n
+    help
+      Support for Razer Webcam model 55 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_56
+    tristate "Razer Webcam model 56"
+    default n
+    help
+      Support for Razer Webcam model 56 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_57
+    tristate "Razer Webcam model 57"
+    default n
+    help
+      Support for Razer Webcam model 57 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_58
+    tristate "Razer Webcam model 58"
+    default n
+    help
+      Support for Razer Webcam model 58 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_RAZER_59
+    tristate "Razer Webcam model 59"
+    default n
+    help
+      Support for Razer Webcam model 59 (Razer)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_0
+    tristate "Generic_UVC Webcam model 0"
+    default n
+    help
+      Support for Generic_UVC Webcam model 0 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_1
+    tristate "Generic_UVC Webcam model 1"
+    default n
+    help
+      Support for Generic_UVC Webcam model 1 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_2
+    tristate "Generic_UVC Webcam model 2"
+    default n
+    help
+      Support for Generic_UVC Webcam model 2 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_3
+    tristate "Generic_UVC Webcam model 3"
+    default n
+    help
+      Support for Generic_UVC Webcam model 3 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_4
+    tristate "Generic_UVC Webcam model 4"
+    default n
+    help
+      Support for Generic_UVC Webcam model 4 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_5
+    tristate "Generic_UVC Webcam model 5"
+    default n
+    help
+      Support for Generic_UVC Webcam model 5 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_6
+    tristate "Generic_UVC Webcam model 6"
+    default n
+    help
+      Support for Generic_UVC Webcam model 6 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_7
+    tristate "Generic_UVC Webcam model 7"
+    default n
+    help
+      Support for Generic_UVC Webcam model 7 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_8
+    tristate "Generic_UVC Webcam model 8"
+    default n
+    help
+      Support for Generic_UVC Webcam model 8 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_9
+    tristate "Generic_UVC Webcam model 9"
+    default n
+    help
+      Support for Generic_UVC Webcam model 9 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_10
+    tristate "Generic_UVC Webcam model 10"
+    default n
+    help
+      Support for Generic_UVC Webcam model 10 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_11
+    tristate "Generic_UVC Webcam model 11"
+    default n
+    help
+      Support for Generic_UVC Webcam model 11 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_12
+    tristate "Generic_UVC Webcam model 12"
+    default n
+    help
+      Support for Generic_UVC Webcam model 12 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_13
+    tristate "Generic_UVC Webcam model 13"
+    default n
+    help
+      Support for Generic_UVC Webcam model 13 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_14
+    tristate "Generic_UVC Webcam model 14"
+    default n
+    help
+      Support for Generic_UVC Webcam model 14 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_15
+    tristate "Generic_UVC Webcam model 15"
+    default n
+    help
+      Support for Generic_UVC Webcam model 15 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_16
+    tristate "Generic_UVC Webcam model 16"
+    default n
+    help
+      Support for Generic_UVC Webcam model 16 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_17
+    tristate "Generic_UVC Webcam model 17"
+    default n
+    help
+      Support for Generic_UVC Webcam model 17 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_18
+    tristate "Generic_UVC Webcam model 18"
+    default n
+    help
+      Support for Generic_UVC Webcam model 18 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_19
+    tristate "Generic_UVC Webcam model 19"
+    default n
+    help
+      Support for Generic_UVC Webcam model 19 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_20
+    tristate "Generic_UVC Webcam model 20"
+    default n
+    help
+      Support for Generic_UVC Webcam model 20 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_21
+    tristate "Generic_UVC Webcam model 21"
+    default n
+    help
+      Support for Generic_UVC Webcam model 21 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_22
+    tristate "Generic_UVC Webcam model 22"
+    default n
+    help
+      Support for Generic_UVC Webcam model 22 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_23
+    tristate "Generic_UVC Webcam model 23"
+    default n
+    help
+      Support for Generic_UVC Webcam model 23 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_24
+    tristate "Generic_UVC Webcam model 24"
+    default n
+    help
+      Support for Generic_UVC Webcam model 24 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_25
+    tristate "Generic_UVC Webcam model 25"
+    default n
+    help
+      Support for Generic_UVC Webcam model 25 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_26
+    tristate "Generic_UVC Webcam model 26"
+    default n
+    help
+      Support for Generic_UVC Webcam model 26 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_27
+    tristate "Generic_UVC Webcam model 27"
+    default n
+    help
+      Support for Generic_UVC Webcam model 27 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_28
+    tristate "Generic_UVC Webcam model 28"
+    default n
+    help
+      Support for Generic_UVC Webcam model 28 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_29
+    tristate "Generic_UVC Webcam model 29"
+    default n
+    help
+      Support for Generic_UVC Webcam model 29 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_30
+    tristate "Generic_UVC Webcam model 30"
+    default n
+    help
+      Support for Generic_UVC Webcam model 30 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_31
+    tristate "Generic_UVC Webcam model 31"
+    default n
+    help
+      Support for Generic_UVC Webcam model 31 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_32
+    tristate "Generic_UVC Webcam model 32"
+    default n
+    help
+      Support for Generic_UVC Webcam model 32 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_33
+    tristate "Generic_UVC Webcam model 33"
+    default n
+    help
+      Support for Generic_UVC Webcam model 33 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_34
+    tristate "Generic_UVC Webcam model 34"
+    default n
+    help
+      Support for Generic_UVC Webcam model 34 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_35
+    tristate "Generic_UVC Webcam model 35"
+    default n
+    help
+      Support for Generic_UVC Webcam model 35 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_36
+    tristate "Generic_UVC Webcam model 36"
+    default n
+    help
+      Support for Generic_UVC Webcam model 36 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_37
+    tristate "Generic_UVC Webcam model 37"
+    default n
+    help
+      Support for Generic_UVC Webcam model 37 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_38
+    tristate "Generic_UVC Webcam model 38"
+    default n
+    help
+      Support for Generic_UVC Webcam model 38 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_39
+    tristate "Generic_UVC Webcam model 39"
+    default n
+    help
+      Support for Generic_UVC Webcam model 39 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_40
+    tristate "Generic_UVC Webcam model 40"
+    default n
+    help
+      Support for Generic_UVC Webcam model 40 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_41
+    tristate "Generic_UVC Webcam model 41"
+    default n
+    help
+      Support for Generic_UVC Webcam model 41 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_42
+    tristate "Generic_UVC Webcam model 42"
+    default n
+    help
+      Support for Generic_UVC Webcam model 42 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_43
+    tristate "Generic_UVC Webcam model 43"
+    default n
+    help
+      Support for Generic_UVC Webcam model 43 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_44
+    tristate "Generic_UVC Webcam model 44"
+    default n
+    help
+      Support for Generic_UVC Webcam model 44 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_45
+    tristate "Generic_UVC Webcam model 45"
+    default n
+    help
+      Support for Generic_UVC Webcam model 45 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_46
+    tristate "Generic_UVC Webcam model 46"
+    default n
+    help
+      Support for Generic_UVC Webcam model 46 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_47
+    tristate "Generic_UVC Webcam model 47"
+    default n
+    help
+      Support for Generic_UVC Webcam model 47 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_48
+    tristate "Generic_UVC Webcam model 48"
+    default n
+    help
+      Support for Generic_UVC Webcam model 48 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_49
+    tristate "Generic_UVC Webcam model 49"
+    default n
+    help
+      Support for Generic_UVC Webcam model 49 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_50
+    tristate "Generic_UVC Webcam model 50"
+    default n
+    help
+      Support for Generic_UVC Webcam model 50 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_51
+    tristate "Generic_UVC Webcam model 51"
+    default n
+    help
+      Support for Generic_UVC Webcam model 51 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_52
+    tristate "Generic_UVC Webcam model 52"
+    default n
+    help
+      Support for Generic_UVC Webcam model 52 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_53
+    tristate "Generic_UVC Webcam model 53"
+    default n
+    help
+      Support for Generic_UVC Webcam model 53 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_54
+    tristate "Generic_UVC Webcam model 54"
+    default n
+    help
+      Support for Generic_UVC Webcam model 54 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_55
+    tristate "Generic_UVC Webcam model 55"
+    default n
+    help
+      Support for Generic_UVC Webcam model 55 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_56
+    tristate "Generic_UVC Webcam model 56"
+    default n
+    help
+      Support for Generic_UVC Webcam model 56 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_57
+    tristate "Generic_UVC Webcam model 57"
+    default n
+    help
+      Support for Generic_UVC Webcam model 57 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_58
+    tristate "Generic_UVC Webcam model 58"
+    default n
+    help
+      Support for Generic_UVC Webcam model 58 (Generic_UVC)
+      Category: camera
+
+config CAMERA_WEBCAM_GENERIC_UVC_59
+    tristate "Generic_UVC Webcam model 59"
+    default n
+    help
+      Support for Generic_UVC Webcam model 59 (Generic_UVC)
+      Category: camera
+
+endmenu

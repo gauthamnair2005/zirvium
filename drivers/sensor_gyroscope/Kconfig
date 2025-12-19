@@ -1,0 +1,676 @@
+
+menu "Sensor_Gyroscope Drivers"
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R0
+    tristate "Gyroscope MPU6050 I2C Rev0"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev0 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R1
+    tristate "Gyroscope MPU6050 I2C Rev1"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev1 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R2
+    tristate "Gyroscope MPU6050 I2C Rev2"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev2 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R3
+    tristate "Gyroscope MPU6050 I2C Rev3"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev3 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R4
+    tristate "Gyroscope MPU6050 I2C Rev4"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev4 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R5
+    tristate "Gyroscope MPU6050 I2C Rev5"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev5 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R6
+    tristate "Gyroscope MPU6050 I2C Rev6"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev6 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_I2C_R7
+    tristate "Gyroscope MPU6050 I2C Rev7"
+    default n
+    help
+      Support for Gyroscope MPU6050 I2C Rev7 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R0
+    tristate "Gyroscope MPU6050 SPI Rev0"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev0 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R1
+    tristate "Gyroscope MPU6050 SPI Rev1"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev1 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R2
+    tristate "Gyroscope MPU6050 SPI Rev2"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev2 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R3
+    tristate "Gyroscope MPU6050 SPI Rev3"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev3 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R4
+    tristate "Gyroscope MPU6050 SPI Rev4"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev4 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R5
+    tristate "Gyroscope MPU6050 SPI Rev5"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev5 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R6
+    tristate "Gyroscope MPU6050 SPI Rev6"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev6 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_SPI_R7
+    tristate "Gyroscope MPU6050 SPI Rev7"
+    default n
+    help
+      Support for Gyroscope MPU6050 SPI Rev7 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R0
+    tristate "Gyroscope MPU6050 UART Rev0"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev0 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R1
+    tristate "Gyroscope MPU6050 UART Rev1"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev1 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R2
+    tristate "Gyroscope MPU6050 UART Rev2"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev2 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R3
+    tristate "Gyroscope MPU6050 UART Rev3"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev3 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R4
+    tristate "Gyroscope MPU6050 UART Rev4"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev4 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R5
+    tristate "Gyroscope MPU6050 UART Rev5"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev5 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R6
+    tristate "Gyroscope MPU6050 UART Rev6"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev6 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_MPU6050_UART_R7
+    tristate "Gyroscope MPU6050 UART Rev7"
+    default n
+    help
+      Support for Gyroscope MPU6050 UART Rev7 (MPU6050)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R0
+    tristate "Gyroscope L3GD20 I2C Rev0"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev0 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R1
+    tristate "Gyroscope L3GD20 I2C Rev1"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev1 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R2
+    tristate "Gyroscope L3GD20 I2C Rev2"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev2 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R3
+    tristate "Gyroscope L3GD20 I2C Rev3"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev3 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R4
+    tristate "Gyroscope L3GD20 I2C Rev4"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev4 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R5
+    tristate "Gyroscope L3GD20 I2C Rev5"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev5 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R6
+    tristate "Gyroscope L3GD20 I2C Rev6"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev6 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_I2C_R7
+    tristate "Gyroscope L3GD20 I2C Rev7"
+    default n
+    help
+      Support for Gyroscope L3GD20 I2C Rev7 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R0
+    tristate "Gyroscope L3GD20 SPI Rev0"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev0 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R1
+    tristate "Gyroscope L3GD20 SPI Rev1"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev1 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R2
+    tristate "Gyroscope L3GD20 SPI Rev2"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev2 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R3
+    tristate "Gyroscope L3GD20 SPI Rev3"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev3 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R4
+    tristate "Gyroscope L3GD20 SPI Rev4"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev4 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R5
+    tristate "Gyroscope L3GD20 SPI Rev5"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev5 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R6
+    tristate "Gyroscope L3GD20 SPI Rev6"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev6 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_SPI_R7
+    tristate "Gyroscope L3GD20 SPI Rev7"
+    default n
+    help
+      Support for Gyroscope L3GD20 SPI Rev7 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R0
+    tristate "Gyroscope L3GD20 UART Rev0"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev0 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R1
+    tristate "Gyroscope L3GD20 UART Rev1"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev1 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R2
+    tristate "Gyroscope L3GD20 UART Rev2"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev2 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R3
+    tristate "Gyroscope L3GD20 UART Rev3"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev3 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R4
+    tristate "Gyroscope L3GD20 UART Rev4"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev4 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R5
+    tristate "Gyroscope L3GD20 UART Rev5"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev5 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R6
+    tristate "Gyroscope L3GD20 UART Rev6"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev6 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_L3GD20_UART_R7
+    tristate "Gyroscope L3GD20 UART Rev7"
+    default n
+    help
+      Support for Gyroscope L3GD20 UART Rev7 (L3GD20)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R0
+    tristate "Gyroscope BMI160 I2C Rev0"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev0 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R1
+    tristate "Gyroscope BMI160 I2C Rev1"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev1 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R2
+    tristate "Gyroscope BMI160 I2C Rev2"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev2 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R3
+    tristate "Gyroscope BMI160 I2C Rev3"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev3 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R4
+    tristate "Gyroscope BMI160 I2C Rev4"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev4 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R5
+    tristate "Gyroscope BMI160 I2C Rev5"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev5 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R6
+    tristate "Gyroscope BMI160 I2C Rev6"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev6 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_I2C_R7
+    tristate "Gyroscope BMI160 I2C Rev7"
+    default n
+    help
+      Support for Gyroscope BMI160 I2C Rev7 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R0
+    tristate "Gyroscope BMI160 SPI Rev0"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev0 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R1
+    tristate "Gyroscope BMI160 SPI Rev1"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev1 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R2
+    tristate "Gyroscope BMI160 SPI Rev2"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev2 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R3
+    tristate "Gyroscope BMI160 SPI Rev3"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev3 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R4
+    tristate "Gyroscope BMI160 SPI Rev4"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev4 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R5
+    tristate "Gyroscope BMI160 SPI Rev5"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev5 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R6
+    tristate "Gyroscope BMI160 SPI Rev6"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev6 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_SPI_R7
+    tristate "Gyroscope BMI160 SPI Rev7"
+    default n
+    help
+      Support for Gyroscope BMI160 SPI Rev7 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R0
+    tristate "Gyroscope BMI160 UART Rev0"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev0 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R1
+    tristate "Gyroscope BMI160 UART Rev1"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev1 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R2
+    tristate "Gyroscope BMI160 UART Rev2"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev2 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R3
+    tristate "Gyroscope BMI160 UART Rev3"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev3 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R4
+    tristate "Gyroscope BMI160 UART Rev4"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev4 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R5
+    tristate "Gyroscope BMI160 UART Rev5"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev5 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R6
+    tristate "Gyroscope BMI160 UART Rev6"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev6 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_BMI160_UART_R7
+    tristate "Gyroscope BMI160 UART Rev7"
+    default n
+    help
+      Support for Gyroscope BMI160 UART Rev7 (BMI160)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R0
+    tristate "Gyroscope ICM20689 I2C Rev0"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev0 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R1
+    tristate "Gyroscope ICM20689 I2C Rev1"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev1 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R2
+    tristate "Gyroscope ICM20689 I2C Rev2"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev2 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R3
+    tristate "Gyroscope ICM20689 I2C Rev3"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev3 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R4
+    tristate "Gyroscope ICM20689 I2C Rev4"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev4 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R5
+    tristate "Gyroscope ICM20689 I2C Rev5"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev5 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R6
+    tristate "Gyroscope ICM20689 I2C Rev6"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev6 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_I2C_R7
+    tristate "Gyroscope ICM20689 I2C Rev7"
+    default n
+    help
+      Support for Gyroscope ICM20689 I2C Rev7 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R0
+    tristate "Gyroscope ICM20689 SPI Rev0"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev0 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R1
+    tristate "Gyroscope ICM20689 SPI Rev1"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev1 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R2
+    tristate "Gyroscope ICM20689 SPI Rev2"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev2 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R3
+    tristate "Gyroscope ICM20689 SPI Rev3"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev3 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R4
+    tristate "Gyroscope ICM20689 SPI Rev4"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev4 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R5
+    tristate "Gyroscope ICM20689 SPI Rev5"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev5 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R6
+    tristate "Gyroscope ICM20689 SPI Rev6"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev6 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_SPI_R7
+    tristate "Gyroscope ICM20689 SPI Rev7"
+    default n
+    help
+      Support for Gyroscope ICM20689 SPI Rev7 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R0
+    tristate "Gyroscope ICM20689 UART Rev0"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev0 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R1
+    tristate "Gyroscope ICM20689 UART Rev1"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev1 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R2
+    tristate "Gyroscope ICM20689 UART Rev2"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev2 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R3
+    tristate "Gyroscope ICM20689 UART Rev3"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev3 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R4
+    tristate "Gyroscope ICM20689 UART Rev4"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev4 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R5
+    tristate "Gyroscope ICM20689 UART Rev5"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev5 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R6
+    tristate "Gyroscope ICM20689 UART Rev6"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev6 (ICM20689)
+      Category: sensor_gyroscope
+
+config SENSOR_GYROSCOPE_ICM20689_UART_R7
+    tristate "Gyroscope ICM20689 UART Rev7"
+    default n
+    help
+      Support for Gyroscope ICM20689 UART Rev7 (ICM20689)
+      Category: sensor_gyroscope
+
+endmenu

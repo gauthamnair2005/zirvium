@@ -1,0 +1,8 @@
+# RTC driver Kconfig for Zirvium
+
+config RTC_CMOS_DRIVER
+    tristate "CMOS RTC driver implementation"
+    depends on RTC_DRV_CMOS
+    default y
+    help
+      CMOS/NVRAM RTC driver implementation.

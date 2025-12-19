@@ -1,0 +1,1 @@
+obj-$(CONFIG_CAN_MCP251X_DRIVER) += can_mcp2515.o

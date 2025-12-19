@@ -1,0 +1,508 @@
+
+menu "Sensor_Depth Drivers"
+
+config SENSOR_DEPTH_VL53L0X_I2C_R0
+    tristate "Depth VL53L0X I2C Rev0"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev0 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_I2C_R1
+    tristate "Depth VL53L0X I2C Rev1"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev1 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_I2C_R2
+    tristate "Depth VL53L0X I2C Rev2"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev2 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_I2C_R3
+    tristate "Depth VL53L0X I2C Rev3"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev3 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_I2C_R4
+    tristate "Depth VL53L0X I2C Rev4"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev4 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_I2C_R5
+    tristate "Depth VL53L0X I2C Rev5"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev5 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_I2C_R6
+    tristate "Depth VL53L0X I2C Rev6"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev6 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_I2C_R7
+    tristate "Depth VL53L0X I2C Rev7"
+    default n
+    help
+      Support for Depth VL53L0X I2C Rev7 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R0
+    tristate "Depth VL53L0X SPI Rev0"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev0 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R1
+    tristate "Depth VL53L0X SPI Rev1"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev1 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R2
+    tristate "Depth VL53L0X SPI Rev2"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev2 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R3
+    tristate "Depth VL53L0X SPI Rev3"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev3 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R4
+    tristate "Depth VL53L0X SPI Rev4"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev4 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R5
+    tristate "Depth VL53L0X SPI Rev5"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev5 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R6
+    tristate "Depth VL53L0X SPI Rev6"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev6 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_SPI_R7
+    tristate "Depth VL53L0X SPI Rev7"
+    default n
+    help
+      Support for Depth VL53L0X SPI Rev7 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R0
+    tristate "Depth VL53L0X UART Rev0"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev0 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R1
+    tristate "Depth VL53L0X UART Rev1"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev1 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R2
+    tristate "Depth VL53L0X UART Rev2"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev2 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R3
+    tristate "Depth VL53L0X UART Rev3"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev3 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R4
+    tristate "Depth VL53L0X UART Rev4"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev4 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R5
+    tristate "Depth VL53L0X UART Rev5"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev5 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R6
+    tristate "Depth VL53L0X UART Rev6"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev6 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L0X_UART_R7
+    tristate "Depth VL53L0X UART Rev7"
+    default n
+    help
+      Support for Depth VL53L0X UART Rev7 (VL53L0X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R0
+    tristate "Depth VL53L1X I2C Rev0"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev0 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R1
+    tristate "Depth VL53L1X I2C Rev1"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev1 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R2
+    tristate "Depth VL53L1X I2C Rev2"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev2 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R3
+    tristate "Depth VL53L1X I2C Rev3"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev3 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R4
+    tristate "Depth VL53L1X I2C Rev4"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev4 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R5
+    tristate "Depth VL53L1X I2C Rev5"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev5 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R6
+    tristate "Depth VL53L1X I2C Rev6"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev6 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_I2C_R7
+    tristate "Depth VL53L1X I2C Rev7"
+    default n
+    help
+      Support for Depth VL53L1X I2C Rev7 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R0
+    tristate "Depth VL53L1X SPI Rev0"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev0 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R1
+    tristate "Depth VL53L1X SPI Rev1"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev1 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R2
+    tristate "Depth VL53L1X SPI Rev2"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev2 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R3
+    tristate "Depth VL53L1X SPI Rev3"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev3 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R4
+    tristate "Depth VL53L1X SPI Rev4"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev4 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R5
+    tristate "Depth VL53L1X SPI Rev5"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev5 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R6
+    tristate "Depth VL53L1X SPI Rev6"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev6 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_SPI_R7
+    tristate "Depth VL53L1X SPI Rev7"
+    default n
+    help
+      Support for Depth VL53L1X SPI Rev7 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R0
+    tristate "Depth VL53L1X UART Rev0"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev0 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R1
+    tristate "Depth VL53L1X UART Rev1"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev1 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R2
+    tristate "Depth VL53L1X UART Rev2"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev2 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R3
+    tristate "Depth VL53L1X UART Rev3"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev3 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R4
+    tristate "Depth VL53L1X UART Rev4"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev4 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R5
+    tristate "Depth VL53L1X UART Rev5"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev5 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R6
+    tristate "Depth VL53L1X UART Rev6"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev6 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_VL53L1X_UART_R7
+    tristate "Depth VL53L1X UART Rev7"
+    default n
+    help
+      Support for Depth VL53L1X UART Rev7 (VL53L1X)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R0
+    tristate "Depth GP2Y0A21YK I2C Rev0"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev0 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R1
+    tristate "Depth GP2Y0A21YK I2C Rev1"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev1 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R2
+    tristate "Depth GP2Y0A21YK I2C Rev2"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev2 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R3
+    tristate "Depth GP2Y0A21YK I2C Rev3"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev3 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R4
+    tristate "Depth GP2Y0A21YK I2C Rev4"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev4 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R5
+    tristate "Depth GP2Y0A21YK I2C Rev5"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev5 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R6
+    tristate "Depth GP2Y0A21YK I2C Rev6"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev6 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_I2C_R7
+    tristate "Depth GP2Y0A21YK I2C Rev7"
+    default n
+    help
+      Support for Depth GP2Y0A21YK I2C Rev7 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R0
+    tristate "Depth GP2Y0A21YK SPI Rev0"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev0 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R1
+    tristate "Depth GP2Y0A21YK SPI Rev1"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev1 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R2
+    tristate "Depth GP2Y0A21YK SPI Rev2"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev2 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R3
+    tristate "Depth GP2Y0A21YK SPI Rev3"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev3 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R4
+    tristate "Depth GP2Y0A21YK SPI Rev4"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev4 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R5
+    tristate "Depth GP2Y0A21YK SPI Rev5"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev5 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R6
+    tristate "Depth GP2Y0A21YK SPI Rev6"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev6 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_SPI_R7
+    tristate "Depth GP2Y0A21YK SPI Rev7"
+    default n
+    help
+      Support for Depth GP2Y0A21YK SPI Rev7 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R0
+    tristate "Depth GP2Y0A21YK UART Rev0"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev0 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R1
+    tristate "Depth GP2Y0A21YK UART Rev1"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev1 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R2
+    tristate "Depth GP2Y0A21YK UART Rev2"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev2 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R3
+    tristate "Depth GP2Y0A21YK UART Rev3"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev3 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R4
+    tristate "Depth GP2Y0A21YK UART Rev4"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev4 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R5
+    tristate "Depth GP2Y0A21YK UART Rev5"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev5 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R6
+    tristate "Depth GP2Y0A21YK UART Rev6"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev6 (GP2Y0A21YK)
+      Category: sensor_depth
+
+config SENSOR_DEPTH_GP2Y0A21YK_UART_R7
+    tristate "Depth GP2Y0A21YK UART Rev7"
+    default n
+    help
+      Support for Depth GP2Y0A21YK UART Rev7 (GP2Y0A21YK)
+      Category: sensor_depth
+
+endmenu

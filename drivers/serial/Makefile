@@ -1,0 +1,1 @@
+obj-$(CONFIG_SERIAL_8250_DRIVER) += serial_8250.o

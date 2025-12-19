@@ -23,7 +23,7 @@ static void str_copy(char *dst, const char *src, size_t n) {
 void vfs_init(void) {
     root_fs = (vfs_node_t*)kmalloc(sizeof(vfs_node_t));
     if (!root_fs) {
-        kernel_panic("Failed to initialize VFS");
+        kernel_panic("VFS: Failed to initialize root filesystem");
     }
     
     str_copy(root_fs->name, "/", 128);
@@ -35,6 +35,8 @@ void vfs_init(void) {
     root_fs->open = NULL;
     root_fs->close = NULL;
     root_fs->next = NULL;
+    
+    kprintf("VFS: Root filesystem mounted\n");
 }
 
 vfs_node_t *vfs_open(const char *path, uint64_t flags) {

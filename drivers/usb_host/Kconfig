@@ -1,0 +1,1264 @@
+
+menu "Usb_Host Drivers"
+
+config USB_UHCI_Intel_0
+    tristate "UHCI Intel Host Controller Rev0"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev0 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_1
+    tristate "UHCI Intel Host Controller Rev1"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev1 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_2
+    tristate "UHCI Intel Host Controller Rev2"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev2 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_3
+    tristate "UHCI Intel Host Controller Rev3"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev3 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_4
+    tristate "UHCI Intel Host Controller Rev4"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev4 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_5
+    tristate "UHCI Intel Host Controller Rev5"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev5 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_6
+    tristate "UHCI Intel Host Controller Rev6"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev6 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_7
+    tristate "UHCI Intel Host Controller Rev7"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev7 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_8
+    tristate "UHCI Intel Host Controller Rev8"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev8 (Intel)
+      Category: usb_host
+
+config USB_UHCI_Intel_9
+    tristate "UHCI Intel Host Controller Rev9"
+    default n
+    help
+      Support for UHCI Intel Host Controller Rev9 (Intel)
+      Category: usb_host
+
+config USB_UHCI_VIA_0
+    tristate "UHCI VIA Host Controller Rev0"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev0 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_1
+    tristate "UHCI VIA Host Controller Rev1"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev1 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_2
+    tristate "UHCI VIA Host Controller Rev2"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev2 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_3
+    tristate "UHCI VIA Host Controller Rev3"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev3 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_4
+    tristate "UHCI VIA Host Controller Rev4"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev4 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_5
+    tristate "UHCI VIA Host Controller Rev5"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev5 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_6
+    tristate "UHCI VIA Host Controller Rev6"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev6 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_7
+    tristate "UHCI VIA Host Controller Rev7"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev7 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_8
+    tristate "UHCI VIA Host Controller Rev8"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev8 (VIA)
+      Category: usb_host
+
+config USB_UHCI_VIA_9
+    tristate "UHCI VIA Host Controller Rev9"
+    default n
+    help
+      Support for UHCI VIA Host Controller Rev9 (VIA)
+      Category: usb_host
+
+config USB_UHCI_SIS_0
+    tristate "UHCI SIS Host Controller Rev0"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev0 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_1
+    tristate "UHCI SIS Host Controller Rev1"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev1 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_2
+    tristate "UHCI SIS Host Controller Rev2"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev2 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_3
+    tristate "UHCI SIS Host Controller Rev3"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev3 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_4
+    tristate "UHCI SIS Host Controller Rev4"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev4 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_5
+    tristate "UHCI SIS Host Controller Rev5"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev5 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_6
+    tristate "UHCI SIS Host Controller Rev6"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev6 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_7
+    tristate "UHCI SIS Host Controller Rev7"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev7 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_8
+    tristate "UHCI SIS Host Controller Rev8"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev8 (SIS)
+      Category: usb_host
+
+config USB_UHCI_SIS_9
+    tristate "UHCI SIS Host Controller Rev9"
+    default n
+    help
+      Support for UHCI SIS Host Controller Rev9 (SIS)
+      Category: usb_host
+
+config USB_OHCI_AMD_0
+    tristate "OHCI AMD Host Controller Rev0"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev0 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_1
+    tristate "OHCI AMD Host Controller Rev1"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev1 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_2
+    tristate "OHCI AMD Host Controller Rev2"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev2 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_3
+    tristate "OHCI AMD Host Controller Rev3"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev3 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_4
+    tristate "OHCI AMD Host Controller Rev4"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev4 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_5
+    tristate "OHCI AMD Host Controller Rev5"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev5 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_6
+    tristate "OHCI AMD Host Controller Rev6"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev6 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_7
+    tristate "OHCI AMD Host Controller Rev7"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev7 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_8
+    tristate "OHCI AMD Host Controller Rev8"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev8 (AMD)
+      Category: usb_host
+
+config USB_OHCI_AMD_9
+    tristate "OHCI AMD Host Controller Rev9"
+    default n
+    help
+      Support for OHCI AMD Host Controller Rev9 (AMD)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_0
+    tristate "OHCI NVIDIA Host Controller Rev0"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev0 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_1
+    tristate "OHCI NVIDIA Host Controller Rev1"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev1 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_2
+    tristate "OHCI NVIDIA Host Controller Rev2"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev2 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_3
+    tristate "OHCI NVIDIA Host Controller Rev3"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev3 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_4
+    tristate "OHCI NVIDIA Host Controller Rev4"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev4 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_5
+    tristate "OHCI NVIDIA Host Controller Rev5"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev5 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_6
+    tristate "OHCI NVIDIA Host Controller Rev6"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev6 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_7
+    tristate "OHCI NVIDIA Host Controller Rev7"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev7 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_8
+    tristate "OHCI NVIDIA Host Controller Rev8"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev8 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_NVIDIA_9
+    tristate "OHCI NVIDIA Host Controller Rev9"
+    default n
+    help
+      Support for OHCI NVIDIA Host Controller Rev9 (NVIDIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_0
+    tristate "OHCI VIA Host Controller Rev0"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev0 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_1
+    tristate "OHCI VIA Host Controller Rev1"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev1 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_2
+    tristate "OHCI VIA Host Controller Rev2"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev2 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_3
+    tristate "OHCI VIA Host Controller Rev3"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev3 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_4
+    tristate "OHCI VIA Host Controller Rev4"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev4 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_5
+    tristate "OHCI VIA Host Controller Rev5"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev5 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_6
+    tristate "OHCI VIA Host Controller Rev6"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev6 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_7
+    tristate "OHCI VIA Host Controller Rev7"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev7 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_8
+    tristate "OHCI VIA Host Controller Rev8"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev8 (VIA)
+      Category: usb_host
+
+config USB_OHCI_VIA_9
+    tristate "OHCI VIA Host Controller Rev9"
+    default n
+    help
+      Support for OHCI VIA Host Controller Rev9 (VIA)
+      Category: usb_host
+
+config USB_EHCI_Intel_0
+    tristate "EHCI Intel Host Controller Rev0"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev0 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_1
+    tristate "EHCI Intel Host Controller Rev1"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev1 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_2
+    tristate "EHCI Intel Host Controller Rev2"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev2 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_3
+    tristate "EHCI Intel Host Controller Rev3"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev3 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_4
+    tristate "EHCI Intel Host Controller Rev4"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev4 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_5
+    tristate "EHCI Intel Host Controller Rev5"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev5 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_6
+    tristate "EHCI Intel Host Controller Rev6"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev6 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_7
+    tristate "EHCI Intel Host Controller Rev7"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev7 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_8
+    tristate "EHCI Intel Host Controller Rev8"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev8 (Intel)
+      Category: usb_host
+
+config USB_EHCI_Intel_9
+    tristate "EHCI Intel Host Controller Rev9"
+    default n
+    help
+      Support for EHCI Intel Host Controller Rev9 (Intel)
+      Category: usb_host
+
+config USB_EHCI_AMD_0
+    tristate "EHCI AMD Host Controller Rev0"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev0 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_1
+    tristate "EHCI AMD Host Controller Rev1"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev1 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_2
+    tristate "EHCI AMD Host Controller Rev2"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev2 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_3
+    tristate "EHCI AMD Host Controller Rev3"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev3 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_4
+    tristate "EHCI AMD Host Controller Rev4"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev4 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_5
+    tristate "EHCI AMD Host Controller Rev5"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev5 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_6
+    tristate "EHCI AMD Host Controller Rev6"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev6 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_7
+    tristate "EHCI AMD Host Controller Rev7"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev7 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_8
+    tristate "EHCI AMD Host Controller Rev8"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev8 (AMD)
+      Category: usb_host
+
+config USB_EHCI_AMD_9
+    tristate "EHCI AMD Host Controller Rev9"
+    default n
+    help
+      Support for EHCI AMD Host Controller Rev9 (AMD)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_0
+    tristate "EHCI NVIDIA Host Controller Rev0"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev0 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_1
+    tristate "EHCI NVIDIA Host Controller Rev1"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev1 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_2
+    tristate "EHCI NVIDIA Host Controller Rev2"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev2 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_3
+    tristate "EHCI NVIDIA Host Controller Rev3"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev3 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_4
+    tristate "EHCI NVIDIA Host Controller Rev4"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev4 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_5
+    tristate "EHCI NVIDIA Host Controller Rev5"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev5 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_6
+    tristate "EHCI NVIDIA Host Controller Rev6"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev6 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_7
+    tristate "EHCI NVIDIA Host Controller Rev7"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev7 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_8
+    tristate "EHCI NVIDIA Host Controller Rev8"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev8 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_NVIDIA_9
+    tristate "EHCI NVIDIA Host Controller Rev9"
+    default n
+    help
+      Support for EHCI NVIDIA Host Controller Rev9 (NVIDIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_0
+    tristate "EHCI VIA Host Controller Rev0"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev0 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_1
+    tristate "EHCI VIA Host Controller Rev1"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev1 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_2
+    tristate "EHCI VIA Host Controller Rev2"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev2 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_3
+    tristate "EHCI VIA Host Controller Rev3"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev3 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_4
+    tristate "EHCI VIA Host Controller Rev4"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev4 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_5
+    tristate "EHCI VIA Host Controller Rev5"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev5 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_6
+    tristate "EHCI VIA Host Controller Rev6"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev6 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_7
+    tristate "EHCI VIA Host Controller Rev7"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev7 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_8
+    tristate "EHCI VIA Host Controller Rev8"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev8 (VIA)
+      Category: usb_host
+
+config USB_EHCI_VIA_9
+    tristate "EHCI VIA Host Controller Rev9"
+    default n
+    help
+      Support for EHCI VIA Host Controller Rev9 (VIA)
+      Category: usb_host
+
+config USB_XHCI_Intel_0
+    tristate "XHCI Intel Host Controller Rev0"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev0 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_1
+    tristate "XHCI Intel Host Controller Rev1"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev1 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_2
+    tristate "XHCI Intel Host Controller Rev2"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev2 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_3
+    tristate "XHCI Intel Host Controller Rev3"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev3 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_4
+    tristate "XHCI Intel Host Controller Rev4"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev4 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_5
+    tristate "XHCI Intel Host Controller Rev5"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev5 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_6
+    tristate "XHCI Intel Host Controller Rev6"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev6 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_7
+    tristate "XHCI Intel Host Controller Rev7"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev7 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_8
+    tristate "XHCI Intel Host Controller Rev8"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev8 (Intel)
+      Category: usb_host
+
+config USB_XHCI_Intel_9
+    tristate "XHCI Intel Host Controller Rev9"
+    default n
+    help
+      Support for XHCI Intel Host Controller Rev9 (Intel)
+      Category: usb_host
+
+config USB_XHCI_AMD_0
+    tristate "XHCI AMD Host Controller Rev0"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev0 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_1
+    tristate "XHCI AMD Host Controller Rev1"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev1 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_2
+    tristate "XHCI AMD Host Controller Rev2"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev2 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_3
+    tristate "XHCI AMD Host Controller Rev3"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev3 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_4
+    tristate "XHCI AMD Host Controller Rev4"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev4 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_5
+    tristate "XHCI AMD Host Controller Rev5"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev5 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_6
+    tristate "XHCI AMD Host Controller Rev6"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev6 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_7
+    tristate "XHCI AMD Host Controller Rev7"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev7 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_8
+    tristate "XHCI AMD Host Controller Rev8"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev8 (AMD)
+      Category: usb_host
+
+config USB_XHCI_AMD_9
+    tristate "XHCI AMD Host Controller Rev9"
+    default n
+    help
+      Support for XHCI AMD Host Controller Rev9 (AMD)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_0
+    tristate "XHCI NVIDIA Host Controller Rev0"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev0 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_1
+    tristate "XHCI NVIDIA Host Controller Rev1"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev1 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_2
+    tristate "XHCI NVIDIA Host Controller Rev2"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev2 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_3
+    tristate "XHCI NVIDIA Host Controller Rev3"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev3 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_4
+    tristate "XHCI NVIDIA Host Controller Rev4"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev4 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_5
+    tristate "XHCI NVIDIA Host Controller Rev5"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev5 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_6
+    tristate "XHCI NVIDIA Host Controller Rev6"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev6 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_7
+    tristate "XHCI NVIDIA Host Controller Rev7"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev7 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_8
+    tristate "XHCI NVIDIA Host Controller Rev8"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev8 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_NVIDIA_9
+    tristate "XHCI NVIDIA Host Controller Rev9"
+    default n
+    help
+      Support for XHCI NVIDIA Host Controller Rev9 (NVIDIA)
+      Category: usb_host
+
+config USB_XHCI_Renesas_0
+    tristate "XHCI Renesas Host Controller Rev0"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev0 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_1
+    tristate "XHCI Renesas Host Controller Rev1"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev1 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_2
+    tristate "XHCI Renesas Host Controller Rev2"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev2 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_3
+    tristate "XHCI Renesas Host Controller Rev3"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev3 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_4
+    tristate "XHCI Renesas Host Controller Rev4"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev4 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_5
+    tristate "XHCI Renesas Host Controller Rev5"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev5 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_6
+    tristate "XHCI Renesas Host Controller Rev6"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev6 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_7
+    tristate "XHCI Renesas Host Controller Rev7"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev7 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_8
+    tristate "XHCI Renesas Host Controller Rev8"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev8 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_Renesas_9
+    tristate "XHCI Renesas Host Controller Rev9"
+    default n
+    help
+      Support for XHCI Renesas Host Controller Rev9 (Renesas)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_0
+    tristate "XHCI ASMedia Host Controller Rev0"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev0 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_1
+    tristate "XHCI ASMedia Host Controller Rev1"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev1 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_2
+    tristate "XHCI ASMedia Host Controller Rev2"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev2 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_3
+    tristate "XHCI ASMedia Host Controller Rev3"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev3 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_4
+    tristate "XHCI ASMedia Host Controller Rev4"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev4 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_5
+    tristate "XHCI ASMedia Host Controller Rev5"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev5 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_6
+    tristate "XHCI ASMedia Host Controller Rev6"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev6 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_7
+    tristate "XHCI ASMedia Host Controller Rev7"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev7 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_8
+    tristate "XHCI ASMedia Host Controller Rev8"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev8 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_ASMedia_9
+    tristate "XHCI ASMedia Host Controller Rev9"
+    default n
+    help
+      Support for XHCI ASMedia Host Controller Rev9 (ASMedia)
+      Category: usb_host
+
+config USB_XHCI_VIA_0
+    tristate "XHCI VIA Host Controller Rev0"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev0 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_1
+    tristate "XHCI VIA Host Controller Rev1"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev1 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_2
+    tristate "XHCI VIA Host Controller Rev2"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev2 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_3
+    tristate "XHCI VIA Host Controller Rev3"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev3 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_4
+    tristate "XHCI VIA Host Controller Rev4"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev4 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_5
+    tristate "XHCI VIA Host Controller Rev5"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev5 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_6
+    tristate "XHCI VIA Host Controller Rev6"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev6 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_7
+    tristate "XHCI VIA Host Controller Rev7"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev7 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_8
+    tristate "XHCI VIA Host Controller Rev8"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev8 (VIA)
+      Category: usb_host
+
+config USB_XHCI_VIA_9
+    tristate "XHCI VIA Host Controller Rev9"
+    default n
+    help
+      Support for XHCI VIA Host Controller Rev9 (VIA)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_0
+    tristate "USB4 Intel_TBT Host Controller Rev0"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev0 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_1
+    tristate "USB4 Intel_TBT Host Controller Rev1"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev1 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_2
+    tristate "USB4 Intel_TBT Host Controller Rev2"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev2 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_3
+    tristate "USB4 Intel_TBT Host Controller Rev3"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev3 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_4
+    tristate "USB4 Intel_TBT Host Controller Rev4"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev4 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_5
+    tristate "USB4 Intel_TBT Host Controller Rev5"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev5 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_6
+    tristate "USB4 Intel_TBT Host Controller Rev6"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev6 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_7
+    tristate "USB4 Intel_TBT Host Controller Rev7"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev7 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_8
+    tristate "USB4 Intel_TBT Host Controller Rev8"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev8 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_Intel_TBT_9
+    tristate "USB4 Intel_TBT Host Controller Rev9"
+    default n
+    help
+      Support for USB4 Intel_TBT Host Controller Rev9 (Intel_TBT)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_0
+    tristate "USB4 AMD_USB4 Host Controller Rev0"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev0 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_1
+    tristate "USB4 AMD_USB4 Host Controller Rev1"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev1 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_2
+    tristate "USB4 AMD_USB4 Host Controller Rev2"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev2 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_3
+    tristate "USB4 AMD_USB4 Host Controller Rev3"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev3 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_4
+    tristate "USB4 AMD_USB4 Host Controller Rev4"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev4 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_5
+    tristate "USB4 AMD_USB4 Host Controller Rev5"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev5 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_6
+    tristate "USB4 AMD_USB4 Host Controller Rev6"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev6 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_7
+    tristate "USB4 AMD_USB4 Host Controller Rev7"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev7 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_8
+    tristate "USB4 AMD_USB4 Host Controller Rev8"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev8 (AMD_USB4)
+      Category: usb_host
+
+config USB_USB4_AMD_USB4_9
+    tristate "USB4 AMD_USB4 Host Controller Rev9"
+    default n
+    help
+      Support for USB4 AMD_USB4 Host Controller Rev9 (AMD_USB4)
+      Category: usb_host
+
+endmenu

@@ -1,0 +1,340 @@
+
+menu "Sensor_Ir_Blaster Drivers"
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R0
+    tristate "IR_Blaster Consumer_IR I2C Rev0"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev0 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R1
+    tristate "IR_Blaster Consumer_IR I2C Rev1"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev1 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R2
+    tristate "IR_Blaster Consumer_IR I2C Rev2"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev2 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R3
+    tristate "IR_Blaster Consumer_IR I2C Rev3"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev3 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R4
+    tristate "IR_Blaster Consumer_IR I2C Rev4"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev4 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R5
+    tristate "IR_Blaster Consumer_IR I2C Rev5"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev5 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R6
+    tristate "IR_Blaster Consumer_IR I2C Rev6"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev6 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_I2C_R7
+    tristate "IR_Blaster Consumer_IR I2C Rev7"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR I2C Rev7 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R0
+    tristate "IR_Blaster Consumer_IR SPI Rev0"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev0 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R1
+    tristate "IR_Blaster Consumer_IR SPI Rev1"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev1 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R2
+    tristate "IR_Blaster Consumer_IR SPI Rev2"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev2 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R3
+    tristate "IR_Blaster Consumer_IR SPI Rev3"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev3 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R4
+    tristate "IR_Blaster Consumer_IR SPI Rev4"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev4 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R5
+    tristate "IR_Blaster Consumer_IR SPI Rev5"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev5 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R6
+    tristate "IR_Blaster Consumer_IR SPI Rev6"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev6 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_SPI_R7
+    tristate "IR_Blaster Consumer_IR SPI Rev7"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR SPI Rev7 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R0
+    tristate "IR_Blaster Consumer_IR UART Rev0"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev0 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R1
+    tristate "IR_Blaster Consumer_IR UART Rev1"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev1 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R2
+    tristate "IR_Blaster Consumer_IR UART Rev2"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev2 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R3
+    tristate "IR_Blaster Consumer_IR UART Rev3"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev3 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R4
+    tristate "IR_Blaster Consumer_IR UART Rev4"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev4 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R5
+    tristate "IR_Blaster Consumer_IR UART Rev5"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev5 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R6
+    tristate "IR_Blaster Consumer_IR UART Rev6"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev6 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_Consumer_IR_UART_R7
+    tristate "IR_Blaster Consumer_IR UART Rev7"
+    default n
+    help
+      Support for IR_Blaster Consumer_IR UART Rev7 (Consumer_IR)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R0
+    tristate "IR_Blaster RedRat3 I2C Rev0"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev0 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R1
+    tristate "IR_Blaster RedRat3 I2C Rev1"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev1 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R2
+    tristate "IR_Blaster RedRat3 I2C Rev2"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev2 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R3
+    tristate "IR_Blaster RedRat3 I2C Rev3"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev3 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R4
+    tristate "IR_Blaster RedRat3 I2C Rev4"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev4 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R5
+    tristate "IR_Blaster RedRat3 I2C Rev5"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev5 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R6
+    tristate "IR_Blaster RedRat3 I2C Rev6"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev6 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_I2C_R7
+    tristate "IR_Blaster RedRat3 I2C Rev7"
+    default n
+    help
+      Support for IR_Blaster RedRat3 I2C Rev7 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R0
+    tristate "IR_Blaster RedRat3 SPI Rev0"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev0 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R1
+    tristate "IR_Blaster RedRat3 SPI Rev1"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev1 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R2
+    tristate "IR_Blaster RedRat3 SPI Rev2"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev2 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R3
+    tristate "IR_Blaster RedRat3 SPI Rev3"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev3 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R4
+    tristate "IR_Blaster RedRat3 SPI Rev4"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev4 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R5
+    tristate "IR_Blaster RedRat3 SPI Rev5"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev5 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R6
+    tristate "IR_Blaster RedRat3 SPI Rev6"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev6 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_SPI_R7
+    tristate "IR_Blaster RedRat3 SPI Rev7"
+    default n
+    help
+      Support for IR_Blaster RedRat3 SPI Rev7 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R0
+    tristate "IR_Blaster RedRat3 UART Rev0"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev0 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R1
+    tristate "IR_Blaster RedRat3 UART Rev1"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev1 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R2
+    tristate "IR_Blaster RedRat3 UART Rev2"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev2 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R3
+    tristate "IR_Blaster RedRat3 UART Rev3"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev3 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R4
+    tristate "IR_Blaster RedRat3 UART Rev4"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev4 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R5
+    tristate "IR_Blaster RedRat3 UART Rev5"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev5 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R6
+    tristate "IR_Blaster RedRat3 UART Rev6"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev6 (RedRat3)
+      Category: sensor_ir_blaster
+
+config SENSOR_IR_BLASTER_RedRat3_UART_R7
+    tristate "IR_Blaster RedRat3 UART Rev7"
+    default n
+    help
+      Support for IR_Blaster RedRat3 UART Rev7 (RedRat3)
+      Category: sensor_ir_blaster
+
+endmenu

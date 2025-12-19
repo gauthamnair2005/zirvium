@@ -3,74 +3,77 @@
 
 extern void *pmm_alloc(void);
 
-#define PML4_INDEX(addr) (((addr) >> 39) & 0x1FF)
-#define PDPT_INDEX(addr) (((addr) >> 30) & 0x1FF)
-#define PD_INDEX(addr)   (((addr) >> 21) & 0x1FF)
-#define PT_INDEX(addr)   (((addr) >> 12) & 0x1FF)
+/* 32-bit paging structures */
+#define PD_INDEX(addr)   (((addr) >> 22) & 0x3FF)
+#define PT_INDEX(addr)   (((addr) >> 12) & 0x3FF)
 
-static uint64_t *kernel_pml4 = NULL;
+static uint32_t *kernel_page_dir = NULL;
 
-static uint64_t *get_or_create_table(uint64_t *table, uint64_t index) {
+static uint32_t *get_or_create_table(uint32_t *table, uint32_t index) {
     if (!(table[index] & PAGE_PRESENT)) {
-        uint64_t *new_table = pmm_alloc();
+        uint32_t *new_table = (uint32_t*)pmm_alloc();
         if (!new_table) return NULL;
         
-        for (int i = 0; i < 512; i++) {
-            ((uint64_t*)new_table)[i] = 0;
+        for (int i = 0; i < 1024; i++) {
+            new_table[i] = 0;
         }
         
-        table[index] = (uint64_t)new_table | PAGE_PRESENT | PAGE_WRITE;
+        table[index] = (uint32_t)new_table | PAGE_PRESENT | PAGE_WRITE;
     }
-    return (uint64_t*)(table[index] & ~0xFFF);
+    return (uint32_t*)(table[index] & ~0xFFF);
 }
 
 void vmm_init(void) {
-    kernel_pml4 = pmm_alloc();
+    // For now, just initialize structures without enabling paging
+    // We're already in a flat memory model which works fine
+    kernel_page_dir = (uint32_t*)pmm_alloc();
     
-    for (int i = 0; i < 512; i++) {
-        kernel_pml4[i] = 0;
+    if (!kernel_page_dir) {
+        kprintf("Warning: Failed to allocate page directory\n");
+        return;
     }
     
-    for (uint64_t addr = 0; addr < 0x100000000; addr += PAGE_SIZE) {
-        vmm_map(PHYS_BASE + addr, addr, PAGE_PRESENT | PAGE_WRITE);
+    for (int i = 0; i < 1024; i++) {
+        kernel_page_dir[i] = 0;
     }
     
-    asm volatile("mov %0, %%cr3" :: "r"(kernel_pml4));
+    /* Identity map first 4MB for kernel */
+    for (uint32_t addr = 0; addr < 0x400000; addr += PAGE_SIZE) {
+        vmm_map(addr, addr, PAGE_PRESENT | PAGE_WRITE);
+    }
+    
+    // DON'T enable paging yet - we're fine with flat memory model
+    // asm volatile("mov %0, %%cr3" :: "r"(kernel_page_dir));
+    
+    kprintf("VMM: Page tables initialized (paging not enabled)\n");
 }
 
-void vmm_map(uint64_t virt, uint64_t phys, uint64_t flags) {
-    if (!kernel_pml4) return;
+void vmm_map(uint32_t virt, uint32_t phys, uint32_t flags) {
+    if (!kernel_page_dir) return;
     
-    uint64_t *pdpt = get_or_create_table(kernel_pml4, PML4_INDEX(virt));
-    if (!pdpt) return;
-    
-    uint64_t *pd = get_or_create_table(pdpt, PDPT_INDEX(virt));
-    if (!pd) return;
-    
-    uint64_t *pt = get_or_create_table(pd, PD_INDEX(virt));
+    uint32_t *pt = get_or_create_table(kernel_page_dir, PD_INDEX(virt));
     if (!pt) return;
     
     pt[PT_INDEX(virt)] = phys | flags;
 }
 
 void *vmm_alloc(size_t pages) {
-    static uint64_t next_virt = KERNEL_BASE + 0x10000000;
+    static uint32_t next_virt = 0x10000000;  /* Start at 256MB */
     
-    uint64_t virt = next_virt;
+    uint32_t virt = next_virt;
     for (size_t i = 0; i < pages; i++) {
-        uint64_t phys = (uint64_t)pmm_alloc();
+        uint32_t phys = (uint32_t)pmm_alloc();
         if (!phys) return NULL;
         
         vmm_map(next_virt, phys, PAGE_PRESENT | PAGE_WRITE);
         next_virt += PAGE_SIZE;
     }
     
-    return (void*)virt;
+    return (void*)(uintptr_t)virt;
 }
 
 void vmm_free(void *addr, size_t pages) {
-    uint64_t virt = (uint64_t)addr;
-    for (size_t i = 0; i < pages; i++) {
-        virt += PAGE_SIZE;
-    }
+    (void)addr;
+    (void)pages;
+    /* TODO: Implement page unmapping */
 }

@@ -1,0 +1,4309 @@
+
+menu "Ethernet Drivers"
+
+config NET_INTEL_E1000_0
+    tristate "Intel E1000 Ethernet variant 0"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_1
+    tristate "Intel E1000 Ethernet variant 1"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_2
+    tristate "Intel E1000 Ethernet variant 2"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_3
+    tristate "Intel E1000 Ethernet variant 3"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_4
+    tristate "Intel E1000 Ethernet variant 4"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_5
+    tristate "Intel E1000 Ethernet variant 5"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_6
+    tristate "Intel E1000 Ethernet variant 6"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_7
+    tristate "Intel E1000 Ethernet variant 7"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_8
+    tristate "Intel E1000 Ethernet variant 8"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_9
+    tristate "Intel E1000 Ethernet variant 9"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_10
+    tristate "Intel E1000 Ethernet variant 10"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_11
+    tristate "Intel E1000 Ethernet variant 11"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_12
+    tristate "Intel E1000 Ethernet variant 12"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_13
+    tristate "Intel E1000 Ethernet variant 13"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000_14
+    tristate "Intel E1000 Ethernet variant 14"
+    default n
+    help
+      Support for Intel E1000 Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_0
+    tristate "Intel E1000E Ethernet variant 0"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_1
+    tristate "Intel E1000E Ethernet variant 1"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_2
+    tristate "Intel E1000E Ethernet variant 2"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_3
+    tristate "Intel E1000E Ethernet variant 3"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_4
+    tristate "Intel E1000E Ethernet variant 4"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_5
+    tristate "Intel E1000E Ethernet variant 5"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_6
+    tristate "Intel E1000E Ethernet variant 6"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_7
+    tristate "Intel E1000E Ethernet variant 7"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_8
+    tristate "Intel E1000E Ethernet variant 8"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_9
+    tristate "Intel E1000E Ethernet variant 9"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_10
+    tristate "Intel E1000E Ethernet variant 10"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_11
+    tristate "Intel E1000E Ethernet variant 11"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_12
+    tristate "Intel E1000E Ethernet variant 12"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_13
+    tristate "Intel E1000E Ethernet variant 13"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_E1000E_14
+    tristate "Intel E1000E Ethernet variant 14"
+    default n
+    help
+      Support for Intel E1000E Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_0
+    tristate "Intel IGB Ethernet variant 0"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_1
+    tristate "Intel IGB Ethernet variant 1"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_2
+    tristate "Intel IGB Ethernet variant 2"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_3
+    tristate "Intel IGB Ethernet variant 3"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_4
+    tristate "Intel IGB Ethernet variant 4"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_5
+    tristate "Intel IGB Ethernet variant 5"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_6
+    tristate "Intel IGB Ethernet variant 6"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_7
+    tristate "Intel IGB Ethernet variant 7"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_8
+    tristate "Intel IGB Ethernet variant 8"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_9
+    tristate "Intel IGB Ethernet variant 9"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_10
+    tristate "Intel IGB Ethernet variant 10"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_11
+    tristate "Intel IGB Ethernet variant 11"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_12
+    tristate "Intel IGB Ethernet variant 12"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_13
+    tristate "Intel IGB Ethernet variant 13"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGB_14
+    tristate "Intel IGB Ethernet variant 14"
+    default n
+    help
+      Support for Intel IGB Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_0
+    tristate "Intel IGBVF Ethernet variant 0"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_1
+    tristate "Intel IGBVF Ethernet variant 1"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_2
+    tristate "Intel IGBVF Ethernet variant 2"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_3
+    tristate "Intel IGBVF Ethernet variant 3"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_4
+    tristate "Intel IGBVF Ethernet variant 4"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_5
+    tristate "Intel IGBVF Ethernet variant 5"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_6
+    tristate "Intel IGBVF Ethernet variant 6"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_7
+    tristate "Intel IGBVF Ethernet variant 7"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_8
+    tristate "Intel IGBVF Ethernet variant 8"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_9
+    tristate "Intel IGBVF Ethernet variant 9"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_10
+    tristate "Intel IGBVF Ethernet variant 10"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_11
+    tristate "Intel IGBVF Ethernet variant 11"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_12
+    tristate "Intel IGBVF Ethernet variant 12"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_13
+    tristate "Intel IGBVF Ethernet variant 13"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGBVF_14
+    tristate "Intel IGBVF Ethernet variant 14"
+    default n
+    help
+      Support for Intel IGBVF Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_0
+    tristate "Intel IXGB Ethernet variant 0"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_1
+    tristate "Intel IXGB Ethernet variant 1"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_2
+    tristate "Intel IXGB Ethernet variant 2"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_3
+    tristate "Intel IXGB Ethernet variant 3"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_4
+    tristate "Intel IXGB Ethernet variant 4"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_5
+    tristate "Intel IXGB Ethernet variant 5"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_6
+    tristate "Intel IXGB Ethernet variant 6"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_7
+    tristate "Intel IXGB Ethernet variant 7"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_8
+    tristate "Intel IXGB Ethernet variant 8"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_9
+    tristate "Intel IXGB Ethernet variant 9"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_10
+    tristate "Intel IXGB Ethernet variant 10"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_11
+    tristate "Intel IXGB Ethernet variant 11"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_12
+    tristate "Intel IXGB Ethernet variant 12"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_13
+    tristate "Intel IXGB Ethernet variant 13"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGB_14
+    tristate "Intel IXGB Ethernet variant 14"
+    default n
+    help
+      Support for Intel IXGB Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_0
+    tristate "Intel IXGBE Ethernet variant 0"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_1
+    tristate "Intel IXGBE Ethernet variant 1"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_2
+    tristate "Intel IXGBE Ethernet variant 2"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_3
+    tristate "Intel IXGBE Ethernet variant 3"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_4
+    tristate "Intel IXGBE Ethernet variant 4"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_5
+    tristate "Intel IXGBE Ethernet variant 5"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_6
+    tristate "Intel IXGBE Ethernet variant 6"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_7
+    tristate "Intel IXGBE Ethernet variant 7"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_8
+    tristate "Intel IXGBE Ethernet variant 8"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_9
+    tristate "Intel IXGBE Ethernet variant 9"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_10
+    tristate "Intel IXGBE Ethernet variant 10"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_11
+    tristate "Intel IXGBE Ethernet variant 11"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_12
+    tristate "Intel IXGBE Ethernet variant 12"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_13
+    tristate "Intel IXGBE Ethernet variant 13"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IXGBE_14
+    tristate "Intel IXGBE Ethernet variant 14"
+    default n
+    help
+      Support for Intel IXGBE Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_0
+    tristate "Intel I40E Ethernet variant 0"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_1
+    tristate "Intel I40E Ethernet variant 1"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_2
+    tristate "Intel I40E Ethernet variant 2"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_3
+    tristate "Intel I40E Ethernet variant 3"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_4
+    tristate "Intel I40E Ethernet variant 4"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_5
+    tristate "Intel I40E Ethernet variant 5"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_6
+    tristate "Intel I40E Ethernet variant 6"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_7
+    tristate "Intel I40E Ethernet variant 7"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_8
+    tristate "Intel I40E Ethernet variant 8"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_9
+    tristate "Intel I40E Ethernet variant 9"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_10
+    tristate "Intel I40E Ethernet variant 10"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_11
+    tristate "Intel I40E Ethernet variant 11"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_12
+    tristate "Intel I40E Ethernet variant 12"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_13
+    tristate "Intel I40E Ethernet variant 13"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_I40E_14
+    tristate "Intel I40E Ethernet variant 14"
+    default n
+    help
+      Support for Intel I40E Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_0
+    tristate "Intel ICE Ethernet variant 0"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_1
+    tristate "Intel ICE Ethernet variant 1"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_2
+    tristate "Intel ICE Ethernet variant 2"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_3
+    tristate "Intel ICE Ethernet variant 3"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_4
+    tristate "Intel ICE Ethernet variant 4"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_5
+    tristate "Intel ICE Ethernet variant 5"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_6
+    tristate "Intel ICE Ethernet variant 6"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_7
+    tristate "Intel ICE Ethernet variant 7"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_8
+    tristate "Intel ICE Ethernet variant 8"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_9
+    tristate "Intel ICE Ethernet variant 9"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_10
+    tristate "Intel ICE Ethernet variant 10"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_11
+    tristate "Intel ICE Ethernet variant 11"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_12
+    tristate "Intel ICE Ethernet variant 12"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_13
+    tristate "Intel ICE Ethernet variant 13"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_ICE_14
+    tristate "Intel ICE Ethernet variant 14"
+    default n
+    help
+      Support for Intel ICE Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_0
+    tristate "Intel IGC Ethernet variant 0"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 0 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_1
+    tristate "Intel IGC Ethernet variant 1"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 1 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_2
+    tristate "Intel IGC Ethernet variant 2"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 2 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_3
+    tristate "Intel IGC Ethernet variant 3"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 3 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_4
+    tristate "Intel IGC Ethernet variant 4"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 4 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_5
+    tristate "Intel IGC Ethernet variant 5"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 5 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_6
+    tristate "Intel IGC Ethernet variant 6"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 6 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_7
+    tristate "Intel IGC Ethernet variant 7"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 7 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_8
+    tristate "Intel IGC Ethernet variant 8"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 8 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_9
+    tristate "Intel IGC Ethernet variant 9"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 9 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_10
+    tristate "Intel IGC Ethernet variant 10"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 10 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_11
+    tristate "Intel IGC Ethernet variant 11"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 11 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_12
+    tristate "Intel IGC Ethernet variant 12"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 12 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_13
+    tristate "Intel IGC Ethernet variant 13"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 13 (Intel)
+      Category: ethernet
+
+config NET_INTEL_IGC_14
+    tristate "Intel IGC Ethernet variant 14"
+    default n
+    help
+      Support for Intel IGC Ethernet variant 14 (Intel)
+      Category: ethernet
+
+config NET_REALTEK_8139_0
+    tristate "Realtek 8139 Ethernet variant 0"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 0 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_1
+    tristate "Realtek 8139 Ethernet variant 1"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 1 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_2
+    tristate "Realtek 8139 Ethernet variant 2"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 2 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_3
+    tristate "Realtek 8139 Ethernet variant 3"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 3 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_4
+    tristate "Realtek 8139 Ethernet variant 4"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 4 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_5
+    tristate "Realtek 8139 Ethernet variant 5"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 5 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_6
+    tristate "Realtek 8139 Ethernet variant 6"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 6 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_7
+    tristate "Realtek 8139 Ethernet variant 7"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 7 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_8
+    tristate "Realtek 8139 Ethernet variant 8"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 8 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_9
+    tristate "Realtek 8139 Ethernet variant 9"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 9 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_10
+    tristate "Realtek 8139 Ethernet variant 10"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 10 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_11
+    tristate "Realtek 8139 Ethernet variant 11"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 11 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_12
+    tristate "Realtek 8139 Ethernet variant 12"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 12 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_13
+    tristate "Realtek 8139 Ethernet variant 13"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 13 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8139_14
+    tristate "Realtek 8139 Ethernet variant 14"
+    default n
+    help
+      Support for Realtek 8139 Ethernet variant 14 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_0
+    tristate "Realtek 8169 Ethernet variant 0"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 0 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_1
+    tristate "Realtek 8169 Ethernet variant 1"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 1 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_2
+    tristate "Realtek 8169 Ethernet variant 2"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 2 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_3
+    tristate "Realtek 8169 Ethernet variant 3"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 3 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_4
+    tristate "Realtek 8169 Ethernet variant 4"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 4 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_5
+    tristate "Realtek 8169 Ethernet variant 5"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 5 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_6
+    tristate "Realtek 8169 Ethernet variant 6"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 6 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_7
+    tristate "Realtek 8169 Ethernet variant 7"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 7 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_8
+    tristate "Realtek 8169 Ethernet variant 8"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 8 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_9
+    tristate "Realtek 8169 Ethernet variant 9"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 9 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_10
+    tristate "Realtek 8169 Ethernet variant 10"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 10 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_11
+    tristate "Realtek 8169 Ethernet variant 11"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 11 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_12
+    tristate "Realtek 8169 Ethernet variant 12"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 12 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_13
+    tristate "Realtek 8169 Ethernet variant 13"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 13 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8169_14
+    tristate "Realtek 8169 Ethernet variant 14"
+    default n
+    help
+      Support for Realtek 8169 Ethernet variant 14 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_0
+    tristate "Realtek 8168 Ethernet variant 0"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 0 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_1
+    tristate "Realtek 8168 Ethernet variant 1"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 1 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_2
+    tristate "Realtek 8168 Ethernet variant 2"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 2 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_3
+    tristate "Realtek 8168 Ethernet variant 3"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 3 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_4
+    tristate "Realtek 8168 Ethernet variant 4"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 4 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_5
+    tristate "Realtek 8168 Ethernet variant 5"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 5 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_6
+    tristate "Realtek 8168 Ethernet variant 6"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 6 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_7
+    tristate "Realtek 8168 Ethernet variant 7"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 7 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_8
+    tristate "Realtek 8168 Ethernet variant 8"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 8 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_9
+    tristate "Realtek 8168 Ethernet variant 9"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 9 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_10
+    tristate "Realtek 8168 Ethernet variant 10"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 10 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_11
+    tristate "Realtek 8168 Ethernet variant 11"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 11 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_12
+    tristate "Realtek 8168 Ethernet variant 12"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 12 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_13
+    tristate "Realtek 8168 Ethernet variant 13"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 13 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8168_14
+    tristate "Realtek 8168 Ethernet variant 14"
+    default n
+    help
+      Support for Realtek 8168 Ethernet variant 14 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_0
+    tristate "Realtek 8125 Ethernet variant 0"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 0 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_1
+    tristate "Realtek 8125 Ethernet variant 1"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 1 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_2
+    tristate "Realtek 8125 Ethernet variant 2"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 2 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_3
+    tristate "Realtek 8125 Ethernet variant 3"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 3 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_4
+    tristate "Realtek 8125 Ethernet variant 4"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 4 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_5
+    tristate "Realtek 8125 Ethernet variant 5"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 5 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_6
+    tristate "Realtek 8125 Ethernet variant 6"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 6 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_7
+    tristate "Realtek 8125 Ethernet variant 7"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 7 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_8
+    tristate "Realtek 8125 Ethernet variant 8"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 8 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_9
+    tristate "Realtek 8125 Ethernet variant 9"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 9 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_10
+    tristate "Realtek 8125 Ethernet variant 10"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 10 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_11
+    tristate "Realtek 8125 Ethernet variant 11"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 11 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_12
+    tristate "Realtek 8125 Ethernet variant 12"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 12 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_13
+    tristate "Realtek 8125 Ethernet variant 13"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 13 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8125_14
+    tristate "Realtek 8125 Ethernet variant 14"
+    default n
+    help
+      Support for Realtek 8125 Ethernet variant 14 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_0
+    tristate "Realtek 8111 Ethernet variant 0"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 0 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_1
+    tristate "Realtek 8111 Ethernet variant 1"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 1 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_2
+    tristate "Realtek 8111 Ethernet variant 2"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 2 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_3
+    tristate "Realtek 8111 Ethernet variant 3"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 3 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_4
+    tristate "Realtek 8111 Ethernet variant 4"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 4 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_5
+    tristate "Realtek 8111 Ethernet variant 5"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 5 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_6
+    tristate "Realtek 8111 Ethernet variant 6"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 6 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_7
+    tristate "Realtek 8111 Ethernet variant 7"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 7 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_8
+    tristate "Realtek 8111 Ethernet variant 8"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 8 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_9
+    tristate "Realtek 8111 Ethernet variant 9"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 9 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_10
+    tristate "Realtek 8111 Ethernet variant 10"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 10 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_11
+    tristate "Realtek 8111 Ethernet variant 11"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 11 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_12
+    tristate "Realtek 8111 Ethernet variant 12"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 12 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_13
+    tristate "Realtek 8111 Ethernet variant 13"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 13 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8111_14
+    tristate "Realtek 8111 Ethernet variant 14"
+    default n
+    help
+      Support for Realtek 8111 Ethernet variant 14 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_0
+    tristate "Realtek 8101 Ethernet variant 0"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 0 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_1
+    tristate "Realtek 8101 Ethernet variant 1"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 1 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_2
+    tristate "Realtek 8101 Ethernet variant 2"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 2 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_3
+    tristate "Realtek 8101 Ethernet variant 3"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 3 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_4
+    tristate "Realtek 8101 Ethernet variant 4"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 4 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_5
+    tristate "Realtek 8101 Ethernet variant 5"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 5 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_6
+    tristate "Realtek 8101 Ethernet variant 6"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 6 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_7
+    tristate "Realtek 8101 Ethernet variant 7"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 7 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_8
+    tristate "Realtek 8101 Ethernet variant 8"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 8 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_9
+    tristate "Realtek 8101 Ethernet variant 9"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 9 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_10
+    tristate "Realtek 8101 Ethernet variant 10"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 10 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_11
+    tristate "Realtek 8101 Ethernet variant 11"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 11 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_12
+    tristate "Realtek 8101 Ethernet variant 12"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 12 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_13
+    tristate "Realtek 8101 Ethernet variant 13"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 13 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8101_14
+    tristate "Realtek 8101 Ethernet variant 14"
+    default n
+    help
+      Support for Realtek 8101 Ethernet variant 14 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_0
+    tristate "Realtek 8102 Ethernet variant 0"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 0 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_1
+    tristate "Realtek 8102 Ethernet variant 1"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 1 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_2
+    tristate "Realtek 8102 Ethernet variant 2"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 2 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_3
+    tristate "Realtek 8102 Ethernet variant 3"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 3 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_4
+    tristate "Realtek 8102 Ethernet variant 4"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 4 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_5
+    tristate "Realtek 8102 Ethernet variant 5"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 5 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_6
+    tristate "Realtek 8102 Ethernet variant 6"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 6 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_7
+    tristate "Realtek 8102 Ethernet variant 7"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 7 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_8
+    tristate "Realtek 8102 Ethernet variant 8"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 8 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_9
+    tristate "Realtek 8102 Ethernet variant 9"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 9 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_10
+    tristate "Realtek 8102 Ethernet variant 10"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 10 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_11
+    tristate "Realtek 8102 Ethernet variant 11"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 11 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_12
+    tristate "Realtek 8102 Ethernet variant 12"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 12 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_13
+    tristate "Realtek 8102 Ethernet variant 13"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 13 (Realtek)
+      Category: ethernet
+
+config NET_REALTEK_8102_14
+    tristate "Realtek 8102 Ethernet variant 14"
+    default n
+    help
+      Support for Realtek 8102 Ethernet variant 14 (Realtek)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_0
+    tristate "Broadcom BCM57 Ethernet variant 0"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 0 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_1
+    tristate "Broadcom BCM57 Ethernet variant 1"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 1 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_2
+    tristate "Broadcom BCM57 Ethernet variant 2"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 2 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_3
+    tristate "Broadcom BCM57 Ethernet variant 3"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 3 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_4
+    tristate "Broadcom BCM57 Ethernet variant 4"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 4 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_5
+    tristate "Broadcom BCM57 Ethernet variant 5"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 5 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_6
+    tristate "Broadcom BCM57 Ethernet variant 6"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 6 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_7
+    tristate "Broadcom BCM57 Ethernet variant 7"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 7 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_8
+    tristate "Broadcom BCM57 Ethernet variant 8"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 8 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_9
+    tristate "Broadcom BCM57 Ethernet variant 9"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 9 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_10
+    tristate "Broadcom BCM57 Ethernet variant 10"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 10 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_11
+    tristate "Broadcom BCM57 Ethernet variant 11"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 11 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_12
+    tristate "Broadcom BCM57 Ethernet variant 12"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 12 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_13
+    tristate "Broadcom BCM57 Ethernet variant 13"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 13 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM57_14
+    tristate "Broadcom BCM57 Ethernet variant 14"
+    default n
+    help
+      Support for Broadcom BCM57 Ethernet variant 14 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_0
+    tristate "Broadcom BCM58 Ethernet variant 0"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 0 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_1
+    tristate "Broadcom BCM58 Ethernet variant 1"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 1 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_2
+    tristate "Broadcom BCM58 Ethernet variant 2"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 2 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_3
+    tristate "Broadcom BCM58 Ethernet variant 3"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 3 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_4
+    tristate "Broadcom BCM58 Ethernet variant 4"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 4 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_5
+    tristate "Broadcom BCM58 Ethernet variant 5"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 5 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_6
+    tristate "Broadcom BCM58 Ethernet variant 6"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 6 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_7
+    tristate "Broadcom BCM58 Ethernet variant 7"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 7 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_8
+    tristate "Broadcom BCM58 Ethernet variant 8"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 8 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_9
+    tristate "Broadcom BCM58 Ethernet variant 9"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 9 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_10
+    tristate "Broadcom BCM58 Ethernet variant 10"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 10 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_11
+    tristate "Broadcom BCM58 Ethernet variant 11"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 11 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_12
+    tristate "Broadcom BCM58 Ethernet variant 12"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 12 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_13
+    tristate "Broadcom BCM58 Ethernet variant 13"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 13 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BCM58_14
+    tristate "Broadcom BCM58 Ethernet variant 14"
+    default n
+    help
+      Support for Broadcom BCM58 Ethernet variant 14 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_0
+    tristate "Broadcom BNXT Ethernet variant 0"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 0 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_1
+    tristate "Broadcom BNXT Ethernet variant 1"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 1 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_2
+    tristate "Broadcom BNXT Ethernet variant 2"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 2 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_3
+    tristate "Broadcom BNXT Ethernet variant 3"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 3 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_4
+    tristate "Broadcom BNXT Ethernet variant 4"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 4 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_5
+    tristate "Broadcom BNXT Ethernet variant 5"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 5 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_6
+    tristate "Broadcom BNXT Ethernet variant 6"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 6 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_7
+    tristate "Broadcom BNXT Ethernet variant 7"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 7 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_8
+    tristate "Broadcom BNXT Ethernet variant 8"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 8 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_9
+    tristate "Broadcom BNXT Ethernet variant 9"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 9 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_10
+    tristate "Broadcom BNXT Ethernet variant 10"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 10 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_11
+    tristate "Broadcom BNXT Ethernet variant 11"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 11 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_12
+    tristate "Broadcom BNXT Ethernet variant 12"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 12 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_13
+    tristate "Broadcom BNXT Ethernet variant 13"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 13 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNXT_14
+    tristate "Broadcom BNXT Ethernet variant 14"
+    default n
+    help
+      Support for Broadcom BNXT Ethernet variant 14 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_0
+    tristate "Broadcom BNX2 Ethernet variant 0"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 0 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_1
+    tristate "Broadcom BNX2 Ethernet variant 1"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 1 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_2
+    tristate "Broadcom BNX2 Ethernet variant 2"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 2 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_3
+    tristate "Broadcom BNX2 Ethernet variant 3"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 3 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_4
+    tristate "Broadcom BNX2 Ethernet variant 4"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 4 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_5
+    tristate "Broadcom BNX2 Ethernet variant 5"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 5 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_6
+    tristate "Broadcom BNX2 Ethernet variant 6"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 6 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_7
+    tristate "Broadcom BNX2 Ethernet variant 7"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 7 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_8
+    tristate "Broadcom BNX2 Ethernet variant 8"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 8 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_9
+    tristate "Broadcom BNX2 Ethernet variant 9"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 9 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_10
+    tristate "Broadcom BNX2 Ethernet variant 10"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 10 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_11
+    tristate "Broadcom BNX2 Ethernet variant 11"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 11 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_12
+    tristate "Broadcom BNX2 Ethernet variant 12"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 12 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_13
+    tristate "Broadcom BNX2 Ethernet variant 13"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 13 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2_14
+    tristate "Broadcom BNX2 Ethernet variant 14"
+    default n
+    help
+      Support for Broadcom BNX2 Ethernet variant 14 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_0
+    tristate "Broadcom BNX2X Ethernet variant 0"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 0 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_1
+    tristate "Broadcom BNX2X Ethernet variant 1"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 1 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_2
+    tristate "Broadcom BNX2X Ethernet variant 2"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 2 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_3
+    tristate "Broadcom BNX2X Ethernet variant 3"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 3 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_4
+    tristate "Broadcom BNX2X Ethernet variant 4"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 4 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_5
+    tristate "Broadcom BNX2X Ethernet variant 5"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 5 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_6
+    tristate "Broadcom BNX2X Ethernet variant 6"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 6 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_7
+    tristate "Broadcom BNX2X Ethernet variant 7"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 7 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_8
+    tristate "Broadcom BNX2X Ethernet variant 8"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 8 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_9
+    tristate "Broadcom BNX2X Ethernet variant 9"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 9 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_10
+    tristate "Broadcom BNX2X Ethernet variant 10"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 10 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_11
+    tristate "Broadcom BNX2X Ethernet variant 11"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 11 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_12
+    tristate "Broadcom BNX2X Ethernet variant 12"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 12 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_13
+    tristate "Broadcom BNX2X Ethernet variant 13"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 13 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_BNX2X_14
+    tristate "Broadcom BNX2X Ethernet variant 14"
+    default n
+    help
+      Support for Broadcom BNX2X Ethernet variant 14 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_0
+    tristate "Broadcom TIGON3 Ethernet variant 0"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 0 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_1
+    tristate "Broadcom TIGON3 Ethernet variant 1"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 1 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_2
+    tristate "Broadcom TIGON3 Ethernet variant 2"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 2 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_3
+    tristate "Broadcom TIGON3 Ethernet variant 3"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 3 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_4
+    tristate "Broadcom TIGON3 Ethernet variant 4"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 4 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_5
+    tristate "Broadcom TIGON3 Ethernet variant 5"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 5 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_6
+    tristate "Broadcom TIGON3 Ethernet variant 6"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 6 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_7
+    tristate "Broadcom TIGON3 Ethernet variant 7"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 7 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_8
+    tristate "Broadcom TIGON3 Ethernet variant 8"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 8 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_9
+    tristate "Broadcom TIGON3 Ethernet variant 9"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 9 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_10
+    tristate "Broadcom TIGON3 Ethernet variant 10"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 10 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_11
+    tristate "Broadcom TIGON3 Ethernet variant 11"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 11 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_12
+    tristate "Broadcom TIGON3 Ethernet variant 12"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 12 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_13
+    tristate "Broadcom TIGON3 Ethernet variant 13"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 13 (Broadcom)
+      Category: ethernet
+
+config NET_BROADCOM_TIGON3_14
+    tristate "Broadcom TIGON3 Ethernet variant 14"
+    default n
+    help
+      Support for Broadcom TIGON3 Ethernet variant 14 (Broadcom)
+      Category: ethernet
+
+config NET_AMD_AMD8111_0
+    tristate "AMD AMD8111 Ethernet variant 0"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 0 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_1
+    tristate "AMD AMD8111 Ethernet variant 1"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 1 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_2
+    tristate "AMD AMD8111 Ethernet variant 2"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 2 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_3
+    tristate "AMD AMD8111 Ethernet variant 3"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 3 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_4
+    tristate "AMD AMD8111 Ethernet variant 4"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 4 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_5
+    tristate "AMD AMD8111 Ethernet variant 5"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 5 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_6
+    tristate "AMD AMD8111 Ethernet variant 6"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 6 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_7
+    tristate "AMD AMD8111 Ethernet variant 7"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 7 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_8
+    tristate "AMD AMD8111 Ethernet variant 8"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 8 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_9
+    tristate "AMD AMD8111 Ethernet variant 9"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 9 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_10
+    tristate "AMD AMD8111 Ethernet variant 10"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 10 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_11
+    tristate "AMD AMD8111 Ethernet variant 11"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 11 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_12
+    tristate "AMD AMD8111 Ethernet variant 12"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 12 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_13
+    tristate "AMD AMD8111 Ethernet variant 13"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 13 (AMD)
+      Category: ethernet
+
+config NET_AMD_AMD8111_14
+    tristate "AMD AMD8111 Ethernet variant 14"
+    default n
+    help
+      Support for AMD AMD8111 Ethernet variant 14 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_0
+    tristate "AMD PCNET Ethernet variant 0"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 0 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_1
+    tristate "AMD PCNET Ethernet variant 1"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 1 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_2
+    tristate "AMD PCNET Ethernet variant 2"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 2 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_3
+    tristate "AMD PCNET Ethernet variant 3"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 3 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_4
+    tristate "AMD PCNET Ethernet variant 4"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 4 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_5
+    tristate "AMD PCNET Ethernet variant 5"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 5 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_6
+    tristate "AMD PCNET Ethernet variant 6"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 6 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_7
+    tristate "AMD PCNET Ethernet variant 7"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 7 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_8
+    tristate "AMD PCNET Ethernet variant 8"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 8 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_9
+    tristate "AMD PCNET Ethernet variant 9"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 9 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_10
+    tristate "AMD PCNET Ethernet variant 10"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 10 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_11
+    tristate "AMD PCNET Ethernet variant 11"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 11 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_12
+    tristate "AMD PCNET Ethernet variant 12"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 12 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_13
+    tristate "AMD PCNET Ethernet variant 13"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 13 (AMD)
+      Category: ethernet
+
+config NET_AMD_PCNET_14
+    tristate "AMD PCNET Ethernet variant 14"
+    default n
+    help
+      Support for AMD PCNET Ethernet variant 14 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_0
+    tristate "AMD ATL1 Ethernet variant 0"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 0 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_1
+    tristate "AMD ATL1 Ethernet variant 1"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 1 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_2
+    tristate "AMD ATL1 Ethernet variant 2"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 2 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_3
+    tristate "AMD ATL1 Ethernet variant 3"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 3 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_4
+    tristate "AMD ATL1 Ethernet variant 4"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 4 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_5
+    tristate "AMD ATL1 Ethernet variant 5"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 5 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_6
+    tristate "AMD ATL1 Ethernet variant 6"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 6 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_7
+    tristate "AMD ATL1 Ethernet variant 7"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 7 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_8
+    tristate "AMD ATL1 Ethernet variant 8"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 8 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_9
+    tristate "AMD ATL1 Ethernet variant 9"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 9 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_10
+    tristate "AMD ATL1 Ethernet variant 10"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 10 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_11
+    tristate "AMD ATL1 Ethernet variant 11"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 11 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_12
+    tristate "AMD ATL1 Ethernet variant 12"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 12 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_13
+    tristate "AMD ATL1 Ethernet variant 13"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 13 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL1_14
+    tristate "AMD ATL1 Ethernet variant 14"
+    default n
+    help
+      Support for AMD ATL1 Ethernet variant 14 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_0
+    tristate "AMD ATL2 Ethernet variant 0"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 0 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_1
+    tristate "AMD ATL2 Ethernet variant 1"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 1 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_2
+    tristate "AMD ATL2 Ethernet variant 2"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 2 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_3
+    tristate "AMD ATL2 Ethernet variant 3"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 3 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_4
+    tristate "AMD ATL2 Ethernet variant 4"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 4 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_5
+    tristate "AMD ATL2 Ethernet variant 5"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 5 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_6
+    tristate "AMD ATL2 Ethernet variant 6"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 6 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_7
+    tristate "AMD ATL2 Ethernet variant 7"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 7 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_8
+    tristate "AMD ATL2 Ethernet variant 8"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 8 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_9
+    tristate "AMD ATL2 Ethernet variant 9"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 9 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_10
+    tristate "AMD ATL2 Ethernet variant 10"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 10 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_11
+    tristate "AMD ATL2 Ethernet variant 11"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 11 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_12
+    tristate "AMD ATL2 Ethernet variant 12"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 12 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_13
+    tristate "AMD ATL2 Ethernet variant 13"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 13 (AMD)
+      Category: ethernet
+
+config NET_AMD_ATL2_14
+    tristate "AMD ATL2 Ethernet variant 14"
+    default n
+    help
+      Support for AMD ATL2 Ethernet variant 14 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_0
+    tristate "AMD ALX Ethernet variant 0"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 0 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_1
+    tristate "AMD ALX Ethernet variant 1"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 1 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_2
+    tristate "AMD ALX Ethernet variant 2"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 2 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_3
+    tristate "AMD ALX Ethernet variant 3"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 3 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_4
+    tristate "AMD ALX Ethernet variant 4"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 4 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_5
+    tristate "AMD ALX Ethernet variant 5"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 5 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_6
+    tristate "AMD ALX Ethernet variant 6"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 6 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_7
+    tristate "AMD ALX Ethernet variant 7"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 7 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_8
+    tristate "AMD ALX Ethernet variant 8"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 8 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_9
+    tristate "AMD ALX Ethernet variant 9"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 9 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_10
+    tristate "AMD ALX Ethernet variant 10"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 10 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_11
+    tristate "AMD ALX Ethernet variant 11"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 11 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_12
+    tristate "AMD ALX Ethernet variant 12"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 12 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_13
+    tristate "AMD ALX Ethernet variant 13"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 13 (AMD)
+      Category: ethernet
+
+config NET_AMD_ALX_14
+    tristate "AMD ALX Ethernet variant 14"
+    default n
+    help
+      Support for AMD ALX Ethernet variant 14 (AMD)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_0
+    tristate "Marvell SKGE Ethernet variant 0"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 0 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_1
+    tristate "Marvell SKGE Ethernet variant 1"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 1 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_2
+    tristate "Marvell SKGE Ethernet variant 2"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 2 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_3
+    tristate "Marvell SKGE Ethernet variant 3"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 3 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_4
+    tristate "Marvell SKGE Ethernet variant 4"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 4 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_5
+    tristate "Marvell SKGE Ethernet variant 5"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 5 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_6
+    tristate "Marvell SKGE Ethernet variant 6"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 6 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_7
+    tristate "Marvell SKGE Ethernet variant 7"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 7 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_8
+    tristate "Marvell SKGE Ethernet variant 8"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 8 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_9
+    tristate "Marvell SKGE Ethernet variant 9"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 9 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_10
+    tristate "Marvell SKGE Ethernet variant 10"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 10 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_11
+    tristate "Marvell SKGE Ethernet variant 11"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 11 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_12
+    tristate "Marvell SKGE Ethernet variant 12"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 12 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_13
+    tristate "Marvell SKGE Ethernet variant 13"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 13 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKGE_14
+    tristate "Marvell SKGE Ethernet variant 14"
+    default n
+    help
+      Support for Marvell SKGE Ethernet variant 14 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_0
+    tristate "Marvell SKY2 Ethernet variant 0"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 0 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_1
+    tristate "Marvell SKY2 Ethernet variant 1"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 1 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_2
+    tristate "Marvell SKY2 Ethernet variant 2"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 2 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_3
+    tristate "Marvell SKY2 Ethernet variant 3"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 3 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_4
+    tristate "Marvell SKY2 Ethernet variant 4"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 4 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_5
+    tristate "Marvell SKY2 Ethernet variant 5"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 5 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_6
+    tristate "Marvell SKY2 Ethernet variant 6"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 6 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_7
+    tristate "Marvell SKY2 Ethernet variant 7"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 7 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_8
+    tristate "Marvell SKY2 Ethernet variant 8"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 8 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_9
+    tristate "Marvell SKY2 Ethernet variant 9"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 9 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_10
+    tristate "Marvell SKY2 Ethernet variant 10"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 10 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_11
+    tristate "Marvell SKY2 Ethernet variant 11"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 11 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_12
+    tristate "Marvell SKY2 Ethernet variant 12"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 12 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_13
+    tristate "Marvell SKY2 Ethernet variant 13"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 13 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_SKY2_14
+    tristate "Marvell SKY2 Ethernet variant 14"
+    default n
+    help
+      Support for Marvell SKY2 Ethernet variant 14 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_0
+    tristate "Marvell MVNETA Ethernet variant 0"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 0 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_1
+    tristate "Marvell MVNETA Ethernet variant 1"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 1 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_2
+    tristate "Marvell MVNETA Ethernet variant 2"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 2 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_3
+    tristate "Marvell MVNETA Ethernet variant 3"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 3 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_4
+    tristate "Marvell MVNETA Ethernet variant 4"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 4 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_5
+    tristate "Marvell MVNETA Ethernet variant 5"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 5 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_6
+    tristate "Marvell MVNETA Ethernet variant 6"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 6 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_7
+    tristate "Marvell MVNETA Ethernet variant 7"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 7 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_8
+    tristate "Marvell MVNETA Ethernet variant 8"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 8 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_9
+    tristate "Marvell MVNETA Ethernet variant 9"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 9 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_10
+    tristate "Marvell MVNETA Ethernet variant 10"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 10 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_11
+    tristate "Marvell MVNETA Ethernet variant 11"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 11 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_12
+    tristate "Marvell MVNETA Ethernet variant 12"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 12 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_13
+    tristate "Marvell MVNETA Ethernet variant 13"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 13 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVNETA_14
+    tristate "Marvell MVNETA Ethernet variant 14"
+    default n
+    help
+      Support for Marvell MVNETA Ethernet variant 14 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_0
+    tristate "Marvell MVPP2 Ethernet variant 0"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 0 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_1
+    tristate "Marvell MVPP2 Ethernet variant 1"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 1 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_2
+    tristate "Marvell MVPP2 Ethernet variant 2"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 2 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_3
+    tristate "Marvell MVPP2 Ethernet variant 3"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 3 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_4
+    tristate "Marvell MVPP2 Ethernet variant 4"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 4 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_5
+    tristate "Marvell MVPP2 Ethernet variant 5"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 5 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_6
+    tristate "Marvell MVPP2 Ethernet variant 6"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 6 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_7
+    tristate "Marvell MVPP2 Ethernet variant 7"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 7 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_8
+    tristate "Marvell MVPP2 Ethernet variant 8"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 8 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_9
+    tristate "Marvell MVPP2 Ethernet variant 9"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 9 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_10
+    tristate "Marvell MVPP2 Ethernet variant 10"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 10 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_11
+    tristate "Marvell MVPP2 Ethernet variant 11"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 11 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_12
+    tristate "Marvell MVPP2 Ethernet variant 12"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 12 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_13
+    tristate "Marvell MVPP2 Ethernet variant 13"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 13 (Marvell)
+      Category: ethernet
+
+config NET_MARVELL_MVPP2_14
+    tristate "Marvell MVPP2 Ethernet variant 14"
+    default n
+    help
+      Support for Marvell MVPP2 Ethernet variant 14 (Marvell)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_0
+    tristate "NVIDIA FORCEDETH Ethernet variant 0"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 0 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_1
+    tristate "NVIDIA FORCEDETH Ethernet variant 1"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 1 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_2
+    tristate "NVIDIA FORCEDETH Ethernet variant 2"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 2 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_3
+    tristate "NVIDIA FORCEDETH Ethernet variant 3"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 3 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_4
+    tristate "NVIDIA FORCEDETH Ethernet variant 4"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 4 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_5
+    tristate "NVIDIA FORCEDETH Ethernet variant 5"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 5 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_6
+    tristate "NVIDIA FORCEDETH Ethernet variant 6"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 6 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_7
+    tristate "NVIDIA FORCEDETH Ethernet variant 7"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 7 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_8
+    tristate "NVIDIA FORCEDETH Ethernet variant 8"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 8 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_9
+    tristate "NVIDIA FORCEDETH Ethernet variant 9"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 9 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_10
+    tristate "NVIDIA FORCEDETH Ethernet variant 10"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 10 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_11
+    tristate "NVIDIA FORCEDETH Ethernet variant 11"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 11 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_12
+    tristate "NVIDIA FORCEDETH Ethernet variant 12"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 12 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_13
+    tristate "NVIDIA FORCEDETH Ethernet variant 13"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 13 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_FORCEDETH_14
+    tristate "NVIDIA FORCEDETH Ethernet variant 14"
+    default n
+    help
+      Support for NVIDIA FORCEDETH Ethernet variant 14 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_0
+    tristate "NVIDIA NFORCE Ethernet variant 0"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 0 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_1
+    tristate "NVIDIA NFORCE Ethernet variant 1"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 1 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_2
+    tristate "NVIDIA NFORCE Ethernet variant 2"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 2 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_3
+    tristate "NVIDIA NFORCE Ethernet variant 3"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 3 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_4
+    tristate "NVIDIA NFORCE Ethernet variant 4"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 4 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_5
+    tristate "NVIDIA NFORCE Ethernet variant 5"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 5 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_6
+    tristate "NVIDIA NFORCE Ethernet variant 6"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 6 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_7
+    tristate "NVIDIA NFORCE Ethernet variant 7"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 7 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_8
+    tristate "NVIDIA NFORCE Ethernet variant 8"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 8 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_9
+    tristate "NVIDIA NFORCE Ethernet variant 9"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 9 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_10
+    tristate "NVIDIA NFORCE Ethernet variant 10"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 10 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_11
+    tristate "NVIDIA NFORCE Ethernet variant 11"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 11 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_12
+    tristate "NVIDIA NFORCE Ethernet variant 12"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 12 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_13
+    tristate "NVIDIA NFORCE Ethernet variant 13"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 13 (NVIDIA)
+      Category: ethernet
+
+config NET_NVIDIA_NFORCE_14
+    tristate "NVIDIA NFORCE Ethernet variant 14"
+    default n
+    help
+      Support for NVIDIA NFORCE Ethernet variant 14 (NVIDIA)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_0
+    tristate "Mellanox MLX4 Ethernet variant 0"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 0 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_1
+    tristate "Mellanox MLX4 Ethernet variant 1"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 1 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_2
+    tristate "Mellanox MLX4 Ethernet variant 2"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 2 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_3
+    tristate "Mellanox MLX4 Ethernet variant 3"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 3 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_4
+    tristate "Mellanox MLX4 Ethernet variant 4"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 4 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_5
+    tristate "Mellanox MLX4 Ethernet variant 5"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 5 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_6
+    tristate "Mellanox MLX4 Ethernet variant 6"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 6 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_7
+    tristate "Mellanox MLX4 Ethernet variant 7"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 7 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_8
+    tristate "Mellanox MLX4 Ethernet variant 8"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 8 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_9
+    tristate "Mellanox MLX4 Ethernet variant 9"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 9 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_10
+    tristate "Mellanox MLX4 Ethernet variant 10"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 10 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_11
+    tristate "Mellanox MLX4 Ethernet variant 11"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 11 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_12
+    tristate "Mellanox MLX4 Ethernet variant 12"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 12 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_13
+    tristate "Mellanox MLX4 Ethernet variant 13"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 13 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX4_14
+    tristate "Mellanox MLX4 Ethernet variant 14"
+    default n
+    help
+      Support for Mellanox MLX4 Ethernet variant 14 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_0
+    tristate "Mellanox MLX5 Ethernet variant 0"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 0 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_1
+    tristate "Mellanox MLX5 Ethernet variant 1"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 1 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_2
+    tristate "Mellanox MLX5 Ethernet variant 2"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 2 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_3
+    tristate "Mellanox MLX5 Ethernet variant 3"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 3 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_4
+    tristate "Mellanox MLX5 Ethernet variant 4"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 4 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_5
+    tristate "Mellanox MLX5 Ethernet variant 5"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 5 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_6
+    tristate "Mellanox MLX5 Ethernet variant 6"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 6 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_7
+    tristate "Mellanox MLX5 Ethernet variant 7"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 7 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_8
+    tristate "Mellanox MLX5 Ethernet variant 8"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 8 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_9
+    tristate "Mellanox MLX5 Ethernet variant 9"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 9 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_10
+    tristate "Mellanox MLX5 Ethernet variant 10"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 10 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_11
+    tristate "Mellanox MLX5 Ethernet variant 11"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 11 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_12
+    tristate "Mellanox MLX5 Ethernet variant 12"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 12 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_13
+    tristate "Mellanox MLX5 Ethernet variant 13"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 13 (Mellanox)
+      Category: ethernet
+
+config NET_MELLANOX_MLX5_14
+    tristate "Mellanox MLX5 Ethernet variant 14"
+    default n
+    help
+      Support for Mellanox MLX5 Ethernet variant 14 (Mellanox)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_0
+    tristate "Qualcomm QCA Ethernet variant 0"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 0 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_1
+    tristate "Qualcomm QCA Ethernet variant 1"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 1 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_2
+    tristate "Qualcomm QCA Ethernet variant 2"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 2 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_3
+    tristate "Qualcomm QCA Ethernet variant 3"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 3 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_4
+    tristate "Qualcomm QCA Ethernet variant 4"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 4 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_5
+    tristate "Qualcomm QCA Ethernet variant 5"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 5 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_6
+    tristate "Qualcomm QCA Ethernet variant 6"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 6 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_7
+    tristate "Qualcomm QCA Ethernet variant 7"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 7 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_8
+    tristate "Qualcomm QCA Ethernet variant 8"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 8 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_9
+    tristate "Qualcomm QCA Ethernet variant 9"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 9 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_10
+    tristate "Qualcomm QCA Ethernet variant 10"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 10 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_11
+    tristate "Qualcomm QCA Ethernet variant 11"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 11 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_12
+    tristate "Qualcomm QCA Ethernet variant 12"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 12 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_13
+    tristate "Qualcomm QCA Ethernet variant 13"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 13 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QCA_14
+    tristate "Qualcomm QCA Ethernet variant 14"
+    default n
+    help
+      Support for Qualcomm QCA Ethernet variant 14 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_0
+    tristate "Qualcomm QEDE Ethernet variant 0"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 0 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_1
+    tristate "Qualcomm QEDE Ethernet variant 1"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 1 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_2
+    tristate "Qualcomm QEDE Ethernet variant 2"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 2 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_3
+    tristate "Qualcomm QEDE Ethernet variant 3"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 3 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_4
+    tristate "Qualcomm QEDE Ethernet variant 4"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 4 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_5
+    tristate "Qualcomm QEDE Ethernet variant 5"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 5 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_6
+    tristate "Qualcomm QEDE Ethernet variant 6"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 6 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_7
+    tristate "Qualcomm QEDE Ethernet variant 7"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 7 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_8
+    tristate "Qualcomm QEDE Ethernet variant 8"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 8 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_9
+    tristate "Qualcomm QEDE Ethernet variant 9"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 9 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_10
+    tristate "Qualcomm QEDE Ethernet variant 10"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 10 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_11
+    tristate "Qualcomm QEDE Ethernet variant 11"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 11 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_12
+    tristate "Qualcomm QEDE Ethernet variant 12"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 12 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_13
+    tristate "Qualcomm QEDE Ethernet variant 13"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 13 (Qualcomm)
+      Category: ethernet
+
+config NET_QUALCOMM_QEDE_14
+    tristate "Qualcomm QEDE Ethernet variant 14"
+    default n
+    help
+      Support for Qualcomm QEDE Ethernet variant 14 (Qualcomm)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_0
+    tristate "VIA VELOCITY Ethernet variant 0"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 0 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_1
+    tristate "VIA VELOCITY Ethernet variant 1"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 1 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_2
+    tristate "VIA VELOCITY Ethernet variant 2"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 2 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_3
+    tristate "VIA VELOCITY Ethernet variant 3"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 3 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_4
+    tristate "VIA VELOCITY Ethernet variant 4"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 4 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_5
+    tristate "VIA VELOCITY Ethernet variant 5"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 5 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_6
+    tristate "VIA VELOCITY Ethernet variant 6"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 6 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_7
+    tristate "VIA VELOCITY Ethernet variant 7"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 7 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_8
+    tristate "VIA VELOCITY Ethernet variant 8"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 8 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_9
+    tristate "VIA VELOCITY Ethernet variant 9"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 9 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_10
+    tristate "VIA VELOCITY Ethernet variant 10"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 10 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_11
+    tristate "VIA VELOCITY Ethernet variant 11"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 11 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_12
+    tristate "VIA VELOCITY Ethernet variant 12"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 12 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_13
+    tristate "VIA VELOCITY Ethernet variant 13"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 13 (VIA)
+      Category: ethernet
+
+config NET_VIA_VELOCITY_14
+    tristate "VIA VELOCITY Ethernet variant 14"
+    default n
+    help
+      Support for VIA VELOCITY Ethernet variant 14 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_0
+    tristate "VIA RHINE Ethernet variant 0"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 0 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_1
+    tristate "VIA RHINE Ethernet variant 1"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 1 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_2
+    tristate "VIA RHINE Ethernet variant 2"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 2 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_3
+    tristate "VIA RHINE Ethernet variant 3"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 3 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_4
+    tristate "VIA RHINE Ethernet variant 4"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 4 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_5
+    tristate "VIA RHINE Ethernet variant 5"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 5 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_6
+    tristate "VIA RHINE Ethernet variant 6"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 6 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_7
+    tristate "VIA RHINE Ethernet variant 7"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 7 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_8
+    tristate "VIA RHINE Ethernet variant 8"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 8 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_9
+    tristate "VIA RHINE Ethernet variant 9"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 9 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_10
+    tristate "VIA RHINE Ethernet variant 10"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 10 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_11
+    tristate "VIA RHINE Ethernet variant 11"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 11 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_12
+    tristate "VIA RHINE Ethernet variant 12"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 12 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_13
+    tristate "VIA RHINE Ethernet variant 13"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 13 (VIA)
+      Category: ethernet
+
+config NET_VIA_RHINE_14
+    tristate "VIA RHINE Ethernet variant 14"
+    default n
+    help
+      Support for VIA RHINE Ethernet variant 14 (VIA)
+      Category: ethernet
+
+config NET_SIS_SIS900_0
+    tristate "SIS SIS900 Ethernet variant 0"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 0 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_1
+    tristate "SIS SIS900 Ethernet variant 1"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 1 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_2
+    tristate "SIS SIS900 Ethernet variant 2"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 2 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_3
+    tristate "SIS SIS900 Ethernet variant 3"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 3 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_4
+    tristate "SIS SIS900 Ethernet variant 4"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 4 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_5
+    tristate "SIS SIS900 Ethernet variant 5"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 5 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_6
+    tristate "SIS SIS900 Ethernet variant 6"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 6 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_7
+    tristate "SIS SIS900 Ethernet variant 7"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 7 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_8
+    tristate "SIS SIS900 Ethernet variant 8"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 8 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_9
+    tristate "SIS SIS900 Ethernet variant 9"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 9 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_10
+    tristate "SIS SIS900 Ethernet variant 10"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 10 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_11
+    tristate "SIS SIS900 Ethernet variant 11"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 11 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_12
+    tristate "SIS SIS900 Ethernet variant 12"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 12 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_13
+    tristate "SIS SIS900 Ethernet variant 13"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 13 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS900_14
+    tristate "SIS SIS900 Ethernet variant 14"
+    default n
+    help
+      Support for SIS SIS900 Ethernet variant 14 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_0
+    tristate "SIS SIS190 Ethernet variant 0"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 0 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_1
+    tristate "SIS SIS190 Ethernet variant 1"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 1 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_2
+    tristate "SIS SIS190 Ethernet variant 2"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 2 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_3
+    tristate "SIS SIS190 Ethernet variant 3"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 3 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_4
+    tristate "SIS SIS190 Ethernet variant 4"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 4 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_5
+    tristate "SIS SIS190 Ethernet variant 5"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 5 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_6
+    tristate "SIS SIS190 Ethernet variant 6"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 6 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_7
+    tristate "SIS SIS190 Ethernet variant 7"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 7 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_8
+    tristate "SIS SIS190 Ethernet variant 8"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 8 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_9
+    tristate "SIS SIS190 Ethernet variant 9"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 9 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_10
+    tristate "SIS SIS190 Ethernet variant 10"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 10 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_11
+    tristate "SIS SIS190 Ethernet variant 11"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 11 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_12
+    tristate "SIS SIS190 Ethernet variant 12"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 12 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_13
+    tristate "SIS SIS190 Ethernet variant 13"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 13 (SIS)
+      Category: ethernet
+
+config NET_SIS_SIS190_14
+    tristate "SIS SIS190 Ethernet variant 14"
+    default n
+    help
+      Support for SIS SIS190 Ethernet variant 14 (SIS)
+      Category: ethernet
+
+endmenu

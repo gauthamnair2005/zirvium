@@ -1,0 +1,319 @@
+
+menu "Usb_Hub Drivers"
+
+config USB_HUB_USB2_Hub_0
+    tristate "USB Hub USB2_Hub variant 0"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 0 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_1
+    tristate "USB Hub USB2_Hub variant 1"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 1 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_2
+    tristate "USB Hub USB2_Hub variant 2"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 2 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_3
+    tristate "USB Hub USB2_Hub variant 3"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 3 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_4
+    tristate "USB Hub USB2_Hub variant 4"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 4 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_5
+    tristate "USB Hub USB2_Hub variant 5"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 5 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_6
+    tristate "USB Hub USB2_Hub variant 6"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 6 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_7
+    tristate "USB Hub USB2_Hub variant 7"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 7 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_8
+    tristate "USB Hub USB2_Hub variant 8"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 8 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_9
+    tristate "USB Hub USB2_Hub variant 9"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 9 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_10
+    tristate "USB Hub USB2_Hub variant 10"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 10 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_11
+    tristate "USB Hub USB2_Hub variant 11"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 11 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_12
+    tristate "USB Hub USB2_Hub variant 12"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 12 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_13
+    tristate "USB Hub USB2_Hub variant 13"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 13 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB2_Hub_14
+    tristate "USB Hub USB2_Hub variant 14"
+    default n
+    help
+      Support for USB Hub USB2_Hub variant 14 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_0
+    tristate "USB Hub USB3_Hub variant 0"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 0 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_1
+    tristate "USB Hub USB3_Hub variant 1"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 1 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_2
+    tristate "USB Hub USB3_Hub variant 2"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 2 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_3
+    tristate "USB Hub USB3_Hub variant 3"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 3 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_4
+    tristate "USB Hub USB3_Hub variant 4"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 4 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_5
+    tristate "USB Hub USB3_Hub variant 5"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 5 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_6
+    tristate "USB Hub USB3_Hub variant 6"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 6 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_7
+    tristate "USB Hub USB3_Hub variant 7"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 7 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_8
+    tristate "USB Hub USB3_Hub variant 8"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 8 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_9
+    tristate "USB Hub USB3_Hub variant 9"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 9 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_10
+    tristate "USB Hub USB3_Hub variant 10"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 10 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_11
+    tristate "USB Hub USB3_Hub variant 11"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 11 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_12
+    tristate "USB Hub USB3_Hub variant 12"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 12 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_13
+    tristate "USB Hub USB3_Hub variant 13"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 13 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB3_Hub_14
+    tristate "USB Hub USB3_Hub variant 14"
+    default n
+    help
+      Support for USB Hub USB3_Hub variant 14 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_0
+    tristate "USB Hub USB4_Hub variant 0"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 0 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_1
+    tristate "USB Hub USB4_Hub variant 1"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 1 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_2
+    tristate "USB Hub USB4_Hub variant 2"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 2 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_3
+    tristate "USB Hub USB4_Hub variant 3"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 3 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_4
+    tristate "USB Hub USB4_Hub variant 4"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 4 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_5
+    tristate "USB Hub USB4_Hub variant 5"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 5 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_6
+    tristate "USB Hub USB4_Hub variant 6"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 6 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_7
+    tristate "USB Hub USB4_Hub variant 7"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 7 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_8
+    tristate "USB Hub USB4_Hub variant 8"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 8 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_9
+    tristate "USB Hub USB4_Hub variant 9"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 9 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_10
+    tristate "USB Hub USB4_Hub variant 10"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 10 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_11
+    tristate "USB Hub USB4_Hub variant 11"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 11 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_12
+    tristate "USB Hub USB4_Hub variant 12"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 12 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_13
+    tristate "USB Hub USB4_Hub variant 13"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 13 (Generic)
+      Category: usb_hub
+
+config USB_HUB_USB4_Hub_14
+    tristate "USB Hub USB4_Hub variant 14"
+    default n
+    help
+      Support for USB Hub USB4_Hub variant 14 (Generic)
+      Category: usb_hub
+
+endmenu

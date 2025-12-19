@@ -1,0 +1,319 @@
+
+menu "Usb_Video Drivers"
+
+config USB_VIDEO_Webcam_0
+    tristate "USB Video Webcam variant 0"
+    default n
+    help
+      Support for USB Video Webcam variant 0 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_1
+    tristate "USB Video Webcam variant 1"
+    default n
+    help
+      Support for USB Video Webcam variant 1 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_2
+    tristate "USB Video Webcam variant 2"
+    default n
+    help
+      Support for USB Video Webcam variant 2 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_3
+    tristate "USB Video Webcam variant 3"
+    default n
+    help
+      Support for USB Video Webcam variant 3 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_4
+    tristate "USB Video Webcam variant 4"
+    default n
+    help
+      Support for USB Video Webcam variant 4 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_5
+    tristate "USB Video Webcam variant 5"
+    default n
+    help
+      Support for USB Video Webcam variant 5 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_6
+    tristate "USB Video Webcam variant 6"
+    default n
+    help
+      Support for USB Video Webcam variant 6 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_7
+    tristate "USB Video Webcam variant 7"
+    default n
+    help
+      Support for USB Video Webcam variant 7 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_8
+    tristate "USB Video Webcam variant 8"
+    default n
+    help
+      Support for USB Video Webcam variant 8 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_9
+    tristate "USB Video Webcam variant 9"
+    default n
+    help
+      Support for USB Video Webcam variant 9 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_10
+    tristate "USB Video Webcam variant 10"
+    default n
+    help
+      Support for USB Video Webcam variant 10 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_11
+    tristate "USB Video Webcam variant 11"
+    default n
+    help
+      Support for USB Video Webcam variant 11 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_12
+    tristate "USB Video Webcam variant 12"
+    default n
+    help
+      Support for USB Video Webcam variant 12 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_13
+    tristate "USB Video Webcam variant 13"
+    default n
+    help
+      Support for USB Video Webcam variant 13 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Webcam_14
+    tristate "USB Video Webcam variant 14"
+    default n
+    help
+      Support for USB Video Webcam variant 14 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_0
+    tristate "USB Video Capture_Card variant 0"
+    default n
+    help
+      Support for USB Video Capture_Card variant 0 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_1
+    tristate "USB Video Capture_Card variant 1"
+    default n
+    help
+      Support for USB Video Capture_Card variant 1 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_2
+    tristate "USB Video Capture_Card variant 2"
+    default n
+    help
+      Support for USB Video Capture_Card variant 2 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_3
+    tristate "USB Video Capture_Card variant 3"
+    default n
+    help
+      Support for USB Video Capture_Card variant 3 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_4
+    tristate "USB Video Capture_Card variant 4"
+    default n
+    help
+      Support for USB Video Capture_Card variant 4 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_5
+    tristate "USB Video Capture_Card variant 5"
+    default n
+    help
+      Support for USB Video Capture_Card variant 5 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_6
+    tristate "USB Video Capture_Card variant 6"
+    default n
+    help
+      Support for USB Video Capture_Card variant 6 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_7
+    tristate "USB Video Capture_Card variant 7"
+    default n
+    help
+      Support for USB Video Capture_Card variant 7 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_8
+    tristate "USB Video Capture_Card variant 8"
+    default n
+    help
+      Support for USB Video Capture_Card variant 8 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_9
+    tristate "USB Video Capture_Card variant 9"
+    default n
+    help
+      Support for USB Video Capture_Card variant 9 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_10
+    tristate "USB Video Capture_Card variant 10"
+    default n
+    help
+      Support for USB Video Capture_Card variant 10 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_11
+    tristate "USB Video Capture_Card variant 11"
+    default n
+    help
+      Support for USB Video Capture_Card variant 11 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_12
+    tristate "USB Video Capture_Card variant 12"
+    default n
+    help
+      Support for USB Video Capture_Card variant 12 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_13
+    tristate "USB Video Capture_Card variant 13"
+    default n
+    help
+      Support for USB Video Capture_Card variant 13 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Capture_Card_14
+    tristate "USB Video Capture_Card variant 14"
+    default n
+    help
+      Support for USB Video Capture_Card variant 14 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_0
+    tristate "USB Video Video_Conference variant 0"
+    default n
+    help
+      Support for USB Video Video_Conference variant 0 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_1
+    tristate "USB Video Video_Conference variant 1"
+    default n
+    help
+      Support for USB Video Video_Conference variant 1 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_2
+    tristate "USB Video Video_Conference variant 2"
+    default n
+    help
+      Support for USB Video Video_Conference variant 2 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_3
+    tristate "USB Video Video_Conference variant 3"
+    default n
+    help
+      Support for USB Video Video_Conference variant 3 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_4
+    tristate "USB Video Video_Conference variant 4"
+    default n
+    help
+      Support for USB Video Video_Conference variant 4 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_5
+    tristate "USB Video Video_Conference variant 5"
+    default n
+    help
+      Support for USB Video Video_Conference variant 5 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_6
+    tristate "USB Video Video_Conference variant 6"
+    default n
+    help
+      Support for USB Video Video_Conference variant 6 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_7
+    tristate "USB Video Video_Conference variant 7"
+    default n
+    help
+      Support for USB Video Video_Conference variant 7 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_8
+    tristate "USB Video Video_Conference variant 8"
+    default n
+    help
+      Support for USB Video Video_Conference variant 8 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_9
+    tristate "USB Video Video_Conference variant 9"
+    default n
+    help
+      Support for USB Video Video_Conference variant 9 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_10
+    tristate "USB Video Video_Conference variant 10"
+    default n
+    help
+      Support for USB Video Video_Conference variant 10 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_11
+    tristate "USB Video Video_Conference variant 11"
+    default n
+    help
+      Support for USB Video Video_Conference variant 11 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_12
+    tristate "USB Video Video_Conference variant 12"
+    default n
+    help
+      Support for USB Video Video_Conference variant 12 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_13
+    tristate "USB Video Video_Conference variant 13"
+    default n
+    help
+      Support for USB Video Video_Conference variant 13 (Generic)
+      Category: usb_video
+
+config USB_VIDEO_Video_Conference_14
+    tristate "USB Video Video_Conference variant 14"
+    default n
+    help
+      Support for USB Video Video_Conference variant 14 (Generic)
+      Category: usb_video
+
+endmenu

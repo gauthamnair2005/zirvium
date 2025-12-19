@@ -1,0 +1,8 @@
+# Thunderbolt driver Kconfig for Zirvium
+
+config THUNDERBOLT_DRIVER
+    tristate "Thunderbolt controller driver implementation"
+    depends on THUNDERBOLT
+    default y
+    help
+      Intel Thunderbolt 3/4 controller driver.

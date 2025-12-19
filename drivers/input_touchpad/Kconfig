@@ -1,0 +1,1474 @@
+
+menu "Input_Touchpad Drivers"
+
+config INPUT_TOUCHPAD_SYNAPTICS_P0
+    tristate "Synaptics Touchpad Protocol 0"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 0 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P1
+    tristate "Synaptics Touchpad Protocol 1"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 1 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P2
+    tristate "Synaptics Touchpad Protocol 2"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 2 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P3
+    tristate "Synaptics Touchpad Protocol 3"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 3 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P4
+    tristate "Synaptics Touchpad Protocol 4"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 4 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P5
+    tristate "Synaptics Touchpad Protocol 5"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 5 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P6
+    tristate "Synaptics Touchpad Protocol 6"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 6 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P7
+    tristate "Synaptics Touchpad Protocol 7"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 7 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P8
+    tristate "Synaptics Touchpad Protocol 8"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 8 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P9
+    tristate "Synaptics Touchpad Protocol 9"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 9 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P10
+    tristate "Synaptics Touchpad Protocol 10"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 10 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P11
+    tristate "Synaptics Touchpad Protocol 11"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 11 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P12
+    tristate "Synaptics Touchpad Protocol 12"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 12 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P13
+    tristate "Synaptics Touchpad Protocol 13"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 13 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P14
+    tristate "Synaptics Touchpad Protocol 14"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 14 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P15
+    tristate "Synaptics Touchpad Protocol 15"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 15 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P16
+    tristate "Synaptics Touchpad Protocol 16"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 16 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P17
+    tristate "Synaptics Touchpad Protocol 17"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 17 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P18
+    tristate "Synaptics Touchpad Protocol 18"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 18 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P19
+    tristate "Synaptics Touchpad Protocol 19"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 19 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P20
+    tristate "Synaptics Touchpad Protocol 20"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 20 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P21
+    tristate "Synaptics Touchpad Protocol 21"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 21 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P22
+    tristate "Synaptics Touchpad Protocol 22"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 22 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P23
+    tristate "Synaptics Touchpad Protocol 23"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 23 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P24
+    tristate "Synaptics Touchpad Protocol 24"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 24 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P25
+    tristate "Synaptics Touchpad Protocol 25"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 25 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P26
+    tristate "Synaptics Touchpad Protocol 26"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 26 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P27
+    tristate "Synaptics Touchpad Protocol 27"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 27 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P28
+    tristate "Synaptics Touchpad Protocol 28"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 28 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P29
+    tristate "Synaptics Touchpad Protocol 29"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 29 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P30
+    tristate "Synaptics Touchpad Protocol 30"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 30 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P31
+    tristate "Synaptics Touchpad Protocol 31"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 31 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P32
+    tristate "Synaptics Touchpad Protocol 32"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 32 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P33
+    tristate "Synaptics Touchpad Protocol 33"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 33 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SYNAPTICS_P34
+    tristate "Synaptics Touchpad Protocol 34"
+    default n
+    help
+      Support for Synaptics Touchpad Protocol 34 (Synaptics)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P0
+    tristate "ALPS Touchpad Protocol 0"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 0 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P1
+    tristate "ALPS Touchpad Protocol 1"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 1 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P2
+    tristate "ALPS Touchpad Protocol 2"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 2 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P3
+    tristate "ALPS Touchpad Protocol 3"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 3 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P4
+    tristate "ALPS Touchpad Protocol 4"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 4 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P5
+    tristate "ALPS Touchpad Protocol 5"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 5 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P6
+    tristate "ALPS Touchpad Protocol 6"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 6 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P7
+    tristate "ALPS Touchpad Protocol 7"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 7 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P8
+    tristate "ALPS Touchpad Protocol 8"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 8 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P9
+    tristate "ALPS Touchpad Protocol 9"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 9 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P10
+    tristate "ALPS Touchpad Protocol 10"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 10 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P11
+    tristate "ALPS Touchpad Protocol 11"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 11 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P12
+    tristate "ALPS Touchpad Protocol 12"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 12 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P13
+    tristate "ALPS Touchpad Protocol 13"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 13 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P14
+    tristate "ALPS Touchpad Protocol 14"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 14 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P15
+    tristate "ALPS Touchpad Protocol 15"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 15 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P16
+    tristate "ALPS Touchpad Protocol 16"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 16 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P17
+    tristate "ALPS Touchpad Protocol 17"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 17 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P18
+    tristate "ALPS Touchpad Protocol 18"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 18 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P19
+    tristate "ALPS Touchpad Protocol 19"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 19 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P20
+    tristate "ALPS Touchpad Protocol 20"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 20 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P21
+    tristate "ALPS Touchpad Protocol 21"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 21 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P22
+    tristate "ALPS Touchpad Protocol 22"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 22 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P23
+    tristate "ALPS Touchpad Protocol 23"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 23 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P24
+    tristate "ALPS Touchpad Protocol 24"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 24 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P25
+    tristate "ALPS Touchpad Protocol 25"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 25 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P26
+    tristate "ALPS Touchpad Protocol 26"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 26 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P27
+    tristate "ALPS Touchpad Protocol 27"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 27 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P28
+    tristate "ALPS Touchpad Protocol 28"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 28 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P29
+    tristate "ALPS Touchpad Protocol 29"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 29 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P30
+    tristate "ALPS Touchpad Protocol 30"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 30 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P31
+    tristate "ALPS Touchpad Protocol 31"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 31 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P32
+    tristate "ALPS Touchpad Protocol 32"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 32 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P33
+    tristate "ALPS Touchpad Protocol 33"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 33 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ALPS_P34
+    tristate "ALPS Touchpad Protocol 34"
+    default n
+    help
+      Support for ALPS Touchpad Protocol 34 (ALPS)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P0
+    tristate "Elan Touchpad Protocol 0"
+    default n
+    help
+      Support for Elan Touchpad Protocol 0 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P1
+    tristate "Elan Touchpad Protocol 1"
+    default n
+    help
+      Support for Elan Touchpad Protocol 1 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P2
+    tristate "Elan Touchpad Protocol 2"
+    default n
+    help
+      Support for Elan Touchpad Protocol 2 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P3
+    tristate "Elan Touchpad Protocol 3"
+    default n
+    help
+      Support for Elan Touchpad Protocol 3 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P4
+    tristate "Elan Touchpad Protocol 4"
+    default n
+    help
+      Support for Elan Touchpad Protocol 4 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P5
+    tristate "Elan Touchpad Protocol 5"
+    default n
+    help
+      Support for Elan Touchpad Protocol 5 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P6
+    tristate "Elan Touchpad Protocol 6"
+    default n
+    help
+      Support for Elan Touchpad Protocol 6 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P7
+    tristate "Elan Touchpad Protocol 7"
+    default n
+    help
+      Support for Elan Touchpad Protocol 7 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P8
+    tristate "Elan Touchpad Protocol 8"
+    default n
+    help
+      Support for Elan Touchpad Protocol 8 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P9
+    tristate "Elan Touchpad Protocol 9"
+    default n
+    help
+      Support for Elan Touchpad Protocol 9 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P10
+    tristate "Elan Touchpad Protocol 10"
+    default n
+    help
+      Support for Elan Touchpad Protocol 10 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P11
+    tristate "Elan Touchpad Protocol 11"
+    default n
+    help
+      Support for Elan Touchpad Protocol 11 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P12
+    tristate "Elan Touchpad Protocol 12"
+    default n
+    help
+      Support for Elan Touchpad Protocol 12 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P13
+    tristate "Elan Touchpad Protocol 13"
+    default n
+    help
+      Support for Elan Touchpad Protocol 13 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P14
+    tristate "Elan Touchpad Protocol 14"
+    default n
+    help
+      Support for Elan Touchpad Protocol 14 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P15
+    tristate "Elan Touchpad Protocol 15"
+    default n
+    help
+      Support for Elan Touchpad Protocol 15 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P16
+    tristate "Elan Touchpad Protocol 16"
+    default n
+    help
+      Support for Elan Touchpad Protocol 16 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P17
+    tristate "Elan Touchpad Protocol 17"
+    default n
+    help
+      Support for Elan Touchpad Protocol 17 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P18
+    tristate "Elan Touchpad Protocol 18"
+    default n
+    help
+      Support for Elan Touchpad Protocol 18 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P19
+    tristate "Elan Touchpad Protocol 19"
+    default n
+    help
+      Support for Elan Touchpad Protocol 19 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P20
+    tristate "Elan Touchpad Protocol 20"
+    default n
+    help
+      Support for Elan Touchpad Protocol 20 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P21
+    tristate "Elan Touchpad Protocol 21"
+    default n
+    help
+      Support for Elan Touchpad Protocol 21 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P22
+    tristate "Elan Touchpad Protocol 22"
+    default n
+    help
+      Support for Elan Touchpad Protocol 22 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P23
+    tristate "Elan Touchpad Protocol 23"
+    default n
+    help
+      Support for Elan Touchpad Protocol 23 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P24
+    tristate "Elan Touchpad Protocol 24"
+    default n
+    help
+      Support for Elan Touchpad Protocol 24 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P25
+    tristate "Elan Touchpad Protocol 25"
+    default n
+    help
+      Support for Elan Touchpad Protocol 25 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P26
+    tristate "Elan Touchpad Protocol 26"
+    default n
+    help
+      Support for Elan Touchpad Protocol 26 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P27
+    tristate "Elan Touchpad Protocol 27"
+    default n
+    help
+      Support for Elan Touchpad Protocol 27 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P28
+    tristate "Elan Touchpad Protocol 28"
+    default n
+    help
+      Support for Elan Touchpad Protocol 28 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P29
+    tristate "Elan Touchpad Protocol 29"
+    default n
+    help
+      Support for Elan Touchpad Protocol 29 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P30
+    tristate "Elan Touchpad Protocol 30"
+    default n
+    help
+      Support for Elan Touchpad Protocol 30 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P31
+    tristate "Elan Touchpad Protocol 31"
+    default n
+    help
+      Support for Elan Touchpad Protocol 31 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P32
+    tristate "Elan Touchpad Protocol 32"
+    default n
+    help
+      Support for Elan Touchpad Protocol 32 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P33
+    tristate "Elan Touchpad Protocol 33"
+    default n
+    help
+      Support for Elan Touchpad Protocol 33 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_ELAN_P34
+    tristate "Elan Touchpad Protocol 34"
+    default n
+    help
+      Support for Elan Touchpad Protocol 34 (Elan)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P0
+    tristate "Cypress Touchpad Protocol 0"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 0 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P1
+    tristate "Cypress Touchpad Protocol 1"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 1 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P2
+    tristate "Cypress Touchpad Protocol 2"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 2 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P3
+    tristate "Cypress Touchpad Protocol 3"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 3 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P4
+    tristate "Cypress Touchpad Protocol 4"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 4 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P5
+    tristate "Cypress Touchpad Protocol 5"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 5 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P6
+    tristate "Cypress Touchpad Protocol 6"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 6 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P7
+    tristate "Cypress Touchpad Protocol 7"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 7 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P8
+    tristate "Cypress Touchpad Protocol 8"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 8 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P9
+    tristate "Cypress Touchpad Protocol 9"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 9 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P10
+    tristate "Cypress Touchpad Protocol 10"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 10 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P11
+    tristate "Cypress Touchpad Protocol 11"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 11 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P12
+    tristate "Cypress Touchpad Protocol 12"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 12 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P13
+    tristate "Cypress Touchpad Protocol 13"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 13 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P14
+    tristate "Cypress Touchpad Protocol 14"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 14 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P15
+    tristate "Cypress Touchpad Protocol 15"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 15 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P16
+    tristate "Cypress Touchpad Protocol 16"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 16 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P17
+    tristate "Cypress Touchpad Protocol 17"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 17 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P18
+    tristate "Cypress Touchpad Protocol 18"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 18 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P19
+    tristate "Cypress Touchpad Protocol 19"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 19 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P20
+    tristate "Cypress Touchpad Protocol 20"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 20 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P21
+    tristate "Cypress Touchpad Protocol 21"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 21 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P22
+    tristate "Cypress Touchpad Protocol 22"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 22 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P23
+    tristate "Cypress Touchpad Protocol 23"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 23 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P24
+    tristate "Cypress Touchpad Protocol 24"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 24 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P25
+    tristate "Cypress Touchpad Protocol 25"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 25 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P26
+    tristate "Cypress Touchpad Protocol 26"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 26 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P27
+    tristate "Cypress Touchpad Protocol 27"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 27 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P28
+    tristate "Cypress Touchpad Protocol 28"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 28 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P29
+    tristate "Cypress Touchpad Protocol 29"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 29 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P30
+    tristate "Cypress Touchpad Protocol 30"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 30 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P31
+    tristate "Cypress Touchpad Protocol 31"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 31 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P32
+    tristate "Cypress Touchpad Protocol 32"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 32 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P33
+    tristate "Cypress Touchpad Protocol 33"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 33 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_CYPRESS_P34
+    tristate "Cypress Touchpad Protocol 34"
+    default n
+    help
+      Support for Cypress Touchpad Protocol 34 (Cypress)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P0
+    tristate "Sentelic Touchpad Protocol 0"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 0 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P1
+    tristate "Sentelic Touchpad Protocol 1"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 1 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P2
+    tristate "Sentelic Touchpad Protocol 2"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 2 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P3
+    tristate "Sentelic Touchpad Protocol 3"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 3 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P4
+    tristate "Sentelic Touchpad Protocol 4"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 4 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P5
+    tristate "Sentelic Touchpad Protocol 5"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 5 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P6
+    tristate "Sentelic Touchpad Protocol 6"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 6 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P7
+    tristate "Sentelic Touchpad Protocol 7"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 7 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P8
+    tristate "Sentelic Touchpad Protocol 8"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 8 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P9
+    tristate "Sentelic Touchpad Protocol 9"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 9 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P10
+    tristate "Sentelic Touchpad Protocol 10"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 10 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P11
+    tristate "Sentelic Touchpad Protocol 11"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 11 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P12
+    tristate "Sentelic Touchpad Protocol 12"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 12 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P13
+    tristate "Sentelic Touchpad Protocol 13"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 13 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P14
+    tristate "Sentelic Touchpad Protocol 14"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 14 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P15
+    tristate "Sentelic Touchpad Protocol 15"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 15 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P16
+    tristate "Sentelic Touchpad Protocol 16"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 16 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P17
+    tristate "Sentelic Touchpad Protocol 17"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 17 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P18
+    tristate "Sentelic Touchpad Protocol 18"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 18 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P19
+    tristate "Sentelic Touchpad Protocol 19"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 19 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P20
+    tristate "Sentelic Touchpad Protocol 20"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 20 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P21
+    tristate "Sentelic Touchpad Protocol 21"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 21 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P22
+    tristate "Sentelic Touchpad Protocol 22"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 22 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P23
+    tristate "Sentelic Touchpad Protocol 23"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 23 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P24
+    tristate "Sentelic Touchpad Protocol 24"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 24 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P25
+    tristate "Sentelic Touchpad Protocol 25"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 25 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P26
+    tristate "Sentelic Touchpad Protocol 26"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 26 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P27
+    tristate "Sentelic Touchpad Protocol 27"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 27 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P28
+    tristate "Sentelic Touchpad Protocol 28"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 28 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P29
+    tristate "Sentelic Touchpad Protocol 29"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 29 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P30
+    tristate "Sentelic Touchpad Protocol 30"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 30 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P31
+    tristate "Sentelic Touchpad Protocol 31"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 31 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P32
+    tristate "Sentelic Touchpad Protocol 32"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 32 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P33
+    tristate "Sentelic Touchpad Protocol 33"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 33 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_SENTELIC_P34
+    tristate "Sentelic Touchpad Protocol 34"
+    default n
+    help
+      Support for Sentelic Touchpad Protocol 34 (Sentelic)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P0
+    tristate "FocalTech Touchpad Protocol 0"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 0 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P1
+    tristate "FocalTech Touchpad Protocol 1"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 1 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P2
+    tristate "FocalTech Touchpad Protocol 2"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 2 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P3
+    tristate "FocalTech Touchpad Protocol 3"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 3 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P4
+    tristate "FocalTech Touchpad Protocol 4"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 4 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P5
+    tristate "FocalTech Touchpad Protocol 5"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 5 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P6
+    tristate "FocalTech Touchpad Protocol 6"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 6 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P7
+    tristate "FocalTech Touchpad Protocol 7"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 7 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P8
+    tristate "FocalTech Touchpad Protocol 8"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 8 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P9
+    tristate "FocalTech Touchpad Protocol 9"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 9 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P10
+    tristate "FocalTech Touchpad Protocol 10"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 10 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P11
+    tristate "FocalTech Touchpad Protocol 11"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 11 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P12
+    tristate "FocalTech Touchpad Protocol 12"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 12 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P13
+    tristate "FocalTech Touchpad Protocol 13"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 13 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P14
+    tristate "FocalTech Touchpad Protocol 14"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 14 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P15
+    tristate "FocalTech Touchpad Protocol 15"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 15 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P16
+    tristate "FocalTech Touchpad Protocol 16"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 16 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P17
+    tristate "FocalTech Touchpad Protocol 17"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 17 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P18
+    tristate "FocalTech Touchpad Protocol 18"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 18 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P19
+    tristate "FocalTech Touchpad Protocol 19"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 19 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P20
+    tristate "FocalTech Touchpad Protocol 20"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 20 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P21
+    tristate "FocalTech Touchpad Protocol 21"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 21 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P22
+    tristate "FocalTech Touchpad Protocol 22"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 22 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P23
+    tristate "FocalTech Touchpad Protocol 23"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 23 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P24
+    tristate "FocalTech Touchpad Protocol 24"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 24 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P25
+    tristate "FocalTech Touchpad Protocol 25"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 25 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P26
+    tristate "FocalTech Touchpad Protocol 26"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 26 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P27
+    tristate "FocalTech Touchpad Protocol 27"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 27 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P28
+    tristate "FocalTech Touchpad Protocol 28"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 28 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P29
+    tristate "FocalTech Touchpad Protocol 29"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 29 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P30
+    tristate "FocalTech Touchpad Protocol 30"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 30 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P31
+    tristate "FocalTech Touchpad Protocol 31"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 31 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P32
+    tristate "FocalTech Touchpad Protocol 32"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 32 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P33
+    tristate "FocalTech Touchpad Protocol 33"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 33 (FocalTech)
+      Category: input_touchpad
+
+config INPUT_TOUCHPAD_FOCALTECH_P34
+    tristate "FocalTech Touchpad Protocol 34"
+    default n
+    help
+      Support for FocalTech Touchpad Protocol 34 (FocalTech)
+      Category: input_touchpad
+
+endmenu

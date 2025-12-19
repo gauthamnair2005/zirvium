@@ -1,0 +1,8 @@
+# Watchdog driver Kconfig for Zirvium
+
+config I6300ESB_WDT_DRIVER
+    tristate "Intel 6300ESB watchdog implementation"
+    depends on I6300ESB_WDT
+    default y
+    help
+      Intel 6300ESB watchdog timer driver.

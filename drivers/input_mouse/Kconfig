@@ -1,0 +1,1474 @@
+
+menu "Input_Mouse Drivers"
+
+config INPUT_MOUSE_LOGITECH_0
+    tristate "Logitech Mouse model 0"
+    default n
+    help
+      Support for Logitech Mouse model 0 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_1
+    tristate "Logitech Mouse model 1"
+    default n
+    help
+      Support for Logitech Mouse model 1 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_2
+    tristate "Logitech Mouse model 2"
+    default n
+    help
+      Support for Logitech Mouse model 2 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_3
+    tristate "Logitech Mouse model 3"
+    default n
+    help
+      Support for Logitech Mouse model 3 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_4
+    tristate "Logitech Mouse model 4"
+    default n
+    help
+      Support for Logitech Mouse model 4 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_5
+    tristate "Logitech Mouse model 5"
+    default n
+    help
+      Support for Logitech Mouse model 5 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_6
+    tristate "Logitech Mouse model 6"
+    default n
+    help
+      Support for Logitech Mouse model 6 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_7
+    tristate "Logitech Mouse model 7"
+    default n
+    help
+      Support for Logitech Mouse model 7 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_8
+    tristate "Logitech Mouse model 8"
+    default n
+    help
+      Support for Logitech Mouse model 8 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_9
+    tristate "Logitech Mouse model 9"
+    default n
+    help
+      Support for Logitech Mouse model 9 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_10
+    tristate "Logitech Mouse model 10"
+    default n
+    help
+      Support for Logitech Mouse model 10 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_11
+    tristate "Logitech Mouse model 11"
+    default n
+    help
+      Support for Logitech Mouse model 11 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_12
+    tristate "Logitech Mouse model 12"
+    default n
+    help
+      Support for Logitech Mouse model 12 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_13
+    tristate "Logitech Mouse model 13"
+    default n
+    help
+      Support for Logitech Mouse model 13 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_14
+    tristate "Logitech Mouse model 14"
+    default n
+    help
+      Support for Logitech Mouse model 14 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_15
+    tristate "Logitech Mouse model 15"
+    default n
+    help
+      Support for Logitech Mouse model 15 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_16
+    tristate "Logitech Mouse model 16"
+    default n
+    help
+      Support for Logitech Mouse model 16 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_17
+    tristate "Logitech Mouse model 17"
+    default n
+    help
+      Support for Logitech Mouse model 17 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_18
+    tristate "Logitech Mouse model 18"
+    default n
+    help
+      Support for Logitech Mouse model 18 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_19
+    tristate "Logitech Mouse model 19"
+    default n
+    help
+      Support for Logitech Mouse model 19 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_20
+    tristate "Logitech Mouse model 20"
+    default n
+    help
+      Support for Logitech Mouse model 20 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_21
+    tristate "Logitech Mouse model 21"
+    default n
+    help
+      Support for Logitech Mouse model 21 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_22
+    tristate "Logitech Mouse model 22"
+    default n
+    help
+      Support for Logitech Mouse model 22 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_23
+    tristate "Logitech Mouse model 23"
+    default n
+    help
+      Support for Logitech Mouse model 23 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_24
+    tristate "Logitech Mouse model 24"
+    default n
+    help
+      Support for Logitech Mouse model 24 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_25
+    tristate "Logitech Mouse model 25"
+    default n
+    help
+      Support for Logitech Mouse model 25 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_26
+    tristate "Logitech Mouse model 26"
+    default n
+    help
+      Support for Logitech Mouse model 26 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_27
+    tristate "Logitech Mouse model 27"
+    default n
+    help
+      Support for Logitech Mouse model 27 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_28
+    tristate "Logitech Mouse model 28"
+    default n
+    help
+      Support for Logitech Mouse model 28 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_29
+    tristate "Logitech Mouse model 29"
+    default n
+    help
+      Support for Logitech Mouse model 29 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_30
+    tristate "Logitech Mouse model 30"
+    default n
+    help
+      Support for Logitech Mouse model 30 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_31
+    tristate "Logitech Mouse model 31"
+    default n
+    help
+      Support for Logitech Mouse model 31 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_32
+    tristate "Logitech Mouse model 32"
+    default n
+    help
+      Support for Logitech Mouse model 32 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_33
+    tristate "Logitech Mouse model 33"
+    default n
+    help
+      Support for Logitech Mouse model 33 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_LOGITECH_34
+    tristate "Logitech Mouse model 34"
+    default n
+    help
+      Support for Logitech Mouse model 34 (Logitech)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_0
+    tristate "Razer Mouse model 0"
+    default n
+    help
+      Support for Razer Mouse model 0 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_1
+    tristate "Razer Mouse model 1"
+    default n
+    help
+      Support for Razer Mouse model 1 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_2
+    tristate "Razer Mouse model 2"
+    default n
+    help
+      Support for Razer Mouse model 2 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_3
+    tristate "Razer Mouse model 3"
+    default n
+    help
+      Support for Razer Mouse model 3 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_4
+    tristate "Razer Mouse model 4"
+    default n
+    help
+      Support for Razer Mouse model 4 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_5
+    tristate "Razer Mouse model 5"
+    default n
+    help
+      Support for Razer Mouse model 5 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_6
+    tristate "Razer Mouse model 6"
+    default n
+    help
+      Support for Razer Mouse model 6 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_7
+    tristate "Razer Mouse model 7"
+    default n
+    help
+      Support for Razer Mouse model 7 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_8
+    tristate "Razer Mouse model 8"
+    default n
+    help
+      Support for Razer Mouse model 8 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_9
+    tristate "Razer Mouse model 9"
+    default n
+    help
+      Support for Razer Mouse model 9 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_10
+    tristate "Razer Mouse model 10"
+    default n
+    help
+      Support for Razer Mouse model 10 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_11
+    tristate "Razer Mouse model 11"
+    default n
+    help
+      Support for Razer Mouse model 11 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_12
+    tristate "Razer Mouse model 12"
+    default n
+    help
+      Support for Razer Mouse model 12 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_13
+    tristate "Razer Mouse model 13"
+    default n
+    help
+      Support for Razer Mouse model 13 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_14
+    tristate "Razer Mouse model 14"
+    default n
+    help
+      Support for Razer Mouse model 14 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_15
+    tristate "Razer Mouse model 15"
+    default n
+    help
+      Support for Razer Mouse model 15 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_16
+    tristate "Razer Mouse model 16"
+    default n
+    help
+      Support for Razer Mouse model 16 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_17
+    tristate "Razer Mouse model 17"
+    default n
+    help
+      Support for Razer Mouse model 17 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_18
+    tristate "Razer Mouse model 18"
+    default n
+    help
+      Support for Razer Mouse model 18 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_19
+    tristate "Razer Mouse model 19"
+    default n
+    help
+      Support for Razer Mouse model 19 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_20
+    tristate "Razer Mouse model 20"
+    default n
+    help
+      Support for Razer Mouse model 20 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_21
+    tristate "Razer Mouse model 21"
+    default n
+    help
+      Support for Razer Mouse model 21 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_22
+    tristate "Razer Mouse model 22"
+    default n
+    help
+      Support for Razer Mouse model 22 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_23
+    tristate "Razer Mouse model 23"
+    default n
+    help
+      Support for Razer Mouse model 23 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_24
+    tristate "Razer Mouse model 24"
+    default n
+    help
+      Support for Razer Mouse model 24 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_25
+    tristate "Razer Mouse model 25"
+    default n
+    help
+      Support for Razer Mouse model 25 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_26
+    tristate "Razer Mouse model 26"
+    default n
+    help
+      Support for Razer Mouse model 26 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_27
+    tristate "Razer Mouse model 27"
+    default n
+    help
+      Support for Razer Mouse model 27 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_28
+    tristate "Razer Mouse model 28"
+    default n
+    help
+      Support for Razer Mouse model 28 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_29
+    tristate "Razer Mouse model 29"
+    default n
+    help
+      Support for Razer Mouse model 29 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_30
+    tristate "Razer Mouse model 30"
+    default n
+    help
+      Support for Razer Mouse model 30 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_31
+    tristate "Razer Mouse model 31"
+    default n
+    help
+      Support for Razer Mouse model 31 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_32
+    tristate "Razer Mouse model 32"
+    default n
+    help
+      Support for Razer Mouse model 32 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_33
+    tristate "Razer Mouse model 33"
+    default n
+    help
+      Support for Razer Mouse model 33 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_RAZER_34
+    tristate "Razer Mouse model 34"
+    default n
+    help
+      Support for Razer Mouse model 34 (Razer)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_0
+    tristate "SteelSeries Mouse model 0"
+    default n
+    help
+      Support for SteelSeries Mouse model 0 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_1
+    tristate "SteelSeries Mouse model 1"
+    default n
+    help
+      Support for SteelSeries Mouse model 1 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_2
+    tristate "SteelSeries Mouse model 2"
+    default n
+    help
+      Support for SteelSeries Mouse model 2 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_3
+    tristate "SteelSeries Mouse model 3"
+    default n
+    help
+      Support for SteelSeries Mouse model 3 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_4
+    tristate "SteelSeries Mouse model 4"
+    default n
+    help
+      Support for SteelSeries Mouse model 4 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_5
+    tristate "SteelSeries Mouse model 5"
+    default n
+    help
+      Support for SteelSeries Mouse model 5 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_6
+    tristate "SteelSeries Mouse model 6"
+    default n
+    help
+      Support for SteelSeries Mouse model 6 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_7
+    tristate "SteelSeries Mouse model 7"
+    default n
+    help
+      Support for SteelSeries Mouse model 7 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_8
+    tristate "SteelSeries Mouse model 8"
+    default n
+    help
+      Support for SteelSeries Mouse model 8 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_9
+    tristate "SteelSeries Mouse model 9"
+    default n
+    help
+      Support for SteelSeries Mouse model 9 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_10
+    tristate "SteelSeries Mouse model 10"
+    default n
+    help
+      Support for SteelSeries Mouse model 10 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_11
+    tristate "SteelSeries Mouse model 11"
+    default n
+    help
+      Support for SteelSeries Mouse model 11 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_12
+    tristate "SteelSeries Mouse model 12"
+    default n
+    help
+      Support for SteelSeries Mouse model 12 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_13
+    tristate "SteelSeries Mouse model 13"
+    default n
+    help
+      Support for SteelSeries Mouse model 13 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_14
+    tristate "SteelSeries Mouse model 14"
+    default n
+    help
+      Support for SteelSeries Mouse model 14 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_15
+    tristate "SteelSeries Mouse model 15"
+    default n
+    help
+      Support for SteelSeries Mouse model 15 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_16
+    tristate "SteelSeries Mouse model 16"
+    default n
+    help
+      Support for SteelSeries Mouse model 16 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_17
+    tristate "SteelSeries Mouse model 17"
+    default n
+    help
+      Support for SteelSeries Mouse model 17 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_18
+    tristate "SteelSeries Mouse model 18"
+    default n
+    help
+      Support for SteelSeries Mouse model 18 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_19
+    tristate "SteelSeries Mouse model 19"
+    default n
+    help
+      Support for SteelSeries Mouse model 19 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_20
+    tristate "SteelSeries Mouse model 20"
+    default n
+    help
+      Support for SteelSeries Mouse model 20 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_21
+    tristate "SteelSeries Mouse model 21"
+    default n
+    help
+      Support for SteelSeries Mouse model 21 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_22
+    tristate "SteelSeries Mouse model 22"
+    default n
+    help
+      Support for SteelSeries Mouse model 22 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_23
+    tristate "SteelSeries Mouse model 23"
+    default n
+    help
+      Support for SteelSeries Mouse model 23 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_24
+    tristate "SteelSeries Mouse model 24"
+    default n
+    help
+      Support for SteelSeries Mouse model 24 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_25
+    tristate "SteelSeries Mouse model 25"
+    default n
+    help
+      Support for SteelSeries Mouse model 25 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_26
+    tristate "SteelSeries Mouse model 26"
+    default n
+    help
+      Support for SteelSeries Mouse model 26 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_27
+    tristate "SteelSeries Mouse model 27"
+    default n
+    help
+      Support for SteelSeries Mouse model 27 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_28
+    tristate "SteelSeries Mouse model 28"
+    default n
+    help
+      Support for SteelSeries Mouse model 28 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_29
+    tristate "SteelSeries Mouse model 29"
+    default n
+    help
+      Support for SteelSeries Mouse model 29 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_30
+    tristate "SteelSeries Mouse model 30"
+    default n
+    help
+      Support for SteelSeries Mouse model 30 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_31
+    tristate "SteelSeries Mouse model 31"
+    default n
+    help
+      Support for SteelSeries Mouse model 31 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_32
+    tristate "SteelSeries Mouse model 32"
+    default n
+    help
+      Support for SteelSeries Mouse model 32 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_33
+    tristate "SteelSeries Mouse model 33"
+    default n
+    help
+      Support for SteelSeries Mouse model 33 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_STEELSERIES_34
+    tristate "SteelSeries Mouse model 34"
+    default n
+    help
+      Support for SteelSeries Mouse model 34 (SteelSeries)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_0
+    tristate "Corsair Mouse model 0"
+    default n
+    help
+      Support for Corsair Mouse model 0 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_1
+    tristate "Corsair Mouse model 1"
+    default n
+    help
+      Support for Corsair Mouse model 1 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_2
+    tristate "Corsair Mouse model 2"
+    default n
+    help
+      Support for Corsair Mouse model 2 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_3
+    tristate "Corsair Mouse model 3"
+    default n
+    help
+      Support for Corsair Mouse model 3 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_4
+    tristate "Corsair Mouse model 4"
+    default n
+    help
+      Support for Corsair Mouse model 4 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_5
+    tristate "Corsair Mouse model 5"
+    default n
+    help
+      Support for Corsair Mouse model 5 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_6
+    tristate "Corsair Mouse model 6"
+    default n
+    help
+      Support for Corsair Mouse model 6 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_7
+    tristate "Corsair Mouse model 7"
+    default n
+    help
+      Support for Corsair Mouse model 7 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_8
+    tristate "Corsair Mouse model 8"
+    default n
+    help
+      Support for Corsair Mouse model 8 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_9
+    tristate "Corsair Mouse model 9"
+    default n
+    help
+      Support for Corsair Mouse model 9 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_10
+    tristate "Corsair Mouse model 10"
+    default n
+    help
+      Support for Corsair Mouse model 10 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_11
+    tristate "Corsair Mouse model 11"
+    default n
+    help
+      Support for Corsair Mouse model 11 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_12
+    tristate "Corsair Mouse model 12"
+    default n
+    help
+      Support for Corsair Mouse model 12 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_13
+    tristate "Corsair Mouse model 13"
+    default n
+    help
+      Support for Corsair Mouse model 13 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_14
+    tristate "Corsair Mouse model 14"
+    default n
+    help
+      Support for Corsair Mouse model 14 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_15
+    tristate "Corsair Mouse model 15"
+    default n
+    help
+      Support for Corsair Mouse model 15 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_16
+    tristate "Corsair Mouse model 16"
+    default n
+    help
+      Support for Corsair Mouse model 16 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_17
+    tristate "Corsair Mouse model 17"
+    default n
+    help
+      Support for Corsair Mouse model 17 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_18
+    tristate "Corsair Mouse model 18"
+    default n
+    help
+      Support for Corsair Mouse model 18 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_19
+    tristate "Corsair Mouse model 19"
+    default n
+    help
+      Support for Corsair Mouse model 19 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_20
+    tristate "Corsair Mouse model 20"
+    default n
+    help
+      Support for Corsair Mouse model 20 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_21
+    tristate "Corsair Mouse model 21"
+    default n
+    help
+      Support for Corsair Mouse model 21 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_22
+    tristate "Corsair Mouse model 22"
+    default n
+    help
+      Support for Corsair Mouse model 22 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_23
+    tristate "Corsair Mouse model 23"
+    default n
+    help
+      Support for Corsair Mouse model 23 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_24
+    tristate "Corsair Mouse model 24"
+    default n
+    help
+      Support for Corsair Mouse model 24 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_25
+    tristate "Corsair Mouse model 25"
+    default n
+    help
+      Support for Corsair Mouse model 25 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_26
+    tristate "Corsair Mouse model 26"
+    default n
+    help
+      Support for Corsair Mouse model 26 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_27
+    tristate "Corsair Mouse model 27"
+    default n
+    help
+      Support for Corsair Mouse model 27 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_28
+    tristate "Corsair Mouse model 28"
+    default n
+    help
+      Support for Corsair Mouse model 28 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_29
+    tristate "Corsair Mouse model 29"
+    default n
+    help
+      Support for Corsair Mouse model 29 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_30
+    tristate "Corsair Mouse model 30"
+    default n
+    help
+      Support for Corsair Mouse model 30 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_31
+    tristate "Corsair Mouse model 31"
+    default n
+    help
+      Support for Corsair Mouse model 31 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_32
+    tristate "Corsair Mouse model 32"
+    default n
+    help
+      Support for Corsair Mouse model 32 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_33
+    tristate "Corsair Mouse model 33"
+    default n
+    help
+      Support for Corsair Mouse model 33 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_CORSAIR_34
+    tristate "Corsair Mouse model 34"
+    default n
+    help
+      Support for Corsair Mouse model 34 (Corsair)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_0
+    tristate "Roccat Mouse model 0"
+    default n
+    help
+      Support for Roccat Mouse model 0 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_1
+    tristate "Roccat Mouse model 1"
+    default n
+    help
+      Support for Roccat Mouse model 1 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_2
+    tristate "Roccat Mouse model 2"
+    default n
+    help
+      Support for Roccat Mouse model 2 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_3
+    tristate "Roccat Mouse model 3"
+    default n
+    help
+      Support for Roccat Mouse model 3 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_4
+    tristate "Roccat Mouse model 4"
+    default n
+    help
+      Support for Roccat Mouse model 4 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_5
+    tristate "Roccat Mouse model 5"
+    default n
+    help
+      Support for Roccat Mouse model 5 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_6
+    tristate "Roccat Mouse model 6"
+    default n
+    help
+      Support for Roccat Mouse model 6 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_7
+    tristate "Roccat Mouse model 7"
+    default n
+    help
+      Support for Roccat Mouse model 7 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_8
+    tristate "Roccat Mouse model 8"
+    default n
+    help
+      Support for Roccat Mouse model 8 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_9
+    tristate "Roccat Mouse model 9"
+    default n
+    help
+      Support for Roccat Mouse model 9 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_10
+    tristate "Roccat Mouse model 10"
+    default n
+    help
+      Support for Roccat Mouse model 10 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_11
+    tristate "Roccat Mouse model 11"
+    default n
+    help
+      Support for Roccat Mouse model 11 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_12
+    tristate "Roccat Mouse model 12"
+    default n
+    help
+      Support for Roccat Mouse model 12 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_13
+    tristate "Roccat Mouse model 13"
+    default n
+    help
+      Support for Roccat Mouse model 13 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_14
+    tristate "Roccat Mouse model 14"
+    default n
+    help
+      Support for Roccat Mouse model 14 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_15
+    tristate "Roccat Mouse model 15"
+    default n
+    help
+      Support for Roccat Mouse model 15 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_16
+    tristate "Roccat Mouse model 16"
+    default n
+    help
+      Support for Roccat Mouse model 16 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_17
+    tristate "Roccat Mouse model 17"
+    default n
+    help
+      Support for Roccat Mouse model 17 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_18
+    tristate "Roccat Mouse model 18"
+    default n
+    help
+      Support for Roccat Mouse model 18 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_19
+    tristate "Roccat Mouse model 19"
+    default n
+    help
+      Support for Roccat Mouse model 19 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_20
+    tristate "Roccat Mouse model 20"
+    default n
+    help
+      Support for Roccat Mouse model 20 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_21
+    tristate "Roccat Mouse model 21"
+    default n
+    help
+      Support for Roccat Mouse model 21 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_22
+    tristate "Roccat Mouse model 22"
+    default n
+    help
+      Support for Roccat Mouse model 22 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_23
+    tristate "Roccat Mouse model 23"
+    default n
+    help
+      Support for Roccat Mouse model 23 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_24
+    tristate "Roccat Mouse model 24"
+    default n
+    help
+      Support for Roccat Mouse model 24 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_25
+    tristate "Roccat Mouse model 25"
+    default n
+    help
+      Support for Roccat Mouse model 25 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_26
+    tristate "Roccat Mouse model 26"
+    default n
+    help
+      Support for Roccat Mouse model 26 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_27
+    tristate "Roccat Mouse model 27"
+    default n
+    help
+      Support for Roccat Mouse model 27 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_28
+    tristate "Roccat Mouse model 28"
+    default n
+    help
+      Support for Roccat Mouse model 28 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_29
+    tristate "Roccat Mouse model 29"
+    default n
+    help
+      Support for Roccat Mouse model 29 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_30
+    tristate "Roccat Mouse model 30"
+    default n
+    help
+      Support for Roccat Mouse model 30 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_31
+    tristate "Roccat Mouse model 31"
+    default n
+    help
+      Support for Roccat Mouse model 31 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_32
+    tristate "Roccat Mouse model 32"
+    default n
+    help
+      Support for Roccat Mouse model 32 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_33
+    tristate "Roccat Mouse model 33"
+    default n
+    help
+      Support for Roccat Mouse model 33 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ROCCAT_34
+    tristate "Roccat Mouse model 34"
+    default n
+    help
+      Support for Roccat Mouse model 34 (Roccat)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_0
+    tristate "Zowie Mouse model 0"
+    default n
+    help
+      Support for Zowie Mouse model 0 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_1
+    tristate "Zowie Mouse model 1"
+    default n
+    help
+      Support for Zowie Mouse model 1 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_2
+    tristate "Zowie Mouse model 2"
+    default n
+    help
+      Support for Zowie Mouse model 2 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_3
+    tristate "Zowie Mouse model 3"
+    default n
+    help
+      Support for Zowie Mouse model 3 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_4
+    tristate "Zowie Mouse model 4"
+    default n
+    help
+      Support for Zowie Mouse model 4 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_5
+    tristate "Zowie Mouse model 5"
+    default n
+    help
+      Support for Zowie Mouse model 5 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_6
+    tristate "Zowie Mouse model 6"
+    default n
+    help
+      Support for Zowie Mouse model 6 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_7
+    tristate "Zowie Mouse model 7"
+    default n
+    help
+      Support for Zowie Mouse model 7 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_8
+    tristate "Zowie Mouse model 8"
+    default n
+    help
+      Support for Zowie Mouse model 8 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_9
+    tristate "Zowie Mouse model 9"
+    default n
+    help
+      Support for Zowie Mouse model 9 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_10
+    tristate "Zowie Mouse model 10"
+    default n
+    help
+      Support for Zowie Mouse model 10 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_11
+    tristate "Zowie Mouse model 11"
+    default n
+    help
+      Support for Zowie Mouse model 11 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_12
+    tristate "Zowie Mouse model 12"
+    default n
+    help
+      Support for Zowie Mouse model 12 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_13
+    tristate "Zowie Mouse model 13"
+    default n
+    help
+      Support for Zowie Mouse model 13 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_14
+    tristate "Zowie Mouse model 14"
+    default n
+    help
+      Support for Zowie Mouse model 14 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_15
+    tristate "Zowie Mouse model 15"
+    default n
+    help
+      Support for Zowie Mouse model 15 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_16
+    tristate "Zowie Mouse model 16"
+    default n
+    help
+      Support for Zowie Mouse model 16 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_17
+    tristate "Zowie Mouse model 17"
+    default n
+    help
+      Support for Zowie Mouse model 17 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_18
+    tristate "Zowie Mouse model 18"
+    default n
+    help
+      Support for Zowie Mouse model 18 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_19
+    tristate "Zowie Mouse model 19"
+    default n
+    help
+      Support for Zowie Mouse model 19 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_20
+    tristate "Zowie Mouse model 20"
+    default n
+    help
+      Support for Zowie Mouse model 20 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_21
+    tristate "Zowie Mouse model 21"
+    default n
+    help
+      Support for Zowie Mouse model 21 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_22
+    tristate "Zowie Mouse model 22"
+    default n
+    help
+      Support for Zowie Mouse model 22 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_23
+    tristate "Zowie Mouse model 23"
+    default n
+    help
+      Support for Zowie Mouse model 23 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_24
+    tristate "Zowie Mouse model 24"
+    default n
+    help
+      Support for Zowie Mouse model 24 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_25
+    tristate "Zowie Mouse model 25"
+    default n
+    help
+      Support for Zowie Mouse model 25 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_26
+    tristate "Zowie Mouse model 26"
+    default n
+    help
+      Support for Zowie Mouse model 26 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_27
+    tristate "Zowie Mouse model 27"
+    default n
+    help
+      Support for Zowie Mouse model 27 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_28
+    tristate "Zowie Mouse model 28"
+    default n
+    help
+      Support for Zowie Mouse model 28 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_29
+    tristate "Zowie Mouse model 29"
+    default n
+    help
+      Support for Zowie Mouse model 29 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_30
+    tristate "Zowie Mouse model 30"
+    default n
+    help
+      Support for Zowie Mouse model 30 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_31
+    tristate "Zowie Mouse model 31"
+    default n
+    help
+      Support for Zowie Mouse model 31 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_32
+    tristate "Zowie Mouse model 32"
+    default n
+    help
+      Support for Zowie Mouse model 32 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_33
+    tristate "Zowie Mouse model 33"
+    default n
+    help
+      Support for Zowie Mouse model 33 (Zowie)
+      Category: input_mouse
+
+config INPUT_MOUSE_ZOWIE_34
+    tristate "Zowie Mouse model 34"
+    default n
+    help
+      Support for Zowie Mouse model 34 (Zowie)
+      Category: input_mouse
+
+endmenu

@@ -1,43 +1,255 @@
 # Zirvium Kernel Configuration
+# Professional Linux-like configuration system
 
 mainmenu "Zirvium Kernel Configuration"
 
 config KERNEL_VERSION
     string "Kernel version"
-    default "0.1.0"
+    default "1.0.0"
 
 config LOCALVERSION
     string "Local version - append to kernel release"
     default ""
+    help
+      Append a custom string to the kernel version.
 
 menu "General Setup"
+
+config EXPERIMENTAL
+    bool "Prompt for development and/or incomplete code/drivers"
+    default n
+    help
+      Enable experimental features and drivers that are under development.
+
+config KERNEL_NAME
+    string "Kernel name"
+    default "Zirvium"
 
 config COMPRESS_KERNEL
     bool "Compress kernel image"
     default y
     help
       Compress the kernel image with gzip to reduce size.
-      The bootloader will decompress it at boot time.
+
+choice
+    prompt "Kernel compression mode"
+    default KERNEL_GZIP
+    depends on COMPRESS_KERNEL
+
+config KERNEL_GZIP
+    bool "Gzip"
+    help
+      The old and tried gzip compression. Fast and widely supported.
+
+config KERNEL_BZIP2
+    bool "Bzip2"
+    help
+      Better compression than gzip, but slower.
+
+config KERNEL_LZMA
+    bool "LZMA"
+    help
+      Excellent compression, but slow decompression.
+
+config KERNEL_XZ
+    bool "XZ"
+    help
+      Modern compression with excellent ratio.
+
+config KERNEL_LZO
+    bool "LZO"
+    help
+      Fast compression and decompression.
+
+config KERNEL_LZ4
+    bool "LZ4"
+    help
+      Extremely fast compression and decompression.
+
+config KERNEL_ZSTD
+    bool "ZSTD"
+    help
+      Modern compression with good ratio and speed balance.
+
+endchoice
+
+config PRINTK
+    bool "Enable kernel logging"
+    default y
+    help
+      Enable printk() for kernel messages.
+
+config EARLY_PRINTK
+    bool "Early printk support"
+    default y
+    depends on PRINTK
+    help
+      Enable printk before console initialization.
+
+config DEBUG_KERNEL
+    bool "Kernel debugging"
+    default n
+    help
+      Enable kernel debugging features.
+
+config DEBUG_INFO
+    bool "Compile with debug info"
+    default n
+    depends on DEBUG_KERNEL
+    help
+      Compile kernel with debugging symbols.
+
+config KALLSYMS
+    bool "Load kernel symbol table"
+    default y
+    help
+      Load kernel symbols for debugging and stack traces.
+
+config PROFILING
+    bool "Profiling support"
+    default n
+    help
+      Enable profiling of kernel code.
 
 endmenu
 
-menu "Processor type and features"
+menu "Processor Type and Features"
+
+choice
+    prompt "Processor family"
+    default X86_64
 
 config X86_64
-    bool "64-bit kernel"
-    default y
+    bool "x86_64 (Intel/AMD 64-bit)"
+    help
+      Support for 64-bit x86 processors from Intel and AMD.
+      Includes support for Intel Core, Xeon, AMD Ryzen, EPYC.
+
+config X86_32
+    bool "x86 (i386/i686 32-bit)"
+    help
+      Support for 32-bit x86 processors (Pentium and newer).
+
+config ARM64
+    bool "ARM64 (AArch64)"
+    help
+      Support for 64-bit ARM processors (ARMv8-A and newer).
+      Used in smartphones, tablets, and ARM servers.
+
+config ARM32
+    bool "ARM (32-bit)"
+    help
+      Support for 32-bit ARM processors (ARMv7).
+
+config RISCV64
+    bool "RISC-V (64-bit)"
+    help
+      Support for 64-bit RISC-V processors.
+
+config RISCV32
+    bool "RISC-V (32-bit)"
+    help
+      Support for 32-bit RISC-V processors.
+
+config PPC64
+    bool "PowerPC 64-bit"
+    help
+      Support for 64-bit PowerPC (POWER7, POWER8, POWER9, POWER10).
+
+config PPC32
+    bool "PowerPC 32-bit"
+    help
+      Support for 32-bit PowerPC processors.
+
+config XTENSA
+    bool "Xtensa"
+    help
+      Support for Tensilica Xtensa processors (ESP32, etc).
+
+endchoice
 
 config SMP
     bool "Symmetric multi-processing support"
-    default n
+    default y
     help
-      Enable support for systems with multiple CPUs.
+      Enable support for systems with multiple CPU cores.
 
 config NR_CPUS
     int "Maximum number of CPUs"
-    default 1
-    range 1 256
+    range 1 8192
+    default "64"
     depends on SMP
+    help
+      Maximum number of CPUs the kernel can support.
+
+config HYPER_THREADING
+    bool "Hyper-Threading / SMT support"
+    default y
+    depends on SMP
+    help
+      Enable Intel Hyper-Threading or AMD SMT support.
+
+config SCHED_SMT
+    bool "SMT (Hyperthreading) scheduler support"
+    default y
+    depends on SMP && HYPER_THREADING
+
+config NUMA
+    bool "NUMA (Non-Uniform Memory Access) support"
+    default n
+    depends on SMP && X86_64
+    help
+      Enable support for NUMA systems.
+
+config CPU_FREQ
+    bool "CPU Frequency scaling"
+    default y
+    help
+      Enable CPU frequency scaling for power management.
+
+config ACPI
+    bool "ACPI support"
+    default y
+    depends on X86_64 || X86_32 || ARM64
+    help
+      Advanced Configuration and Power Interface support.
+
+config APM
+    bool "APM (Advanced Power Management) support"
+    default n
+    depends on X86_32
+    help
+      Legacy power management support for older systems.
+
+endmenu
+
+menu "Power Management"
+
+config PM
+    bool "Power Management support"
+    default y
+    help
+      Enable power management features.
+
+config PM_SLEEP
+    bool "Suspend and hibernation"
+    default y
+    depends on PM
+
+config SUSPEND
+    bool "Suspend to RAM"
+    default y
+    depends on PM_SLEEP
+
+config HIBERNATION
+    bool "Hibernation (suspend to disk)"
+    default y
+    depends on PM_SLEEP
+
+config PM_RUNTIME
+    bool "Runtime PM"
+    default y
+    depends on PM
 
 endmenu
 
@@ -46,51 +258,54 @@ menu "Memory Management"
 config PHYSICAL_MEMORY_MANAGER
     bool "Physical memory manager"
     default y
+    help
+      Manage physical RAM allocation.
 
 config VIRTUAL_MEMORY_MANAGER
     bool "Virtual memory manager"
     default y
+    help
+      Provide virtual memory support with paging.
 
-config KERNEL_HEAP
-    bool "Kernel heap allocator"
+config PAGING
+    bool "Paging support"
+    default y
+    depends on VIRTUAL_MEMORY_MANAGER
+
+config MEMORY_HOTPLUG
+    bool "Memory hotplug support"
+    default n
+    help
+      Allow adding and removing memory at runtime.
+
+config PAGE_SIZE_4KB
+    bool "4KB page size"
     default y
 
-choice
-    prompt "Page size"
-    default PAGE_SIZE_4K
-
-config PAGE_SIZE_4K
-    bool "4 KB"
-
-config PAGE_SIZE_2M
-    bool "2 MB (Huge pages)"
-
-endchoice
-
-endmenu
-
-menu "Process Management"
-
-config PROCESS_MANAGEMENT
-    bool "Process management"
+config HIGHMEM
+    bool "High memory support"
     default y
+    depends on X86_32
 
-choice
-    prompt "Scheduler algorithm"
-    default SCHEDULER_ROUND_ROBIN
+config TRANSPARENT_HUGEPAGE
+    bool "Transparent Huge Pages"
+    default y
+    depends on X86_64 || ARM64
+    help
+      Automatically use huge pages to reduce TLB pressure.
 
-config SCHEDULER_ROUND_ROBIN
-    bool "Round-robin"
+config SWAP
+    bool "Swap support"
+    default y
+    help
+      Enable swapping to disk.
 
-config SCHEDULER_PRIORITY
-    bool "Priority-based"
-
-endchoice
-
-config MAX_PROCESSES
-    int "Maximum number of processes"
-    default 256
-    range 16 65536
+config ZSWAP
+    bool "Compressed swap cache"
+    default n
+    depends on SWAP
+    help
+      Compress swap pages before writing to disk.
 
 endmenu
 
@@ -99,110 +314,3045 @@ menu "File Systems"
 config VFS
     bool "Virtual File System"
     default y
+    help
+      Core VFS layer for filesystem abstraction.
 
-config DEVFS
-    bool "Device filesystem support"
-    default n
-    depends on VFS
+config EXT2_FS
+    tristate "Ext2 file system"
+    default m
+    help
+      Second extended filesystem support.
 
-config PROCFS
-    bool "Proc filesystem support"
-    default n
-    depends on VFS
+config EXT3_FS
+    tristate "Ext3 file system"
+    default m
+    help
+      Third extended filesystem with journaling.
 
-endmenu
-
-menu "System Calls"
-
-config SYSCALLS
-    bool "System call support"
+config EXT4_FS
+    tristate "Ext4 file system"
     default y
+    help
+      Fourth extended filesystem (recommended).
 
-config SYSCALL_READ
-    bool "read() system call"
-    default y
-    depends on SYSCALLS
+config XFS_FS
+    tristate "XFS file system"
+    default m
+    help
+      SGI XFS high-performance filesystem.
 
-config SYSCALL_WRITE
-    bool "write() system call"
-    default y
-    depends on SYSCALLS
+config BTRFS_FS
+    tristate "Btrfs file system"
+    default m
+    help
+      B-tree filesystem with snapshots and compression.
 
-config SYSCALL_OPEN
-    bool "open() system call"
-    default y
-    depends on SYSCALLS
+config F2FS_FS
+    tristate "F2FS file system"
+    default m
+    help
+      Flash-Friendly File System for SSDs.
 
-config SYSCALL_CLOSE
-    bool "close() system call"
-    default y
-    depends on SYSCALLS
+config NTFS_FS
+    tristate "NTFS file system (read-only)"
+    default m
+    help
+      Windows NTFS filesystem support.
 
-config SYSCALL_FORK
-    bool "fork() system call"
-    default y
-    depends on SYSCALLS
+config NTFS3_FS
+    tristate "NTFS3 file system (read-write)"
+    default m
+    help
+      Modern NTFS driver with full read-write support.
 
-config SYSCALL_EXEC
-    bool "exec() system call"
-    default y
-    depends on SYSCALLS
+config FAT_FS
+    tristate "FAT file system"
+    default m
+    help
+      MS-DOS FAT filesystem support.
 
-config SYSCALL_EXIT
-    bool "exit() system call"
-    default y
-    depends on SYSCALLS
+config VFAT_FS
+    tristate "VFAT file system"
+    default m
+    depends on FAT_FS
+    help
+      Windows 95 VFAT (long filename) support.
 
-config SYSCALL_GETPID
-    bool "getpid() system call"
-    default y
-    depends on SYSCALLS
+config EXFAT_FS
+    tristate "exFAT file system"
+    default m
+    help
+      Microsoft exFAT filesystem support.
 
-config SYSCALL_KILL
-    bool "kill() system call"
+config PROC_FS
+    bool "proc file system"
     default y
-    depends on SYSCALLS
+    help
+      Virtual /proc filesystem.
+
+config SYSFS
+    bool "sysfs file system"
+    default y
+    help
+      Virtual /sys filesystem for device and driver info.
+
+config DEVTMPFS
+    bool "Maintain a devtmpfs filesystem"
+    default y
+    help
+      Automatically populate /dev.
+
+config TMPFS
+    bool "tmpfs file system"
+    default y
+    help
+      RAM-based temporary filesystem.
+
+config FUSE_FS
+    tristate "FUSE (Filesystem in Userspace)"
+    default m
+    help
+      Allow userspace filesystems.
+
+config OVERLAY_FS
+    tristate "Overlay filesystem"
+    default m
+    help
+      Layer one filesystem over another (used by Docker).
+
+config NFS_FS
+    tristate "NFS client support"
+    default m
+    help
+      Network File System client.
+
+config CIFS
+    tristate "CIFS/SMB support"
+    default m
+    help
+      Common Internet File System / Samba support.
 
 endmenu
 
 menu "Device Drivers"
 
-config CONSOLE_DRIVER
-    bool "Console driver"
+source "drivers/Kconfig.drivers"
+
+menu "Serial Drivers"
+
+config SERIAL_8250
+    tristate "8250/16550 and compatible serial support"
     default y
+    help
+      Standard PC serial port support (COM1, COM2, etc).
+      Required for most systems.
 
-config CONSOLE_VGA
-    bool "VGA text mode console"
+config SERIAL_8250_NR_UARTS
+    int "Maximum number of 8250/16550 serial ports"
+    depends on SERIAL_8250
+    default "4"
+    help
+      Set the maximum number of serial ports supported.
+
+config SERIAL_PL011
+    tristate "ARM PL011 serial port support"
     default y
-    depends on CONSOLE_DRIVER
+    depends on ARM64 || ARM32
+    help
+      ARM AMBA PrimeCell PL011 UART support.
 
-config SERIAL_DRIVER
-    bool "Serial port driver"
-    default n
-
-config KEYBOARD_DRIVER
-    bool "Keyboard driver"
-    default n
-
-config TIMER_DRIVER
-    bool "Timer/PIT driver"
-    default n
+config SERIAL_SC16IS7XX
+    tristate "SC16IS7xx serial driver"
+    default m
+    depends on SPI || I2C
+    help
+      NXP SC16IS7xx SPI/I2C serial port controller.
 
 endmenu
 
-menu "Debugging"
+menu "RTC (Real-Time Clock) Support"
 
-config DEBUG
-    bool "Debugging support"
-    default n
-
-config DEBUG_VERBOSE
-    bool "Verbose debugging output"
-    default n
-    depends on DEBUG
-
-config PANIC_ON_ERROR
-    bool "Panic on unrecoverable errors"
+config RTC_CLASS
+    bool "RTC class"
     default y
+    help
+      Enable support for real-time clocks.
+
+config RTC_DRV_CMOS
+    tristate "CMOS/NVRAM RTC"
+    default y
+    depends on RTC_CLASS
+    help
+      Standard PC CMOS real-time clock (x86/x86_64).
+
+config RTC_DRV_DS1307
+    tristate "Dallas/Maxim DS1307/37/38/39/40/41/51"
+    default m
+    depends on RTC_CLASS && I2C
+    help
+      I2C RTC chips DS1307, DS1337, DS1338, DS1339, DS1340, DS1341, DS1351.
+
+config RTC_DRV_DS3232
+    tristate "Dallas/Maxim DS3232"
+    default m
+    depends on RTC_CLASS && I2C
+    help
+      High precision I2C RTC with integrated crystal.
+
+config RTC_DRV_PCF8523
+    tristate "NXP PCF8523"
+    default m
+    depends on RTC_CLASS && I2C
+
+config RTC_DRV_PCF8563
+    tristate "NXP PCF8563"
+    default m
+    depends on RTC_CLASS && I2C
+
+config RTC_DRV_PL031
+    tristate "ARM AMBA PL031 RTC"
+    default y
+    depends on RTC_CLASS && (ARM64 || ARM32)
+    help
+      ARM AMBA PrimeCell PL031 real-time clock.
 
 endmenu
+
+menu "Watchdog Timer Support"
+
+config WATCHDOG
+    bool "Watchdog timer support"
+    default y
+    help
+      Enable watchdog timer support to reset the system on hangs.
+
+config WATCHDOG_CORE
+    bool
+    default y
+    depends on WATCHDOG
+
+config SOFT_WATCHDOG
+    tristate "Software watchdog"
+    default m
+    depends on WATCHDOG
+    help
+      Software-based watchdog timer.
+
+config I6300ESB_WDT
+    tristate "Intel 6300ESB watchdog"
+    default y
+    depends on WATCHDOG
+    help
+      Hardware watchdog for Intel 6300ESB chipset.
+
+config iTCO_WDT
+    tristate "Intel TCO watchdog"
+    default y
+    depends on WATCHDOG
+    help
+      Hardware watchdog in Intel chipsets.
+
+config SP5100_TCO
+    tristate "AMD/ATI SP5100 TCO watchdog"
+    default y
+    depends on WATCHDOG
+    help
+      Hardware watchdog for AMD chipsets.
+
+config BCM2835_WDT
+    tristate "Broadcom BCM2835 watchdog"
+    default y
+    depends on WATCHDOG && (ARM64 || ARM32)
+    help
+      Watchdog for Raspberry Pi.
+
+endmenu
+
+menu "Hardware Monitoring (hwmon) Support"
+
+config HWMON
+    tristate "Hardware Monitoring support"
+    default y
+    help
+      Temperature, voltage, and fan monitoring.
+
+config HWMON_VID
+    tristate
+    default y if HWMON
+
+config SENSORS_CORETEMP
+    tristate "Intel Core temperature sensor"
+    default y
+    depends on HWMON && X86_64
+    help
+      Monitor Intel CPU core temperatures.
+
+config SENSORS_K10TEMP
+    tristate "AMD K10/Zen temperature sensor"
+    default y
+    depends on HWMON && X86_64
+    help
+      Monitor AMD Ryzen/EPYC CPU temperatures.
+
+config SENSORS_IT87
+    tristate "ITE IT87xx and compatibles"
+    default y
+    depends on HWMON
+    help
+      Super I/O chip with temperature/voltage/fan monitoring.
+
+config SENSORS_LM75
+    tristate "LM75 and compatibles"
+    default y
+    depends on HWMON && I2C
+
+config SENSORS_NCT6775
+    tristate "Nuvoton NCT6775F and compatibles"
+    default y
+    depends on HWMON
+    help
+      Common Super I/O chip in motherboards.
+
+config SENSORS_ASUS_EC
+    tristate "ASUS EC Sensors"
+    default y
+    depends on HWMON
+    help
+      ASUS motherboard embedded controller sensors.
+
+config SENSORS_NZXT_KRAKEN
+    tristate "NZXT Kraken AIO coolers"
+    default m
+    depends on HWMON && USB
+
+endmenu
+
+menu "GPIO Support"
+
+config GPIOLIB
+    bool "GPIO Support"
+    default y
+    help
+      General Purpose Input/Output support.
+
+config GPIO_SYSFS
+    bool "GPIO sysfs interface"
+    default y
+    depends on GPIOLIB
+    help
+      Export GPIO pins via /sys/class/gpio.
+
+config GPIO_CDEV
+    bool "GPIO character device"
+    default y
+    depends on GPIOLIB
+    help
+      Modern GPIO character device interface.
+
+config GPIO_INTEL
+    tristate "Intel GPIO"
+    default y
+    depends on GPIOLIB && X86_64
+
+config GPIO_AMD
+    tristate "AMD GPIO"
+    default y
+    depends on GPIOLIB && X86_64
+
+config GPIO_BCM2835
+    tristate "Broadcom BCM2835 GPIO"
+    default y
+    depends on GPIOLIB && (ARM64 || ARM32)
+
+config GPIO_PCA953X
+    tristate "PCA95[357]x, TCA64xx GPIO expanders"
+    default m
+    depends on GPIOLIB && I2C
+
+endmenu
+
+menu "DMA Engine Support"
+
+config DMADEVICES
+    bool "DMA Engine support"
+    default y
+    help
+      DMA controller support for high-speed data transfers.
+
+config INTEL_IDMA64
+    tristate "Intel integrated DMA 64-bit"
+    default y
+    depends on DMADEVICES && X86_64
+
+config INTEL_IOATDMA
+    tristate "Intel I/OAT DMA"
+    default y
+    depends on DMADEVICES && X86_64
+    help
+      Intel I/O Acceleration Technology DMA engine.
+
+config DW_DMAC
+    tristate "Synopsys DesignWare DMA"
+    default y
+    depends on DMADEVICES
+
+config PL330_DMA
+    tristate "ARM PL330 DMA controller"
+    default y
+    depends on DMADEVICES && (ARM64 || ARM32)
+
+endmenu
+
+menu "PCIe/PCI Support"
+
+config PCI
+    bool "PCI support"
+    default y
+    help
+      Peripheral Component Interconnect bus support.
+
+config PCIEPORTBUS
+    bool "PCI Express Port Bus support"
+    default y
+    depends on PCI
+    help
+      PCIe root port and switch port services.
+
+config PCIEAER
+    bool "PCI Express Advanced Error Reporting"
+    default y
+    depends on PCIEPORTBUS
+    help
+      PCIe AER for error detection and reporting.
+
+config PCIEASPM
+    bool "PCI Express ASPM control"
+    default y
+    depends on PCIEPORTBUS
+    help
+      Active State Power Management for power savings.
+
+config PCIE_DPC
+    bool "PCI Express Downstream Port Containment"
+    default y
+    depends on PCIEPORTBUS
+    help
+      Error containment for PCIe links.
+
+config HOTPLUG_PCI
+    tristate "PCI hotplug support"
+    default y
+    depends on PCI
+    help
+      Hot-pluggable PCI devices support.
+
+config HOTPLUG_PCI_PCIE
+    tristate "PCIe hotplug support"
+    default y
+    depends on HOTPLUG_PCI
+    help
+      Native PCIe hotplug support.
+
+endmenu
+
+menu "CAN Bus Support"
+
+config CAN
+    tristate "CAN bus support"
+    default m
+    help
+      Controller Area Network (automotive/industrial).
+
+config CAN_DEV
+    tristate "CAN device drivers"
+    default m
+    depends on CAN
+
+config CAN_CALC_BITTIMING
+    bool "CAN bit-timing calculation"
+    default y
+    depends on CAN_DEV
+
+config CAN_MCP251X
+    tristate "Microchip MCP251x SPI CAN controllers"
+    default m
+    depends on CAN_DEV && SPI
+
+config CAN_MCP251XFD
+    tristate "Microchip MCP251xFD SPI CAN FD controllers"
+    default m
+    depends on CAN_DEV && SPI
+
+config CAN_PEAK_USB
+    tristate "PEAK USB CAN adapters"
+    default m
+    depends on CAN_DEV && USB
+
+config CAN_KVASER_USB
+    tristate "Kvaser USB CAN adapters"
+    default m
+    depends on CAN_DEV && USB
+
+config CAN_SLCAN
+    tristate "Serial / USB serial CAN adapters"
+    default m
+    depends on CAN_DEV
+
+endmenu
+
+menu "Thunderbolt Support"
+
+config THUNDERBOLT
+    tristate "Thunderbolt support"
+    default y
+    depends on PCI
+    help
+      Intel Thunderbolt 3/4 and USB4 support.
+
+config USB4
+    bool "USB4 support"
+    default y
+    depends on THUNDERBOLT
+    help
+      USB4 protocol support (Thunderbolt 3+ compatible).
+
+config THUNDERBOLT_NET
+    tristate "Thunderbolt networking"
+    default m
+    depends on THUNDERBOLT
+
+endmenu
+
+menu "NFC Support"
+
+config NFC
+    tristate "NFC subsystem support"
+    default m
+    help
+      Near Field Communication support.
+
+config NFC_DIGITAL
+    tristate "NFC Digital Protocol stack"
+    default m
+    depends on NFC
+
+config NFC_NCI
+    tristate "NCI protocol support"
+    default m
+    depends on NFC
+
+config NFC_PN533
+    tristate "NXP PN533 USB"
+    default m
+    depends on NFC && USB
+    help
+      PN533 NFC controller via USB.
+
+config NFC_PN533_I2C
+    tristate "NXP PN533 I2C"
+    default m
+    depends on NFC && I2C
+
+config NFC_PN532
+    tristate "NXP PN532"
+    default m
+    depends on NFC
+
+config NFC_PN544
+    tristate "NXP PN544 NFC driver"
+    default m
+    depends on NFC && I2C
+
+config NFC_ST21NFCA
+    tristate "STMicroelectronics ST21NFCA"
+    default m
+    depends on NFC && I2C
+
+endmenu
+
+menu "RFID Support"
+
+config RFID
+    tristate "RFID subsystem support"
+    default m
+    help
+      Radio-Frequency Identification support.
+
+config RFID_RC522
+    tristate "MFRC522 RFID reader"
+    default m
+    depends on RFID && SPI
+
+config RFID_PN532_UART
+    tristate "PN532 RFID via UART"
+    default m
+    depends on RFID
+
+endmenu
+
+menu "Industrial I/O Buses"
+
+config MDIO_BUS
+    tristate "MDIO bus support"
+    default y
+    help
+      Management Data Input/Output (Ethernet PHY management).
+
+config MDIO_BITBANG
+    tristate "MDIO bitbanging"
+    default m
+    depends on MDIO_BUS
+
+config MDIO_GPIO
+    tristate "GPIO MDIO"
+    default m
+    depends on MDIO_BITBANG && GPIOLIB
+
+endmenu
+
+menu "Block Devices"
+
+config BLK_DEV
+    bool "Block device support"
+    default y
+
+config BLK_DEV_SD
+    tristate "SCSI disk support"
+    default y
+    help
+      Support for SCSI and SATA hard drives.
+
+config BLK_DEV_SR
+    tristate "SCSI CDROM support"
+    default m
+    help
+      Support for SCSI CD/DVD drives.
+
+config BLK_DEV_LOOP
+    tristate "Loopback device support"
+    default y
+    help
+      Access files as block devices.
+
+config BLK_DEV_RAM
+    tristate "RAM block device support"
+    default y
+    help
+      RAM disk support.
+
+config BLK_DEV_NBD
+    tristate "Network block device support"
+    default m
+    help
+      Block device over network.
+
+config BLK_DEV_NVME
+    tristate "NVMe support"
+    default y
+    help
+      NVM Express SSD support.
+
+endmenu
+
+menu "ATA/ATAPI/MFM/RLL Support"
+
+config ATA
+    tristate "ATA/ATAPI support"
+    default y
+    help
+      Serial and Parallel ATA support.
+
+config SATA_AHCI
+    tristate "AHCI SATA support"
+    default y
+    depends on ATA
+    help
+      Intel AHCI SATA controller support.
+
+config ATA_PIIX
+    tristate "Intel PIIX/ICH SATA support"
+    default y
+    depends on ATA
+
+config SATA_NV
+    tristate "NVIDIA SATA support"
+    default m
+    depends on ATA
+
+config SATA_SIS
+    tristate "SiS SATA support"
+    default m
+    depends on ATA
+
+config SATA_VIA
+    tristate "VIA SATA support"
+    default m
+    depends on ATA
+
+config PATA_AMD
+    tristate "AMD/NVidia PATA support"
+    default m
+    depends on ATA
+
+config PATA_INTEL
+    tristate "Intel PATA support"
+    default m
+    depends on ATA
+
+endmenu
+
+menu "SCSI Device Support"
+
+config SCSI
+    tristate "SCSI device support"
+    default y
+
+config SCSI_DMA
+    bool "SCSI DMA support"
+    default y
+    depends on SCSI
+
+config SCSI_PROC_FS
+    bool "SCSI /proc support"
+    default y
+    depends on SCSI
+
+config BLK_DEV_SD
+    tristate "SCSI disk support"
+    default y
+    depends on SCSI
+
+config CHR_DEV_SG
+    tristate "SCSI generic support"
+    default y
+    depends on SCSI
+
+endmenu
+
+menu "USB Support"
+
+config USB_SUPPORT
+    bool "USB support"
+    default y
+    help
+      Universal Serial Bus support.
+
+config USB
+    tristate "USB core"
+    default y
+    depends on USB_SUPPORT
+
+config USB_XHCI_HCD
+    tristate "xHCI (USB 3.0+) support"
+    default y
+    depends on USB
+    help
+      USB 3.0, 3.1, 3.2, 4.0 host controller support.
+
+config USB_XHCI_PCI
+    tristate "xHCI PCI mode"
+    default y
+    depends on USB_XHCI_HCD
+
+config USB_EHCI_HCD
+    tristate "EHCI (USB 2.0) support"
+    default y
+    depends on USB
+    help
+      USB 2.0 host controller support.
+
+config USB_OHCI_HCD
+    tristate "OHCI (USB 1.1) support"
+    default y
+    depends on USB
+    help
+      USB 1.1 OHCI host controller support.
+
+config USB_UHCI_HCD
+    tristate "UHCI (USB 1.1) support"
+    default y
+    depends on USB
+    help
+      USB 1.1 UHCI host controller support.
+
+config USB_STORAGE
+    tristate "USB Mass Storage support"
+    default y
+    depends on USB
+    help
+      USB flash drives, external hard drives, etc.
+
+config USB_STORAGE_UAS
+    tristate "USB Attached SCSI"
+    default y
+    depends on USB_STORAGE
+    help
+      Faster protocol for USB storage devices.
+
+config USB_HID
+    tristate "USB Human Interface Device support"
+    default y
+    depends on USB
+    help
+      USB keyboards, mice, tablets, etc.
+
+config USB_KBD
+    tristate "USB keyboard support"
+    default y
+    depends on USB_HID
+
+config USB_MOUSE
+    tristate "USB mouse support"
+    default y
+    depends on USB_HID
+
+config USB_SERIAL
+    tristate "USB Serial Converter support"
+    default m
+    depends on USB
+
+config USB_ACM
+    tristate "USB Modem (CDC ACM) support"
+    default m
+    depends on USB
+
+config USB_PRINTER
+    tristate "USB Printer support"
+    default m
+    depends on USB
+
+config USB_TYPEC
+    tristate "USB Type-C support"
+    default y
+    depends on USB
+    help
+      USB Type-C connector support.
+
+config USB_PD
+    tristate "USB Power Delivery"
+    default y
+    depends on USB_TYPEC
+    help
+      USB Power Delivery protocol support.
+
+config USB4
+    tristate "USB4/Thunderbolt support"
+    default y
+    depends on USB
+    help
+      USB4 and Thunderbolt 3/4 support.
+
+endmenu
+
+menu "Input Devices"
+
+config INPUT
+    bool "Input device support"
+    default y
+
+config INPUT_KEYBOARD
+    bool "Keyboard support"
+    default y
+    depends on INPUT
+
+config KEYBOARD_ATKBD
+    tristate "AT keyboard"
+    default y
+    depends on INPUT_KEYBOARD
+    help
+      Standard PC/AT keyboard support.
+
+config INPUT_MOUSE
+    bool "Mouse support"
+    default y
+    depends on INPUT
+
+config MOUSE_PS2
+    tristate "PS/2 mouse"
+    default y
+    depends on INPUT_MOUSE
+
+config MOUSE_SERIAL
+    tristate "Serial mouse"
+    default m
+    depends on INPUT_MOUSE
+
+config MOUSE_SYNAPTICS_I2C
+    tristate "Synaptics I2C touchpad"
+    default y
+    depends on INPUT_MOUSE && I2C
+
+config MOUSE_ELAN_I2C
+    tristate "ELAN I2C touchpad"
+    default y
+    depends on INPUT_MOUSE && I2C
+
+config TOUCHPAD
+    bool "Touchpad support"
+    default y
+    depends on INPUT
+
+config TOUCHPAD_SYNAPTICS
+    tristate "Synaptics touchpad"
+    default y
+    depends on TOUCHPAD
+
+config TOUCHPAD_ELAN
+    tristate "ELAN touchpad"
+    default y
+    depends on TOUCHPAD
+
+config TOUCHPAD_ALPS
+    tristate "ALPS touchpad"
+    default y
+    depends on TOUCHPAD
+
+config INPUT_TOUCHSCREEN
+    bool "Touchscreen support"
+    default y
+    depends on INPUT
+
+config TOUCHSCREEN_USB
+    tristate "USB touchscreen"
+    default m
+    depends on INPUT_TOUCHSCREEN && USB
+
+config INPUT_TABLET
+    bool "Graphics tablet support"
+    default y
+    depends on INPUT
+
+config TABLET_WACOM
+    tristate "Wacom tablet support"
+    default m
+    depends on INPUT_TABLET
+
+config INPUT_JOYSTICK
+    bool "Joystick support"
+    default y
+    depends on INPUT
+
+config JOYSTICK_XPAD
+    tristate "Xbox controller support"
+    default m
+    depends on INPUT_JOYSTICK && USB
+
+endmenu
+
+menu "Graphics Support"
+
+config FB
+    tristate "Framebuffer support"
+    default y
+    help
+      Generic framebuffer support.
+
+config FB_VESA
+    tristate "VESA VGA graphics"
+    default y
+    depends on FB
+
+config FB_EFI
+    tristate "EFI framebuffer"
+    default y
+    depends on FB
+
+config DRM
+    tristate "Direct Rendering Manager"
+    default y
+    help
+      Modern graphics driver framework.
+
+config DRM_KMS_HELPER
+    bool "DRM KMS helper"
+    default y
+    depends on DRM
+
+menu "Intel Graphics"
+
+config DRM_I915
+    tristate "Intel i915 graphics"
+    default y
+    depends on DRM
+    help
+      Intel integrated graphics (Gen 3 through Gen 12).
+
+config DRM_I915_GVT
+    bool "Intel GVT-g graphics virtualization"
+    default n
+    depends on DRM_I915
+
+config DRM_XE
+    tristate "Intel Xe graphics"
+    default y
+    depends on DRM
+    help
+      Next-generation Intel GPU driver (Xe architecture).
+
+endmenu
+
+menu "AMD Graphics"
+
+config DRM_AMDGPU
+    tristate "AMD GPU"
+    default y
+    depends on DRM
+    help
+      AMD Radeon and modern GPUs.
+
+config DRM_AMDGPU_SI
+    bool "AMD Southern Islands support"
+    default y
+    depends on DRM_AMDGPU
+    help
+      Radeon HD 7000 series.
+
+config DRM_AMDGPU_CIK
+    bool "AMD Sea Islands support"
+    default y
+    depends on DRM_AMDGPU
+    help
+      Radeon R7/R9 200 series.
+
+config DRM_RADEON
+    tristate "AMD Radeon (legacy)"
+    default m
+    depends on DRM
+    help
+      Legacy AMD/ATI Radeon GPUs (pre-GCN).
+
+endmenu
+
+menu "NVIDIA Graphics"
+
+config DRM_NOUVEAU
+    tristate "NVIDIA (nouveau)"
+    default y
+    depends on DRM
+    help
+      Open-source NVIDIA graphics driver.
+
+config NOUVEAU_LEGACY_CTX_SUPPORT
+    bool "Support for older GPUs (pre-Kepler)"
+    default y
+    depends on DRM_NOUVEAU
+
+endmenu
+
+config DRM_VMWGFX
+    tristate "VMware SVGA"
+    default m
+    depends on DRM
+    help
+      VMware virtual GPU driver.
+
+config DRM_VIRTIO_GPU
+    tristate "VirtIO GPU"
+    default m
+    depends on DRM
+    help
+      VirtIO virtual GPU for QEMU/KVM.
+
+config DRM_QXL
+    tristate "QXL virtual GPU (QEMU)"
+    default m
+    depends on DRM
+    help
+      QEMU QXL paravirtual graphics.
+
+config DRM_BOCHS
+    tristate "Bochs virtual GPU"
+    default m
+    depends on DRM
+
+endmenu
+
+menu "Sound Support"
+
+config SOUND
+    tristate "Sound card support"
+    default y
+
+config SND
+    tristate "Advanced Linux Sound Architecture (ALSA)"
+    default y
+    depends on SOUND
+
+config SND_TIMER
+    bool
+    default y
+    depends on SND
+
+config SND_PCM
+    bool
+    default y
+    depends on SND
+
+config SND_HWDEP
+    bool
+    default y
+    depends on SND
+
+config SND_SEQUENCER
+    tristate "Sequencer support"
+    default m
+    depends on SND
+
+config SND_MIXER_OSS
+    tristate "OSS mixer API"
+    default m
+    depends on SND
+
+config SND_PCM_OSS
+    tristate "OSS PCM API"
+    default m
+    depends on SND
+
+menu "PCI Sound Devices"
+
+config SND_HDA
+    tristate "HD Audio (Azalia) support"
+    default y
+    depends on SND
+    help
+      Intel High Definition Audio / Azalia.
+
+config SND_HDA_INTEL
+    tristate "Intel HD Audio"
+    default y
+    depends on SND_HDA
+    help
+      Intel HD Audio controller.
+
+config SND_HDA_CODEC_REALTEK
+    tristate "Realtek HD Audio codec"
+    default y
+    depends on SND_HDA
+    help
+      Realtek ALC series HD audio codecs.
+
+config SND_HDA_CODEC_ANALOG
+    tristate "Analog Devices HD Audio codec"
+    default y
+    depends on SND_HDA
+
+config SND_HDA_CODEC_SIGMATEL
+    tristate "SigmaTel/IDT HD Audio codec"
+    default y
+    depends on SND_HDA
+
+config SND_HDA_CODEC_VIA
+    tristate "VIA HD Audio codec"
+    default y
+    depends on SND_HDA
+
+config SND_HDA_CODEC_HDMI
+    tristate "HDMI/DisplayPort HD Audio codec"
+    default y
+    depends on SND_HDA
+
+config SND_AC97
+    tristate "AC97 codec support"
+    default m
+    depends on SND
+
+config SND_INTEL8X0
+    tristate "Intel 82801 (ICH) audio"
+    default m
+    depends on SND
+
+config SND_VIA82XX
+    tristate "VIA 82C686/8233/8235 audio"
+    default m
+    depends on SND
+
+endmenu
+
+config SND_USB_AUDIO
+    tristate "USB Audio/MIDI"
+    default m
+    depends on SND && USB
+
+config SND_SOC
+    tristate "ALSA System on Chip audio"
+    default m
+    depends on SND
+
+endmenu
+
+menu "Network Device Support"
+
+config NETDEVICES
+    bool "Network device support"
+    default y
+
+config ETHERNET
+    bool "Ethernet driver support"
+    default y
+    depends on NETDEVICES
+
+menu "Intel Ethernet"
+
+config E1000
+    tristate "Intel PRO/1000 Gigabit Ethernet"
+    default y
+    depends on ETHERNET
+    help
+      Intel 82540, 82545, 82546 series.
+
+config E1000E
+    tristate "Intel PRO/1000 PCIe Gigabit Ethernet"
+    default y
+    depends on ETHERNET
+    help
+      Intel 82563/82566/82567/82571/82572/82573/82574/82583 series.
+
+config IGB
+    tristate "Intel 82575/82576 Gigabit Ethernet"
+    default y
+    depends on ETHERNET
+
+config IGBVF
+    tristate "Intel 82576 Virtual Function"
+    default m
+    depends on ETHERNET
+
+config IXGB
+    tristate "Intel PRO/10GbE"
+    default m
+    depends on ETHERNET
+
+config IXGBE
+    tristate "Intel 82599/X520/X540 10GbE"
+    default y
+    depends on ETHERNET
+
+config IXGBEVF
+    tristate "Intel X540/X550 Virtual Function"
+    default m
+    depends on ETHERNET
+
+config I40E
+    tristate "Intel Ethernet 700 Series"
+    default y
+    depends on ETHERNET
+    help
+      Intel XL710/X710/XXV710 40GbE adapters.
+
+config ICE
+    tristate "Intel Ethernet 800 Series"
+    default y
+    depends on ETHERNET
+    help
+      Intel E810/E822/E823 100GbE adapters.
+
+endmenu
+
+menu "Realtek Ethernet"
+
+config 8139CP
+    tristate "Realtek 8139C+"
+    default m
+    depends on ETHERNET
+
+config 8139TOO
+    tristate "Realtek 8129/8130/8139"
+    default m
+    depends on ETHERNET
+
+config R8169
+    tristate "Realtek 8169/8168/8101/8125"
+    default y
+    depends on ETHERNET
+    help
+      Realtek PCIe Gigabit Ethernet (most common).
+
+endmenu
+
+menu "Broadcom Ethernet"
+
+config B44
+    tristate "Broadcom 440x/47xx"
+    default m
+    depends on ETHERNET
+
+config BNX2
+    tristate "Broadcom NetXtreme II"
+    default m
+    depends on ETHERNET
+
+config CNIC
+    tristate "Broadcom NetXtreme II iSCSI"
+    default m
+    depends on ETHERNET
+
+config BNX2X
+    tristate "Broadcom NetXtreme II 10Gb"
+    default m
+    depends on ETHERNET
+
+config TIGON3
+    tristate "Broadcom Tigon3"
+    default m
+    depends on ETHERNET
+
+config TG3
+    tristate "Broadcom NetXtreme BCM5700/BCM5701/BCM5703/BCM5704/BCM5705"
+    default y
+    depends on ETHERNET
+
+endmenu
+
+menu "AMD/Marvell/Atheros Ethernet"
+
+config AMD8111_ETH
+    tristate "AMD 8111 Ethernet"
+    default m
+    depends on ETHERNET
+
+config PCNET32
+    tristate "AMD PCnet32 PCI"
+    default m
+    depends on ETHERNET
+
+config ATL1
+    tristate "Atheros L1 Gigabit Ethernet"
+    default m
+    depends on ETHERNET
+
+config ATL1E
+    tristate "Atheros L1E Gigabit Ethernet"
+    default m
+    depends on ETHERNET
+
+config ATL1C
+    tristate "Atheros L1C Gigabit Ethernet"
+    default m
+    depends on ETHERNET
+
+config ALX
+    tristate "Qualcomm Atheros AR816x/AR817x"
+    default m
+    depends on ETHERNET
+
+config SKY2
+    tristate "Marvell Yukon 2 Gigabit Ethernet"
+    default m
+    depends on ETHERNET
+
+endmenu
+
+menu "Other Ethernet"
+
+config FORCEDETH
+    tristate "NVIDIA nForce Ethernet"
+    default m
+    depends on ETHERNET
+
+config VIA_VELOCITY
+    tristate "VIA Velocity"
+    default m
+    depends on ETHERNET
+
+config SIS900
+    tristate "SiS 900/7016 PCI Fast Ethernet"
+    default m
+    depends on ETHERNET
+
+endmenu
+
+menu "Wireless LAN"
+
+config WLAN
+    bool "Wireless LAN support"
+    default y
+    depends on NETDEVICES
+
+config CFG80211
+    tristate "cfg80211 wireless extensions compatibility"
+    default y
+    depends on WLAN
+
+config MAC80211
+    tristate "Generic IEEE 802.11 networking stack"
+    default y
+    depends on CFG80211
+
+menu "Realtek Wireless"
+
+config RTL8723DE
+    tristate "Realtek RTL8723DE PCIe Wireless (PRIORITY)"
+    default y
+    depends on WLAN
+    select MAC80211
+    select CFG80211
+    help
+      *** HIGH PRIORITY DRIVER ***
+      Realtek RTL8723DE PCIe Wireless Network Adapter.
+      Common in laptops, supports 802.11b/g/n and Bluetooth.
+      This is a combo chip with integrated WiFi and Bluetooth.
+
+config RTL8723DE_BT
+    tristate "Realtek RTL8723DE Bluetooth"
+    default y
+    depends on RTL8723DE && BT
+    help
+      Bluetooth support for RTL8723DE combo chip.
+
+config RTL8192CE
+    tristate "Realtek RTL8192CE/RTL8188CE"
+    default y
+    depends on WLAN
+
+config RTL8192SE
+    tristate "Realtek RTL8192SE/RTL8191SE"
+    default y
+    depends on WLAN
+
+config RTL8192DE
+    tristate "Realtek RTL8192DE"
+    default y
+    depends on WLAN
+
+config RTL8192CU
+    tristate "Realtek RTL8192CU/RTL8188CU USB"
+    default m
+    depends on WLAN && USB
+
+config RTL8188EE
+    tristate "Realtek RTL8188EE"
+    default y
+    depends on WLAN
+
+config RTL8192EE
+    tristate "Realtek RTL8192EE"
+    default y
+    depends on WLAN
+
+config RTL8723AE
+    tristate "Realtek RTL8723AE"
+    default y
+    depends on WLAN
+
+config RTL8723BE
+    tristate "Realtek RTL8723BE"
+    default y
+    depends on WLAN
+
+config RTL8821AE
+    tristate "Realtek RTL8821AE"
+    default y
+    depends on WLAN
+
+config RTL8822BE
+    tristate "Realtek RTL8822BE"
+    default y
+    depends on WLAN
+
+config RTL8822CE
+    tristate "Realtek RTL8822CE"
+    default y
+    depends on WLAN
+
+config RTL8821CE
+    tristate "Realtek RTL8821CE"
+    default y
+    depends on WLAN
+
+config RTL8852AE
+    tristate "Realtek RTL8852AE (WiFi 6)"
+    default y
+    depends on WLAN
+    help
+      Realtek WiFi 6 (802.11ax) wireless adapter.
+
+config RTL8852BE
+    tristate "Realtek RTL8852BE (WiFi 6)"
+    default y
+    depends on WLAN
+
+config RTL8852CE
+    tristate "Realtek RTL8852CE (WiFi 6E)"
+    default y
+    depends on WLAN
+    help
+      Realtek WiFi 6E (802.11ax 6GHz) wireless adapter.
+
+config RTL8188EU
+    tristate "Realtek RTL8188EU USB"
+    default m
+    depends on WLAN && USB
+
+config RTL8192EU
+    tristate "Realtek RTL8192EU USB"
+    default m
+    depends on WLAN && USB
+
+config RTL8812AU
+    tristate "Realtek RTL8812AU USB (AC1200)"
+    default m
+    depends on WLAN && USB
+
+config RTL8814AU
+    tristate "Realtek RTL8814AU USB (AC1900)"
+    default m
+    depends on WLAN && USB
+
+endmenu
+
+menu "Intel Wireless"
+
+config IWLWIFI
+    tristate "Intel Wireless WiFi"
+    default y
+    depends on WLAN
+    help
+      Intel Wireless WiFi driver framework.
+
+config IWLDVM
+    tristate "Intel Wireless WiFi DVM firmware support"
+    default y
+    depends on IWLWIFI
+    help
+      Older Intel WiFi (4965AGN through 6300).
+
+config IWLMVM
+    tristate "Intel Wireless WiFi MVM firmware support"
+    default y
+    depends on IWLWIFI
+    help
+      Modern Intel WiFi (7260 and newer).
+
+config IWLWIFI_OPMODE_MODULAR
+    bool
+    default y if IWLDVM=m || IWLMVM=m
+    depends on IWLWIFI
+
+config IWL4965
+    tristate "Intel Wireless WiFi 4965AGN"
+    default y
+    depends on IWLWIFI
+
+config IWL3945
+    tristate "Intel PRO/Wireless 3945ABG/BG"
+    default m
+    depends on WLAN
+
+config IWLWIFI_DEVICE_TRACING
+    bool "Intel Wireless tracing"
+    default n
+    depends on IWLWIFI
+
+config IWLWIFI_DEBUG
+    bool "Intel Wireless debugging"
+    default n
+    depends on IWLWIFI
+
+endmenu
+
+menu "Atheros Wireless"
+
+config ATH_COMMON
+    tristate
+    default y if ATH5K || ATH9K || ATH10K || ATH11K
+
+config ATH5K
+    tristate "Atheros 5xxx wireless"
+    default m
+    depends on WLAN
+
+config ATH9K
+    tristate "Atheros 802.11n wireless"
+    default y
+    depends on WLAN
+    help
+      Atheros AR9xxx series WiFi.
+
+config ATH9K_HTC
+    tristate "Atheros HTC based wireless"
+    default m
+    depends on WLAN && USB
+
+config ATH10K
+    tristate "Atheros 802.11ac wireless (QCA988x/QCA99x0)"
+    default y
+    depends on WLAN
+    help
+      Qualcomm Atheros 802.11ac (Wave 1/2) WiFi.
+
+config ATH10K_PCI
+    tristate "Atheros ath10k PCI support"
+    default y
+    depends on ATH10K
+
+config ATH11K
+    tristate "Qualcomm 802.11ax wireless"
+    default y
+    depends on WLAN
+    help
+      Qualcomm WiFi 6/6E (802.11ax) support.
+
+config ATH11K_PCI
+    tristate "Atheros ath11k PCI support"
+    default y
+    depends on ATH11K
+
+config ATH12K
+    tristate "Qualcomm 802.11be wireless (WiFi 7)"
+    default y
+    depends on WLAN && EXPERIMENTAL
+    help
+      Qualcomm WiFi 7 (802.11be) support (experimental).
+
+endmenu
+
+menu "Broadcom Wireless"
+
+config B43
+    tristate "Broadcom 43xx wireless"
+    default m
+    depends on WLAN
+
+config B43LEGACY
+    tristate "Broadcom 43xx-legacy wireless"
+    default m
+    depends on WLAN
+
+config BRCMSMAC
+    tristate "Broadcom IEEE802.11n PCIe SoftMAC"
+    default m
+    depends on WLAN
+
+config BRCMFMAC
+    tristate "Broadcom FullMAC wireless"
+    default y
+    depends on WLAN
+    help
+      Broadcom FullMAC drivers (common in laptops).
+
+config BRCMFMAC_PCIE
+    bool "Broadcom FullMAC PCIE bus"
+    default y
+    depends on BRCMFMAC
+
+config BRCMFMAC_USB
+    bool "Broadcom FullMAC USB bus"
+    default y
+    depends on BRCMFMAC && USB
+
+config BRCMFMAC_SDIO
+    bool "Broadcom FullMAC SDIO bus"
+    default y
+    depends on BRCMFMAC
+
+endmenu
+
+menu "MediaTek Wireless"
+
+config MT76
+    tristate "MediaTek MT76x0/MT76x2/MT7603/MT7615/MT7915/MT7921"
+    default y
+    depends on WLAN
+    help
+      MediaTek WiFi drivers (common in modern laptops).
+
+config MT7601U
+    tristate "MediaTek MT7601U USB"
+    default m
+    depends on WLAN && USB
+
+config MT76x0U
+    tristate "MediaTek MT76x0U USB"
+    default m
+    depends on MT76 && USB
+
+config MT76x2E
+    tristate "MediaTek MT76x2E PCIe"
+    default y
+    depends on MT76
+
+config MT7603E
+    tristate "MediaTek MT7603E"
+    default y
+    depends on MT76
+
+config MT7615E
+    tristate "MediaTek MT7615E (WiFi 5)"
+    default y
+    depends on MT76
+
+config MT7915E
+    tristate "MediaTek MT7915E (WiFi 6)"
+    default y
+    depends on MT76
+
+config MT7921E
+    tristate "MediaTek MT7921E (WiFi 6E)"
+    default y
+    depends on MT76
+
+config MT7922
+    tristate "MediaTek MT7922 (WiFi 6E)"
+    default y
+    depends on MT76
+
+config MT7996E
+    tristate "MediaTek MT7996E (WiFi 7)"
+    default y
+    depends on MT76 && EXPERIMENTAL
+
+endmenu
+
+menu "Ralink Wireless"
+
+config RT2X00
+    tristate "Ralink driver support"
+    default m
+    depends on WLAN
+
+config RT2400PCI
+    tristate "Ralink rt2400 (PCI/PCMCIA)"
+    default m
+    depends on RT2X00
+
+config RT2500PCI
+    tristate "Ralink rt2500 (PCI/PCMCIA)"
+    default m
+    depends on RT2X00
+
+config RT2800PCI
+    tristate "Ralink rt2800 (PCI/PCMCIA)"
+    default y
+    depends on RT2X00
+
+config RT2800USB
+    tristate "Ralink rt2800 (USB)"
+    default m
+    depends on RT2X00 && USB
+
+endmenu
+
+menu "Other Wireless"
+
+config MWIFIEX
+    tristate "Marvell WiFi-Ex"
+    default m
+    depends on WLAN
+
+config MWIFIEX_PCIE
+    tristate "Marvell WiFi-Ex PCIE"
+    default m
+    depends on MWIFIEX
+
+config WL18XX
+    tristate "TI WL18xx"
+    default m
+    depends on WLAN
+    help
+      Texas Instruments WL18xx WiFi/Bluetooth combo.
+
+endmenu
+
+endmenu
+
+menu "Bluetooth Support"
+
+config BT
+    tristate "Bluetooth support"
+    default y
+    help
+      Bluetooth wireless protocol support.
+
+config BT_BREDR
+    bool "Bluetooth Classic (BR/EDR)"
+    default y
+    depends on BT
+
+config BT_LE
+    bool "Bluetooth Low Energy (LE)"
+    default y
+    depends on BT
+
+config BT_RFCOMM
+    tristate "RFCOMM protocol"
+    default m
+    depends on BT
+
+config BT_BNEP
+    tristate "BNEP protocol"
+    default m
+    depends on BT
+
+config BT_HIDP
+    tristate "HIDP protocol"
+    default m
+    depends on BT
+
+menu "Bluetooth Device Drivers"
+
+config BT_HCIBTUSB
+    tristate "HCI USB driver"
+    default y
+    depends on BT && USB
+    help
+      Generic USB Bluetooth adapter support.
+
+config BT_HCIBTUSB_BCM
+    bool "Broadcom protocol support"
+    default y
+    depends on BT_HCIBTUSB
+
+config BT_HCIBTUSB_RTL
+    bool "Realtek protocol support"
+    default y
+    depends on BT_HCIBTUSB
+
+config BT_HCIUART
+    tristate "HCI UART driver"
+    default m
+    depends on BT
+
+config BT_HCIUART_H4
+    bool "UART (H4) protocol"
+    default y
+    depends on BT_HCIUART
+
+config BT_HCIUART_BCSP
+    bool "BCSP protocol"
+    default y
+    depends on BT_HCIUART
+
+config BT_HCIUART_LL
+    bool "HCILL protocol"
+    default y
+    depends on BT_HCIUART
+
+config BT_HCIBCM203X
+    tristate "HCI BCM203x USB driver"
+    default m
+    depends on BT && USB
+
+config BT_HCIBFUSB
+    tristate "HCI BlueFRITZ! USB driver"
+    default m
+    depends on BT && USB
+
+config BT_HCIVHCI
+    tristate "HCI VHCI (Virtual HCI)"
+    default m
+    depends on BT
+
+config BT_INTEL
+    tristate "Intel Bluetooth support"
+    default y
+    depends on BT
+
+config BT_BCM
+    tristate "Broadcom Bluetooth support"
+    default y
+    depends on BT
+
+config BT_RTL
+    tristate "Realtek Bluetooth support"
+    default y
+    depends on BT
+    help
+      Realtek Bluetooth (including RTL8723DE combo).
+
+config BT_QCA
+    tristate "Qualcomm Atheros Bluetooth support"
+    default y
+    depends on BT
+
+config BT_MTK
+    tristate "MediaTek Bluetooth support"
+    default y
+    depends on BT
+
+endmenu
+
+endmenu
+
+endmenu
+
+menu "Camera and Multimedia Devices"
+
+config MEDIA_SUPPORT
+    tristate "Multimedia support"
+    default y
+
+config MEDIA_CAMERA_SUPPORT
+    bool "Camera support"
+    default y
+    depends on MEDIA_SUPPORT
+
+config MEDIA_ANALOG_TV_SUPPORT
+    bool "Analog TV support"
+    default m
+    depends on MEDIA_SUPPORT
+
+config MEDIA_DIGITAL_TV_SUPPORT
+    bool "Digital TV support"
+    default m
+    depends on MEDIA_SUPPORT
+
+config VIDEO_DEV
+    tristate "Video For Linux (V4L2)"
+    default y
+    depends on MEDIA_SUPPORT
+
+config VIDEO_V4L2
+    tristate "V4L2 core"
+    default y
+    depends on VIDEO_DEV
+
+menu "Webcam Drivers"
+
+config USB_VIDEO_CLASS
+    tristate "USB Video Class (UVC)"
+    default y
+    depends on VIDEO_DEV && USB
+    help
+      Generic USB webcam driver (most webcams).
+
+config USB_GSPCA
+    tristate "GSPCA based webcams"
+    default m
+    depends on VIDEO_DEV && USB
+
+config VIDEO_CPIA2
+    tristate "CPiA2 USB webcams"
+    default m
+    depends on VIDEO_DEV && USB
+
+config USB_PWC
+    tristate "Philips USB webcams"
+    default m
+    depends on VIDEO_DEV && USB
+
+config USB_ZR364XX
+    tristate "USB ZR364XX webcams"
+    default m
+    depends on VIDEO_DEV && USB
+
+config USB_STKWEBCAM
+    tristate "USB Syntek webcams"
+    default m
+    depends on VIDEO_DEV && USB
+
+endmenu
+
+menu "Laptop Integrated Cameras"
+
+config VIDEO_IPU3_CIO2
+    tristate "Intel IPU3 camera (Skylake/Kaby Lake)"
+    default y
+    depends on VIDEO_DEV
+    help
+      Intel Image Processing Unit 3 for laptop webcams.
+
+config VIDEO_IPU6
+    tristate "Intel IPU6 camera (Alder Lake and newer)"
+    default y
+    depends on VIDEO_DEV
+    help
+      Intel Image Processing Unit 6 for modern laptops.
+
+config VIDEO_OV5693
+    tristate "OmniVision OV5693 sensor"
+    default y
+    depends on VIDEO_DEV && I2C
+
+config VIDEO_OV8865
+    tristate "OmniVision OV8865 sensor"
+    default y
+    depends on VIDEO_DEV && I2C
+
+config VIDEO_IMX219
+    tristate "Sony IMX219 sensor"
+    default y
+    depends on VIDEO_DEV && I2C
+
+config VIDEO_IMX355
+    tristate "Sony IMX355 sensor"
+    default y
+    depends on VIDEO_DEV && I2C
+
+endmenu
+
+endmenu
+
+menu "Sensor Support"
+
+config IIO
+    tristate "Industrial I/O support"
+    default y
+    help
+      Framework for sensors and ADCs.
+
+config IIO_BUFFER
+    bool "IIO buffer support"
+    default y
+    depends on IIO
+
+config IIO_TRIGGER
+    bool "IIO trigger support"
+    default y
+    depends on IIO
+
+menu "Accelerometers"
+
+config ADXL345
+    tristate "ADXL345 3-Axis accelerometer"
+    default y
+    depends on IIO
+
+config ADXL372
+    tristate "ADXL372 3-Axis accelerometer"
+    default y
+    depends on IIO
+
+config BMC150_ACCEL
+    tristate "Bosch BMC150 accelerometer"
+    default y
+    depends on IIO
+
+config BMI160
+    tristate "Bosch BMI160 IMU"
+    default y
+    depends on IIO
+    help
+      6-axis IMU with accelerometer and gyroscope.
+
+config KXCJK1013
+    tristate "Kionix KXCJK-1013 accelerometer"
+    default y
+    depends on IIO
+
+endmenu
+
+menu "Gyroscopes"
+
+config BMG160
+    tristate "Bosch BMG160 gyroscope"
+    default y
+    depends on IIO
+
+config ITG3200
+    tristate "InvenSense ITG3200 gyroscope"
+    default y
+    depends on IIO
+
+config MPU3050
+    tristate "InvenSense MPU3050 gyroscope"
+    default y
+    depends on IIO
+
+endmenu
+
+menu "Magnetometers"
+
+config AK8975
+    tristate "AKM AK8975 magnetometer"
+    default y
+    depends on IIO
+
+config BMC150_MAGN
+    tristate "Bosch BMC150 magnetometer"
+    default y
+    depends on IIO
+
+config HMC5843
+    tristate "Honeywell HMC5843/5883/5883L"
+    default y
+    depends on IIO
+
+endmenu
+
+menu "Proximity and Light Sensors"
+
+config APDS9960
+    tristate "Avago APDS9960 gesture/RGB/ALS/proximity"
+    default y
+    depends on IIO && I2C
+
+config BH1750
+    tristate "ROHM BH1750 ambient light sensor"
+    default y
+    depends on IIO && I2C
+
+config CM3605
+    tristate "Capella CM3605 proximity and light sensor"
+    default y
+    depends on IIO
+
+config ISL29018
+    tristate "Intersil ISL29018 light and proximity sensor"
+    default y
+    depends on IIO && I2C
+
+config JSA1212
+    tristate "JSA1212 proximity and ALS sensor"
+    default y
+    depends on IIO && I2C
+
+config VCNL4000
+    tristate "VCNL4000/4010/4020/4040/4200 proximity sensor"
+    default y
+    depends on IIO && I2C
+
+config GP2AP020A00F
+    tristate "Sharp GP2AP020A00F proximity/light sensor"
+    default y
+    depends on IIO && I2C
+
+config TSL2563
+    tristate "TAOS TSL2563 ambient light sensor"
+    default y
+    depends on IIO && I2C
+
+config US5182D
+    tristate "UPISEMI US5182D ALS and proximity sensor"
+    default y
+    depends on IIO && I2C
+
+endmenu
+
+menu "Pressure and Temperature Sensors"
+
+config BMP280
+    tristate "Bosch BMP280/BME280 pressure sensor"
+    default y
+    depends on IIO
+    help
+      Barometric pressure and temperature sensor.
+
+config MS5611
+    tristate "MS5611 pressure sensor"
+    default y
+    depends on IIO
+
+config ICP10100
+    tristate "InvenSense ICP10100 pressure sensor"
+    default m
+    depends on IIO
+
+endmenu
+
+menu "Biometric Sensors"
+
+config FINGERPRINT_FPC1020
+    tristate "FPC1020 fingerprint sensor"
+    default y
+    depends on IIO && SPI
+
+config FINGERPRINT_GOODIX
+    tristate "Goodix fingerprint sensor"
+    default y
+    depends on IIO && SPI
+
+config FINGERPRINT_SYNAPTICS
+    tristate "Synaptics fingerprint sensor"
+    default y
+    depends on IIO && SPI
+
+config FINGERPRINT_ELAN
+    tristate "ELAN fingerprint sensor"
+    default y
+    depends on IIO && SPI
+
+endmenu
+
+menu "Infrared Sensors"
+
+config IR_TOF
+    tristate "Time-of-Flight IR sensor"
+    default y
+    depends on IIO
+
+config VL53L0X
+    tristate "STMicro VL53L0X ToF ranging sensor"
+    default y
+    depends on IIO && I2C
+
+config VL53L1X
+    tristate "STMicro VL53L1X ToF ranging sensor"
+    default y
+    depends on IIO && I2C
+
+endmenu
+
+menu "Depth Sensors"
+
+config DEPTH_CAMERA_D4XX
+    tristate "Intel RealSense D4xx depth camera"
+    default m
+    depends on VIDEO_DEV && USB
+
+config KINECT_SENSOR
+    tristate "Microsoft Kinect sensor"
+    default m
+    depends on VIDEO_DEV && USB
+
+endmenu
+
+endmenu
+
+menu "TPM (Trusted Platform Module)"
+
+config TCG_TPM
+    tristate "TPM Hardware Support"
+    default y
+    help
+      Trusted Platform Module for hardware security.
+
+config TCG_TIS
+    tristate "TPM Interface Specification 1.2"
+    default y
+    depends on TCG_TPM
+
+config TCG_TIS_SPI
+    tristate "TPM SPI Interface"
+    default y
+    depends on TCG_TPM && SPI
+
+config TCG_TIS_I2C
+    tristate "TPM I2C Interface"
+    default y
+    depends on TCG_TPM && I2C
+
+config TCG_CRB
+    tristate "TPM Command Response Buffer"
+    default y
+    depends on TCG_TPM
+
+config TCG_TPM2_HMAC
+    bool "TPM 2.0 HMAC and encrypted sessions"
+    default y
+    depends on TCG_TPM
+
+config HW_RANDOM_TPM
+    bool "TPM HW Random Number Generator"
+    default y
+    depends on TCG_TPM && HW_RANDOM
+
+endmenu
+
+menu "I2C Support"
+
+config I2C
+    tristate "I2C support"
+    default y
+
+config I2C_CHARDEV
+    tristate "I2C device interface"
+    default y
+    depends on I2C
+
+config I2C_INTEL
+    tristate "Intel I2C/SMBus"
+    default y
+    depends on I2C
+
+config I2C_AMD
+    tristate "AMD I2C/SMBus"
+    default y
+    depends on I2C
+
+config I2C_NVIDIA
+    tristate "NVIDIA I2C"
+    default y
+    depends on I2C
+
+endmenu
+
+menu "SPI Support"
+
+config SPI
+    tristate "SPI support"
+    default y
+
+config SPI_MASTER
+    bool "SPI master support"
+    default y
+    depends on SPI
+
+config SPI_INTEL
+    tristate "Intel SPI controller"
+    default y
+    depends on SPI
+
+endmenu
+
+menu "LED Support"
+
+config LEDS_CLASS
+    tristate "LED Class Support"
+    default y
+    help
+      LED subsystem for controlling various LEDs.
+
+config LEDS_TRIGGERS
+    bool "LED Trigger Support"
+    default y
+    depends on LEDS_CLASS
+
+menu "Keyboard Backlight"
+
+config LEDS_KEYBOARD
+    tristate "Keyboard backlight support"
+    default y
+    depends on LEDS_CLASS
+
+config LEDS_KEYBOARD_RGB
+    tristate "RGB keyboard backlight"
+    default y
+    depends on LEDS_KEYBOARD
+    help
+      RGB backlight control for gaming keyboards.
+
+config LEDS_ASUS
+    tristate "ASUS keyboard backlight"
+    default y
+    depends on LEDS_KEYBOARD
+
+config LEDS_DELL
+    tristate "Dell keyboard backlight"
+    default y
+    depends on LEDS_KEYBOARD
+
+config LEDS_HP
+    tristate "HP keyboard backlight"
+    default y
+    depends on LEDS_KEYBOARD
+
+config LEDS_LENOVO
+    tristate "Lenovo keyboard backlight"
+    default y
+    depends on LEDS_KEYBOARD
+
+config LEDS_APPLE
+    tristate "Apple keyboard backlight"
+    default y
+    depends on LEDS_KEYBOARD
+
+config LEDS_RAZER
+    tristate "Razer Chroma keyboard"
+    default m
+    depends on LEDS_KEYBOARD_RGB && USB
+
+config LEDS_CORSAIR
+    tristate "Corsair RGB keyboard"
+    default m
+    depends on LEDS_KEYBOARD_RGB && USB
+
+config LEDS_LOGITECH
+    tristate "Logitech RGB keyboard"
+    default m
+    depends on LEDS_KEYBOARD_RGB && USB
+
+endmenu
+
+endmenu
+
+menu "Backlight/Brightness Support"
+
+config BACKLIGHT_CLASS_DEVICE
+    tristate "Backlight support"
+    default y
+
+config BACKLIGHT_GENERIC
+    tristate "Generic backlight driver"
+    default y
+    depends on BACKLIGHT_CLASS_DEVICE
+
+config BACKLIGHT_INTEL
+    tristate "Intel backlight control"
+    default y
+    depends on BACKLIGHT_CLASS_DEVICE
+
+config BACKLIGHT_ACPI_VIDEO
+    tristate "ACPI video backlight"
+    default y
+    depends on BACKLIGHT_CLASS_DEVICE && ACPI
+
+config BACKLIGHT_APPLE
+    tristate "Apple backlight control"
+    default y
+    depends on BACKLIGHT_CLASS_DEVICE
+
+endmenu
+
+menu "Display Interfaces"
+
+config DRM_DISPLAY
+    bool "Display interface support"
+    default y
+    depends on DRM
+
+config DRM_DISPLAY_HDMI
+    bool "HDMI support"
+    default y
+    depends on DRM_DISPLAY
+
+config DRM_DISPLAY_DP
+    bool "DisplayPort support"
+    default y
+    depends on DRM_DISPLAY
+
+config DRM_DISPLAY_DP_MST
+    bool "DisplayPort Multi-Stream Transport"
+    default y
+    depends on DRM_DISPLAY_DP
+
+config DRM_DISPLAY_EDP
+    bool "eDP (embedded DisplayPort) support"
+    default y
+    depends on DRM_DISPLAY_DP
+
+config DRM_DISPLAY_DSI
+    bool "MIPI DSI support"
+    default y
+    depends on DRM_DISPLAY
+
+config DRM_DISPLAY_LVDS
+    bool "LVDS support"
+    default y
+    depends on DRM_DISPLAY
+
+endmenu
+
+menu "Virtual Machine Guest Support"
+
+config HYPERVISOR_GUEST
+    bool "Linux guest support"
+    default y
+    help
+      Enable support when running as VM guest.
+
+config PARAVIRT
+    bool "Paravirtualization layer"
+    default y
+    depends on HYPERVISOR_GUEST
+
+config KVM_GUEST
+    bool "KVM Guest support"
+    default y
+    depends on PARAVIRT
+
+config XEN
+    bool "Xen guest support"
+    default y
+    depends on PARAVIRT
+
+config VMWARE_GUEST
+    bool "VMware guest optimizations"
+    default y
+    depends on HYPERVISOR_GUEST
+
+config HYPERV
+    bool "Microsoft Hyper-V guest support"
+    default y
+    depends on HYPERVISOR_GUEST
+
+config VIRTIO
+    tristate "VirtIO drivers"
+    default y
+    depends on HYPERVISOR_GUEST
+
+config VIRTIO_PCI
+    tristate "VirtIO PCI driver"
+    default y
+    depends on VIRTIO
+
+config VIRTIO_BALLOON
+    tristate "VirtIO balloon driver"
+    default y
+    depends on VIRTIO
+
+config VIRTIO_BLK
+    tristate "VirtIO block driver"
+    default y
+    depends on VIRTIO
+
+config VIRTIO_NET
+    tristate "VirtIO network driver"
+    default y
+    depends on VIRTIO
+
+config VIRTIO_CONSOLE
+    tristate "VirtIO console"
+    default y
+    depends on VIRTIO
+
+config VMWARE_VMCI
+    tristate "VMware VMCI driver"
+    default y
+    depends on VMWARE_GUEST
+
+config VMWARE_BALLOON
+    tristate "VMware memory balloon"
+    default y
+    depends on VMWARE_GUEST
+
+endmenu
+
+menu "Apple Silicon Support"
+
+config APPLE_PLATFORMS
+    bool "Apple Silicon support"
+    default y
+    depends on ARM64
+    help
+      Support for Apple M1/M2/M3 processors.
+
+config APPLE_AIC
+    bool "Apple Interrupt Controller"
+    default y
+    depends on APPLE_PLATFORMS
+
+config APPLE_PMGR
+    bool "Apple Power Manager"
+    default y
+    depends on APPLE_PLATFORMS
+
+config APPLE_RTKIT
+    tristate "Apple RTKit IPC"
+    default y
+    depends on APPLE_PLATFORMS
+
+config APPLE_SMC
+    tristate "Apple System Management Controller"
+    default y
+    depends on APPLE_PLATFORMS
+
+config APPLE_MAILBOX
+    tristate "Apple Mailbox"
+    default y
+    depends on APPLE_PLATFORMS
+
+config APPLE_WATCHDOG
+    tristate "Apple Watchdog"
+    default y
+    depends on APPLE_PLATFORMS
+
+config APPLE_NVME
+    tristate "Apple NVMe controller"
+    default y
+    depends on APPLE_PLATFORMS && BLK_DEV_NVME
+
+endmenu
+
+endmenu
+
+menu "Cryptographic Support"
+
+config CRYPTO
+    bool "Cryptographic API"
+    default y
+
+config CRYPTO_HASH
+    bool "Hash algorithms"
+    default y
+    depends on CRYPTO
+
+config CRYPTO_SHA1
+    tristate "SHA1"
+    default y
+    depends on CRYPTO_HASH
+
+config CRYPTO_SHA256
+    tristate "SHA256"
+    default y
+    depends on CRYPTO_HASH
+
+config CRYPTO_SHA512
+    tristate "SHA512"
+    default y
+    depends on CRYPTO_HASH
+
+config CRYPTO_AES
+    tristate "AES"
+    default y
+    depends on CRYPTO
+
+config CRYPTO_AES_NI
+    tristate "AES-NI (x86_64)"
+    default y
+    depends on CRYPTO_AES && X86_64
+
+config CRYPTO_RSA
+    tristate "RSA"
+    default y
+    depends on CRYPTO
+
+config CRYPTO_USER
+    tristate "User-space interface"
+    default m
+    depends on CRYPTO
+
+endmenu
+
+menu "Security Options"
+
+config SECURITY
+    bool "Enable different security models"
+    default y
+
+config SECCOMP
+    bool "Enable seccomp"
+    default y
+    depends on SECURITY
+
+config SECURITY_SELINUX
+    bool "SELinux support"
+    default n
+    depends on SECURITY
+
+config SECURITY_APPARMOR
+    bool "AppArmor support"
+    default y
+    depends on SECURITY
+
+endmenu
+
+menu "PCIe Advanced Features"
+
+config PCIE_PTM
+    bool "PCI Express Precision Time Measurement"
+    default y
+    depends on PCI
+    help
+      PCIe PTM for precise time synchronization.
+
+config PCIE_BW
+    bool "PCI Express Bandwidth Controller"
+    default y
+    depends on PCI
+
+config PCIE_EDR
+    bool "PCI Express Error Disconnect Recovery"
+    default y
+    depends on PCIEAER
+
+endmenu
+
+menu "Platform Devices"
+
+config PLATFORM_DEVICES
+    bool "Platform device support"
+    default y
+
+config DELL_WMI
+    tristate "Dell WMI extras"
+    default y
+    depends on PLATFORM_DEVICES && ACPI_WMI
+    help
+      Dell laptop special keys and functionality.
+
+config DELL_SMBIOS
+    tristate "Dell SMBIOS driver"
+    default y
+    depends on PLATFORM_DEVICES
+
+config HP_WMI
+    tristate "HP WMI extras"
+    default y
+    depends on PLATFORM_DEVICES && ACPI_WMI
+    help
+      HP laptop special keys and functionality.
+
+config LENOVO_LAPTOP
+    tristate "Lenovo laptop extras"
+    default y
+    depends on PLATFORM_DEVICES
+    help
+      Lenovo-specific laptop features.
+
+config THINKPAD_ACPI
+    tristate "ThinkPad ACPI laptop extras"
+    default y
+    depends on PLATFORM_DEVICES && ACPI
+    help
+      ThinkPad-specific features (LED, hotkeys, fan control).
+
+config SAMSUNG_LAPTOP
+    tristate "Samsung laptop extras"
+    default m
+    depends on PLATFORM_DEVICES
+
+config ASUS_WMI
+    tristate "ASUS WMI driver"
+    default y
+    depends on PLATFORM_DEVICES && ACPI_WMI
+    help
+      ASUS laptop features (keyboard backlight, etc).
+
+config APPLE_GMUX
+    tristate "Apple Gmux driver"
+    default y
+    depends on PLATFORM_DEVICES && ACPI
+    help
+      Graphics multiplexer for MacBooks with dual GPUs.
+
+config INTEL_HID_EVENT
+    tristate "Intel HID event"
+    default y
+    depends on PLATFORM_DEVICES && ACPI
+
+config INTEL_VBTN
+    tristate "Intel Virtual Button"
+    default y
+    depends on PLATFORM_DEVICES && ACPI
+
+config INTEL_INT0002_VGPIO
+    tristate "Intel ACPI INT0002 Virtual GPIO"
+    default y
+    depends on PLATFORM_DEVICES && ACPI && GPIOLIB
+
+endmenu
+
+menu "ACPI & Firmware"
+
+config ACPI_WMI
+    tristate "WMI (Windows Management Instrumentation)"
+    default y
+    depends on ACPI
+    help
+      ACPI-WMI mapping driver (required for laptop extras).
+
+config ACPI_VIDEO
+    tristate "ACPI Video driver"
+    default y
+    depends on ACPI
+    help
+      ACPI video extensions for brightness control.
+
+config ACPI_BUTTON
+    tristate "ACPI button driver"
+    default y
+    depends on ACPI
+    help
+      Power button, sleep button, and lid switch.
+
+config ACPI_FAN
+    tristate "ACPI fan driver"
+    default y
+    depends on ACPI
+
+config ACPI_THERMAL
+    tristate "ACPI thermal zone"
+    default y
+    depends on ACPI
+    help
+      Thermal management via ACPI.
+
+config ACPI_BATTERY
+    tristate "ACPI battery driver"
+    default y
+    depends on ACPI
+    help
+      Battery status and information.
+
+config ACPI_AC
+    tristate "ACPI AC adapter driver"
+    default y
+    depends on ACPI
+    help
+      AC adapter status detection.
+
+config ACPI_PROCESSOR
+    tristate "ACPI processor driver"
+    default y
+    depends on ACPI
+    help
+      CPU frequency and power management.
+
+config ACPI_CPPC
+    bool "ACPI CPPC support"
+    default y
+    depends on ACPI_PROCESSOR
+    help
+      Collaborative Processor Performance Control.
+
+config EFI
+    bool "EFI runtime service support"
+    default y
+    depends on X86_64 || ARM64
+    help
+      Extensible Firmware Interface support.
+
+config EFI_VARS
+    tristate "EFI variable support"
+    default y
+    depends on EFI
+
+config EFI_ESRT
+    bool "EFI System Resource Table"
+    default y
+    depends on EFI
+    help
+      Firmware update information.
+
+config EFI_CAPSULE_LOADER
+    tristate "EFI capsule loader"
+    default m
+    depends on EFI
+
+config DMIID
+    bool "Export DMI identification via sysfs"
+    default y
+    help
+      System DMI information in /sys/class/dmi/id/.
+
+endmenu
+
+menu "Memory Technology Devices (MTD)"
+
+config MTD
+    tristate "Memory Technology Device support"
+    default m
+    help
+      Flash memory, ROM, RAM device support.
+
+config MTD_BLOCK
+    tristate "MTD block device"
+    default m
+    depends on MTD
+
+config MTD_CHAR
+    tristate "MTD character device"
+    default m
+    depends on MTD
+
+config MTD_NAND
+    tristate "NAND flash support"
+    default m
+    depends on MTD
+
+config MTD_SPI_NOR
+    tristate "SPI NOR flash support"
+    default m
+    depends on MTD && SPI
+
+endmenu
+
+menu "Multi-Function Devices (MFD)"
+
+config MFD_CORE
+    bool
+    default y
+
+config MFD_INTEL_LPSS
+    tristate "Intel Low Power Subsystem"
+    default y
+    depends on MFD_CORE && (X86_64 || X86_32)
+    help
+      Intel LPSS (I2C, SPI, UART controllers).
+
+config MFD_INTEL_PMC_BXT
+    tristate "Intel PMC driver for Broxton"
+    default y
+    depends on MFD_CORE
+
+endmenu
+
+menu "Remote Processor Support"
+
+config REMOTEPROC
+    tristate "Remote processor support"
+    default m
+    help
+      Framework for controlling remote processors (DSPs, etc).
+
+endmenu
+
+menu "Kernel Hacking"
+
+config MAGIC_SYSRQ
+    bool "Magic SysRq key"
+    default y
+    help
+      Enable magic SysRq key combinations for emergency operations.
+
+config STACKTRACE
+    bool
+    default y
+
+config STACK_VALIDATION
+    bool "Stack validation"
+    default y
+    depends on X86_64
+
+config DEBUG_FS
+    bool "Debug filesystem"
+    default y
+    help
+      debugfs mounted at /sys/kernel/debug.
+
+config DEBUG_KERNEL
+    bool "Kernel debugging"
+    default n
+
+config DEBUG_INFO
+    bool "Compile with debug info"
+    default n
+    depends on DEBUG_KERNEL
+    help
+      Include debugging symbols (DWARF).
+
+config DEBUG_INFO_DWARF4
+    bool "Generate DWARF4 debug info"
+    default y
+    depends on DEBUG_INFO
+
+config DEBUG_MEMORY
+    bool "Memory debugging"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_PAGEALLOC
+    bool "Debug page allocations"
+    default n
+    depends on DEBUG_KERNEL && !HIBERNATION
+    help
+      Detect memory corruption caused by page allocator bugs.
+
+config DEBUG_OBJECTS
+    bool "Debug object tracking"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_SLAB
+    bool "Debug slab allocations"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_SPINLOCK
+    bool "Spinlock debugging"
+    default n
+    depends on DEBUG_KERNEL && SMP
+
+config DEBUG_MUTEXES
+    bool "Mutex debugging"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_LOCK_ALLOC
+    bool "Lock usage debugging"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_STACKOVERFLOW
+    bool "Check for stack overflows"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_STACK_USAGE
+    bool "Stack utilization instrumentation"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_LIST
+    bool "Debug linked lists"
+    default n
+    depends on DEBUG_KERNEL
+    help
+      Check list_add/list_del operations for corruption.
+
+config DEBUG_NOTIFIERS
+    bool "Debug notifier chains"
+    default n
+    depends on DEBUG_KERNEL
+
+config DEBUG_CREDENTIALS
+    bool "Debug credential management"
+    default n
+    depends on DEBUG_KERNEL
+
+config KGDB
+    bool "KGDB: kernel debugger"
+    default n
+    depends on DEBUG_KERNEL
+    help
+      Kernel debugger using GDB protocol.
+
+config KGDB_SERIAL_CONSOLE
+    bool "KGDB over serial port"
+    default y
+    depends on KGDB
+
+config KGDB_KDB
+    bool "KGDB KDB frontend"
+    default y
+    depends on KGDB
+
+config GDB_SCRIPTS
+    bool "Provide GDB scripts"
+    default y
+    depends on DEBUG_INFO
+    help
+      Python GDB scripts for kernel debugging.
+
+config FRAME_POINTER
+    bool "Compile with frame pointers"
+    default n
+    help
+      Better stack traces at the cost of performance.
+
+config FTRACE
+    bool "Kernel function tracer"
+    default n
+    help
+      Function call tracing for performance analysis.
+
+config FUNCTION_TRACER
+    bool "Function tracer"
+    default n
+    depends on FTRACE
+
+config DYNAMIC_FTRACE
+    bool "Dynamic function tracing"
+    default y
+    depends on FUNCTION_TRACER
+
+config STACK_TRACER
+    bool "Trace max stack"
+    default n
+    depends on FTRACE
+
+config IRQSOFF_TRACER
+    bool "Interrupts-off tracer"
+    default n
+    depends on FTRACE
+
+config SCHED_TRACER
+    bool "Scheduling latency tracer"
+    default n
+    depends on FTRACE
+
+config TRACER_SNAPSHOT
+    bool "Tracer snapshot"
+    default n
+    depends on FTRACE
+
+config BPF_SYSCALL
+    bool "Enable BPF system call"
+    default y
+    help
+      Berkeley Packet Filter for tracing and networking.
+
+config BPF_JIT
+    bool "BPF JIT compiler"
+    default y
+    depends on BPF_SYSCALL
+
+config BPF_JIT_ALWAYS_ON
+    bool "Always compile BPF to native code"
+    default n
+    depends on BPF_JIT
+
+endmenu
+
+# Include comprehensive driver database (12,787 drivers)
+source "Kconfig.drivers"

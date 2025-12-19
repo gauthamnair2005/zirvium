@@ -1,0 +1,676 @@
+
+menu "Sensor_Magnetometer Drivers"
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R0
+    tristate "Magnetometer AK8963 I2C Rev0"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev0 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R1
+    tristate "Magnetometer AK8963 I2C Rev1"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev1 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R2
+    tristate "Magnetometer AK8963 I2C Rev2"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev2 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R3
+    tristate "Magnetometer AK8963 I2C Rev3"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev3 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R4
+    tristate "Magnetometer AK8963 I2C Rev4"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev4 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R5
+    tristate "Magnetometer AK8963 I2C Rev5"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev5 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R6
+    tristate "Magnetometer AK8963 I2C Rev6"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev6 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_I2C_R7
+    tristate "Magnetometer AK8963 I2C Rev7"
+    default n
+    help
+      Support for Magnetometer AK8963 I2C Rev7 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R0
+    tristate "Magnetometer AK8963 SPI Rev0"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev0 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R1
+    tristate "Magnetometer AK8963 SPI Rev1"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev1 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R2
+    tristate "Magnetometer AK8963 SPI Rev2"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev2 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R3
+    tristate "Magnetometer AK8963 SPI Rev3"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev3 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R4
+    tristate "Magnetometer AK8963 SPI Rev4"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev4 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R5
+    tristate "Magnetometer AK8963 SPI Rev5"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev5 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R6
+    tristate "Magnetometer AK8963 SPI Rev6"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev6 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_SPI_R7
+    tristate "Magnetometer AK8963 SPI Rev7"
+    default n
+    help
+      Support for Magnetometer AK8963 SPI Rev7 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R0
+    tristate "Magnetometer AK8963 UART Rev0"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev0 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R1
+    tristate "Magnetometer AK8963 UART Rev1"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev1 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R2
+    tristate "Magnetometer AK8963 UART Rev2"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev2 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R3
+    tristate "Magnetometer AK8963 UART Rev3"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev3 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R4
+    tristate "Magnetometer AK8963 UART Rev4"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev4 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R5
+    tristate "Magnetometer AK8963 UART Rev5"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev5 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R6
+    tristate "Magnetometer AK8963 UART Rev6"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev6 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8963_UART_R7
+    tristate "Magnetometer AK8963 UART Rev7"
+    default n
+    help
+      Support for Magnetometer AK8963 UART Rev7 (AK8963)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R0
+    tristate "Magnetometer AK8975 I2C Rev0"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev0 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R1
+    tristate "Magnetometer AK8975 I2C Rev1"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev1 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R2
+    tristate "Magnetometer AK8975 I2C Rev2"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev2 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R3
+    tristate "Magnetometer AK8975 I2C Rev3"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev3 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R4
+    tristate "Magnetometer AK8975 I2C Rev4"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev4 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R5
+    tristate "Magnetometer AK8975 I2C Rev5"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev5 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R6
+    tristate "Magnetometer AK8975 I2C Rev6"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev6 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_I2C_R7
+    tristate "Magnetometer AK8975 I2C Rev7"
+    default n
+    help
+      Support for Magnetometer AK8975 I2C Rev7 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R0
+    tristate "Magnetometer AK8975 SPI Rev0"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev0 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R1
+    tristate "Magnetometer AK8975 SPI Rev1"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev1 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R2
+    tristate "Magnetometer AK8975 SPI Rev2"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev2 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R3
+    tristate "Magnetometer AK8975 SPI Rev3"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev3 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R4
+    tristate "Magnetometer AK8975 SPI Rev4"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev4 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R5
+    tristate "Magnetometer AK8975 SPI Rev5"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev5 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R6
+    tristate "Magnetometer AK8975 SPI Rev6"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev6 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_SPI_R7
+    tristate "Magnetometer AK8975 SPI Rev7"
+    default n
+    help
+      Support for Magnetometer AK8975 SPI Rev7 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R0
+    tristate "Magnetometer AK8975 UART Rev0"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev0 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R1
+    tristate "Magnetometer AK8975 UART Rev1"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev1 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R2
+    tristate "Magnetometer AK8975 UART Rev2"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev2 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R3
+    tristate "Magnetometer AK8975 UART Rev3"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev3 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R4
+    tristate "Magnetometer AK8975 UART Rev4"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev4 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R5
+    tristate "Magnetometer AK8975 UART Rev5"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev5 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R6
+    tristate "Magnetometer AK8975 UART Rev6"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev6 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_AK8975_UART_R7
+    tristate "Magnetometer AK8975 UART Rev7"
+    default n
+    help
+      Support for Magnetometer AK8975 UART Rev7 (AK8975)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R0
+    tristate "Magnetometer BMM150 I2C Rev0"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev0 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R1
+    tristate "Magnetometer BMM150 I2C Rev1"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev1 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R2
+    tristate "Magnetometer BMM150 I2C Rev2"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev2 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R3
+    tristate "Magnetometer BMM150 I2C Rev3"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev3 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R4
+    tristate "Magnetometer BMM150 I2C Rev4"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev4 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R5
+    tristate "Magnetometer BMM150 I2C Rev5"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev5 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R6
+    tristate "Magnetometer BMM150 I2C Rev6"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev6 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_I2C_R7
+    tristate "Magnetometer BMM150 I2C Rev7"
+    default n
+    help
+      Support for Magnetometer BMM150 I2C Rev7 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R0
+    tristate "Magnetometer BMM150 SPI Rev0"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev0 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R1
+    tristate "Magnetometer BMM150 SPI Rev1"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev1 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R2
+    tristate "Magnetometer BMM150 SPI Rev2"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev2 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R3
+    tristate "Magnetometer BMM150 SPI Rev3"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev3 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R4
+    tristate "Magnetometer BMM150 SPI Rev4"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev4 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R5
+    tristate "Magnetometer BMM150 SPI Rev5"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev5 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R6
+    tristate "Magnetometer BMM150 SPI Rev6"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev6 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_SPI_R7
+    tristate "Magnetometer BMM150 SPI Rev7"
+    default n
+    help
+      Support for Magnetometer BMM150 SPI Rev7 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R0
+    tristate "Magnetometer BMM150 UART Rev0"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev0 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R1
+    tristate "Magnetometer BMM150 UART Rev1"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev1 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R2
+    tristate "Magnetometer BMM150 UART Rev2"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev2 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R3
+    tristate "Magnetometer BMM150 UART Rev3"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev3 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R4
+    tristate "Magnetometer BMM150 UART Rev4"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev4 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R5
+    tristate "Magnetometer BMM150 UART Rev5"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev5 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R6
+    tristate "Magnetometer BMM150 UART Rev6"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev6 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_BMM150_UART_R7
+    tristate "Magnetometer BMM150 UART Rev7"
+    default n
+    help
+      Support for Magnetometer BMM150 UART Rev7 (BMM150)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R0
+    tristate "Magnetometer LIS3MDL I2C Rev0"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev0 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R1
+    tristate "Magnetometer LIS3MDL I2C Rev1"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev1 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R2
+    tristate "Magnetometer LIS3MDL I2C Rev2"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev2 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R3
+    tristate "Magnetometer LIS3MDL I2C Rev3"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev3 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R4
+    tristate "Magnetometer LIS3MDL I2C Rev4"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev4 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R5
+    tristate "Magnetometer LIS3MDL I2C Rev5"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev5 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R6
+    tristate "Magnetometer LIS3MDL I2C Rev6"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev6 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_I2C_R7
+    tristate "Magnetometer LIS3MDL I2C Rev7"
+    default n
+    help
+      Support for Magnetometer LIS3MDL I2C Rev7 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R0
+    tristate "Magnetometer LIS3MDL SPI Rev0"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev0 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R1
+    tristate "Magnetometer LIS3MDL SPI Rev1"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev1 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R2
+    tristate "Magnetometer LIS3MDL SPI Rev2"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev2 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R3
+    tristate "Magnetometer LIS3MDL SPI Rev3"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev3 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R4
+    tristate "Magnetometer LIS3MDL SPI Rev4"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev4 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R5
+    tristate "Magnetometer LIS3MDL SPI Rev5"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev5 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R6
+    tristate "Magnetometer LIS3MDL SPI Rev6"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev6 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_SPI_R7
+    tristate "Magnetometer LIS3MDL SPI Rev7"
+    default n
+    help
+      Support for Magnetometer LIS3MDL SPI Rev7 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R0
+    tristate "Magnetometer LIS3MDL UART Rev0"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev0 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R1
+    tristate "Magnetometer LIS3MDL UART Rev1"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev1 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R2
+    tristate "Magnetometer LIS3MDL UART Rev2"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev2 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R3
+    tristate "Magnetometer LIS3MDL UART Rev3"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev3 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R4
+    tristate "Magnetometer LIS3MDL UART Rev4"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev4 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R5
+    tristate "Magnetometer LIS3MDL UART Rev5"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev5 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R6
+    tristate "Magnetometer LIS3MDL UART Rev6"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev6 (LIS3MDL)
+      Category: sensor_magnetometer
+
+config SENSOR_MAGNETOMETER_LIS3MDL_UART_R7
+    tristate "Magnetometer LIS3MDL UART Rev7"
+    default n
+    help
+      Support for Magnetometer LIS3MDL UART Rev7 (LIS3MDL)
+      Category: sensor_magnetometer
+
+endmenu

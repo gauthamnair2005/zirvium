@@ -1,0 +1,2 @@
+drivers/sensor_humidity/sensor-humidity-hdc1080-i2c-r5.o: \
+ drivers/sensor_humidity/sensor-humidity-hdc1080-i2c-r5.c

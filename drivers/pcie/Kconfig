@@ -1,0 +1,8 @@
+# PCIe driver Kconfig for Zirvium
+
+config PCIE_CONTROLLER_DRIVER
+    tristate "PCIe controller driver implementation"
+    depends on PCI
+    default y
+    help
+      PCIe root complex controller driver.

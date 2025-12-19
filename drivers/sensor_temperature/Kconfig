@@ -1,0 +1,676 @@
+
+menu "Sensor_Temperature Drivers"
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R0
+    tristate "Temperature TMP102 I2C Rev0"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev0 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R1
+    tristate "Temperature TMP102 I2C Rev1"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev1 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R2
+    tristate "Temperature TMP102 I2C Rev2"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev2 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R3
+    tristate "Temperature TMP102 I2C Rev3"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev3 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R4
+    tristate "Temperature TMP102 I2C Rev4"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev4 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R5
+    tristate "Temperature TMP102 I2C Rev5"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev5 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R6
+    tristate "Temperature TMP102 I2C Rev6"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev6 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_I2C_R7
+    tristate "Temperature TMP102 I2C Rev7"
+    default n
+    help
+      Support for Temperature TMP102 I2C Rev7 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R0
+    tristate "Temperature TMP102 SPI Rev0"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev0 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R1
+    tristate "Temperature TMP102 SPI Rev1"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev1 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R2
+    tristate "Temperature TMP102 SPI Rev2"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev2 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R3
+    tristate "Temperature TMP102 SPI Rev3"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev3 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R4
+    tristate "Temperature TMP102 SPI Rev4"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev4 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R5
+    tristate "Temperature TMP102 SPI Rev5"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev5 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R6
+    tristate "Temperature TMP102 SPI Rev6"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev6 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_SPI_R7
+    tristate "Temperature TMP102 SPI Rev7"
+    default n
+    help
+      Support for Temperature TMP102 SPI Rev7 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R0
+    tristate "Temperature TMP102 UART Rev0"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev0 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R1
+    tristate "Temperature TMP102 UART Rev1"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev1 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R2
+    tristate "Temperature TMP102 UART Rev2"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev2 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R3
+    tristate "Temperature TMP102 UART Rev3"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev3 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R4
+    tristate "Temperature TMP102 UART Rev4"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev4 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R5
+    tristate "Temperature TMP102 UART Rev5"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev5 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R6
+    tristate "Temperature TMP102 UART Rev6"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev6 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_TMP102_UART_R7
+    tristate "Temperature TMP102 UART Rev7"
+    default n
+    help
+      Support for Temperature TMP102 UART Rev7 (TMP102)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R0
+    tristate "Temperature LM75 I2C Rev0"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev0 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R1
+    tristate "Temperature LM75 I2C Rev1"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev1 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R2
+    tristate "Temperature LM75 I2C Rev2"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev2 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R3
+    tristate "Temperature LM75 I2C Rev3"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev3 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R4
+    tristate "Temperature LM75 I2C Rev4"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev4 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R5
+    tristate "Temperature LM75 I2C Rev5"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev5 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R6
+    tristate "Temperature LM75 I2C Rev6"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev6 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_I2C_R7
+    tristate "Temperature LM75 I2C Rev7"
+    default n
+    help
+      Support for Temperature LM75 I2C Rev7 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R0
+    tristate "Temperature LM75 SPI Rev0"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev0 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R1
+    tristate "Temperature LM75 SPI Rev1"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev1 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R2
+    tristate "Temperature LM75 SPI Rev2"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev2 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R3
+    tristate "Temperature LM75 SPI Rev3"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev3 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R4
+    tristate "Temperature LM75 SPI Rev4"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev4 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R5
+    tristate "Temperature LM75 SPI Rev5"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev5 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R6
+    tristate "Temperature LM75 SPI Rev6"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev6 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_SPI_R7
+    tristate "Temperature LM75 SPI Rev7"
+    default n
+    help
+      Support for Temperature LM75 SPI Rev7 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R0
+    tristate "Temperature LM75 UART Rev0"
+    default n
+    help
+      Support for Temperature LM75 UART Rev0 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R1
+    tristate "Temperature LM75 UART Rev1"
+    default n
+    help
+      Support for Temperature LM75 UART Rev1 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R2
+    tristate "Temperature LM75 UART Rev2"
+    default n
+    help
+      Support for Temperature LM75 UART Rev2 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R3
+    tristate "Temperature LM75 UART Rev3"
+    default n
+    help
+      Support for Temperature LM75 UART Rev3 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R4
+    tristate "Temperature LM75 UART Rev4"
+    default n
+    help
+      Support for Temperature LM75 UART Rev4 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R5
+    tristate "Temperature LM75 UART Rev5"
+    default n
+    help
+      Support for Temperature LM75 UART Rev5 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R6
+    tristate "Temperature LM75 UART Rev6"
+    default n
+    help
+      Support for Temperature LM75 UART Rev6 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_LM75_UART_R7
+    tristate "Temperature LM75 UART Rev7"
+    default n
+    help
+      Support for Temperature LM75 UART Rev7 (LM75)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R0
+    tristate "Temperature DS18B20 I2C Rev0"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev0 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R1
+    tristate "Temperature DS18B20 I2C Rev1"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev1 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R2
+    tristate "Temperature DS18B20 I2C Rev2"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev2 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R3
+    tristate "Temperature DS18B20 I2C Rev3"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev3 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R4
+    tristate "Temperature DS18B20 I2C Rev4"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev4 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R5
+    tristate "Temperature DS18B20 I2C Rev5"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev5 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R6
+    tristate "Temperature DS18B20 I2C Rev6"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev6 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_I2C_R7
+    tristate "Temperature DS18B20 I2C Rev7"
+    default n
+    help
+      Support for Temperature DS18B20 I2C Rev7 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R0
+    tristate "Temperature DS18B20 SPI Rev0"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev0 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R1
+    tristate "Temperature DS18B20 SPI Rev1"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev1 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R2
+    tristate "Temperature DS18B20 SPI Rev2"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev2 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R3
+    tristate "Temperature DS18B20 SPI Rev3"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev3 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R4
+    tristate "Temperature DS18B20 SPI Rev4"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev4 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R5
+    tristate "Temperature DS18B20 SPI Rev5"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev5 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R6
+    tristate "Temperature DS18B20 SPI Rev6"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev6 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_SPI_R7
+    tristate "Temperature DS18B20 SPI Rev7"
+    default n
+    help
+      Support for Temperature DS18B20 SPI Rev7 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R0
+    tristate "Temperature DS18B20 UART Rev0"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev0 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R1
+    tristate "Temperature DS18B20 UART Rev1"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev1 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R2
+    tristate "Temperature DS18B20 UART Rev2"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev2 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R3
+    tristate "Temperature DS18B20 UART Rev3"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev3 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R4
+    tristate "Temperature DS18B20 UART Rev4"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev4 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R5
+    tristate "Temperature DS18B20 UART Rev5"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev5 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R6
+    tristate "Temperature DS18B20 UART Rev6"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev6 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DS18B20_UART_R7
+    tristate "Temperature DS18B20 UART Rev7"
+    default n
+    help
+      Support for Temperature DS18B20 UART Rev7 (DS18B20)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R0
+    tristate "Temperature DHT22 I2C Rev0"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev0 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R1
+    tristate "Temperature DHT22 I2C Rev1"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev1 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R2
+    tristate "Temperature DHT22 I2C Rev2"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev2 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R3
+    tristate "Temperature DHT22 I2C Rev3"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev3 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R4
+    tristate "Temperature DHT22 I2C Rev4"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev4 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R5
+    tristate "Temperature DHT22 I2C Rev5"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev5 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R6
+    tristate "Temperature DHT22 I2C Rev6"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev6 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_I2C_R7
+    tristate "Temperature DHT22 I2C Rev7"
+    default n
+    help
+      Support for Temperature DHT22 I2C Rev7 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R0
+    tristate "Temperature DHT22 SPI Rev0"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev0 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R1
+    tristate "Temperature DHT22 SPI Rev1"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev1 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R2
+    tristate "Temperature DHT22 SPI Rev2"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev2 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R3
+    tristate "Temperature DHT22 SPI Rev3"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev3 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R4
+    tristate "Temperature DHT22 SPI Rev4"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev4 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R5
+    tristate "Temperature DHT22 SPI Rev5"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev5 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R6
+    tristate "Temperature DHT22 SPI Rev6"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev6 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_SPI_R7
+    tristate "Temperature DHT22 SPI Rev7"
+    default n
+    help
+      Support for Temperature DHT22 SPI Rev7 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R0
+    tristate "Temperature DHT22 UART Rev0"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev0 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R1
+    tristate "Temperature DHT22 UART Rev1"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev1 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R2
+    tristate "Temperature DHT22 UART Rev2"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev2 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R3
+    tristate "Temperature DHT22 UART Rev3"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev3 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R4
+    tristate "Temperature DHT22 UART Rev4"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev4 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R5
+    tristate "Temperature DHT22 UART Rev5"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev5 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R6
+    tristate "Temperature DHT22 UART Rev6"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev6 (DHT22)
+      Category: sensor_temperature
+
+config SENSOR_TEMPERATURE_DHT22_UART_R7
+    tristate "Temperature DHT22 UART Rev7"
+    default n
+    help
+      Support for Temperature DHT22 UART Rev7 (DHT22)
+      Category: sensor_temperature
+
+endmenu

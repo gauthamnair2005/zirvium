@@ -1,0 +1,1474 @@
+
+menu "Input_Keyboard Drivers"
+
+config INPUT_KBD_LOGITECH_0
+    tristate "Logitech Keyboard model 0"
+    default n
+    help
+      Support for Logitech Keyboard model 0 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_1
+    tristate "Logitech Keyboard model 1"
+    default n
+    help
+      Support for Logitech Keyboard model 1 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_2
+    tristate "Logitech Keyboard model 2"
+    default n
+    help
+      Support for Logitech Keyboard model 2 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_3
+    tristate "Logitech Keyboard model 3"
+    default n
+    help
+      Support for Logitech Keyboard model 3 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_4
+    tristate "Logitech Keyboard model 4"
+    default n
+    help
+      Support for Logitech Keyboard model 4 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_5
+    tristate "Logitech Keyboard model 5"
+    default n
+    help
+      Support for Logitech Keyboard model 5 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_6
+    tristate "Logitech Keyboard model 6"
+    default n
+    help
+      Support for Logitech Keyboard model 6 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_7
+    tristate "Logitech Keyboard model 7"
+    default n
+    help
+      Support for Logitech Keyboard model 7 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_8
+    tristate "Logitech Keyboard model 8"
+    default n
+    help
+      Support for Logitech Keyboard model 8 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_9
+    tristate "Logitech Keyboard model 9"
+    default n
+    help
+      Support for Logitech Keyboard model 9 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_10
+    tristate "Logitech Keyboard model 10"
+    default n
+    help
+      Support for Logitech Keyboard model 10 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_11
+    tristate "Logitech Keyboard model 11"
+    default n
+    help
+      Support for Logitech Keyboard model 11 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_12
+    tristate "Logitech Keyboard model 12"
+    default n
+    help
+      Support for Logitech Keyboard model 12 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_13
+    tristate "Logitech Keyboard model 13"
+    default n
+    help
+      Support for Logitech Keyboard model 13 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_14
+    tristate "Logitech Keyboard model 14"
+    default n
+    help
+      Support for Logitech Keyboard model 14 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_15
+    tristate "Logitech Keyboard model 15"
+    default n
+    help
+      Support for Logitech Keyboard model 15 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_16
+    tristate "Logitech Keyboard model 16"
+    default n
+    help
+      Support for Logitech Keyboard model 16 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_17
+    tristate "Logitech Keyboard model 17"
+    default n
+    help
+      Support for Logitech Keyboard model 17 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_18
+    tristate "Logitech Keyboard model 18"
+    default n
+    help
+      Support for Logitech Keyboard model 18 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_19
+    tristate "Logitech Keyboard model 19"
+    default n
+    help
+      Support for Logitech Keyboard model 19 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_20
+    tristate "Logitech Keyboard model 20"
+    default n
+    help
+      Support for Logitech Keyboard model 20 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_21
+    tristate "Logitech Keyboard model 21"
+    default n
+    help
+      Support for Logitech Keyboard model 21 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_22
+    tristate "Logitech Keyboard model 22"
+    default n
+    help
+      Support for Logitech Keyboard model 22 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_23
+    tristate "Logitech Keyboard model 23"
+    default n
+    help
+      Support for Logitech Keyboard model 23 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_24
+    tristate "Logitech Keyboard model 24"
+    default n
+    help
+      Support for Logitech Keyboard model 24 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_25
+    tristate "Logitech Keyboard model 25"
+    default n
+    help
+      Support for Logitech Keyboard model 25 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_26
+    tristate "Logitech Keyboard model 26"
+    default n
+    help
+      Support for Logitech Keyboard model 26 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_27
+    tristate "Logitech Keyboard model 27"
+    default n
+    help
+      Support for Logitech Keyboard model 27 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_28
+    tristate "Logitech Keyboard model 28"
+    default n
+    help
+      Support for Logitech Keyboard model 28 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_LOGITECH_29
+    tristate "Logitech Keyboard model 29"
+    default n
+    help
+      Support for Logitech Keyboard model 29 (Logitech)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_0
+    tristate "Razer Keyboard model 0"
+    default n
+    help
+      Support for Razer Keyboard model 0 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_1
+    tristate "Razer Keyboard model 1"
+    default n
+    help
+      Support for Razer Keyboard model 1 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_2
+    tristate "Razer Keyboard model 2"
+    default n
+    help
+      Support for Razer Keyboard model 2 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_3
+    tristate "Razer Keyboard model 3"
+    default n
+    help
+      Support for Razer Keyboard model 3 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_4
+    tristate "Razer Keyboard model 4"
+    default n
+    help
+      Support for Razer Keyboard model 4 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_5
+    tristate "Razer Keyboard model 5"
+    default n
+    help
+      Support for Razer Keyboard model 5 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_6
+    tristate "Razer Keyboard model 6"
+    default n
+    help
+      Support for Razer Keyboard model 6 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_7
+    tristate "Razer Keyboard model 7"
+    default n
+    help
+      Support for Razer Keyboard model 7 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_8
+    tristate "Razer Keyboard model 8"
+    default n
+    help
+      Support for Razer Keyboard model 8 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_9
+    tristate "Razer Keyboard model 9"
+    default n
+    help
+      Support for Razer Keyboard model 9 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_10
+    tristate "Razer Keyboard model 10"
+    default n
+    help
+      Support for Razer Keyboard model 10 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_11
+    tristate "Razer Keyboard model 11"
+    default n
+    help
+      Support for Razer Keyboard model 11 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_12
+    tristate "Razer Keyboard model 12"
+    default n
+    help
+      Support for Razer Keyboard model 12 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_13
+    tristate "Razer Keyboard model 13"
+    default n
+    help
+      Support for Razer Keyboard model 13 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_14
+    tristate "Razer Keyboard model 14"
+    default n
+    help
+      Support for Razer Keyboard model 14 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_15
+    tristate "Razer Keyboard model 15"
+    default n
+    help
+      Support for Razer Keyboard model 15 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_16
+    tristate "Razer Keyboard model 16"
+    default n
+    help
+      Support for Razer Keyboard model 16 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_17
+    tristate "Razer Keyboard model 17"
+    default n
+    help
+      Support for Razer Keyboard model 17 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_18
+    tristate "Razer Keyboard model 18"
+    default n
+    help
+      Support for Razer Keyboard model 18 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_19
+    tristate "Razer Keyboard model 19"
+    default n
+    help
+      Support for Razer Keyboard model 19 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_20
+    tristate "Razer Keyboard model 20"
+    default n
+    help
+      Support for Razer Keyboard model 20 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_21
+    tristate "Razer Keyboard model 21"
+    default n
+    help
+      Support for Razer Keyboard model 21 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_22
+    tristate "Razer Keyboard model 22"
+    default n
+    help
+      Support for Razer Keyboard model 22 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_23
+    tristate "Razer Keyboard model 23"
+    default n
+    help
+      Support for Razer Keyboard model 23 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_24
+    tristate "Razer Keyboard model 24"
+    default n
+    help
+      Support for Razer Keyboard model 24 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_25
+    tristate "Razer Keyboard model 25"
+    default n
+    help
+      Support for Razer Keyboard model 25 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_26
+    tristate "Razer Keyboard model 26"
+    default n
+    help
+      Support for Razer Keyboard model 26 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_27
+    tristate "Razer Keyboard model 27"
+    default n
+    help
+      Support for Razer Keyboard model 27 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_28
+    tristate "Razer Keyboard model 28"
+    default n
+    help
+      Support for Razer Keyboard model 28 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_RAZER_29
+    tristate "Razer Keyboard model 29"
+    default n
+    help
+      Support for Razer Keyboard model 29 (Razer)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_0
+    tristate "Corsair Keyboard model 0"
+    default n
+    help
+      Support for Corsair Keyboard model 0 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_1
+    tristate "Corsair Keyboard model 1"
+    default n
+    help
+      Support for Corsair Keyboard model 1 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_2
+    tristate "Corsair Keyboard model 2"
+    default n
+    help
+      Support for Corsair Keyboard model 2 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_3
+    tristate "Corsair Keyboard model 3"
+    default n
+    help
+      Support for Corsair Keyboard model 3 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_4
+    tristate "Corsair Keyboard model 4"
+    default n
+    help
+      Support for Corsair Keyboard model 4 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_5
+    tristate "Corsair Keyboard model 5"
+    default n
+    help
+      Support for Corsair Keyboard model 5 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_6
+    tristate "Corsair Keyboard model 6"
+    default n
+    help
+      Support for Corsair Keyboard model 6 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_7
+    tristate "Corsair Keyboard model 7"
+    default n
+    help
+      Support for Corsair Keyboard model 7 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_8
+    tristate "Corsair Keyboard model 8"
+    default n
+    help
+      Support for Corsair Keyboard model 8 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_9
+    tristate "Corsair Keyboard model 9"
+    default n
+    help
+      Support for Corsair Keyboard model 9 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_10
+    tristate "Corsair Keyboard model 10"
+    default n
+    help
+      Support for Corsair Keyboard model 10 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_11
+    tristate "Corsair Keyboard model 11"
+    default n
+    help
+      Support for Corsair Keyboard model 11 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_12
+    tristate "Corsair Keyboard model 12"
+    default n
+    help
+      Support for Corsair Keyboard model 12 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_13
+    tristate "Corsair Keyboard model 13"
+    default n
+    help
+      Support for Corsair Keyboard model 13 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_14
+    tristate "Corsair Keyboard model 14"
+    default n
+    help
+      Support for Corsair Keyboard model 14 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_15
+    tristate "Corsair Keyboard model 15"
+    default n
+    help
+      Support for Corsair Keyboard model 15 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_16
+    tristate "Corsair Keyboard model 16"
+    default n
+    help
+      Support for Corsair Keyboard model 16 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_17
+    tristate "Corsair Keyboard model 17"
+    default n
+    help
+      Support for Corsair Keyboard model 17 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_18
+    tristate "Corsair Keyboard model 18"
+    default n
+    help
+      Support for Corsair Keyboard model 18 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_19
+    tristate "Corsair Keyboard model 19"
+    default n
+    help
+      Support for Corsair Keyboard model 19 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_20
+    tristate "Corsair Keyboard model 20"
+    default n
+    help
+      Support for Corsair Keyboard model 20 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_21
+    tristate "Corsair Keyboard model 21"
+    default n
+    help
+      Support for Corsair Keyboard model 21 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_22
+    tristate "Corsair Keyboard model 22"
+    default n
+    help
+      Support for Corsair Keyboard model 22 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_23
+    tristate "Corsair Keyboard model 23"
+    default n
+    help
+      Support for Corsair Keyboard model 23 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_24
+    tristate "Corsair Keyboard model 24"
+    default n
+    help
+      Support for Corsair Keyboard model 24 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_25
+    tristate "Corsair Keyboard model 25"
+    default n
+    help
+      Support for Corsair Keyboard model 25 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_26
+    tristate "Corsair Keyboard model 26"
+    default n
+    help
+      Support for Corsair Keyboard model 26 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_27
+    tristate "Corsair Keyboard model 27"
+    default n
+    help
+      Support for Corsair Keyboard model 27 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_28
+    tristate "Corsair Keyboard model 28"
+    default n
+    help
+      Support for Corsair Keyboard model 28 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_CORSAIR_29
+    tristate "Corsair Keyboard model 29"
+    default n
+    help
+      Support for Corsair Keyboard model 29 (Corsair)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_0
+    tristate "SteelSeries Keyboard model 0"
+    default n
+    help
+      Support for SteelSeries Keyboard model 0 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_1
+    tristate "SteelSeries Keyboard model 1"
+    default n
+    help
+      Support for SteelSeries Keyboard model 1 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_2
+    tristate "SteelSeries Keyboard model 2"
+    default n
+    help
+      Support for SteelSeries Keyboard model 2 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_3
+    tristate "SteelSeries Keyboard model 3"
+    default n
+    help
+      Support for SteelSeries Keyboard model 3 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_4
+    tristate "SteelSeries Keyboard model 4"
+    default n
+    help
+      Support for SteelSeries Keyboard model 4 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_5
+    tristate "SteelSeries Keyboard model 5"
+    default n
+    help
+      Support for SteelSeries Keyboard model 5 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_6
+    tristate "SteelSeries Keyboard model 6"
+    default n
+    help
+      Support for SteelSeries Keyboard model 6 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_7
+    tristate "SteelSeries Keyboard model 7"
+    default n
+    help
+      Support for SteelSeries Keyboard model 7 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_8
+    tristate "SteelSeries Keyboard model 8"
+    default n
+    help
+      Support for SteelSeries Keyboard model 8 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_9
+    tristate "SteelSeries Keyboard model 9"
+    default n
+    help
+      Support for SteelSeries Keyboard model 9 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_10
+    tristate "SteelSeries Keyboard model 10"
+    default n
+    help
+      Support for SteelSeries Keyboard model 10 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_11
+    tristate "SteelSeries Keyboard model 11"
+    default n
+    help
+      Support for SteelSeries Keyboard model 11 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_12
+    tristate "SteelSeries Keyboard model 12"
+    default n
+    help
+      Support for SteelSeries Keyboard model 12 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_13
+    tristate "SteelSeries Keyboard model 13"
+    default n
+    help
+      Support for SteelSeries Keyboard model 13 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_14
+    tristate "SteelSeries Keyboard model 14"
+    default n
+    help
+      Support for SteelSeries Keyboard model 14 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_15
+    tristate "SteelSeries Keyboard model 15"
+    default n
+    help
+      Support for SteelSeries Keyboard model 15 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_16
+    tristate "SteelSeries Keyboard model 16"
+    default n
+    help
+      Support for SteelSeries Keyboard model 16 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_17
+    tristate "SteelSeries Keyboard model 17"
+    default n
+    help
+      Support for SteelSeries Keyboard model 17 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_18
+    tristate "SteelSeries Keyboard model 18"
+    default n
+    help
+      Support for SteelSeries Keyboard model 18 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_19
+    tristate "SteelSeries Keyboard model 19"
+    default n
+    help
+      Support for SteelSeries Keyboard model 19 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_20
+    tristate "SteelSeries Keyboard model 20"
+    default n
+    help
+      Support for SteelSeries Keyboard model 20 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_21
+    tristate "SteelSeries Keyboard model 21"
+    default n
+    help
+      Support for SteelSeries Keyboard model 21 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_22
+    tristate "SteelSeries Keyboard model 22"
+    default n
+    help
+      Support for SteelSeries Keyboard model 22 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_23
+    tristate "SteelSeries Keyboard model 23"
+    default n
+    help
+      Support for SteelSeries Keyboard model 23 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_24
+    tristate "SteelSeries Keyboard model 24"
+    default n
+    help
+      Support for SteelSeries Keyboard model 24 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_25
+    tristate "SteelSeries Keyboard model 25"
+    default n
+    help
+      Support for SteelSeries Keyboard model 25 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_26
+    tristate "SteelSeries Keyboard model 26"
+    default n
+    help
+      Support for SteelSeries Keyboard model 26 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_27
+    tristate "SteelSeries Keyboard model 27"
+    default n
+    help
+      Support for SteelSeries Keyboard model 27 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_28
+    tristate "SteelSeries Keyboard model 28"
+    default n
+    help
+      Support for SteelSeries Keyboard model 28 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_STEELSERIES_29
+    tristate "SteelSeries Keyboard model 29"
+    default n
+    help
+      Support for SteelSeries Keyboard model 29 (SteelSeries)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_0
+    tristate "HyperX Keyboard model 0"
+    default n
+    help
+      Support for HyperX Keyboard model 0 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_1
+    tristate "HyperX Keyboard model 1"
+    default n
+    help
+      Support for HyperX Keyboard model 1 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_2
+    tristate "HyperX Keyboard model 2"
+    default n
+    help
+      Support for HyperX Keyboard model 2 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_3
+    tristate "HyperX Keyboard model 3"
+    default n
+    help
+      Support for HyperX Keyboard model 3 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_4
+    tristate "HyperX Keyboard model 4"
+    default n
+    help
+      Support for HyperX Keyboard model 4 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_5
+    tristate "HyperX Keyboard model 5"
+    default n
+    help
+      Support for HyperX Keyboard model 5 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_6
+    tristate "HyperX Keyboard model 6"
+    default n
+    help
+      Support for HyperX Keyboard model 6 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_7
+    tristate "HyperX Keyboard model 7"
+    default n
+    help
+      Support for HyperX Keyboard model 7 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_8
+    tristate "HyperX Keyboard model 8"
+    default n
+    help
+      Support for HyperX Keyboard model 8 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_9
+    tristate "HyperX Keyboard model 9"
+    default n
+    help
+      Support for HyperX Keyboard model 9 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_10
+    tristate "HyperX Keyboard model 10"
+    default n
+    help
+      Support for HyperX Keyboard model 10 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_11
+    tristate "HyperX Keyboard model 11"
+    default n
+    help
+      Support for HyperX Keyboard model 11 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_12
+    tristate "HyperX Keyboard model 12"
+    default n
+    help
+      Support for HyperX Keyboard model 12 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_13
+    tristate "HyperX Keyboard model 13"
+    default n
+    help
+      Support for HyperX Keyboard model 13 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_14
+    tristate "HyperX Keyboard model 14"
+    default n
+    help
+      Support for HyperX Keyboard model 14 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_15
+    tristate "HyperX Keyboard model 15"
+    default n
+    help
+      Support for HyperX Keyboard model 15 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_16
+    tristate "HyperX Keyboard model 16"
+    default n
+    help
+      Support for HyperX Keyboard model 16 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_17
+    tristate "HyperX Keyboard model 17"
+    default n
+    help
+      Support for HyperX Keyboard model 17 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_18
+    tristate "HyperX Keyboard model 18"
+    default n
+    help
+      Support for HyperX Keyboard model 18 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_19
+    tristate "HyperX Keyboard model 19"
+    default n
+    help
+      Support for HyperX Keyboard model 19 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_20
+    tristate "HyperX Keyboard model 20"
+    default n
+    help
+      Support for HyperX Keyboard model 20 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_21
+    tristate "HyperX Keyboard model 21"
+    default n
+    help
+      Support for HyperX Keyboard model 21 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_22
+    tristate "HyperX Keyboard model 22"
+    default n
+    help
+      Support for HyperX Keyboard model 22 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_23
+    tristate "HyperX Keyboard model 23"
+    default n
+    help
+      Support for HyperX Keyboard model 23 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_24
+    tristate "HyperX Keyboard model 24"
+    default n
+    help
+      Support for HyperX Keyboard model 24 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_25
+    tristate "HyperX Keyboard model 25"
+    default n
+    help
+      Support for HyperX Keyboard model 25 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_26
+    tristate "HyperX Keyboard model 26"
+    default n
+    help
+      Support for HyperX Keyboard model 26 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_27
+    tristate "HyperX Keyboard model 27"
+    default n
+    help
+      Support for HyperX Keyboard model 27 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_28
+    tristate "HyperX Keyboard model 28"
+    default n
+    help
+      Support for HyperX Keyboard model 28 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_HYPERX_29
+    tristate "HyperX Keyboard model 29"
+    default n
+    help
+      Support for HyperX Keyboard model 29 (HyperX)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_0
+    tristate "Cherry Keyboard model 0"
+    default n
+    help
+      Support for Cherry Keyboard model 0 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_1
+    tristate "Cherry Keyboard model 1"
+    default n
+    help
+      Support for Cherry Keyboard model 1 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_2
+    tristate "Cherry Keyboard model 2"
+    default n
+    help
+      Support for Cherry Keyboard model 2 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_3
+    tristate "Cherry Keyboard model 3"
+    default n
+    help
+      Support for Cherry Keyboard model 3 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_4
+    tristate "Cherry Keyboard model 4"
+    default n
+    help
+      Support for Cherry Keyboard model 4 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_5
+    tristate "Cherry Keyboard model 5"
+    default n
+    help
+      Support for Cherry Keyboard model 5 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_6
+    tristate "Cherry Keyboard model 6"
+    default n
+    help
+      Support for Cherry Keyboard model 6 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_7
+    tristate "Cherry Keyboard model 7"
+    default n
+    help
+      Support for Cherry Keyboard model 7 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_8
+    tristate "Cherry Keyboard model 8"
+    default n
+    help
+      Support for Cherry Keyboard model 8 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_9
+    tristate "Cherry Keyboard model 9"
+    default n
+    help
+      Support for Cherry Keyboard model 9 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_10
+    tristate "Cherry Keyboard model 10"
+    default n
+    help
+      Support for Cherry Keyboard model 10 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_11
+    tristate "Cherry Keyboard model 11"
+    default n
+    help
+      Support for Cherry Keyboard model 11 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_12
+    tristate "Cherry Keyboard model 12"
+    default n
+    help
+      Support for Cherry Keyboard model 12 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_13
+    tristate "Cherry Keyboard model 13"
+    default n
+    help
+      Support for Cherry Keyboard model 13 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_14
+    tristate "Cherry Keyboard model 14"
+    default n
+    help
+      Support for Cherry Keyboard model 14 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_15
+    tristate "Cherry Keyboard model 15"
+    default n
+    help
+      Support for Cherry Keyboard model 15 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_16
+    tristate "Cherry Keyboard model 16"
+    default n
+    help
+      Support for Cherry Keyboard model 16 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_17
+    tristate "Cherry Keyboard model 17"
+    default n
+    help
+      Support for Cherry Keyboard model 17 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_18
+    tristate "Cherry Keyboard model 18"
+    default n
+    help
+      Support for Cherry Keyboard model 18 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_19
+    tristate "Cherry Keyboard model 19"
+    default n
+    help
+      Support for Cherry Keyboard model 19 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_20
+    tristate "Cherry Keyboard model 20"
+    default n
+    help
+      Support for Cherry Keyboard model 20 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_21
+    tristate "Cherry Keyboard model 21"
+    default n
+    help
+      Support for Cherry Keyboard model 21 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_22
+    tristate "Cherry Keyboard model 22"
+    default n
+    help
+      Support for Cherry Keyboard model 22 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_23
+    tristate "Cherry Keyboard model 23"
+    default n
+    help
+      Support for Cherry Keyboard model 23 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_24
+    tristate "Cherry Keyboard model 24"
+    default n
+    help
+      Support for Cherry Keyboard model 24 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_25
+    tristate "Cherry Keyboard model 25"
+    default n
+    help
+      Support for Cherry Keyboard model 25 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_26
+    tristate "Cherry Keyboard model 26"
+    default n
+    help
+      Support for Cherry Keyboard model 26 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_27
+    tristate "Cherry Keyboard model 27"
+    default n
+    help
+      Support for Cherry Keyboard model 27 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_28
+    tristate "Cherry Keyboard model 28"
+    default n
+    help
+      Support for Cherry Keyboard model 28 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_CHERRY_29
+    tristate "Cherry Keyboard model 29"
+    default n
+    help
+      Support for Cherry Keyboard model 29 (Cherry)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_0
+    tristate "Ducky Keyboard model 0"
+    default n
+    help
+      Support for Ducky Keyboard model 0 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_1
+    tristate "Ducky Keyboard model 1"
+    default n
+    help
+      Support for Ducky Keyboard model 1 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_2
+    tristate "Ducky Keyboard model 2"
+    default n
+    help
+      Support for Ducky Keyboard model 2 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_3
+    tristate "Ducky Keyboard model 3"
+    default n
+    help
+      Support for Ducky Keyboard model 3 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_4
+    tristate "Ducky Keyboard model 4"
+    default n
+    help
+      Support for Ducky Keyboard model 4 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_5
+    tristate "Ducky Keyboard model 5"
+    default n
+    help
+      Support for Ducky Keyboard model 5 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_6
+    tristate "Ducky Keyboard model 6"
+    default n
+    help
+      Support for Ducky Keyboard model 6 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_7
+    tristate "Ducky Keyboard model 7"
+    default n
+    help
+      Support for Ducky Keyboard model 7 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_8
+    tristate "Ducky Keyboard model 8"
+    default n
+    help
+      Support for Ducky Keyboard model 8 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_9
+    tristate "Ducky Keyboard model 9"
+    default n
+    help
+      Support for Ducky Keyboard model 9 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_10
+    tristate "Ducky Keyboard model 10"
+    default n
+    help
+      Support for Ducky Keyboard model 10 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_11
+    tristate "Ducky Keyboard model 11"
+    default n
+    help
+      Support for Ducky Keyboard model 11 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_12
+    tristate "Ducky Keyboard model 12"
+    default n
+    help
+      Support for Ducky Keyboard model 12 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_13
+    tristate "Ducky Keyboard model 13"
+    default n
+    help
+      Support for Ducky Keyboard model 13 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_14
+    tristate "Ducky Keyboard model 14"
+    default n
+    help
+      Support for Ducky Keyboard model 14 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_15
+    tristate "Ducky Keyboard model 15"
+    default n
+    help
+      Support for Ducky Keyboard model 15 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_16
+    tristate "Ducky Keyboard model 16"
+    default n
+    help
+      Support for Ducky Keyboard model 16 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_17
+    tristate "Ducky Keyboard model 17"
+    default n
+    help
+      Support for Ducky Keyboard model 17 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_18
+    tristate "Ducky Keyboard model 18"
+    default n
+    help
+      Support for Ducky Keyboard model 18 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_19
+    tristate "Ducky Keyboard model 19"
+    default n
+    help
+      Support for Ducky Keyboard model 19 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_20
+    tristate "Ducky Keyboard model 20"
+    default n
+    help
+      Support for Ducky Keyboard model 20 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_21
+    tristate "Ducky Keyboard model 21"
+    default n
+    help
+      Support for Ducky Keyboard model 21 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_22
+    tristate "Ducky Keyboard model 22"
+    default n
+    help
+      Support for Ducky Keyboard model 22 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_23
+    tristate "Ducky Keyboard model 23"
+    default n
+    help
+      Support for Ducky Keyboard model 23 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_24
+    tristate "Ducky Keyboard model 24"
+    default n
+    help
+      Support for Ducky Keyboard model 24 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_25
+    tristate "Ducky Keyboard model 25"
+    default n
+    help
+      Support for Ducky Keyboard model 25 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_26
+    tristate "Ducky Keyboard model 26"
+    default n
+    help
+      Support for Ducky Keyboard model 26 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_27
+    tristate "Ducky Keyboard model 27"
+    default n
+    help
+      Support for Ducky Keyboard model 27 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_28
+    tristate "Ducky Keyboard model 28"
+    default n
+    help
+      Support for Ducky Keyboard model 28 (Ducky)
+      Category: input_keyboard
+
+config INPUT_KBD_DUCKY_29
+    tristate "Ducky Keyboard model 29"
+    default n
+    help
+      Support for Ducky Keyboard model 29 (Ducky)
+      Category: input_keyboard
+
+endmenu

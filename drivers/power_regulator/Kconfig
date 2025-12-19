@@ -1,0 +1,1264 @@
+
+menu "Power_Regulator Drivers"
+
+config POWER_REGULATOR_LP8700_R0
+    tristate "Regulator LP8700 Rev0"
+    default n
+    help
+      Support for Regulator LP8700 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8700_R1
+    tristate "Regulator LP8700 Rev1"
+    default n
+    help
+      Support for Regulator LP8700 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8700_R2
+    tristate "Regulator LP8700 Rev2"
+    default n
+    help
+      Support for Regulator LP8700 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8701_R0
+    tristate "Regulator LP8701 Rev0"
+    default n
+    help
+      Support for Regulator LP8701 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8701_R1
+    tristate "Regulator LP8701 Rev1"
+    default n
+    help
+      Support for Regulator LP8701 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8701_R2
+    tristate "Regulator LP8701 Rev2"
+    default n
+    help
+      Support for Regulator LP8701 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8702_R0
+    tristate "Regulator LP8702 Rev0"
+    default n
+    help
+      Support for Regulator LP8702 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8702_R1
+    tristate "Regulator LP8702 Rev1"
+    default n
+    help
+      Support for Regulator LP8702 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8702_R2
+    tristate "Regulator LP8702 Rev2"
+    default n
+    help
+      Support for Regulator LP8702 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8703_R0
+    tristate "Regulator LP8703 Rev0"
+    default n
+    help
+      Support for Regulator LP8703 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8703_R1
+    tristate "Regulator LP8703 Rev1"
+    default n
+    help
+      Support for Regulator LP8703 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8703_R2
+    tristate "Regulator LP8703 Rev2"
+    default n
+    help
+      Support for Regulator LP8703 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8704_R0
+    tristate "Regulator LP8704 Rev0"
+    default n
+    help
+      Support for Regulator LP8704 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8704_R1
+    tristate "Regulator LP8704 Rev1"
+    default n
+    help
+      Support for Regulator LP8704 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8704_R2
+    tristate "Regulator LP8704 Rev2"
+    default n
+    help
+      Support for Regulator LP8704 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8705_R0
+    tristate "Regulator LP8705 Rev0"
+    default n
+    help
+      Support for Regulator LP8705 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8705_R1
+    tristate "Regulator LP8705 Rev1"
+    default n
+    help
+      Support for Regulator LP8705 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8705_R2
+    tristate "Regulator LP8705 Rev2"
+    default n
+    help
+      Support for Regulator LP8705 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8706_R0
+    tristate "Regulator LP8706 Rev0"
+    default n
+    help
+      Support for Regulator LP8706 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8706_R1
+    tristate "Regulator LP8706 Rev1"
+    default n
+    help
+      Support for Regulator LP8706 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8706_R2
+    tristate "Regulator LP8706 Rev2"
+    default n
+    help
+      Support for Regulator LP8706 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8707_R0
+    tristate "Regulator LP8707 Rev0"
+    default n
+    help
+      Support for Regulator LP8707 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8707_R1
+    tristate "Regulator LP8707 Rev1"
+    default n
+    help
+      Support for Regulator LP8707 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8707_R2
+    tristate "Regulator LP8707 Rev2"
+    default n
+    help
+      Support for Regulator LP8707 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8708_R0
+    tristate "Regulator LP8708 Rev0"
+    default n
+    help
+      Support for Regulator LP8708 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8708_R1
+    tristate "Regulator LP8708 Rev1"
+    default n
+    help
+      Support for Regulator LP8708 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8708_R2
+    tristate "Regulator LP8708 Rev2"
+    default n
+    help
+      Support for Regulator LP8708 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8709_R0
+    tristate "Regulator LP8709 Rev0"
+    default n
+    help
+      Support for Regulator LP8709 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8709_R1
+    tristate "Regulator LP8709 Rev1"
+    default n
+    help
+      Support for Regulator LP8709 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8709_R2
+    tristate "Regulator LP8709 Rev2"
+    default n
+    help
+      Support for Regulator LP8709 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8710_R0
+    tristate "Regulator LP8710 Rev0"
+    default n
+    help
+      Support for Regulator LP8710 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8710_R1
+    tristate "Regulator LP8710 Rev1"
+    default n
+    help
+      Support for Regulator LP8710 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8710_R2
+    tristate "Regulator LP8710 Rev2"
+    default n
+    help
+      Support for Regulator LP8710 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8711_R0
+    tristate "Regulator LP8711 Rev0"
+    default n
+    help
+      Support for Regulator LP8711 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8711_R1
+    tristate "Regulator LP8711 Rev1"
+    default n
+    help
+      Support for Regulator LP8711 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8711_R2
+    tristate "Regulator LP8711 Rev2"
+    default n
+    help
+      Support for Regulator LP8711 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8712_R0
+    tristate "Regulator LP8712 Rev0"
+    default n
+    help
+      Support for Regulator LP8712 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8712_R1
+    tristate "Regulator LP8712 Rev1"
+    default n
+    help
+      Support for Regulator LP8712 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8712_R2
+    tristate "Regulator LP8712 Rev2"
+    default n
+    help
+      Support for Regulator LP8712 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8713_R0
+    tristate "Regulator LP8713 Rev0"
+    default n
+    help
+      Support for Regulator LP8713 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8713_R1
+    tristate "Regulator LP8713 Rev1"
+    default n
+    help
+      Support for Regulator LP8713 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8713_R2
+    tristate "Regulator LP8713 Rev2"
+    default n
+    help
+      Support for Regulator LP8713 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8714_R0
+    tristate "Regulator LP8714 Rev0"
+    default n
+    help
+      Support for Regulator LP8714 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8714_R1
+    tristate "Regulator LP8714 Rev1"
+    default n
+    help
+      Support for Regulator LP8714 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8714_R2
+    tristate "Regulator LP8714 Rev2"
+    default n
+    help
+      Support for Regulator LP8714 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8715_R0
+    tristate "Regulator LP8715 Rev0"
+    default n
+    help
+      Support for Regulator LP8715 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8715_R1
+    tristate "Regulator LP8715 Rev1"
+    default n
+    help
+      Support for Regulator LP8715 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8715_R2
+    tristate "Regulator LP8715 Rev2"
+    default n
+    help
+      Support for Regulator LP8715 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8716_R0
+    tristate "Regulator LP8716 Rev0"
+    default n
+    help
+      Support for Regulator LP8716 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8716_R1
+    tristate "Regulator LP8716 Rev1"
+    default n
+    help
+      Support for Regulator LP8716 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8716_R2
+    tristate "Regulator LP8716 Rev2"
+    default n
+    help
+      Support for Regulator LP8716 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8717_R0
+    tristate "Regulator LP8717 Rev0"
+    default n
+    help
+      Support for Regulator LP8717 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8717_R1
+    tristate "Regulator LP8717 Rev1"
+    default n
+    help
+      Support for Regulator LP8717 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8717_R2
+    tristate "Regulator LP8717 Rev2"
+    default n
+    help
+      Support for Regulator LP8717 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8718_R0
+    tristate "Regulator LP8718 Rev0"
+    default n
+    help
+      Support for Regulator LP8718 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8718_R1
+    tristate "Regulator LP8718 Rev1"
+    default n
+    help
+      Support for Regulator LP8718 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8718_R2
+    tristate "Regulator LP8718 Rev2"
+    default n
+    help
+      Support for Regulator LP8718 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8719_R0
+    tristate "Regulator LP8719 Rev0"
+    default n
+    help
+      Support for Regulator LP8719 Rev0 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8719_R1
+    tristate "Regulator LP8719 Rev1"
+    default n
+    help
+      Support for Regulator LP8719 Rev1 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_LP8719_R2
+    tristate "Regulator LP8719 Rev2"
+    default n
+    help
+      Support for Regulator LP8719 Rev2 (LP87)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6500_R0
+    tristate "Regulator TPS6500 Rev0"
+    default n
+    help
+      Support for Regulator TPS6500 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6500_R1
+    tristate "Regulator TPS6500 Rev1"
+    default n
+    help
+      Support for Regulator TPS6500 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6500_R2
+    tristate "Regulator TPS6500 Rev2"
+    default n
+    help
+      Support for Regulator TPS6500 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6501_R0
+    tristate "Regulator TPS6501 Rev0"
+    default n
+    help
+      Support for Regulator TPS6501 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6501_R1
+    tristate "Regulator TPS6501 Rev1"
+    default n
+    help
+      Support for Regulator TPS6501 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6501_R2
+    tristate "Regulator TPS6501 Rev2"
+    default n
+    help
+      Support for Regulator TPS6501 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6502_R0
+    tristate "Regulator TPS6502 Rev0"
+    default n
+    help
+      Support for Regulator TPS6502 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6502_R1
+    tristate "Regulator TPS6502 Rev1"
+    default n
+    help
+      Support for Regulator TPS6502 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6502_R2
+    tristate "Regulator TPS6502 Rev2"
+    default n
+    help
+      Support for Regulator TPS6502 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6503_R0
+    tristate "Regulator TPS6503 Rev0"
+    default n
+    help
+      Support for Regulator TPS6503 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6503_R1
+    tristate "Regulator TPS6503 Rev1"
+    default n
+    help
+      Support for Regulator TPS6503 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6503_R2
+    tristate "Regulator TPS6503 Rev2"
+    default n
+    help
+      Support for Regulator TPS6503 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6504_R0
+    tristate "Regulator TPS6504 Rev0"
+    default n
+    help
+      Support for Regulator TPS6504 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6504_R1
+    tristate "Regulator TPS6504 Rev1"
+    default n
+    help
+      Support for Regulator TPS6504 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6504_R2
+    tristate "Regulator TPS6504 Rev2"
+    default n
+    help
+      Support for Regulator TPS6504 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6505_R0
+    tristate "Regulator TPS6505 Rev0"
+    default n
+    help
+      Support for Regulator TPS6505 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6505_R1
+    tristate "Regulator TPS6505 Rev1"
+    default n
+    help
+      Support for Regulator TPS6505 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6505_R2
+    tristate "Regulator TPS6505 Rev2"
+    default n
+    help
+      Support for Regulator TPS6505 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6506_R0
+    tristate "Regulator TPS6506 Rev0"
+    default n
+    help
+      Support for Regulator TPS6506 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6506_R1
+    tristate "Regulator TPS6506 Rev1"
+    default n
+    help
+      Support for Regulator TPS6506 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6506_R2
+    tristate "Regulator TPS6506 Rev2"
+    default n
+    help
+      Support for Regulator TPS6506 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6507_R0
+    tristate "Regulator TPS6507 Rev0"
+    default n
+    help
+      Support for Regulator TPS6507 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6507_R1
+    tristate "Regulator TPS6507 Rev1"
+    default n
+    help
+      Support for Regulator TPS6507 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6507_R2
+    tristate "Regulator TPS6507 Rev2"
+    default n
+    help
+      Support for Regulator TPS6507 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6508_R0
+    tristate "Regulator TPS6508 Rev0"
+    default n
+    help
+      Support for Regulator TPS6508 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6508_R1
+    tristate "Regulator TPS6508 Rev1"
+    default n
+    help
+      Support for Regulator TPS6508 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6508_R2
+    tristate "Regulator TPS6508 Rev2"
+    default n
+    help
+      Support for Regulator TPS6508 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6509_R0
+    tristate "Regulator TPS6509 Rev0"
+    default n
+    help
+      Support for Regulator TPS6509 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6509_R1
+    tristate "Regulator TPS6509 Rev1"
+    default n
+    help
+      Support for Regulator TPS6509 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6509_R2
+    tristate "Regulator TPS6509 Rev2"
+    default n
+    help
+      Support for Regulator TPS6509 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6510_R0
+    tristate "Regulator TPS6510 Rev0"
+    default n
+    help
+      Support for Regulator TPS6510 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6510_R1
+    tristate "Regulator TPS6510 Rev1"
+    default n
+    help
+      Support for Regulator TPS6510 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6510_R2
+    tristate "Regulator TPS6510 Rev2"
+    default n
+    help
+      Support for Regulator TPS6510 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6511_R0
+    tristate "Regulator TPS6511 Rev0"
+    default n
+    help
+      Support for Regulator TPS6511 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6511_R1
+    tristate "Regulator TPS6511 Rev1"
+    default n
+    help
+      Support for Regulator TPS6511 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6511_R2
+    tristate "Regulator TPS6511 Rev2"
+    default n
+    help
+      Support for Regulator TPS6511 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6512_R0
+    tristate "Regulator TPS6512 Rev0"
+    default n
+    help
+      Support for Regulator TPS6512 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6512_R1
+    tristate "Regulator TPS6512 Rev1"
+    default n
+    help
+      Support for Regulator TPS6512 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6512_R2
+    tristate "Regulator TPS6512 Rev2"
+    default n
+    help
+      Support for Regulator TPS6512 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6513_R0
+    tristate "Regulator TPS6513 Rev0"
+    default n
+    help
+      Support for Regulator TPS6513 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6513_R1
+    tristate "Regulator TPS6513 Rev1"
+    default n
+    help
+      Support for Regulator TPS6513 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6513_R2
+    tristate "Regulator TPS6513 Rev2"
+    default n
+    help
+      Support for Regulator TPS6513 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6514_R0
+    tristate "Regulator TPS6514 Rev0"
+    default n
+    help
+      Support for Regulator TPS6514 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6514_R1
+    tristate "Regulator TPS6514 Rev1"
+    default n
+    help
+      Support for Regulator TPS6514 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6514_R2
+    tristate "Regulator TPS6514 Rev2"
+    default n
+    help
+      Support for Regulator TPS6514 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6515_R0
+    tristate "Regulator TPS6515 Rev0"
+    default n
+    help
+      Support for Regulator TPS6515 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6515_R1
+    tristate "Regulator TPS6515 Rev1"
+    default n
+    help
+      Support for Regulator TPS6515 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6515_R2
+    tristate "Regulator TPS6515 Rev2"
+    default n
+    help
+      Support for Regulator TPS6515 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6516_R0
+    tristate "Regulator TPS6516 Rev0"
+    default n
+    help
+      Support for Regulator TPS6516 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6516_R1
+    tristate "Regulator TPS6516 Rev1"
+    default n
+    help
+      Support for Regulator TPS6516 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6516_R2
+    tristate "Regulator TPS6516 Rev2"
+    default n
+    help
+      Support for Regulator TPS6516 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6517_R0
+    tristate "Regulator TPS6517 Rev0"
+    default n
+    help
+      Support for Regulator TPS6517 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6517_R1
+    tristate "Regulator TPS6517 Rev1"
+    default n
+    help
+      Support for Regulator TPS6517 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6517_R2
+    tristate "Regulator TPS6517 Rev2"
+    default n
+    help
+      Support for Regulator TPS6517 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6518_R0
+    tristate "Regulator TPS6518 Rev0"
+    default n
+    help
+      Support for Regulator TPS6518 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6518_R1
+    tristate "Regulator TPS6518 Rev1"
+    default n
+    help
+      Support for Regulator TPS6518 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6518_R2
+    tristate "Regulator TPS6518 Rev2"
+    default n
+    help
+      Support for Regulator TPS6518 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6519_R0
+    tristate "Regulator TPS6519 Rev0"
+    default n
+    help
+      Support for Regulator TPS6519 Rev0 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6519_R1
+    tristate "Regulator TPS6519 Rev1"
+    default n
+    help
+      Support for Regulator TPS6519 Rev1 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_TPS6519_R2
+    tristate "Regulator TPS6519 Rev2"
+    default n
+    help
+      Support for Regulator TPS6519 Rev2 (TPS65)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM300_R0
+    tristate "Regulator LM300 Rev0"
+    default n
+    help
+      Support for Regulator LM300 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM300_R1
+    tristate "Regulator LM300 Rev1"
+    default n
+    help
+      Support for Regulator LM300 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM300_R2
+    tristate "Regulator LM300 Rev2"
+    default n
+    help
+      Support for Regulator LM300 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM301_R0
+    tristate "Regulator LM301 Rev0"
+    default n
+    help
+      Support for Regulator LM301 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM301_R1
+    tristate "Regulator LM301 Rev1"
+    default n
+    help
+      Support for Regulator LM301 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM301_R2
+    tristate "Regulator LM301 Rev2"
+    default n
+    help
+      Support for Regulator LM301 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM302_R0
+    tristate "Regulator LM302 Rev0"
+    default n
+    help
+      Support for Regulator LM302 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM302_R1
+    tristate "Regulator LM302 Rev1"
+    default n
+    help
+      Support for Regulator LM302 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM302_R2
+    tristate "Regulator LM302 Rev2"
+    default n
+    help
+      Support for Regulator LM302 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM303_R0
+    tristate "Regulator LM303 Rev0"
+    default n
+    help
+      Support for Regulator LM303 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM303_R1
+    tristate "Regulator LM303 Rev1"
+    default n
+    help
+      Support for Regulator LM303 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM303_R2
+    tristate "Regulator LM303 Rev2"
+    default n
+    help
+      Support for Regulator LM303 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM304_R0
+    tristate "Regulator LM304 Rev0"
+    default n
+    help
+      Support for Regulator LM304 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM304_R1
+    tristate "Regulator LM304 Rev1"
+    default n
+    help
+      Support for Regulator LM304 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM304_R2
+    tristate "Regulator LM304 Rev2"
+    default n
+    help
+      Support for Regulator LM304 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM305_R0
+    tristate "Regulator LM305 Rev0"
+    default n
+    help
+      Support for Regulator LM305 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM305_R1
+    tristate "Regulator LM305 Rev1"
+    default n
+    help
+      Support for Regulator LM305 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM305_R2
+    tristate "Regulator LM305 Rev2"
+    default n
+    help
+      Support for Regulator LM305 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM306_R0
+    tristate "Regulator LM306 Rev0"
+    default n
+    help
+      Support for Regulator LM306 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM306_R1
+    tristate "Regulator LM306 Rev1"
+    default n
+    help
+      Support for Regulator LM306 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM306_R2
+    tristate "Regulator LM306 Rev2"
+    default n
+    help
+      Support for Regulator LM306 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM307_R0
+    tristate "Regulator LM307 Rev0"
+    default n
+    help
+      Support for Regulator LM307 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM307_R1
+    tristate "Regulator LM307 Rev1"
+    default n
+    help
+      Support for Regulator LM307 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM307_R2
+    tristate "Regulator LM307 Rev2"
+    default n
+    help
+      Support for Regulator LM307 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM308_R0
+    tristate "Regulator LM308 Rev0"
+    default n
+    help
+      Support for Regulator LM308 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM308_R1
+    tristate "Regulator LM308 Rev1"
+    default n
+    help
+      Support for Regulator LM308 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM308_R2
+    tristate "Regulator LM308 Rev2"
+    default n
+    help
+      Support for Regulator LM308 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM309_R0
+    tristate "Regulator LM309 Rev0"
+    default n
+    help
+      Support for Regulator LM309 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM309_R1
+    tristate "Regulator LM309 Rev1"
+    default n
+    help
+      Support for Regulator LM309 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM309_R2
+    tristate "Regulator LM309 Rev2"
+    default n
+    help
+      Support for Regulator LM309 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM310_R0
+    tristate "Regulator LM310 Rev0"
+    default n
+    help
+      Support for Regulator LM310 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM310_R1
+    tristate "Regulator LM310 Rev1"
+    default n
+    help
+      Support for Regulator LM310 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM310_R2
+    tristate "Regulator LM310 Rev2"
+    default n
+    help
+      Support for Regulator LM310 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM311_R0
+    tristate "Regulator LM311 Rev0"
+    default n
+    help
+      Support for Regulator LM311 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM311_R1
+    tristate "Regulator LM311 Rev1"
+    default n
+    help
+      Support for Regulator LM311 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM311_R2
+    tristate "Regulator LM311 Rev2"
+    default n
+    help
+      Support for Regulator LM311 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM312_R0
+    tristate "Regulator LM312 Rev0"
+    default n
+    help
+      Support for Regulator LM312 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM312_R1
+    tristate "Regulator LM312 Rev1"
+    default n
+    help
+      Support for Regulator LM312 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM312_R2
+    tristate "Regulator LM312 Rev2"
+    default n
+    help
+      Support for Regulator LM312 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM313_R0
+    tristate "Regulator LM313 Rev0"
+    default n
+    help
+      Support for Regulator LM313 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM313_R1
+    tristate "Regulator LM313 Rev1"
+    default n
+    help
+      Support for Regulator LM313 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM313_R2
+    tristate "Regulator LM313 Rev2"
+    default n
+    help
+      Support for Regulator LM313 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM314_R0
+    tristate "Regulator LM314 Rev0"
+    default n
+    help
+      Support for Regulator LM314 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM314_R1
+    tristate "Regulator LM314 Rev1"
+    default n
+    help
+      Support for Regulator LM314 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM314_R2
+    tristate "Regulator LM314 Rev2"
+    default n
+    help
+      Support for Regulator LM314 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM315_R0
+    tristate "Regulator LM315 Rev0"
+    default n
+    help
+      Support for Regulator LM315 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM315_R1
+    tristate "Regulator LM315 Rev1"
+    default n
+    help
+      Support for Regulator LM315 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM315_R2
+    tristate "Regulator LM315 Rev2"
+    default n
+    help
+      Support for Regulator LM315 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM316_R0
+    tristate "Regulator LM316 Rev0"
+    default n
+    help
+      Support for Regulator LM316 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM316_R1
+    tristate "Regulator LM316 Rev1"
+    default n
+    help
+      Support for Regulator LM316 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM316_R2
+    tristate "Regulator LM316 Rev2"
+    default n
+    help
+      Support for Regulator LM316 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM317_R0
+    tristate "Regulator LM317 Rev0"
+    default n
+    help
+      Support for Regulator LM317 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM317_R1
+    tristate "Regulator LM317 Rev1"
+    default n
+    help
+      Support for Regulator LM317 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM317_R2
+    tristate "Regulator LM317 Rev2"
+    default n
+    help
+      Support for Regulator LM317 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM318_R0
+    tristate "Regulator LM318 Rev0"
+    default n
+    help
+      Support for Regulator LM318 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM318_R1
+    tristate "Regulator LM318 Rev1"
+    default n
+    help
+      Support for Regulator LM318 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM318_R2
+    tristate "Regulator LM318 Rev2"
+    default n
+    help
+      Support for Regulator LM318 Rev2 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM319_R0
+    tristate "Regulator LM319 Rev0"
+    default n
+    help
+      Support for Regulator LM319 Rev0 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM319_R1
+    tristate "Regulator LM319 Rev1"
+    default n
+    help
+      Support for Regulator LM319 Rev1 (LM3)
+      Category: power_regulator
+
+config POWER_REGULATOR_LM319_R2
+    tristate "Regulator LM319 Rev2"
+    default n
+    help
+      Support for Regulator LM319 Rev2 (LM3)
+      Category: power_regulator
+
+endmenu

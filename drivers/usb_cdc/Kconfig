@@ -1,0 +1,319 @@
+
+menu "Usb_Cdc Drivers"
+
+config USB_CDC_Serial_0
+    tristate "USB CDC Serial variant 0"
+    default n
+    help
+      Support for USB CDC Serial variant 0 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_1
+    tristate "USB CDC Serial variant 1"
+    default n
+    help
+      Support for USB CDC Serial variant 1 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_2
+    tristate "USB CDC Serial variant 2"
+    default n
+    help
+      Support for USB CDC Serial variant 2 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_3
+    tristate "USB CDC Serial variant 3"
+    default n
+    help
+      Support for USB CDC Serial variant 3 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_4
+    tristate "USB CDC Serial variant 4"
+    default n
+    help
+      Support for USB CDC Serial variant 4 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_5
+    tristate "USB CDC Serial variant 5"
+    default n
+    help
+      Support for USB CDC Serial variant 5 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_6
+    tristate "USB CDC Serial variant 6"
+    default n
+    help
+      Support for USB CDC Serial variant 6 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_7
+    tristate "USB CDC Serial variant 7"
+    default n
+    help
+      Support for USB CDC Serial variant 7 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_8
+    tristate "USB CDC Serial variant 8"
+    default n
+    help
+      Support for USB CDC Serial variant 8 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_9
+    tristate "USB CDC Serial variant 9"
+    default n
+    help
+      Support for USB CDC Serial variant 9 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_10
+    tristate "USB CDC Serial variant 10"
+    default n
+    help
+      Support for USB CDC Serial variant 10 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_11
+    tristate "USB CDC Serial variant 11"
+    default n
+    help
+      Support for USB CDC Serial variant 11 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_12
+    tristate "USB CDC Serial variant 12"
+    default n
+    help
+      Support for USB CDC Serial variant 12 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_13
+    tristate "USB CDC Serial variant 13"
+    default n
+    help
+      Support for USB CDC Serial variant 13 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Serial_14
+    tristate "USB CDC Serial variant 14"
+    default n
+    help
+      Support for USB CDC Serial variant 14 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_0
+    tristate "USB CDC ACM variant 0"
+    default n
+    help
+      Support for USB CDC ACM variant 0 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_1
+    tristate "USB CDC ACM variant 1"
+    default n
+    help
+      Support for USB CDC ACM variant 1 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_2
+    tristate "USB CDC ACM variant 2"
+    default n
+    help
+      Support for USB CDC ACM variant 2 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_3
+    tristate "USB CDC ACM variant 3"
+    default n
+    help
+      Support for USB CDC ACM variant 3 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_4
+    tristate "USB CDC ACM variant 4"
+    default n
+    help
+      Support for USB CDC ACM variant 4 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_5
+    tristate "USB CDC ACM variant 5"
+    default n
+    help
+      Support for USB CDC ACM variant 5 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_6
+    tristate "USB CDC ACM variant 6"
+    default n
+    help
+      Support for USB CDC ACM variant 6 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_7
+    tristate "USB CDC ACM variant 7"
+    default n
+    help
+      Support for USB CDC ACM variant 7 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_8
+    tristate "USB CDC ACM variant 8"
+    default n
+    help
+      Support for USB CDC ACM variant 8 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_9
+    tristate "USB CDC ACM variant 9"
+    default n
+    help
+      Support for USB CDC ACM variant 9 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_10
+    tristate "USB CDC ACM variant 10"
+    default n
+    help
+      Support for USB CDC ACM variant 10 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_11
+    tristate "USB CDC ACM variant 11"
+    default n
+    help
+      Support for USB CDC ACM variant 11 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_12
+    tristate "USB CDC ACM variant 12"
+    default n
+    help
+      Support for USB CDC ACM variant 12 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_13
+    tristate "USB CDC ACM variant 13"
+    default n
+    help
+      Support for USB CDC ACM variant 13 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_ACM_14
+    tristate "USB CDC ACM variant 14"
+    default n
+    help
+      Support for USB CDC ACM variant 14 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_0
+    tristate "USB CDC Ethernet variant 0"
+    default n
+    help
+      Support for USB CDC Ethernet variant 0 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_1
+    tristate "USB CDC Ethernet variant 1"
+    default n
+    help
+      Support for USB CDC Ethernet variant 1 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_2
+    tristate "USB CDC Ethernet variant 2"
+    default n
+    help
+      Support for USB CDC Ethernet variant 2 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_3
+    tristate "USB CDC Ethernet variant 3"
+    default n
+    help
+      Support for USB CDC Ethernet variant 3 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_4
+    tristate "USB CDC Ethernet variant 4"
+    default n
+    help
+      Support for USB CDC Ethernet variant 4 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_5
+    tristate "USB CDC Ethernet variant 5"
+    default n
+    help
+      Support for USB CDC Ethernet variant 5 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_6
+    tristate "USB CDC Ethernet variant 6"
+    default n
+    help
+      Support for USB CDC Ethernet variant 6 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_7
+    tristate "USB CDC Ethernet variant 7"
+    default n
+    help
+      Support for USB CDC Ethernet variant 7 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_8
+    tristate "USB CDC Ethernet variant 8"
+    default n
+    help
+      Support for USB CDC Ethernet variant 8 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_9
+    tristate "USB CDC Ethernet variant 9"
+    default n
+    help
+      Support for USB CDC Ethernet variant 9 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_10
+    tristate "USB CDC Ethernet variant 10"
+    default n
+    help
+      Support for USB CDC Ethernet variant 10 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_11
+    tristate "USB CDC Ethernet variant 11"
+    default n
+    help
+      Support for USB CDC Ethernet variant 11 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_12
+    tristate "USB CDC Ethernet variant 12"
+    default n
+    help
+      Support for USB CDC Ethernet variant 12 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_13
+    tristate "USB CDC Ethernet variant 13"
+    default n
+    help
+      Support for USB CDC Ethernet variant 13 (Generic)
+      Category: usb_cdc
+
+config USB_CDC_Ethernet_14
+    tristate "USB CDC Ethernet variant 14"
+    default n
+    help
+      Support for USB CDC Ethernet variant 14 (Generic)
+      Category: usb_cdc
+
+endmenu

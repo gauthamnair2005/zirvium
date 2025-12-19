@@ -1,0 +1,2 @@
+drivers/sensor_gyroscope/sensor-gyroscope-mpu6050-i2c-r1.o: \
+ drivers/sensor_gyroscope/sensor-gyroscope-mpu6050-i2c-r1.c

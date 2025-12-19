@@ -1,0 +1,2104 @@
+
+menu "Power_Battery Drivers"
+
+config POWER_BATTERY_ACPI00_R0
+    tristate "Battery ACPI00 Rev0"
+    default n
+    help
+      Support for Battery ACPI00 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI00_R1
+    tristate "Battery ACPI00 Rev1"
+    default n
+    help
+      Support for Battery ACPI00 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI00_R2
+    tristate "Battery ACPI00 Rev2"
+    default n
+    help
+      Support for Battery ACPI00 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI01_R0
+    tristate "Battery ACPI01 Rev0"
+    default n
+    help
+      Support for Battery ACPI01 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI01_R1
+    tristate "Battery ACPI01 Rev1"
+    default n
+    help
+      Support for Battery ACPI01 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI01_R2
+    tristate "Battery ACPI01 Rev2"
+    default n
+    help
+      Support for Battery ACPI01 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI02_R0
+    tristate "Battery ACPI02 Rev0"
+    default n
+    help
+      Support for Battery ACPI02 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI02_R1
+    tristate "Battery ACPI02 Rev1"
+    default n
+    help
+      Support for Battery ACPI02 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI02_R2
+    tristate "Battery ACPI02 Rev2"
+    default n
+    help
+      Support for Battery ACPI02 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI03_R0
+    tristate "Battery ACPI03 Rev0"
+    default n
+    help
+      Support for Battery ACPI03 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI03_R1
+    tristate "Battery ACPI03 Rev1"
+    default n
+    help
+      Support for Battery ACPI03 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI03_R2
+    tristate "Battery ACPI03 Rev2"
+    default n
+    help
+      Support for Battery ACPI03 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI04_R0
+    tristate "Battery ACPI04 Rev0"
+    default n
+    help
+      Support for Battery ACPI04 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI04_R1
+    tristate "Battery ACPI04 Rev1"
+    default n
+    help
+      Support for Battery ACPI04 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI04_R2
+    tristate "Battery ACPI04 Rev2"
+    default n
+    help
+      Support for Battery ACPI04 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI05_R0
+    tristate "Battery ACPI05 Rev0"
+    default n
+    help
+      Support for Battery ACPI05 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI05_R1
+    tristate "Battery ACPI05 Rev1"
+    default n
+    help
+      Support for Battery ACPI05 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI05_R2
+    tristate "Battery ACPI05 Rev2"
+    default n
+    help
+      Support for Battery ACPI05 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI06_R0
+    tristate "Battery ACPI06 Rev0"
+    default n
+    help
+      Support for Battery ACPI06 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI06_R1
+    tristate "Battery ACPI06 Rev1"
+    default n
+    help
+      Support for Battery ACPI06 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI06_R2
+    tristate "Battery ACPI06 Rev2"
+    default n
+    help
+      Support for Battery ACPI06 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI07_R0
+    tristate "Battery ACPI07 Rev0"
+    default n
+    help
+      Support for Battery ACPI07 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI07_R1
+    tristate "Battery ACPI07 Rev1"
+    default n
+    help
+      Support for Battery ACPI07 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI07_R2
+    tristate "Battery ACPI07 Rev2"
+    default n
+    help
+      Support for Battery ACPI07 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI08_R0
+    tristate "Battery ACPI08 Rev0"
+    default n
+    help
+      Support for Battery ACPI08 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI08_R1
+    tristate "Battery ACPI08 Rev1"
+    default n
+    help
+      Support for Battery ACPI08 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI08_R2
+    tristate "Battery ACPI08 Rev2"
+    default n
+    help
+      Support for Battery ACPI08 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI09_R0
+    tristate "Battery ACPI09 Rev0"
+    default n
+    help
+      Support for Battery ACPI09 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI09_R1
+    tristate "Battery ACPI09 Rev1"
+    default n
+    help
+      Support for Battery ACPI09 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI09_R2
+    tristate "Battery ACPI09 Rev2"
+    default n
+    help
+      Support for Battery ACPI09 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI10_R0
+    tristate "Battery ACPI10 Rev0"
+    default n
+    help
+      Support for Battery ACPI10 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI10_R1
+    tristate "Battery ACPI10 Rev1"
+    default n
+    help
+      Support for Battery ACPI10 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI10_R2
+    tristate "Battery ACPI10 Rev2"
+    default n
+    help
+      Support for Battery ACPI10 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI11_R0
+    tristate "Battery ACPI11 Rev0"
+    default n
+    help
+      Support for Battery ACPI11 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI11_R1
+    tristate "Battery ACPI11 Rev1"
+    default n
+    help
+      Support for Battery ACPI11 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI11_R2
+    tristate "Battery ACPI11 Rev2"
+    default n
+    help
+      Support for Battery ACPI11 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI12_R0
+    tristate "Battery ACPI12 Rev0"
+    default n
+    help
+      Support for Battery ACPI12 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI12_R1
+    tristate "Battery ACPI12 Rev1"
+    default n
+    help
+      Support for Battery ACPI12 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI12_R2
+    tristate "Battery ACPI12 Rev2"
+    default n
+    help
+      Support for Battery ACPI12 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI13_R0
+    tristate "Battery ACPI13 Rev0"
+    default n
+    help
+      Support for Battery ACPI13 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI13_R1
+    tristate "Battery ACPI13 Rev1"
+    default n
+    help
+      Support for Battery ACPI13 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI13_R2
+    tristate "Battery ACPI13 Rev2"
+    default n
+    help
+      Support for Battery ACPI13 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI14_R0
+    tristate "Battery ACPI14 Rev0"
+    default n
+    help
+      Support for Battery ACPI14 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI14_R1
+    tristate "Battery ACPI14 Rev1"
+    default n
+    help
+      Support for Battery ACPI14 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI14_R2
+    tristate "Battery ACPI14 Rev2"
+    default n
+    help
+      Support for Battery ACPI14 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI15_R0
+    tristate "Battery ACPI15 Rev0"
+    default n
+    help
+      Support for Battery ACPI15 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI15_R1
+    tristate "Battery ACPI15 Rev1"
+    default n
+    help
+      Support for Battery ACPI15 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI15_R2
+    tristate "Battery ACPI15 Rev2"
+    default n
+    help
+      Support for Battery ACPI15 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI16_R0
+    tristate "Battery ACPI16 Rev0"
+    default n
+    help
+      Support for Battery ACPI16 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI16_R1
+    tristate "Battery ACPI16 Rev1"
+    default n
+    help
+      Support for Battery ACPI16 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI16_R2
+    tristate "Battery ACPI16 Rev2"
+    default n
+    help
+      Support for Battery ACPI16 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI17_R0
+    tristate "Battery ACPI17 Rev0"
+    default n
+    help
+      Support for Battery ACPI17 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI17_R1
+    tristate "Battery ACPI17 Rev1"
+    default n
+    help
+      Support for Battery ACPI17 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI17_R2
+    tristate "Battery ACPI17 Rev2"
+    default n
+    help
+      Support for Battery ACPI17 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI18_R0
+    tristate "Battery ACPI18 Rev0"
+    default n
+    help
+      Support for Battery ACPI18 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI18_R1
+    tristate "Battery ACPI18 Rev1"
+    default n
+    help
+      Support for Battery ACPI18 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI18_R2
+    tristate "Battery ACPI18 Rev2"
+    default n
+    help
+      Support for Battery ACPI18 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI19_R0
+    tristate "Battery ACPI19 Rev0"
+    default n
+    help
+      Support for Battery ACPI19 Rev0 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI19_R1
+    tristate "Battery ACPI19 Rev1"
+    default n
+    help
+      Support for Battery ACPI19 Rev1 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_ACPI19_R2
+    tristate "Battery ACPI19 Rev2"
+    default n
+    help
+      Support for Battery ACPI19 Rev2 (ACPI)
+      Category: power_battery
+
+config POWER_BATTERY_SBS00_R0
+    tristate "Battery SBS00 Rev0"
+    default n
+    help
+      Support for Battery SBS00 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS00_R1
+    tristate "Battery SBS00 Rev1"
+    default n
+    help
+      Support for Battery SBS00 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS00_R2
+    tristate "Battery SBS00 Rev2"
+    default n
+    help
+      Support for Battery SBS00 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS01_R0
+    tristate "Battery SBS01 Rev0"
+    default n
+    help
+      Support for Battery SBS01 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS01_R1
+    tristate "Battery SBS01 Rev1"
+    default n
+    help
+      Support for Battery SBS01 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS01_R2
+    tristate "Battery SBS01 Rev2"
+    default n
+    help
+      Support for Battery SBS01 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS02_R0
+    tristate "Battery SBS02 Rev0"
+    default n
+    help
+      Support for Battery SBS02 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS02_R1
+    tristate "Battery SBS02 Rev1"
+    default n
+    help
+      Support for Battery SBS02 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS02_R2
+    tristate "Battery SBS02 Rev2"
+    default n
+    help
+      Support for Battery SBS02 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS03_R0
+    tristate "Battery SBS03 Rev0"
+    default n
+    help
+      Support for Battery SBS03 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS03_R1
+    tristate "Battery SBS03 Rev1"
+    default n
+    help
+      Support for Battery SBS03 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS03_R2
+    tristate "Battery SBS03 Rev2"
+    default n
+    help
+      Support for Battery SBS03 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS04_R0
+    tristate "Battery SBS04 Rev0"
+    default n
+    help
+      Support for Battery SBS04 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS04_R1
+    tristate "Battery SBS04 Rev1"
+    default n
+    help
+      Support for Battery SBS04 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS04_R2
+    tristate "Battery SBS04 Rev2"
+    default n
+    help
+      Support for Battery SBS04 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS05_R0
+    tristate "Battery SBS05 Rev0"
+    default n
+    help
+      Support for Battery SBS05 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS05_R1
+    tristate "Battery SBS05 Rev1"
+    default n
+    help
+      Support for Battery SBS05 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS05_R2
+    tristate "Battery SBS05 Rev2"
+    default n
+    help
+      Support for Battery SBS05 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS06_R0
+    tristate "Battery SBS06 Rev0"
+    default n
+    help
+      Support for Battery SBS06 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS06_R1
+    tristate "Battery SBS06 Rev1"
+    default n
+    help
+      Support for Battery SBS06 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS06_R2
+    tristate "Battery SBS06 Rev2"
+    default n
+    help
+      Support for Battery SBS06 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS07_R0
+    tristate "Battery SBS07 Rev0"
+    default n
+    help
+      Support for Battery SBS07 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS07_R1
+    tristate "Battery SBS07 Rev1"
+    default n
+    help
+      Support for Battery SBS07 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS07_R2
+    tristate "Battery SBS07 Rev2"
+    default n
+    help
+      Support for Battery SBS07 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS08_R0
+    tristate "Battery SBS08 Rev0"
+    default n
+    help
+      Support for Battery SBS08 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS08_R1
+    tristate "Battery SBS08 Rev1"
+    default n
+    help
+      Support for Battery SBS08 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS08_R2
+    tristate "Battery SBS08 Rev2"
+    default n
+    help
+      Support for Battery SBS08 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS09_R0
+    tristate "Battery SBS09 Rev0"
+    default n
+    help
+      Support for Battery SBS09 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS09_R1
+    tristate "Battery SBS09 Rev1"
+    default n
+    help
+      Support for Battery SBS09 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS09_R2
+    tristate "Battery SBS09 Rev2"
+    default n
+    help
+      Support for Battery SBS09 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS10_R0
+    tristate "Battery SBS10 Rev0"
+    default n
+    help
+      Support for Battery SBS10 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS10_R1
+    tristate "Battery SBS10 Rev1"
+    default n
+    help
+      Support for Battery SBS10 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS10_R2
+    tristate "Battery SBS10 Rev2"
+    default n
+    help
+      Support for Battery SBS10 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS11_R0
+    tristate "Battery SBS11 Rev0"
+    default n
+    help
+      Support for Battery SBS11 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS11_R1
+    tristate "Battery SBS11 Rev1"
+    default n
+    help
+      Support for Battery SBS11 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS11_R2
+    tristate "Battery SBS11 Rev2"
+    default n
+    help
+      Support for Battery SBS11 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS12_R0
+    tristate "Battery SBS12 Rev0"
+    default n
+    help
+      Support for Battery SBS12 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS12_R1
+    tristate "Battery SBS12 Rev1"
+    default n
+    help
+      Support for Battery SBS12 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS12_R2
+    tristate "Battery SBS12 Rev2"
+    default n
+    help
+      Support for Battery SBS12 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS13_R0
+    tristate "Battery SBS13 Rev0"
+    default n
+    help
+      Support for Battery SBS13 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS13_R1
+    tristate "Battery SBS13 Rev1"
+    default n
+    help
+      Support for Battery SBS13 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS13_R2
+    tristate "Battery SBS13 Rev2"
+    default n
+    help
+      Support for Battery SBS13 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS14_R0
+    tristate "Battery SBS14 Rev0"
+    default n
+    help
+      Support for Battery SBS14 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS14_R1
+    tristate "Battery SBS14 Rev1"
+    default n
+    help
+      Support for Battery SBS14 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS14_R2
+    tristate "Battery SBS14 Rev2"
+    default n
+    help
+      Support for Battery SBS14 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS15_R0
+    tristate "Battery SBS15 Rev0"
+    default n
+    help
+      Support for Battery SBS15 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS15_R1
+    tristate "Battery SBS15 Rev1"
+    default n
+    help
+      Support for Battery SBS15 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS15_R2
+    tristate "Battery SBS15 Rev2"
+    default n
+    help
+      Support for Battery SBS15 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS16_R0
+    tristate "Battery SBS16 Rev0"
+    default n
+    help
+      Support for Battery SBS16 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS16_R1
+    tristate "Battery SBS16 Rev1"
+    default n
+    help
+      Support for Battery SBS16 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS16_R2
+    tristate "Battery SBS16 Rev2"
+    default n
+    help
+      Support for Battery SBS16 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS17_R0
+    tristate "Battery SBS17 Rev0"
+    default n
+    help
+      Support for Battery SBS17 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS17_R1
+    tristate "Battery SBS17 Rev1"
+    default n
+    help
+      Support for Battery SBS17 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS17_R2
+    tristate "Battery SBS17 Rev2"
+    default n
+    help
+      Support for Battery SBS17 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS18_R0
+    tristate "Battery SBS18 Rev0"
+    default n
+    help
+      Support for Battery SBS18 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS18_R1
+    tristate "Battery SBS18 Rev1"
+    default n
+    help
+      Support for Battery SBS18 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS18_R2
+    tristate "Battery SBS18 Rev2"
+    default n
+    help
+      Support for Battery SBS18 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS19_R0
+    tristate "Battery SBS19 Rev0"
+    default n
+    help
+      Support for Battery SBS19 Rev0 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS19_R1
+    tristate "Battery SBS19 Rev1"
+    default n
+    help
+      Support for Battery SBS19 Rev1 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_SBS19_R2
+    tristate "Battery SBS19 Rev2"
+    default n
+    help
+      Support for Battery SBS19 Rev2 (SBS)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2700_R0
+    tristate "Battery BQ2700 Rev0"
+    default n
+    help
+      Support for Battery BQ2700 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2700_R1
+    tristate "Battery BQ2700 Rev1"
+    default n
+    help
+      Support for Battery BQ2700 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2700_R2
+    tristate "Battery BQ2700 Rev2"
+    default n
+    help
+      Support for Battery BQ2700 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2701_R0
+    tristate "Battery BQ2701 Rev0"
+    default n
+    help
+      Support for Battery BQ2701 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2701_R1
+    tristate "Battery BQ2701 Rev1"
+    default n
+    help
+      Support for Battery BQ2701 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2701_R2
+    tristate "Battery BQ2701 Rev2"
+    default n
+    help
+      Support for Battery BQ2701 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2702_R0
+    tristate "Battery BQ2702 Rev0"
+    default n
+    help
+      Support for Battery BQ2702 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2702_R1
+    tristate "Battery BQ2702 Rev1"
+    default n
+    help
+      Support for Battery BQ2702 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2702_R2
+    tristate "Battery BQ2702 Rev2"
+    default n
+    help
+      Support for Battery BQ2702 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2703_R0
+    tristate "Battery BQ2703 Rev0"
+    default n
+    help
+      Support for Battery BQ2703 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2703_R1
+    tristate "Battery BQ2703 Rev1"
+    default n
+    help
+      Support for Battery BQ2703 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2703_R2
+    tristate "Battery BQ2703 Rev2"
+    default n
+    help
+      Support for Battery BQ2703 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2704_R0
+    tristate "Battery BQ2704 Rev0"
+    default n
+    help
+      Support for Battery BQ2704 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2704_R1
+    tristate "Battery BQ2704 Rev1"
+    default n
+    help
+      Support for Battery BQ2704 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2704_R2
+    tristate "Battery BQ2704 Rev2"
+    default n
+    help
+      Support for Battery BQ2704 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2705_R0
+    tristate "Battery BQ2705 Rev0"
+    default n
+    help
+      Support for Battery BQ2705 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2705_R1
+    tristate "Battery BQ2705 Rev1"
+    default n
+    help
+      Support for Battery BQ2705 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2705_R2
+    tristate "Battery BQ2705 Rev2"
+    default n
+    help
+      Support for Battery BQ2705 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2706_R0
+    tristate "Battery BQ2706 Rev0"
+    default n
+    help
+      Support for Battery BQ2706 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2706_R1
+    tristate "Battery BQ2706 Rev1"
+    default n
+    help
+      Support for Battery BQ2706 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2706_R2
+    tristate "Battery BQ2706 Rev2"
+    default n
+    help
+      Support for Battery BQ2706 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2707_R0
+    tristate "Battery BQ2707 Rev0"
+    default n
+    help
+      Support for Battery BQ2707 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2707_R1
+    tristate "Battery BQ2707 Rev1"
+    default n
+    help
+      Support for Battery BQ2707 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2707_R2
+    tristate "Battery BQ2707 Rev2"
+    default n
+    help
+      Support for Battery BQ2707 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2708_R0
+    tristate "Battery BQ2708 Rev0"
+    default n
+    help
+      Support for Battery BQ2708 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2708_R1
+    tristate "Battery BQ2708 Rev1"
+    default n
+    help
+      Support for Battery BQ2708 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2708_R2
+    tristate "Battery BQ2708 Rev2"
+    default n
+    help
+      Support for Battery BQ2708 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2709_R0
+    tristate "Battery BQ2709 Rev0"
+    default n
+    help
+      Support for Battery BQ2709 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2709_R1
+    tristate "Battery BQ2709 Rev1"
+    default n
+    help
+      Support for Battery BQ2709 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2709_R2
+    tristate "Battery BQ2709 Rev2"
+    default n
+    help
+      Support for Battery BQ2709 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2710_R0
+    tristate "Battery BQ2710 Rev0"
+    default n
+    help
+      Support for Battery BQ2710 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2710_R1
+    tristate "Battery BQ2710 Rev1"
+    default n
+    help
+      Support for Battery BQ2710 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2710_R2
+    tristate "Battery BQ2710 Rev2"
+    default n
+    help
+      Support for Battery BQ2710 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2711_R0
+    tristate "Battery BQ2711 Rev0"
+    default n
+    help
+      Support for Battery BQ2711 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2711_R1
+    tristate "Battery BQ2711 Rev1"
+    default n
+    help
+      Support for Battery BQ2711 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2711_R2
+    tristate "Battery BQ2711 Rev2"
+    default n
+    help
+      Support for Battery BQ2711 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2712_R0
+    tristate "Battery BQ2712 Rev0"
+    default n
+    help
+      Support for Battery BQ2712 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2712_R1
+    tristate "Battery BQ2712 Rev1"
+    default n
+    help
+      Support for Battery BQ2712 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2712_R2
+    tristate "Battery BQ2712 Rev2"
+    default n
+    help
+      Support for Battery BQ2712 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2713_R0
+    tristate "Battery BQ2713 Rev0"
+    default n
+    help
+      Support for Battery BQ2713 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2713_R1
+    tristate "Battery BQ2713 Rev1"
+    default n
+    help
+      Support for Battery BQ2713 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2713_R2
+    tristate "Battery BQ2713 Rev2"
+    default n
+    help
+      Support for Battery BQ2713 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2714_R0
+    tristate "Battery BQ2714 Rev0"
+    default n
+    help
+      Support for Battery BQ2714 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2714_R1
+    tristate "Battery BQ2714 Rev1"
+    default n
+    help
+      Support for Battery BQ2714 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2714_R2
+    tristate "Battery BQ2714 Rev2"
+    default n
+    help
+      Support for Battery BQ2714 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2715_R0
+    tristate "Battery BQ2715 Rev0"
+    default n
+    help
+      Support for Battery BQ2715 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2715_R1
+    tristate "Battery BQ2715 Rev1"
+    default n
+    help
+      Support for Battery BQ2715 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2715_R2
+    tristate "Battery BQ2715 Rev2"
+    default n
+    help
+      Support for Battery BQ2715 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2716_R0
+    tristate "Battery BQ2716 Rev0"
+    default n
+    help
+      Support for Battery BQ2716 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2716_R1
+    tristate "Battery BQ2716 Rev1"
+    default n
+    help
+      Support for Battery BQ2716 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2716_R2
+    tristate "Battery BQ2716 Rev2"
+    default n
+    help
+      Support for Battery BQ2716 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2717_R0
+    tristate "Battery BQ2717 Rev0"
+    default n
+    help
+      Support for Battery BQ2717 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2717_R1
+    tristate "Battery BQ2717 Rev1"
+    default n
+    help
+      Support for Battery BQ2717 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2717_R2
+    tristate "Battery BQ2717 Rev2"
+    default n
+    help
+      Support for Battery BQ2717 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2718_R0
+    tristate "Battery BQ2718 Rev0"
+    default n
+    help
+      Support for Battery BQ2718 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2718_R1
+    tristate "Battery BQ2718 Rev1"
+    default n
+    help
+      Support for Battery BQ2718 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2718_R2
+    tristate "Battery BQ2718 Rev2"
+    default n
+    help
+      Support for Battery BQ2718 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2719_R0
+    tristate "Battery BQ2719 Rev0"
+    default n
+    help
+      Support for Battery BQ2719 Rev0 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2719_R1
+    tristate "Battery BQ2719 Rev1"
+    default n
+    help
+      Support for Battery BQ2719 Rev1 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_BQ2719_R2
+    tristate "Battery BQ2719 Rev2"
+    default n
+    help
+      Support for Battery BQ2719 Rev2 (BQ27)
+      Category: power_battery
+
+config POWER_BATTERY_DS278200_R0
+    tristate "Battery DS278200 Rev0"
+    default n
+    help
+      Support for Battery DS278200 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278200_R1
+    tristate "Battery DS278200 Rev1"
+    default n
+    help
+      Support for Battery DS278200 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278200_R2
+    tristate "Battery DS278200 Rev2"
+    default n
+    help
+      Support for Battery DS278200 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278201_R0
+    tristate "Battery DS278201 Rev0"
+    default n
+    help
+      Support for Battery DS278201 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278201_R1
+    tristate "Battery DS278201 Rev1"
+    default n
+    help
+      Support for Battery DS278201 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278201_R2
+    tristate "Battery DS278201 Rev2"
+    default n
+    help
+      Support for Battery DS278201 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278202_R0
+    tristate "Battery DS278202 Rev0"
+    default n
+    help
+      Support for Battery DS278202 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278202_R1
+    tristate "Battery DS278202 Rev1"
+    default n
+    help
+      Support for Battery DS278202 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278202_R2
+    tristate "Battery DS278202 Rev2"
+    default n
+    help
+      Support for Battery DS278202 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278203_R0
+    tristate "Battery DS278203 Rev0"
+    default n
+    help
+      Support for Battery DS278203 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278203_R1
+    tristate "Battery DS278203 Rev1"
+    default n
+    help
+      Support for Battery DS278203 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278203_R2
+    tristate "Battery DS278203 Rev2"
+    default n
+    help
+      Support for Battery DS278203 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278204_R0
+    tristate "Battery DS278204 Rev0"
+    default n
+    help
+      Support for Battery DS278204 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278204_R1
+    tristate "Battery DS278204 Rev1"
+    default n
+    help
+      Support for Battery DS278204 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278204_R2
+    tristate "Battery DS278204 Rev2"
+    default n
+    help
+      Support for Battery DS278204 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278205_R0
+    tristate "Battery DS278205 Rev0"
+    default n
+    help
+      Support for Battery DS278205 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278205_R1
+    tristate "Battery DS278205 Rev1"
+    default n
+    help
+      Support for Battery DS278205 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278205_R2
+    tristate "Battery DS278205 Rev2"
+    default n
+    help
+      Support for Battery DS278205 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278206_R0
+    tristate "Battery DS278206 Rev0"
+    default n
+    help
+      Support for Battery DS278206 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278206_R1
+    tristate "Battery DS278206 Rev1"
+    default n
+    help
+      Support for Battery DS278206 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278206_R2
+    tristate "Battery DS278206 Rev2"
+    default n
+    help
+      Support for Battery DS278206 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278207_R0
+    tristate "Battery DS278207 Rev0"
+    default n
+    help
+      Support for Battery DS278207 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278207_R1
+    tristate "Battery DS278207 Rev1"
+    default n
+    help
+      Support for Battery DS278207 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278207_R2
+    tristate "Battery DS278207 Rev2"
+    default n
+    help
+      Support for Battery DS278207 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278208_R0
+    tristate "Battery DS278208 Rev0"
+    default n
+    help
+      Support for Battery DS278208 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278208_R1
+    tristate "Battery DS278208 Rev1"
+    default n
+    help
+      Support for Battery DS278208 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278208_R2
+    tristate "Battery DS278208 Rev2"
+    default n
+    help
+      Support for Battery DS278208 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278209_R0
+    tristate "Battery DS278209 Rev0"
+    default n
+    help
+      Support for Battery DS278209 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278209_R1
+    tristate "Battery DS278209 Rev1"
+    default n
+    help
+      Support for Battery DS278209 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278209_R2
+    tristate "Battery DS278209 Rev2"
+    default n
+    help
+      Support for Battery DS278209 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278210_R0
+    tristate "Battery DS278210 Rev0"
+    default n
+    help
+      Support for Battery DS278210 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278210_R1
+    tristate "Battery DS278210 Rev1"
+    default n
+    help
+      Support for Battery DS278210 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278210_R2
+    tristate "Battery DS278210 Rev2"
+    default n
+    help
+      Support for Battery DS278210 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278211_R0
+    tristate "Battery DS278211 Rev0"
+    default n
+    help
+      Support for Battery DS278211 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278211_R1
+    tristate "Battery DS278211 Rev1"
+    default n
+    help
+      Support for Battery DS278211 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278211_R2
+    tristate "Battery DS278211 Rev2"
+    default n
+    help
+      Support for Battery DS278211 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278212_R0
+    tristate "Battery DS278212 Rev0"
+    default n
+    help
+      Support for Battery DS278212 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278212_R1
+    tristate "Battery DS278212 Rev1"
+    default n
+    help
+      Support for Battery DS278212 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278212_R2
+    tristate "Battery DS278212 Rev2"
+    default n
+    help
+      Support for Battery DS278212 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278213_R0
+    tristate "Battery DS278213 Rev0"
+    default n
+    help
+      Support for Battery DS278213 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278213_R1
+    tristate "Battery DS278213 Rev1"
+    default n
+    help
+      Support for Battery DS278213 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278213_R2
+    tristate "Battery DS278213 Rev2"
+    default n
+    help
+      Support for Battery DS278213 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278214_R0
+    tristate "Battery DS278214 Rev0"
+    default n
+    help
+      Support for Battery DS278214 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278214_R1
+    tristate "Battery DS278214 Rev1"
+    default n
+    help
+      Support for Battery DS278214 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278214_R2
+    tristate "Battery DS278214 Rev2"
+    default n
+    help
+      Support for Battery DS278214 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278215_R0
+    tristate "Battery DS278215 Rev0"
+    default n
+    help
+      Support for Battery DS278215 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278215_R1
+    tristate "Battery DS278215 Rev1"
+    default n
+    help
+      Support for Battery DS278215 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278215_R2
+    tristate "Battery DS278215 Rev2"
+    default n
+    help
+      Support for Battery DS278215 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278216_R0
+    tristate "Battery DS278216 Rev0"
+    default n
+    help
+      Support for Battery DS278216 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278216_R1
+    tristate "Battery DS278216 Rev1"
+    default n
+    help
+      Support for Battery DS278216 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278216_R2
+    tristate "Battery DS278216 Rev2"
+    default n
+    help
+      Support for Battery DS278216 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278217_R0
+    tristate "Battery DS278217 Rev0"
+    default n
+    help
+      Support for Battery DS278217 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278217_R1
+    tristate "Battery DS278217 Rev1"
+    default n
+    help
+      Support for Battery DS278217 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278217_R2
+    tristate "Battery DS278217 Rev2"
+    default n
+    help
+      Support for Battery DS278217 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278218_R0
+    tristate "Battery DS278218 Rev0"
+    default n
+    help
+      Support for Battery DS278218 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278218_R1
+    tristate "Battery DS278218 Rev1"
+    default n
+    help
+      Support for Battery DS278218 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278218_R2
+    tristate "Battery DS278218 Rev2"
+    default n
+    help
+      Support for Battery DS278218 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278219_R0
+    tristate "Battery DS278219 Rev0"
+    default n
+    help
+      Support for Battery DS278219 Rev0 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278219_R1
+    tristate "Battery DS278219 Rev1"
+    default n
+    help
+      Support for Battery DS278219 Rev1 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_DS278219_R2
+    tristate "Battery DS278219 Rev2"
+    default n
+    help
+      Support for Battery DS278219 Rev2 (DS2782)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1700_R0
+    tristate "Battery MAX1700 Rev0"
+    default n
+    help
+      Support for Battery MAX1700 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1700_R1
+    tristate "Battery MAX1700 Rev1"
+    default n
+    help
+      Support for Battery MAX1700 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1700_R2
+    tristate "Battery MAX1700 Rev2"
+    default n
+    help
+      Support for Battery MAX1700 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1701_R0
+    tristate "Battery MAX1701 Rev0"
+    default n
+    help
+      Support for Battery MAX1701 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1701_R1
+    tristate "Battery MAX1701 Rev1"
+    default n
+    help
+      Support for Battery MAX1701 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1701_R2
+    tristate "Battery MAX1701 Rev2"
+    default n
+    help
+      Support for Battery MAX1701 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1702_R0
+    tristate "Battery MAX1702 Rev0"
+    default n
+    help
+      Support for Battery MAX1702 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1702_R1
+    tristate "Battery MAX1702 Rev1"
+    default n
+    help
+      Support for Battery MAX1702 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1702_R2
+    tristate "Battery MAX1702 Rev2"
+    default n
+    help
+      Support for Battery MAX1702 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1703_R0
+    tristate "Battery MAX1703 Rev0"
+    default n
+    help
+      Support for Battery MAX1703 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1703_R1
+    tristate "Battery MAX1703 Rev1"
+    default n
+    help
+      Support for Battery MAX1703 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1703_R2
+    tristate "Battery MAX1703 Rev2"
+    default n
+    help
+      Support for Battery MAX1703 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1704_R0
+    tristate "Battery MAX1704 Rev0"
+    default n
+    help
+      Support for Battery MAX1704 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1704_R1
+    tristate "Battery MAX1704 Rev1"
+    default n
+    help
+      Support for Battery MAX1704 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1704_R2
+    tristate "Battery MAX1704 Rev2"
+    default n
+    help
+      Support for Battery MAX1704 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1705_R0
+    tristate "Battery MAX1705 Rev0"
+    default n
+    help
+      Support for Battery MAX1705 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1705_R1
+    tristate "Battery MAX1705 Rev1"
+    default n
+    help
+      Support for Battery MAX1705 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1705_R2
+    tristate "Battery MAX1705 Rev2"
+    default n
+    help
+      Support for Battery MAX1705 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1706_R0
+    tristate "Battery MAX1706 Rev0"
+    default n
+    help
+      Support for Battery MAX1706 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1706_R1
+    tristate "Battery MAX1706 Rev1"
+    default n
+    help
+      Support for Battery MAX1706 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1706_R2
+    tristate "Battery MAX1706 Rev2"
+    default n
+    help
+      Support for Battery MAX1706 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1707_R0
+    tristate "Battery MAX1707 Rev0"
+    default n
+    help
+      Support for Battery MAX1707 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1707_R1
+    tristate "Battery MAX1707 Rev1"
+    default n
+    help
+      Support for Battery MAX1707 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1707_R2
+    tristate "Battery MAX1707 Rev2"
+    default n
+    help
+      Support for Battery MAX1707 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1708_R0
+    tristate "Battery MAX1708 Rev0"
+    default n
+    help
+      Support for Battery MAX1708 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1708_R1
+    tristate "Battery MAX1708 Rev1"
+    default n
+    help
+      Support for Battery MAX1708 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1708_R2
+    tristate "Battery MAX1708 Rev2"
+    default n
+    help
+      Support for Battery MAX1708 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1709_R0
+    tristate "Battery MAX1709 Rev0"
+    default n
+    help
+      Support for Battery MAX1709 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1709_R1
+    tristate "Battery MAX1709 Rev1"
+    default n
+    help
+      Support for Battery MAX1709 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1709_R2
+    tristate "Battery MAX1709 Rev2"
+    default n
+    help
+      Support for Battery MAX1709 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1710_R0
+    tristate "Battery MAX1710 Rev0"
+    default n
+    help
+      Support for Battery MAX1710 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1710_R1
+    tristate "Battery MAX1710 Rev1"
+    default n
+    help
+      Support for Battery MAX1710 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1710_R2
+    tristate "Battery MAX1710 Rev2"
+    default n
+    help
+      Support for Battery MAX1710 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1711_R0
+    tristate "Battery MAX1711 Rev0"
+    default n
+    help
+      Support for Battery MAX1711 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1711_R1
+    tristate "Battery MAX1711 Rev1"
+    default n
+    help
+      Support for Battery MAX1711 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1711_R2
+    tristate "Battery MAX1711 Rev2"
+    default n
+    help
+      Support for Battery MAX1711 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1712_R0
+    tristate "Battery MAX1712 Rev0"
+    default n
+    help
+      Support for Battery MAX1712 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1712_R1
+    tristate "Battery MAX1712 Rev1"
+    default n
+    help
+      Support for Battery MAX1712 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1712_R2
+    tristate "Battery MAX1712 Rev2"
+    default n
+    help
+      Support for Battery MAX1712 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1713_R0
+    tristate "Battery MAX1713 Rev0"
+    default n
+    help
+      Support for Battery MAX1713 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1713_R1
+    tristate "Battery MAX1713 Rev1"
+    default n
+    help
+      Support for Battery MAX1713 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1713_R2
+    tristate "Battery MAX1713 Rev2"
+    default n
+    help
+      Support for Battery MAX1713 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1714_R0
+    tristate "Battery MAX1714 Rev0"
+    default n
+    help
+      Support for Battery MAX1714 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1714_R1
+    tristate "Battery MAX1714 Rev1"
+    default n
+    help
+      Support for Battery MAX1714 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1714_R2
+    tristate "Battery MAX1714 Rev2"
+    default n
+    help
+      Support for Battery MAX1714 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1715_R0
+    tristate "Battery MAX1715 Rev0"
+    default n
+    help
+      Support for Battery MAX1715 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1715_R1
+    tristate "Battery MAX1715 Rev1"
+    default n
+    help
+      Support for Battery MAX1715 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1715_R2
+    tristate "Battery MAX1715 Rev2"
+    default n
+    help
+      Support for Battery MAX1715 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1716_R0
+    tristate "Battery MAX1716 Rev0"
+    default n
+    help
+      Support for Battery MAX1716 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1716_R1
+    tristate "Battery MAX1716 Rev1"
+    default n
+    help
+      Support for Battery MAX1716 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1716_R2
+    tristate "Battery MAX1716 Rev2"
+    default n
+    help
+      Support for Battery MAX1716 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1717_R0
+    tristate "Battery MAX1717 Rev0"
+    default n
+    help
+      Support for Battery MAX1717 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1717_R1
+    tristate "Battery MAX1717 Rev1"
+    default n
+    help
+      Support for Battery MAX1717 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1717_R2
+    tristate "Battery MAX1717 Rev2"
+    default n
+    help
+      Support for Battery MAX1717 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1718_R0
+    tristate "Battery MAX1718 Rev0"
+    default n
+    help
+      Support for Battery MAX1718 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1718_R1
+    tristate "Battery MAX1718 Rev1"
+    default n
+    help
+      Support for Battery MAX1718 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1718_R2
+    tristate "Battery MAX1718 Rev2"
+    default n
+    help
+      Support for Battery MAX1718 Rev2 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1719_R0
+    tristate "Battery MAX1719 Rev0"
+    default n
+    help
+      Support for Battery MAX1719 Rev0 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1719_R1
+    tristate "Battery MAX1719 Rev1"
+    default n
+    help
+      Support for Battery MAX1719 Rev1 (MAX17)
+      Category: power_battery
+
+config POWER_BATTERY_MAX1719_R2
+    tristate "Battery MAX1719 Rev2"
+    default n
+    help
+      Support for Battery MAX1719 Rev2 (MAX17)
+      Category: power_battery
+
+endmenu

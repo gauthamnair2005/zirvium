@@ -1,0 +1,1684 @@
+
+menu "Storage_Mmc Drivers"
+
+config STORAGE_MMC_REALTEK_SD_SDR_R0
+    tristate "Realtek SD SDR Rev0"
+    default n
+    help
+      Support for Realtek SD SDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_SDR_R1
+    tristate "Realtek SD SDR Rev1"
+    default n
+    help
+      Support for Realtek SD SDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_SDR_R2
+    tristate "Realtek SD SDR Rev2"
+    default n
+    help
+      Support for Realtek SD SDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_DDR_R0
+    tristate "Realtek SD DDR Rev0"
+    default n
+    help
+      Support for Realtek SD DDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_DDR_R1
+    tristate "Realtek SD DDR Rev1"
+    default n
+    help
+      Support for Realtek SD DDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_DDR_R2
+    tristate "Realtek SD DDR Rev2"
+    default n
+    help
+      Support for Realtek SD DDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_HS200_R0
+    tristate "Realtek SD HS200 Rev0"
+    default n
+    help
+      Support for Realtek SD HS200 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_HS200_R1
+    tristate "Realtek SD HS200 Rev1"
+    default n
+    help
+      Support for Realtek SD HS200 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_HS200_R2
+    tristate "Realtek SD HS200 Rev2"
+    default n
+    help
+      Support for Realtek SD HS200 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_HS400_R0
+    tristate "Realtek SD HS400 Rev0"
+    default n
+    help
+      Support for Realtek SD HS400 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_HS400_R1
+    tristate "Realtek SD HS400 Rev1"
+    default n
+    help
+      Support for Realtek SD HS400 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SD_HS400_R2
+    tristate "Realtek SD HS400 Rev2"
+    default n
+    help
+      Support for Realtek SD HS400 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_SDR_R0
+    tristate "Realtek SDXC SDR Rev0"
+    default n
+    help
+      Support for Realtek SDXC SDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_SDR_R1
+    tristate "Realtek SDXC SDR Rev1"
+    default n
+    help
+      Support for Realtek SDXC SDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_SDR_R2
+    tristate "Realtek SDXC SDR Rev2"
+    default n
+    help
+      Support for Realtek SDXC SDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_DDR_R0
+    tristate "Realtek SDXC DDR Rev0"
+    default n
+    help
+      Support for Realtek SDXC DDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_DDR_R1
+    tristate "Realtek SDXC DDR Rev1"
+    default n
+    help
+      Support for Realtek SDXC DDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_DDR_R2
+    tristate "Realtek SDXC DDR Rev2"
+    default n
+    help
+      Support for Realtek SDXC DDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_HS200_R0
+    tristate "Realtek SDXC HS200 Rev0"
+    default n
+    help
+      Support for Realtek SDXC HS200 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_HS200_R1
+    tristate "Realtek SDXC HS200 Rev1"
+    default n
+    help
+      Support for Realtek SDXC HS200 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_HS200_R2
+    tristate "Realtek SDXC HS200 Rev2"
+    default n
+    help
+      Support for Realtek SDXC HS200 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_HS400_R0
+    tristate "Realtek SDXC HS400 Rev0"
+    default n
+    help
+      Support for Realtek SDXC HS400 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_HS400_R1
+    tristate "Realtek SDXC HS400 Rev1"
+    default n
+    help
+      Support for Realtek SDXC HS400 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_SDXC_HS400_R2
+    tristate "Realtek SDXC HS400 Rev2"
+    default n
+    help
+      Support for Realtek SDXC HS400 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_SDR_R0
+    tristate "Realtek MMC SDR Rev0"
+    default n
+    help
+      Support for Realtek MMC SDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_SDR_R1
+    tristate "Realtek MMC SDR Rev1"
+    default n
+    help
+      Support for Realtek MMC SDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_SDR_R2
+    tristate "Realtek MMC SDR Rev2"
+    default n
+    help
+      Support for Realtek MMC SDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_DDR_R0
+    tristate "Realtek MMC DDR Rev0"
+    default n
+    help
+      Support for Realtek MMC DDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_DDR_R1
+    tristate "Realtek MMC DDR Rev1"
+    default n
+    help
+      Support for Realtek MMC DDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_DDR_R2
+    tristate "Realtek MMC DDR Rev2"
+    default n
+    help
+      Support for Realtek MMC DDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_HS200_R0
+    tristate "Realtek MMC HS200 Rev0"
+    default n
+    help
+      Support for Realtek MMC HS200 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_HS200_R1
+    tristate "Realtek MMC HS200 Rev1"
+    default n
+    help
+      Support for Realtek MMC HS200 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_HS200_R2
+    tristate "Realtek MMC HS200 Rev2"
+    default n
+    help
+      Support for Realtek MMC HS200 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_HS400_R0
+    tristate "Realtek MMC HS400 Rev0"
+    default n
+    help
+      Support for Realtek MMC HS400 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_HS400_R1
+    tristate "Realtek MMC HS400 Rev1"
+    default n
+    help
+      Support for Realtek MMC HS400 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_MMC_HS400_R2
+    tristate "Realtek MMC HS400 Rev2"
+    default n
+    help
+      Support for Realtek MMC HS400 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_SDR_R0
+    tristate "Realtek eMMC SDR Rev0"
+    default n
+    help
+      Support for Realtek eMMC SDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_SDR_R1
+    tristate "Realtek eMMC SDR Rev1"
+    default n
+    help
+      Support for Realtek eMMC SDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_SDR_R2
+    tristate "Realtek eMMC SDR Rev2"
+    default n
+    help
+      Support for Realtek eMMC SDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_DDR_R0
+    tristate "Realtek eMMC DDR Rev0"
+    default n
+    help
+      Support for Realtek eMMC DDR Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_DDR_R1
+    tristate "Realtek eMMC DDR Rev1"
+    default n
+    help
+      Support for Realtek eMMC DDR Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_DDR_R2
+    tristate "Realtek eMMC DDR Rev2"
+    default n
+    help
+      Support for Realtek eMMC DDR Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_HS200_R0
+    tristate "Realtek eMMC HS200 Rev0"
+    default n
+    help
+      Support for Realtek eMMC HS200 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_HS200_R1
+    tristate "Realtek eMMC HS200 Rev1"
+    default n
+    help
+      Support for Realtek eMMC HS200 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_HS200_R2
+    tristate "Realtek eMMC HS200 Rev2"
+    default n
+    help
+      Support for Realtek eMMC HS200 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_HS400_R0
+    tristate "Realtek eMMC HS400 Rev0"
+    default n
+    help
+      Support for Realtek eMMC HS400 Rev0 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_HS400_R1
+    tristate "Realtek eMMC HS400 Rev1"
+    default n
+    help
+      Support for Realtek eMMC HS400 Rev1 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_REALTEK_eMMC_HS400_R2
+    tristate "Realtek eMMC HS400 Rev2"
+    default n
+    help
+      Support for Realtek eMMC HS400 Rev2 (Realtek)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_SDR_R0
+    tristate "Intel SD SDR Rev0"
+    default n
+    help
+      Support for Intel SD SDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_SDR_R1
+    tristate "Intel SD SDR Rev1"
+    default n
+    help
+      Support for Intel SD SDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_SDR_R2
+    tristate "Intel SD SDR Rev2"
+    default n
+    help
+      Support for Intel SD SDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_DDR_R0
+    tristate "Intel SD DDR Rev0"
+    default n
+    help
+      Support for Intel SD DDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_DDR_R1
+    tristate "Intel SD DDR Rev1"
+    default n
+    help
+      Support for Intel SD DDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_DDR_R2
+    tristate "Intel SD DDR Rev2"
+    default n
+    help
+      Support for Intel SD DDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_HS200_R0
+    tristate "Intel SD HS200 Rev0"
+    default n
+    help
+      Support for Intel SD HS200 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_HS200_R1
+    tristate "Intel SD HS200 Rev1"
+    default n
+    help
+      Support for Intel SD HS200 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_HS200_R2
+    tristate "Intel SD HS200 Rev2"
+    default n
+    help
+      Support for Intel SD HS200 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_HS400_R0
+    tristate "Intel SD HS400 Rev0"
+    default n
+    help
+      Support for Intel SD HS400 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_HS400_R1
+    tristate "Intel SD HS400 Rev1"
+    default n
+    help
+      Support for Intel SD HS400 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SD_HS400_R2
+    tristate "Intel SD HS400 Rev2"
+    default n
+    help
+      Support for Intel SD HS400 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_SDR_R0
+    tristate "Intel SDXC SDR Rev0"
+    default n
+    help
+      Support for Intel SDXC SDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_SDR_R1
+    tristate "Intel SDXC SDR Rev1"
+    default n
+    help
+      Support for Intel SDXC SDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_SDR_R2
+    tristate "Intel SDXC SDR Rev2"
+    default n
+    help
+      Support for Intel SDXC SDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_DDR_R0
+    tristate "Intel SDXC DDR Rev0"
+    default n
+    help
+      Support for Intel SDXC DDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_DDR_R1
+    tristate "Intel SDXC DDR Rev1"
+    default n
+    help
+      Support for Intel SDXC DDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_DDR_R2
+    tristate "Intel SDXC DDR Rev2"
+    default n
+    help
+      Support for Intel SDXC DDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_HS200_R0
+    tristate "Intel SDXC HS200 Rev0"
+    default n
+    help
+      Support for Intel SDXC HS200 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_HS200_R1
+    tristate "Intel SDXC HS200 Rev1"
+    default n
+    help
+      Support for Intel SDXC HS200 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_HS200_R2
+    tristate "Intel SDXC HS200 Rev2"
+    default n
+    help
+      Support for Intel SDXC HS200 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_HS400_R0
+    tristate "Intel SDXC HS400 Rev0"
+    default n
+    help
+      Support for Intel SDXC HS400 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_HS400_R1
+    tristate "Intel SDXC HS400 Rev1"
+    default n
+    help
+      Support for Intel SDXC HS400 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_SDXC_HS400_R2
+    tristate "Intel SDXC HS400 Rev2"
+    default n
+    help
+      Support for Intel SDXC HS400 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_SDR_R0
+    tristate "Intel MMC SDR Rev0"
+    default n
+    help
+      Support for Intel MMC SDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_SDR_R1
+    tristate "Intel MMC SDR Rev1"
+    default n
+    help
+      Support for Intel MMC SDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_SDR_R2
+    tristate "Intel MMC SDR Rev2"
+    default n
+    help
+      Support for Intel MMC SDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_DDR_R0
+    tristate "Intel MMC DDR Rev0"
+    default n
+    help
+      Support for Intel MMC DDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_DDR_R1
+    tristate "Intel MMC DDR Rev1"
+    default n
+    help
+      Support for Intel MMC DDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_DDR_R2
+    tristate "Intel MMC DDR Rev2"
+    default n
+    help
+      Support for Intel MMC DDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_HS200_R0
+    tristate "Intel MMC HS200 Rev0"
+    default n
+    help
+      Support for Intel MMC HS200 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_HS200_R1
+    tristate "Intel MMC HS200 Rev1"
+    default n
+    help
+      Support for Intel MMC HS200 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_HS200_R2
+    tristate "Intel MMC HS200 Rev2"
+    default n
+    help
+      Support for Intel MMC HS200 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_HS400_R0
+    tristate "Intel MMC HS400 Rev0"
+    default n
+    help
+      Support for Intel MMC HS400 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_HS400_R1
+    tristate "Intel MMC HS400 Rev1"
+    default n
+    help
+      Support for Intel MMC HS400 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_MMC_HS400_R2
+    tristate "Intel MMC HS400 Rev2"
+    default n
+    help
+      Support for Intel MMC HS400 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_SDR_R0
+    tristate "Intel eMMC SDR Rev0"
+    default n
+    help
+      Support for Intel eMMC SDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_SDR_R1
+    tristate "Intel eMMC SDR Rev1"
+    default n
+    help
+      Support for Intel eMMC SDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_SDR_R2
+    tristate "Intel eMMC SDR Rev2"
+    default n
+    help
+      Support for Intel eMMC SDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_DDR_R0
+    tristate "Intel eMMC DDR Rev0"
+    default n
+    help
+      Support for Intel eMMC DDR Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_DDR_R1
+    tristate "Intel eMMC DDR Rev1"
+    default n
+    help
+      Support for Intel eMMC DDR Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_DDR_R2
+    tristate "Intel eMMC DDR Rev2"
+    default n
+    help
+      Support for Intel eMMC DDR Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_HS200_R0
+    tristate "Intel eMMC HS200 Rev0"
+    default n
+    help
+      Support for Intel eMMC HS200 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_HS200_R1
+    tristate "Intel eMMC HS200 Rev1"
+    default n
+    help
+      Support for Intel eMMC HS200 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_HS200_R2
+    tristate "Intel eMMC HS200 Rev2"
+    default n
+    help
+      Support for Intel eMMC HS200 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_HS400_R0
+    tristate "Intel eMMC HS400 Rev0"
+    default n
+    help
+      Support for Intel eMMC HS400 Rev0 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_HS400_R1
+    tristate "Intel eMMC HS400 Rev1"
+    default n
+    help
+      Support for Intel eMMC HS400 Rev1 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_INTEL_eMMC_HS400_R2
+    tristate "Intel eMMC HS400 Rev2"
+    default n
+    help
+      Support for Intel eMMC HS400 Rev2 (Intel)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_SDR_R0
+    tristate "Ricoh SD SDR Rev0"
+    default n
+    help
+      Support for Ricoh SD SDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_SDR_R1
+    tristate "Ricoh SD SDR Rev1"
+    default n
+    help
+      Support for Ricoh SD SDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_SDR_R2
+    tristate "Ricoh SD SDR Rev2"
+    default n
+    help
+      Support for Ricoh SD SDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_DDR_R0
+    tristate "Ricoh SD DDR Rev0"
+    default n
+    help
+      Support for Ricoh SD DDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_DDR_R1
+    tristate "Ricoh SD DDR Rev1"
+    default n
+    help
+      Support for Ricoh SD DDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_DDR_R2
+    tristate "Ricoh SD DDR Rev2"
+    default n
+    help
+      Support for Ricoh SD DDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_HS200_R0
+    tristate "Ricoh SD HS200 Rev0"
+    default n
+    help
+      Support for Ricoh SD HS200 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_HS200_R1
+    tristate "Ricoh SD HS200 Rev1"
+    default n
+    help
+      Support for Ricoh SD HS200 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_HS200_R2
+    tristate "Ricoh SD HS200 Rev2"
+    default n
+    help
+      Support for Ricoh SD HS200 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_HS400_R0
+    tristate "Ricoh SD HS400 Rev0"
+    default n
+    help
+      Support for Ricoh SD HS400 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_HS400_R1
+    tristate "Ricoh SD HS400 Rev1"
+    default n
+    help
+      Support for Ricoh SD HS400 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SD_HS400_R2
+    tristate "Ricoh SD HS400 Rev2"
+    default n
+    help
+      Support for Ricoh SD HS400 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_SDR_R0
+    tristate "Ricoh SDXC SDR Rev0"
+    default n
+    help
+      Support for Ricoh SDXC SDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_SDR_R1
+    tristate "Ricoh SDXC SDR Rev1"
+    default n
+    help
+      Support for Ricoh SDXC SDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_SDR_R2
+    tristate "Ricoh SDXC SDR Rev2"
+    default n
+    help
+      Support for Ricoh SDXC SDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_DDR_R0
+    tristate "Ricoh SDXC DDR Rev0"
+    default n
+    help
+      Support for Ricoh SDXC DDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_DDR_R1
+    tristate "Ricoh SDXC DDR Rev1"
+    default n
+    help
+      Support for Ricoh SDXC DDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_DDR_R2
+    tristate "Ricoh SDXC DDR Rev2"
+    default n
+    help
+      Support for Ricoh SDXC DDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_HS200_R0
+    tristate "Ricoh SDXC HS200 Rev0"
+    default n
+    help
+      Support for Ricoh SDXC HS200 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_HS200_R1
+    tristate "Ricoh SDXC HS200 Rev1"
+    default n
+    help
+      Support for Ricoh SDXC HS200 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_HS200_R2
+    tristate "Ricoh SDXC HS200 Rev2"
+    default n
+    help
+      Support for Ricoh SDXC HS200 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_HS400_R0
+    tristate "Ricoh SDXC HS400 Rev0"
+    default n
+    help
+      Support for Ricoh SDXC HS400 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_HS400_R1
+    tristate "Ricoh SDXC HS400 Rev1"
+    default n
+    help
+      Support for Ricoh SDXC HS400 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_SDXC_HS400_R2
+    tristate "Ricoh SDXC HS400 Rev2"
+    default n
+    help
+      Support for Ricoh SDXC HS400 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_SDR_R0
+    tristate "Ricoh MMC SDR Rev0"
+    default n
+    help
+      Support for Ricoh MMC SDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_SDR_R1
+    tristate "Ricoh MMC SDR Rev1"
+    default n
+    help
+      Support for Ricoh MMC SDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_SDR_R2
+    tristate "Ricoh MMC SDR Rev2"
+    default n
+    help
+      Support for Ricoh MMC SDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_DDR_R0
+    tristate "Ricoh MMC DDR Rev0"
+    default n
+    help
+      Support for Ricoh MMC DDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_DDR_R1
+    tristate "Ricoh MMC DDR Rev1"
+    default n
+    help
+      Support for Ricoh MMC DDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_DDR_R2
+    tristate "Ricoh MMC DDR Rev2"
+    default n
+    help
+      Support for Ricoh MMC DDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_HS200_R0
+    tristate "Ricoh MMC HS200 Rev0"
+    default n
+    help
+      Support for Ricoh MMC HS200 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_HS200_R1
+    tristate "Ricoh MMC HS200 Rev1"
+    default n
+    help
+      Support for Ricoh MMC HS200 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_HS200_R2
+    tristate "Ricoh MMC HS200 Rev2"
+    default n
+    help
+      Support for Ricoh MMC HS200 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_HS400_R0
+    tristate "Ricoh MMC HS400 Rev0"
+    default n
+    help
+      Support for Ricoh MMC HS400 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_HS400_R1
+    tristate "Ricoh MMC HS400 Rev1"
+    default n
+    help
+      Support for Ricoh MMC HS400 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_MMC_HS400_R2
+    tristate "Ricoh MMC HS400 Rev2"
+    default n
+    help
+      Support for Ricoh MMC HS400 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_SDR_R0
+    tristate "Ricoh eMMC SDR Rev0"
+    default n
+    help
+      Support for Ricoh eMMC SDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_SDR_R1
+    tristate "Ricoh eMMC SDR Rev1"
+    default n
+    help
+      Support for Ricoh eMMC SDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_SDR_R2
+    tristate "Ricoh eMMC SDR Rev2"
+    default n
+    help
+      Support for Ricoh eMMC SDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_DDR_R0
+    tristate "Ricoh eMMC DDR Rev0"
+    default n
+    help
+      Support for Ricoh eMMC DDR Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_DDR_R1
+    tristate "Ricoh eMMC DDR Rev1"
+    default n
+    help
+      Support for Ricoh eMMC DDR Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_DDR_R2
+    tristate "Ricoh eMMC DDR Rev2"
+    default n
+    help
+      Support for Ricoh eMMC DDR Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_HS200_R0
+    tristate "Ricoh eMMC HS200 Rev0"
+    default n
+    help
+      Support for Ricoh eMMC HS200 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_HS200_R1
+    tristate "Ricoh eMMC HS200 Rev1"
+    default n
+    help
+      Support for Ricoh eMMC HS200 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_HS200_R2
+    tristate "Ricoh eMMC HS200 Rev2"
+    default n
+    help
+      Support for Ricoh eMMC HS200 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_HS400_R0
+    tristate "Ricoh eMMC HS400 Rev0"
+    default n
+    help
+      Support for Ricoh eMMC HS400 Rev0 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_HS400_R1
+    tristate "Ricoh eMMC HS400 Rev1"
+    default n
+    help
+      Support for Ricoh eMMC HS400 Rev1 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_RICOH_eMMC_HS400_R2
+    tristate "Ricoh eMMC HS400 Rev2"
+    default n
+    help
+      Support for Ricoh eMMC HS400 Rev2 (Ricoh)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_SDR_R0
+    tristate "JMicron SD SDR Rev0"
+    default n
+    help
+      Support for JMicron SD SDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_SDR_R1
+    tristate "JMicron SD SDR Rev1"
+    default n
+    help
+      Support for JMicron SD SDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_SDR_R2
+    tristate "JMicron SD SDR Rev2"
+    default n
+    help
+      Support for JMicron SD SDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_DDR_R0
+    tristate "JMicron SD DDR Rev0"
+    default n
+    help
+      Support for JMicron SD DDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_DDR_R1
+    tristate "JMicron SD DDR Rev1"
+    default n
+    help
+      Support for JMicron SD DDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_DDR_R2
+    tristate "JMicron SD DDR Rev2"
+    default n
+    help
+      Support for JMicron SD DDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_HS200_R0
+    tristate "JMicron SD HS200 Rev0"
+    default n
+    help
+      Support for JMicron SD HS200 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_HS200_R1
+    tristate "JMicron SD HS200 Rev1"
+    default n
+    help
+      Support for JMicron SD HS200 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_HS200_R2
+    tristate "JMicron SD HS200 Rev2"
+    default n
+    help
+      Support for JMicron SD HS200 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_HS400_R0
+    tristate "JMicron SD HS400 Rev0"
+    default n
+    help
+      Support for JMicron SD HS400 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_HS400_R1
+    tristate "JMicron SD HS400 Rev1"
+    default n
+    help
+      Support for JMicron SD HS400 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SD_HS400_R2
+    tristate "JMicron SD HS400 Rev2"
+    default n
+    help
+      Support for JMicron SD HS400 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_SDR_R0
+    tristate "JMicron SDXC SDR Rev0"
+    default n
+    help
+      Support for JMicron SDXC SDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_SDR_R1
+    tristate "JMicron SDXC SDR Rev1"
+    default n
+    help
+      Support for JMicron SDXC SDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_SDR_R2
+    tristate "JMicron SDXC SDR Rev2"
+    default n
+    help
+      Support for JMicron SDXC SDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_DDR_R0
+    tristate "JMicron SDXC DDR Rev0"
+    default n
+    help
+      Support for JMicron SDXC DDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_DDR_R1
+    tristate "JMicron SDXC DDR Rev1"
+    default n
+    help
+      Support for JMicron SDXC DDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_DDR_R2
+    tristate "JMicron SDXC DDR Rev2"
+    default n
+    help
+      Support for JMicron SDXC DDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_HS200_R0
+    tristate "JMicron SDXC HS200 Rev0"
+    default n
+    help
+      Support for JMicron SDXC HS200 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_HS200_R1
+    tristate "JMicron SDXC HS200 Rev1"
+    default n
+    help
+      Support for JMicron SDXC HS200 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_HS200_R2
+    tristate "JMicron SDXC HS200 Rev2"
+    default n
+    help
+      Support for JMicron SDXC HS200 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_HS400_R0
+    tristate "JMicron SDXC HS400 Rev0"
+    default n
+    help
+      Support for JMicron SDXC HS400 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_HS400_R1
+    tristate "JMicron SDXC HS400 Rev1"
+    default n
+    help
+      Support for JMicron SDXC HS400 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_SDXC_HS400_R2
+    tristate "JMicron SDXC HS400 Rev2"
+    default n
+    help
+      Support for JMicron SDXC HS400 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_SDR_R0
+    tristate "JMicron MMC SDR Rev0"
+    default n
+    help
+      Support for JMicron MMC SDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_SDR_R1
+    tristate "JMicron MMC SDR Rev1"
+    default n
+    help
+      Support for JMicron MMC SDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_SDR_R2
+    tristate "JMicron MMC SDR Rev2"
+    default n
+    help
+      Support for JMicron MMC SDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_DDR_R0
+    tristate "JMicron MMC DDR Rev0"
+    default n
+    help
+      Support for JMicron MMC DDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_DDR_R1
+    tristate "JMicron MMC DDR Rev1"
+    default n
+    help
+      Support for JMicron MMC DDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_DDR_R2
+    tristate "JMicron MMC DDR Rev2"
+    default n
+    help
+      Support for JMicron MMC DDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_HS200_R0
+    tristate "JMicron MMC HS200 Rev0"
+    default n
+    help
+      Support for JMicron MMC HS200 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_HS200_R1
+    tristate "JMicron MMC HS200 Rev1"
+    default n
+    help
+      Support for JMicron MMC HS200 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_HS200_R2
+    tristate "JMicron MMC HS200 Rev2"
+    default n
+    help
+      Support for JMicron MMC HS200 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_HS400_R0
+    tristate "JMicron MMC HS400 Rev0"
+    default n
+    help
+      Support for JMicron MMC HS400 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_HS400_R1
+    tristate "JMicron MMC HS400 Rev1"
+    default n
+    help
+      Support for JMicron MMC HS400 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_MMC_HS400_R2
+    tristate "JMicron MMC HS400 Rev2"
+    default n
+    help
+      Support for JMicron MMC HS400 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_SDR_R0
+    tristate "JMicron eMMC SDR Rev0"
+    default n
+    help
+      Support for JMicron eMMC SDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_SDR_R1
+    tristate "JMicron eMMC SDR Rev1"
+    default n
+    help
+      Support for JMicron eMMC SDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_SDR_R2
+    tristate "JMicron eMMC SDR Rev2"
+    default n
+    help
+      Support for JMicron eMMC SDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_DDR_R0
+    tristate "JMicron eMMC DDR Rev0"
+    default n
+    help
+      Support for JMicron eMMC DDR Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_DDR_R1
+    tristate "JMicron eMMC DDR Rev1"
+    default n
+    help
+      Support for JMicron eMMC DDR Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_DDR_R2
+    tristate "JMicron eMMC DDR Rev2"
+    default n
+    help
+      Support for JMicron eMMC DDR Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_HS200_R0
+    tristate "JMicron eMMC HS200 Rev0"
+    default n
+    help
+      Support for JMicron eMMC HS200 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_HS200_R1
+    tristate "JMicron eMMC HS200 Rev1"
+    default n
+    help
+      Support for JMicron eMMC HS200 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_HS200_R2
+    tristate "JMicron eMMC HS200 Rev2"
+    default n
+    help
+      Support for JMicron eMMC HS200 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_HS400_R0
+    tristate "JMicron eMMC HS400 Rev0"
+    default n
+    help
+      Support for JMicron eMMC HS400 Rev0 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_HS400_R1
+    tristate "JMicron eMMC HS400 Rev1"
+    default n
+    help
+      Support for JMicron eMMC HS400 Rev1 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_JMICRON_eMMC_HS400_R2
+    tristate "JMicron eMMC HS400 Rev2"
+    default n
+    help
+      Support for JMicron eMMC HS400 Rev2 (JMicron)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_SDR_R0
+    tristate "O2Micro SD SDR Rev0"
+    default n
+    help
+      Support for O2Micro SD SDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_SDR_R1
+    tristate "O2Micro SD SDR Rev1"
+    default n
+    help
+      Support for O2Micro SD SDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_SDR_R2
+    tristate "O2Micro SD SDR Rev2"
+    default n
+    help
+      Support for O2Micro SD SDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_DDR_R0
+    tristate "O2Micro SD DDR Rev0"
+    default n
+    help
+      Support for O2Micro SD DDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_DDR_R1
+    tristate "O2Micro SD DDR Rev1"
+    default n
+    help
+      Support for O2Micro SD DDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_DDR_R2
+    tristate "O2Micro SD DDR Rev2"
+    default n
+    help
+      Support for O2Micro SD DDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_HS200_R0
+    tristate "O2Micro SD HS200 Rev0"
+    default n
+    help
+      Support for O2Micro SD HS200 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_HS200_R1
+    tristate "O2Micro SD HS200 Rev1"
+    default n
+    help
+      Support for O2Micro SD HS200 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_HS200_R2
+    tristate "O2Micro SD HS200 Rev2"
+    default n
+    help
+      Support for O2Micro SD HS200 Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_HS400_R0
+    tristate "O2Micro SD HS400 Rev0"
+    default n
+    help
+      Support for O2Micro SD HS400 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_HS400_R1
+    tristate "O2Micro SD HS400 Rev1"
+    default n
+    help
+      Support for O2Micro SD HS400 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SD_HS400_R2
+    tristate "O2Micro SD HS400 Rev2"
+    default n
+    help
+      Support for O2Micro SD HS400 Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_SDR_R0
+    tristate "O2Micro SDXC SDR Rev0"
+    default n
+    help
+      Support for O2Micro SDXC SDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_SDR_R1
+    tristate "O2Micro SDXC SDR Rev1"
+    default n
+    help
+      Support for O2Micro SDXC SDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_SDR_R2
+    tristate "O2Micro SDXC SDR Rev2"
+    default n
+    help
+      Support for O2Micro SDXC SDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_DDR_R0
+    tristate "O2Micro SDXC DDR Rev0"
+    default n
+    help
+      Support for O2Micro SDXC DDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_DDR_R1
+    tristate "O2Micro SDXC DDR Rev1"
+    default n
+    help
+      Support for O2Micro SDXC DDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_DDR_R2
+    tristate "O2Micro SDXC DDR Rev2"
+    default n
+    help
+      Support for O2Micro SDXC DDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_HS200_R0
+    tristate "O2Micro SDXC HS200 Rev0"
+    default n
+    help
+      Support for O2Micro SDXC HS200 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_HS200_R1
+    tristate "O2Micro SDXC HS200 Rev1"
+    default n
+    help
+      Support for O2Micro SDXC HS200 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_HS200_R2
+    tristate "O2Micro SDXC HS200 Rev2"
+    default n
+    help
+      Support for O2Micro SDXC HS200 Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_HS400_R0
+    tristate "O2Micro SDXC HS400 Rev0"
+    default n
+    help
+      Support for O2Micro SDXC HS400 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_HS400_R1
+    tristate "O2Micro SDXC HS400 Rev1"
+    default n
+    help
+      Support for O2Micro SDXC HS400 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_SDXC_HS400_R2
+    tristate "O2Micro SDXC HS400 Rev2"
+    default n
+    help
+      Support for O2Micro SDXC HS400 Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_SDR_R0
+    tristate "O2Micro MMC SDR Rev0"
+    default n
+    help
+      Support for O2Micro MMC SDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_SDR_R1
+    tristate "O2Micro MMC SDR Rev1"
+    default n
+    help
+      Support for O2Micro MMC SDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_SDR_R2
+    tristate "O2Micro MMC SDR Rev2"
+    default n
+    help
+      Support for O2Micro MMC SDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_DDR_R0
+    tristate "O2Micro MMC DDR Rev0"
+    default n
+    help
+      Support for O2Micro MMC DDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_DDR_R1
+    tristate "O2Micro MMC DDR Rev1"
+    default n
+    help
+      Support for O2Micro MMC DDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_DDR_R2
+    tristate "O2Micro MMC DDR Rev2"
+    default n
+    help
+      Support for O2Micro MMC DDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_HS200_R0
+    tristate "O2Micro MMC HS200 Rev0"
+    default n
+    help
+      Support for O2Micro MMC HS200 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_HS200_R1
+    tristate "O2Micro MMC HS200 Rev1"
+    default n
+    help
+      Support for O2Micro MMC HS200 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_HS200_R2
+    tristate "O2Micro MMC HS200 Rev2"
+    default n
+    help
+      Support for O2Micro MMC HS200 Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_HS400_R0
+    tristate "O2Micro MMC HS400 Rev0"
+    default n
+    help
+      Support for O2Micro MMC HS400 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_HS400_R1
+    tristate "O2Micro MMC HS400 Rev1"
+    default n
+    help
+      Support for O2Micro MMC HS400 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_MMC_HS400_R2
+    tristate "O2Micro MMC HS400 Rev2"
+    default n
+    help
+      Support for O2Micro MMC HS400 Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_SDR_R0
+    tristate "O2Micro eMMC SDR Rev0"
+    default n
+    help
+      Support for O2Micro eMMC SDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_SDR_R1
+    tristate "O2Micro eMMC SDR Rev1"
+    default n
+    help
+      Support for O2Micro eMMC SDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_SDR_R2
+    tristate "O2Micro eMMC SDR Rev2"
+    default n
+    help
+      Support for O2Micro eMMC SDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_DDR_R0
+    tristate "O2Micro eMMC DDR Rev0"
+    default n
+    help
+      Support for O2Micro eMMC DDR Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_DDR_R1
+    tristate "O2Micro eMMC DDR Rev1"
+    default n
+    help
+      Support for O2Micro eMMC DDR Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_DDR_R2
+    tristate "O2Micro eMMC DDR Rev2"
+    default n
+    help
+      Support for O2Micro eMMC DDR Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_HS200_R0
+    tristate "O2Micro eMMC HS200 Rev0"
+    default n
+    help
+      Support for O2Micro eMMC HS200 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_HS200_R1
+    tristate "O2Micro eMMC HS200 Rev1"
+    default n
+    help
+      Support for O2Micro eMMC HS200 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_HS200_R2
+    tristate "O2Micro eMMC HS200 Rev2"
+    default n
+    help
+      Support for O2Micro eMMC HS200 Rev2 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_HS400_R0
+    tristate "O2Micro eMMC HS400 Rev0"
+    default n
+    help
+      Support for O2Micro eMMC HS400 Rev0 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_HS400_R1
+    tristate "O2Micro eMMC HS400 Rev1"
+    default n
+    help
+      Support for O2Micro eMMC HS400 Rev1 (O2Micro)
+      Category: storage_mmc
+
+config STORAGE_MMC_O2MICRO_eMMC_HS400_R2
+    tristate "O2Micro eMMC HS400 Rev2"
+    default n
+    help
+      Support for O2Micro eMMC HS400 Rev2 (O2Micro)
+      Category: storage_mmc
+
+endmenu

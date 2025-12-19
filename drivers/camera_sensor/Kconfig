@@ -1,0 +1,2104 @@
+
+menu "Camera_Sensor Drivers"
+
+config CAMERA_SENSOR_SONY_IMX000
+    tristate "Sony IMX000 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX000 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX001
+    tristate "Sony IMX001 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX001 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX002
+    tristate "Sony IMX002 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX002 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX003
+    tristate "Sony IMX003 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX003 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX004
+    tristate "Sony IMX004 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX004 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX005
+    tristate "Sony IMX005 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX005 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX006
+    tristate "Sony IMX006 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX006 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX007
+    tristate "Sony IMX007 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX007 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX008
+    tristate "Sony IMX008 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX008 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX009
+    tristate "Sony IMX009 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX009 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX010
+    tristate "Sony IMX010 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX010 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX011
+    tristate "Sony IMX011 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX011 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX012
+    tristate "Sony IMX012 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX012 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX013
+    tristate "Sony IMX013 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX013 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX014
+    tristate "Sony IMX014 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX014 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX015
+    tristate "Sony IMX015 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX015 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX016
+    tristate "Sony IMX016 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX016 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX017
+    tristate "Sony IMX017 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX017 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX018
+    tristate "Sony IMX018 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX018 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX019
+    tristate "Sony IMX019 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX019 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX020
+    tristate "Sony IMX020 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX020 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX021
+    tristate "Sony IMX021 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX021 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX022
+    tristate "Sony IMX022 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX022 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX023
+    tristate "Sony IMX023 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX023 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX024
+    tristate "Sony IMX024 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX024 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX025
+    tristate "Sony IMX025 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX025 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX026
+    tristate "Sony IMX026 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX026 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX027
+    tristate "Sony IMX027 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX027 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX028
+    tristate "Sony IMX028 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX028 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX029
+    tristate "Sony IMX029 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX029 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX030
+    tristate "Sony IMX030 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX030 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX031
+    tristate "Sony IMX031 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX031 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX032
+    tristate "Sony IMX032 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX032 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX033
+    tristate "Sony IMX033 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX033 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX034
+    tristate "Sony IMX034 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX034 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX035
+    tristate "Sony IMX035 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX035 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX036
+    tristate "Sony IMX036 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX036 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX037
+    tristate "Sony IMX037 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX037 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX038
+    tristate "Sony IMX038 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX038 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX039
+    tristate "Sony IMX039 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX039 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX040
+    tristate "Sony IMX040 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX040 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX041
+    tristate "Sony IMX041 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX041 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX042
+    tristate "Sony IMX042 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX042 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX043
+    tristate "Sony IMX043 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX043 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX044
+    tristate "Sony IMX044 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX044 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX045
+    tristate "Sony IMX045 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX045 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX046
+    tristate "Sony IMX046 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX046 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX047
+    tristate "Sony IMX047 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX047 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX048
+    tristate "Sony IMX048 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX048 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_IMX049
+    tristate "Sony IMX049 Camera Sensor"
+    default n
+    help
+      Support for Sony IMX049 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor000
+    tristate "Sony Exmor000 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor000 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor001
+    tristate "Sony Exmor001 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor001 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor002
+    tristate "Sony Exmor002 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor002 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor003
+    tristate "Sony Exmor003 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor003 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor004
+    tristate "Sony Exmor004 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor004 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor005
+    tristate "Sony Exmor005 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor005 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor006
+    tristate "Sony Exmor006 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor006 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor007
+    tristate "Sony Exmor007 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor007 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor008
+    tristate "Sony Exmor008 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor008 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor009
+    tristate "Sony Exmor009 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor009 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor010
+    tristate "Sony Exmor010 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor010 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor011
+    tristate "Sony Exmor011 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor011 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor012
+    tristate "Sony Exmor012 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor012 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor013
+    tristate "Sony Exmor013 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor013 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor014
+    tristate "Sony Exmor014 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor014 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor015
+    tristate "Sony Exmor015 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor015 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor016
+    tristate "Sony Exmor016 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor016 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor017
+    tristate "Sony Exmor017 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor017 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor018
+    tristate "Sony Exmor018 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor018 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor019
+    tristate "Sony Exmor019 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor019 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor020
+    tristate "Sony Exmor020 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor020 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor021
+    tristate "Sony Exmor021 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor021 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor022
+    tristate "Sony Exmor022 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor022 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor023
+    tristate "Sony Exmor023 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor023 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor024
+    tristate "Sony Exmor024 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor024 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor025
+    tristate "Sony Exmor025 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor025 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor026
+    tristate "Sony Exmor026 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor026 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor027
+    tristate "Sony Exmor027 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor027 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor028
+    tristate "Sony Exmor028 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor028 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor029
+    tristate "Sony Exmor029 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor029 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor030
+    tristate "Sony Exmor030 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor030 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor031
+    tristate "Sony Exmor031 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor031 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor032
+    tristate "Sony Exmor032 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor032 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor033
+    tristate "Sony Exmor033 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor033 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor034
+    tristate "Sony Exmor034 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor034 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor035
+    tristate "Sony Exmor035 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor035 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor036
+    tristate "Sony Exmor036 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor036 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor037
+    tristate "Sony Exmor037 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor037 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor038
+    tristate "Sony Exmor038 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor038 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor039
+    tristate "Sony Exmor039 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor039 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor040
+    tristate "Sony Exmor040 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor040 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor041
+    tristate "Sony Exmor041 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor041 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor042
+    tristate "Sony Exmor042 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor042 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor043
+    tristate "Sony Exmor043 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor043 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor044
+    tristate "Sony Exmor044 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor044 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor045
+    tristate "Sony Exmor045 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor045 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor046
+    tristate "Sony Exmor046 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor046 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor047
+    tristate "Sony Exmor047 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor047 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor048
+    tristate "Sony Exmor048 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor048 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SONY_Exmor049
+    tristate "Sony Exmor049 Camera Sensor"
+    default n
+    help
+      Support for Sony Exmor049 Camera Sensor (Sony)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL000
+    tristate "Samsung ISOCELL000 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL000 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL001
+    tristate "Samsung ISOCELL001 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL001 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL002
+    tristate "Samsung ISOCELL002 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL002 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL003
+    tristate "Samsung ISOCELL003 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL003 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL004
+    tristate "Samsung ISOCELL004 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL004 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL005
+    tristate "Samsung ISOCELL005 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL005 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL006
+    tristate "Samsung ISOCELL006 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL006 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL007
+    tristate "Samsung ISOCELL007 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL007 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL008
+    tristate "Samsung ISOCELL008 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL008 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL009
+    tristate "Samsung ISOCELL009 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL009 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL010
+    tristate "Samsung ISOCELL010 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL010 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL011
+    tristate "Samsung ISOCELL011 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL011 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL012
+    tristate "Samsung ISOCELL012 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL012 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL013
+    tristate "Samsung ISOCELL013 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL013 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL014
+    tristate "Samsung ISOCELL014 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL014 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL015
+    tristate "Samsung ISOCELL015 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL015 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL016
+    tristate "Samsung ISOCELL016 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL016 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL017
+    tristate "Samsung ISOCELL017 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL017 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL018
+    tristate "Samsung ISOCELL018 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL018 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL019
+    tristate "Samsung ISOCELL019 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL019 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL020
+    tristate "Samsung ISOCELL020 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL020 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL021
+    tristate "Samsung ISOCELL021 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL021 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL022
+    tristate "Samsung ISOCELL022 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL022 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL023
+    tristate "Samsung ISOCELL023 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL023 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL024
+    tristate "Samsung ISOCELL024 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL024 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL025
+    tristate "Samsung ISOCELL025 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL025 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL026
+    tristate "Samsung ISOCELL026 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL026 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL027
+    tristate "Samsung ISOCELL027 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL027 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL028
+    tristate "Samsung ISOCELL028 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL028 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL029
+    tristate "Samsung ISOCELL029 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL029 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL030
+    tristate "Samsung ISOCELL030 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL030 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL031
+    tristate "Samsung ISOCELL031 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL031 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL032
+    tristate "Samsung ISOCELL032 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL032 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL033
+    tristate "Samsung ISOCELL033 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL033 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL034
+    tristate "Samsung ISOCELL034 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL034 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL035
+    tristate "Samsung ISOCELL035 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL035 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL036
+    tristate "Samsung ISOCELL036 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL036 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL037
+    tristate "Samsung ISOCELL037 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL037 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL038
+    tristate "Samsung ISOCELL038 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL038 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL039
+    tristate "Samsung ISOCELL039 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL039 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL040
+    tristate "Samsung ISOCELL040 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL040 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL041
+    tristate "Samsung ISOCELL041 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL041 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL042
+    tristate "Samsung ISOCELL042 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL042 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL043
+    tristate "Samsung ISOCELL043 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL043 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL044
+    tristate "Samsung ISOCELL044 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL044 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL045
+    tristate "Samsung ISOCELL045 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL045 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL046
+    tristate "Samsung ISOCELL046 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL046 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL047
+    tristate "Samsung ISOCELL047 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL047 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL048
+    tristate "Samsung ISOCELL048 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL048 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_ISOCELL049
+    tristate "Samsung ISOCELL049 Camera Sensor"
+    default n
+    help
+      Support for Samsung ISOCELL049 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K000
+    tristate "Samsung S5K000 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K000 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K001
+    tristate "Samsung S5K001 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K001 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K002
+    tristate "Samsung S5K002 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K002 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K003
+    tristate "Samsung S5K003 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K003 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K004
+    tristate "Samsung S5K004 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K004 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K005
+    tristate "Samsung S5K005 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K005 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K006
+    tristate "Samsung S5K006 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K006 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K007
+    tristate "Samsung S5K007 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K007 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K008
+    tristate "Samsung S5K008 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K008 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K009
+    tristate "Samsung S5K009 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K009 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K010
+    tristate "Samsung S5K010 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K010 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K011
+    tristate "Samsung S5K011 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K011 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K012
+    tristate "Samsung S5K012 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K012 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K013
+    tristate "Samsung S5K013 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K013 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K014
+    tristate "Samsung S5K014 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K014 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K015
+    tristate "Samsung S5K015 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K015 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K016
+    tristate "Samsung S5K016 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K016 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K017
+    tristate "Samsung S5K017 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K017 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K018
+    tristate "Samsung S5K018 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K018 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K019
+    tristate "Samsung S5K019 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K019 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K020
+    tristate "Samsung S5K020 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K020 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K021
+    tristate "Samsung S5K021 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K021 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K022
+    tristate "Samsung S5K022 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K022 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K023
+    tristate "Samsung S5K023 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K023 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K024
+    tristate "Samsung S5K024 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K024 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K025
+    tristate "Samsung S5K025 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K025 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K026
+    tristate "Samsung S5K026 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K026 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K027
+    tristate "Samsung S5K027 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K027 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K028
+    tristate "Samsung S5K028 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K028 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K029
+    tristate "Samsung S5K029 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K029 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K030
+    tristate "Samsung S5K030 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K030 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K031
+    tristate "Samsung S5K031 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K031 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K032
+    tristate "Samsung S5K032 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K032 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K033
+    tristate "Samsung S5K033 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K033 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K034
+    tristate "Samsung S5K034 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K034 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K035
+    tristate "Samsung S5K035 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K035 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K036
+    tristate "Samsung S5K036 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K036 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K037
+    tristate "Samsung S5K037 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K037 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K038
+    tristate "Samsung S5K038 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K038 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K039
+    tristate "Samsung S5K039 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K039 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K040
+    tristate "Samsung S5K040 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K040 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K041
+    tristate "Samsung S5K041 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K041 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K042
+    tristate "Samsung S5K042 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K042 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K043
+    tristate "Samsung S5K043 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K043 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K044
+    tristate "Samsung S5K044 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K044 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K045
+    tristate "Samsung S5K045 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K045 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K046
+    tristate "Samsung S5K046 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K046 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K047
+    tristate "Samsung S5K047 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K047 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K048
+    tristate "Samsung S5K048 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K048 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_SAMSUNG_S5K049
+    tristate "Samsung S5K049 Camera Sensor"
+    default n
+    help
+      Support for Samsung S5K049 Camera Sensor (Samsung)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV000
+    tristate "OmniVision OV000 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV000 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV001
+    tristate "OmniVision OV001 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV001 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV002
+    tristate "OmniVision OV002 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV002 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV003
+    tristate "OmniVision OV003 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV003 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV004
+    tristate "OmniVision OV004 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV004 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV005
+    tristate "OmniVision OV005 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV005 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV006
+    tristate "OmniVision OV006 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV006 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV007
+    tristate "OmniVision OV007 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV007 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV008
+    tristate "OmniVision OV008 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV008 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV009
+    tristate "OmniVision OV009 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV009 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV010
+    tristate "OmniVision OV010 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV010 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV011
+    tristate "OmniVision OV011 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV011 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV012
+    tristate "OmniVision OV012 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV012 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV013
+    tristate "OmniVision OV013 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV013 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV014
+    tristate "OmniVision OV014 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV014 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV015
+    tristate "OmniVision OV015 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV015 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV016
+    tristate "OmniVision OV016 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV016 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV017
+    tristate "OmniVision OV017 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV017 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV018
+    tristate "OmniVision OV018 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV018 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV019
+    tristate "OmniVision OV019 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV019 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV020
+    tristate "OmniVision OV020 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV020 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV021
+    tristate "OmniVision OV021 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV021 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV022
+    tristate "OmniVision OV022 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV022 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV023
+    tristate "OmniVision OV023 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV023 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV024
+    tristate "OmniVision OV024 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV024 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV025
+    tristate "OmniVision OV025 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV025 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV026
+    tristate "OmniVision OV026 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV026 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV027
+    tristate "OmniVision OV027 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV027 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV028
+    tristate "OmniVision OV028 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV028 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV029
+    tristate "OmniVision OV029 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV029 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV030
+    tristate "OmniVision OV030 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV030 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV031
+    tristate "OmniVision OV031 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV031 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV032
+    tristate "OmniVision OV032 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV032 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV033
+    tristate "OmniVision OV033 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV033 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV034
+    tristate "OmniVision OV034 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV034 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV035
+    tristate "OmniVision OV035 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV035 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV036
+    tristate "OmniVision OV036 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV036 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV037
+    tristate "OmniVision OV037 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV037 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV038
+    tristate "OmniVision OV038 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV038 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV039
+    tristate "OmniVision OV039 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV039 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV040
+    tristate "OmniVision OV040 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV040 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV041
+    tristate "OmniVision OV041 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV041 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV042
+    tristate "OmniVision OV042 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV042 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV043
+    tristate "OmniVision OV043 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV043 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV044
+    tristate "OmniVision OV044 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV044 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV045
+    tristate "OmniVision OV045 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV045 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV046
+    tristate "OmniVision OV046 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV046 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV047
+    tristate "OmniVision OV047 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV047 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV048
+    tristate "OmniVision OV048 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV048 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_OMNIVISION_OV049
+    tristate "OmniVision OV049 Camera Sensor"
+    default n
+    help
+      Support for OmniVision OV049 Camera Sensor (OmniVision)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC000
+    tristate "GalaxyCore GC000 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC000 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC001
+    tristate "GalaxyCore GC001 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC001 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC002
+    tristate "GalaxyCore GC002 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC002 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC003
+    tristate "GalaxyCore GC003 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC003 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC004
+    tristate "GalaxyCore GC004 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC004 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC005
+    tristate "GalaxyCore GC005 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC005 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC006
+    tristate "GalaxyCore GC006 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC006 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC007
+    tristate "GalaxyCore GC007 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC007 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC008
+    tristate "GalaxyCore GC008 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC008 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC009
+    tristate "GalaxyCore GC009 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC009 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC010
+    tristate "GalaxyCore GC010 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC010 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC011
+    tristate "GalaxyCore GC011 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC011 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC012
+    tristate "GalaxyCore GC012 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC012 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC013
+    tristate "GalaxyCore GC013 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC013 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC014
+    tristate "GalaxyCore GC014 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC014 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC015
+    tristate "GalaxyCore GC015 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC015 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC016
+    tristate "GalaxyCore GC016 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC016 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC017
+    tristate "GalaxyCore GC017 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC017 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC018
+    tristate "GalaxyCore GC018 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC018 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC019
+    tristate "GalaxyCore GC019 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC019 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC020
+    tristate "GalaxyCore GC020 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC020 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC021
+    tristate "GalaxyCore GC021 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC021 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC022
+    tristate "GalaxyCore GC022 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC022 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC023
+    tristate "GalaxyCore GC023 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC023 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC024
+    tristate "GalaxyCore GC024 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC024 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC025
+    tristate "GalaxyCore GC025 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC025 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC026
+    tristate "GalaxyCore GC026 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC026 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC027
+    tristate "GalaxyCore GC027 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC027 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC028
+    tristate "GalaxyCore GC028 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC028 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC029
+    tristate "GalaxyCore GC029 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC029 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC030
+    tristate "GalaxyCore GC030 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC030 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC031
+    tristate "GalaxyCore GC031 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC031 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC032
+    tristate "GalaxyCore GC032 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC032 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC033
+    tristate "GalaxyCore GC033 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC033 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC034
+    tristate "GalaxyCore GC034 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC034 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC035
+    tristate "GalaxyCore GC035 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC035 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC036
+    tristate "GalaxyCore GC036 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC036 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC037
+    tristate "GalaxyCore GC037 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC037 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC038
+    tristate "GalaxyCore GC038 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC038 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC039
+    tristate "GalaxyCore GC039 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC039 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC040
+    tristate "GalaxyCore GC040 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC040 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC041
+    tristate "GalaxyCore GC041 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC041 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC042
+    tristate "GalaxyCore GC042 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC042 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC043
+    tristate "GalaxyCore GC043 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC043 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC044
+    tristate "GalaxyCore GC044 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC044 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC045
+    tristate "GalaxyCore GC045 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC045 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC046
+    tristate "GalaxyCore GC046 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC046 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC047
+    tristate "GalaxyCore GC047 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC047 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC048
+    tristate "GalaxyCore GC048 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC048 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+config CAMERA_SENSOR_GALAXYCORE_GC049
+    tristate "GalaxyCore GC049 Camera Sensor"
+    default n
+    help
+      Support for GalaxyCore GC049 Camera Sensor (GalaxyCore)
+      Category: camera_sensor
+
+endmenu

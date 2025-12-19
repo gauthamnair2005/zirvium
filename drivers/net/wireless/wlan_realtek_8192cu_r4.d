@@ -1,0 +1,7 @@
+drivers/net/wireless/wlan_realtek_8192cu_r4.o: \
+ drivers/net/wireless/wlan_realtek_8192cu_r4.c include/kernel/types.h \
+ include/kernel/driver.h include/kernel/module.h include/kernel/printk.h
+include/kernel/types.h:
+include/kernel/driver.h:
+include/kernel/module.h:
+include/kernel/printk.h:

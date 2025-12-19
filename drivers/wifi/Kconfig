@@ -1,0 +1,4120 @@
+
+menu "Wifi Drivers"
+
+config WLAN_REALTEK_8192CU_R0
+    tristate "Realtek 8192CU WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R1
+    tristate "Realtek 8192CU WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R2
+    tristate "Realtek 8192CU WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R3
+    tristate "Realtek 8192CU WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R4
+    tristate "Realtek 8192CU WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R5
+    tristate "Realtek 8192CU WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R6
+    tristate "Realtek 8192CU WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R7
+    tristate "Realtek 8192CU WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R8
+    tristate "Realtek 8192CU WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R9
+    tristate "Realtek 8192CU WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R10
+    tristate "Realtek 8192CU WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192CU_R11
+    tristate "Realtek 8192CU WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8192CU WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R0
+    tristate "Realtek 8192EU WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R1
+    tristate "Realtek 8192EU WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R2
+    tristate "Realtek 8192EU WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R3
+    tristate "Realtek 8192EU WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R4
+    tristate "Realtek 8192EU WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R5
+    tristate "Realtek 8192EU WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R6
+    tristate "Realtek 8192EU WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R7
+    tristate "Realtek 8192EU WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R8
+    tristate "Realtek 8192EU WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R9
+    tristate "Realtek 8192EU WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R10
+    tristate "Realtek 8192EU WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8192EU_R11
+    tristate "Realtek 8192EU WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8192EU WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R0
+    tristate "Realtek 8188EUS WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R1
+    tristate "Realtek 8188EUS WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R2
+    tristate "Realtek 8188EUS WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R3
+    tristate "Realtek 8188EUS WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R4
+    tristate "Realtek 8188EUS WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R5
+    tristate "Realtek 8188EUS WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R6
+    tristate "Realtek 8188EUS WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R7
+    tristate "Realtek 8188EUS WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R8
+    tristate "Realtek 8188EUS WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R9
+    tristate "Realtek 8188EUS WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R10
+    tristate "Realtek 8188EUS WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188EUS_R11
+    tristate "Realtek 8188EUS WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8188EUS WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R0
+    tristate "Realtek 8188FU WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R1
+    tristate "Realtek 8188FU WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R2
+    tristate "Realtek 8188FU WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R3
+    tristate "Realtek 8188FU WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R4
+    tristate "Realtek 8188FU WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R5
+    tristate "Realtek 8188FU WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R6
+    tristate "Realtek 8188FU WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R7
+    tristate "Realtek 8188FU WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R8
+    tristate "Realtek 8188FU WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R9
+    tristate "Realtek 8188FU WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R10
+    tristate "Realtek 8188FU WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8188FU_R11
+    tristate "Realtek 8188FU WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8188FU WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R0
+    tristate "Realtek 8723AU WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R1
+    tristate "Realtek 8723AU WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R2
+    tristate "Realtek 8723AU WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R3
+    tristate "Realtek 8723AU WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R4
+    tristate "Realtek 8723AU WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R5
+    tristate "Realtek 8723AU WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R6
+    tristate "Realtek 8723AU WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R7
+    tristate "Realtek 8723AU WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R8
+    tristate "Realtek 8723AU WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R9
+    tristate "Realtek 8723AU WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R10
+    tristate "Realtek 8723AU WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723AU_R11
+    tristate "Realtek 8723AU WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8723AU WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R0
+    tristate "Realtek 8723BU WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R1
+    tristate "Realtek 8723BU WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R2
+    tristate "Realtek 8723BU WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R3
+    tristate "Realtek 8723BU WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R4
+    tristate "Realtek 8723BU WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R5
+    tristate "Realtek 8723BU WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R6
+    tristate "Realtek 8723BU WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R7
+    tristate "Realtek 8723BU WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R8
+    tristate "Realtek 8723BU WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R9
+    tristate "Realtek 8723BU WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R10
+    tristate "Realtek 8723BU WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723BU_R11
+    tristate "Realtek 8723BU WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8723BU WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R0
+    tristate "Realtek 8723CS WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R1
+    tristate "Realtek 8723CS WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R2
+    tristate "Realtek 8723CS WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R3
+    tristate "Realtek 8723CS WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R4
+    tristate "Realtek 8723CS WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R5
+    tristate "Realtek 8723CS WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R6
+    tristate "Realtek 8723CS WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R7
+    tristate "Realtek 8723CS WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R8
+    tristate "Realtek 8723CS WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R9
+    tristate "Realtek 8723CS WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R10
+    tristate "Realtek 8723CS WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723CS_R11
+    tristate "Realtek 8723CS WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8723CS WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R0
+    tristate "Realtek 8723DE WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R1
+    tristate "Realtek 8723DE WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R2
+    tristate "Realtek 8723DE WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R3
+    tristate "Realtek 8723DE WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R4
+    tristate "Realtek 8723DE WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R5
+    tristate "Realtek 8723DE WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R6
+    tristate "Realtek 8723DE WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R7
+    tristate "Realtek 8723DE WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R8
+    tristate "Realtek 8723DE WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R9
+    tristate "Realtek 8723DE WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R10
+    tristate "Realtek 8723DE WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DE_R11
+    tristate "Realtek 8723DE WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8723DE WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R0
+    tristate "Realtek 8723DS WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R1
+    tristate "Realtek 8723DS WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R2
+    tristate "Realtek 8723DS WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R3
+    tristate "Realtek 8723DS WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R4
+    tristate "Realtek 8723DS WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R5
+    tristate "Realtek 8723DS WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R6
+    tristate "Realtek 8723DS WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R7
+    tristate "Realtek 8723DS WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R8
+    tristate "Realtek 8723DS WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R9
+    tristate "Realtek 8723DS WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R10
+    tristate "Realtek 8723DS WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8723DS_R11
+    tristate "Realtek 8723DS WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8723DS WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R0
+    tristate "Realtek 8821AU WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R1
+    tristate "Realtek 8821AU WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R2
+    tristate "Realtek 8821AU WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R3
+    tristate "Realtek 8821AU WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R4
+    tristate "Realtek 8821AU WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R5
+    tristate "Realtek 8821AU WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R6
+    tristate "Realtek 8821AU WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R7
+    tristate "Realtek 8821AU WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R8
+    tristate "Realtek 8821AU WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R9
+    tristate "Realtek 8821AU WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R10
+    tristate "Realtek 8821AU WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821AU_R11
+    tristate "Realtek 8821AU WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8821AU WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R0
+    tristate "Realtek 8821CE WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R1
+    tristate "Realtek 8821CE WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R2
+    tristate "Realtek 8821CE WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R3
+    tristate "Realtek 8821CE WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R4
+    tristate "Realtek 8821CE WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R5
+    tristate "Realtek 8821CE WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R6
+    tristate "Realtek 8821CE WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R7
+    tristate "Realtek 8821CE WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R8
+    tristate "Realtek 8821CE WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R9
+    tristate "Realtek 8821CE WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R10
+    tristate "Realtek 8821CE WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8821CE_R11
+    tristate "Realtek 8821CE WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8821CE WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R0
+    tristate "Realtek 8822BE WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R1
+    tristate "Realtek 8822BE WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R2
+    tristate "Realtek 8822BE WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R3
+    tristate "Realtek 8822BE WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R4
+    tristate "Realtek 8822BE WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R5
+    tristate "Realtek 8822BE WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R6
+    tristate "Realtek 8822BE WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R7
+    tristate "Realtek 8822BE WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R8
+    tristate "Realtek 8822BE WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R9
+    tristate "Realtek 8822BE WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R10
+    tristate "Realtek 8822BE WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8822BE_R11
+    tristate "Realtek 8822BE WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8822BE WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R0
+    tristate "Realtek 8852AE WiFi Rev0"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev0 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R1
+    tristate "Realtek 8852AE WiFi Rev1"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev1 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R2
+    tristate "Realtek 8852AE WiFi Rev2"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev2 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R3
+    tristate "Realtek 8852AE WiFi Rev3"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev3 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R4
+    tristate "Realtek 8852AE WiFi Rev4"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev4 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R5
+    tristate "Realtek 8852AE WiFi Rev5"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev5 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R6
+    tristate "Realtek 8852AE WiFi Rev6"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev6 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R7
+    tristate "Realtek 8852AE WiFi Rev7"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev7 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R8
+    tristate "Realtek 8852AE WiFi Rev8"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev8 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R9
+    tristate "Realtek 8852AE WiFi Rev9"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev9 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R10
+    tristate "Realtek 8852AE WiFi Rev10"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev10 (Realtek)
+      Category: wifi
+
+config WLAN_REALTEK_8852AE_R11
+    tristate "Realtek 8852AE WiFi Rev11"
+    default n
+    help
+      Support for Realtek 8852AE WiFi Rev11 (Realtek)
+      Category: wifi
+
+config WLAN_INTEL_3945_R0
+    tristate "Intel 3945 WiFi Rev0"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R1
+    tristate "Intel 3945 WiFi Rev1"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R2
+    tristate "Intel 3945 WiFi Rev2"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R3
+    tristate "Intel 3945 WiFi Rev3"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R4
+    tristate "Intel 3945 WiFi Rev4"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R5
+    tristate "Intel 3945 WiFi Rev5"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R6
+    tristate "Intel 3945 WiFi Rev6"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R7
+    tristate "Intel 3945 WiFi Rev7"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R8
+    tristate "Intel 3945 WiFi Rev8"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R9
+    tristate "Intel 3945 WiFi Rev9"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R10
+    tristate "Intel 3945 WiFi Rev10"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_3945_R11
+    tristate "Intel 3945 WiFi Rev11"
+    default n
+    help
+      Support for Intel 3945 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R0
+    tristate "Intel 4965 WiFi Rev0"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R1
+    tristate "Intel 4965 WiFi Rev1"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R2
+    tristate "Intel 4965 WiFi Rev2"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R3
+    tristate "Intel 4965 WiFi Rev3"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R4
+    tristate "Intel 4965 WiFi Rev4"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R5
+    tristate "Intel 4965 WiFi Rev5"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R6
+    tristate "Intel 4965 WiFi Rev6"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R7
+    tristate "Intel 4965 WiFi Rev7"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R8
+    tristate "Intel 4965 WiFi Rev8"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R9
+    tristate "Intel 4965 WiFi Rev9"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R10
+    tristate "Intel 4965 WiFi Rev10"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_4965_R11
+    tristate "Intel 4965 WiFi Rev11"
+    default n
+    help
+      Support for Intel 4965 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R0
+    tristate "Intel 6000 WiFi Rev0"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R1
+    tristate "Intel 6000 WiFi Rev1"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R2
+    tristate "Intel 6000 WiFi Rev2"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R3
+    tristate "Intel 6000 WiFi Rev3"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R4
+    tristate "Intel 6000 WiFi Rev4"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R5
+    tristate "Intel 6000 WiFi Rev5"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R6
+    tristate "Intel 6000 WiFi Rev6"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R7
+    tristate "Intel 6000 WiFi Rev7"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R8
+    tristate "Intel 6000 WiFi Rev8"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R9
+    tristate "Intel 6000 WiFi Rev9"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R10
+    tristate "Intel 6000 WiFi Rev10"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_6000_R11
+    tristate "Intel 6000 WiFi Rev11"
+    default n
+    help
+      Support for Intel 6000 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R0
+    tristate "Intel 7260 WiFi Rev0"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R1
+    tristate "Intel 7260 WiFi Rev1"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R2
+    tristate "Intel 7260 WiFi Rev2"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R3
+    tristate "Intel 7260 WiFi Rev3"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R4
+    tristate "Intel 7260 WiFi Rev4"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R5
+    tristate "Intel 7260 WiFi Rev5"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R6
+    tristate "Intel 7260 WiFi Rev6"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R7
+    tristate "Intel 7260 WiFi Rev7"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R8
+    tristate "Intel 7260 WiFi Rev8"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R9
+    tristate "Intel 7260 WiFi Rev9"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R10
+    tristate "Intel 7260 WiFi Rev10"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_7260_R11
+    tristate "Intel 7260 WiFi Rev11"
+    default n
+    help
+      Support for Intel 7260 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R0
+    tristate "Intel 8260 WiFi Rev0"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R1
+    tristate "Intel 8260 WiFi Rev1"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R2
+    tristate "Intel 8260 WiFi Rev2"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R3
+    tristate "Intel 8260 WiFi Rev3"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R4
+    tristate "Intel 8260 WiFi Rev4"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R5
+    tristate "Intel 8260 WiFi Rev5"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R6
+    tristate "Intel 8260 WiFi Rev6"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R7
+    tristate "Intel 8260 WiFi Rev7"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R8
+    tristate "Intel 8260 WiFi Rev8"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R9
+    tristate "Intel 8260 WiFi Rev9"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R10
+    tristate "Intel 8260 WiFi Rev10"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_8260_R11
+    tristate "Intel 8260 WiFi Rev11"
+    default n
+    help
+      Support for Intel 8260 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R0
+    tristate "Intel 9260 WiFi Rev0"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R1
+    tristate "Intel 9260 WiFi Rev1"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R2
+    tristate "Intel 9260 WiFi Rev2"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R3
+    tristate "Intel 9260 WiFi Rev3"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R4
+    tristate "Intel 9260 WiFi Rev4"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R5
+    tristate "Intel 9260 WiFi Rev5"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R6
+    tristate "Intel 9260 WiFi Rev6"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R7
+    tristate "Intel 9260 WiFi Rev7"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R8
+    tristate "Intel 9260 WiFi Rev8"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R9
+    tristate "Intel 9260 WiFi Rev9"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R10
+    tristate "Intel 9260 WiFi Rev10"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_9260_R11
+    tristate "Intel 9260 WiFi Rev11"
+    default n
+    help
+      Support for Intel 9260 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R0
+    tristate "Intel AX200 WiFi Rev0"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R1
+    tristate "Intel AX200 WiFi Rev1"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R2
+    tristate "Intel AX200 WiFi Rev2"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R3
+    tristate "Intel AX200 WiFi Rev3"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R4
+    tristate "Intel AX200 WiFi Rev4"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R5
+    tristate "Intel AX200 WiFi Rev5"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R6
+    tristate "Intel AX200 WiFi Rev6"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R7
+    tristate "Intel AX200 WiFi Rev7"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R8
+    tristate "Intel AX200 WiFi Rev8"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R9
+    tristate "Intel AX200 WiFi Rev9"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R10
+    tristate "Intel AX200 WiFi Rev10"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX200_R11
+    tristate "Intel AX200 WiFi Rev11"
+    default n
+    help
+      Support for Intel AX200 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R0
+    tristate "Intel AX210 WiFi Rev0"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R1
+    tristate "Intel AX210 WiFi Rev1"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R2
+    tristate "Intel AX210 WiFi Rev2"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R3
+    tristate "Intel AX210 WiFi Rev3"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R4
+    tristate "Intel AX210 WiFi Rev4"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R5
+    tristate "Intel AX210 WiFi Rev5"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R6
+    tristate "Intel AX210 WiFi Rev6"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R7
+    tristate "Intel AX210 WiFi Rev7"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R8
+    tristate "Intel AX210 WiFi Rev8"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R9
+    tristate "Intel AX210 WiFi Rev9"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R10
+    tristate "Intel AX210 WiFi Rev10"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_AX210_R11
+    tristate "Intel AX210 WiFi Rev11"
+    default n
+    help
+      Support for Intel AX210 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R0
+    tristate "Intel BE200 WiFi Rev0"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev0 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R1
+    tristate "Intel BE200 WiFi Rev1"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev1 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R2
+    tristate "Intel BE200 WiFi Rev2"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev2 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R3
+    tristate "Intel BE200 WiFi Rev3"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev3 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R4
+    tristate "Intel BE200 WiFi Rev4"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev4 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R5
+    tristate "Intel BE200 WiFi Rev5"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev5 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R6
+    tristate "Intel BE200 WiFi Rev6"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev6 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R7
+    tristate "Intel BE200 WiFi Rev7"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev7 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R8
+    tristate "Intel BE200 WiFi Rev8"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev8 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R9
+    tristate "Intel BE200 WiFi Rev9"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev9 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R10
+    tristate "Intel BE200 WiFi Rev10"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev10 (Intel)
+      Category: wifi
+
+config WLAN_INTEL_BE200_R11
+    tristate "Intel BE200 WiFi Rev11"
+    default n
+    help
+      Support for Intel BE200 WiFi Rev11 (Intel)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R0
+    tristate "Atheros AR9170 WiFi Rev0"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev0 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R1
+    tristate "Atheros AR9170 WiFi Rev1"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev1 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R2
+    tristate "Atheros AR9170 WiFi Rev2"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev2 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R3
+    tristate "Atheros AR9170 WiFi Rev3"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev3 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R4
+    tristate "Atheros AR9170 WiFi Rev4"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev4 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R5
+    tristate "Atheros AR9170 WiFi Rev5"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev5 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R6
+    tristate "Atheros AR9170 WiFi Rev6"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev6 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R7
+    tristate "Atheros AR9170 WiFi Rev7"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev7 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R8
+    tristate "Atheros AR9170 WiFi Rev8"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev8 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R9
+    tristate "Atheros AR9170 WiFi Rev9"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev9 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R10
+    tristate "Atheros AR9170 WiFi Rev10"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev10 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9170_R11
+    tristate "Atheros AR9170 WiFi Rev11"
+    default n
+    help
+      Support for Atheros AR9170 WiFi Rev11 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R0
+    tristate "Atheros AR9271 WiFi Rev0"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev0 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R1
+    tristate "Atheros AR9271 WiFi Rev1"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev1 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R2
+    tristate "Atheros AR9271 WiFi Rev2"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev2 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R3
+    tristate "Atheros AR9271 WiFi Rev3"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev3 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R4
+    tristate "Atheros AR9271 WiFi Rev4"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev4 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R5
+    tristate "Atheros AR9271 WiFi Rev5"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev5 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R6
+    tristate "Atheros AR9271 WiFi Rev6"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev6 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R7
+    tristate "Atheros AR9271 WiFi Rev7"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev7 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R8
+    tristate "Atheros AR9271 WiFi Rev8"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev8 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R9
+    tristate "Atheros AR9271 WiFi Rev9"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev9 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R10
+    tristate "Atheros AR9271 WiFi Rev10"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev10 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9271_R11
+    tristate "Atheros AR9271 WiFi Rev11"
+    default n
+    help
+      Support for Atheros AR9271 WiFi Rev11 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R0
+    tristate "Atheros AR9002 WiFi Rev0"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev0 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R1
+    tristate "Atheros AR9002 WiFi Rev1"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev1 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R2
+    tristate "Atheros AR9002 WiFi Rev2"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev2 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R3
+    tristate "Atheros AR9002 WiFi Rev3"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev3 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R4
+    tristate "Atheros AR9002 WiFi Rev4"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev4 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R5
+    tristate "Atheros AR9002 WiFi Rev5"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev5 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R6
+    tristate "Atheros AR9002 WiFi Rev6"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev6 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R7
+    tristate "Atheros AR9002 WiFi Rev7"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev7 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R8
+    tristate "Atheros AR9002 WiFi Rev8"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev8 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R9
+    tristate "Atheros AR9002 WiFi Rev9"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev9 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R10
+    tristate "Atheros AR9002 WiFi Rev10"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev10 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9002_R11
+    tristate "Atheros AR9002 WiFi Rev11"
+    default n
+    help
+      Support for Atheros AR9002 WiFi Rev11 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R0
+    tristate "Atheros AR9003 WiFi Rev0"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev0 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R1
+    tristate "Atheros AR9003 WiFi Rev1"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev1 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R2
+    tristate "Atheros AR9003 WiFi Rev2"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev2 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R3
+    tristate "Atheros AR9003 WiFi Rev3"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev3 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R4
+    tristate "Atheros AR9003 WiFi Rev4"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev4 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R5
+    tristate "Atheros AR9003 WiFi Rev5"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev5 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R6
+    tristate "Atheros AR9003 WiFi Rev6"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev6 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R7
+    tristate "Atheros AR9003 WiFi Rev7"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev7 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R8
+    tristate "Atheros AR9003 WiFi Rev8"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev8 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R9
+    tristate "Atheros AR9003 WiFi Rev9"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev9 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R10
+    tristate "Atheros AR9003 WiFi Rev10"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev10 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_AR9003_R11
+    tristate "Atheros AR9003 WiFi Rev11"
+    default n
+    help
+      Support for Atheros AR9003 WiFi Rev11 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R0
+    tristate "Atheros ATH10K WiFi Rev0"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev0 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R1
+    tristate "Atheros ATH10K WiFi Rev1"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev1 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R2
+    tristate "Atheros ATH10K WiFi Rev2"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev2 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R3
+    tristate "Atheros ATH10K WiFi Rev3"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev3 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R4
+    tristate "Atheros ATH10K WiFi Rev4"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev4 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R5
+    tristate "Atheros ATH10K WiFi Rev5"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev5 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R6
+    tristate "Atheros ATH10K WiFi Rev6"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev6 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R7
+    tristate "Atheros ATH10K WiFi Rev7"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev7 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R8
+    tristate "Atheros ATH10K WiFi Rev8"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev8 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R9
+    tristate "Atheros ATH10K WiFi Rev9"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev9 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R10
+    tristate "Atheros ATH10K WiFi Rev10"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev10 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH10K_R11
+    tristate "Atheros ATH10K WiFi Rev11"
+    default n
+    help
+      Support for Atheros ATH10K WiFi Rev11 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R0
+    tristate "Atheros ATH11K WiFi Rev0"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev0 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R1
+    tristate "Atheros ATH11K WiFi Rev1"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev1 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R2
+    tristate "Atheros ATH11K WiFi Rev2"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev2 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R3
+    tristate "Atheros ATH11K WiFi Rev3"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev3 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R4
+    tristate "Atheros ATH11K WiFi Rev4"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev4 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R5
+    tristate "Atheros ATH11K WiFi Rev5"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev5 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R6
+    tristate "Atheros ATH11K WiFi Rev6"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev6 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R7
+    tristate "Atheros ATH11K WiFi Rev7"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev7 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R8
+    tristate "Atheros ATH11K WiFi Rev8"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev8 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R9
+    tristate "Atheros ATH11K WiFi Rev9"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev9 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R10
+    tristate "Atheros ATH11K WiFi Rev10"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev10 (Atheros)
+      Category: wifi
+
+config WLAN_ATHEROS_ATH11K_R11
+    tristate "Atheros ATH11K WiFi Rev11"
+    default n
+    help
+      Support for Atheros ATH11K WiFi Rev11 (Atheros)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R0
+    tristate "Broadcom BCM4311 WiFi Rev0"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev0 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R1
+    tristate "Broadcom BCM4311 WiFi Rev1"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev1 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R2
+    tristate "Broadcom BCM4311 WiFi Rev2"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev2 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R3
+    tristate "Broadcom BCM4311 WiFi Rev3"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev3 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R4
+    tristate "Broadcom BCM4311 WiFi Rev4"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev4 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R5
+    tristate "Broadcom BCM4311 WiFi Rev5"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev5 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R6
+    tristate "Broadcom BCM4311 WiFi Rev6"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev6 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R7
+    tristate "Broadcom BCM4311 WiFi Rev7"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev7 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R8
+    tristate "Broadcom BCM4311 WiFi Rev8"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev8 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R9
+    tristate "Broadcom BCM4311 WiFi Rev9"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev9 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R10
+    tristate "Broadcom BCM4311 WiFi Rev10"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev10 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4311_R11
+    tristate "Broadcom BCM4311 WiFi Rev11"
+    default n
+    help
+      Support for Broadcom BCM4311 WiFi Rev11 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R0
+    tristate "Broadcom BCM4313 WiFi Rev0"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev0 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R1
+    tristate "Broadcom BCM4313 WiFi Rev1"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev1 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R2
+    tristate "Broadcom BCM4313 WiFi Rev2"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev2 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R3
+    tristate "Broadcom BCM4313 WiFi Rev3"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev3 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R4
+    tristate "Broadcom BCM4313 WiFi Rev4"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev4 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R5
+    tristate "Broadcom BCM4313 WiFi Rev5"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev5 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R6
+    tristate "Broadcom BCM4313 WiFi Rev6"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev6 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R7
+    tristate "Broadcom BCM4313 WiFi Rev7"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev7 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R8
+    tristate "Broadcom BCM4313 WiFi Rev8"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev8 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R9
+    tristate "Broadcom BCM4313 WiFi Rev9"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev9 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R10
+    tristate "Broadcom BCM4313 WiFi Rev10"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev10 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4313_R11
+    tristate "Broadcom BCM4313 WiFi Rev11"
+    default n
+    help
+      Support for Broadcom BCM4313 WiFi Rev11 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R0
+    tristate "Broadcom BCM4322 WiFi Rev0"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev0 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R1
+    tristate "Broadcom BCM4322 WiFi Rev1"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev1 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R2
+    tristate "Broadcom BCM4322 WiFi Rev2"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev2 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R3
+    tristate "Broadcom BCM4322 WiFi Rev3"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev3 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R4
+    tristate "Broadcom BCM4322 WiFi Rev4"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev4 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R5
+    tristate "Broadcom BCM4322 WiFi Rev5"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev5 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R6
+    tristate "Broadcom BCM4322 WiFi Rev6"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev6 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R7
+    tristate "Broadcom BCM4322 WiFi Rev7"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev7 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R8
+    tristate "Broadcom BCM4322 WiFi Rev8"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev8 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R9
+    tristate "Broadcom BCM4322 WiFi Rev9"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev9 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R10
+    tristate "Broadcom BCM4322 WiFi Rev10"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev10 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4322_R11
+    tristate "Broadcom BCM4322 WiFi Rev11"
+    default n
+    help
+      Support for Broadcom BCM4322 WiFi Rev11 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R0
+    tristate "Broadcom BCM4352 WiFi Rev0"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev0 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R1
+    tristate "Broadcom BCM4352 WiFi Rev1"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev1 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R2
+    tristate "Broadcom BCM4352 WiFi Rev2"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev2 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R3
+    tristate "Broadcom BCM4352 WiFi Rev3"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev3 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R4
+    tristate "Broadcom BCM4352 WiFi Rev4"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev4 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R5
+    tristate "Broadcom BCM4352 WiFi Rev5"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev5 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R6
+    tristate "Broadcom BCM4352 WiFi Rev6"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev6 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R7
+    tristate "Broadcom BCM4352 WiFi Rev7"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev7 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R8
+    tristate "Broadcom BCM4352 WiFi Rev8"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev8 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R9
+    tristate "Broadcom BCM4352 WiFi Rev9"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev9 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R10
+    tristate "Broadcom BCM4352 WiFi Rev10"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev10 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4352_R11
+    tristate "Broadcom BCM4352 WiFi Rev11"
+    default n
+    help
+      Support for Broadcom BCM4352 WiFi Rev11 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R0
+    tristate "Broadcom BCM4360 WiFi Rev0"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev0 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R1
+    tristate "Broadcom BCM4360 WiFi Rev1"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev1 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R2
+    tristate "Broadcom BCM4360 WiFi Rev2"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev2 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R3
+    tristate "Broadcom BCM4360 WiFi Rev3"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev3 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R4
+    tristate "Broadcom BCM4360 WiFi Rev4"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev4 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R5
+    tristate "Broadcom BCM4360 WiFi Rev5"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev5 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R6
+    tristate "Broadcom BCM4360 WiFi Rev6"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev6 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R7
+    tristate "Broadcom BCM4360 WiFi Rev7"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev7 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R8
+    tristate "Broadcom BCM4360 WiFi Rev8"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev8 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R9
+    tristate "Broadcom BCM4360 WiFi Rev9"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev9 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R10
+    tristate "Broadcom BCM4360 WiFi Rev10"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev10 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM4360_R11
+    tristate "Broadcom BCM4360 WiFi Rev11"
+    default n
+    help
+      Support for Broadcom BCM4360 WiFi Rev11 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R0
+    tristate "Broadcom BCM43602 WiFi Rev0"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev0 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R1
+    tristate "Broadcom BCM43602 WiFi Rev1"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev1 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R2
+    tristate "Broadcom BCM43602 WiFi Rev2"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev2 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R3
+    tristate "Broadcom BCM43602 WiFi Rev3"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev3 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R4
+    tristate "Broadcom BCM43602 WiFi Rev4"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev4 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R5
+    tristate "Broadcom BCM43602 WiFi Rev5"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev5 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R6
+    tristate "Broadcom BCM43602 WiFi Rev6"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev6 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R7
+    tristate "Broadcom BCM43602 WiFi Rev7"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev7 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R8
+    tristate "Broadcom BCM43602 WiFi Rev8"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev8 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R9
+    tristate "Broadcom BCM43602 WiFi Rev9"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev9 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R10
+    tristate "Broadcom BCM43602 WiFi Rev10"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev10 (Broadcom)
+      Category: wifi
+
+config WLAN_BROADCOM_BCM43602_R11
+    tristate "Broadcom BCM43602 WiFi Rev11"
+    default n
+    help
+      Support for Broadcom BCM43602 WiFi Rev11 (Broadcom)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R0
+    tristate "MediaTek MT7601 WiFi Rev0"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev0 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R1
+    tristate "MediaTek MT7601 WiFi Rev1"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev1 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R2
+    tristate "MediaTek MT7601 WiFi Rev2"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev2 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R3
+    tristate "MediaTek MT7601 WiFi Rev3"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev3 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R4
+    tristate "MediaTek MT7601 WiFi Rev4"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev4 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R5
+    tristate "MediaTek MT7601 WiFi Rev5"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev5 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R6
+    tristate "MediaTek MT7601 WiFi Rev6"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev6 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R7
+    tristate "MediaTek MT7601 WiFi Rev7"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev7 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R8
+    tristate "MediaTek MT7601 WiFi Rev8"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev8 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R9
+    tristate "MediaTek MT7601 WiFi Rev9"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev9 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R10
+    tristate "MediaTek MT7601 WiFi Rev10"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev10 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7601_R11
+    tristate "MediaTek MT7601 WiFi Rev11"
+    default n
+    help
+      Support for MediaTek MT7601 WiFi Rev11 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R0
+    tristate "MediaTek MT7610 WiFi Rev0"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev0 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R1
+    tristate "MediaTek MT7610 WiFi Rev1"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev1 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R2
+    tristate "MediaTek MT7610 WiFi Rev2"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev2 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R3
+    tristate "MediaTek MT7610 WiFi Rev3"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev3 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R4
+    tristate "MediaTek MT7610 WiFi Rev4"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev4 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R5
+    tristate "MediaTek MT7610 WiFi Rev5"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev5 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R6
+    tristate "MediaTek MT7610 WiFi Rev6"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev6 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R7
+    tristate "MediaTek MT7610 WiFi Rev7"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev7 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R8
+    tristate "MediaTek MT7610 WiFi Rev8"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev8 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R9
+    tristate "MediaTek MT7610 WiFi Rev9"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev9 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R10
+    tristate "MediaTek MT7610 WiFi Rev10"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev10 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7610_R11
+    tristate "MediaTek MT7610 WiFi Rev11"
+    default n
+    help
+      Support for MediaTek MT7610 WiFi Rev11 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R0
+    tristate "MediaTek MT7615 WiFi Rev0"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev0 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R1
+    tristate "MediaTek MT7615 WiFi Rev1"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev1 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R2
+    tristate "MediaTek MT7615 WiFi Rev2"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev2 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R3
+    tristate "MediaTek MT7615 WiFi Rev3"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev3 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R4
+    tristate "MediaTek MT7615 WiFi Rev4"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev4 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R5
+    tristate "MediaTek MT7615 WiFi Rev5"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev5 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R6
+    tristate "MediaTek MT7615 WiFi Rev6"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev6 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R7
+    tristate "MediaTek MT7615 WiFi Rev7"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev7 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R8
+    tristate "MediaTek MT7615 WiFi Rev8"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev8 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R9
+    tristate "MediaTek MT7615 WiFi Rev9"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev9 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R10
+    tristate "MediaTek MT7615 WiFi Rev10"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev10 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7615_R11
+    tristate "MediaTek MT7615 WiFi Rev11"
+    default n
+    help
+      Support for MediaTek MT7615 WiFi Rev11 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R0
+    tristate "MediaTek MT7663 WiFi Rev0"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev0 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R1
+    tristate "MediaTek MT7663 WiFi Rev1"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev1 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R2
+    tristate "MediaTek MT7663 WiFi Rev2"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev2 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R3
+    tristate "MediaTek MT7663 WiFi Rev3"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev3 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R4
+    tristate "MediaTek MT7663 WiFi Rev4"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev4 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R5
+    tristate "MediaTek MT7663 WiFi Rev5"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev5 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R6
+    tristate "MediaTek MT7663 WiFi Rev6"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev6 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R7
+    tristate "MediaTek MT7663 WiFi Rev7"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev7 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R8
+    tristate "MediaTek MT7663 WiFi Rev8"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev8 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R9
+    tristate "MediaTek MT7663 WiFi Rev9"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev9 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R10
+    tristate "MediaTek MT7663 WiFi Rev10"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev10 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7663_R11
+    tristate "MediaTek MT7663 WiFi Rev11"
+    default n
+    help
+      Support for MediaTek MT7663 WiFi Rev11 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R0
+    tristate "MediaTek MT7915 WiFi Rev0"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev0 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R1
+    tristate "MediaTek MT7915 WiFi Rev1"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev1 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R2
+    tristate "MediaTek MT7915 WiFi Rev2"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev2 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R3
+    tristate "MediaTek MT7915 WiFi Rev3"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev3 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R4
+    tristate "MediaTek MT7915 WiFi Rev4"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev4 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R5
+    tristate "MediaTek MT7915 WiFi Rev5"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev5 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R6
+    tristate "MediaTek MT7915 WiFi Rev6"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev6 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R7
+    tristate "MediaTek MT7915 WiFi Rev7"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev7 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R8
+    tristate "MediaTek MT7915 WiFi Rev8"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev8 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R9
+    tristate "MediaTek MT7915 WiFi Rev9"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev9 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R10
+    tristate "MediaTek MT7915 WiFi Rev10"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev10 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7915_R11
+    tristate "MediaTek MT7915 WiFi Rev11"
+    default n
+    help
+      Support for MediaTek MT7915 WiFi Rev11 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R0
+    tristate "MediaTek MT7921 WiFi Rev0"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev0 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R1
+    tristate "MediaTek MT7921 WiFi Rev1"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev1 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R2
+    tristate "MediaTek MT7921 WiFi Rev2"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev2 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R3
+    tristate "MediaTek MT7921 WiFi Rev3"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev3 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R4
+    tristate "MediaTek MT7921 WiFi Rev4"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev4 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R5
+    tristate "MediaTek MT7921 WiFi Rev5"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev5 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R6
+    tristate "MediaTek MT7921 WiFi Rev6"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev6 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R7
+    tristate "MediaTek MT7921 WiFi Rev7"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev7 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R8
+    tristate "MediaTek MT7921 WiFi Rev8"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev8 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R9
+    tristate "MediaTek MT7921 WiFi Rev9"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev9 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R10
+    tristate "MediaTek MT7921 WiFi Rev10"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev10 (MediaTek)
+      Category: wifi
+
+config WLAN_MEDIATEK_MT7921_R11
+    tristate "MediaTek MT7921 WiFi Rev11"
+    default n
+    help
+      Support for MediaTek MT7921 WiFi Rev11 (MediaTek)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R0
+    tristate "Ralink RT2400 WiFi Rev0"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev0 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R1
+    tristate "Ralink RT2400 WiFi Rev1"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev1 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R2
+    tristate "Ralink RT2400 WiFi Rev2"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev2 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R3
+    tristate "Ralink RT2400 WiFi Rev3"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev3 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R4
+    tristate "Ralink RT2400 WiFi Rev4"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev4 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R5
+    tristate "Ralink RT2400 WiFi Rev5"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev5 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R6
+    tristate "Ralink RT2400 WiFi Rev6"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev6 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R7
+    tristate "Ralink RT2400 WiFi Rev7"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev7 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R8
+    tristate "Ralink RT2400 WiFi Rev8"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev8 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R9
+    tristate "Ralink RT2400 WiFi Rev9"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev9 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R10
+    tristate "Ralink RT2400 WiFi Rev10"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev10 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2400_R11
+    tristate "Ralink RT2400 WiFi Rev11"
+    default n
+    help
+      Support for Ralink RT2400 WiFi Rev11 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R0
+    tristate "Ralink RT2500 WiFi Rev0"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev0 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R1
+    tristate "Ralink RT2500 WiFi Rev1"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev1 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R2
+    tristate "Ralink RT2500 WiFi Rev2"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev2 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R3
+    tristate "Ralink RT2500 WiFi Rev3"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev3 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R4
+    tristate "Ralink RT2500 WiFi Rev4"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev4 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R5
+    tristate "Ralink RT2500 WiFi Rev5"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev5 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R6
+    tristate "Ralink RT2500 WiFi Rev6"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev6 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R7
+    tristate "Ralink RT2500 WiFi Rev7"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev7 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R8
+    tristate "Ralink RT2500 WiFi Rev8"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev8 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R9
+    tristate "Ralink RT2500 WiFi Rev9"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev9 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R10
+    tristate "Ralink RT2500 WiFi Rev10"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev10 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2500_R11
+    tristate "Ralink RT2500 WiFi Rev11"
+    default n
+    help
+      Support for Ralink RT2500 WiFi Rev11 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R0
+    tristate "Ralink RT2800 WiFi Rev0"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev0 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R1
+    tristate "Ralink RT2800 WiFi Rev1"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev1 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R2
+    tristate "Ralink RT2800 WiFi Rev2"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev2 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R3
+    tristate "Ralink RT2800 WiFi Rev3"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev3 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R4
+    tristate "Ralink RT2800 WiFi Rev4"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev4 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R5
+    tristate "Ralink RT2800 WiFi Rev5"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev5 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R6
+    tristate "Ralink RT2800 WiFi Rev6"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev6 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R7
+    tristate "Ralink RT2800 WiFi Rev7"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev7 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R8
+    tristate "Ralink RT2800 WiFi Rev8"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev8 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R9
+    tristate "Ralink RT2800 WiFi Rev9"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev9 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R10
+    tristate "Ralink RT2800 WiFi Rev10"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev10 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT2800_R11
+    tristate "Ralink RT2800 WiFi Rev11"
+    default n
+    help
+      Support for Ralink RT2800 WiFi Rev11 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R0
+    tristate "Ralink RT3090 WiFi Rev0"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev0 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R1
+    tristate "Ralink RT3090 WiFi Rev1"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev1 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R2
+    tristate "Ralink RT3090 WiFi Rev2"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev2 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R3
+    tristate "Ralink RT3090 WiFi Rev3"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev3 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R4
+    tristate "Ralink RT3090 WiFi Rev4"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev4 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R5
+    tristate "Ralink RT3090 WiFi Rev5"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev5 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R6
+    tristate "Ralink RT3090 WiFi Rev6"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev6 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R7
+    tristate "Ralink RT3090 WiFi Rev7"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev7 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R8
+    tristate "Ralink RT3090 WiFi Rev8"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev8 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R9
+    tristate "Ralink RT3090 WiFi Rev9"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev9 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R10
+    tristate "Ralink RT3090 WiFi Rev10"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev10 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT3090_R11
+    tristate "Ralink RT3090 WiFi Rev11"
+    default n
+    help
+      Support for Ralink RT3090 WiFi Rev11 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R0
+    tristate "Ralink RT5390 WiFi Rev0"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev0 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R1
+    tristate "Ralink RT5390 WiFi Rev1"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev1 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R2
+    tristate "Ralink RT5390 WiFi Rev2"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev2 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R3
+    tristate "Ralink RT5390 WiFi Rev3"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev3 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R4
+    tristate "Ralink RT5390 WiFi Rev4"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev4 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R5
+    tristate "Ralink RT5390 WiFi Rev5"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev5 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R6
+    tristate "Ralink RT5390 WiFi Rev6"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev6 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R7
+    tristate "Ralink RT5390 WiFi Rev7"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev7 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R8
+    tristate "Ralink RT5390 WiFi Rev8"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev8 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R9
+    tristate "Ralink RT5390 WiFi Rev9"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev9 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R10
+    tristate "Ralink RT5390 WiFi Rev10"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev10 (Ralink)
+      Category: wifi
+
+config WLAN_RALINK_RT5390_R11
+    tristate "Ralink RT5390 WiFi Rev11"
+    default n
+    help
+      Support for Ralink RT5390 WiFi Rev11 (Ralink)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R0
+    tristate "Marvell MW8687 WiFi Rev0"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev0 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R1
+    tristate "Marvell MW8687 WiFi Rev1"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev1 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R2
+    tristate "Marvell MW8687 WiFi Rev2"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev2 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R3
+    tristate "Marvell MW8687 WiFi Rev3"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev3 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R4
+    tristate "Marvell MW8687 WiFi Rev4"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev4 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R5
+    tristate "Marvell MW8687 WiFi Rev5"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev5 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R6
+    tristate "Marvell MW8687 WiFi Rev6"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev6 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R7
+    tristate "Marvell MW8687 WiFi Rev7"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev7 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R8
+    tristate "Marvell MW8687 WiFi Rev8"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev8 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R9
+    tristate "Marvell MW8687 WiFi Rev9"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev9 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R10
+    tristate "Marvell MW8687 WiFi Rev10"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev10 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8687_R11
+    tristate "Marvell MW8687 WiFi Rev11"
+    default n
+    help
+      Support for Marvell MW8687 WiFi Rev11 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R0
+    tristate "Marvell MW8766 WiFi Rev0"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev0 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R1
+    tristate "Marvell MW8766 WiFi Rev1"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev1 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R2
+    tristate "Marvell MW8766 WiFi Rev2"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev2 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R3
+    tristate "Marvell MW8766 WiFi Rev3"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev3 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R4
+    tristate "Marvell MW8766 WiFi Rev4"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev4 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R5
+    tristate "Marvell MW8766 WiFi Rev5"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev5 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R6
+    tristate "Marvell MW8766 WiFi Rev6"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev6 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R7
+    tristate "Marvell MW8766 WiFi Rev7"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev7 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R8
+    tristate "Marvell MW8766 WiFi Rev8"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev8 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R9
+    tristate "Marvell MW8766 WiFi Rev9"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev9 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R10
+    tristate "Marvell MW8766 WiFi Rev10"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev10 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8766_R11
+    tristate "Marvell MW8766 WiFi Rev11"
+    default n
+    help
+      Support for Marvell MW8766 WiFi Rev11 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R0
+    tristate "Marvell MW8897 WiFi Rev0"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev0 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R1
+    tristate "Marvell MW8897 WiFi Rev1"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev1 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R2
+    tristate "Marvell MW8897 WiFi Rev2"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev2 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R3
+    tristate "Marvell MW8897 WiFi Rev3"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev3 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R4
+    tristate "Marvell MW8897 WiFi Rev4"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev4 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R5
+    tristate "Marvell MW8897 WiFi Rev5"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev5 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R6
+    tristate "Marvell MW8897 WiFi Rev6"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev6 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R7
+    tristate "Marvell MW8897 WiFi Rev7"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev7 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R8
+    tristate "Marvell MW8897 WiFi Rev8"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev8 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R9
+    tristate "Marvell MW8897 WiFi Rev9"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev9 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R10
+    tristate "Marvell MW8897 WiFi Rev10"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev10 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8897_R11
+    tristate "Marvell MW8897 WiFi Rev11"
+    default n
+    help
+      Support for Marvell MW8897 WiFi Rev11 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R0
+    tristate "Marvell MW8997 WiFi Rev0"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev0 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R1
+    tristate "Marvell MW8997 WiFi Rev1"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev1 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R2
+    tristate "Marvell MW8997 WiFi Rev2"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev2 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R3
+    tristate "Marvell MW8997 WiFi Rev3"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev3 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R4
+    tristate "Marvell MW8997 WiFi Rev4"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev4 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R5
+    tristate "Marvell MW8997 WiFi Rev5"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev5 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R6
+    tristate "Marvell MW8997 WiFi Rev6"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev6 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R7
+    tristate "Marvell MW8997 WiFi Rev7"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev7 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R8
+    tristate "Marvell MW8997 WiFi Rev8"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev8 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R9
+    tristate "Marvell MW8997 WiFi Rev9"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev9 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R10
+    tristate "Marvell MW8997 WiFi Rev10"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev10 (Marvell)
+      Category: wifi
+
+config WLAN_MARVELL_MW8997_R11
+    tristate "Marvell MW8997 WiFi Rev11"
+    default n
+    help
+      Support for Marvell MW8997 WiFi Rev11 (Marvell)
+      Category: wifi
+
+endmenu

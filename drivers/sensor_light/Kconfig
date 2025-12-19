@@ -1,0 +1,676 @@
+
+menu "Sensor_Light Drivers"
+
+config SENSOR_LIGHT_TSL2561_I2C_R0
+    tristate "Light TSL2561 I2C Rev0"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev0 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_I2C_R1
+    tristate "Light TSL2561 I2C Rev1"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev1 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_I2C_R2
+    tristate "Light TSL2561 I2C Rev2"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev2 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_I2C_R3
+    tristate "Light TSL2561 I2C Rev3"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev3 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_I2C_R4
+    tristate "Light TSL2561 I2C Rev4"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev4 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_I2C_R5
+    tristate "Light TSL2561 I2C Rev5"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev5 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_I2C_R6
+    tristate "Light TSL2561 I2C Rev6"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev6 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_I2C_R7
+    tristate "Light TSL2561 I2C Rev7"
+    default n
+    help
+      Support for Light TSL2561 I2C Rev7 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R0
+    tristate "Light TSL2561 SPI Rev0"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev0 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R1
+    tristate "Light TSL2561 SPI Rev1"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev1 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R2
+    tristate "Light TSL2561 SPI Rev2"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev2 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R3
+    tristate "Light TSL2561 SPI Rev3"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev3 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R4
+    tristate "Light TSL2561 SPI Rev4"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev4 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R5
+    tristate "Light TSL2561 SPI Rev5"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev5 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R6
+    tristate "Light TSL2561 SPI Rev6"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev6 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_SPI_R7
+    tristate "Light TSL2561 SPI Rev7"
+    default n
+    help
+      Support for Light TSL2561 SPI Rev7 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R0
+    tristate "Light TSL2561 UART Rev0"
+    default n
+    help
+      Support for Light TSL2561 UART Rev0 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R1
+    tristate "Light TSL2561 UART Rev1"
+    default n
+    help
+      Support for Light TSL2561 UART Rev1 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R2
+    tristate "Light TSL2561 UART Rev2"
+    default n
+    help
+      Support for Light TSL2561 UART Rev2 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R3
+    tristate "Light TSL2561 UART Rev3"
+    default n
+    help
+      Support for Light TSL2561 UART Rev3 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R4
+    tristate "Light TSL2561 UART Rev4"
+    default n
+    help
+      Support for Light TSL2561 UART Rev4 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R5
+    tristate "Light TSL2561 UART Rev5"
+    default n
+    help
+      Support for Light TSL2561 UART Rev5 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R6
+    tristate "Light TSL2561 UART Rev6"
+    default n
+    help
+      Support for Light TSL2561 UART Rev6 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_TSL2561_UART_R7
+    tristate "Light TSL2561 UART Rev7"
+    default n
+    help
+      Support for Light TSL2561 UART Rev7 (TSL2561)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R0
+    tristate "Light BH1750 I2C Rev0"
+    default n
+    help
+      Support for Light BH1750 I2C Rev0 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R1
+    tristate "Light BH1750 I2C Rev1"
+    default n
+    help
+      Support for Light BH1750 I2C Rev1 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R2
+    tristate "Light BH1750 I2C Rev2"
+    default n
+    help
+      Support for Light BH1750 I2C Rev2 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R3
+    tristate "Light BH1750 I2C Rev3"
+    default n
+    help
+      Support for Light BH1750 I2C Rev3 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R4
+    tristate "Light BH1750 I2C Rev4"
+    default n
+    help
+      Support for Light BH1750 I2C Rev4 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R5
+    tristate "Light BH1750 I2C Rev5"
+    default n
+    help
+      Support for Light BH1750 I2C Rev5 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R6
+    tristate "Light BH1750 I2C Rev6"
+    default n
+    help
+      Support for Light BH1750 I2C Rev6 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_I2C_R7
+    tristate "Light BH1750 I2C Rev7"
+    default n
+    help
+      Support for Light BH1750 I2C Rev7 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R0
+    tristate "Light BH1750 SPI Rev0"
+    default n
+    help
+      Support for Light BH1750 SPI Rev0 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R1
+    tristate "Light BH1750 SPI Rev1"
+    default n
+    help
+      Support for Light BH1750 SPI Rev1 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R2
+    tristate "Light BH1750 SPI Rev2"
+    default n
+    help
+      Support for Light BH1750 SPI Rev2 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R3
+    tristate "Light BH1750 SPI Rev3"
+    default n
+    help
+      Support for Light BH1750 SPI Rev3 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R4
+    tristate "Light BH1750 SPI Rev4"
+    default n
+    help
+      Support for Light BH1750 SPI Rev4 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R5
+    tristate "Light BH1750 SPI Rev5"
+    default n
+    help
+      Support for Light BH1750 SPI Rev5 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R6
+    tristate "Light BH1750 SPI Rev6"
+    default n
+    help
+      Support for Light BH1750 SPI Rev6 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_SPI_R7
+    tristate "Light BH1750 SPI Rev7"
+    default n
+    help
+      Support for Light BH1750 SPI Rev7 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R0
+    tristate "Light BH1750 UART Rev0"
+    default n
+    help
+      Support for Light BH1750 UART Rev0 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R1
+    tristate "Light BH1750 UART Rev1"
+    default n
+    help
+      Support for Light BH1750 UART Rev1 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R2
+    tristate "Light BH1750 UART Rev2"
+    default n
+    help
+      Support for Light BH1750 UART Rev2 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R3
+    tristate "Light BH1750 UART Rev3"
+    default n
+    help
+      Support for Light BH1750 UART Rev3 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R4
+    tristate "Light BH1750 UART Rev4"
+    default n
+    help
+      Support for Light BH1750 UART Rev4 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R5
+    tristate "Light BH1750 UART Rev5"
+    default n
+    help
+      Support for Light BH1750 UART Rev5 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R6
+    tristate "Light BH1750 UART Rev6"
+    default n
+    help
+      Support for Light BH1750 UART Rev6 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_BH1750_UART_R7
+    tristate "Light BH1750 UART Rev7"
+    default n
+    help
+      Support for Light BH1750 UART Rev7 (BH1750)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R0
+    tristate "Light APDS9930 I2C Rev0"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev0 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R1
+    tristate "Light APDS9930 I2C Rev1"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev1 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R2
+    tristate "Light APDS9930 I2C Rev2"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev2 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R3
+    tristate "Light APDS9930 I2C Rev3"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev3 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R4
+    tristate "Light APDS9930 I2C Rev4"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev4 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R5
+    tristate "Light APDS9930 I2C Rev5"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev5 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R6
+    tristate "Light APDS9930 I2C Rev6"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev6 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_I2C_R7
+    tristate "Light APDS9930 I2C Rev7"
+    default n
+    help
+      Support for Light APDS9930 I2C Rev7 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R0
+    tristate "Light APDS9930 SPI Rev0"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev0 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R1
+    tristate "Light APDS9930 SPI Rev1"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev1 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R2
+    tristate "Light APDS9930 SPI Rev2"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev2 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R3
+    tristate "Light APDS9930 SPI Rev3"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev3 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R4
+    tristate "Light APDS9930 SPI Rev4"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev4 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R5
+    tristate "Light APDS9930 SPI Rev5"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev5 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R6
+    tristate "Light APDS9930 SPI Rev6"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev6 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_SPI_R7
+    tristate "Light APDS9930 SPI Rev7"
+    default n
+    help
+      Support for Light APDS9930 SPI Rev7 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R0
+    tristate "Light APDS9930 UART Rev0"
+    default n
+    help
+      Support for Light APDS9930 UART Rev0 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R1
+    tristate "Light APDS9930 UART Rev1"
+    default n
+    help
+      Support for Light APDS9930 UART Rev1 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R2
+    tristate "Light APDS9930 UART Rev2"
+    default n
+    help
+      Support for Light APDS9930 UART Rev2 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R3
+    tristate "Light APDS9930 UART Rev3"
+    default n
+    help
+      Support for Light APDS9930 UART Rev3 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R4
+    tristate "Light APDS9930 UART Rev4"
+    default n
+    help
+      Support for Light APDS9930 UART Rev4 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R5
+    tristate "Light APDS9930 UART Rev5"
+    default n
+    help
+      Support for Light APDS9930 UART Rev5 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R6
+    tristate "Light APDS9930 UART Rev6"
+    default n
+    help
+      Support for Light APDS9930 UART Rev6 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_APDS9930_UART_R7
+    tristate "Light APDS9930 UART Rev7"
+    default n
+    help
+      Support for Light APDS9930 UART Rev7 (APDS9930)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R0
+    tristate "Light LTR559 I2C Rev0"
+    default n
+    help
+      Support for Light LTR559 I2C Rev0 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R1
+    tristate "Light LTR559 I2C Rev1"
+    default n
+    help
+      Support for Light LTR559 I2C Rev1 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R2
+    tristate "Light LTR559 I2C Rev2"
+    default n
+    help
+      Support for Light LTR559 I2C Rev2 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R3
+    tristate "Light LTR559 I2C Rev3"
+    default n
+    help
+      Support for Light LTR559 I2C Rev3 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R4
+    tristate "Light LTR559 I2C Rev4"
+    default n
+    help
+      Support for Light LTR559 I2C Rev4 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R5
+    tristate "Light LTR559 I2C Rev5"
+    default n
+    help
+      Support for Light LTR559 I2C Rev5 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R6
+    tristate "Light LTR559 I2C Rev6"
+    default n
+    help
+      Support for Light LTR559 I2C Rev6 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_I2C_R7
+    tristate "Light LTR559 I2C Rev7"
+    default n
+    help
+      Support for Light LTR559 I2C Rev7 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R0
+    tristate "Light LTR559 SPI Rev0"
+    default n
+    help
+      Support for Light LTR559 SPI Rev0 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R1
+    tristate "Light LTR559 SPI Rev1"
+    default n
+    help
+      Support for Light LTR559 SPI Rev1 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R2
+    tristate "Light LTR559 SPI Rev2"
+    default n
+    help
+      Support for Light LTR559 SPI Rev2 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R3
+    tristate "Light LTR559 SPI Rev3"
+    default n
+    help
+      Support for Light LTR559 SPI Rev3 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R4
+    tristate "Light LTR559 SPI Rev4"
+    default n
+    help
+      Support for Light LTR559 SPI Rev4 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R5
+    tristate "Light LTR559 SPI Rev5"
+    default n
+    help
+      Support for Light LTR559 SPI Rev5 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R6
+    tristate "Light LTR559 SPI Rev6"
+    default n
+    help
+      Support for Light LTR559 SPI Rev6 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_SPI_R7
+    tristate "Light LTR559 SPI Rev7"
+    default n
+    help
+      Support for Light LTR559 SPI Rev7 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R0
+    tristate "Light LTR559 UART Rev0"
+    default n
+    help
+      Support for Light LTR559 UART Rev0 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R1
+    tristate "Light LTR559 UART Rev1"
+    default n
+    help
+      Support for Light LTR559 UART Rev1 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R2
+    tristate "Light LTR559 UART Rev2"
+    default n
+    help
+      Support for Light LTR559 UART Rev2 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R3
+    tristate "Light LTR559 UART Rev3"
+    default n
+    help
+      Support for Light LTR559 UART Rev3 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R4
+    tristate "Light LTR559 UART Rev4"
+    default n
+    help
+      Support for Light LTR559 UART Rev4 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R5
+    tristate "Light LTR559 UART Rev5"
+    default n
+    help
+      Support for Light LTR559 UART Rev5 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R6
+    tristate "Light LTR559 UART Rev6"
+    default n
+    help
+      Support for Light LTR559 UART Rev6 (LTR559)
+      Category: sensor_light
+
+config SENSOR_LIGHT_LTR559_UART_R7
+    tristate "Light LTR559 UART Rev7"
+    default n
+    help
+      Support for Light LTR559 UART Rev7 (LTR559)
+      Category: sensor_light
+
+endmenu

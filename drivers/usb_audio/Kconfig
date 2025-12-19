@@ -1,0 +1,319 @@
+
+menu "Usb_Audio Drivers"
+
+config USB_AUDIO_Audio_Device_0
+    tristate "USB Audio Audio_Device variant 0"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 0 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_1
+    tristate "USB Audio Audio_Device variant 1"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 1 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_2
+    tristate "USB Audio Audio_Device variant 2"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 2 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_3
+    tristate "USB Audio Audio_Device variant 3"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 3 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_4
+    tristate "USB Audio Audio_Device variant 4"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 4 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_5
+    tristate "USB Audio Audio_Device variant 5"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 5 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_6
+    tristate "USB Audio Audio_Device variant 6"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 6 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_7
+    tristate "USB Audio Audio_Device variant 7"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 7 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_8
+    tristate "USB Audio Audio_Device variant 8"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 8 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_9
+    tristate "USB Audio Audio_Device variant 9"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 9 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_10
+    tristate "USB Audio Audio_Device variant 10"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 10 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_11
+    tristate "USB Audio Audio_Device variant 11"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 11 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_12
+    tristate "USB Audio Audio_Device variant 12"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 12 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_13
+    tristate "USB Audio Audio_Device variant 13"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 13 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Audio_Device_14
+    tristate "USB Audio Audio_Device variant 14"
+    default n
+    help
+      Support for USB Audio Audio_Device variant 14 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_0
+    tristate "USB Audio MIDI variant 0"
+    default n
+    help
+      Support for USB Audio MIDI variant 0 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_1
+    tristate "USB Audio MIDI variant 1"
+    default n
+    help
+      Support for USB Audio MIDI variant 1 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_2
+    tristate "USB Audio MIDI variant 2"
+    default n
+    help
+      Support for USB Audio MIDI variant 2 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_3
+    tristate "USB Audio MIDI variant 3"
+    default n
+    help
+      Support for USB Audio MIDI variant 3 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_4
+    tristate "USB Audio MIDI variant 4"
+    default n
+    help
+      Support for USB Audio MIDI variant 4 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_5
+    tristate "USB Audio MIDI variant 5"
+    default n
+    help
+      Support for USB Audio MIDI variant 5 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_6
+    tristate "USB Audio MIDI variant 6"
+    default n
+    help
+      Support for USB Audio MIDI variant 6 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_7
+    tristate "USB Audio MIDI variant 7"
+    default n
+    help
+      Support for USB Audio MIDI variant 7 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_8
+    tristate "USB Audio MIDI variant 8"
+    default n
+    help
+      Support for USB Audio MIDI variant 8 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_9
+    tristate "USB Audio MIDI variant 9"
+    default n
+    help
+      Support for USB Audio MIDI variant 9 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_10
+    tristate "USB Audio MIDI variant 10"
+    default n
+    help
+      Support for USB Audio MIDI variant 10 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_11
+    tristate "USB Audio MIDI variant 11"
+    default n
+    help
+      Support for USB Audio MIDI variant 11 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_12
+    tristate "USB Audio MIDI variant 12"
+    default n
+    help
+      Support for USB Audio MIDI variant 12 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_13
+    tristate "USB Audio MIDI variant 13"
+    default n
+    help
+      Support for USB Audio MIDI variant 13 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_MIDI_14
+    tristate "USB Audio MIDI variant 14"
+    default n
+    help
+      Support for USB Audio MIDI variant 14 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_0
+    tristate "USB Audio Headset variant 0"
+    default n
+    help
+      Support for USB Audio Headset variant 0 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_1
+    tristate "USB Audio Headset variant 1"
+    default n
+    help
+      Support for USB Audio Headset variant 1 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_2
+    tristate "USB Audio Headset variant 2"
+    default n
+    help
+      Support for USB Audio Headset variant 2 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_3
+    tristate "USB Audio Headset variant 3"
+    default n
+    help
+      Support for USB Audio Headset variant 3 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_4
+    tristate "USB Audio Headset variant 4"
+    default n
+    help
+      Support for USB Audio Headset variant 4 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_5
+    tristate "USB Audio Headset variant 5"
+    default n
+    help
+      Support for USB Audio Headset variant 5 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_6
+    tristate "USB Audio Headset variant 6"
+    default n
+    help
+      Support for USB Audio Headset variant 6 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_7
+    tristate "USB Audio Headset variant 7"
+    default n
+    help
+      Support for USB Audio Headset variant 7 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_8
+    tristate "USB Audio Headset variant 8"
+    default n
+    help
+      Support for USB Audio Headset variant 8 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_9
+    tristate "USB Audio Headset variant 9"
+    default n
+    help
+      Support for USB Audio Headset variant 9 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_10
+    tristate "USB Audio Headset variant 10"
+    default n
+    help
+      Support for USB Audio Headset variant 10 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_11
+    tristate "USB Audio Headset variant 11"
+    default n
+    help
+      Support for USB Audio Headset variant 11 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_12
+    tristate "USB Audio Headset variant 12"
+    default n
+    help
+      Support for USB Audio Headset variant 12 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_13
+    tristate "USB Audio Headset variant 13"
+    default n
+    help
+      Support for USB Audio Headset variant 13 (Generic)
+      Category: usb_audio
+
+config USB_AUDIO_Headset_14
+    tristate "USB Audio Headset variant 14"
+    default n
+    help
+      Support for USB Audio Headset variant 14 (Generic)
+      Category: usb_audio
+
+endmenu

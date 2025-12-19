@@ -1,0 +1,1453 @@
+
+menu "Bluetooth Drivers"
+
+config BT_REALTEK_8723A_USB_R0
+    tristate "Realtek 8723A BT USB Rev0"
+    default n
+    help
+      Support for Realtek 8723A BT USB Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_USB_R1
+    tristate "Realtek 8723A BT USB Rev1"
+    default n
+    help
+      Support for Realtek 8723A BT USB Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_USB_R2
+    tristate "Realtek 8723A BT USB Rev2"
+    default n
+    help
+      Support for Realtek 8723A BT USB Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_UART_R0
+    tristate "Realtek 8723A BT UART Rev0"
+    default n
+    help
+      Support for Realtek 8723A BT UART Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_UART_R1
+    tristate "Realtek 8723A BT UART Rev1"
+    default n
+    help
+      Support for Realtek 8723A BT UART Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_UART_R2
+    tristate "Realtek 8723A BT UART Rev2"
+    default n
+    help
+      Support for Realtek 8723A BT UART Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_SDIO_R0
+    tristate "Realtek 8723A BT SDIO Rev0"
+    default n
+    help
+      Support for Realtek 8723A BT SDIO Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_SDIO_R1
+    tristate "Realtek 8723A BT SDIO Rev1"
+    default n
+    help
+      Support for Realtek 8723A BT SDIO Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723A_SDIO_R2
+    tristate "Realtek 8723A BT SDIO Rev2"
+    default n
+    help
+      Support for Realtek 8723A BT SDIO Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_USB_R0
+    tristate "Realtek 8723B BT USB Rev0"
+    default n
+    help
+      Support for Realtek 8723B BT USB Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_USB_R1
+    tristate "Realtek 8723B BT USB Rev1"
+    default n
+    help
+      Support for Realtek 8723B BT USB Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_USB_R2
+    tristate "Realtek 8723B BT USB Rev2"
+    default n
+    help
+      Support for Realtek 8723B BT USB Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_UART_R0
+    tristate "Realtek 8723B BT UART Rev0"
+    default n
+    help
+      Support for Realtek 8723B BT UART Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_UART_R1
+    tristate "Realtek 8723B BT UART Rev1"
+    default n
+    help
+      Support for Realtek 8723B BT UART Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_UART_R2
+    tristate "Realtek 8723B BT UART Rev2"
+    default n
+    help
+      Support for Realtek 8723B BT UART Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_SDIO_R0
+    tristate "Realtek 8723B BT SDIO Rev0"
+    default n
+    help
+      Support for Realtek 8723B BT SDIO Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_SDIO_R1
+    tristate "Realtek 8723B BT SDIO Rev1"
+    default n
+    help
+      Support for Realtek 8723B BT SDIO Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723B_SDIO_R2
+    tristate "Realtek 8723B BT SDIO Rev2"
+    default n
+    help
+      Support for Realtek 8723B BT SDIO Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_USB_R0
+    tristate "Realtek 8723C BT USB Rev0"
+    default n
+    help
+      Support for Realtek 8723C BT USB Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_USB_R1
+    tristate "Realtek 8723C BT USB Rev1"
+    default n
+    help
+      Support for Realtek 8723C BT USB Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_USB_R2
+    tristate "Realtek 8723C BT USB Rev2"
+    default n
+    help
+      Support for Realtek 8723C BT USB Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_UART_R0
+    tristate "Realtek 8723C BT UART Rev0"
+    default n
+    help
+      Support for Realtek 8723C BT UART Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_UART_R1
+    tristate "Realtek 8723C BT UART Rev1"
+    default n
+    help
+      Support for Realtek 8723C BT UART Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_UART_R2
+    tristate "Realtek 8723C BT UART Rev2"
+    default n
+    help
+      Support for Realtek 8723C BT UART Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_SDIO_R0
+    tristate "Realtek 8723C BT SDIO Rev0"
+    default n
+    help
+      Support for Realtek 8723C BT SDIO Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_SDIO_R1
+    tristate "Realtek 8723C BT SDIO Rev1"
+    default n
+    help
+      Support for Realtek 8723C BT SDIO Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723C_SDIO_R2
+    tristate "Realtek 8723C BT SDIO Rev2"
+    default n
+    help
+      Support for Realtek 8723C BT SDIO Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_USB_R0
+    tristate "Realtek 8723D BT USB Rev0"
+    default n
+    help
+      Support for Realtek 8723D BT USB Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_USB_R1
+    tristate "Realtek 8723D BT USB Rev1"
+    default n
+    help
+      Support for Realtek 8723D BT USB Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_USB_R2
+    tristate "Realtek 8723D BT USB Rev2"
+    default n
+    help
+      Support for Realtek 8723D BT USB Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_UART_R0
+    tristate "Realtek 8723D BT UART Rev0"
+    default n
+    help
+      Support for Realtek 8723D BT UART Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_UART_R1
+    tristate "Realtek 8723D BT UART Rev1"
+    default n
+    help
+      Support for Realtek 8723D BT UART Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_UART_R2
+    tristate "Realtek 8723D BT UART Rev2"
+    default n
+    help
+      Support for Realtek 8723D BT UART Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_SDIO_R0
+    tristate "Realtek 8723D BT SDIO Rev0"
+    default n
+    help
+      Support for Realtek 8723D BT SDIO Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_SDIO_R1
+    tristate "Realtek 8723D BT SDIO Rev1"
+    default n
+    help
+      Support for Realtek 8723D BT SDIO Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8723D_SDIO_R2
+    tristate "Realtek 8723D BT SDIO Rev2"
+    default n
+    help
+      Support for Realtek 8723D BT SDIO Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_USB_R0
+    tristate "Realtek 8821A BT USB Rev0"
+    default n
+    help
+      Support for Realtek 8821A BT USB Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_USB_R1
+    tristate "Realtek 8821A BT USB Rev1"
+    default n
+    help
+      Support for Realtek 8821A BT USB Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_USB_R2
+    tristate "Realtek 8821A BT USB Rev2"
+    default n
+    help
+      Support for Realtek 8821A BT USB Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_UART_R0
+    tristate "Realtek 8821A BT UART Rev0"
+    default n
+    help
+      Support for Realtek 8821A BT UART Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_UART_R1
+    tristate "Realtek 8821A BT UART Rev1"
+    default n
+    help
+      Support for Realtek 8821A BT UART Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_UART_R2
+    tristate "Realtek 8821A BT UART Rev2"
+    default n
+    help
+      Support for Realtek 8821A BT UART Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_SDIO_R0
+    tristate "Realtek 8821A BT SDIO Rev0"
+    default n
+    help
+      Support for Realtek 8821A BT SDIO Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_SDIO_R1
+    tristate "Realtek 8821A BT SDIO Rev1"
+    default n
+    help
+      Support for Realtek 8821A BT SDIO Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8821A_SDIO_R2
+    tristate "Realtek 8821A BT SDIO Rev2"
+    default n
+    help
+      Support for Realtek 8821A BT SDIO Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_USB_R0
+    tristate "Realtek 8822B BT USB Rev0"
+    default n
+    help
+      Support for Realtek 8822B BT USB Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_USB_R1
+    tristate "Realtek 8822B BT USB Rev1"
+    default n
+    help
+      Support for Realtek 8822B BT USB Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_USB_R2
+    tristate "Realtek 8822B BT USB Rev2"
+    default n
+    help
+      Support for Realtek 8822B BT USB Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_UART_R0
+    tristate "Realtek 8822B BT UART Rev0"
+    default n
+    help
+      Support for Realtek 8822B BT UART Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_UART_R1
+    tristate "Realtek 8822B BT UART Rev1"
+    default n
+    help
+      Support for Realtek 8822B BT UART Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_UART_R2
+    tristate "Realtek 8822B BT UART Rev2"
+    default n
+    help
+      Support for Realtek 8822B BT UART Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_SDIO_R0
+    tristate "Realtek 8822B BT SDIO Rev0"
+    default n
+    help
+      Support for Realtek 8822B BT SDIO Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_SDIO_R1
+    tristate "Realtek 8822B BT SDIO Rev1"
+    default n
+    help
+      Support for Realtek 8822B BT SDIO Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8822B_SDIO_R2
+    tristate "Realtek 8822B BT SDIO Rev2"
+    default n
+    help
+      Support for Realtek 8822B BT SDIO Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_USB_R0
+    tristate "Realtek 8852A BT USB Rev0"
+    default n
+    help
+      Support for Realtek 8852A BT USB Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_USB_R1
+    tristate "Realtek 8852A BT USB Rev1"
+    default n
+    help
+      Support for Realtek 8852A BT USB Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_USB_R2
+    tristate "Realtek 8852A BT USB Rev2"
+    default n
+    help
+      Support for Realtek 8852A BT USB Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_UART_R0
+    tristate "Realtek 8852A BT UART Rev0"
+    default n
+    help
+      Support for Realtek 8852A BT UART Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_UART_R1
+    tristate "Realtek 8852A BT UART Rev1"
+    default n
+    help
+      Support for Realtek 8852A BT UART Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_UART_R2
+    tristate "Realtek 8852A BT UART Rev2"
+    default n
+    help
+      Support for Realtek 8852A BT UART Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_SDIO_R0
+    tristate "Realtek 8852A BT SDIO Rev0"
+    default n
+    help
+      Support for Realtek 8852A BT SDIO Rev0 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_SDIO_R1
+    tristate "Realtek 8852A BT SDIO Rev1"
+    default n
+    help
+      Support for Realtek 8852A BT SDIO Rev1 (Realtek)
+      Category: bluetooth
+
+config BT_REALTEK_8852A_SDIO_R2
+    tristate "Realtek 8852A BT SDIO Rev2"
+    default n
+    help
+      Support for Realtek 8852A BT SDIO Rev2 (Realtek)
+      Category: bluetooth
+
+config BT_INTEL_8087_USB_R0
+    tristate "Intel 8087 BT USB Rev0"
+    default n
+    help
+      Support for Intel 8087 BT USB Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_USB_R1
+    tristate "Intel 8087 BT USB Rev1"
+    default n
+    help
+      Support for Intel 8087 BT USB Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_USB_R2
+    tristate "Intel 8087 BT USB Rev2"
+    default n
+    help
+      Support for Intel 8087 BT USB Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_UART_R0
+    tristate "Intel 8087 BT UART Rev0"
+    default n
+    help
+      Support for Intel 8087 BT UART Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_UART_R1
+    tristate "Intel 8087 BT UART Rev1"
+    default n
+    help
+      Support for Intel 8087 BT UART Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_UART_R2
+    tristate "Intel 8087 BT UART Rev2"
+    default n
+    help
+      Support for Intel 8087 BT UART Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_SDIO_R0
+    tristate "Intel 8087 BT SDIO Rev0"
+    default n
+    help
+      Support for Intel 8087 BT SDIO Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_SDIO_R1
+    tristate "Intel 8087 BT SDIO Rev1"
+    default n
+    help
+      Support for Intel 8087 BT SDIO Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8087_SDIO_R2
+    tristate "Intel 8087 BT SDIO Rev2"
+    default n
+    help
+      Support for Intel 8087 BT SDIO Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_USB_R0
+    tristate "Intel 7260 BT USB Rev0"
+    default n
+    help
+      Support for Intel 7260 BT USB Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_USB_R1
+    tristate "Intel 7260 BT USB Rev1"
+    default n
+    help
+      Support for Intel 7260 BT USB Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_USB_R2
+    tristate "Intel 7260 BT USB Rev2"
+    default n
+    help
+      Support for Intel 7260 BT USB Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_UART_R0
+    tristate "Intel 7260 BT UART Rev0"
+    default n
+    help
+      Support for Intel 7260 BT UART Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_UART_R1
+    tristate "Intel 7260 BT UART Rev1"
+    default n
+    help
+      Support for Intel 7260 BT UART Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_UART_R2
+    tristate "Intel 7260 BT UART Rev2"
+    default n
+    help
+      Support for Intel 7260 BT UART Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_SDIO_R0
+    tristate "Intel 7260 BT SDIO Rev0"
+    default n
+    help
+      Support for Intel 7260 BT SDIO Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_SDIO_R1
+    tristate "Intel 7260 BT SDIO Rev1"
+    default n
+    help
+      Support for Intel 7260 BT SDIO Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_7260_SDIO_R2
+    tristate "Intel 7260 BT SDIO Rev2"
+    default n
+    help
+      Support for Intel 7260 BT SDIO Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_USB_R0
+    tristate "Intel 8260 BT USB Rev0"
+    default n
+    help
+      Support for Intel 8260 BT USB Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_USB_R1
+    tristate "Intel 8260 BT USB Rev1"
+    default n
+    help
+      Support for Intel 8260 BT USB Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_USB_R2
+    tristate "Intel 8260 BT USB Rev2"
+    default n
+    help
+      Support for Intel 8260 BT USB Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_UART_R0
+    tristate "Intel 8260 BT UART Rev0"
+    default n
+    help
+      Support for Intel 8260 BT UART Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_UART_R1
+    tristate "Intel 8260 BT UART Rev1"
+    default n
+    help
+      Support for Intel 8260 BT UART Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_UART_R2
+    tristate "Intel 8260 BT UART Rev2"
+    default n
+    help
+      Support for Intel 8260 BT UART Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_SDIO_R0
+    tristate "Intel 8260 BT SDIO Rev0"
+    default n
+    help
+      Support for Intel 8260 BT SDIO Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_SDIO_R1
+    tristate "Intel 8260 BT SDIO Rev1"
+    default n
+    help
+      Support for Intel 8260 BT SDIO Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_8260_SDIO_R2
+    tristate "Intel 8260 BT SDIO Rev2"
+    default n
+    help
+      Support for Intel 8260 BT SDIO Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_USB_R0
+    tristate "Intel 9260 BT USB Rev0"
+    default n
+    help
+      Support for Intel 9260 BT USB Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_USB_R1
+    tristate "Intel 9260 BT USB Rev1"
+    default n
+    help
+      Support for Intel 9260 BT USB Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_USB_R2
+    tristate "Intel 9260 BT USB Rev2"
+    default n
+    help
+      Support for Intel 9260 BT USB Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_UART_R0
+    tristate "Intel 9260 BT UART Rev0"
+    default n
+    help
+      Support for Intel 9260 BT UART Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_UART_R1
+    tristate "Intel 9260 BT UART Rev1"
+    default n
+    help
+      Support for Intel 9260 BT UART Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_UART_R2
+    tristate "Intel 9260 BT UART Rev2"
+    default n
+    help
+      Support for Intel 9260 BT UART Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_SDIO_R0
+    tristate "Intel 9260 BT SDIO Rev0"
+    default n
+    help
+      Support for Intel 9260 BT SDIO Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_SDIO_R1
+    tristate "Intel 9260 BT SDIO Rev1"
+    default n
+    help
+      Support for Intel 9260 BT SDIO Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_9260_SDIO_R2
+    tristate "Intel 9260 BT SDIO Rev2"
+    default n
+    help
+      Support for Intel 9260 BT SDIO Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_USB_R0
+    tristate "Intel AX200 BT USB Rev0"
+    default n
+    help
+      Support for Intel AX200 BT USB Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_USB_R1
+    tristate "Intel AX200 BT USB Rev1"
+    default n
+    help
+      Support for Intel AX200 BT USB Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_USB_R2
+    tristate "Intel AX200 BT USB Rev2"
+    default n
+    help
+      Support for Intel AX200 BT USB Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_UART_R0
+    tristate "Intel AX200 BT UART Rev0"
+    default n
+    help
+      Support for Intel AX200 BT UART Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_UART_R1
+    tristate "Intel AX200 BT UART Rev1"
+    default n
+    help
+      Support for Intel AX200 BT UART Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_UART_R2
+    tristate "Intel AX200 BT UART Rev2"
+    default n
+    help
+      Support for Intel AX200 BT UART Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_SDIO_R0
+    tristate "Intel AX200 BT SDIO Rev0"
+    default n
+    help
+      Support for Intel AX200 BT SDIO Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_SDIO_R1
+    tristate "Intel AX200 BT SDIO Rev1"
+    default n
+    help
+      Support for Intel AX200 BT SDIO Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX200_SDIO_R2
+    tristate "Intel AX200 BT SDIO Rev2"
+    default n
+    help
+      Support for Intel AX200 BT SDIO Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_USB_R0
+    tristate "Intel AX210 BT USB Rev0"
+    default n
+    help
+      Support for Intel AX210 BT USB Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_USB_R1
+    tristate "Intel AX210 BT USB Rev1"
+    default n
+    help
+      Support for Intel AX210 BT USB Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_USB_R2
+    tristate "Intel AX210 BT USB Rev2"
+    default n
+    help
+      Support for Intel AX210 BT USB Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_UART_R0
+    tristate "Intel AX210 BT UART Rev0"
+    default n
+    help
+      Support for Intel AX210 BT UART Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_UART_R1
+    tristate "Intel AX210 BT UART Rev1"
+    default n
+    help
+      Support for Intel AX210 BT UART Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_UART_R2
+    tristate "Intel AX210 BT UART Rev2"
+    default n
+    help
+      Support for Intel AX210 BT UART Rev2 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_SDIO_R0
+    tristate "Intel AX210 BT SDIO Rev0"
+    default n
+    help
+      Support for Intel AX210 BT SDIO Rev0 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_SDIO_R1
+    tristate "Intel AX210 BT SDIO Rev1"
+    default n
+    help
+      Support for Intel AX210 BT SDIO Rev1 (Intel)
+      Category: bluetooth
+
+config BT_INTEL_AX210_SDIO_R2
+    tristate "Intel AX210 BT SDIO Rev2"
+    default n
+    help
+      Support for Intel AX210 BT SDIO Rev2 (Intel)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_USB_R0
+    tristate "Qualcomm QCA6174 BT USB Rev0"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT USB Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_USB_R1
+    tristate "Qualcomm QCA6174 BT USB Rev1"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT USB Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_USB_R2
+    tristate "Qualcomm QCA6174 BT USB Rev2"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT USB Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_UART_R0
+    tristate "Qualcomm QCA6174 BT UART Rev0"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT UART Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_UART_R1
+    tristate "Qualcomm QCA6174 BT UART Rev1"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT UART Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_UART_R2
+    tristate "Qualcomm QCA6174 BT UART Rev2"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT UART Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_SDIO_R0
+    tristate "Qualcomm QCA6174 BT SDIO Rev0"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT SDIO Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_SDIO_R1
+    tristate "Qualcomm QCA6174 BT SDIO Rev1"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT SDIO Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6174_SDIO_R2
+    tristate "Qualcomm QCA6174 BT SDIO Rev2"
+    default n
+    help
+      Support for Qualcomm QCA6174 BT SDIO Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_USB_R0
+    tristate "Qualcomm QCA6390 BT USB Rev0"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT USB Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_USB_R1
+    tristate "Qualcomm QCA6390 BT USB Rev1"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT USB Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_USB_R2
+    tristate "Qualcomm QCA6390 BT USB Rev2"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT USB Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_UART_R0
+    tristate "Qualcomm QCA6390 BT UART Rev0"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT UART Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_UART_R1
+    tristate "Qualcomm QCA6390 BT UART Rev1"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT UART Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_UART_R2
+    tristate "Qualcomm QCA6390 BT UART Rev2"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT UART Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_SDIO_R0
+    tristate "Qualcomm QCA6390 BT SDIO Rev0"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT SDIO Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_SDIO_R1
+    tristate "Qualcomm QCA6390 BT SDIO Rev1"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT SDIO Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_QCA6390_SDIO_R2
+    tristate "Qualcomm QCA6390 BT SDIO Rev2"
+    default n
+    help
+      Support for Qualcomm QCA6390 BT SDIO Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_USB_R0
+    tristate "Qualcomm WCN3990 BT USB Rev0"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT USB Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_USB_R1
+    tristate "Qualcomm WCN3990 BT USB Rev1"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT USB Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_USB_R2
+    tristate "Qualcomm WCN3990 BT USB Rev2"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT USB Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_UART_R0
+    tristate "Qualcomm WCN3990 BT UART Rev0"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT UART Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_UART_R1
+    tristate "Qualcomm WCN3990 BT UART Rev1"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT UART Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_UART_R2
+    tristate "Qualcomm WCN3990 BT UART Rev2"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT UART Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_SDIO_R0
+    tristate "Qualcomm WCN3990 BT SDIO Rev0"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT SDIO Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_SDIO_R1
+    tristate "Qualcomm WCN3990 BT SDIO Rev1"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT SDIO Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN3990_SDIO_R2
+    tristate "Qualcomm WCN3990 BT SDIO Rev2"
+    default n
+    help
+      Support for Qualcomm WCN3990 BT SDIO Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_USB_R0
+    tristate "Qualcomm WCN6855 BT USB Rev0"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT USB Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_USB_R1
+    tristate "Qualcomm WCN6855 BT USB Rev1"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT USB Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_USB_R2
+    tristate "Qualcomm WCN6855 BT USB Rev2"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT USB Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_UART_R0
+    tristate "Qualcomm WCN6855 BT UART Rev0"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT UART Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_UART_R1
+    tristate "Qualcomm WCN6855 BT UART Rev1"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT UART Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_UART_R2
+    tristate "Qualcomm WCN6855 BT UART Rev2"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT UART Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_SDIO_R0
+    tristate "Qualcomm WCN6855 BT SDIO Rev0"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT SDIO Rev0 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_SDIO_R1
+    tristate "Qualcomm WCN6855 BT SDIO Rev1"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT SDIO Rev1 (Qualcomm)
+      Category: bluetooth
+
+config BT_QUALCOMM_WCN6855_SDIO_R2
+    tristate "Qualcomm WCN6855 BT SDIO Rev2"
+    default n
+    help
+      Support for Qualcomm WCN6855 BT SDIO Rev2 (Qualcomm)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_USB_R0
+    tristate "Broadcom BCM20702 BT USB Rev0"
+    default n
+    help
+      Support for Broadcom BCM20702 BT USB Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_USB_R1
+    tristate "Broadcom BCM20702 BT USB Rev1"
+    default n
+    help
+      Support for Broadcom BCM20702 BT USB Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_USB_R2
+    tristate "Broadcom BCM20702 BT USB Rev2"
+    default n
+    help
+      Support for Broadcom BCM20702 BT USB Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_UART_R0
+    tristate "Broadcom BCM20702 BT UART Rev0"
+    default n
+    help
+      Support for Broadcom BCM20702 BT UART Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_UART_R1
+    tristate "Broadcom BCM20702 BT UART Rev1"
+    default n
+    help
+      Support for Broadcom BCM20702 BT UART Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_UART_R2
+    tristate "Broadcom BCM20702 BT UART Rev2"
+    default n
+    help
+      Support for Broadcom BCM20702 BT UART Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_SDIO_R0
+    tristate "Broadcom BCM20702 BT SDIO Rev0"
+    default n
+    help
+      Support for Broadcom BCM20702 BT SDIO Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_SDIO_R1
+    tristate "Broadcom BCM20702 BT SDIO Rev1"
+    default n
+    help
+      Support for Broadcom BCM20702 BT SDIO Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM20702_SDIO_R2
+    tristate "Broadcom BCM20702 BT SDIO Rev2"
+    default n
+    help
+      Support for Broadcom BCM20702 BT SDIO Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_USB_R0
+    tristate "Broadcom BCM4345 BT USB Rev0"
+    default n
+    help
+      Support for Broadcom BCM4345 BT USB Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_USB_R1
+    tristate "Broadcom BCM4345 BT USB Rev1"
+    default n
+    help
+      Support for Broadcom BCM4345 BT USB Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_USB_R2
+    tristate "Broadcom BCM4345 BT USB Rev2"
+    default n
+    help
+      Support for Broadcom BCM4345 BT USB Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_UART_R0
+    tristate "Broadcom BCM4345 BT UART Rev0"
+    default n
+    help
+      Support for Broadcom BCM4345 BT UART Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_UART_R1
+    tristate "Broadcom BCM4345 BT UART Rev1"
+    default n
+    help
+      Support for Broadcom BCM4345 BT UART Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_UART_R2
+    tristate "Broadcom BCM4345 BT UART Rev2"
+    default n
+    help
+      Support for Broadcom BCM4345 BT UART Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_SDIO_R0
+    tristate "Broadcom BCM4345 BT SDIO Rev0"
+    default n
+    help
+      Support for Broadcom BCM4345 BT SDIO Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_SDIO_R1
+    tristate "Broadcom BCM4345 BT SDIO Rev1"
+    default n
+    help
+      Support for Broadcom BCM4345 BT SDIO Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4345_SDIO_R2
+    tristate "Broadcom BCM4345 BT SDIO Rev2"
+    default n
+    help
+      Support for Broadcom BCM4345 BT SDIO Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_USB_R0
+    tristate "Broadcom BCM4377 BT USB Rev0"
+    default n
+    help
+      Support for Broadcom BCM4377 BT USB Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_USB_R1
+    tristate "Broadcom BCM4377 BT USB Rev1"
+    default n
+    help
+      Support for Broadcom BCM4377 BT USB Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_USB_R2
+    tristate "Broadcom BCM4377 BT USB Rev2"
+    default n
+    help
+      Support for Broadcom BCM4377 BT USB Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_UART_R0
+    tristate "Broadcom BCM4377 BT UART Rev0"
+    default n
+    help
+      Support for Broadcom BCM4377 BT UART Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_UART_R1
+    tristate "Broadcom BCM4377 BT UART Rev1"
+    default n
+    help
+      Support for Broadcom BCM4377 BT UART Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_UART_R2
+    tristate "Broadcom BCM4377 BT UART Rev2"
+    default n
+    help
+      Support for Broadcom BCM4377 BT UART Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_SDIO_R0
+    tristate "Broadcom BCM4377 BT SDIO Rev0"
+    default n
+    help
+      Support for Broadcom BCM4377 BT SDIO Rev0 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_SDIO_R1
+    tristate "Broadcom BCM4377 BT SDIO Rev1"
+    default n
+    help
+      Support for Broadcom BCM4377 BT SDIO Rev1 (Broadcom)
+      Category: bluetooth
+
+config BT_BROADCOM_BCM4377_SDIO_R2
+    tristate "Broadcom BCM4377 BT SDIO Rev2"
+    default n
+    help
+      Support for Broadcom BCM4377 BT SDIO Rev2 (Broadcom)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_USB_R0
+    tristate "MediaTek MT7615 BT USB Rev0"
+    default n
+    help
+      Support for MediaTek MT7615 BT USB Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_USB_R1
+    tristate "MediaTek MT7615 BT USB Rev1"
+    default n
+    help
+      Support for MediaTek MT7615 BT USB Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_USB_R2
+    tristate "MediaTek MT7615 BT USB Rev2"
+    default n
+    help
+      Support for MediaTek MT7615 BT USB Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_UART_R0
+    tristate "MediaTek MT7615 BT UART Rev0"
+    default n
+    help
+      Support for MediaTek MT7615 BT UART Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_UART_R1
+    tristate "MediaTek MT7615 BT UART Rev1"
+    default n
+    help
+      Support for MediaTek MT7615 BT UART Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_UART_R2
+    tristate "MediaTek MT7615 BT UART Rev2"
+    default n
+    help
+      Support for MediaTek MT7615 BT UART Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_SDIO_R0
+    tristate "MediaTek MT7615 BT SDIO Rev0"
+    default n
+    help
+      Support for MediaTek MT7615 BT SDIO Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_SDIO_R1
+    tristate "MediaTek MT7615 BT SDIO Rev1"
+    default n
+    help
+      Support for MediaTek MT7615 BT SDIO Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7615_SDIO_R2
+    tristate "MediaTek MT7615 BT SDIO Rev2"
+    default n
+    help
+      Support for MediaTek MT7615 BT SDIO Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_USB_R0
+    tristate "MediaTek MT7663 BT USB Rev0"
+    default n
+    help
+      Support for MediaTek MT7663 BT USB Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_USB_R1
+    tristate "MediaTek MT7663 BT USB Rev1"
+    default n
+    help
+      Support for MediaTek MT7663 BT USB Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_USB_R2
+    tristate "MediaTek MT7663 BT USB Rev2"
+    default n
+    help
+      Support for MediaTek MT7663 BT USB Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_UART_R0
+    tristate "MediaTek MT7663 BT UART Rev0"
+    default n
+    help
+      Support for MediaTek MT7663 BT UART Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_UART_R1
+    tristate "MediaTek MT7663 BT UART Rev1"
+    default n
+    help
+      Support for MediaTek MT7663 BT UART Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_UART_R2
+    tristate "MediaTek MT7663 BT UART Rev2"
+    default n
+    help
+      Support for MediaTek MT7663 BT UART Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_SDIO_R0
+    tristate "MediaTek MT7663 BT SDIO Rev0"
+    default n
+    help
+      Support for MediaTek MT7663 BT SDIO Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_SDIO_R1
+    tristate "MediaTek MT7663 BT SDIO Rev1"
+    default n
+    help
+      Support for MediaTek MT7663 BT SDIO Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7663_SDIO_R2
+    tristate "MediaTek MT7663 BT SDIO Rev2"
+    default n
+    help
+      Support for MediaTek MT7663 BT SDIO Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_USB_R0
+    tristate "MediaTek MT7921 BT USB Rev0"
+    default n
+    help
+      Support for MediaTek MT7921 BT USB Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_USB_R1
+    tristate "MediaTek MT7921 BT USB Rev1"
+    default n
+    help
+      Support for MediaTek MT7921 BT USB Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_USB_R2
+    tristate "MediaTek MT7921 BT USB Rev2"
+    default n
+    help
+      Support for MediaTek MT7921 BT USB Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_UART_R0
+    tristate "MediaTek MT7921 BT UART Rev0"
+    default n
+    help
+      Support for MediaTek MT7921 BT UART Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_UART_R1
+    tristate "MediaTek MT7921 BT UART Rev1"
+    default n
+    help
+      Support for MediaTek MT7921 BT UART Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_UART_R2
+    tristate "MediaTek MT7921 BT UART Rev2"
+    default n
+    help
+      Support for MediaTek MT7921 BT UART Rev2 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_SDIO_R0
+    tristate "MediaTek MT7921 BT SDIO Rev0"
+    default n
+    help
+      Support for MediaTek MT7921 BT SDIO Rev0 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_SDIO_R1
+    tristate "MediaTek MT7921 BT SDIO Rev1"
+    default n
+    help
+      Support for MediaTek MT7921 BT SDIO Rev1 (MediaTek)
+      Category: bluetooth
+
+config BT_MEDIATEK_MT7921_SDIO_R2
+    tristate "MediaTek MT7921 BT SDIO Rev2"
+    default n
+    help
+      Support for MediaTek MT7921 BT SDIO Rev2 (MediaTek)
+      Category: bluetooth
+
+endmenu

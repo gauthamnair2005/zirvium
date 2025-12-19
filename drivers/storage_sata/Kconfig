@@ -1,0 +1,2692 @@
+
+menu "Storage_Sata Drivers"
+
+config STORAGE_SATA_INTEL_SATA2_P2_R0
+    tristate "Intel SATA2 2-port Rev0"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P2_R1
+    tristate "Intel SATA2 2-port Rev1"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P2_R2
+    tristate "Intel SATA2 2-port Rev2"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P2_R3
+    tristate "Intel SATA2 2-port Rev3"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P2_R4
+    tristate "Intel SATA2 2-port Rev4"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P2_R5
+    tristate "Intel SATA2 2-port Rev5"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P2_R6
+    tristate "Intel SATA2 2-port Rev6"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P2_R7
+    tristate "Intel SATA2 2-port Rev7"
+    default n
+    help
+      Support for Intel SATA2 2-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R0
+    tristate "Intel SATA2 4-port Rev0"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R1
+    tristate "Intel SATA2 4-port Rev1"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R2
+    tristate "Intel SATA2 4-port Rev2"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R3
+    tristate "Intel SATA2 4-port Rev3"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R4
+    tristate "Intel SATA2 4-port Rev4"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R5
+    tristate "Intel SATA2 4-port Rev5"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R6
+    tristate "Intel SATA2 4-port Rev6"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P4_R7
+    tristate "Intel SATA2 4-port Rev7"
+    default n
+    help
+      Support for Intel SATA2 4-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R0
+    tristate "Intel SATA2 6-port Rev0"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R1
+    tristate "Intel SATA2 6-port Rev1"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R2
+    tristate "Intel SATA2 6-port Rev2"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R3
+    tristate "Intel SATA2 6-port Rev3"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R4
+    tristate "Intel SATA2 6-port Rev4"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R5
+    tristate "Intel SATA2 6-port Rev5"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R6
+    tristate "Intel SATA2 6-port Rev6"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P6_R7
+    tristate "Intel SATA2 6-port Rev7"
+    default n
+    help
+      Support for Intel SATA2 6-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R0
+    tristate "Intel SATA2 8-port Rev0"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R1
+    tristate "Intel SATA2 8-port Rev1"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R2
+    tristate "Intel SATA2 8-port Rev2"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R3
+    tristate "Intel SATA2 8-port Rev3"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R4
+    tristate "Intel SATA2 8-port Rev4"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R5
+    tristate "Intel SATA2 8-port Rev5"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R6
+    tristate "Intel SATA2 8-port Rev6"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA2_P8_R7
+    tristate "Intel SATA2 8-port Rev7"
+    default n
+    help
+      Support for Intel SATA2 8-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R0
+    tristate "Intel SATA3 2-port Rev0"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R1
+    tristate "Intel SATA3 2-port Rev1"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R2
+    tristate "Intel SATA3 2-port Rev2"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R3
+    tristate "Intel SATA3 2-port Rev3"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R4
+    tristate "Intel SATA3 2-port Rev4"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R5
+    tristate "Intel SATA3 2-port Rev5"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R6
+    tristate "Intel SATA3 2-port Rev6"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P2_R7
+    tristate "Intel SATA3 2-port Rev7"
+    default n
+    help
+      Support for Intel SATA3 2-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R0
+    tristate "Intel SATA3 4-port Rev0"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R1
+    tristate "Intel SATA3 4-port Rev1"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R2
+    tristate "Intel SATA3 4-port Rev2"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R3
+    tristate "Intel SATA3 4-port Rev3"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R4
+    tristate "Intel SATA3 4-port Rev4"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R5
+    tristate "Intel SATA3 4-port Rev5"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R6
+    tristate "Intel SATA3 4-port Rev6"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P4_R7
+    tristate "Intel SATA3 4-port Rev7"
+    default n
+    help
+      Support for Intel SATA3 4-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R0
+    tristate "Intel SATA3 6-port Rev0"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R1
+    tristate "Intel SATA3 6-port Rev1"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R2
+    tristate "Intel SATA3 6-port Rev2"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R3
+    tristate "Intel SATA3 6-port Rev3"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R4
+    tristate "Intel SATA3 6-port Rev4"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R5
+    tristate "Intel SATA3 6-port Rev5"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R6
+    tristate "Intel SATA3 6-port Rev6"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P6_R7
+    tristate "Intel SATA3 6-port Rev7"
+    default n
+    help
+      Support for Intel SATA3 6-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R0
+    tristate "Intel SATA3 8-port Rev0"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev0 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R1
+    tristate "Intel SATA3 8-port Rev1"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev1 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R2
+    tristate "Intel SATA3 8-port Rev2"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev2 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R3
+    tristate "Intel SATA3 8-port Rev3"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev3 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R4
+    tristate "Intel SATA3 8-port Rev4"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev4 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R5
+    tristate "Intel SATA3 8-port Rev5"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev5 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R6
+    tristate "Intel SATA3 8-port Rev6"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev6 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_INTEL_SATA3_P8_R7
+    tristate "Intel SATA3 8-port Rev7"
+    default n
+    help
+      Support for Intel SATA3 8-port Rev7 (Intel)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R0
+    tristate "AMD SATA2 2-port Rev0"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R1
+    tristate "AMD SATA2 2-port Rev1"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R2
+    tristate "AMD SATA2 2-port Rev2"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R3
+    tristate "AMD SATA2 2-port Rev3"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R4
+    tristate "AMD SATA2 2-port Rev4"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R5
+    tristate "AMD SATA2 2-port Rev5"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R6
+    tristate "AMD SATA2 2-port Rev6"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P2_R7
+    tristate "AMD SATA2 2-port Rev7"
+    default n
+    help
+      Support for AMD SATA2 2-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R0
+    tristate "AMD SATA2 4-port Rev0"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R1
+    tristate "AMD SATA2 4-port Rev1"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R2
+    tristate "AMD SATA2 4-port Rev2"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R3
+    tristate "AMD SATA2 4-port Rev3"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R4
+    tristate "AMD SATA2 4-port Rev4"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R5
+    tristate "AMD SATA2 4-port Rev5"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R6
+    tristate "AMD SATA2 4-port Rev6"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P4_R7
+    tristate "AMD SATA2 4-port Rev7"
+    default n
+    help
+      Support for AMD SATA2 4-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R0
+    tristate "AMD SATA2 6-port Rev0"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R1
+    tristate "AMD SATA2 6-port Rev1"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R2
+    tristate "AMD SATA2 6-port Rev2"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R3
+    tristate "AMD SATA2 6-port Rev3"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R4
+    tristate "AMD SATA2 6-port Rev4"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R5
+    tristate "AMD SATA2 6-port Rev5"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R6
+    tristate "AMD SATA2 6-port Rev6"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P6_R7
+    tristate "AMD SATA2 6-port Rev7"
+    default n
+    help
+      Support for AMD SATA2 6-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R0
+    tristate "AMD SATA2 8-port Rev0"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R1
+    tristate "AMD SATA2 8-port Rev1"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R2
+    tristate "AMD SATA2 8-port Rev2"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R3
+    tristate "AMD SATA2 8-port Rev3"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R4
+    tristate "AMD SATA2 8-port Rev4"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R5
+    tristate "AMD SATA2 8-port Rev5"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R6
+    tristate "AMD SATA2 8-port Rev6"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA2_P8_R7
+    tristate "AMD SATA2 8-port Rev7"
+    default n
+    help
+      Support for AMD SATA2 8-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R0
+    tristate "AMD SATA3 2-port Rev0"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R1
+    tristate "AMD SATA3 2-port Rev1"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R2
+    tristate "AMD SATA3 2-port Rev2"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R3
+    tristate "AMD SATA3 2-port Rev3"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R4
+    tristate "AMD SATA3 2-port Rev4"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R5
+    tristate "AMD SATA3 2-port Rev5"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R6
+    tristate "AMD SATA3 2-port Rev6"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P2_R7
+    tristate "AMD SATA3 2-port Rev7"
+    default n
+    help
+      Support for AMD SATA3 2-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R0
+    tristate "AMD SATA3 4-port Rev0"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R1
+    tristate "AMD SATA3 4-port Rev1"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R2
+    tristate "AMD SATA3 4-port Rev2"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R3
+    tristate "AMD SATA3 4-port Rev3"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R4
+    tristate "AMD SATA3 4-port Rev4"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R5
+    tristate "AMD SATA3 4-port Rev5"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R6
+    tristate "AMD SATA3 4-port Rev6"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P4_R7
+    tristate "AMD SATA3 4-port Rev7"
+    default n
+    help
+      Support for AMD SATA3 4-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R0
+    tristate "AMD SATA3 6-port Rev0"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R1
+    tristate "AMD SATA3 6-port Rev1"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R2
+    tristate "AMD SATA3 6-port Rev2"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R3
+    tristate "AMD SATA3 6-port Rev3"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R4
+    tristate "AMD SATA3 6-port Rev4"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R5
+    tristate "AMD SATA3 6-port Rev5"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R6
+    tristate "AMD SATA3 6-port Rev6"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P6_R7
+    tristate "AMD SATA3 6-port Rev7"
+    default n
+    help
+      Support for AMD SATA3 6-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R0
+    tristate "AMD SATA3 8-port Rev0"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev0 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R1
+    tristate "AMD SATA3 8-port Rev1"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev1 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R2
+    tristate "AMD SATA3 8-port Rev2"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev2 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R3
+    tristate "AMD SATA3 8-port Rev3"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev3 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R4
+    tristate "AMD SATA3 8-port Rev4"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev4 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R5
+    tristate "AMD SATA3 8-port Rev5"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev5 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R6
+    tristate "AMD SATA3 8-port Rev6"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev6 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_AMD_SATA3_P8_R7
+    tristate "AMD SATA3 8-port Rev7"
+    default n
+    help
+      Support for AMD SATA3 8-port Rev7 (AMD)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R0
+    tristate "Marvell SATA2 2-port Rev0"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R1
+    tristate "Marvell SATA2 2-port Rev1"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R2
+    tristate "Marvell SATA2 2-port Rev2"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R3
+    tristate "Marvell SATA2 2-port Rev3"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R4
+    tristate "Marvell SATA2 2-port Rev4"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R5
+    tristate "Marvell SATA2 2-port Rev5"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R6
+    tristate "Marvell SATA2 2-port Rev6"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P2_R7
+    tristate "Marvell SATA2 2-port Rev7"
+    default n
+    help
+      Support for Marvell SATA2 2-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R0
+    tristate "Marvell SATA2 4-port Rev0"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R1
+    tristate "Marvell SATA2 4-port Rev1"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R2
+    tristate "Marvell SATA2 4-port Rev2"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R3
+    tristate "Marvell SATA2 4-port Rev3"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R4
+    tristate "Marvell SATA2 4-port Rev4"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R5
+    tristate "Marvell SATA2 4-port Rev5"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R6
+    tristate "Marvell SATA2 4-port Rev6"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P4_R7
+    tristate "Marvell SATA2 4-port Rev7"
+    default n
+    help
+      Support for Marvell SATA2 4-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R0
+    tristate "Marvell SATA2 6-port Rev0"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R1
+    tristate "Marvell SATA2 6-port Rev1"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R2
+    tristate "Marvell SATA2 6-port Rev2"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R3
+    tristate "Marvell SATA2 6-port Rev3"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R4
+    tristate "Marvell SATA2 6-port Rev4"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R5
+    tristate "Marvell SATA2 6-port Rev5"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R6
+    tristate "Marvell SATA2 6-port Rev6"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P6_R7
+    tristate "Marvell SATA2 6-port Rev7"
+    default n
+    help
+      Support for Marvell SATA2 6-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R0
+    tristate "Marvell SATA2 8-port Rev0"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R1
+    tristate "Marvell SATA2 8-port Rev1"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R2
+    tristate "Marvell SATA2 8-port Rev2"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R3
+    tristate "Marvell SATA2 8-port Rev3"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R4
+    tristate "Marvell SATA2 8-port Rev4"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R5
+    tristate "Marvell SATA2 8-port Rev5"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R6
+    tristate "Marvell SATA2 8-port Rev6"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA2_P8_R7
+    tristate "Marvell SATA2 8-port Rev7"
+    default n
+    help
+      Support for Marvell SATA2 8-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R0
+    tristate "Marvell SATA3 2-port Rev0"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R1
+    tristate "Marvell SATA3 2-port Rev1"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R2
+    tristate "Marvell SATA3 2-port Rev2"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R3
+    tristate "Marvell SATA3 2-port Rev3"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R4
+    tristate "Marvell SATA3 2-port Rev4"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R5
+    tristate "Marvell SATA3 2-port Rev5"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R6
+    tristate "Marvell SATA3 2-port Rev6"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P2_R7
+    tristate "Marvell SATA3 2-port Rev7"
+    default n
+    help
+      Support for Marvell SATA3 2-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R0
+    tristate "Marvell SATA3 4-port Rev0"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R1
+    tristate "Marvell SATA3 4-port Rev1"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R2
+    tristate "Marvell SATA3 4-port Rev2"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R3
+    tristate "Marvell SATA3 4-port Rev3"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R4
+    tristate "Marvell SATA3 4-port Rev4"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R5
+    tristate "Marvell SATA3 4-port Rev5"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R6
+    tristate "Marvell SATA3 4-port Rev6"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P4_R7
+    tristate "Marvell SATA3 4-port Rev7"
+    default n
+    help
+      Support for Marvell SATA3 4-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R0
+    tristate "Marvell SATA3 6-port Rev0"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R1
+    tristate "Marvell SATA3 6-port Rev1"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R2
+    tristate "Marvell SATA3 6-port Rev2"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R3
+    tristate "Marvell SATA3 6-port Rev3"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R4
+    tristate "Marvell SATA3 6-port Rev4"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R5
+    tristate "Marvell SATA3 6-port Rev5"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R6
+    tristate "Marvell SATA3 6-port Rev6"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P6_R7
+    tristate "Marvell SATA3 6-port Rev7"
+    default n
+    help
+      Support for Marvell SATA3 6-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R0
+    tristate "Marvell SATA3 8-port Rev0"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev0 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R1
+    tristate "Marvell SATA3 8-port Rev1"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev1 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R2
+    tristate "Marvell SATA3 8-port Rev2"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev2 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R3
+    tristate "Marvell SATA3 8-port Rev3"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev3 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R4
+    tristate "Marvell SATA3 8-port Rev4"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev4 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R5
+    tristate "Marvell SATA3 8-port Rev5"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev5 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R6
+    tristate "Marvell SATA3 8-port Rev6"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev6 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_MARVELL_SATA3_P8_R7
+    tristate "Marvell SATA3 8-port Rev7"
+    default n
+    help
+      Support for Marvell SATA3 8-port Rev7 (Marvell)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R0
+    tristate "JMicron SATA2 2-port Rev0"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R1
+    tristate "JMicron SATA2 2-port Rev1"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R2
+    tristate "JMicron SATA2 2-port Rev2"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R3
+    tristate "JMicron SATA2 2-port Rev3"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R4
+    tristate "JMicron SATA2 2-port Rev4"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R5
+    tristate "JMicron SATA2 2-port Rev5"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R6
+    tristate "JMicron SATA2 2-port Rev6"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P2_R7
+    tristate "JMicron SATA2 2-port Rev7"
+    default n
+    help
+      Support for JMicron SATA2 2-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R0
+    tristate "JMicron SATA2 4-port Rev0"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R1
+    tristate "JMicron SATA2 4-port Rev1"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R2
+    tristate "JMicron SATA2 4-port Rev2"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R3
+    tristate "JMicron SATA2 4-port Rev3"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R4
+    tristate "JMicron SATA2 4-port Rev4"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R5
+    tristate "JMicron SATA2 4-port Rev5"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R6
+    tristate "JMicron SATA2 4-port Rev6"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P4_R7
+    tristate "JMicron SATA2 4-port Rev7"
+    default n
+    help
+      Support for JMicron SATA2 4-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R0
+    tristate "JMicron SATA2 6-port Rev0"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R1
+    tristate "JMicron SATA2 6-port Rev1"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R2
+    tristate "JMicron SATA2 6-port Rev2"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R3
+    tristate "JMicron SATA2 6-port Rev3"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R4
+    tristate "JMicron SATA2 6-port Rev4"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R5
+    tristate "JMicron SATA2 6-port Rev5"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R6
+    tristate "JMicron SATA2 6-port Rev6"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P6_R7
+    tristate "JMicron SATA2 6-port Rev7"
+    default n
+    help
+      Support for JMicron SATA2 6-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R0
+    tristate "JMicron SATA2 8-port Rev0"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R1
+    tristate "JMicron SATA2 8-port Rev1"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R2
+    tristate "JMicron SATA2 8-port Rev2"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R3
+    tristate "JMicron SATA2 8-port Rev3"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R4
+    tristate "JMicron SATA2 8-port Rev4"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R5
+    tristate "JMicron SATA2 8-port Rev5"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R6
+    tristate "JMicron SATA2 8-port Rev6"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA2_P8_R7
+    tristate "JMicron SATA2 8-port Rev7"
+    default n
+    help
+      Support for JMicron SATA2 8-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R0
+    tristate "JMicron SATA3 2-port Rev0"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R1
+    tristate "JMicron SATA3 2-port Rev1"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R2
+    tristate "JMicron SATA3 2-port Rev2"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R3
+    tristate "JMicron SATA3 2-port Rev3"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R4
+    tristate "JMicron SATA3 2-port Rev4"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R5
+    tristate "JMicron SATA3 2-port Rev5"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R6
+    tristate "JMicron SATA3 2-port Rev6"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P2_R7
+    tristate "JMicron SATA3 2-port Rev7"
+    default n
+    help
+      Support for JMicron SATA3 2-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R0
+    tristate "JMicron SATA3 4-port Rev0"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R1
+    tristate "JMicron SATA3 4-port Rev1"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R2
+    tristate "JMicron SATA3 4-port Rev2"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R3
+    tristate "JMicron SATA3 4-port Rev3"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R4
+    tristate "JMicron SATA3 4-port Rev4"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R5
+    tristate "JMicron SATA3 4-port Rev5"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R6
+    tristate "JMicron SATA3 4-port Rev6"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P4_R7
+    tristate "JMicron SATA3 4-port Rev7"
+    default n
+    help
+      Support for JMicron SATA3 4-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R0
+    tristate "JMicron SATA3 6-port Rev0"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R1
+    tristate "JMicron SATA3 6-port Rev1"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R2
+    tristate "JMicron SATA3 6-port Rev2"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R3
+    tristate "JMicron SATA3 6-port Rev3"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R4
+    tristate "JMicron SATA3 6-port Rev4"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R5
+    tristate "JMicron SATA3 6-port Rev5"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R6
+    tristate "JMicron SATA3 6-port Rev6"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P6_R7
+    tristate "JMicron SATA3 6-port Rev7"
+    default n
+    help
+      Support for JMicron SATA3 6-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R0
+    tristate "JMicron SATA3 8-port Rev0"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev0 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R1
+    tristate "JMicron SATA3 8-port Rev1"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev1 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R2
+    tristate "JMicron SATA3 8-port Rev2"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev2 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R3
+    tristate "JMicron SATA3 8-port Rev3"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev3 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R4
+    tristate "JMicron SATA3 8-port Rev4"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev4 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R5
+    tristate "JMicron SATA3 8-port Rev5"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev5 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R6
+    tristate "JMicron SATA3 8-port Rev6"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev6 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_JMICRON_SATA3_P8_R7
+    tristate "JMicron SATA3 8-port Rev7"
+    default n
+    help
+      Support for JMicron SATA3 8-port Rev7 (JMicron)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R0
+    tristate "ASMedia SATA2 2-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R1
+    tristate "ASMedia SATA2 2-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R2
+    tristate "ASMedia SATA2 2-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R3
+    tristate "ASMedia SATA2 2-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R4
+    tristate "ASMedia SATA2 2-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R5
+    tristate "ASMedia SATA2 2-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R6
+    tristate "ASMedia SATA2 2-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P2_R7
+    tristate "ASMedia SATA2 2-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA2 2-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R0
+    tristate "ASMedia SATA2 4-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R1
+    tristate "ASMedia SATA2 4-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R2
+    tristate "ASMedia SATA2 4-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R3
+    tristate "ASMedia SATA2 4-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R4
+    tristate "ASMedia SATA2 4-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R5
+    tristate "ASMedia SATA2 4-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R6
+    tristate "ASMedia SATA2 4-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P4_R7
+    tristate "ASMedia SATA2 4-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA2 4-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R0
+    tristate "ASMedia SATA2 6-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R1
+    tristate "ASMedia SATA2 6-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R2
+    tristate "ASMedia SATA2 6-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R3
+    tristate "ASMedia SATA2 6-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R4
+    tristate "ASMedia SATA2 6-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R5
+    tristate "ASMedia SATA2 6-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R6
+    tristate "ASMedia SATA2 6-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P6_R7
+    tristate "ASMedia SATA2 6-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA2 6-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R0
+    tristate "ASMedia SATA2 8-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R1
+    tristate "ASMedia SATA2 8-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R2
+    tristate "ASMedia SATA2 8-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R3
+    tristate "ASMedia SATA2 8-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R4
+    tristate "ASMedia SATA2 8-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R5
+    tristate "ASMedia SATA2 8-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R6
+    tristate "ASMedia SATA2 8-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA2_P8_R7
+    tristate "ASMedia SATA2 8-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA2 8-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R0
+    tristate "ASMedia SATA3 2-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R1
+    tristate "ASMedia SATA3 2-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R2
+    tristate "ASMedia SATA3 2-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R3
+    tristate "ASMedia SATA3 2-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R4
+    tristate "ASMedia SATA3 2-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R5
+    tristate "ASMedia SATA3 2-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R6
+    tristate "ASMedia SATA3 2-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P2_R7
+    tristate "ASMedia SATA3 2-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA3 2-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R0
+    tristate "ASMedia SATA3 4-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R1
+    tristate "ASMedia SATA3 4-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R2
+    tristate "ASMedia SATA3 4-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R3
+    tristate "ASMedia SATA3 4-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R4
+    tristate "ASMedia SATA3 4-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R5
+    tristate "ASMedia SATA3 4-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R6
+    tristate "ASMedia SATA3 4-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P4_R7
+    tristate "ASMedia SATA3 4-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA3 4-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R0
+    tristate "ASMedia SATA3 6-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R1
+    tristate "ASMedia SATA3 6-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R2
+    tristate "ASMedia SATA3 6-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R3
+    tristate "ASMedia SATA3 6-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R4
+    tristate "ASMedia SATA3 6-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R5
+    tristate "ASMedia SATA3 6-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R6
+    tristate "ASMedia SATA3 6-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P6_R7
+    tristate "ASMedia SATA3 6-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA3 6-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R0
+    tristate "ASMedia SATA3 8-port Rev0"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev0 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R1
+    tristate "ASMedia SATA3 8-port Rev1"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev1 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R2
+    tristate "ASMedia SATA3 8-port Rev2"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev2 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R3
+    tristate "ASMedia SATA3 8-port Rev3"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev3 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R4
+    tristate "ASMedia SATA3 8-port Rev4"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev4 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R5
+    tristate "ASMedia SATA3 8-port Rev5"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev5 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R6
+    tristate "ASMedia SATA3 8-port Rev6"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev6 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_ASMEDIA_SATA3_P8_R7
+    tristate "ASMedia SATA3 8-port Rev7"
+    default n
+    help
+      Support for ASMedia SATA3 8-port Rev7 (ASMedia)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R0
+    tristate "VIA SATA2 2-port Rev0"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R1
+    tristate "VIA SATA2 2-port Rev1"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R2
+    tristate "VIA SATA2 2-port Rev2"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R3
+    tristate "VIA SATA2 2-port Rev3"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R4
+    tristate "VIA SATA2 2-port Rev4"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R5
+    tristate "VIA SATA2 2-port Rev5"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R6
+    tristate "VIA SATA2 2-port Rev6"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P2_R7
+    tristate "VIA SATA2 2-port Rev7"
+    default n
+    help
+      Support for VIA SATA2 2-port Rev7 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R0
+    tristate "VIA SATA2 4-port Rev0"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R1
+    tristate "VIA SATA2 4-port Rev1"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R2
+    tristate "VIA SATA2 4-port Rev2"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R3
+    tristate "VIA SATA2 4-port Rev3"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R4
+    tristate "VIA SATA2 4-port Rev4"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R5
+    tristate "VIA SATA2 4-port Rev5"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R6
+    tristate "VIA SATA2 4-port Rev6"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P4_R7
+    tristate "VIA SATA2 4-port Rev7"
+    default n
+    help
+      Support for VIA SATA2 4-port Rev7 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R0
+    tristate "VIA SATA2 6-port Rev0"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R1
+    tristate "VIA SATA2 6-port Rev1"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R2
+    tristate "VIA SATA2 6-port Rev2"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R3
+    tristate "VIA SATA2 6-port Rev3"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R4
+    tristate "VIA SATA2 6-port Rev4"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R5
+    tristate "VIA SATA2 6-port Rev5"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R6
+    tristate "VIA SATA2 6-port Rev6"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P6_R7
+    tristate "VIA SATA2 6-port Rev7"
+    default n
+    help
+      Support for VIA SATA2 6-port Rev7 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R0
+    tristate "VIA SATA2 8-port Rev0"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R1
+    tristate "VIA SATA2 8-port Rev1"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R2
+    tristate "VIA SATA2 8-port Rev2"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R3
+    tristate "VIA SATA2 8-port Rev3"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R4
+    tristate "VIA SATA2 8-port Rev4"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R5
+    tristate "VIA SATA2 8-port Rev5"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R6
+    tristate "VIA SATA2 8-port Rev6"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA2_P8_R7
+    tristate "VIA SATA2 8-port Rev7"
+    default n
+    help
+      Support for VIA SATA2 8-port Rev7 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R0
+    tristate "VIA SATA3 2-port Rev0"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R1
+    tristate "VIA SATA3 2-port Rev1"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R2
+    tristate "VIA SATA3 2-port Rev2"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R3
+    tristate "VIA SATA3 2-port Rev3"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R4
+    tristate "VIA SATA3 2-port Rev4"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R5
+    tristate "VIA SATA3 2-port Rev5"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R6
+    tristate "VIA SATA3 2-port Rev6"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P2_R7
+    tristate "VIA SATA3 2-port Rev7"
+    default n
+    help
+      Support for VIA SATA3 2-port Rev7 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R0
+    tristate "VIA SATA3 4-port Rev0"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R1
+    tristate "VIA SATA3 4-port Rev1"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R2
+    tristate "VIA SATA3 4-port Rev2"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R3
+    tristate "VIA SATA3 4-port Rev3"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R4
+    tristate "VIA SATA3 4-port Rev4"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R5
+    tristate "VIA SATA3 4-port Rev5"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R6
+    tristate "VIA SATA3 4-port Rev6"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P4_R7
+    tristate "VIA SATA3 4-port Rev7"
+    default n
+    help
+      Support for VIA SATA3 4-port Rev7 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R0
+    tristate "VIA SATA3 6-port Rev0"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R1
+    tristate "VIA SATA3 6-port Rev1"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R2
+    tristate "VIA SATA3 6-port Rev2"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R3
+    tristate "VIA SATA3 6-port Rev3"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R4
+    tristate "VIA SATA3 6-port Rev4"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R5
+    tristate "VIA SATA3 6-port Rev5"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R6
+    tristate "VIA SATA3 6-port Rev6"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P6_R7
+    tristate "VIA SATA3 6-port Rev7"
+    default n
+    help
+      Support for VIA SATA3 6-port Rev7 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R0
+    tristate "VIA SATA3 8-port Rev0"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev0 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R1
+    tristate "VIA SATA3 8-port Rev1"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev1 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R2
+    tristate "VIA SATA3 8-port Rev2"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev2 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R3
+    tristate "VIA SATA3 8-port Rev3"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev3 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R4
+    tristate "VIA SATA3 8-port Rev4"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev4 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R5
+    tristate "VIA SATA3 8-port Rev5"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev5 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R6
+    tristate "VIA SATA3 8-port Rev6"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev6 (VIA)
+      Category: storage_sata
+
+config STORAGE_SATA_VIA_SATA3_P8_R7
+    tristate "VIA SATA3 8-port Rev7"
+    default n
+    help
+      Support for VIA SATA3 8-port Rev7 (VIA)
+      Category: storage_sata
+
+endmenu

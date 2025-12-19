@@ -1,0 +1,2 @@
+drivers/display/display-hdmi-v1.4-c8-p7.o: \
+ drivers/display/display-hdmi-v1.4-c8-p7.c

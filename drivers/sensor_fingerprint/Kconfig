@@ -1,0 +1,676 @@
+
+menu "Sensor_Fingerprint Drivers"
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R0
+    tristate "Fingerprint FPC1020 I2C Rev0"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev0 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R1
+    tristate "Fingerprint FPC1020 I2C Rev1"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev1 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R2
+    tristate "Fingerprint FPC1020 I2C Rev2"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev2 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R3
+    tristate "Fingerprint FPC1020 I2C Rev3"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev3 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R4
+    tristate "Fingerprint FPC1020 I2C Rev4"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev4 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R5
+    tristate "Fingerprint FPC1020 I2C Rev5"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev5 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R6
+    tristate "Fingerprint FPC1020 I2C Rev6"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev6 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_I2C_R7
+    tristate "Fingerprint FPC1020 I2C Rev7"
+    default n
+    help
+      Support for Fingerprint FPC1020 I2C Rev7 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R0
+    tristate "Fingerprint FPC1020 SPI Rev0"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev0 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R1
+    tristate "Fingerprint FPC1020 SPI Rev1"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev1 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R2
+    tristate "Fingerprint FPC1020 SPI Rev2"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev2 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R3
+    tristate "Fingerprint FPC1020 SPI Rev3"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev3 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R4
+    tristate "Fingerprint FPC1020 SPI Rev4"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev4 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R5
+    tristate "Fingerprint FPC1020 SPI Rev5"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev5 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R6
+    tristate "Fingerprint FPC1020 SPI Rev6"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev6 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_SPI_R7
+    tristate "Fingerprint FPC1020 SPI Rev7"
+    default n
+    help
+      Support for Fingerprint FPC1020 SPI Rev7 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R0
+    tristate "Fingerprint FPC1020 UART Rev0"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev0 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R1
+    tristate "Fingerprint FPC1020 UART Rev1"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev1 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R2
+    tristate "Fingerprint FPC1020 UART Rev2"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev2 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R3
+    tristate "Fingerprint FPC1020 UART Rev3"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev3 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R4
+    tristate "Fingerprint FPC1020 UART Rev4"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev4 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R5
+    tristate "Fingerprint FPC1020 UART Rev5"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev5 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R6
+    tristate "Fingerprint FPC1020 UART Rev6"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev6 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1020_UART_R7
+    tristate "Fingerprint FPC1020 UART Rev7"
+    default n
+    help
+      Support for Fingerprint FPC1020 UART Rev7 (FPC1020)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R0
+    tristate "Fingerprint FPC1150 I2C Rev0"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev0 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R1
+    tristate "Fingerprint FPC1150 I2C Rev1"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev1 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R2
+    tristate "Fingerprint FPC1150 I2C Rev2"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev2 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R3
+    tristate "Fingerprint FPC1150 I2C Rev3"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev3 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R4
+    tristate "Fingerprint FPC1150 I2C Rev4"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev4 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R5
+    tristate "Fingerprint FPC1150 I2C Rev5"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev5 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R6
+    tristate "Fingerprint FPC1150 I2C Rev6"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev6 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_I2C_R7
+    tristate "Fingerprint FPC1150 I2C Rev7"
+    default n
+    help
+      Support for Fingerprint FPC1150 I2C Rev7 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R0
+    tristate "Fingerprint FPC1150 SPI Rev0"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev0 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R1
+    tristate "Fingerprint FPC1150 SPI Rev1"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev1 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R2
+    tristate "Fingerprint FPC1150 SPI Rev2"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev2 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R3
+    tristate "Fingerprint FPC1150 SPI Rev3"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev3 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R4
+    tristate "Fingerprint FPC1150 SPI Rev4"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev4 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R5
+    tristate "Fingerprint FPC1150 SPI Rev5"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev5 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R6
+    tristate "Fingerprint FPC1150 SPI Rev6"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev6 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_SPI_R7
+    tristate "Fingerprint FPC1150 SPI Rev7"
+    default n
+    help
+      Support for Fingerprint FPC1150 SPI Rev7 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R0
+    tristate "Fingerprint FPC1150 UART Rev0"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev0 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R1
+    tristate "Fingerprint FPC1150 UART Rev1"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev1 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R2
+    tristate "Fingerprint FPC1150 UART Rev2"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev2 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R3
+    tristate "Fingerprint FPC1150 UART Rev3"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev3 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R4
+    tristate "Fingerprint FPC1150 UART Rev4"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev4 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R5
+    tristate "Fingerprint FPC1150 UART Rev5"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev5 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R6
+    tristate "Fingerprint FPC1150 UART Rev6"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev6 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_FPC1150_UART_R7
+    tristate "Fingerprint FPC1150 UART Rev7"
+    default n
+    help
+      Support for Fingerprint FPC1150 UART Rev7 (FPC1150)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R0
+    tristate "Fingerprint Goodix I2C Rev0"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev0 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R1
+    tristate "Fingerprint Goodix I2C Rev1"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev1 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R2
+    tristate "Fingerprint Goodix I2C Rev2"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev2 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R3
+    tristate "Fingerprint Goodix I2C Rev3"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev3 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R4
+    tristate "Fingerprint Goodix I2C Rev4"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev4 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R5
+    tristate "Fingerprint Goodix I2C Rev5"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev5 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R6
+    tristate "Fingerprint Goodix I2C Rev6"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev6 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_I2C_R7
+    tristate "Fingerprint Goodix I2C Rev7"
+    default n
+    help
+      Support for Fingerprint Goodix I2C Rev7 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R0
+    tristate "Fingerprint Goodix SPI Rev0"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev0 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R1
+    tristate "Fingerprint Goodix SPI Rev1"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev1 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R2
+    tristate "Fingerprint Goodix SPI Rev2"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev2 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R3
+    tristate "Fingerprint Goodix SPI Rev3"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev3 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R4
+    tristate "Fingerprint Goodix SPI Rev4"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev4 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R5
+    tristate "Fingerprint Goodix SPI Rev5"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev5 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R6
+    tristate "Fingerprint Goodix SPI Rev6"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev6 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_SPI_R7
+    tristate "Fingerprint Goodix SPI Rev7"
+    default n
+    help
+      Support for Fingerprint Goodix SPI Rev7 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R0
+    tristate "Fingerprint Goodix UART Rev0"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev0 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R1
+    tristate "Fingerprint Goodix UART Rev1"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev1 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R2
+    tristate "Fingerprint Goodix UART Rev2"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev2 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R3
+    tristate "Fingerprint Goodix UART Rev3"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev3 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R4
+    tristate "Fingerprint Goodix UART Rev4"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev4 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R5
+    tristate "Fingerprint Goodix UART Rev5"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev5 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R6
+    tristate "Fingerprint Goodix UART Rev6"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev6 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Goodix_UART_R7
+    tristate "Fingerprint Goodix UART Rev7"
+    default n
+    help
+      Support for Fingerprint Goodix UART Rev7 (Goodix)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R0
+    tristate "Fingerprint Synaptics I2C Rev0"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev0 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R1
+    tristate "Fingerprint Synaptics I2C Rev1"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev1 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R2
+    tristate "Fingerprint Synaptics I2C Rev2"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev2 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R3
+    tristate "Fingerprint Synaptics I2C Rev3"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev3 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R4
+    tristate "Fingerprint Synaptics I2C Rev4"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev4 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R5
+    tristate "Fingerprint Synaptics I2C Rev5"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev5 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R6
+    tristate "Fingerprint Synaptics I2C Rev6"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev6 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_I2C_R7
+    tristate "Fingerprint Synaptics I2C Rev7"
+    default n
+    help
+      Support for Fingerprint Synaptics I2C Rev7 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R0
+    tristate "Fingerprint Synaptics SPI Rev0"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev0 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R1
+    tristate "Fingerprint Synaptics SPI Rev1"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev1 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R2
+    tristate "Fingerprint Synaptics SPI Rev2"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev2 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R3
+    tristate "Fingerprint Synaptics SPI Rev3"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev3 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R4
+    tristate "Fingerprint Synaptics SPI Rev4"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev4 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R5
+    tristate "Fingerprint Synaptics SPI Rev5"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev5 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R6
+    tristate "Fingerprint Synaptics SPI Rev6"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev6 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_SPI_R7
+    tristate "Fingerprint Synaptics SPI Rev7"
+    default n
+    help
+      Support for Fingerprint Synaptics SPI Rev7 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R0
+    tristate "Fingerprint Synaptics UART Rev0"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev0 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R1
+    tristate "Fingerprint Synaptics UART Rev1"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev1 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R2
+    tristate "Fingerprint Synaptics UART Rev2"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev2 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R3
+    tristate "Fingerprint Synaptics UART Rev3"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev3 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R4
+    tristate "Fingerprint Synaptics UART Rev4"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev4 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R5
+    tristate "Fingerprint Synaptics UART Rev5"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev5 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R6
+    tristate "Fingerprint Synaptics UART Rev6"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev6 (Synaptics)
+      Category: sensor_fingerprint
+
+config SENSOR_FINGERPRINT_Synaptics_UART_R7
+    tristate "Fingerprint Synaptics UART Rev7"
+    default n
+    help
+      Support for Fingerprint Synaptics UART Rev7 (Synaptics)
+      Category: sensor_fingerprint
+
+endmenu

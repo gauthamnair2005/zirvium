@@ -1,0 +1,319 @@
+
+menu "Usb_Storage Drivers"
+
+config USB_STORAGE_Mass_Storage_0
+    tristate "USB Storage Mass_Storage variant 0"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 0 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_1
+    tristate "USB Storage Mass_Storage variant 1"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 1 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_2
+    tristate "USB Storage Mass_Storage variant 2"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 2 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_3
+    tristate "USB Storage Mass_Storage variant 3"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 3 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_4
+    tristate "USB Storage Mass_Storage variant 4"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 4 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_5
+    tristate "USB Storage Mass_Storage variant 5"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 5 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_6
+    tristate "USB Storage Mass_Storage variant 6"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 6 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_7
+    tristate "USB Storage Mass_Storage variant 7"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 7 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_8
+    tristate "USB Storage Mass_Storage variant 8"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 8 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_9
+    tristate "USB Storage Mass_Storage variant 9"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 9 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_10
+    tristate "USB Storage Mass_Storage variant 10"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 10 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_11
+    tristate "USB Storage Mass_Storage variant 11"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 11 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_12
+    tristate "USB Storage Mass_Storage variant 12"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 12 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_13
+    tristate "USB Storage Mass_Storage variant 13"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 13 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Mass_Storage_14
+    tristate "USB Storage Mass_Storage variant 14"
+    default n
+    help
+      Support for USB Storage Mass_Storage variant 14 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_0
+    tristate "USB Storage Card_Reader variant 0"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 0 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_1
+    tristate "USB Storage Card_Reader variant 1"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 1 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_2
+    tristate "USB Storage Card_Reader variant 2"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 2 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_3
+    tristate "USB Storage Card_Reader variant 3"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 3 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_4
+    tristate "USB Storage Card_Reader variant 4"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 4 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_5
+    tristate "USB Storage Card_Reader variant 5"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 5 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_6
+    tristate "USB Storage Card_Reader variant 6"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 6 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_7
+    tristate "USB Storage Card_Reader variant 7"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 7 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_8
+    tristate "USB Storage Card_Reader variant 8"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 8 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_9
+    tristate "USB Storage Card_Reader variant 9"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 9 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_10
+    tristate "USB Storage Card_Reader variant 10"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 10 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_11
+    tristate "USB Storage Card_Reader variant 11"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 11 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_12
+    tristate "USB Storage Card_Reader variant 12"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 12 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_13
+    tristate "USB Storage Card_Reader variant 13"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 13 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Card_Reader_14
+    tristate "USB Storage Card_Reader variant 14"
+    default n
+    help
+      Support for USB Storage Card_Reader variant 14 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_0
+    tristate "USB Storage Flash_Drive variant 0"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 0 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_1
+    tristate "USB Storage Flash_Drive variant 1"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 1 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_2
+    tristate "USB Storage Flash_Drive variant 2"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 2 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_3
+    tristate "USB Storage Flash_Drive variant 3"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 3 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_4
+    tristate "USB Storage Flash_Drive variant 4"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 4 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_5
+    tristate "USB Storage Flash_Drive variant 5"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 5 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_6
+    tristate "USB Storage Flash_Drive variant 6"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 6 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_7
+    tristate "USB Storage Flash_Drive variant 7"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 7 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_8
+    tristate "USB Storage Flash_Drive variant 8"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 8 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_9
+    tristate "USB Storage Flash_Drive variant 9"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 9 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_10
+    tristate "USB Storage Flash_Drive variant 10"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 10 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_11
+    tristate "USB Storage Flash_Drive variant 11"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 11 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_12
+    tristate "USB Storage Flash_Drive variant 12"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 12 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_13
+    tristate "USB Storage Flash_Drive variant 13"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 13 (Generic)
+      Category: usb_storage
+
+config USB_STORAGE_Flash_Drive_14
+    tristate "USB Storage Flash_Drive variant 14"
+    default n
+    help
+      Support for USB Storage Flash_Drive variant 14 (Generic)
+      Category: usb_storage
+
+endmenu

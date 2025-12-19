@@ -1,0 +1,1264 @@
+
+menu "Power_Charger Drivers"
+
+config POWER_CHARGER_BQ2400_R0
+    tristate "Charger BQ2400 Rev0"
+    default n
+    help
+      Support for Charger BQ2400 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2400_R1
+    tristate "Charger BQ2400 Rev1"
+    default n
+    help
+      Support for Charger BQ2400 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2400_R2
+    tristate "Charger BQ2400 Rev2"
+    default n
+    help
+      Support for Charger BQ2400 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2401_R0
+    tristate "Charger BQ2401 Rev0"
+    default n
+    help
+      Support for Charger BQ2401 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2401_R1
+    tristate "Charger BQ2401 Rev1"
+    default n
+    help
+      Support for Charger BQ2401 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2401_R2
+    tristate "Charger BQ2401 Rev2"
+    default n
+    help
+      Support for Charger BQ2401 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2402_R0
+    tristate "Charger BQ2402 Rev0"
+    default n
+    help
+      Support for Charger BQ2402 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2402_R1
+    tristate "Charger BQ2402 Rev1"
+    default n
+    help
+      Support for Charger BQ2402 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2402_R2
+    tristate "Charger BQ2402 Rev2"
+    default n
+    help
+      Support for Charger BQ2402 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2403_R0
+    tristate "Charger BQ2403 Rev0"
+    default n
+    help
+      Support for Charger BQ2403 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2403_R1
+    tristate "Charger BQ2403 Rev1"
+    default n
+    help
+      Support for Charger BQ2403 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2403_R2
+    tristate "Charger BQ2403 Rev2"
+    default n
+    help
+      Support for Charger BQ2403 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2404_R0
+    tristate "Charger BQ2404 Rev0"
+    default n
+    help
+      Support for Charger BQ2404 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2404_R1
+    tristate "Charger BQ2404 Rev1"
+    default n
+    help
+      Support for Charger BQ2404 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2404_R2
+    tristate "Charger BQ2404 Rev2"
+    default n
+    help
+      Support for Charger BQ2404 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2405_R0
+    tristate "Charger BQ2405 Rev0"
+    default n
+    help
+      Support for Charger BQ2405 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2405_R1
+    tristate "Charger BQ2405 Rev1"
+    default n
+    help
+      Support for Charger BQ2405 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2405_R2
+    tristate "Charger BQ2405 Rev2"
+    default n
+    help
+      Support for Charger BQ2405 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2406_R0
+    tristate "Charger BQ2406 Rev0"
+    default n
+    help
+      Support for Charger BQ2406 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2406_R1
+    tristate "Charger BQ2406 Rev1"
+    default n
+    help
+      Support for Charger BQ2406 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2406_R2
+    tristate "Charger BQ2406 Rev2"
+    default n
+    help
+      Support for Charger BQ2406 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2407_R0
+    tristate "Charger BQ2407 Rev0"
+    default n
+    help
+      Support for Charger BQ2407 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2407_R1
+    tristate "Charger BQ2407 Rev1"
+    default n
+    help
+      Support for Charger BQ2407 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2407_R2
+    tristate "Charger BQ2407 Rev2"
+    default n
+    help
+      Support for Charger BQ2407 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2408_R0
+    tristate "Charger BQ2408 Rev0"
+    default n
+    help
+      Support for Charger BQ2408 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2408_R1
+    tristate "Charger BQ2408 Rev1"
+    default n
+    help
+      Support for Charger BQ2408 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2408_R2
+    tristate "Charger BQ2408 Rev2"
+    default n
+    help
+      Support for Charger BQ2408 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2409_R0
+    tristate "Charger BQ2409 Rev0"
+    default n
+    help
+      Support for Charger BQ2409 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2409_R1
+    tristate "Charger BQ2409 Rev1"
+    default n
+    help
+      Support for Charger BQ2409 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2409_R2
+    tristate "Charger BQ2409 Rev2"
+    default n
+    help
+      Support for Charger BQ2409 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2410_R0
+    tristate "Charger BQ2410 Rev0"
+    default n
+    help
+      Support for Charger BQ2410 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2410_R1
+    tristate "Charger BQ2410 Rev1"
+    default n
+    help
+      Support for Charger BQ2410 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2410_R2
+    tristate "Charger BQ2410 Rev2"
+    default n
+    help
+      Support for Charger BQ2410 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2411_R0
+    tristate "Charger BQ2411 Rev0"
+    default n
+    help
+      Support for Charger BQ2411 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2411_R1
+    tristate "Charger BQ2411 Rev1"
+    default n
+    help
+      Support for Charger BQ2411 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2411_R2
+    tristate "Charger BQ2411 Rev2"
+    default n
+    help
+      Support for Charger BQ2411 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2412_R0
+    tristate "Charger BQ2412 Rev0"
+    default n
+    help
+      Support for Charger BQ2412 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2412_R1
+    tristate "Charger BQ2412 Rev1"
+    default n
+    help
+      Support for Charger BQ2412 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2412_R2
+    tristate "Charger BQ2412 Rev2"
+    default n
+    help
+      Support for Charger BQ2412 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2413_R0
+    tristate "Charger BQ2413 Rev0"
+    default n
+    help
+      Support for Charger BQ2413 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2413_R1
+    tristate "Charger BQ2413 Rev1"
+    default n
+    help
+      Support for Charger BQ2413 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2413_R2
+    tristate "Charger BQ2413 Rev2"
+    default n
+    help
+      Support for Charger BQ2413 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2414_R0
+    tristate "Charger BQ2414 Rev0"
+    default n
+    help
+      Support for Charger BQ2414 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2414_R1
+    tristate "Charger BQ2414 Rev1"
+    default n
+    help
+      Support for Charger BQ2414 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2414_R2
+    tristate "Charger BQ2414 Rev2"
+    default n
+    help
+      Support for Charger BQ2414 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2415_R0
+    tristate "Charger BQ2415 Rev0"
+    default n
+    help
+      Support for Charger BQ2415 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2415_R1
+    tristate "Charger BQ2415 Rev1"
+    default n
+    help
+      Support for Charger BQ2415 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2415_R2
+    tristate "Charger BQ2415 Rev2"
+    default n
+    help
+      Support for Charger BQ2415 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2416_R0
+    tristate "Charger BQ2416 Rev0"
+    default n
+    help
+      Support for Charger BQ2416 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2416_R1
+    tristate "Charger BQ2416 Rev1"
+    default n
+    help
+      Support for Charger BQ2416 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2416_R2
+    tristate "Charger BQ2416 Rev2"
+    default n
+    help
+      Support for Charger BQ2416 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2417_R0
+    tristate "Charger BQ2417 Rev0"
+    default n
+    help
+      Support for Charger BQ2417 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2417_R1
+    tristate "Charger BQ2417 Rev1"
+    default n
+    help
+      Support for Charger BQ2417 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2417_R2
+    tristate "Charger BQ2417 Rev2"
+    default n
+    help
+      Support for Charger BQ2417 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2418_R0
+    tristate "Charger BQ2418 Rev0"
+    default n
+    help
+      Support for Charger BQ2418 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2418_R1
+    tristate "Charger BQ2418 Rev1"
+    default n
+    help
+      Support for Charger BQ2418 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2418_R2
+    tristate "Charger BQ2418 Rev2"
+    default n
+    help
+      Support for Charger BQ2418 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2419_R0
+    tristate "Charger BQ2419 Rev0"
+    default n
+    help
+      Support for Charger BQ2419 Rev0 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2419_R1
+    tristate "Charger BQ2419 Rev1"
+    default n
+    help
+      Support for Charger BQ2419 Rev1 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_BQ2419_R2
+    tristate "Charger BQ2419 Rev2"
+    default n
+    help
+      Support for Charger BQ2419 Rev2 (BQ24)
+      Category: power_charger
+
+config POWER_CHARGER_LP8700_R0
+    tristate "Charger LP8700 Rev0"
+    default n
+    help
+      Support for Charger LP8700 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8700_R1
+    tristate "Charger LP8700 Rev1"
+    default n
+    help
+      Support for Charger LP8700 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8700_R2
+    tristate "Charger LP8700 Rev2"
+    default n
+    help
+      Support for Charger LP8700 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8701_R0
+    tristate "Charger LP8701 Rev0"
+    default n
+    help
+      Support for Charger LP8701 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8701_R1
+    tristate "Charger LP8701 Rev1"
+    default n
+    help
+      Support for Charger LP8701 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8701_R2
+    tristate "Charger LP8701 Rev2"
+    default n
+    help
+      Support for Charger LP8701 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8702_R0
+    tristate "Charger LP8702 Rev0"
+    default n
+    help
+      Support for Charger LP8702 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8702_R1
+    tristate "Charger LP8702 Rev1"
+    default n
+    help
+      Support for Charger LP8702 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8702_R2
+    tristate "Charger LP8702 Rev2"
+    default n
+    help
+      Support for Charger LP8702 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8703_R0
+    tristate "Charger LP8703 Rev0"
+    default n
+    help
+      Support for Charger LP8703 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8703_R1
+    tristate "Charger LP8703 Rev1"
+    default n
+    help
+      Support for Charger LP8703 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8703_R2
+    tristate "Charger LP8703 Rev2"
+    default n
+    help
+      Support for Charger LP8703 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8704_R0
+    tristate "Charger LP8704 Rev0"
+    default n
+    help
+      Support for Charger LP8704 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8704_R1
+    tristate "Charger LP8704 Rev1"
+    default n
+    help
+      Support for Charger LP8704 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8704_R2
+    tristate "Charger LP8704 Rev2"
+    default n
+    help
+      Support for Charger LP8704 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8705_R0
+    tristate "Charger LP8705 Rev0"
+    default n
+    help
+      Support for Charger LP8705 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8705_R1
+    tristate "Charger LP8705 Rev1"
+    default n
+    help
+      Support for Charger LP8705 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8705_R2
+    tristate "Charger LP8705 Rev2"
+    default n
+    help
+      Support for Charger LP8705 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8706_R0
+    tristate "Charger LP8706 Rev0"
+    default n
+    help
+      Support for Charger LP8706 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8706_R1
+    tristate "Charger LP8706 Rev1"
+    default n
+    help
+      Support for Charger LP8706 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8706_R2
+    tristate "Charger LP8706 Rev2"
+    default n
+    help
+      Support for Charger LP8706 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8707_R0
+    tristate "Charger LP8707 Rev0"
+    default n
+    help
+      Support for Charger LP8707 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8707_R1
+    tristate "Charger LP8707 Rev1"
+    default n
+    help
+      Support for Charger LP8707 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8707_R2
+    tristate "Charger LP8707 Rev2"
+    default n
+    help
+      Support for Charger LP8707 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8708_R0
+    tristate "Charger LP8708 Rev0"
+    default n
+    help
+      Support for Charger LP8708 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8708_R1
+    tristate "Charger LP8708 Rev1"
+    default n
+    help
+      Support for Charger LP8708 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8708_R2
+    tristate "Charger LP8708 Rev2"
+    default n
+    help
+      Support for Charger LP8708 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8709_R0
+    tristate "Charger LP8709 Rev0"
+    default n
+    help
+      Support for Charger LP8709 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8709_R1
+    tristate "Charger LP8709 Rev1"
+    default n
+    help
+      Support for Charger LP8709 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8709_R2
+    tristate "Charger LP8709 Rev2"
+    default n
+    help
+      Support for Charger LP8709 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8710_R0
+    tristate "Charger LP8710 Rev0"
+    default n
+    help
+      Support for Charger LP8710 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8710_R1
+    tristate "Charger LP8710 Rev1"
+    default n
+    help
+      Support for Charger LP8710 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8710_R2
+    tristate "Charger LP8710 Rev2"
+    default n
+    help
+      Support for Charger LP8710 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8711_R0
+    tristate "Charger LP8711 Rev0"
+    default n
+    help
+      Support for Charger LP8711 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8711_R1
+    tristate "Charger LP8711 Rev1"
+    default n
+    help
+      Support for Charger LP8711 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8711_R2
+    tristate "Charger LP8711 Rev2"
+    default n
+    help
+      Support for Charger LP8711 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8712_R0
+    tristate "Charger LP8712 Rev0"
+    default n
+    help
+      Support for Charger LP8712 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8712_R1
+    tristate "Charger LP8712 Rev1"
+    default n
+    help
+      Support for Charger LP8712 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8712_R2
+    tristate "Charger LP8712 Rev2"
+    default n
+    help
+      Support for Charger LP8712 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8713_R0
+    tristate "Charger LP8713 Rev0"
+    default n
+    help
+      Support for Charger LP8713 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8713_R1
+    tristate "Charger LP8713 Rev1"
+    default n
+    help
+      Support for Charger LP8713 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8713_R2
+    tristate "Charger LP8713 Rev2"
+    default n
+    help
+      Support for Charger LP8713 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8714_R0
+    tristate "Charger LP8714 Rev0"
+    default n
+    help
+      Support for Charger LP8714 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8714_R1
+    tristate "Charger LP8714 Rev1"
+    default n
+    help
+      Support for Charger LP8714 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8714_R2
+    tristate "Charger LP8714 Rev2"
+    default n
+    help
+      Support for Charger LP8714 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8715_R0
+    tristate "Charger LP8715 Rev0"
+    default n
+    help
+      Support for Charger LP8715 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8715_R1
+    tristate "Charger LP8715 Rev1"
+    default n
+    help
+      Support for Charger LP8715 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8715_R2
+    tristate "Charger LP8715 Rev2"
+    default n
+    help
+      Support for Charger LP8715 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8716_R0
+    tristate "Charger LP8716 Rev0"
+    default n
+    help
+      Support for Charger LP8716 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8716_R1
+    tristate "Charger LP8716 Rev1"
+    default n
+    help
+      Support for Charger LP8716 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8716_R2
+    tristate "Charger LP8716 Rev2"
+    default n
+    help
+      Support for Charger LP8716 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8717_R0
+    tristate "Charger LP8717 Rev0"
+    default n
+    help
+      Support for Charger LP8717 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8717_R1
+    tristate "Charger LP8717 Rev1"
+    default n
+    help
+      Support for Charger LP8717 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8717_R2
+    tristate "Charger LP8717 Rev2"
+    default n
+    help
+      Support for Charger LP8717 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8718_R0
+    tristate "Charger LP8718 Rev0"
+    default n
+    help
+      Support for Charger LP8718 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8718_R1
+    tristate "Charger LP8718 Rev1"
+    default n
+    help
+      Support for Charger LP8718 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8718_R2
+    tristate "Charger LP8718 Rev2"
+    default n
+    help
+      Support for Charger LP8718 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8719_R0
+    tristate "Charger LP8719 Rev0"
+    default n
+    help
+      Support for Charger LP8719 Rev0 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8719_R1
+    tristate "Charger LP8719 Rev1"
+    default n
+    help
+      Support for Charger LP8719 Rev1 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_LP8719_R2
+    tristate "Charger LP8719 Rev2"
+    default n
+    help
+      Support for Charger LP8719 Rev2 (LP87)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6500_R0
+    tristate "Charger TPS6500 Rev0"
+    default n
+    help
+      Support for Charger TPS6500 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6500_R1
+    tristate "Charger TPS6500 Rev1"
+    default n
+    help
+      Support for Charger TPS6500 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6500_R2
+    tristate "Charger TPS6500 Rev2"
+    default n
+    help
+      Support for Charger TPS6500 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6501_R0
+    tristate "Charger TPS6501 Rev0"
+    default n
+    help
+      Support for Charger TPS6501 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6501_R1
+    tristate "Charger TPS6501 Rev1"
+    default n
+    help
+      Support for Charger TPS6501 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6501_R2
+    tristate "Charger TPS6501 Rev2"
+    default n
+    help
+      Support for Charger TPS6501 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6502_R0
+    tristate "Charger TPS6502 Rev0"
+    default n
+    help
+      Support for Charger TPS6502 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6502_R1
+    tristate "Charger TPS6502 Rev1"
+    default n
+    help
+      Support for Charger TPS6502 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6502_R2
+    tristate "Charger TPS6502 Rev2"
+    default n
+    help
+      Support for Charger TPS6502 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6503_R0
+    tristate "Charger TPS6503 Rev0"
+    default n
+    help
+      Support for Charger TPS6503 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6503_R1
+    tristate "Charger TPS6503 Rev1"
+    default n
+    help
+      Support for Charger TPS6503 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6503_R2
+    tristate "Charger TPS6503 Rev2"
+    default n
+    help
+      Support for Charger TPS6503 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6504_R0
+    tristate "Charger TPS6504 Rev0"
+    default n
+    help
+      Support for Charger TPS6504 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6504_R1
+    tristate "Charger TPS6504 Rev1"
+    default n
+    help
+      Support for Charger TPS6504 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6504_R2
+    tristate "Charger TPS6504 Rev2"
+    default n
+    help
+      Support for Charger TPS6504 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6505_R0
+    tristate "Charger TPS6505 Rev0"
+    default n
+    help
+      Support for Charger TPS6505 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6505_R1
+    tristate "Charger TPS6505 Rev1"
+    default n
+    help
+      Support for Charger TPS6505 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6505_R2
+    tristate "Charger TPS6505 Rev2"
+    default n
+    help
+      Support for Charger TPS6505 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6506_R0
+    tristate "Charger TPS6506 Rev0"
+    default n
+    help
+      Support for Charger TPS6506 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6506_R1
+    tristate "Charger TPS6506 Rev1"
+    default n
+    help
+      Support for Charger TPS6506 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6506_R2
+    tristate "Charger TPS6506 Rev2"
+    default n
+    help
+      Support for Charger TPS6506 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6507_R0
+    tristate "Charger TPS6507 Rev0"
+    default n
+    help
+      Support for Charger TPS6507 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6507_R1
+    tristate "Charger TPS6507 Rev1"
+    default n
+    help
+      Support for Charger TPS6507 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6507_R2
+    tristate "Charger TPS6507 Rev2"
+    default n
+    help
+      Support for Charger TPS6507 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6508_R0
+    tristate "Charger TPS6508 Rev0"
+    default n
+    help
+      Support for Charger TPS6508 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6508_R1
+    tristate "Charger TPS6508 Rev1"
+    default n
+    help
+      Support for Charger TPS6508 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6508_R2
+    tristate "Charger TPS6508 Rev2"
+    default n
+    help
+      Support for Charger TPS6508 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6509_R0
+    tristate "Charger TPS6509 Rev0"
+    default n
+    help
+      Support for Charger TPS6509 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6509_R1
+    tristate "Charger TPS6509 Rev1"
+    default n
+    help
+      Support for Charger TPS6509 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6509_R2
+    tristate "Charger TPS6509 Rev2"
+    default n
+    help
+      Support for Charger TPS6509 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6510_R0
+    tristate "Charger TPS6510 Rev0"
+    default n
+    help
+      Support for Charger TPS6510 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6510_R1
+    tristate "Charger TPS6510 Rev1"
+    default n
+    help
+      Support for Charger TPS6510 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6510_R2
+    tristate "Charger TPS6510 Rev2"
+    default n
+    help
+      Support for Charger TPS6510 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6511_R0
+    tristate "Charger TPS6511 Rev0"
+    default n
+    help
+      Support for Charger TPS6511 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6511_R1
+    tristate "Charger TPS6511 Rev1"
+    default n
+    help
+      Support for Charger TPS6511 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6511_R2
+    tristate "Charger TPS6511 Rev2"
+    default n
+    help
+      Support for Charger TPS6511 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6512_R0
+    tristate "Charger TPS6512 Rev0"
+    default n
+    help
+      Support for Charger TPS6512 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6512_R1
+    tristate "Charger TPS6512 Rev1"
+    default n
+    help
+      Support for Charger TPS6512 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6512_R2
+    tristate "Charger TPS6512 Rev2"
+    default n
+    help
+      Support for Charger TPS6512 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6513_R0
+    tristate "Charger TPS6513 Rev0"
+    default n
+    help
+      Support for Charger TPS6513 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6513_R1
+    tristate "Charger TPS6513 Rev1"
+    default n
+    help
+      Support for Charger TPS6513 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6513_R2
+    tristate "Charger TPS6513 Rev2"
+    default n
+    help
+      Support for Charger TPS6513 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6514_R0
+    tristate "Charger TPS6514 Rev0"
+    default n
+    help
+      Support for Charger TPS6514 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6514_R1
+    tristate "Charger TPS6514 Rev1"
+    default n
+    help
+      Support for Charger TPS6514 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6514_R2
+    tristate "Charger TPS6514 Rev2"
+    default n
+    help
+      Support for Charger TPS6514 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6515_R0
+    tristate "Charger TPS6515 Rev0"
+    default n
+    help
+      Support for Charger TPS6515 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6515_R1
+    tristate "Charger TPS6515 Rev1"
+    default n
+    help
+      Support for Charger TPS6515 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6515_R2
+    tristate "Charger TPS6515 Rev2"
+    default n
+    help
+      Support for Charger TPS6515 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6516_R0
+    tristate "Charger TPS6516 Rev0"
+    default n
+    help
+      Support for Charger TPS6516 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6516_R1
+    tristate "Charger TPS6516 Rev1"
+    default n
+    help
+      Support for Charger TPS6516 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6516_R2
+    tristate "Charger TPS6516 Rev2"
+    default n
+    help
+      Support for Charger TPS6516 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6517_R0
+    tristate "Charger TPS6517 Rev0"
+    default n
+    help
+      Support for Charger TPS6517 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6517_R1
+    tristate "Charger TPS6517 Rev1"
+    default n
+    help
+      Support for Charger TPS6517 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6517_R2
+    tristate "Charger TPS6517 Rev2"
+    default n
+    help
+      Support for Charger TPS6517 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6518_R0
+    tristate "Charger TPS6518 Rev0"
+    default n
+    help
+      Support for Charger TPS6518 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6518_R1
+    tristate "Charger TPS6518 Rev1"
+    default n
+    help
+      Support for Charger TPS6518 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6518_R2
+    tristate "Charger TPS6518 Rev2"
+    default n
+    help
+      Support for Charger TPS6518 Rev2 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6519_R0
+    tristate "Charger TPS6519 Rev0"
+    default n
+    help
+      Support for Charger TPS6519 Rev0 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6519_R1
+    tristate "Charger TPS6519 Rev1"
+    default n
+    help
+      Support for Charger TPS6519 Rev1 (TPS65)
+      Category: power_charger
+
+config POWER_CHARGER_TPS6519_R2
+    tristate "Charger TPS6519 Rev2"
+    default n
+    help
+      Support for Charger TPS6519 Rev2 (TPS65)
+      Category: power_charger
+
+endmenu

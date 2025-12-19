@@ -1,0 +1,7872 @@
+
+menu "Audio Drivers"
+
+config AUDIO_HDA_INTEL_ALC000
+    tristate "Intel HDA ALC000 Codec"
+    default n
+    help
+      Support for Intel HDA ALC000 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC001
+    tristate "Intel HDA ALC001 Codec"
+    default n
+    help
+      Support for Intel HDA ALC001 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC002
+    tristate "Intel HDA ALC002 Codec"
+    default n
+    help
+      Support for Intel HDA ALC002 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC003
+    tristate "Intel HDA ALC003 Codec"
+    default n
+    help
+      Support for Intel HDA ALC003 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC004
+    tristate "Intel HDA ALC004 Codec"
+    default n
+    help
+      Support for Intel HDA ALC004 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC005
+    tristate "Intel HDA ALC005 Codec"
+    default n
+    help
+      Support for Intel HDA ALC005 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC006
+    tristate "Intel HDA ALC006 Codec"
+    default n
+    help
+      Support for Intel HDA ALC006 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC007
+    tristate "Intel HDA ALC007 Codec"
+    default n
+    help
+      Support for Intel HDA ALC007 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC008
+    tristate "Intel HDA ALC008 Codec"
+    default n
+    help
+      Support for Intel HDA ALC008 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC009
+    tristate "Intel HDA ALC009 Codec"
+    default n
+    help
+      Support for Intel HDA ALC009 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC010
+    tristate "Intel HDA ALC010 Codec"
+    default n
+    help
+      Support for Intel HDA ALC010 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC011
+    tristate "Intel HDA ALC011 Codec"
+    default n
+    help
+      Support for Intel HDA ALC011 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC012
+    tristate "Intel HDA ALC012 Codec"
+    default n
+    help
+      Support for Intel HDA ALC012 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC013
+    tristate "Intel HDA ALC013 Codec"
+    default n
+    help
+      Support for Intel HDA ALC013 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC014
+    tristate "Intel HDA ALC014 Codec"
+    default n
+    help
+      Support for Intel HDA ALC014 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC015
+    tristate "Intel HDA ALC015 Codec"
+    default n
+    help
+      Support for Intel HDA ALC015 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC016
+    tristate "Intel HDA ALC016 Codec"
+    default n
+    help
+      Support for Intel HDA ALC016 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC017
+    tristate "Intel HDA ALC017 Codec"
+    default n
+    help
+      Support for Intel HDA ALC017 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC018
+    tristate "Intel HDA ALC018 Codec"
+    default n
+    help
+      Support for Intel HDA ALC018 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC019
+    tristate "Intel HDA ALC019 Codec"
+    default n
+    help
+      Support for Intel HDA ALC019 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC020
+    tristate "Intel HDA ALC020 Codec"
+    default n
+    help
+      Support for Intel HDA ALC020 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC021
+    tristate "Intel HDA ALC021 Codec"
+    default n
+    help
+      Support for Intel HDA ALC021 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC022
+    tristate "Intel HDA ALC022 Codec"
+    default n
+    help
+      Support for Intel HDA ALC022 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC023
+    tristate "Intel HDA ALC023 Codec"
+    default n
+    help
+      Support for Intel HDA ALC023 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC024
+    tristate "Intel HDA ALC024 Codec"
+    default n
+    help
+      Support for Intel HDA ALC024 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC025
+    tristate "Intel HDA ALC025 Codec"
+    default n
+    help
+      Support for Intel HDA ALC025 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC026
+    tristate "Intel HDA ALC026 Codec"
+    default n
+    help
+      Support for Intel HDA ALC026 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC027
+    tristate "Intel HDA ALC027 Codec"
+    default n
+    help
+      Support for Intel HDA ALC027 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC028
+    tristate "Intel HDA ALC028 Codec"
+    default n
+    help
+      Support for Intel HDA ALC028 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC029
+    tristate "Intel HDA ALC029 Codec"
+    default n
+    help
+      Support for Intel HDA ALC029 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC030
+    tristate "Intel HDA ALC030 Codec"
+    default n
+    help
+      Support for Intel HDA ALC030 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC031
+    tristate "Intel HDA ALC031 Codec"
+    default n
+    help
+      Support for Intel HDA ALC031 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC032
+    tristate "Intel HDA ALC032 Codec"
+    default n
+    help
+      Support for Intel HDA ALC032 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC033
+    tristate "Intel HDA ALC033 Codec"
+    default n
+    help
+      Support for Intel HDA ALC033 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC034
+    tristate "Intel HDA ALC034 Codec"
+    default n
+    help
+      Support for Intel HDA ALC034 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC035
+    tristate "Intel HDA ALC035 Codec"
+    default n
+    help
+      Support for Intel HDA ALC035 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC036
+    tristate "Intel HDA ALC036 Codec"
+    default n
+    help
+      Support for Intel HDA ALC036 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC037
+    tristate "Intel HDA ALC037 Codec"
+    default n
+    help
+      Support for Intel HDA ALC037 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC038
+    tristate "Intel HDA ALC038 Codec"
+    default n
+    help
+      Support for Intel HDA ALC038 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC039
+    tristate "Intel HDA ALC039 Codec"
+    default n
+    help
+      Support for Intel HDA ALC039 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC040
+    tristate "Intel HDA ALC040 Codec"
+    default n
+    help
+      Support for Intel HDA ALC040 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC041
+    tristate "Intel HDA ALC041 Codec"
+    default n
+    help
+      Support for Intel HDA ALC041 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC042
+    tristate "Intel HDA ALC042 Codec"
+    default n
+    help
+      Support for Intel HDA ALC042 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC043
+    tristate "Intel HDA ALC043 Codec"
+    default n
+    help
+      Support for Intel HDA ALC043 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC044
+    tristate "Intel HDA ALC044 Codec"
+    default n
+    help
+      Support for Intel HDA ALC044 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC045
+    tristate "Intel HDA ALC045 Codec"
+    default n
+    help
+      Support for Intel HDA ALC045 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC046
+    tristate "Intel HDA ALC046 Codec"
+    default n
+    help
+      Support for Intel HDA ALC046 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC047
+    tristate "Intel HDA ALC047 Codec"
+    default n
+    help
+      Support for Intel HDA ALC047 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC048
+    tristate "Intel HDA ALC048 Codec"
+    default n
+    help
+      Support for Intel HDA ALC048 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_ALC049
+    tristate "Intel HDA ALC049 Codec"
+    default n
+    help
+      Support for Intel HDA ALC049 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX000
+    tristate "Intel HDA CX000 Codec"
+    default n
+    help
+      Support for Intel HDA CX000 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX001
+    tristate "Intel HDA CX001 Codec"
+    default n
+    help
+      Support for Intel HDA CX001 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX002
+    tristate "Intel HDA CX002 Codec"
+    default n
+    help
+      Support for Intel HDA CX002 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX003
+    tristate "Intel HDA CX003 Codec"
+    default n
+    help
+      Support for Intel HDA CX003 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX004
+    tristate "Intel HDA CX004 Codec"
+    default n
+    help
+      Support for Intel HDA CX004 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX005
+    tristate "Intel HDA CX005 Codec"
+    default n
+    help
+      Support for Intel HDA CX005 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX006
+    tristate "Intel HDA CX006 Codec"
+    default n
+    help
+      Support for Intel HDA CX006 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX007
+    tristate "Intel HDA CX007 Codec"
+    default n
+    help
+      Support for Intel HDA CX007 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX008
+    tristate "Intel HDA CX008 Codec"
+    default n
+    help
+      Support for Intel HDA CX008 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX009
+    tristate "Intel HDA CX009 Codec"
+    default n
+    help
+      Support for Intel HDA CX009 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX010
+    tristate "Intel HDA CX010 Codec"
+    default n
+    help
+      Support for Intel HDA CX010 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX011
+    tristate "Intel HDA CX011 Codec"
+    default n
+    help
+      Support for Intel HDA CX011 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX012
+    tristate "Intel HDA CX012 Codec"
+    default n
+    help
+      Support for Intel HDA CX012 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX013
+    tristate "Intel HDA CX013 Codec"
+    default n
+    help
+      Support for Intel HDA CX013 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX014
+    tristate "Intel HDA CX014 Codec"
+    default n
+    help
+      Support for Intel HDA CX014 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX015
+    tristate "Intel HDA CX015 Codec"
+    default n
+    help
+      Support for Intel HDA CX015 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX016
+    tristate "Intel HDA CX016 Codec"
+    default n
+    help
+      Support for Intel HDA CX016 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX017
+    tristate "Intel HDA CX017 Codec"
+    default n
+    help
+      Support for Intel HDA CX017 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX018
+    tristate "Intel HDA CX018 Codec"
+    default n
+    help
+      Support for Intel HDA CX018 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX019
+    tristate "Intel HDA CX019 Codec"
+    default n
+    help
+      Support for Intel HDA CX019 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX020
+    tristate "Intel HDA CX020 Codec"
+    default n
+    help
+      Support for Intel HDA CX020 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX021
+    tristate "Intel HDA CX021 Codec"
+    default n
+    help
+      Support for Intel HDA CX021 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX022
+    tristate "Intel HDA CX022 Codec"
+    default n
+    help
+      Support for Intel HDA CX022 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX023
+    tristate "Intel HDA CX023 Codec"
+    default n
+    help
+      Support for Intel HDA CX023 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX024
+    tristate "Intel HDA CX024 Codec"
+    default n
+    help
+      Support for Intel HDA CX024 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX025
+    tristate "Intel HDA CX025 Codec"
+    default n
+    help
+      Support for Intel HDA CX025 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX026
+    tristate "Intel HDA CX026 Codec"
+    default n
+    help
+      Support for Intel HDA CX026 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX027
+    tristate "Intel HDA CX027 Codec"
+    default n
+    help
+      Support for Intel HDA CX027 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX028
+    tristate "Intel HDA CX028 Codec"
+    default n
+    help
+      Support for Intel HDA CX028 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX029
+    tristate "Intel HDA CX029 Codec"
+    default n
+    help
+      Support for Intel HDA CX029 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX030
+    tristate "Intel HDA CX030 Codec"
+    default n
+    help
+      Support for Intel HDA CX030 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX031
+    tristate "Intel HDA CX031 Codec"
+    default n
+    help
+      Support for Intel HDA CX031 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX032
+    tristate "Intel HDA CX032 Codec"
+    default n
+    help
+      Support for Intel HDA CX032 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX033
+    tristate "Intel HDA CX033 Codec"
+    default n
+    help
+      Support for Intel HDA CX033 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX034
+    tristate "Intel HDA CX034 Codec"
+    default n
+    help
+      Support for Intel HDA CX034 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX035
+    tristate "Intel HDA CX035 Codec"
+    default n
+    help
+      Support for Intel HDA CX035 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX036
+    tristate "Intel HDA CX036 Codec"
+    default n
+    help
+      Support for Intel HDA CX036 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX037
+    tristate "Intel HDA CX037 Codec"
+    default n
+    help
+      Support for Intel HDA CX037 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX038
+    tristate "Intel HDA CX038 Codec"
+    default n
+    help
+      Support for Intel HDA CX038 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX039
+    tristate "Intel HDA CX039 Codec"
+    default n
+    help
+      Support for Intel HDA CX039 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX040
+    tristate "Intel HDA CX040 Codec"
+    default n
+    help
+      Support for Intel HDA CX040 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX041
+    tristate "Intel HDA CX041 Codec"
+    default n
+    help
+      Support for Intel HDA CX041 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX042
+    tristate "Intel HDA CX042 Codec"
+    default n
+    help
+      Support for Intel HDA CX042 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX043
+    tristate "Intel HDA CX043 Codec"
+    default n
+    help
+      Support for Intel HDA CX043 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX044
+    tristate "Intel HDA CX044 Codec"
+    default n
+    help
+      Support for Intel HDA CX044 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX045
+    tristate "Intel HDA CX045 Codec"
+    default n
+    help
+      Support for Intel HDA CX045 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX046
+    tristate "Intel HDA CX046 Codec"
+    default n
+    help
+      Support for Intel HDA CX046 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX047
+    tristate "Intel HDA CX047 Codec"
+    default n
+    help
+      Support for Intel HDA CX047 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX048
+    tristate "Intel HDA CX048 Codec"
+    default n
+    help
+      Support for Intel HDA CX048 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CX049
+    tristate "Intel HDA CX049 Codec"
+    default n
+    help
+      Support for Intel HDA CX049 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS000
+    tristate "Intel HDA CS000 Codec"
+    default n
+    help
+      Support for Intel HDA CS000 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS001
+    tristate "Intel HDA CS001 Codec"
+    default n
+    help
+      Support for Intel HDA CS001 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS002
+    tristate "Intel HDA CS002 Codec"
+    default n
+    help
+      Support for Intel HDA CS002 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS003
+    tristate "Intel HDA CS003 Codec"
+    default n
+    help
+      Support for Intel HDA CS003 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS004
+    tristate "Intel HDA CS004 Codec"
+    default n
+    help
+      Support for Intel HDA CS004 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS005
+    tristate "Intel HDA CS005 Codec"
+    default n
+    help
+      Support for Intel HDA CS005 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS006
+    tristate "Intel HDA CS006 Codec"
+    default n
+    help
+      Support for Intel HDA CS006 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS007
+    tristate "Intel HDA CS007 Codec"
+    default n
+    help
+      Support for Intel HDA CS007 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS008
+    tristate "Intel HDA CS008 Codec"
+    default n
+    help
+      Support for Intel HDA CS008 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS009
+    tristate "Intel HDA CS009 Codec"
+    default n
+    help
+      Support for Intel HDA CS009 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS010
+    tristate "Intel HDA CS010 Codec"
+    default n
+    help
+      Support for Intel HDA CS010 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS011
+    tristate "Intel HDA CS011 Codec"
+    default n
+    help
+      Support for Intel HDA CS011 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS012
+    tristate "Intel HDA CS012 Codec"
+    default n
+    help
+      Support for Intel HDA CS012 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS013
+    tristate "Intel HDA CS013 Codec"
+    default n
+    help
+      Support for Intel HDA CS013 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS014
+    tristate "Intel HDA CS014 Codec"
+    default n
+    help
+      Support for Intel HDA CS014 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS015
+    tristate "Intel HDA CS015 Codec"
+    default n
+    help
+      Support for Intel HDA CS015 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS016
+    tristate "Intel HDA CS016 Codec"
+    default n
+    help
+      Support for Intel HDA CS016 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS017
+    tristate "Intel HDA CS017 Codec"
+    default n
+    help
+      Support for Intel HDA CS017 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS018
+    tristate "Intel HDA CS018 Codec"
+    default n
+    help
+      Support for Intel HDA CS018 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS019
+    tristate "Intel HDA CS019 Codec"
+    default n
+    help
+      Support for Intel HDA CS019 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS020
+    tristate "Intel HDA CS020 Codec"
+    default n
+    help
+      Support for Intel HDA CS020 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS021
+    tristate "Intel HDA CS021 Codec"
+    default n
+    help
+      Support for Intel HDA CS021 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS022
+    tristate "Intel HDA CS022 Codec"
+    default n
+    help
+      Support for Intel HDA CS022 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS023
+    tristate "Intel HDA CS023 Codec"
+    default n
+    help
+      Support for Intel HDA CS023 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS024
+    tristate "Intel HDA CS024 Codec"
+    default n
+    help
+      Support for Intel HDA CS024 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS025
+    tristate "Intel HDA CS025 Codec"
+    default n
+    help
+      Support for Intel HDA CS025 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS026
+    tristate "Intel HDA CS026 Codec"
+    default n
+    help
+      Support for Intel HDA CS026 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS027
+    tristate "Intel HDA CS027 Codec"
+    default n
+    help
+      Support for Intel HDA CS027 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS028
+    tristate "Intel HDA CS028 Codec"
+    default n
+    help
+      Support for Intel HDA CS028 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS029
+    tristate "Intel HDA CS029 Codec"
+    default n
+    help
+      Support for Intel HDA CS029 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS030
+    tristate "Intel HDA CS030 Codec"
+    default n
+    help
+      Support for Intel HDA CS030 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS031
+    tristate "Intel HDA CS031 Codec"
+    default n
+    help
+      Support for Intel HDA CS031 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS032
+    tristate "Intel HDA CS032 Codec"
+    default n
+    help
+      Support for Intel HDA CS032 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS033
+    tristate "Intel HDA CS033 Codec"
+    default n
+    help
+      Support for Intel HDA CS033 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS034
+    tristate "Intel HDA CS034 Codec"
+    default n
+    help
+      Support for Intel HDA CS034 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS035
+    tristate "Intel HDA CS035 Codec"
+    default n
+    help
+      Support for Intel HDA CS035 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS036
+    tristate "Intel HDA CS036 Codec"
+    default n
+    help
+      Support for Intel HDA CS036 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS037
+    tristate "Intel HDA CS037 Codec"
+    default n
+    help
+      Support for Intel HDA CS037 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS038
+    tristate "Intel HDA CS038 Codec"
+    default n
+    help
+      Support for Intel HDA CS038 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS039
+    tristate "Intel HDA CS039 Codec"
+    default n
+    help
+      Support for Intel HDA CS039 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS040
+    tristate "Intel HDA CS040 Codec"
+    default n
+    help
+      Support for Intel HDA CS040 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS041
+    tristate "Intel HDA CS041 Codec"
+    default n
+    help
+      Support for Intel HDA CS041 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS042
+    tristate "Intel HDA CS042 Codec"
+    default n
+    help
+      Support for Intel HDA CS042 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS043
+    tristate "Intel HDA CS043 Codec"
+    default n
+    help
+      Support for Intel HDA CS043 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS044
+    tristate "Intel HDA CS044 Codec"
+    default n
+    help
+      Support for Intel HDA CS044 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS045
+    tristate "Intel HDA CS045 Codec"
+    default n
+    help
+      Support for Intel HDA CS045 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS046
+    tristate "Intel HDA CS046 Codec"
+    default n
+    help
+      Support for Intel HDA CS046 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS047
+    tristate "Intel HDA CS047 Codec"
+    default n
+    help
+      Support for Intel HDA CS047 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS048
+    tristate "Intel HDA CS048 Codec"
+    default n
+    help
+      Support for Intel HDA CS048 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CS049
+    tristate "Intel HDA CS049 Codec"
+    default n
+    help
+      Support for Intel HDA CS049 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD000
+    tristate "Intel HDA AD000 Codec"
+    default n
+    help
+      Support for Intel HDA AD000 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD001
+    tristate "Intel HDA AD001 Codec"
+    default n
+    help
+      Support for Intel HDA AD001 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD002
+    tristate "Intel HDA AD002 Codec"
+    default n
+    help
+      Support for Intel HDA AD002 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD003
+    tristate "Intel HDA AD003 Codec"
+    default n
+    help
+      Support for Intel HDA AD003 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD004
+    tristate "Intel HDA AD004 Codec"
+    default n
+    help
+      Support for Intel HDA AD004 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD005
+    tristate "Intel HDA AD005 Codec"
+    default n
+    help
+      Support for Intel HDA AD005 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD006
+    tristate "Intel HDA AD006 Codec"
+    default n
+    help
+      Support for Intel HDA AD006 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD007
+    tristate "Intel HDA AD007 Codec"
+    default n
+    help
+      Support for Intel HDA AD007 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD008
+    tristate "Intel HDA AD008 Codec"
+    default n
+    help
+      Support for Intel HDA AD008 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD009
+    tristate "Intel HDA AD009 Codec"
+    default n
+    help
+      Support for Intel HDA AD009 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD010
+    tristate "Intel HDA AD010 Codec"
+    default n
+    help
+      Support for Intel HDA AD010 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD011
+    tristate "Intel HDA AD011 Codec"
+    default n
+    help
+      Support for Intel HDA AD011 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD012
+    tristate "Intel HDA AD012 Codec"
+    default n
+    help
+      Support for Intel HDA AD012 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD013
+    tristate "Intel HDA AD013 Codec"
+    default n
+    help
+      Support for Intel HDA AD013 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD014
+    tristate "Intel HDA AD014 Codec"
+    default n
+    help
+      Support for Intel HDA AD014 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD015
+    tristate "Intel HDA AD015 Codec"
+    default n
+    help
+      Support for Intel HDA AD015 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD016
+    tristate "Intel HDA AD016 Codec"
+    default n
+    help
+      Support for Intel HDA AD016 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD017
+    tristate "Intel HDA AD017 Codec"
+    default n
+    help
+      Support for Intel HDA AD017 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD018
+    tristate "Intel HDA AD018 Codec"
+    default n
+    help
+      Support for Intel HDA AD018 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD019
+    tristate "Intel HDA AD019 Codec"
+    default n
+    help
+      Support for Intel HDA AD019 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD020
+    tristate "Intel HDA AD020 Codec"
+    default n
+    help
+      Support for Intel HDA AD020 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD021
+    tristate "Intel HDA AD021 Codec"
+    default n
+    help
+      Support for Intel HDA AD021 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD022
+    tristate "Intel HDA AD022 Codec"
+    default n
+    help
+      Support for Intel HDA AD022 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD023
+    tristate "Intel HDA AD023 Codec"
+    default n
+    help
+      Support for Intel HDA AD023 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD024
+    tristate "Intel HDA AD024 Codec"
+    default n
+    help
+      Support for Intel HDA AD024 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD025
+    tristate "Intel HDA AD025 Codec"
+    default n
+    help
+      Support for Intel HDA AD025 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD026
+    tristate "Intel HDA AD026 Codec"
+    default n
+    help
+      Support for Intel HDA AD026 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD027
+    tristate "Intel HDA AD027 Codec"
+    default n
+    help
+      Support for Intel HDA AD027 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD028
+    tristate "Intel HDA AD028 Codec"
+    default n
+    help
+      Support for Intel HDA AD028 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD029
+    tristate "Intel HDA AD029 Codec"
+    default n
+    help
+      Support for Intel HDA AD029 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD030
+    tristate "Intel HDA AD030 Codec"
+    default n
+    help
+      Support for Intel HDA AD030 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD031
+    tristate "Intel HDA AD031 Codec"
+    default n
+    help
+      Support for Intel HDA AD031 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD032
+    tristate "Intel HDA AD032 Codec"
+    default n
+    help
+      Support for Intel HDA AD032 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD033
+    tristate "Intel HDA AD033 Codec"
+    default n
+    help
+      Support for Intel HDA AD033 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD034
+    tristate "Intel HDA AD034 Codec"
+    default n
+    help
+      Support for Intel HDA AD034 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD035
+    tristate "Intel HDA AD035 Codec"
+    default n
+    help
+      Support for Intel HDA AD035 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD036
+    tristate "Intel HDA AD036 Codec"
+    default n
+    help
+      Support for Intel HDA AD036 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD037
+    tristate "Intel HDA AD037 Codec"
+    default n
+    help
+      Support for Intel HDA AD037 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD038
+    tristate "Intel HDA AD038 Codec"
+    default n
+    help
+      Support for Intel HDA AD038 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD039
+    tristate "Intel HDA AD039 Codec"
+    default n
+    help
+      Support for Intel HDA AD039 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD040
+    tristate "Intel HDA AD040 Codec"
+    default n
+    help
+      Support for Intel HDA AD040 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD041
+    tristate "Intel HDA AD041 Codec"
+    default n
+    help
+      Support for Intel HDA AD041 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD042
+    tristate "Intel HDA AD042 Codec"
+    default n
+    help
+      Support for Intel HDA AD042 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD043
+    tristate "Intel HDA AD043 Codec"
+    default n
+    help
+      Support for Intel HDA AD043 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD044
+    tristate "Intel HDA AD044 Codec"
+    default n
+    help
+      Support for Intel HDA AD044 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD045
+    tristate "Intel HDA AD045 Codec"
+    default n
+    help
+      Support for Intel HDA AD045 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD046
+    tristate "Intel HDA AD046 Codec"
+    default n
+    help
+      Support for Intel HDA AD046 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD047
+    tristate "Intel HDA AD047 Codec"
+    default n
+    help
+      Support for Intel HDA AD047 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD048
+    tristate "Intel HDA AD048 Codec"
+    default n
+    help
+      Support for Intel HDA AD048 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_AD049
+    tristate "Intel HDA AD049 Codec"
+    default n
+    help
+      Support for Intel HDA AD049 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT000
+    tristate "Intel HDA VT000 Codec"
+    default n
+    help
+      Support for Intel HDA VT000 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT001
+    tristate "Intel HDA VT001 Codec"
+    default n
+    help
+      Support for Intel HDA VT001 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT002
+    tristate "Intel HDA VT002 Codec"
+    default n
+    help
+      Support for Intel HDA VT002 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT003
+    tristate "Intel HDA VT003 Codec"
+    default n
+    help
+      Support for Intel HDA VT003 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT004
+    tristate "Intel HDA VT004 Codec"
+    default n
+    help
+      Support for Intel HDA VT004 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT005
+    tristate "Intel HDA VT005 Codec"
+    default n
+    help
+      Support for Intel HDA VT005 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT006
+    tristate "Intel HDA VT006 Codec"
+    default n
+    help
+      Support for Intel HDA VT006 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT007
+    tristate "Intel HDA VT007 Codec"
+    default n
+    help
+      Support for Intel HDA VT007 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT008
+    tristate "Intel HDA VT008 Codec"
+    default n
+    help
+      Support for Intel HDA VT008 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT009
+    tristate "Intel HDA VT009 Codec"
+    default n
+    help
+      Support for Intel HDA VT009 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT010
+    tristate "Intel HDA VT010 Codec"
+    default n
+    help
+      Support for Intel HDA VT010 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT011
+    tristate "Intel HDA VT011 Codec"
+    default n
+    help
+      Support for Intel HDA VT011 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT012
+    tristate "Intel HDA VT012 Codec"
+    default n
+    help
+      Support for Intel HDA VT012 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT013
+    tristate "Intel HDA VT013 Codec"
+    default n
+    help
+      Support for Intel HDA VT013 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT014
+    tristate "Intel HDA VT014 Codec"
+    default n
+    help
+      Support for Intel HDA VT014 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT015
+    tristate "Intel HDA VT015 Codec"
+    default n
+    help
+      Support for Intel HDA VT015 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT016
+    tristate "Intel HDA VT016 Codec"
+    default n
+    help
+      Support for Intel HDA VT016 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT017
+    tristate "Intel HDA VT017 Codec"
+    default n
+    help
+      Support for Intel HDA VT017 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT018
+    tristate "Intel HDA VT018 Codec"
+    default n
+    help
+      Support for Intel HDA VT018 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT019
+    tristate "Intel HDA VT019 Codec"
+    default n
+    help
+      Support for Intel HDA VT019 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT020
+    tristate "Intel HDA VT020 Codec"
+    default n
+    help
+      Support for Intel HDA VT020 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT021
+    tristate "Intel HDA VT021 Codec"
+    default n
+    help
+      Support for Intel HDA VT021 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT022
+    tristate "Intel HDA VT022 Codec"
+    default n
+    help
+      Support for Intel HDA VT022 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT023
+    tristate "Intel HDA VT023 Codec"
+    default n
+    help
+      Support for Intel HDA VT023 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT024
+    tristate "Intel HDA VT024 Codec"
+    default n
+    help
+      Support for Intel HDA VT024 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT025
+    tristate "Intel HDA VT025 Codec"
+    default n
+    help
+      Support for Intel HDA VT025 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT026
+    tristate "Intel HDA VT026 Codec"
+    default n
+    help
+      Support for Intel HDA VT026 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT027
+    tristate "Intel HDA VT027 Codec"
+    default n
+    help
+      Support for Intel HDA VT027 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT028
+    tristate "Intel HDA VT028 Codec"
+    default n
+    help
+      Support for Intel HDA VT028 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT029
+    tristate "Intel HDA VT029 Codec"
+    default n
+    help
+      Support for Intel HDA VT029 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT030
+    tristate "Intel HDA VT030 Codec"
+    default n
+    help
+      Support for Intel HDA VT030 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT031
+    tristate "Intel HDA VT031 Codec"
+    default n
+    help
+      Support for Intel HDA VT031 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT032
+    tristate "Intel HDA VT032 Codec"
+    default n
+    help
+      Support for Intel HDA VT032 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT033
+    tristate "Intel HDA VT033 Codec"
+    default n
+    help
+      Support for Intel HDA VT033 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT034
+    tristate "Intel HDA VT034 Codec"
+    default n
+    help
+      Support for Intel HDA VT034 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT035
+    tristate "Intel HDA VT035 Codec"
+    default n
+    help
+      Support for Intel HDA VT035 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT036
+    tristate "Intel HDA VT036 Codec"
+    default n
+    help
+      Support for Intel HDA VT036 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT037
+    tristate "Intel HDA VT037 Codec"
+    default n
+    help
+      Support for Intel HDA VT037 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT038
+    tristate "Intel HDA VT038 Codec"
+    default n
+    help
+      Support for Intel HDA VT038 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT039
+    tristate "Intel HDA VT039 Codec"
+    default n
+    help
+      Support for Intel HDA VT039 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT040
+    tristate "Intel HDA VT040 Codec"
+    default n
+    help
+      Support for Intel HDA VT040 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT041
+    tristate "Intel HDA VT041 Codec"
+    default n
+    help
+      Support for Intel HDA VT041 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT042
+    tristate "Intel HDA VT042 Codec"
+    default n
+    help
+      Support for Intel HDA VT042 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT043
+    tristate "Intel HDA VT043 Codec"
+    default n
+    help
+      Support for Intel HDA VT043 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT044
+    tristate "Intel HDA VT044 Codec"
+    default n
+    help
+      Support for Intel HDA VT044 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT045
+    tristate "Intel HDA VT045 Codec"
+    default n
+    help
+      Support for Intel HDA VT045 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT046
+    tristate "Intel HDA VT046 Codec"
+    default n
+    help
+      Support for Intel HDA VT046 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT047
+    tristate "Intel HDA VT047 Codec"
+    default n
+    help
+      Support for Intel HDA VT047 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT048
+    tristate "Intel HDA VT048 Codec"
+    default n
+    help
+      Support for Intel HDA VT048 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_VT049
+    tristate "Intel HDA VT049 Codec"
+    default n
+    help
+      Support for Intel HDA VT049 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI000
+    tristate "Intel HDA CMI000 Codec"
+    default n
+    help
+      Support for Intel HDA CMI000 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI001
+    tristate "Intel HDA CMI001 Codec"
+    default n
+    help
+      Support for Intel HDA CMI001 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI002
+    tristate "Intel HDA CMI002 Codec"
+    default n
+    help
+      Support for Intel HDA CMI002 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI003
+    tristate "Intel HDA CMI003 Codec"
+    default n
+    help
+      Support for Intel HDA CMI003 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI004
+    tristate "Intel HDA CMI004 Codec"
+    default n
+    help
+      Support for Intel HDA CMI004 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI005
+    tristate "Intel HDA CMI005 Codec"
+    default n
+    help
+      Support for Intel HDA CMI005 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI006
+    tristate "Intel HDA CMI006 Codec"
+    default n
+    help
+      Support for Intel HDA CMI006 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI007
+    tristate "Intel HDA CMI007 Codec"
+    default n
+    help
+      Support for Intel HDA CMI007 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI008
+    tristate "Intel HDA CMI008 Codec"
+    default n
+    help
+      Support for Intel HDA CMI008 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI009
+    tristate "Intel HDA CMI009 Codec"
+    default n
+    help
+      Support for Intel HDA CMI009 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI010
+    tristate "Intel HDA CMI010 Codec"
+    default n
+    help
+      Support for Intel HDA CMI010 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI011
+    tristate "Intel HDA CMI011 Codec"
+    default n
+    help
+      Support for Intel HDA CMI011 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI012
+    tristate "Intel HDA CMI012 Codec"
+    default n
+    help
+      Support for Intel HDA CMI012 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI013
+    tristate "Intel HDA CMI013 Codec"
+    default n
+    help
+      Support for Intel HDA CMI013 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI014
+    tristate "Intel HDA CMI014 Codec"
+    default n
+    help
+      Support for Intel HDA CMI014 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI015
+    tristate "Intel HDA CMI015 Codec"
+    default n
+    help
+      Support for Intel HDA CMI015 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI016
+    tristate "Intel HDA CMI016 Codec"
+    default n
+    help
+      Support for Intel HDA CMI016 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI017
+    tristate "Intel HDA CMI017 Codec"
+    default n
+    help
+      Support for Intel HDA CMI017 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI018
+    tristate "Intel HDA CMI018 Codec"
+    default n
+    help
+      Support for Intel HDA CMI018 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI019
+    tristate "Intel HDA CMI019 Codec"
+    default n
+    help
+      Support for Intel HDA CMI019 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI020
+    tristate "Intel HDA CMI020 Codec"
+    default n
+    help
+      Support for Intel HDA CMI020 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI021
+    tristate "Intel HDA CMI021 Codec"
+    default n
+    help
+      Support for Intel HDA CMI021 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI022
+    tristate "Intel HDA CMI022 Codec"
+    default n
+    help
+      Support for Intel HDA CMI022 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI023
+    tristate "Intel HDA CMI023 Codec"
+    default n
+    help
+      Support for Intel HDA CMI023 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI024
+    tristate "Intel HDA CMI024 Codec"
+    default n
+    help
+      Support for Intel HDA CMI024 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI025
+    tristate "Intel HDA CMI025 Codec"
+    default n
+    help
+      Support for Intel HDA CMI025 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI026
+    tristate "Intel HDA CMI026 Codec"
+    default n
+    help
+      Support for Intel HDA CMI026 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI027
+    tristate "Intel HDA CMI027 Codec"
+    default n
+    help
+      Support for Intel HDA CMI027 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI028
+    tristate "Intel HDA CMI028 Codec"
+    default n
+    help
+      Support for Intel HDA CMI028 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI029
+    tristate "Intel HDA CMI029 Codec"
+    default n
+    help
+      Support for Intel HDA CMI029 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI030
+    tristate "Intel HDA CMI030 Codec"
+    default n
+    help
+      Support for Intel HDA CMI030 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI031
+    tristate "Intel HDA CMI031 Codec"
+    default n
+    help
+      Support for Intel HDA CMI031 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI032
+    tristate "Intel HDA CMI032 Codec"
+    default n
+    help
+      Support for Intel HDA CMI032 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI033
+    tristate "Intel HDA CMI033 Codec"
+    default n
+    help
+      Support for Intel HDA CMI033 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI034
+    tristate "Intel HDA CMI034 Codec"
+    default n
+    help
+      Support for Intel HDA CMI034 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI035
+    tristate "Intel HDA CMI035 Codec"
+    default n
+    help
+      Support for Intel HDA CMI035 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI036
+    tristate "Intel HDA CMI036 Codec"
+    default n
+    help
+      Support for Intel HDA CMI036 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI037
+    tristate "Intel HDA CMI037 Codec"
+    default n
+    help
+      Support for Intel HDA CMI037 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI038
+    tristate "Intel HDA CMI038 Codec"
+    default n
+    help
+      Support for Intel HDA CMI038 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI039
+    tristate "Intel HDA CMI039 Codec"
+    default n
+    help
+      Support for Intel HDA CMI039 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI040
+    tristate "Intel HDA CMI040 Codec"
+    default n
+    help
+      Support for Intel HDA CMI040 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI041
+    tristate "Intel HDA CMI041 Codec"
+    default n
+    help
+      Support for Intel HDA CMI041 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI042
+    tristate "Intel HDA CMI042 Codec"
+    default n
+    help
+      Support for Intel HDA CMI042 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI043
+    tristate "Intel HDA CMI043 Codec"
+    default n
+    help
+      Support for Intel HDA CMI043 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI044
+    tristate "Intel HDA CMI044 Codec"
+    default n
+    help
+      Support for Intel HDA CMI044 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI045
+    tristate "Intel HDA CMI045 Codec"
+    default n
+    help
+      Support for Intel HDA CMI045 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI046
+    tristate "Intel HDA CMI046 Codec"
+    default n
+    help
+      Support for Intel HDA CMI046 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI047
+    tristate "Intel HDA CMI047 Codec"
+    default n
+    help
+      Support for Intel HDA CMI047 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI048
+    tristate "Intel HDA CMI048 Codec"
+    default n
+    help
+      Support for Intel HDA CMI048 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_CMI049
+    tristate "Intel HDA CMI049 Codec"
+    default n
+    help
+      Support for Intel HDA CMI049 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3000
+    tristate "Intel HDA SI3000 Codec"
+    default n
+    help
+      Support for Intel HDA SI3000 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3001
+    tristate "Intel HDA SI3001 Codec"
+    default n
+    help
+      Support for Intel HDA SI3001 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3002
+    tristate "Intel HDA SI3002 Codec"
+    default n
+    help
+      Support for Intel HDA SI3002 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3003
+    tristate "Intel HDA SI3003 Codec"
+    default n
+    help
+      Support for Intel HDA SI3003 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3004
+    tristate "Intel HDA SI3004 Codec"
+    default n
+    help
+      Support for Intel HDA SI3004 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3005
+    tristate "Intel HDA SI3005 Codec"
+    default n
+    help
+      Support for Intel HDA SI3005 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3006
+    tristate "Intel HDA SI3006 Codec"
+    default n
+    help
+      Support for Intel HDA SI3006 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3007
+    tristate "Intel HDA SI3007 Codec"
+    default n
+    help
+      Support for Intel HDA SI3007 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3008
+    tristate "Intel HDA SI3008 Codec"
+    default n
+    help
+      Support for Intel HDA SI3008 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3009
+    tristate "Intel HDA SI3009 Codec"
+    default n
+    help
+      Support for Intel HDA SI3009 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3010
+    tristate "Intel HDA SI3010 Codec"
+    default n
+    help
+      Support for Intel HDA SI3010 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3011
+    tristate "Intel HDA SI3011 Codec"
+    default n
+    help
+      Support for Intel HDA SI3011 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3012
+    tristate "Intel HDA SI3012 Codec"
+    default n
+    help
+      Support for Intel HDA SI3012 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3013
+    tristate "Intel HDA SI3013 Codec"
+    default n
+    help
+      Support for Intel HDA SI3013 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3014
+    tristate "Intel HDA SI3014 Codec"
+    default n
+    help
+      Support for Intel HDA SI3014 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3015
+    tristate "Intel HDA SI3015 Codec"
+    default n
+    help
+      Support for Intel HDA SI3015 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3016
+    tristate "Intel HDA SI3016 Codec"
+    default n
+    help
+      Support for Intel HDA SI3016 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3017
+    tristate "Intel HDA SI3017 Codec"
+    default n
+    help
+      Support for Intel HDA SI3017 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3018
+    tristate "Intel HDA SI3018 Codec"
+    default n
+    help
+      Support for Intel HDA SI3018 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3019
+    tristate "Intel HDA SI3019 Codec"
+    default n
+    help
+      Support for Intel HDA SI3019 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3020
+    tristate "Intel HDA SI3020 Codec"
+    default n
+    help
+      Support for Intel HDA SI3020 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3021
+    tristate "Intel HDA SI3021 Codec"
+    default n
+    help
+      Support for Intel HDA SI3021 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3022
+    tristate "Intel HDA SI3022 Codec"
+    default n
+    help
+      Support for Intel HDA SI3022 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3023
+    tristate "Intel HDA SI3023 Codec"
+    default n
+    help
+      Support for Intel HDA SI3023 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3024
+    tristate "Intel HDA SI3024 Codec"
+    default n
+    help
+      Support for Intel HDA SI3024 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3025
+    tristate "Intel HDA SI3025 Codec"
+    default n
+    help
+      Support for Intel HDA SI3025 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3026
+    tristate "Intel HDA SI3026 Codec"
+    default n
+    help
+      Support for Intel HDA SI3026 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3027
+    tristate "Intel HDA SI3027 Codec"
+    default n
+    help
+      Support for Intel HDA SI3027 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3028
+    tristate "Intel HDA SI3028 Codec"
+    default n
+    help
+      Support for Intel HDA SI3028 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3029
+    tristate "Intel HDA SI3029 Codec"
+    default n
+    help
+      Support for Intel HDA SI3029 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3030
+    tristate "Intel HDA SI3030 Codec"
+    default n
+    help
+      Support for Intel HDA SI3030 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3031
+    tristate "Intel HDA SI3031 Codec"
+    default n
+    help
+      Support for Intel HDA SI3031 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3032
+    tristate "Intel HDA SI3032 Codec"
+    default n
+    help
+      Support for Intel HDA SI3032 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3033
+    tristate "Intel HDA SI3033 Codec"
+    default n
+    help
+      Support for Intel HDA SI3033 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3034
+    tristate "Intel HDA SI3034 Codec"
+    default n
+    help
+      Support for Intel HDA SI3034 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3035
+    tristate "Intel HDA SI3035 Codec"
+    default n
+    help
+      Support for Intel HDA SI3035 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3036
+    tristate "Intel HDA SI3036 Codec"
+    default n
+    help
+      Support for Intel HDA SI3036 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3037
+    tristate "Intel HDA SI3037 Codec"
+    default n
+    help
+      Support for Intel HDA SI3037 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3038
+    tristate "Intel HDA SI3038 Codec"
+    default n
+    help
+      Support for Intel HDA SI3038 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3039
+    tristate "Intel HDA SI3039 Codec"
+    default n
+    help
+      Support for Intel HDA SI3039 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3040
+    tristate "Intel HDA SI3040 Codec"
+    default n
+    help
+      Support for Intel HDA SI3040 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3041
+    tristate "Intel HDA SI3041 Codec"
+    default n
+    help
+      Support for Intel HDA SI3041 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3042
+    tristate "Intel HDA SI3042 Codec"
+    default n
+    help
+      Support for Intel HDA SI3042 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3043
+    tristate "Intel HDA SI3043 Codec"
+    default n
+    help
+      Support for Intel HDA SI3043 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3044
+    tristate "Intel HDA SI3044 Codec"
+    default n
+    help
+      Support for Intel HDA SI3044 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3045
+    tristate "Intel HDA SI3045 Codec"
+    default n
+    help
+      Support for Intel HDA SI3045 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3046
+    tristate "Intel HDA SI3046 Codec"
+    default n
+    help
+      Support for Intel HDA SI3046 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3047
+    tristate "Intel HDA SI3047 Codec"
+    default n
+    help
+      Support for Intel HDA SI3047 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3048
+    tristate "Intel HDA SI3048 Codec"
+    default n
+    help
+      Support for Intel HDA SI3048 Codec (Intel)
+      Category: audio
+
+config AUDIO_HDA_INTEL_SI3049
+    tristate "Intel HDA SI3049 Codec"
+    default n
+    help
+      Support for Intel HDA SI3049 Codec (Intel)
+      Category: audio
+
+config AUDIO_REALTEK_ALC660
+    tristate "Realtek ALC660 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC660 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC661
+    tristate "Realtek ALC661 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC661 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC662
+    tristate "Realtek ALC662 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC662 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC663
+    tristate "Realtek ALC663 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC663 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC664
+    tristate "Realtek ALC664 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC664 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC665
+    tristate "Realtek ALC665 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC665 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC666
+    tristate "Realtek ALC666 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC666 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC667
+    tristate "Realtek ALC667 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC667 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC668
+    tristate "Realtek ALC668 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC668 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC669
+    tristate "Realtek ALC669 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC669 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC670
+    tristate "Realtek ALC670 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC670 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC671
+    tristate "Realtek ALC671 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC671 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC672
+    tristate "Realtek ALC672 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC672 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC673
+    tristate "Realtek ALC673 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC673 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC674
+    tristate "Realtek ALC674 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC674 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC675
+    tristate "Realtek ALC675 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC675 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC676
+    tristate "Realtek ALC676 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC676 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC677
+    tristate "Realtek ALC677 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC677 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC678
+    tristate "Realtek ALC678 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC678 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC679
+    tristate "Realtek ALC679 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC679 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC680
+    tristate "Realtek ALC680 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC680 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC681
+    tristate "Realtek ALC681 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC681 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC682
+    tristate "Realtek ALC682 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC682 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC683
+    tristate "Realtek ALC683 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC683 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC684
+    tristate "Realtek ALC684 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC684 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC685
+    tristate "Realtek ALC685 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC685 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC686
+    tristate "Realtek ALC686 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC686 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC687
+    tristate "Realtek ALC687 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC687 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC688
+    tristate "Realtek ALC688 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC688 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC689
+    tristate "Realtek ALC689 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC689 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC690
+    tristate "Realtek ALC690 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC690 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC691
+    tristate "Realtek ALC691 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC691 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC692
+    tristate "Realtek ALC692 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC692 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC693
+    tristate "Realtek ALC693 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC693 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC694
+    tristate "Realtek ALC694 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC694 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC695
+    tristate "Realtek ALC695 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC695 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC696
+    tristate "Realtek ALC696 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC696 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC697
+    tristate "Realtek ALC697 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC697 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC698
+    tristate "Realtek ALC698 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC698 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC699
+    tristate "Realtek ALC699 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC699 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC700
+    tristate "Realtek ALC700 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC700 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC701
+    tristate "Realtek ALC701 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC701 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC702
+    tristate "Realtek ALC702 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC702 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC703
+    tristate "Realtek ALC703 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC703 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC704
+    tristate "Realtek ALC704 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC704 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC705
+    tristate "Realtek ALC705 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC705 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC706
+    tristate "Realtek ALC706 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC706 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC707
+    tristate "Realtek ALC707 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC707 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC708
+    tristate "Realtek ALC708 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC708 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC709
+    tristate "Realtek ALC709 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC709 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC710
+    tristate "Realtek ALC710 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC710 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC711
+    tristate "Realtek ALC711 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC711 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC712
+    tristate "Realtek ALC712 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC712 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC713
+    tristate "Realtek ALC713 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC713 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC714
+    tristate "Realtek ALC714 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC714 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC715
+    tristate "Realtek ALC715 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC715 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC716
+    tristate "Realtek ALC716 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC716 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC717
+    tristate "Realtek ALC717 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC717 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC718
+    tristate "Realtek ALC718 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC718 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC719
+    tristate "Realtek ALC719 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC719 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC720
+    tristate "Realtek ALC720 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC720 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC721
+    tristate "Realtek ALC721 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC721 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC722
+    tristate "Realtek ALC722 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC722 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC723
+    tristate "Realtek ALC723 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC723 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC724
+    tristate "Realtek ALC724 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC724 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC725
+    tristate "Realtek ALC725 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC725 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC726
+    tristate "Realtek ALC726 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC726 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC727
+    tristate "Realtek ALC727 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC727 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC728
+    tristate "Realtek ALC728 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC728 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC729
+    tristate "Realtek ALC729 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC729 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC730
+    tristate "Realtek ALC730 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC730 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC731
+    tristate "Realtek ALC731 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC731 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC732
+    tristate "Realtek ALC732 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC732 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC733
+    tristate "Realtek ALC733 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC733 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC734
+    tristate "Realtek ALC734 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC734 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC735
+    tristate "Realtek ALC735 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC735 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC736
+    tristate "Realtek ALC736 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC736 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC737
+    tristate "Realtek ALC737 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC737 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC738
+    tristate "Realtek ALC738 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC738 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC739
+    tristate "Realtek ALC739 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC739 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC740
+    tristate "Realtek ALC740 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC740 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC741
+    tristate "Realtek ALC741 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC741 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC742
+    tristate "Realtek ALC742 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC742 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC743
+    tristate "Realtek ALC743 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC743 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC744
+    tristate "Realtek ALC744 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC744 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC745
+    tristate "Realtek ALC745 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC745 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC746
+    tristate "Realtek ALC746 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC746 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC747
+    tristate "Realtek ALC747 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC747 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC748
+    tristate "Realtek ALC748 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC748 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC749
+    tristate "Realtek ALC749 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC749 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC750
+    tristate "Realtek ALC750 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC750 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC751
+    tristate "Realtek ALC751 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC751 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC752
+    tristate "Realtek ALC752 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC752 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC753
+    tristate "Realtek ALC753 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC753 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC754
+    tristate "Realtek ALC754 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC754 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC755
+    tristate "Realtek ALC755 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC755 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC756
+    tristate "Realtek ALC756 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC756 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC757
+    tristate "Realtek ALC757 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC757 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC758
+    tristate "Realtek ALC758 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC758 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC759
+    tristate "Realtek ALC759 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC759 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC760
+    tristate "Realtek ALC760 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC760 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC761
+    tristate "Realtek ALC761 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC761 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC762
+    tristate "Realtek ALC762 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC762 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC763
+    tristate "Realtek ALC763 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC763 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC764
+    tristate "Realtek ALC764 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC764 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC765
+    tristate "Realtek ALC765 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC765 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC766
+    tristate "Realtek ALC766 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC766 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC767
+    tristate "Realtek ALC767 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC767 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC768
+    tristate "Realtek ALC768 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC768 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC769
+    tristate "Realtek ALC769 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC769 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC770
+    tristate "Realtek ALC770 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC770 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC771
+    tristate "Realtek ALC771 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC771 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC772
+    tristate "Realtek ALC772 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC772 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC773
+    tristate "Realtek ALC773 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC773 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC774
+    tristate "Realtek ALC774 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC774 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC775
+    tristate "Realtek ALC775 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC775 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC776
+    tristate "Realtek ALC776 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC776 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC777
+    tristate "Realtek ALC777 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC777 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC778
+    tristate "Realtek ALC778 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC778 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC779
+    tristate "Realtek ALC779 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC779 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC780
+    tristate "Realtek ALC780 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC780 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC781
+    tristate "Realtek ALC781 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC781 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC782
+    tristate "Realtek ALC782 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC782 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC783
+    tristate "Realtek ALC783 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC783 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC784
+    tristate "Realtek ALC784 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC784 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC785
+    tristate "Realtek ALC785 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC785 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC786
+    tristate "Realtek ALC786 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC786 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC787
+    tristate "Realtek ALC787 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC787 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC788
+    tristate "Realtek ALC788 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC788 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC789
+    tristate "Realtek ALC789 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC789 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC790
+    tristate "Realtek ALC790 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC790 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC791
+    tristate "Realtek ALC791 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC791 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC792
+    tristate "Realtek ALC792 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC792 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC793
+    tristate "Realtek ALC793 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC793 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC794
+    tristate "Realtek ALC794 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC794 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC795
+    tristate "Realtek ALC795 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC795 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC796
+    tristate "Realtek ALC796 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC796 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC797
+    tristate "Realtek ALC797 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC797 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC798
+    tristate "Realtek ALC798 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC798 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC799
+    tristate "Realtek ALC799 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC799 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC800
+    tristate "Realtek ALC800 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC800 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC801
+    tristate "Realtek ALC801 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC801 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC802
+    tristate "Realtek ALC802 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC802 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC803
+    tristate "Realtek ALC803 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC803 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC804
+    tristate "Realtek ALC804 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC804 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC805
+    tristate "Realtek ALC805 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC805 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC806
+    tristate "Realtek ALC806 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC806 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC807
+    tristate "Realtek ALC807 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC807 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC808
+    tristate "Realtek ALC808 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC808 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC809
+    tristate "Realtek ALC809 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC809 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC810
+    tristate "Realtek ALC810 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC810 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC811
+    tristate "Realtek ALC811 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC811 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC812
+    tristate "Realtek ALC812 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC812 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC813
+    tristate "Realtek ALC813 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC813 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC814
+    tristate "Realtek ALC814 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC814 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC815
+    tristate "Realtek ALC815 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC815 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC816
+    tristate "Realtek ALC816 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC816 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC817
+    tristate "Realtek ALC817 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC817 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC818
+    tristate "Realtek ALC818 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC818 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC819
+    tristate "Realtek ALC819 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC819 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC820
+    tristate "Realtek ALC820 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC820 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC821
+    tristate "Realtek ALC821 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC821 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC822
+    tristate "Realtek ALC822 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC822 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC823
+    tristate "Realtek ALC823 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC823 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC824
+    tristate "Realtek ALC824 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC824 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC825
+    tristate "Realtek ALC825 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC825 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC826
+    tristate "Realtek ALC826 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC826 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC827
+    tristate "Realtek ALC827 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC827 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC828
+    tristate "Realtek ALC828 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC828 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC829
+    tristate "Realtek ALC829 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC829 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC830
+    tristate "Realtek ALC830 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC830 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC831
+    tristate "Realtek ALC831 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC831 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC832
+    tristate "Realtek ALC832 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC832 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC833
+    tristate "Realtek ALC833 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC833 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC834
+    tristate "Realtek ALC834 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC834 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC835
+    tristate "Realtek ALC835 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC835 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC836
+    tristate "Realtek ALC836 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC836 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC837
+    tristate "Realtek ALC837 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC837 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC838
+    tristate "Realtek ALC838 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC838 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC839
+    tristate "Realtek ALC839 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC839 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC840
+    tristate "Realtek ALC840 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC840 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC841
+    tristate "Realtek ALC841 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC841 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC842
+    tristate "Realtek ALC842 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC842 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC843
+    tristate "Realtek ALC843 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC843 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC844
+    tristate "Realtek ALC844 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC844 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC845
+    tristate "Realtek ALC845 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC845 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC846
+    tristate "Realtek ALC846 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC846 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC847
+    tristate "Realtek ALC847 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC847 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC848
+    tristate "Realtek ALC848 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC848 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC849
+    tristate "Realtek ALC849 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC849 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC850
+    tristate "Realtek ALC850 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC850 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC851
+    tristate "Realtek ALC851 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC851 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC852
+    tristate "Realtek ALC852 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC852 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC853
+    tristate "Realtek ALC853 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC853 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC854
+    tristate "Realtek ALC854 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC854 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC855
+    tristate "Realtek ALC855 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC855 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC856
+    tristate "Realtek ALC856 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC856 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC857
+    tristate "Realtek ALC857 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC857 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC858
+    tristate "Realtek ALC858 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC858 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC859
+    tristate "Realtek ALC859 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC859 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC860
+    tristate "Realtek ALC860 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC860 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC861
+    tristate "Realtek ALC861 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC861 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC862
+    tristate "Realtek ALC862 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC862 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC863
+    tristate "Realtek ALC863 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC863 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC864
+    tristate "Realtek ALC864 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC864 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC865
+    tristate "Realtek ALC865 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC865 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC866
+    tristate "Realtek ALC866 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC866 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC867
+    tristate "Realtek ALC867 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC867 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC868
+    tristate "Realtek ALC868 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC868 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC869
+    tristate "Realtek ALC869 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC869 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC870
+    tristate "Realtek ALC870 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC870 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC871
+    tristate "Realtek ALC871 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC871 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC872
+    tristate "Realtek ALC872 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC872 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC873
+    tristate "Realtek ALC873 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC873 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC874
+    tristate "Realtek ALC874 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC874 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC875
+    tristate "Realtek ALC875 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC875 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC876
+    tristate "Realtek ALC876 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC876 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC877
+    tristate "Realtek ALC877 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC877 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC878
+    tristate "Realtek ALC878 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC878 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC879
+    tristate "Realtek ALC879 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC879 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC880
+    tristate "Realtek ALC880 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC880 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC881
+    tristate "Realtek ALC881 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC881 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC882
+    tristate "Realtek ALC882 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC882 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC883
+    tristate "Realtek ALC883 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC883 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC884
+    tristate "Realtek ALC884 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC884 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC885
+    tristate "Realtek ALC885 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC885 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC886
+    tristate "Realtek ALC886 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC886 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC887
+    tristate "Realtek ALC887 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC887 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC888
+    tristate "Realtek ALC888 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC888 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC889
+    tristate "Realtek ALC889 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC889 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC890
+    tristate "Realtek ALC890 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC890 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC891
+    tristate "Realtek ALC891 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC891 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC892
+    tristate "Realtek ALC892 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC892 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC893
+    tristate "Realtek ALC893 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC893 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC894
+    tristate "Realtek ALC894 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC894 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC895
+    tristate "Realtek ALC895 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC895 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC896
+    tristate "Realtek ALC896 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC896 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC897
+    tristate "Realtek ALC897 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC897 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_REALTEK_ALC898
+    tristate "Realtek ALC898 Audio Codec"
+    default n
+    help
+      Support for Realtek ALC898 Audio Codec (Realtek)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_0
+    tristate "Creative Sound Blaster Live model 0"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 0 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_1
+    tristate "Creative Sound Blaster Live model 1"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 1 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_2
+    tristate "Creative Sound Blaster Live model 2"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 2 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_3
+    tristate "Creative Sound Blaster Live model 3"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 3 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_4
+    tristate "Creative Sound Blaster Live model 4"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 4 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_5
+    tristate "Creative Sound Blaster Live model 5"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 5 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_6
+    tristate "Creative Sound Blaster Live model 6"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 6 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_7
+    tristate "Creative Sound Blaster Live model 7"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 7 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_8
+    tristate "Creative Sound Blaster Live model 8"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 8 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_9
+    tristate "Creative Sound Blaster Live model 9"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 9 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_10
+    tristate "Creative Sound Blaster Live model 10"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 10 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_11
+    tristate "Creative Sound Blaster Live model 11"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 11 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_12
+    tristate "Creative Sound Blaster Live model 12"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 12 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_13
+    tristate "Creative Sound Blaster Live model 13"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 13 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_14
+    tristate "Creative Sound Blaster Live model 14"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 14 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_15
+    tristate "Creative Sound Blaster Live model 15"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 15 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_16
+    tristate "Creative Sound Blaster Live model 16"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 16 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_17
+    tristate "Creative Sound Blaster Live model 17"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 17 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_18
+    tristate "Creative Sound Blaster Live model 18"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 18 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Live_19
+    tristate "Creative Sound Blaster Live model 19"
+    default n
+    help
+      Support for Creative Sound Blaster Live model 19 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_0
+    tristate "Creative Sound Blaster Audigy model 0"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 0 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_1
+    tristate "Creative Sound Blaster Audigy model 1"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 1 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_2
+    tristate "Creative Sound Blaster Audigy model 2"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 2 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_3
+    tristate "Creative Sound Blaster Audigy model 3"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 3 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_4
+    tristate "Creative Sound Blaster Audigy model 4"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 4 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_5
+    tristate "Creative Sound Blaster Audigy model 5"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 5 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_6
+    tristate "Creative Sound Blaster Audigy model 6"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 6 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_7
+    tristate "Creative Sound Blaster Audigy model 7"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 7 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_8
+    tristate "Creative Sound Blaster Audigy model 8"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 8 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_9
+    tristate "Creative Sound Blaster Audigy model 9"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 9 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_10
+    tristate "Creative Sound Blaster Audigy model 10"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 10 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_11
+    tristate "Creative Sound Blaster Audigy model 11"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 11 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_12
+    tristate "Creative Sound Blaster Audigy model 12"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 12 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_13
+    tristate "Creative Sound Blaster Audigy model 13"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 13 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_14
+    tristate "Creative Sound Blaster Audigy model 14"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 14 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_15
+    tristate "Creative Sound Blaster Audigy model 15"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 15 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_16
+    tristate "Creative Sound Blaster Audigy model 16"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 16 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_17
+    tristate "Creative Sound Blaster Audigy model 17"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 17 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_18
+    tristate "Creative Sound Blaster Audigy model 18"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 18 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Audigy_19
+    tristate "Creative Sound Blaster Audigy model 19"
+    default n
+    help
+      Support for Creative Sound Blaster Audigy model 19 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_0
+    tristate "Creative Sound Blaster X-Fi model 0"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 0 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_1
+    tristate "Creative Sound Blaster X-Fi model 1"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 1 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_2
+    tristate "Creative Sound Blaster X-Fi model 2"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 2 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_3
+    tristate "Creative Sound Blaster X-Fi model 3"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 3 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_4
+    tristate "Creative Sound Blaster X-Fi model 4"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 4 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_5
+    tristate "Creative Sound Blaster X-Fi model 5"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 5 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_6
+    tristate "Creative Sound Blaster X-Fi model 6"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 6 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_7
+    tristate "Creative Sound Blaster X-Fi model 7"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 7 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_8
+    tristate "Creative Sound Blaster X-Fi model 8"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 8 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_9
+    tristate "Creative Sound Blaster X-Fi model 9"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 9 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_10
+    tristate "Creative Sound Blaster X-Fi model 10"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 10 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_11
+    tristate "Creative Sound Blaster X-Fi model 11"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 11 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_12
+    tristate "Creative Sound Blaster X-Fi model 12"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 12 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_13
+    tristate "Creative Sound Blaster X-Fi model 13"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 13 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_14
+    tristate "Creative Sound Blaster X-Fi model 14"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 14 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_15
+    tristate "Creative Sound Blaster X-Fi model 15"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 15 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_16
+    tristate "Creative Sound Blaster X-Fi model 16"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 16 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_17
+    tristate "Creative Sound Blaster X-Fi model 17"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 17 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_18
+    tristate "Creative Sound Blaster X-Fi model 18"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 18 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_X-Fi_19
+    tristate "Creative Sound Blaster X-Fi model 19"
+    default n
+    help
+      Support for Creative Sound Blaster X-Fi model 19 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_0
+    tristate "Creative Sound Blaster Z model 0"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 0 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_1
+    tristate "Creative Sound Blaster Z model 1"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 1 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_2
+    tristate "Creative Sound Blaster Z model 2"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 2 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_3
+    tristate "Creative Sound Blaster Z model 3"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 3 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_4
+    tristate "Creative Sound Blaster Z model 4"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 4 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_5
+    tristate "Creative Sound Blaster Z model 5"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 5 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_6
+    tristate "Creative Sound Blaster Z model 6"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 6 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_7
+    tristate "Creative Sound Blaster Z model 7"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 7 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_8
+    tristate "Creative Sound Blaster Z model 8"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 8 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_9
+    tristate "Creative Sound Blaster Z model 9"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 9 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_10
+    tristate "Creative Sound Blaster Z model 10"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 10 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_11
+    tristate "Creative Sound Blaster Z model 11"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 11 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_12
+    tristate "Creative Sound Blaster Z model 12"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 12 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_13
+    tristate "Creative Sound Blaster Z model 13"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 13 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_14
+    tristate "Creative Sound Blaster Z model 14"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 14 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_15
+    tristate "Creative Sound Blaster Z model 15"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 15 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_16
+    tristate "Creative Sound Blaster Z model 16"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 16 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_17
+    tristate "Creative Sound Blaster Z model 17"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 17 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_18
+    tristate "Creative Sound Blaster Z model 18"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 18 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_Z_19
+    tristate "Creative Sound Blaster Z model 19"
+    default n
+    help
+      Support for Creative Sound Blaster Z model 19 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_0
+    tristate "Creative Sound Blaster AE model 0"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 0 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_1
+    tristate "Creative Sound Blaster AE model 1"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 1 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_2
+    tristate "Creative Sound Blaster AE model 2"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 2 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_3
+    tristate "Creative Sound Blaster AE model 3"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 3 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_4
+    tristate "Creative Sound Blaster AE model 4"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 4 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_5
+    tristate "Creative Sound Blaster AE model 5"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 5 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_6
+    tristate "Creative Sound Blaster AE model 6"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 6 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_7
+    tristate "Creative Sound Blaster AE model 7"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 7 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_8
+    tristate "Creative Sound Blaster AE model 8"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 8 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_9
+    tristate "Creative Sound Blaster AE model 9"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 9 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_10
+    tristate "Creative Sound Blaster AE model 10"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 10 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_11
+    tristate "Creative Sound Blaster AE model 11"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 11 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_12
+    tristate "Creative Sound Blaster AE model 12"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 12 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_13
+    tristate "Creative Sound Blaster AE model 13"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 13 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_14
+    tristate "Creative Sound Blaster AE model 14"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 14 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_15
+    tristate "Creative Sound Blaster AE model 15"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 15 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_16
+    tristate "Creative Sound Blaster AE model 16"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 16 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_17
+    tristate "Creative Sound Blaster AE model 17"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 17 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_18
+    tristate "Creative Sound Blaster AE model 18"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 18 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_AE_19
+    tristate "Creative Sound Blaster AE model 19"
+    default n
+    help
+      Support for Creative Sound Blaster AE model 19 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_0
+    tristate "Creative Sound Blaster G model 0"
+    default n
+    help
+      Support for Creative Sound Blaster G model 0 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_1
+    tristate "Creative Sound Blaster G model 1"
+    default n
+    help
+      Support for Creative Sound Blaster G model 1 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_2
+    tristate "Creative Sound Blaster G model 2"
+    default n
+    help
+      Support for Creative Sound Blaster G model 2 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_3
+    tristate "Creative Sound Blaster G model 3"
+    default n
+    help
+      Support for Creative Sound Blaster G model 3 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_4
+    tristate "Creative Sound Blaster G model 4"
+    default n
+    help
+      Support for Creative Sound Blaster G model 4 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_5
+    tristate "Creative Sound Blaster G model 5"
+    default n
+    help
+      Support for Creative Sound Blaster G model 5 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_6
+    tristate "Creative Sound Blaster G model 6"
+    default n
+    help
+      Support for Creative Sound Blaster G model 6 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_7
+    tristate "Creative Sound Blaster G model 7"
+    default n
+    help
+      Support for Creative Sound Blaster G model 7 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_8
+    tristate "Creative Sound Blaster G model 8"
+    default n
+    help
+      Support for Creative Sound Blaster G model 8 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_9
+    tristate "Creative Sound Blaster G model 9"
+    default n
+    help
+      Support for Creative Sound Blaster G model 9 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_10
+    tristate "Creative Sound Blaster G model 10"
+    default n
+    help
+      Support for Creative Sound Blaster G model 10 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_11
+    tristate "Creative Sound Blaster G model 11"
+    default n
+    help
+      Support for Creative Sound Blaster G model 11 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_12
+    tristate "Creative Sound Blaster G model 12"
+    default n
+    help
+      Support for Creative Sound Blaster G model 12 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_13
+    tristate "Creative Sound Blaster G model 13"
+    default n
+    help
+      Support for Creative Sound Blaster G model 13 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_14
+    tristate "Creative Sound Blaster G model 14"
+    default n
+    help
+      Support for Creative Sound Blaster G model 14 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_15
+    tristate "Creative Sound Blaster G model 15"
+    default n
+    help
+      Support for Creative Sound Blaster G model 15 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_16
+    tristate "Creative Sound Blaster G model 16"
+    default n
+    help
+      Support for Creative Sound Blaster G model 16 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_17
+    tristate "Creative Sound Blaster G model 17"
+    default n
+    help
+      Support for Creative Sound Blaster G model 17 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_18
+    tristate "Creative Sound Blaster G model 18"
+    default n
+    help
+      Support for Creative Sound Blaster G model 18 (Creative)
+      Category: audio
+
+config AUDIO_CREATIVE_SB_G_19
+    tristate "Creative Sound Blaster G model 19"
+    default n
+    help
+      Support for Creative Sound Blaster G model 19 (Creative)
+      Category: audio
+
+config AUDIO_USB_GENERIC_0
+    tristate "USB Audio Generic model 0"
+    default n
+    help
+      Support for USB Audio Generic model 0 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_1
+    tristate "USB Audio Generic model 1"
+    default n
+    help
+      Support for USB Audio Generic model 1 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_2
+    tristate "USB Audio Generic model 2"
+    default n
+    help
+      Support for USB Audio Generic model 2 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_3
+    tristate "USB Audio Generic model 3"
+    default n
+    help
+      Support for USB Audio Generic model 3 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_4
+    tristate "USB Audio Generic model 4"
+    default n
+    help
+      Support for USB Audio Generic model 4 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_5
+    tristate "USB Audio Generic model 5"
+    default n
+    help
+      Support for USB Audio Generic model 5 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_6
+    tristate "USB Audio Generic model 6"
+    default n
+    help
+      Support for USB Audio Generic model 6 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_7
+    tristate "USB Audio Generic model 7"
+    default n
+    help
+      Support for USB Audio Generic model 7 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_8
+    tristate "USB Audio Generic model 8"
+    default n
+    help
+      Support for USB Audio Generic model 8 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_9
+    tristate "USB Audio Generic model 9"
+    default n
+    help
+      Support for USB Audio Generic model 9 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_10
+    tristate "USB Audio Generic model 10"
+    default n
+    help
+      Support for USB Audio Generic model 10 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_11
+    tristate "USB Audio Generic model 11"
+    default n
+    help
+      Support for USB Audio Generic model 11 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_12
+    tristate "USB Audio Generic model 12"
+    default n
+    help
+      Support for USB Audio Generic model 12 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_13
+    tristate "USB Audio Generic model 13"
+    default n
+    help
+      Support for USB Audio Generic model 13 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_14
+    tristate "USB Audio Generic model 14"
+    default n
+    help
+      Support for USB Audio Generic model 14 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_15
+    tristate "USB Audio Generic model 15"
+    default n
+    help
+      Support for USB Audio Generic model 15 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_16
+    tristate "USB Audio Generic model 16"
+    default n
+    help
+      Support for USB Audio Generic model 16 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_17
+    tristate "USB Audio Generic model 17"
+    default n
+    help
+      Support for USB Audio Generic model 17 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_18
+    tristate "USB Audio Generic model 18"
+    default n
+    help
+      Support for USB Audio Generic model 18 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_19
+    tristate "USB Audio Generic model 19"
+    default n
+    help
+      Support for USB Audio Generic model 19 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_20
+    tristate "USB Audio Generic model 20"
+    default n
+    help
+      Support for USB Audio Generic model 20 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_21
+    tristate "USB Audio Generic model 21"
+    default n
+    help
+      Support for USB Audio Generic model 21 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_22
+    tristate "USB Audio Generic model 22"
+    default n
+    help
+      Support for USB Audio Generic model 22 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_23
+    tristate "USB Audio Generic model 23"
+    default n
+    help
+      Support for USB Audio Generic model 23 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_24
+    tristate "USB Audio Generic model 24"
+    default n
+    help
+      Support for USB Audio Generic model 24 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_25
+    tristate "USB Audio Generic model 25"
+    default n
+    help
+      Support for USB Audio Generic model 25 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_26
+    tristate "USB Audio Generic model 26"
+    default n
+    help
+      Support for USB Audio Generic model 26 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_27
+    tristate "USB Audio Generic model 27"
+    default n
+    help
+      Support for USB Audio Generic model 27 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_28
+    tristate "USB Audio Generic model 28"
+    default n
+    help
+      Support for USB Audio Generic model 28 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_29
+    tristate "USB Audio Generic model 29"
+    default n
+    help
+      Support for USB Audio Generic model 29 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_30
+    tristate "USB Audio Generic model 30"
+    default n
+    help
+      Support for USB Audio Generic model 30 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_31
+    tristate "USB Audio Generic model 31"
+    default n
+    help
+      Support for USB Audio Generic model 31 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_32
+    tristate "USB Audio Generic model 32"
+    default n
+    help
+      Support for USB Audio Generic model 32 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_33
+    tristate "USB Audio Generic model 33"
+    default n
+    help
+      Support for USB Audio Generic model 33 (Generic)
+      Category: audio
+
+config AUDIO_USB_GENERIC_34
+    tristate "USB Audio Generic model 34"
+    default n
+    help
+      Support for USB Audio Generic model 34 (Generic)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_0
+    tristate "USB Audio Focusrite model 0"
+    default n
+    help
+      Support for USB Audio Focusrite model 0 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_1
+    tristate "USB Audio Focusrite model 1"
+    default n
+    help
+      Support for USB Audio Focusrite model 1 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_2
+    tristate "USB Audio Focusrite model 2"
+    default n
+    help
+      Support for USB Audio Focusrite model 2 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_3
+    tristate "USB Audio Focusrite model 3"
+    default n
+    help
+      Support for USB Audio Focusrite model 3 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_4
+    tristate "USB Audio Focusrite model 4"
+    default n
+    help
+      Support for USB Audio Focusrite model 4 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_5
+    tristate "USB Audio Focusrite model 5"
+    default n
+    help
+      Support for USB Audio Focusrite model 5 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_6
+    tristate "USB Audio Focusrite model 6"
+    default n
+    help
+      Support for USB Audio Focusrite model 6 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_7
+    tristate "USB Audio Focusrite model 7"
+    default n
+    help
+      Support for USB Audio Focusrite model 7 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_8
+    tristate "USB Audio Focusrite model 8"
+    default n
+    help
+      Support for USB Audio Focusrite model 8 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_9
+    tristate "USB Audio Focusrite model 9"
+    default n
+    help
+      Support for USB Audio Focusrite model 9 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_10
+    tristate "USB Audio Focusrite model 10"
+    default n
+    help
+      Support for USB Audio Focusrite model 10 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_11
+    tristate "USB Audio Focusrite model 11"
+    default n
+    help
+      Support for USB Audio Focusrite model 11 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_12
+    tristate "USB Audio Focusrite model 12"
+    default n
+    help
+      Support for USB Audio Focusrite model 12 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_13
+    tristate "USB Audio Focusrite model 13"
+    default n
+    help
+      Support for USB Audio Focusrite model 13 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_14
+    tristate "USB Audio Focusrite model 14"
+    default n
+    help
+      Support for USB Audio Focusrite model 14 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_15
+    tristate "USB Audio Focusrite model 15"
+    default n
+    help
+      Support for USB Audio Focusrite model 15 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_16
+    tristate "USB Audio Focusrite model 16"
+    default n
+    help
+      Support for USB Audio Focusrite model 16 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_17
+    tristate "USB Audio Focusrite model 17"
+    default n
+    help
+      Support for USB Audio Focusrite model 17 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_18
+    tristate "USB Audio Focusrite model 18"
+    default n
+    help
+      Support for USB Audio Focusrite model 18 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_19
+    tristate "USB Audio Focusrite model 19"
+    default n
+    help
+      Support for USB Audio Focusrite model 19 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_20
+    tristate "USB Audio Focusrite model 20"
+    default n
+    help
+      Support for USB Audio Focusrite model 20 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_21
+    tristate "USB Audio Focusrite model 21"
+    default n
+    help
+      Support for USB Audio Focusrite model 21 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_22
+    tristate "USB Audio Focusrite model 22"
+    default n
+    help
+      Support for USB Audio Focusrite model 22 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_23
+    tristate "USB Audio Focusrite model 23"
+    default n
+    help
+      Support for USB Audio Focusrite model 23 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_24
+    tristate "USB Audio Focusrite model 24"
+    default n
+    help
+      Support for USB Audio Focusrite model 24 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_25
+    tristate "USB Audio Focusrite model 25"
+    default n
+    help
+      Support for USB Audio Focusrite model 25 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_26
+    tristate "USB Audio Focusrite model 26"
+    default n
+    help
+      Support for USB Audio Focusrite model 26 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_27
+    tristate "USB Audio Focusrite model 27"
+    default n
+    help
+      Support for USB Audio Focusrite model 27 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_28
+    tristate "USB Audio Focusrite model 28"
+    default n
+    help
+      Support for USB Audio Focusrite model 28 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_29
+    tristate "USB Audio Focusrite model 29"
+    default n
+    help
+      Support for USB Audio Focusrite model 29 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_30
+    tristate "USB Audio Focusrite model 30"
+    default n
+    help
+      Support for USB Audio Focusrite model 30 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_31
+    tristate "USB Audio Focusrite model 31"
+    default n
+    help
+      Support for USB Audio Focusrite model 31 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_32
+    tristate "USB Audio Focusrite model 32"
+    default n
+    help
+      Support for USB Audio Focusrite model 32 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_33
+    tristate "USB Audio Focusrite model 33"
+    default n
+    help
+      Support for USB Audio Focusrite model 33 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_FOCUSRITE_34
+    tristate "USB Audio Focusrite model 34"
+    default n
+    help
+      Support for USB Audio Focusrite model 34 (Focusrite)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_0
+    tristate "USB Audio PreSonus model 0"
+    default n
+    help
+      Support for USB Audio PreSonus model 0 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_1
+    tristate "USB Audio PreSonus model 1"
+    default n
+    help
+      Support for USB Audio PreSonus model 1 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_2
+    tristate "USB Audio PreSonus model 2"
+    default n
+    help
+      Support for USB Audio PreSonus model 2 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_3
+    tristate "USB Audio PreSonus model 3"
+    default n
+    help
+      Support for USB Audio PreSonus model 3 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_4
+    tristate "USB Audio PreSonus model 4"
+    default n
+    help
+      Support for USB Audio PreSonus model 4 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_5
+    tristate "USB Audio PreSonus model 5"
+    default n
+    help
+      Support for USB Audio PreSonus model 5 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_6
+    tristate "USB Audio PreSonus model 6"
+    default n
+    help
+      Support for USB Audio PreSonus model 6 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_7
+    tristate "USB Audio PreSonus model 7"
+    default n
+    help
+      Support for USB Audio PreSonus model 7 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_8
+    tristate "USB Audio PreSonus model 8"
+    default n
+    help
+      Support for USB Audio PreSonus model 8 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_9
+    tristate "USB Audio PreSonus model 9"
+    default n
+    help
+      Support for USB Audio PreSonus model 9 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_10
+    tristate "USB Audio PreSonus model 10"
+    default n
+    help
+      Support for USB Audio PreSonus model 10 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_11
+    tristate "USB Audio PreSonus model 11"
+    default n
+    help
+      Support for USB Audio PreSonus model 11 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_12
+    tristate "USB Audio PreSonus model 12"
+    default n
+    help
+      Support for USB Audio PreSonus model 12 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_13
+    tristate "USB Audio PreSonus model 13"
+    default n
+    help
+      Support for USB Audio PreSonus model 13 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_14
+    tristate "USB Audio PreSonus model 14"
+    default n
+    help
+      Support for USB Audio PreSonus model 14 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_15
+    tristate "USB Audio PreSonus model 15"
+    default n
+    help
+      Support for USB Audio PreSonus model 15 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_16
+    tristate "USB Audio PreSonus model 16"
+    default n
+    help
+      Support for USB Audio PreSonus model 16 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_17
+    tristate "USB Audio PreSonus model 17"
+    default n
+    help
+      Support for USB Audio PreSonus model 17 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_18
+    tristate "USB Audio PreSonus model 18"
+    default n
+    help
+      Support for USB Audio PreSonus model 18 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_19
+    tristate "USB Audio PreSonus model 19"
+    default n
+    help
+      Support for USB Audio PreSonus model 19 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_20
+    tristate "USB Audio PreSonus model 20"
+    default n
+    help
+      Support for USB Audio PreSonus model 20 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_21
+    tristate "USB Audio PreSonus model 21"
+    default n
+    help
+      Support for USB Audio PreSonus model 21 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_22
+    tristate "USB Audio PreSonus model 22"
+    default n
+    help
+      Support for USB Audio PreSonus model 22 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_23
+    tristate "USB Audio PreSonus model 23"
+    default n
+    help
+      Support for USB Audio PreSonus model 23 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_24
+    tristate "USB Audio PreSonus model 24"
+    default n
+    help
+      Support for USB Audio PreSonus model 24 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_25
+    tristate "USB Audio PreSonus model 25"
+    default n
+    help
+      Support for USB Audio PreSonus model 25 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_26
+    tristate "USB Audio PreSonus model 26"
+    default n
+    help
+      Support for USB Audio PreSonus model 26 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_27
+    tristate "USB Audio PreSonus model 27"
+    default n
+    help
+      Support for USB Audio PreSonus model 27 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_28
+    tristate "USB Audio PreSonus model 28"
+    default n
+    help
+      Support for USB Audio PreSonus model 28 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_29
+    tristate "USB Audio PreSonus model 29"
+    default n
+    help
+      Support for USB Audio PreSonus model 29 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_30
+    tristate "USB Audio PreSonus model 30"
+    default n
+    help
+      Support for USB Audio PreSonus model 30 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_31
+    tristate "USB Audio PreSonus model 31"
+    default n
+    help
+      Support for USB Audio PreSonus model 31 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_32
+    tristate "USB Audio PreSonus model 32"
+    default n
+    help
+      Support for USB Audio PreSonus model 32 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_33
+    tristate "USB Audio PreSonus model 33"
+    default n
+    help
+      Support for USB Audio PreSonus model 33 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_PRESONUS_34
+    tristate "USB Audio PreSonus model 34"
+    default n
+    help
+      Support for USB Audio PreSonus model 34 (PreSonus)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_0
+    tristate "USB Audio Behringer model 0"
+    default n
+    help
+      Support for USB Audio Behringer model 0 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_1
+    tristate "USB Audio Behringer model 1"
+    default n
+    help
+      Support for USB Audio Behringer model 1 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_2
+    tristate "USB Audio Behringer model 2"
+    default n
+    help
+      Support for USB Audio Behringer model 2 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_3
+    tristate "USB Audio Behringer model 3"
+    default n
+    help
+      Support for USB Audio Behringer model 3 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_4
+    tristate "USB Audio Behringer model 4"
+    default n
+    help
+      Support for USB Audio Behringer model 4 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_5
+    tristate "USB Audio Behringer model 5"
+    default n
+    help
+      Support for USB Audio Behringer model 5 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_6
+    tristate "USB Audio Behringer model 6"
+    default n
+    help
+      Support for USB Audio Behringer model 6 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_7
+    tristate "USB Audio Behringer model 7"
+    default n
+    help
+      Support for USB Audio Behringer model 7 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_8
+    tristate "USB Audio Behringer model 8"
+    default n
+    help
+      Support for USB Audio Behringer model 8 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_9
+    tristate "USB Audio Behringer model 9"
+    default n
+    help
+      Support for USB Audio Behringer model 9 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_10
+    tristate "USB Audio Behringer model 10"
+    default n
+    help
+      Support for USB Audio Behringer model 10 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_11
+    tristate "USB Audio Behringer model 11"
+    default n
+    help
+      Support for USB Audio Behringer model 11 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_12
+    tristate "USB Audio Behringer model 12"
+    default n
+    help
+      Support for USB Audio Behringer model 12 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_13
+    tristate "USB Audio Behringer model 13"
+    default n
+    help
+      Support for USB Audio Behringer model 13 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_14
+    tristate "USB Audio Behringer model 14"
+    default n
+    help
+      Support for USB Audio Behringer model 14 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_15
+    tristate "USB Audio Behringer model 15"
+    default n
+    help
+      Support for USB Audio Behringer model 15 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_16
+    tristate "USB Audio Behringer model 16"
+    default n
+    help
+      Support for USB Audio Behringer model 16 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_17
+    tristate "USB Audio Behringer model 17"
+    default n
+    help
+      Support for USB Audio Behringer model 17 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_18
+    tristate "USB Audio Behringer model 18"
+    default n
+    help
+      Support for USB Audio Behringer model 18 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_19
+    tristate "USB Audio Behringer model 19"
+    default n
+    help
+      Support for USB Audio Behringer model 19 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_20
+    tristate "USB Audio Behringer model 20"
+    default n
+    help
+      Support for USB Audio Behringer model 20 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_21
+    tristate "USB Audio Behringer model 21"
+    default n
+    help
+      Support for USB Audio Behringer model 21 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_22
+    tristate "USB Audio Behringer model 22"
+    default n
+    help
+      Support for USB Audio Behringer model 22 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_23
+    tristate "USB Audio Behringer model 23"
+    default n
+    help
+      Support for USB Audio Behringer model 23 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_24
+    tristate "USB Audio Behringer model 24"
+    default n
+    help
+      Support for USB Audio Behringer model 24 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_25
+    tristate "USB Audio Behringer model 25"
+    default n
+    help
+      Support for USB Audio Behringer model 25 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_26
+    tristate "USB Audio Behringer model 26"
+    default n
+    help
+      Support for USB Audio Behringer model 26 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_27
+    tristate "USB Audio Behringer model 27"
+    default n
+    help
+      Support for USB Audio Behringer model 27 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_28
+    tristate "USB Audio Behringer model 28"
+    default n
+    help
+      Support for USB Audio Behringer model 28 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_29
+    tristate "USB Audio Behringer model 29"
+    default n
+    help
+      Support for USB Audio Behringer model 29 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_30
+    tristate "USB Audio Behringer model 30"
+    default n
+    help
+      Support for USB Audio Behringer model 30 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_31
+    tristate "USB Audio Behringer model 31"
+    default n
+    help
+      Support for USB Audio Behringer model 31 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_32
+    tristate "USB Audio Behringer model 32"
+    default n
+    help
+      Support for USB Audio Behringer model 32 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_33
+    tristate "USB Audio Behringer model 33"
+    default n
+    help
+      Support for USB Audio Behringer model 33 (Behringer)
+      Category: audio
+
+config AUDIO_USB_BEHRINGER_34
+    tristate "USB Audio Behringer model 34"
+    default n
+    help
+      Support for USB Audio Behringer model 34 (Behringer)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_0
+    tristate "USB Audio M-Audio model 0"
+    default n
+    help
+      Support for USB Audio M-Audio model 0 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_1
+    tristate "USB Audio M-Audio model 1"
+    default n
+    help
+      Support for USB Audio M-Audio model 1 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_2
+    tristate "USB Audio M-Audio model 2"
+    default n
+    help
+      Support for USB Audio M-Audio model 2 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_3
+    tristate "USB Audio M-Audio model 3"
+    default n
+    help
+      Support for USB Audio M-Audio model 3 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_4
+    tristate "USB Audio M-Audio model 4"
+    default n
+    help
+      Support for USB Audio M-Audio model 4 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_5
+    tristate "USB Audio M-Audio model 5"
+    default n
+    help
+      Support for USB Audio M-Audio model 5 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_6
+    tristate "USB Audio M-Audio model 6"
+    default n
+    help
+      Support for USB Audio M-Audio model 6 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_7
+    tristate "USB Audio M-Audio model 7"
+    default n
+    help
+      Support for USB Audio M-Audio model 7 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_8
+    tristate "USB Audio M-Audio model 8"
+    default n
+    help
+      Support for USB Audio M-Audio model 8 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_9
+    tristate "USB Audio M-Audio model 9"
+    default n
+    help
+      Support for USB Audio M-Audio model 9 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_10
+    tristate "USB Audio M-Audio model 10"
+    default n
+    help
+      Support for USB Audio M-Audio model 10 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_11
+    tristate "USB Audio M-Audio model 11"
+    default n
+    help
+      Support for USB Audio M-Audio model 11 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_12
+    tristate "USB Audio M-Audio model 12"
+    default n
+    help
+      Support for USB Audio M-Audio model 12 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_13
+    tristate "USB Audio M-Audio model 13"
+    default n
+    help
+      Support for USB Audio M-Audio model 13 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_14
+    tristate "USB Audio M-Audio model 14"
+    default n
+    help
+      Support for USB Audio M-Audio model 14 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_15
+    tristate "USB Audio M-Audio model 15"
+    default n
+    help
+      Support for USB Audio M-Audio model 15 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_16
+    tristate "USB Audio M-Audio model 16"
+    default n
+    help
+      Support for USB Audio M-Audio model 16 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_17
+    tristate "USB Audio M-Audio model 17"
+    default n
+    help
+      Support for USB Audio M-Audio model 17 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_18
+    tristate "USB Audio M-Audio model 18"
+    default n
+    help
+      Support for USB Audio M-Audio model 18 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_19
+    tristate "USB Audio M-Audio model 19"
+    default n
+    help
+      Support for USB Audio M-Audio model 19 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_20
+    tristate "USB Audio M-Audio model 20"
+    default n
+    help
+      Support for USB Audio M-Audio model 20 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_21
+    tristate "USB Audio M-Audio model 21"
+    default n
+    help
+      Support for USB Audio M-Audio model 21 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_22
+    tristate "USB Audio M-Audio model 22"
+    default n
+    help
+      Support for USB Audio M-Audio model 22 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_23
+    tristate "USB Audio M-Audio model 23"
+    default n
+    help
+      Support for USB Audio M-Audio model 23 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_24
+    tristate "USB Audio M-Audio model 24"
+    default n
+    help
+      Support for USB Audio M-Audio model 24 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_25
+    tristate "USB Audio M-Audio model 25"
+    default n
+    help
+      Support for USB Audio M-Audio model 25 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_26
+    tristate "USB Audio M-Audio model 26"
+    default n
+    help
+      Support for USB Audio M-Audio model 26 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_27
+    tristate "USB Audio M-Audio model 27"
+    default n
+    help
+      Support for USB Audio M-Audio model 27 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_28
+    tristate "USB Audio M-Audio model 28"
+    default n
+    help
+      Support for USB Audio M-Audio model 28 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_29
+    tristate "USB Audio M-Audio model 29"
+    default n
+    help
+      Support for USB Audio M-Audio model 29 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_30
+    tristate "USB Audio M-Audio model 30"
+    default n
+    help
+      Support for USB Audio M-Audio model 30 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_31
+    tristate "USB Audio M-Audio model 31"
+    default n
+    help
+      Support for USB Audio M-Audio model 31 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_32
+    tristate "USB Audio M-Audio model 32"
+    default n
+    help
+      Support for USB Audio M-Audio model 32 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_33
+    tristate "USB Audio M-Audio model 33"
+    default n
+    help
+      Support for USB Audio M-Audio model 33 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_M-AUDIO_34
+    tristate "USB Audio M-Audio model 34"
+    default n
+    help
+      Support for USB Audio M-Audio model 34 (M-Audio)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_0
+    tristate "USB Audio Steinberg model 0"
+    default n
+    help
+      Support for USB Audio Steinberg model 0 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_1
+    tristate "USB Audio Steinberg model 1"
+    default n
+    help
+      Support for USB Audio Steinberg model 1 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_2
+    tristate "USB Audio Steinberg model 2"
+    default n
+    help
+      Support for USB Audio Steinberg model 2 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_3
+    tristate "USB Audio Steinberg model 3"
+    default n
+    help
+      Support for USB Audio Steinberg model 3 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_4
+    tristate "USB Audio Steinberg model 4"
+    default n
+    help
+      Support for USB Audio Steinberg model 4 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_5
+    tristate "USB Audio Steinberg model 5"
+    default n
+    help
+      Support for USB Audio Steinberg model 5 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_6
+    tristate "USB Audio Steinberg model 6"
+    default n
+    help
+      Support for USB Audio Steinberg model 6 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_7
+    tristate "USB Audio Steinberg model 7"
+    default n
+    help
+      Support for USB Audio Steinberg model 7 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_8
+    tristate "USB Audio Steinberg model 8"
+    default n
+    help
+      Support for USB Audio Steinberg model 8 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_9
+    tristate "USB Audio Steinberg model 9"
+    default n
+    help
+      Support for USB Audio Steinberg model 9 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_10
+    tristate "USB Audio Steinberg model 10"
+    default n
+    help
+      Support for USB Audio Steinberg model 10 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_11
+    tristate "USB Audio Steinberg model 11"
+    default n
+    help
+      Support for USB Audio Steinberg model 11 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_12
+    tristate "USB Audio Steinberg model 12"
+    default n
+    help
+      Support for USB Audio Steinberg model 12 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_13
+    tristate "USB Audio Steinberg model 13"
+    default n
+    help
+      Support for USB Audio Steinberg model 13 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_14
+    tristate "USB Audio Steinberg model 14"
+    default n
+    help
+      Support for USB Audio Steinberg model 14 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_15
+    tristate "USB Audio Steinberg model 15"
+    default n
+    help
+      Support for USB Audio Steinberg model 15 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_16
+    tristate "USB Audio Steinberg model 16"
+    default n
+    help
+      Support for USB Audio Steinberg model 16 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_17
+    tristate "USB Audio Steinberg model 17"
+    default n
+    help
+      Support for USB Audio Steinberg model 17 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_18
+    tristate "USB Audio Steinberg model 18"
+    default n
+    help
+      Support for USB Audio Steinberg model 18 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_19
+    tristate "USB Audio Steinberg model 19"
+    default n
+    help
+      Support for USB Audio Steinberg model 19 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_20
+    tristate "USB Audio Steinberg model 20"
+    default n
+    help
+      Support for USB Audio Steinberg model 20 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_21
+    tristate "USB Audio Steinberg model 21"
+    default n
+    help
+      Support for USB Audio Steinberg model 21 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_22
+    tristate "USB Audio Steinberg model 22"
+    default n
+    help
+      Support for USB Audio Steinberg model 22 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_23
+    tristate "USB Audio Steinberg model 23"
+    default n
+    help
+      Support for USB Audio Steinberg model 23 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_24
+    tristate "USB Audio Steinberg model 24"
+    default n
+    help
+      Support for USB Audio Steinberg model 24 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_25
+    tristate "USB Audio Steinberg model 25"
+    default n
+    help
+      Support for USB Audio Steinberg model 25 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_26
+    tristate "USB Audio Steinberg model 26"
+    default n
+    help
+      Support for USB Audio Steinberg model 26 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_27
+    tristate "USB Audio Steinberg model 27"
+    default n
+    help
+      Support for USB Audio Steinberg model 27 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_28
+    tristate "USB Audio Steinberg model 28"
+    default n
+    help
+      Support for USB Audio Steinberg model 28 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_29
+    tristate "USB Audio Steinberg model 29"
+    default n
+    help
+      Support for USB Audio Steinberg model 29 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_30
+    tristate "USB Audio Steinberg model 30"
+    default n
+    help
+      Support for USB Audio Steinberg model 30 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_31
+    tristate "USB Audio Steinberg model 31"
+    default n
+    help
+      Support for USB Audio Steinberg model 31 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_32
+    tristate "USB Audio Steinberg model 32"
+    default n
+    help
+      Support for USB Audio Steinberg model 32 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_33
+    tristate "USB Audio Steinberg model 33"
+    default n
+    help
+      Support for USB Audio Steinberg model 33 (Steinberg)
+      Category: audio
+
+config AUDIO_USB_STEINBERG_34
+    tristate "USB Audio Steinberg model 34"
+    default n
+    help
+      Support for USB Audio Steinberg model 34 (Steinberg)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_0
+    tristate "NVIDIA MCP HDMI/DP Audio 0"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 0 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_1
+    tristate "NVIDIA MCP HDMI/DP Audio 1"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 1 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_2
+    tristate "NVIDIA MCP HDMI/DP Audio 2"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 2 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_3
+    tristate "NVIDIA MCP HDMI/DP Audio 3"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 3 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_4
+    tristate "NVIDIA MCP HDMI/DP Audio 4"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 4 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_5
+    tristate "NVIDIA MCP HDMI/DP Audio 5"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 5 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_6
+    tristate "NVIDIA MCP HDMI/DP Audio 6"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 6 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_7
+    tristate "NVIDIA MCP HDMI/DP Audio 7"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 7 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_8
+    tristate "NVIDIA MCP HDMI/DP Audio 8"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 8 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_9
+    tristate "NVIDIA MCP HDMI/DP Audio 9"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 9 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_10
+    tristate "NVIDIA MCP HDMI/DP Audio 10"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 10 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_11
+    tristate "NVIDIA MCP HDMI/DP Audio 11"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 11 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_12
+    tristate "NVIDIA MCP HDMI/DP Audio 12"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 12 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_13
+    tristate "NVIDIA MCP HDMI/DP Audio 13"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 13 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_MCP_14
+    tristate "NVIDIA MCP HDMI/DP Audio 14"
+    default n
+    help
+      Support for NVIDIA MCP HDMI/DP Audio 14 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_0
+    tristate "NVIDIA GF HDMI/DP Audio 0"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 0 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_1
+    tristate "NVIDIA GF HDMI/DP Audio 1"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 1 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_2
+    tristate "NVIDIA GF HDMI/DP Audio 2"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 2 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_3
+    tristate "NVIDIA GF HDMI/DP Audio 3"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 3 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_4
+    tristate "NVIDIA GF HDMI/DP Audio 4"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 4 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_5
+    tristate "NVIDIA GF HDMI/DP Audio 5"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 5 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_6
+    tristate "NVIDIA GF HDMI/DP Audio 6"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 6 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_7
+    tristate "NVIDIA GF HDMI/DP Audio 7"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 7 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_8
+    tristate "NVIDIA GF HDMI/DP Audio 8"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 8 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_9
+    tristate "NVIDIA GF HDMI/DP Audio 9"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 9 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_10
+    tristate "NVIDIA GF HDMI/DP Audio 10"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 10 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_11
+    tristate "NVIDIA GF HDMI/DP Audio 11"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 11 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_12
+    tristate "NVIDIA GF HDMI/DP Audio 12"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 12 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_13
+    tristate "NVIDIA GF HDMI/DP Audio 13"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 13 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GF_14
+    tristate "NVIDIA GF HDMI/DP Audio 14"
+    default n
+    help
+      Support for NVIDIA GF HDMI/DP Audio 14 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_0
+    tristate "NVIDIA GK HDMI/DP Audio 0"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 0 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_1
+    tristate "NVIDIA GK HDMI/DP Audio 1"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 1 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_2
+    tristate "NVIDIA GK HDMI/DP Audio 2"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 2 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_3
+    tristate "NVIDIA GK HDMI/DP Audio 3"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 3 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_4
+    tristate "NVIDIA GK HDMI/DP Audio 4"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 4 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_5
+    tristate "NVIDIA GK HDMI/DP Audio 5"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 5 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_6
+    tristate "NVIDIA GK HDMI/DP Audio 6"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 6 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_7
+    tristate "NVIDIA GK HDMI/DP Audio 7"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 7 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_8
+    tristate "NVIDIA GK HDMI/DP Audio 8"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 8 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_9
+    tristate "NVIDIA GK HDMI/DP Audio 9"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 9 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_10
+    tristate "NVIDIA GK HDMI/DP Audio 10"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 10 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_11
+    tristate "NVIDIA GK HDMI/DP Audio 11"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 11 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_12
+    tristate "NVIDIA GK HDMI/DP Audio 12"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 12 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_13
+    tristate "NVIDIA GK HDMI/DP Audio 13"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 13 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GK_14
+    tristate "NVIDIA GK HDMI/DP Audio 14"
+    default n
+    help
+      Support for NVIDIA GK HDMI/DP Audio 14 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_0
+    tristate "NVIDIA GM HDMI/DP Audio 0"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 0 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_1
+    tristate "NVIDIA GM HDMI/DP Audio 1"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 1 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_2
+    tristate "NVIDIA GM HDMI/DP Audio 2"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 2 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_3
+    tristate "NVIDIA GM HDMI/DP Audio 3"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 3 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_4
+    tristate "NVIDIA GM HDMI/DP Audio 4"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 4 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_5
+    tristate "NVIDIA GM HDMI/DP Audio 5"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 5 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_6
+    tristate "NVIDIA GM HDMI/DP Audio 6"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 6 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_7
+    tristate "NVIDIA GM HDMI/DP Audio 7"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 7 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_8
+    tristate "NVIDIA GM HDMI/DP Audio 8"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 8 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_9
+    tristate "NVIDIA GM HDMI/DP Audio 9"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 9 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_10
+    tristate "NVIDIA GM HDMI/DP Audio 10"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 10 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_11
+    tristate "NVIDIA GM HDMI/DP Audio 11"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 11 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_12
+    tristate "NVIDIA GM HDMI/DP Audio 12"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 12 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_13
+    tristate "NVIDIA GM HDMI/DP Audio 13"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 13 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GM_14
+    tristate "NVIDIA GM HDMI/DP Audio 14"
+    default n
+    help
+      Support for NVIDIA GM HDMI/DP Audio 14 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_0
+    tristate "NVIDIA GP HDMI/DP Audio 0"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 0 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_1
+    tristate "NVIDIA GP HDMI/DP Audio 1"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 1 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_2
+    tristate "NVIDIA GP HDMI/DP Audio 2"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 2 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_3
+    tristate "NVIDIA GP HDMI/DP Audio 3"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 3 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_4
+    tristate "NVIDIA GP HDMI/DP Audio 4"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 4 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_5
+    tristate "NVIDIA GP HDMI/DP Audio 5"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 5 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_6
+    tristate "NVIDIA GP HDMI/DP Audio 6"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 6 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_7
+    tristate "NVIDIA GP HDMI/DP Audio 7"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 7 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_8
+    tristate "NVIDIA GP HDMI/DP Audio 8"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 8 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_9
+    tristate "NVIDIA GP HDMI/DP Audio 9"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 9 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_10
+    tristate "NVIDIA GP HDMI/DP Audio 10"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 10 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_11
+    tristate "NVIDIA GP HDMI/DP Audio 11"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 11 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_12
+    tristate "NVIDIA GP HDMI/DP Audio 12"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 12 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_13
+    tristate "NVIDIA GP HDMI/DP Audio 13"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 13 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GP_14
+    tristate "NVIDIA GP HDMI/DP Audio 14"
+    default n
+    help
+      Support for NVIDIA GP HDMI/DP Audio 14 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_0
+    tristate "NVIDIA TU HDMI/DP Audio 0"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 0 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_1
+    tristate "NVIDIA TU HDMI/DP Audio 1"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 1 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_2
+    tristate "NVIDIA TU HDMI/DP Audio 2"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 2 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_3
+    tristate "NVIDIA TU HDMI/DP Audio 3"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 3 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_4
+    tristate "NVIDIA TU HDMI/DP Audio 4"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 4 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_5
+    tristate "NVIDIA TU HDMI/DP Audio 5"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 5 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_6
+    tristate "NVIDIA TU HDMI/DP Audio 6"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 6 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_7
+    tristate "NVIDIA TU HDMI/DP Audio 7"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 7 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_8
+    tristate "NVIDIA TU HDMI/DP Audio 8"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 8 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_9
+    tristate "NVIDIA TU HDMI/DP Audio 9"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 9 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_10
+    tristate "NVIDIA TU HDMI/DP Audio 10"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 10 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_11
+    tristate "NVIDIA TU HDMI/DP Audio 11"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 11 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_12
+    tristate "NVIDIA TU HDMI/DP Audio 12"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 12 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_13
+    tristate "NVIDIA TU HDMI/DP Audio 13"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 13 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_TU_14
+    tristate "NVIDIA TU HDMI/DP Audio 14"
+    default n
+    help
+      Support for NVIDIA TU HDMI/DP Audio 14 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_0
+    tristate "NVIDIA GA HDMI/DP Audio 0"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 0 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_1
+    tristate "NVIDIA GA HDMI/DP Audio 1"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 1 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_2
+    tristate "NVIDIA GA HDMI/DP Audio 2"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 2 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_3
+    tristate "NVIDIA GA HDMI/DP Audio 3"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 3 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_4
+    tristate "NVIDIA GA HDMI/DP Audio 4"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 4 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_5
+    tristate "NVIDIA GA HDMI/DP Audio 5"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 5 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_6
+    tristate "NVIDIA GA HDMI/DP Audio 6"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 6 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_7
+    tristate "NVIDIA GA HDMI/DP Audio 7"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 7 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_8
+    tristate "NVIDIA GA HDMI/DP Audio 8"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 8 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_9
+    tristate "NVIDIA GA HDMI/DP Audio 9"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 9 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_10
+    tristate "NVIDIA GA HDMI/DP Audio 10"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 10 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_11
+    tristate "NVIDIA GA HDMI/DP Audio 11"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 11 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_12
+    tristate "NVIDIA GA HDMI/DP Audio 12"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 12 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_13
+    tristate "NVIDIA GA HDMI/DP Audio 13"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 13 (NVIDIA)
+      Category: audio
+
+config AUDIO_NVIDIA_GA_14
+    tristate "NVIDIA GA HDMI/DP Audio 14"
+    default n
+    help
+      Support for NVIDIA GA HDMI/DP Audio 14 (NVIDIA)
+      Category: audio
+
+config AUDIO_AMD_SB_0
+    tristate "AMD SB Audio 0"
+    default n
+    help
+      Support for AMD SB Audio 0 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_1
+    tristate "AMD SB Audio 1"
+    default n
+    help
+      Support for AMD SB Audio 1 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_2
+    tristate "AMD SB Audio 2"
+    default n
+    help
+      Support for AMD SB Audio 2 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_3
+    tristate "AMD SB Audio 3"
+    default n
+    help
+      Support for AMD SB Audio 3 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_4
+    tristate "AMD SB Audio 4"
+    default n
+    help
+      Support for AMD SB Audio 4 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_5
+    tristate "AMD SB Audio 5"
+    default n
+    help
+      Support for AMD SB Audio 5 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_6
+    tristate "AMD SB Audio 6"
+    default n
+    help
+      Support for AMD SB Audio 6 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_7
+    tristate "AMD SB Audio 7"
+    default n
+    help
+      Support for AMD SB Audio 7 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_8
+    tristate "AMD SB Audio 8"
+    default n
+    help
+      Support for AMD SB Audio 8 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_9
+    tristate "AMD SB Audio 9"
+    default n
+    help
+      Support for AMD SB Audio 9 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_10
+    tristate "AMD SB Audio 10"
+    default n
+    help
+      Support for AMD SB Audio 10 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_11
+    tristate "AMD SB Audio 11"
+    default n
+    help
+      Support for AMD SB Audio 11 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_12
+    tristate "AMD SB Audio 12"
+    default n
+    help
+      Support for AMD SB Audio 12 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_13
+    tristate "AMD SB Audio 13"
+    default n
+    help
+      Support for AMD SB Audio 13 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_14
+    tristate "AMD SB Audio 14"
+    default n
+    help
+      Support for AMD SB Audio 14 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_15
+    tristate "AMD SB Audio 15"
+    default n
+    help
+      Support for AMD SB Audio 15 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_16
+    tristate "AMD SB Audio 16"
+    default n
+    help
+      Support for AMD SB Audio 16 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_17
+    tristate "AMD SB Audio 17"
+    default n
+    help
+      Support for AMD SB Audio 17 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_18
+    tristate "AMD SB Audio 18"
+    default n
+    help
+      Support for AMD SB Audio 18 (AMD)
+      Category: audio
+
+config AUDIO_AMD_SB_19
+    tristate "AMD SB Audio 19"
+    default n
+    help
+      Support for AMD SB Audio 19 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_0
+    tristate "AMD FCH Audio 0"
+    default n
+    help
+      Support for AMD FCH Audio 0 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_1
+    tristate "AMD FCH Audio 1"
+    default n
+    help
+      Support for AMD FCH Audio 1 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_2
+    tristate "AMD FCH Audio 2"
+    default n
+    help
+      Support for AMD FCH Audio 2 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_3
+    tristate "AMD FCH Audio 3"
+    default n
+    help
+      Support for AMD FCH Audio 3 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_4
+    tristate "AMD FCH Audio 4"
+    default n
+    help
+      Support for AMD FCH Audio 4 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_5
+    tristate "AMD FCH Audio 5"
+    default n
+    help
+      Support for AMD FCH Audio 5 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_6
+    tristate "AMD FCH Audio 6"
+    default n
+    help
+      Support for AMD FCH Audio 6 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_7
+    tristate "AMD FCH Audio 7"
+    default n
+    help
+      Support for AMD FCH Audio 7 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_8
+    tristate "AMD FCH Audio 8"
+    default n
+    help
+      Support for AMD FCH Audio 8 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_9
+    tristate "AMD FCH Audio 9"
+    default n
+    help
+      Support for AMD FCH Audio 9 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_10
+    tristate "AMD FCH Audio 10"
+    default n
+    help
+      Support for AMD FCH Audio 10 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_11
+    tristate "AMD FCH Audio 11"
+    default n
+    help
+      Support for AMD FCH Audio 11 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_12
+    tristate "AMD FCH Audio 12"
+    default n
+    help
+      Support for AMD FCH Audio 12 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_13
+    tristate "AMD FCH Audio 13"
+    default n
+    help
+      Support for AMD FCH Audio 13 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_14
+    tristate "AMD FCH Audio 14"
+    default n
+    help
+      Support for AMD FCH Audio 14 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_15
+    tristate "AMD FCH Audio 15"
+    default n
+    help
+      Support for AMD FCH Audio 15 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_16
+    tristate "AMD FCH Audio 16"
+    default n
+    help
+      Support for AMD FCH Audio 16 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_17
+    tristate "AMD FCH Audio 17"
+    default n
+    help
+      Support for AMD FCH Audio 17 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_18
+    tristate "AMD FCH Audio 18"
+    default n
+    help
+      Support for AMD FCH Audio 18 (AMD)
+      Category: audio
+
+config AUDIO_AMD_FCH_19
+    tristate "AMD FCH Audio 19"
+    default n
+    help
+      Support for AMD FCH Audio 19 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_0
+    tristate "AMD Navi Audio 0"
+    default n
+    help
+      Support for AMD Navi Audio 0 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_1
+    tristate "AMD Navi Audio 1"
+    default n
+    help
+      Support for AMD Navi Audio 1 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_2
+    tristate "AMD Navi Audio 2"
+    default n
+    help
+      Support for AMD Navi Audio 2 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_3
+    tristate "AMD Navi Audio 3"
+    default n
+    help
+      Support for AMD Navi Audio 3 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_4
+    tristate "AMD Navi Audio 4"
+    default n
+    help
+      Support for AMD Navi Audio 4 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_5
+    tristate "AMD Navi Audio 5"
+    default n
+    help
+      Support for AMD Navi Audio 5 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_6
+    tristate "AMD Navi Audio 6"
+    default n
+    help
+      Support for AMD Navi Audio 6 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_7
+    tristate "AMD Navi Audio 7"
+    default n
+    help
+      Support for AMD Navi Audio 7 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_8
+    tristate "AMD Navi Audio 8"
+    default n
+    help
+      Support for AMD Navi Audio 8 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_9
+    tristate "AMD Navi Audio 9"
+    default n
+    help
+      Support for AMD Navi Audio 9 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_10
+    tristate "AMD Navi Audio 10"
+    default n
+    help
+      Support for AMD Navi Audio 10 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_11
+    tristate "AMD Navi Audio 11"
+    default n
+    help
+      Support for AMD Navi Audio 11 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_12
+    tristate "AMD Navi Audio 12"
+    default n
+    help
+      Support for AMD Navi Audio 12 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_13
+    tristate "AMD Navi Audio 13"
+    default n
+    help
+      Support for AMD Navi Audio 13 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_14
+    tristate "AMD Navi Audio 14"
+    default n
+    help
+      Support for AMD Navi Audio 14 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_15
+    tristate "AMD Navi Audio 15"
+    default n
+    help
+      Support for AMD Navi Audio 15 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_16
+    tristate "AMD Navi Audio 16"
+    default n
+    help
+      Support for AMD Navi Audio 16 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_17
+    tristate "AMD Navi Audio 17"
+    default n
+    help
+      Support for AMD Navi Audio 17 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_18
+    tristate "AMD Navi Audio 18"
+    default n
+    help
+      Support for AMD Navi Audio 18 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Navi_19
+    tristate "AMD Navi Audio 19"
+    default n
+    help
+      Support for AMD Navi Audio 19 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_0
+    tristate "AMD Polaris Audio 0"
+    default n
+    help
+      Support for AMD Polaris Audio 0 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_1
+    tristate "AMD Polaris Audio 1"
+    default n
+    help
+      Support for AMD Polaris Audio 1 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_2
+    tristate "AMD Polaris Audio 2"
+    default n
+    help
+      Support for AMD Polaris Audio 2 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_3
+    tristate "AMD Polaris Audio 3"
+    default n
+    help
+      Support for AMD Polaris Audio 3 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_4
+    tristate "AMD Polaris Audio 4"
+    default n
+    help
+      Support for AMD Polaris Audio 4 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_5
+    tristate "AMD Polaris Audio 5"
+    default n
+    help
+      Support for AMD Polaris Audio 5 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_6
+    tristate "AMD Polaris Audio 6"
+    default n
+    help
+      Support for AMD Polaris Audio 6 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_7
+    tristate "AMD Polaris Audio 7"
+    default n
+    help
+      Support for AMD Polaris Audio 7 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_8
+    tristate "AMD Polaris Audio 8"
+    default n
+    help
+      Support for AMD Polaris Audio 8 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_9
+    tristate "AMD Polaris Audio 9"
+    default n
+    help
+      Support for AMD Polaris Audio 9 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_10
+    tristate "AMD Polaris Audio 10"
+    default n
+    help
+      Support for AMD Polaris Audio 10 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_11
+    tristate "AMD Polaris Audio 11"
+    default n
+    help
+      Support for AMD Polaris Audio 11 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_12
+    tristate "AMD Polaris Audio 12"
+    default n
+    help
+      Support for AMD Polaris Audio 12 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_13
+    tristate "AMD Polaris Audio 13"
+    default n
+    help
+      Support for AMD Polaris Audio 13 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_14
+    tristate "AMD Polaris Audio 14"
+    default n
+    help
+      Support for AMD Polaris Audio 14 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_15
+    tristate "AMD Polaris Audio 15"
+    default n
+    help
+      Support for AMD Polaris Audio 15 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_16
+    tristate "AMD Polaris Audio 16"
+    default n
+    help
+      Support for AMD Polaris Audio 16 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_17
+    tristate "AMD Polaris Audio 17"
+    default n
+    help
+      Support for AMD Polaris Audio 17 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_18
+    tristate "AMD Polaris Audio 18"
+    default n
+    help
+      Support for AMD Polaris Audio 18 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Polaris_19
+    tristate "AMD Polaris Audio 19"
+    default n
+    help
+      Support for AMD Polaris Audio 19 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_0
+    tristate "AMD Vega Audio 0"
+    default n
+    help
+      Support for AMD Vega Audio 0 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_1
+    tristate "AMD Vega Audio 1"
+    default n
+    help
+      Support for AMD Vega Audio 1 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_2
+    tristate "AMD Vega Audio 2"
+    default n
+    help
+      Support for AMD Vega Audio 2 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_3
+    tristate "AMD Vega Audio 3"
+    default n
+    help
+      Support for AMD Vega Audio 3 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_4
+    tristate "AMD Vega Audio 4"
+    default n
+    help
+      Support for AMD Vega Audio 4 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_5
+    tristate "AMD Vega Audio 5"
+    default n
+    help
+      Support for AMD Vega Audio 5 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_6
+    tristate "AMD Vega Audio 6"
+    default n
+    help
+      Support for AMD Vega Audio 6 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_7
+    tristate "AMD Vega Audio 7"
+    default n
+    help
+      Support for AMD Vega Audio 7 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_8
+    tristate "AMD Vega Audio 8"
+    default n
+    help
+      Support for AMD Vega Audio 8 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_9
+    tristate "AMD Vega Audio 9"
+    default n
+    help
+      Support for AMD Vega Audio 9 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_10
+    tristate "AMD Vega Audio 10"
+    default n
+    help
+      Support for AMD Vega Audio 10 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_11
+    tristate "AMD Vega Audio 11"
+    default n
+    help
+      Support for AMD Vega Audio 11 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_12
+    tristate "AMD Vega Audio 12"
+    default n
+    help
+      Support for AMD Vega Audio 12 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_13
+    tristate "AMD Vega Audio 13"
+    default n
+    help
+      Support for AMD Vega Audio 13 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_14
+    tristate "AMD Vega Audio 14"
+    default n
+    help
+      Support for AMD Vega Audio 14 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_15
+    tristate "AMD Vega Audio 15"
+    default n
+    help
+      Support for AMD Vega Audio 15 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_16
+    tristate "AMD Vega Audio 16"
+    default n
+    help
+      Support for AMD Vega Audio 16 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_17
+    tristate "AMD Vega Audio 17"
+    default n
+    help
+      Support for AMD Vega Audio 17 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_18
+    tristate "AMD Vega Audio 18"
+    default n
+    help
+      Support for AMD Vega Audio 18 (AMD)
+      Category: audio
+
+config AUDIO_AMD_Vega_19
+    tristate "AMD Vega Audio 19"
+    default n
+    help
+      Support for AMD Vega Audio 19 (AMD)
+      Category: audio
+
+endmenu

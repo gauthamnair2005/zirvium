@@ -1,0 +1,74 @@
+c[?7l[2J[0mSeaBIOS (version Arch Linux 1.17.0-2-2)
+
+
+iPXE (http://ipxe.org) 00:03.0 C900 PCI2.10 PnP PMM+1EFD4040+1EF34040 C900
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from DVD/CD...
+[0;30;47mWelcome to GRUB!
+
+[01;01H[0m[2J[02;19HGNU GRUB  version 2:2.14rc1.r54.g29f3131a-2[04;02H┌────────────────────────────────────────────────────────────────────────────┐[05;02H│[05;79H│[06;02H│[06;79H│[07;02H│[07;79H│[08;02H│[08;79H│[09;02H│[09;79H│[10;02H│[10;79H│[11;02H│[11;79H│[12;02H│[12;79H│[13;02H│[13;79H│[14;02H│[14;79H│[15;02H│[15;79H│[16;02H│[16;79H│[17;02H│[17;79H│[18;02H└──────────────[18;16H[18;17H──────────────────────────────────────────────────────────────┘[20;02H     Use the ↑ and ↓ keys to select which entry is highlighted.          
+      Press enter to boot the selected OS, `e' to edit the commands       
+   [22;03H[22;04H   before booting or `c' for a command-line.                         [22;72H[22;73H  [05;80H [05;03H[0;30;47m*Zirvium OS                                                                 [06;03H[0m Zirvium OS (Safe Mode)                                                     [07;03H                                                                            [08;03H                                                                            [09;03H                                                                            [10;03H                                                                            [11;03H                                                                            [12;03H                                             [12;47H[12;48H                               [13;03H                                 [13;35H[13;36H                                           [14;03H                                                                            [15;03H                                                                            [16;03H            [16;14H[16;15H                                                                [17;03H [17;03H[17;04H                                                                  [17;69H[17;70H         [17;80H 
+
+
+
+
+
+   The highlighted entry will be executed automa[23;48H[23;49Htically in 3s.                 [05;78H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   The highlighted entry will be executed automatically in 2s.                 [05;78H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   The highlighted e[23;20H[23;21Hntry will be executed automatically in 1s.                 [05;78H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   The highlighted entry will be executed automatically in 0s.                 [05;78H[01;01H[2J  Booting `Zirvium OS'
+

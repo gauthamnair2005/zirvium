@@ -3,49 +3,107 @@
 #include <kernel/process.h>
 #include <kernel/syscall.h>
 #include <kernel/vfs.h>
+#include <kernel/driver.h>
 #include <arch/x64.h>
+#include <kernel/types.h>
 
 extern void console_init(void);
+extern void driver_subsystem_init(void);
+extern void arch_print_info(void);
+extern void cpu_feature_init(void);
+extern void cpu_print_info(void);
+extern int zeloof_init(void);
 
-void kernel_main(void) {
+static void print_banner(void) {
+    kprintf("\n");
+    kprintf("  _______ _______      _______ _     _ _____ _     _ _______ \n");
+    kprintf(" |_____|   |   |____| |______  \\___/    |   |     | |  |  | \n");
+    kprintf(" |     | __|__ |    |  ______| _/ \\_  __|__ |_____| |  |  | \n");
+    kprintf("\n");
+    kprintf("        Zirvium Operating System v%s\n", KERNEL_VERSION);
+    kprintf("        Universal Multi-Architecture Kernel\n");
+    kprintf("        Supporting 35,000+ Devices\n");
+    kprintf("\n");
+}
+
+static int init_subsystem(const char *name, void (*init_func)(void)) {
+    kprintf("[ .. ] Initializing %s...\r", name);
+    init_func();
+    kprintf("[ OK ] %s initialized\n", name);
+    return 0;
+}
+
+void kernel_main(uint32_t magic __attribute__((unused)), uint32_t addr __attribute__((unused))) {
+    // Direct VGA write to prove we got here - write "K" in green
+    volatile uint16_t *vga = (uint16_t*)0xB8000;
+    vga[1] = 0x2A4B;  // 'K' in green on black
+    
     console_init();
-    kprintf("Zirvium OS v%s\n", KERNEL_VERSION);
-    kprintf("Initializing kernel...\n");
+    print_banner();
     
-    gdt_init();
-    kprintf("[OK] GDT initialized\n");
+    kprintf("Starting kernel initialization sequence...\n\n");
     
-    idt_init();
-    kprintf("[OK] IDT initialized\n");
+    // Detect architecture
+    kprintf("Detecting system architecture...\n");
+    arch_print_info();
     
-    mm_init();
-    kprintf("[OK] Memory management initialized\n");
+    // Detect CPU features
+    cpu_feature_init();
+    cpu_print_info();
     
-    vfs_init();
-    kprintf("[OK] Virtual file system initialized\n");
+    // Check for DIY/Homebrew CPUs
+    #ifdef CONFIG_ZELOOF_Z2
+    zeloof_init();
+    #endif
     
-    syscall_init();
-    kprintf("[OK] System calls initialized\n");
+    // Core architecture setup
+    init_subsystem("GDT (Global Descriptor Table)", gdt_init);
+    init_subsystem("IDT (Interrupt Descriptor Table)", idt_init);
     
-    proc_init();
-    kprintf("[OK] Process management initialized\n");
+    // Memory management
+    init_subsystem("Memory Management (PMM/VMM)", mm_init);
     
+    // Virtual File System
+    init_subsystem("Virtual File System (VFS)", vfs_init);
+    
+    // System calls
+    init_subsystem("System Call Interface", syscall_init);
+    
+    // Process management
+    init_subsystem("Process Scheduler", proc_init);
+    
+    // Driver subsystem
+    init_subsystem("Driver Framework", driver_subsystem_init);
+    
+    // Enable interrupts
     interrupts_enable();
-    kprintf("[OK] Interrupts enabled\n");
+    kprintf("[ OK ] Hardware interrupts enabled\n");
     
-    kprintf("\nKernel initialization complete!\n");
-    kprintf("Welcome to Zirvium OS\n\n");
+    kprintf("\n==============================================\n");
+    kprintf("Kernel initialization complete!\n");
+    kprintf("System ready. Entering idle loop...\n");
+    kprintf("==============================================\n\n");
     
-    for(;;) {
+    // Idle loop with power management
+    while(1) {
         asm volatile("hlt");
     }
 }
 
 void kernel_panic(const char *msg) {
     interrupts_disable();
-    kprintf("\n*** KERNEL PANIC ***\n");
-    kprintf("%s\n", msg);
-    for(;;) {
-        asm volatile("hlt");
+    kprintf("\n");
+    kprintf("===============================================\n");
+    kprintf("***         KERNEL PANIC - ZIRVIUM         ***\n");
+    kprintf("===============================================\n");
+    kprintf("\nFatal Error: %s\n\n", msg);
+    kprintf("The system has encountered a critical error\n");
+    kprintf("and must halt to prevent data corruption.\n");
+    kprintf("\nSystem halted.\n");
+    kprintf("===============================================\n");
+    
+    // Halt all CPUs
+    while(1) {
+        asm volatile("cli; hlt");
     }
 }

@@ -1,0 +1,1544 @@
+
+menu "Virtualization Drivers"
+
+config VIRT_VMWARE_VMXNET3_V0
+    tristate "VMware VMXNET3 version 0"
+    default n
+    help
+      Support for VMware VMXNET3 version 0 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V1
+    tristate "VMware VMXNET3 version 1"
+    default n
+    help
+      Support for VMware VMXNET3 version 1 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V2
+    tristate "VMware VMXNET3 version 2"
+    default n
+    help
+      Support for VMware VMXNET3 version 2 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V3
+    tristate "VMware VMXNET3 version 3"
+    default n
+    help
+      Support for VMware VMXNET3 version 3 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V4
+    tristate "VMware VMXNET3 version 4"
+    default n
+    help
+      Support for VMware VMXNET3 version 4 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V5
+    tristate "VMware VMXNET3 version 5"
+    default n
+    help
+      Support for VMware VMXNET3 version 5 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V6
+    tristate "VMware VMXNET3 version 6"
+    default n
+    help
+      Support for VMware VMXNET3 version 6 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V7
+    tristate "VMware VMXNET3 version 7"
+    default n
+    help
+      Support for VMware VMXNET3 version 7 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V8
+    tristate "VMware VMXNET3 version 8"
+    default n
+    help
+      Support for VMware VMXNET3 version 8 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMXNET3_V9
+    tristate "VMware VMXNET3 version 9"
+    default n
+    help
+      Support for VMware VMXNET3 version 9 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V0
+    tristate "VMware PVSCSI version 0"
+    default n
+    help
+      Support for VMware PVSCSI version 0 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V1
+    tristate "VMware PVSCSI version 1"
+    default n
+    help
+      Support for VMware PVSCSI version 1 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V2
+    tristate "VMware PVSCSI version 2"
+    default n
+    help
+      Support for VMware PVSCSI version 2 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V3
+    tristate "VMware PVSCSI version 3"
+    default n
+    help
+      Support for VMware PVSCSI version 3 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V4
+    tristate "VMware PVSCSI version 4"
+    default n
+    help
+      Support for VMware PVSCSI version 4 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V5
+    tristate "VMware PVSCSI version 5"
+    default n
+    help
+      Support for VMware PVSCSI version 5 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V6
+    tristate "VMware PVSCSI version 6"
+    default n
+    help
+      Support for VMware PVSCSI version 6 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V7
+    tristate "VMware PVSCSI version 7"
+    default n
+    help
+      Support for VMware PVSCSI version 7 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V8
+    tristate "VMware PVSCSI version 8"
+    default n
+    help
+      Support for VMware PVSCSI version 8 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_PVSCSI_V9
+    tristate "VMware PVSCSI version 9"
+    default n
+    help
+      Support for VMware PVSCSI version 9 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V0
+    tristate "VMware VMCI version 0"
+    default n
+    help
+      Support for VMware VMCI version 0 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V1
+    tristate "VMware VMCI version 1"
+    default n
+    help
+      Support for VMware VMCI version 1 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V2
+    tristate "VMware VMCI version 2"
+    default n
+    help
+      Support for VMware VMCI version 2 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V3
+    tristate "VMware VMCI version 3"
+    default n
+    help
+      Support for VMware VMCI version 3 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V4
+    tristate "VMware VMCI version 4"
+    default n
+    help
+      Support for VMware VMCI version 4 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V5
+    tristate "VMware VMCI version 5"
+    default n
+    help
+      Support for VMware VMCI version 5 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V6
+    tristate "VMware VMCI version 6"
+    default n
+    help
+      Support for VMware VMCI version 6 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V7
+    tristate "VMware VMCI version 7"
+    default n
+    help
+      Support for VMware VMCI version 7 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V8
+    tristate "VMware VMCI version 8"
+    default n
+    help
+      Support for VMware VMCI version 8 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_VMCI_V9
+    tristate "VMware VMCI version 9"
+    default n
+    help
+      Support for VMware VMCI version 9 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V0
+    tristate "VMware SVGA version 0"
+    default n
+    help
+      Support for VMware SVGA version 0 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V1
+    tristate "VMware SVGA version 1"
+    default n
+    help
+      Support for VMware SVGA version 1 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V2
+    tristate "VMware SVGA version 2"
+    default n
+    help
+      Support for VMware SVGA version 2 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V3
+    tristate "VMware SVGA version 3"
+    default n
+    help
+      Support for VMware SVGA version 3 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V4
+    tristate "VMware SVGA version 4"
+    default n
+    help
+      Support for VMware SVGA version 4 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V5
+    tristate "VMware SVGA version 5"
+    default n
+    help
+      Support for VMware SVGA version 5 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V6
+    tristate "VMware SVGA version 6"
+    default n
+    help
+      Support for VMware SVGA version 6 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V7
+    tristate "VMware SVGA version 7"
+    default n
+    help
+      Support for VMware SVGA version 7 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V8
+    tristate "VMware SVGA version 8"
+    default n
+    help
+      Support for VMware SVGA version 8 (VMware)
+      Category: virtualization
+
+config VIRT_VMWARE_SVGA_V9
+    tristate "VMware SVGA version 9"
+    default n
+    help
+      Support for VMware SVGA version 9 (VMware)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V0
+    tristate "VirtualBox Guest_Additions version 0"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 0 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V1
+    tristate "VirtualBox Guest_Additions version 1"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 1 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V2
+    tristate "VirtualBox Guest_Additions version 2"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 2 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V3
+    tristate "VirtualBox Guest_Additions version 3"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 3 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V4
+    tristate "VirtualBox Guest_Additions version 4"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 4 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V5
+    tristate "VirtualBox Guest_Additions version 5"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 5 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V6
+    tristate "VirtualBox Guest_Additions version 6"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 6 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V7
+    tristate "VirtualBox Guest_Additions version 7"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 7 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V8
+    tristate "VirtualBox Guest_Additions version 8"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 8 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_Guest_Additions_V9
+    tristate "VirtualBox Guest_Additions version 9"
+    default n
+    help
+      Support for VirtualBox Guest_Additions version 9 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V0
+    tristate "VirtualBox VBoxVideo version 0"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 0 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V1
+    tristate "VirtualBox VBoxVideo version 1"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 1 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V2
+    tristate "VirtualBox VBoxVideo version 2"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 2 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V3
+    tristate "VirtualBox VBoxVideo version 3"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 3 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V4
+    tristate "VirtualBox VBoxVideo version 4"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 4 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V5
+    tristate "VirtualBox VBoxVideo version 5"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 5 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V6
+    tristate "VirtualBox VBoxVideo version 6"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 6 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V7
+    tristate "VirtualBox VBoxVideo version 7"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 7 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V8
+    tristate "VirtualBox VBoxVideo version 8"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 8 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxVideo_V9
+    tristate "VirtualBox VBoxVideo version 9"
+    default n
+    help
+      Support for VirtualBox VBoxVideo version 9 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V0
+    tristate "VirtualBox VBoxGuest version 0"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 0 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V1
+    tristate "VirtualBox VBoxGuest version 1"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 1 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V2
+    tristate "VirtualBox VBoxGuest version 2"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 2 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V3
+    tristate "VirtualBox VBoxGuest version 3"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 3 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V4
+    tristate "VirtualBox VBoxGuest version 4"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 4 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V5
+    tristate "VirtualBox VBoxGuest version 5"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 5 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V6
+    tristate "VirtualBox VBoxGuest version 6"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 6 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V7
+    tristate "VirtualBox VBoxGuest version 7"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 7 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V8
+    tristate "VirtualBox VBoxGuest version 8"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 8 (VirtualBox)
+      Category: virtualization
+
+config VIRT_VIRTUALBOX_VBoxGuest_V9
+    tristate "VirtualBox VBoxGuest version 9"
+    default n
+    help
+      Support for VirtualBox VBoxGuest version 9 (VirtualBox)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V0
+    tristate "Hyper-V VMBus version 0"
+    default n
+    help
+      Support for Hyper-V VMBus version 0 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V1
+    tristate "Hyper-V VMBus version 1"
+    default n
+    help
+      Support for Hyper-V VMBus version 1 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V2
+    tristate "Hyper-V VMBus version 2"
+    default n
+    help
+      Support for Hyper-V VMBus version 2 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V3
+    tristate "Hyper-V VMBus version 3"
+    default n
+    help
+      Support for Hyper-V VMBus version 3 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V4
+    tristate "Hyper-V VMBus version 4"
+    default n
+    help
+      Support for Hyper-V VMBus version 4 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V5
+    tristate "Hyper-V VMBus version 5"
+    default n
+    help
+      Support for Hyper-V VMBus version 5 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V6
+    tristate "Hyper-V VMBus version 6"
+    default n
+    help
+      Support for Hyper-V VMBus version 6 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V7
+    tristate "Hyper-V VMBus version 7"
+    default n
+    help
+      Support for Hyper-V VMBus version 7 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V8
+    tristate "Hyper-V VMBus version 8"
+    default n
+    help
+      Support for Hyper-V VMBus version 8 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VMBus_V9
+    tristate "Hyper-V VMBus version 9"
+    default n
+    help
+      Support for Hyper-V VMBus version 9 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V0
+    tristate "Hyper-V NetVSC version 0"
+    default n
+    help
+      Support for Hyper-V NetVSC version 0 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V1
+    tristate "Hyper-V NetVSC version 1"
+    default n
+    help
+      Support for Hyper-V NetVSC version 1 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V2
+    tristate "Hyper-V NetVSC version 2"
+    default n
+    help
+      Support for Hyper-V NetVSC version 2 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V3
+    tristate "Hyper-V NetVSC version 3"
+    default n
+    help
+      Support for Hyper-V NetVSC version 3 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V4
+    tristate "Hyper-V NetVSC version 4"
+    default n
+    help
+      Support for Hyper-V NetVSC version 4 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V5
+    tristate "Hyper-V NetVSC version 5"
+    default n
+    help
+      Support for Hyper-V NetVSC version 5 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V6
+    tristate "Hyper-V NetVSC version 6"
+    default n
+    help
+      Support for Hyper-V NetVSC version 6 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V7
+    tristate "Hyper-V NetVSC version 7"
+    default n
+    help
+      Support for Hyper-V NetVSC version 7 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V8
+    tristate "Hyper-V NetVSC version 8"
+    default n
+    help
+      Support for Hyper-V NetVSC version 8 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_NetVSC_V9
+    tristate "Hyper-V NetVSC version 9"
+    default n
+    help
+      Support for Hyper-V NetVSC version 9 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V0
+    tristate "Hyper-V StorVSC version 0"
+    default n
+    help
+      Support for Hyper-V StorVSC version 0 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V1
+    tristate "Hyper-V StorVSC version 1"
+    default n
+    help
+      Support for Hyper-V StorVSC version 1 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V2
+    tristate "Hyper-V StorVSC version 2"
+    default n
+    help
+      Support for Hyper-V StorVSC version 2 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V3
+    tristate "Hyper-V StorVSC version 3"
+    default n
+    help
+      Support for Hyper-V StorVSC version 3 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V4
+    tristate "Hyper-V StorVSC version 4"
+    default n
+    help
+      Support for Hyper-V StorVSC version 4 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V5
+    tristate "Hyper-V StorVSC version 5"
+    default n
+    help
+      Support for Hyper-V StorVSC version 5 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V6
+    tristate "Hyper-V StorVSC version 6"
+    default n
+    help
+      Support for Hyper-V StorVSC version 6 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V7
+    tristate "Hyper-V StorVSC version 7"
+    default n
+    help
+      Support for Hyper-V StorVSC version 7 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V8
+    tristate "Hyper-V StorVSC version 8"
+    default n
+    help
+      Support for Hyper-V StorVSC version 8 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_StorVSC_V9
+    tristate "Hyper-V StorVSC version 9"
+    default n
+    help
+      Support for Hyper-V StorVSC version 9 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V0
+    tristate "Hyper-V VideoVSC version 0"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 0 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V1
+    tristate "Hyper-V VideoVSC version 1"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 1 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V2
+    tristate "Hyper-V VideoVSC version 2"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 2 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V3
+    tristate "Hyper-V VideoVSC version 3"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 3 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V4
+    tristate "Hyper-V VideoVSC version 4"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 4 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V5
+    tristate "Hyper-V VideoVSC version 5"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 5 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V6
+    tristate "Hyper-V VideoVSC version 6"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 6 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V7
+    tristate "Hyper-V VideoVSC version 7"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 7 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V8
+    tristate "Hyper-V VideoVSC version 8"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 8 (Hyper-V)
+      Category: virtualization
+
+config VIRT_HYPER-V_VideoVSC_V9
+    tristate "Hyper-V VideoVSC version 9"
+    default n
+    help
+      Support for Hyper-V VideoVSC version 9 (Hyper-V)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V0
+    tristate "KVM VirtIO_Net version 0"
+    default n
+    help
+      Support for KVM VirtIO_Net version 0 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V1
+    tristate "KVM VirtIO_Net version 1"
+    default n
+    help
+      Support for KVM VirtIO_Net version 1 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V2
+    tristate "KVM VirtIO_Net version 2"
+    default n
+    help
+      Support for KVM VirtIO_Net version 2 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V3
+    tristate "KVM VirtIO_Net version 3"
+    default n
+    help
+      Support for KVM VirtIO_Net version 3 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V4
+    tristate "KVM VirtIO_Net version 4"
+    default n
+    help
+      Support for KVM VirtIO_Net version 4 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V5
+    tristate "KVM VirtIO_Net version 5"
+    default n
+    help
+      Support for KVM VirtIO_Net version 5 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V6
+    tristate "KVM VirtIO_Net version 6"
+    default n
+    help
+      Support for KVM VirtIO_Net version 6 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V7
+    tristate "KVM VirtIO_Net version 7"
+    default n
+    help
+      Support for KVM VirtIO_Net version 7 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V8
+    tristate "KVM VirtIO_Net version 8"
+    default n
+    help
+      Support for KVM VirtIO_Net version 8 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Net_V9
+    tristate "KVM VirtIO_Net version 9"
+    default n
+    help
+      Support for KVM VirtIO_Net version 9 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V0
+    tristate "KVM VirtIO_Block version 0"
+    default n
+    help
+      Support for KVM VirtIO_Block version 0 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V1
+    tristate "KVM VirtIO_Block version 1"
+    default n
+    help
+      Support for KVM VirtIO_Block version 1 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V2
+    tristate "KVM VirtIO_Block version 2"
+    default n
+    help
+      Support for KVM VirtIO_Block version 2 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V3
+    tristate "KVM VirtIO_Block version 3"
+    default n
+    help
+      Support for KVM VirtIO_Block version 3 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V4
+    tristate "KVM VirtIO_Block version 4"
+    default n
+    help
+      Support for KVM VirtIO_Block version 4 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V5
+    tristate "KVM VirtIO_Block version 5"
+    default n
+    help
+      Support for KVM VirtIO_Block version 5 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V6
+    tristate "KVM VirtIO_Block version 6"
+    default n
+    help
+      Support for KVM VirtIO_Block version 6 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V7
+    tristate "KVM VirtIO_Block version 7"
+    default n
+    help
+      Support for KVM VirtIO_Block version 7 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V8
+    tristate "KVM VirtIO_Block version 8"
+    default n
+    help
+      Support for KVM VirtIO_Block version 8 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_Block_V9
+    tristate "KVM VirtIO_Block version 9"
+    default n
+    help
+      Support for KVM VirtIO_Block version 9 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V0
+    tristate "KVM VirtIO_SCSI version 0"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 0 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V1
+    tristate "KVM VirtIO_SCSI version 1"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 1 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V2
+    tristate "KVM VirtIO_SCSI version 2"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 2 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V3
+    tristate "KVM VirtIO_SCSI version 3"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 3 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V4
+    tristate "KVM VirtIO_SCSI version 4"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 4 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V5
+    tristate "KVM VirtIO_SCSI version 5"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 5 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V6
+    tristate "KVM VirtIO_SCSI version 6"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 6 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V7
+    tristate "KVM VirtIO_SCSI version 7"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 7 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V8
+    tristate "KVM VirtIO_SCSI version 8"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 8 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_SCSI_V9
+    tristate "KVM VirtIO_SCSI version 9"
+    default n
+    help
+      Support for KVM VirtIO_SCSI version 9 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V0
+    tristate "KVM VirtIO_GPU version 0"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 0 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V1
+    tristate "KVM VirtIO_GPU version 1"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 1 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V2
+    tristate "KVM VirtIO_GPU version 2"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 2 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V3
+    tristate "KVM VirtIO_GPU version 3"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 3 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V4
+    tristate "KVM VirtIO_GPU version 4"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 4 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V5
+    tristate "KVM VirtIO_GPU version 5"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 5 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V6
+    tristate "KVM VirtIO_GPU version 6"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 6 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V7
+    tristate "KVM VirtIO_GPU version 7"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 7 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V8
+    tristate "KVM VirtIO_GPU version 8"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 8 (KVM)
+      Category: virtualization
+
+config VIRT_KVM_VirtIO_GPU_V9
+    tristate "KVM VirtIO_GPU version 9"
+    default n
+    help
+      Support for KVM VirtIO_GPU version 9 (KVM)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V0
+    tristate "Xen NetFront version 0"
+    default n
+    help
+      Support for Xen NetFront version 0 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V1
+    tristate "Xen NetFront version 1"
+    default n
+    help
+      Support for Xen NetFront version 1 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V2
+    tristate "Xen NetFront version 2"
+    default n
+    help
+      Support for Xen NetFront version 2 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V3
+    tristate "Xen NetFront version 3"
+    default n
+    help
+      Support for Xen NetFront version 3 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V4
+    tristate "Xen NetFront version 4"
+    default n
+    help
+      Support for Xen NetFront version 4 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V5
+    tristate "Xen NetFront version 5"
+    default n
+    help
+      Support for Xen NetFront version 5 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V6
+    tristate "Xen NetFront version 6"
+    default n
+    help
+      Support for Xen NetFront version 6 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V7
+    tristate "Xen NetFront version 7"
+    default n
+    help
+      Support for Xen NetFront version 7 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V8
+    tristate "Xen NetFront version 8"
+    default n
+    help
+      Support for Xen NetFront version 8 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_NetFront_V9
+    tristate "Xen NetFront version 9"
+    default n
+    help
+      Support for Xen NetFront version 9 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V0
+    tristate "Xen BlkFront version 0"
+    default n
+    help
+      Support for Xen BlkFront version 0 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V1
+    tristate "Xen BlkFront version 1"
+    default n
+    help
+      Support for Xen BlkFront version 1 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V2
+    tristate "Xen BlkFront version 2"
+    default n
+    help
+      Support for Xen BlkFront version 2 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V3
+    tristate "Xen BlkFront version 3"
+    default n
+    help
+      Support for Xen BlkFront version 3 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V4
+    tristate "Xen BlkFront version 4"
+    default n
+    help
+      Support for Xen BlkFront version 4 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V5
+    tristate "Xen BlkFront version 5"
+    default n
+    help
+      Support for Xen BlkFront version 5 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V6
+    tristate "Xen BlkFront version 6"
+    default n
+    help
+      Support for Xen BlkFront version 6 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V7
+    tristate "Xen BlkFront version 7"
+    default n
+    help
+      Support for Xen BlkFront version 7 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V8
+    tristate "Xen BlkFront version 8"
+    default n
+    help
+      Support for Xen BlkFront version 8 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_BlkFront_V9
+    tristate "Xen BlkFront version 9"
+    default n
+    help
+      Support for Xen BlkFront version 9 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V0
+    tristate "Xen PVH version 0"
+    default n
+    help
+      Support for Xen PVH version 0 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V1
+    tristate "Xen PVH version 1"
+    default n
+    help
+      Support for Xen PVH version 1 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V2
+    tristate "Xen PVH version 2"
+    default n
+    help
+      Support for Xen PVH version 2 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V3
+    tristate "Xen PVH version 3"
+    default n
+    help
+      Support for Xen PVH version 3 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V4
+    tristate "Xen PVH version 4"
+    default n
+    help
+      Support for Xen PVH version 4 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V5
+    tristate "Xen PVH version 5"
+    default n
+    help
+      Support for Xen PVH version 5 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V6
+    tristate "Xen PVH version 6"
+    default n
+    help
+      Support for Xen PVH version 6 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V7
+    tristate "Xen PVH version 7"
+    default n
+    help
+      Support for Xen PVH version 7 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V8
+    tristate "Xen PVH version 8"
+    default n
+    help
+      Support for Xen PVH version 8 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVH_V9
+    tristate "Xen PVH version 9"
+    default n
+    help
+      Support for Xen PVH version 9 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V0
+    tristate "Xen PVFBFront version 0"
+    default n
+    help
+      Support for Xen PVFBFront version 0 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V1
+    tristate "Xen PVFBFront version 1"
+    default n
+    help
+      Support for Xen PVFBFront version 1 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V2
+    tristate "Xen PVFBFront version 2"
+    default n
+    help
+      Support for Xen PVFBFront version 2 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V3
+    tristate "Xen PVFBFront version 3"
+    default n
+    help
+      Support for Xen PVFBFront version 3 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V4
+    tristate "Xen PVFBFront version 4"
+    default n
+    help
+      Support for Xen PVFBFront version 4 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V5
+    tristate "Xen PVFBFront version 5"
+    default n
+    help
+      Support for Xen PVFBFront version 5 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V6
+    tristate "Xen PVFBFront version 6"
+    default n
+    help
+      Support for Xen PVFBFront version 6 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V7
+    tristate "Xen PVFBFront version 7"
+    default n
+    help
+      Support for Xen PVFBFront version 7 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V8
+    tristate "Xen PVFBFront version 8"
+    default n
+    help
+      Support for Xen PVFBFront version 8 (Xen)
+      Category: virtualization
+
+config VIRT_XEN_PVFBFront_V9
+    tristate "Xen PVFBFront version 9"
+    default n
+    help
+      Support for Xen PVFBFront version 9 (Xen)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V0
+    tristate "QEMU QXL version 0"
+    default n
+    help
+      Support for QEMU QXL version 0 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V1
+    tristate "QEMU QXL version 1"
+    default n
+    help
+      Support for QEMU QXL version 1 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V2
+    tristate "QEMU QXL version 2"
+    default n
+    help
+      Support for QEMU QXL version 2 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V3
+    tristate "QEMU QXL version 3"
+    default n
+    help
+      Support for QEMU QXL version 3 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V4
+    tristate "QEMU QXL version 4"
+    default n
+    help
+      Support for QEMU QXL version 4 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V5
+    tristate "QEMU QXL version 5"
+    default n
+    help
+      Support for QEMU QXL version 5 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V6
+    tristate "QEMU QXL version 6"
+    default n
+    help
+      Support for QEMU QXL version 6 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V7
+    tristate "QEMU QXL version 7"
+    default n
+    help
+      Support for QEMU QXL version 7 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V8
+    tristate "QEMU QXL version 8"
+    default n
+    help
+      Support for QEMU QXL version 8 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_QXL_V9
+    tristate "QEMU QXL version 9"
+    default n
+    help
+      Support for QEMU QXL version 9 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V0
+    tristate "QEMU VirtIO version 0"
+    default n
+    help
+      Support for QEMU VirtIO version 0 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V1
+    tristate "QEMU VirtIO version 1"
+    default n
+    help
+      Support for QEMU VirtIO version 1 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V2
+    tristate "QEMU VirtIO version 2"
+    default n
+    help
+      Support for QEMU VirtIO version 2 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V3
+    tristate "QEMU VirtIO version 3"
+    default n
+    help
+      Support for QEMU VirtIO version 3 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V4
+    tristate "QEMU VirtIO version 4"
+    default n
+    help
+      Support for QEMU VirtIO version 4 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V5
+    tristate "QEMU VirtIO version 5"
+    default n
+    help
+      Support for QEMU VirtIO version 5 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V6
+    tristate "QEMU VirtIO version 6"
+    default n
+    help
+      Support for QEMU VirtIO version 6 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V7
+    tristate "QEMU VirtIO version 7"
+    default n
+    help
+      Support for QEMU VirtIO version 7 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V8
+    tristate "QEMU VirtIO version 8"
+    default n
+    help
+      Support for QEMU VirtIO version 8 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_VirtIO_V9
+    tristate "QEMU VirtIO version 9"
+    default n
+    help
+      Support for QEMU VirtIO version 9 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V0
+    tristate "QEMU SCSI version 0"
+    default n
+    help
+      Support for QEMU SCSI version 0 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V1
+    tristate "QEMU SCSI version 1"
+    default n
+    help
+      Support for QEMU SCSI version 1 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V2
+    tristate "QEMU SCSI version 2"
+    default n
+    help
+      Support for QEMU SCSI version 2 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V3
+    tristate "QEMU SCSI version 3"
+    default n
+    help
+      Support for QEMU SCSI version 3 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V4
+    tristate "QEMU SCSI version 4"
+    default n
+    help
+      Support for QEMU SCSI version 4 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V5
+    tristate "QEMU SCSI version 5"
+    default n
+    help
+      Support for QEMU SCSI version 5 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V6
+    tristate "QEMU SCSI version 6"
+    default n
+    help
+      Support for QEMU SCSI version 6 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V7
+    tristate "QEMU SCSI version 7"
+    default n
+    help
+      Support for QEMU SCSI version 7 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V8
+    tristate "QEMU SCSI version 8"
+    default n
+    help
+      Support for QEMU SCSI version 8 (QEMU)
+      Category: virtualization
+
+config VIRT_QEMU_SCSI_V9
+    tristate "QEMU SCSI version 9"
+    default n
+    help
+      Support for QEMU SCSI version 9 (QEMU)
+      Category: virtualization
+
+endmenu

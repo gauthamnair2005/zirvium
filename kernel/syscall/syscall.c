@@ -53,12 +53,18 @@ static int64_t sys_kill(pid_t pid, int sig) {
     return -1;
 }
 
+static uint64_t syscall_count = 0;
+
 void syscall_init(void) {
+    syscall_count = 0;
+    kprintf("System calls: UNIX-like interface ready (9 syscalls)\n");
 }
 
 int64_t syscall_handler(uint64_t syscall_num, uint64_t arg1, uint64_t arg2, 
                         uint64_t arg3, uint64_t arg4, uint64_t arg5) {
     (void)arg4; (void)arg5;
+    syscall_count++;
+    
     switch (syscall_num) {
         case SYS_READ:
             return sys_read((int)arg1, (void*)arg2, (size_t)arg3);

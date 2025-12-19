@@ -1,0 +1,1474 @@
+
+menu "Input_Gamepad Drivers"
+
+config INPUT_GAMEPAD_Xbox_360_0
+    tristate "Xbox_360 Controller variant 0"
+    default n
+    help
+      Support for Xbox_360 Controller variant 0 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_1
+    tristate "Xbox_360 Controller variant 1"
+    default n
+    help
+      Support for Xbox_360 Controller variant 1 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_2
+    tristate "Xbox_360 Controller variant 2"
+    default n
+    help
+      Support for Xbox_360 Controller variant 2 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_3
+    tristate "Xbox_360 Controller variant 3"
+    default n
+    help
+      Support for Xbox_360 Controller variant 3 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_4
+    tristate "Xbox_360 Controller variant 4"
+    default n
+    help
+      Support for Xbox_360 Controller variant 4 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_5
+    tristate "Xbox_360 Controller variant 5"
+    default n
+    help
+      Support for Xbox_360 Controller variant 5 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_6
+    tristate "Xbox_360 Controller variant 6"
+    default n
+    help
+      Support for Xbox_360 Controller variant 6 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_7
+    tristate "Xbox_360 Controller variant 7"
+    default n
+    help
+      Support for Xbox_360 Controller variant 7 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_8
+    tristate "Xbox_360 Controller variant 8"
+    default n
+    help
+      Support for Xbox_360 Controller variant 8 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_9
+    tristate "Xbox_360 Controller variant 9"
+    default n
+    help
+      Support for Xbox_360 Controller variant 9 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_10
+    tristate "Xbox_360 Controller variant 10"
+    default n
+    help
+      Support for Xbox_360 Controller variant 10 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_11
+    tristate "Xbox_360 Controller variant 11"
+    default n
+    help
+      Support for Xbox_360 Controller variant 11 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_12
+    tristate "Xbox_360 Controller variant 12"
+    default n
+    help
+      Support for Xbox_360 Controller variant 12 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_13
+    tristate "Xbox_360 Controller variant 13"
+    default n
+    help
+      Support for Xbox_360 Controller variant 13 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_14
+    tristate "Xbox_360 Controller variant 14"
+    default n
+    help
+      Support for Xbox_360 Controller variant 14 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_15
+    tristate "Xbox_360 Controller variant 15"
+    default n
+    help
+      Support for Xbox_360 Controller variant 15 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_16
+    tristate "Xbox_360 Controller variant 16"
+    default n
+    help
+      Support for Xbox_360 Controller variant 16 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_17
+    tristate "Xbox_360 Controller variant 17"
+    default n
+    help
+      Support for Xbox_360 Controller variant 17 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_18
+    tristate "Xbox_360 Controller variant 18"
+    default n
+    help
+      Support for Xbox_360 Controller variant 18 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_19
+    tristate "Xbox_360 Controller variant 19"
+    default n
+    help
+      Support for Xbox_360 Controller variant 19 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_20
+    tristate "Xbox_360 Controller variant 20"
+    default n
+    help
+      Support for Xbox_360 Controller variant 20 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_21
+    tristate "Xbox_360 Controller variant 21"
+    default n
+    help
+      Support for Xbox_360 Controller variant 21 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_22
+    tristate "Xbox_360 Controller variant 22"
+    default n
+    help
+      Support for Xbox_360 Controller variant 22 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_23
+    tristate "Xbox_360 Controller variant 23"
+    default n
+    help
+      Support for Xbox_360 Controller variant 23 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_24
+    tristate "Xbox_360 Controller variant 24"
+    default n
+    help
+      Support for Xbox_360 Controller variant 24 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_25
+    tristate "Xbox_360 Controller variant 25"
+    default n
+    help
+      Support for Xbox_360 Controller variant 25 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_26
+    tristate "Xbox_360 Controller variant 26"
+    default n
+    help
+      Support for Xbox_360 Controller variant 26 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_27
+    tristate "Xbox_360 Controller variant 27"
+    default n
+    help
+      Support for Xbox_360 Controller variant 27 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_28
+    tristate "Xbox_360 Controller variant 28"
+    default n
+    help
+      Support for Xbox_360 Controller variant 28 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_360_29
+    tristate "Xbox_360 Controller variant 29"
+    default n
+    help
+      Support for Xbox_360 Controller variant 29 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_0
+    tristate "Xbox_One Controller variant 0"
+    default n
+    help
+      Support for Xbox_One Controller variant 0 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_1
+    tristate "Xbox_One Controller variant 1"
+    default n
+    help
+      Support for Xbox_One Controller variant 1 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_2
+    tristate "Xbox_One Controller variant 2"
+    default n
+    help
+      Support for Xbox_One Controller variant 2 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_3
+    tristate "Xbox_One Controller variant 3"
+    default n
+    help
+      Support for Xbox_One Controller variant 3 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_4
+    tristate "Xbox_One Controller variant 4"
+    default n
+    help
+      Support for Xbox_One Controller variant 4 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_5
+    tristate "Xbox_One Controller variant 5"
+    default n
+    help
+      Support for Xbox_One Controller variant 5 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_6
+    tristate "Xbox_One Controller variant 6"
+    default n
+    help
+      Support for Xbox_One Controller variant 6 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_7
+    tristate "Xbox_One Controller variant 7"
+    default n
+    help
+      Support for Xbox_One Controller variant 7 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_8
+    tristate "Xbox_One Controller variant 8"
+    default n
+    help
+      Support for Xbox_One Controller variant 8 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_9
+    tristate "Xbox_One Controller variant 9"
+    default n
+    help
+      Support for Xbox_One Controller variant 9 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_10
+    tristate "Xbox_One Controller variant 10"
+    default n
+    help
+      Support for Xbox_One Controller variant 10 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_11
+    tristate "Xbox_One Controller variant 11"
+    default n
+    help
+      Support for Xbox_One Controller variant 11 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_12
+    tristate "Xbox_One Controller variant 12"
+    default n
+    help
+      Support for Xbox_One Controller variant 12 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_13
+    tristate "Xbox_One Controller variant 13"
+    default n
+    help
+      Support for Xbox_One Controller variant 13 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_14
+    tristate "Xbox_One Controller variant 14"
+    default n
+    help
+      Support for Xbox_One Controller variant 14 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_15
+    tristate "Xbox_One Controller variant 15"
+    default n
+    help
+      Support for Xbox_One Controller variant 15 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_16
+    tristate "Xbox_One Controller variant 16"
+    default n
+    help
+      Support for Xbox_One Controller variant 16 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_17
+    tristate "Xbox_One Controller variant 17"
+    default n
+    help
+      Support for Xbox_One Controller variant 17 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_18
+    tristate "Xbox_One Controller variant 18"
+    default n
+    help
+      Support for Xbox_One Controller variant 18 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_19
+    tristate "Xbox_One Controller variant 19"
+    default n
+    help
+      Support for Xbox_One Controller variant 19 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_20
+    tristate "Xbox_One Controller variant 20"
+    default n
+    help
+      Support for Xbox_One Controller variant 20 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_21
+    tristate "Xbox_One Controller variant 21"
+    default n
+    help
+      Support for Xbox_One Controller variant 21 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_22
+    tristate "Xbox_One Controller variant 22"
+    default n
+    help
+      Support for Xbox_One Controller variant 22 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_23
+    tristate "Xbox_One Controller variant 23"
+    default n
+    help
+      Support for Xbox_One Controller variant 23 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_24
+    tristate "Xbox_One Controller variant 24"
+    default n
+    help
+      Support for Xbox_One Controller variant 24 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_25
+    tristate "Xbox_One Controller variant 25"
+    default n
+    help
+      Support for Xbox_One Controller variant 25 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_26
+    tristate "Xbox_One Controller variant 26"
+    default n
+    help
+      Support for Xbox_One Controller variant 26 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_27
+    tristate "Xbox_One Controller variant 27"
+    default n
+    help
+      Support for Xbox_One Controller variant 27 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_28
+    tristate "Xbox_One Controller variant 28"
+    default n
+    help
+      Support for Xbox_One Controller variant 28 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Xbox_One_29
+    tristate "Xbox_One Controller variant 29"
+    default n
+    help
+      Support for Xbox_One Controller variant 29 (Xbox)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_0
+    tristate "PS3 Controller variant 0"
+    default n
+    help
+      Support for PS3 Controller variant 0 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_1
+    tristate "PS3 Controller variant 1"
+    default n
+    help
+      Support for PS3 Controller variant 1 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_2
+    tristate "PS3 Controller variant 2"
+    default n
+    help
+      Support for PS3 Controller variant 2 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_3
+    tristate "PS3 Controller variant 3"
+    default n
+    help
+      Support for PS3 Controller variant 3 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_4
+    tristate "PS3 Controller variant 4"
+    default n
+    help
+      Support for PS3 Controller variant 4 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_5
+    tristate "PS3 Controller variant 5"
+    default n
+    help
+      Support for PS3 Controller variant 5 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_6
+    tristate "PS3 Controller variant 6"
+    default n
+    help
+      Support for PS3 Controller variant 6 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_7
+    tristate "PS3 Controller variant 7"
+    default n
+    help
+      Support for PS3 Controller variant 7 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_8
+    tristate "PS3 Controller variant 8"
+    default n
+    help
+      Support for PS3 Controller variant 8 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_9
+    tristate "PS3 Controller variant 9"
+    default n
+    help
+      Support for PS3 Controller variant 9 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_10
+    tristate "PS3 Controller variant 10"
+    default n
+    help
+      Support for PS3 Controller variant 10 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_11
+    tristate "PS3 Controller variant 11"
+    default n
+    help
+      Support for PS3 Controller variant 11 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_12
+    tristate "PS3 Controller variant 12"
+    default n
+    help
+      Support for PS3 Controller variant 12 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_13
+    tristate "PS3 Controller variant 13"
+    default n
+    help
+      Support for PS3 Controller variant 13 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_14
+    tristate "PS3 Controller variant 14"
+    default n
+    help
+      Support for PS3 Controller variant 14 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_15
+    tristate "PS3 Controller variant 15"
+    default n
+    help
+      Support for PS3 Controller variant 15 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_16
+    tristate "PS3 Controller variant 16"
+    default n
+    help
+      Support for PS3 Controller variant 16 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_17
+    tristate "PS3 Controller variant 17"
+    default n
+    help
+      Support for PS3 Controller variant 17 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_18
+    tristate "PS3 Controller variant 18"
+    default n
+    help
+      Support for PS3 Controller variant 18 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_19
+    tristate "PS3 Controller variant 19"
+    default n
+    help
+      Support for PS3 Controller variant 19 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_20
+    tristate "PS3 Controller variant 20"
+    default n
+    help
+      Support for PS3 Controller variant 20 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_21
+    tristate "PS3 Controller variant 21"
+    default n
+    help
+      Support for PS3 Controller variant 21 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_22
+    tristate "PS3 Controller variant 22"
+    default n
+    help
+      Support for PS3 Controller variant 22 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_23
+    tristate "PS3 Controller variant 23"
+    default n
+    help
+      Support for PS3 Controller variant 23 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_24
+    tristate "PS3 Controller variant 24"
+    default n
+    help
+      Support for PS3 Controller variant 24 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_25
+    tristate "PS3 Controller variant 25"
+    default n
+    help
+      Support for PS3 Controller variant 25 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_26
+    tristate "PS3 Controller variant 26"
+    default n
+    help
+      Support for PS3 Controller variant 26 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_27
+    tristate "PS3 Controller variant 27"
+    default n
+    help
+      Support for PS3 Controller variant 27 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_28
+    tristate "PS3 Controller variant 28"
+    default n
+    help
+      Support for PS3 Controller variant 28 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS3_29
+    tristate "PS3 Controller variant 29"
+    default n
+    help
+      Support for PS3 Controller variant 29 (PS3)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_0
+    tristate "PS4 Controller variant 0"
+    default n
+    help
+      Support for PS4 Controller variant 0 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_1
+    tristate "PS4 Controller variant 1"
+    default n
+    help
+      Support for PS4 Controller variant 1 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_2
+    tristate "PS4 Controller variant 2"
+    default n
+    help
+      Support for PS4 Controller variant 2 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_3
+    tristate "PS4 Controller variant 3"
+    default n
+    help
+      Support for PS4 Controller variant 3 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_4
+    tristate "PS4 Controller variant 4"
+    default n
+    help
+      Support for PS4 Controller variant 4 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_5
+    tristate "PS4 Controller variant 5"
+    default n
+    help
+      Support for PS4 Controller variant 5 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_6
+    tristate "PS4 Controller variant 6"
+    default n
+    help
+      Support for PS4 Controller variant 6 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_7
+    tristate "PS4 Controller variant 7"
+    default n
+    help
+      Support for PS4 Controller variant 7 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_8
+    tristate "PS4 Controller variant 8"
+    default n
+    help
+      Support for PS4 Controller variant 8 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_9
+    tristate "PS4 Controller variant 9"
+    default n
+    help
+      Support for PS4 Controller variant 9 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_10
+    tristate "PS4 Controller variant 10"
+    default n
+    help
+      Support for PS4 Controller variant 10 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_11
+    tristate "PS4 Controller variant 11"
+    default n
+    help
+      Support for PS4 Controller variant 11 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_12
+    tristate "PS4 Controller variant 12"
+    default n
+    help
+      Support for PS4 Controller variant 12 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_13
+    tristate "PS4 Controller variant 13"
+    default n
+    help
+      Support for PS4 Controller variant 13 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_14
+    tristate "PS4 Controller variant 14"
+    default n
+    help
+      Support for PS4 Controller variant 14 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_15
+    tristate "PS4 Controller variant 15"
+    default n
+    help
+      Support for PS4 Controller variant 15 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_16
+    tristate "PS4 Controller variant 16"
+    default n
+    help
+      Support for PS4 Controller variant 16 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_17
+    tristate "PS4 Controller variant 17"
+    default n
+    help
+      Support for PS4 Controller variant 17 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_18
+    tristate "PS4 Controller variant 18"
+    default n
+    help
+      Support for PS4 Controller variant 18 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_19
+    tristate "PS4 Controller variant 19"
+    default n
+    help
+      Support for PS4 Controller variant 19 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_20
+    tristate "PS4 Controller variant 20"
+    default n
+    help
+      Support for PS4 Controller variant 20 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_21
+    tristate "PS4 Controller variant 21"
+    default n
+    help
+      Support for PS4 Controller variant 21 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_22
+    tristate "PS4 Controller variant 22"
+    default n
+    help
+      Support for PS4 Controller variant 22 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_23
+    tristate "PS4 Controller variant 23"
+    default n
+    help
+      Support for PS4 Controller variant 23 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_24
+    tristate "PS4 Controller variant 24"
+    default n
+    help
+      Support for PS4 Controller variant 24 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_25
+    tristate "PS4 Controller variant 25"
+    default n
+    help
+      Support for PS4 Controller variant 25 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_26
+    tristate "PS4 Controller variant 26"
+    default n
+    help
+      Support for PS4 Controller variant 26 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_27
+    tristate "PS4 Controller variant 27"
+    default n
+    help
+      Support for PS4 Controller variant 27 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_28
+    tristate "PS4 Controller variant 28"
+    default n
+    help
+      Support for PS4 Controller variant 28 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS4_29
+    tristate "PS4 Controller variant 29"
+    default n
+    help
+      Support for PS4 Controller variant 29 (PS4)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_0
+    tristate "PS5 Controller variant 0"
+    default n
+    help
+      Support for PS5 Controller variant 0 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_1
+    tristate "PS5 Controller variant 1"
+    default n
+    help
+      Support for PS5 Controller variant 1 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_2
+    tristate "PS5 Controller variant 2"
+    default n
+    help
+      Support for PS5 Controller variant 2 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_3
+    tristate "PS5 Controller variant 3"
+    default n
+    help
+      Support for PS5 Controller variant 3 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_4
+    tristate "PS5 Controller variant 4"
+    default n
+    help
+      Support for PS5 Controller variant 4 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_5
+    tristate "PS5 Controller variant 5"
+    default n
+    help
+      Support for PS5 Controller variant 5 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_6
+    tristate "PS5 Controller variant 6"
+    default n
+    help
+      Support for PS5 Controller variant 6 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_7
+    tristate "PS5 Controller variant 7"
+    default n
+    help
+      Support for PS5 Controller variant 7 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_8
+    tristate "PS5 Controller variant 8"
+    default n
+    help
+      Support for PS5 Controller variant 8 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_9
+    tristate "PS5 Controller variant 9"
+    default n
+    help
+      Support for PS5 Controller variant 9 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_10
+    tristate "PS5 Controller variant 10"
+    default n
+    help
+      Support for PS5 Controller variant 10 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_11
+    tristate "PS5 Controller variant 11"
+    default n
+    help
+      Support for PS5 Controller variant 11 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_12
+    tristate "PS5 Controller variant 12"
+    default n
+    help
+      Support for PS5 Controller variant 12 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_13
+    tristate "PS5 Controller variant 13"
+    default n
+    help
+      Support for PS5 Controller variant 13 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_14
+    tristate "PS5 Controller variant 14"
+    default n
+    help
+      Support for PS5 Controller variant 14 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_15
+    tristate "PS5 Controller variant 15"
+    default n
+    help
+      Support for PS5 Controller variant 15 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_16
+    tristate "PS5 Controller variant 16"
+    default n
+    help
+      Support for PS5 Controller variant 16 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_17
+    tristate "PS5 Controller variant 17"
+    default n
+    help
+      Support for PS5 Controller variant 17 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_18
+    tristate "PS5 Controller variant 18"
+    default n
+    help
+      Support for PS5 Controller variant 18 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_19
+    tristate "PS5 Controller variant 19"
+    default n
+    help
+      Support for PS5 Controller variant 19 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_20
+    tristate "PS5 Controller variant 20"
+    default n
+    help
+      Support for PS5 Controller variant 20 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_21
+    tristate "PS5 Controller variant 21"
+    default n
+    help
+      Support for PS5 Controller variant 21 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_22
+    tristate "PS5 Controller variant 22"
+    default n
+    help
+      Support for PS5 Controller variant 22 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_23
+    tristate "PS5 Controller variant 23"
+    default n
+    help
+      Support for PS5 Controller variant 23 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_24
+    tristate "PS5 Controller variant 24"
+    default n
+    help
+      Support for PS5 Controller variant 24 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_25
+    tristate "PS5 Controller variant 25"
+    default n
+    help
+      Support for PS5 Controller variant 25 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_26
+    tristate "PS5 Controller variant 26"
+    default n
+    help
+      Support for PS5 Controller variant 26 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_27
+    tristate "PS5 Controller variant 27"
+    default n
+    help
+      Support for PS5 Controller variant 27 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_28
+    tristate "PS5 Controller variant 28"
+    default n
+    help
+      Support for PS5 Controller variant 28 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_PS5_29
+    tristate "PS5 Controller variant 29"
+    default n
+    help
+      Support for PS5 Controller variant 29 (PS5)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_0
+    tristate "Switch_Pro Controller variant 0"
+    default n
+    help
+      Support for Switch_Pro Controller variant 0 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_1
+    tristate "Switch_Pro Controller variant 1"
+    default n
+    help
+      Support for Switch_Pro Controller variant 1 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_2
+    tristate "Switch_Pro Controller variant 2"
+    default n
+    help
+      Support for Switch_Pro Controller variant 2 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_3
+    tristate "Switch_Pro Controller variant 3"
+    default n
+    help
+      Support for Switch_Pro Controller variant 3 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_4
+    tristate "Switch_Pro Controller variant 4"
+    default n
+    help
+      Support for Switch_Pro Controller variant 4 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_5
+    tristate "Switch_Pro Controller variant 5"
+    default n
+    help
+      Support for Switch_Pro Controller variant 5 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_6
+    tristate "Switch_Pro Controller variant 6"
+    default n
+    help
+      Support for Switch_Pro Controller variant 6 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_7
+    tristate "Switch_Pro Controller variant 7"
+    default n
+    help
+      Support for Switch_Pro Controller variant 7 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_8
+    tristate "Switch_Pro Controller variant 8"
+    default n
+    help
+      Support for Switch_Pro Controller variant 8 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_9
+    tristate "Switch_Pro Controller variant 9"
+    default n
+    help
+      Support for Switch_Pro Controller variant 9 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_10
+    tristate "Switch_Pro Controller variant 10"
+    default n
+    help
+      Support for Switch_Pro Controller variant 10 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_11
+    tristate "Switch_Pro Controller variant 11"
+    default n
+    help
+      Support for Switch_Pro Controller variant 11 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_12
+    tristate "Switch_Pro Controller variant 12"
+    default n
+    help
+      Support for Switch_Pro Controller variant 12 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_13
+    tristate "Switch_Pro Controller variant 13"
+    default n
+    help
+      Support for Switch_Pro Controller variant 13 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_14
+    tristate "Switch_Pro Controller variant 14"
+    default n
+    help
+      Support for Switch_Pro Controller variant 14 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_15
+    tristate "Switch_Pro Controller variant 15"
+    default n
+    help
+      Support for Switch_Pro Controller variant 15 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_16
+    tristate "Switch_Pro Controller variant 16"
+    default n
+    help
+      Support for Switch_Pro Controller variant 16 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_17
+    tristate "Switch_Pro Controller variant 17"
+    default n
+    help
+      Support for Switch_Pro Controller variant 17 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_18
+    tristate "Switch_Pro Controller variant 18"
+    default n
+    help
+      Support for Switch_Pro Controller variant 18 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_19
+    tristate "Switch_Pro Controller variant 19"
+    default n
+    help
+      Support for Switch_Pro Controller variant 19 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_20
+    tristate "Switch_Pro Controller variant 20"
+    default n
+    help
+      Support for Switch_Pro Controller variant 20 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_21
+    tristate "Switch_Pro Controller variant 21"
+    default n
+    help
+      Support for Switch_Pro Controller variant 21 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_22
+    tristate "Switch_Pro Controller variant 22"
+    default n
+    help
+      Support for Switch_Pro Controller variant 22 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_23
+    tristate "Switch_Pro Controller variant 23"
+    default n
+    help
+      Support for Switch_Pro Controller variant 23 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_24
+    tristate "Switch_Pro Controller variant 24"
+    default n
+    help
+      Support for Switch_Pro Controller variant 24 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_25
+    tristate "Switch_Pro Controller variant 25"
+    default n
+    help
+      Support for Switch_Pro Controller variant 25 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_26
+    tristate "Switch_Pro Controller variant 26"
+    default n
+    help
+      Support for Switch_Pro Controller variant 26 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_27
+    tristate "Switch_Pro Controller variant 27"
+    default n
+    help
+      Support for Switch_Pro Controller variant 27 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_28
+    tristate "Switch_Pro Controller variant 28"
+    default n
+    help
+      Support for Switch_Pro Controller variant 28 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Switch_Pro_29
+    tristate "Switch_Pro Controller variant 29"
+    default n
+    help
+      Support for Switch_Pro Controller variant 29 (Switch)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_0
+    tristate "Generic Controller variant 0"
+    default n
+    help
+      Support for Generic Controller variant 0 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_1
+    tristate "Generic Controller variant 1"
+    default n
+    help
+      Support for Generic Controller variant 1 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_2
+    tristate "Generic Controller variant 2"
+    default n
+    help
+      Support for Generic Controller variant 2 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_3
+    tristate "Generic Controller variant 3"
+    default n
+    help
+      Support for Generic Controller variant 3 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_4
+    tristate "Generic Controller variant 4"
+    default n
+    help
+      Support for Generic Controller variant 4 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_5
+    tristate "Generic Controller variant 5"
+    default n
+    help
+      Support for Generic Controller variant 5 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_6
+    tristate "Generic Controller variant 6"
+    default n
+    help
+      Support for Generic Controller variant 6 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_7
+    tristate "Generic Controller variant 7"
+    default n
+    help
+      Support for Generic Controller variant 7 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_8
+    tristate "Generic Controller variant 8"
+    default n
+    help
+      Support for Generic Controller variant 8 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_9
+    tristate "Generic Controller variant 9"
+    default n
+    help
+      Support for Generic Controller variant 9 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_10
+    tristate "Generic Controller variant 10"
+    default n
+    help
+      Support for Generic Controller variant 10 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_11
+    tristate "Generic Controller variant 11"
+    default n
+    help
+      Support for Generic Controller variant 11 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_12
+    tristate "Generic Controller variant 12"
+    default n
+    help
+      Support for Generic Controller variant 12 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_13
+    tristate "Generic Controller variant 13"
+    default n
+    help
+      Support for Generic Controller variant 13 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_14
+    tristate "Generic Controller variant 14"
+    default n
+    help
+      Support for Generic Controller variant 14 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_15
+    tristate "Generic Controller variant 15"
+    default n
+    help
+      Support for Generic Controller variant 15 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_16
+    tristate "Generic Controller variant 16"
+    default n
+    help
+      Support for Generic Controller variant 16 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_17
+    tristate "Generic Controller variant 17"
+    default n
+    help
+      Support for Generic Controller variant 17 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_18
+    tristate "Generic Controller variant 18"
+    default n
+    help
+      Support for Generic Controller variant 18 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_19
+    tristate "Generic Controller variant 19"
+    default n
+    help
+      Support for Generic Controller variant 19 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_20
+    tristate "Generic Controller variant 20"
+    default n
+    help
+      Support for Generic Controller variant 20 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_21
+    tristate "Generic Controller variant 21"
+    default n
+    help
+      Support for Generic Controller variant 21 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_22
+    tristate "Generic Controller variant 22"
+    default n
+    help
+      Support for Generic Controller variant 22 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_23
+    tristate "Generic Controller variant 23"
+    default n
+    help
+      Support for Generic Controller variant 23 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_24
+    tristate "Generic Controller variant 24"
+    default n
+    help
+      Support for Generic Controller variant 24 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_25
+    tristate "Generic Controller variant 25"
+    default n
+    help
+      Support for Generic Controller variant 25 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_26
+    tristate "Generic Controller variant 26"
+    default n
+    help
+      Support for Generic Controller variant 26 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_27
+    tristate "Generic Controller variant 27"
+    default n
+    help
+      Support for Generic Controller variant 27 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_28
+    tristate "Generic Controller variant 28"
+    default n
+    help
+      Support for Generic Controller variant 28 (Generic)
+      Category: input_gamepad
+
+config INPUT_GAMEPAD_Generic_29
+    tristate "Generic Controller variant 29"
+    default n
+    help
+      Support for Generic Controller variant 29 (Generic)
+      Category: input_gamepad
+
+endmenu

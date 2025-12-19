@@ -1,0 +1,2 @@
+drivers/display/display-hdmi-v1.4-c5-p1.o: \
+ drivers/display/display-hdmi-v1.4-c5-p1.c

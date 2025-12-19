@@ -1,0 +1,1684 @@
+
+menu "Power_Pmu Drivers"
+
+config POWER_PMU_AXP00_R0
+    tristate "PMU AXP00 Rev0"
+    default n
+    help
+      Support for PMU AXP00 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP00_R1
+    tristate "PMU AXP00 Rev1"
+    default n
+    help
+      Support for PMU AXP00 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP00_R2
+    tristate "PMU AXP00 Rev2"
+    default n
+    help
+      Support for PMU AXP00 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP01_R0
+    tristate "PMU AXP01 Rev0"
+    default n
+    help
+      Support for PMU AXP01 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP01_R1
+    tristate "PMU AXP01 Rev1"
+    default n
+    help
+      Support for PMU AXP01 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP01_R2
+    tristate "PMU AXP01 Rev2"
+    default n
+    help
+      Support for PMU AXP01 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP02_R0
+    tristate "PMU AXP02 Rev0"
+    default n
+    help
+      Support for PMU AXP02 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP02_R1
+    tristate "PMU AXP02 Rev1"
+    default n
+    help
+      Support for PMU AXP02 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP02_R2
+    tristate "PMU AXP02 Rev2"
+    default n
+    help
+      Support for PMU AXP02 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP03_R0
+    tristate "PMU AXP03 Rev0"
+    default n
+    help
+      Support for PMU AXP03 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP03_R1
+    tristate "PMU AXP03 Rev1"
+    default n
+    help
+      Support for PMU AXP03 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP03_R2
+    tristate "PMU AXP03 Rev2"
+    default n
+    help
+      Support for PMU AXP03 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP04_R0
+    tristate "PMU AXP04 Rev0"
+    default n
+    help
+      Support for PMU AXP04 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP04_R1
+    tristate "PMU AXP04 Rev1"
+    default n
+    help
+      Support for PMU AXP04 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP04_R2
+    tristate "PMU AXP04 Rev2"
+    default n
+    help
+      Support for PMU AXP04 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP05_R0
+    tristate "PMU AXP05 Rev0"
+    default n
+    help
+      Support for PMU AXP05 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP05_R1
+    tristate "PMU AXP05 Rev1"
+    default n
+    help
+      Support for PMU AXP05 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP05_R2
+    tristate "PMU AXP05 Rev2"
+    default n
+    help
+      Support for PMU AXP05 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP06_R0
+    tristate "PMU AXP06 Rev0"
+    default n
+    help
+      Support for PMU AXP06 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP06_R1
+    tristate "PMU AXP06 Rev1"
+    default n
+    help
+      Support for PMU AXP06 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP06_R2
+    tristate "PMU AXP06 Rev2"
+    default n
+    help
+      Support for PMU AXP06 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP07_R0
+    tristate "PMU AXP07 Rev0"
+    default n
+    help
+      Support for PMU AXP07 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP07_R1
+    tristate "PMU AXP07 Rev1"
+    default n
+    help
+      Support for PMU AXP07 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP07_R2
+    tristate "PMU AXP07 Rev2"
+    default n
+    help
+      Support for PMU AXP07 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP08_R0
+    tristate "PMU AXP08 Rev0"
+    default n
+    help
+      Support for PMU AXP08 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP08_R1
+    tristate "PMU AXP08 Rev1"
+    default n
+    help
+      Support for PMU AXP08 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP08_R2
+    tristate "PMU AXP08 Rev2"
+    default n
+    help
+      Support for PMU AXP08 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP09_R0
+    tristate "PMU AXP09 Rev0"
+    default n
+    help
+      Support for PMU AXP09 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP09_R1
+    tristate "PMU AXP09 Rev1"
+    default n
+    help
+      Support for PMU AXP09 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP09_R2
+    tristate "PMU AXP09 Rev2"
+    default n
+    help
+      Support for PMU AXP09 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP10_R0
+    tristate "PMU AXP10 Rev0"
+    default n
+    help
+      Support for PMU AXP10 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP10_R1
+    tristate "PMU AXP10 Rev1"
+    default n
+    help
+      Support for PMU AXP10 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP10_R2
+    tristate "PMU AXP10 Rev2"
+    default n
+    help
+      Support for PMU AXP10 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP11_R0
+    tristate "PMU AXP11 Rev0"
+    default n
+    help
+      Support for PMU AXP11 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP11_R1
+    tristate "PMU AXP11 Rev1"
+    default n
+    help
+      Support for PMU AXP11 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP11_R2
+    tristate "PMU AXP11 Rev2"
+    default n
+    help
+      Support for PMU AXP11 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP12_R0
+    tristate "PMU AXP12 Rev0"
+    default n
+    help
+      Support for PMU AXP12 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP12_R1
+    tristate "PMU AXP12 Rev1"
+    default n
+    help
+      Support for PMU AXP12 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP12_R2
+    tristate "PMU AXP12 Rev2"
+    default n
+    help
+      Support for PMU AXP12 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP13_R0
+    tristate "PMU AXP13 Rev0"
+    default n
+    help
+      Support for PMU AXP13 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP13_R1
+    tristate "PMU AXP13 Rev1"
+    default n
+    help
+      Support for PMU AXP13 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP13_R2
+    tristate "PMU AXP13 Rev2"
+    default n
+    help
+      Support for PMU AXP13 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP14_R0
+    tristate "PMU AXP14 Rev0"
+    default n
+    help
+      Support for PMU AXP14 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP14_R1
+    tristate "PMU AXP14 Rev1"
+    default n
+    help
+      Support for PMU AXP14 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP14_R2
+    tristate "PMU AXP14 Rev2"
+    default n
+    help
+      Support for PMU AXP14 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP15_R0
+    tristate "PMU AXP15 Rev0"
+    default n
+    help
+      Support for PMU AXP15 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP15_R1
+    tristate "PMU AXP15 Rev1"
+    default n
+    help
+      Support for PMU AXP15 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP15_R2
+    tristate "PMU AXP15 Rev2"
+    default n
+    help
+      Support for PMU AXP15 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP16_R0
+    tristate "PMU AXP16 Rev0"
+    default n
+    help
+      Support for PMU AXP16 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP16_R1
+    tristate "PMU AXP16 Rev1"
+    default n
+    help
+      Support for PMU AXP16 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP16_R2
+    tristate "PMU AXP16 Rev2"
+    default n
+    help
+      Support for PMU AXP16 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP17_R0
+    tristate "PMU AXP17 Rev0"
+    default n
+    help
+      Support for PMU AXP17 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP17_R1
+    tristate "PMU AXP17 Rev1"
+    default n
+    help
+      Support for PMU AXP17 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP17_R2
+    tristate "PMU AXP17 Rev2"
+    default n
+    help
+      Support for PMU AXP17 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP18_R0
+    tristate "PMU AXP18 Rev0"
+    default n
+    help
+      Support for PMU AXP18 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP18_R1
+    tristate "PMU AXP18 Rev1"
+    default n
+    help
+      Support for PMU AXP18 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP18_R2
+    tristate "PMU AXP18 Rev2"
+    default n
+    help
+      Support for PMU AXP18 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP19_R0
+    tristate "PMU AXP19 Rev0"
+    default n
+    help
+      Support for PMU AXP19 Rev0 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP19_R1
+    tristate "PMU AXP19 Rev1"
+    default n
+    help
+      Support for PMU AXP19 Rev1 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_AXP19_R2
+    tristate "PMU AXP19 Rev2"
+    default n
+    help
+      Support for PMU AXP19 Rev2 (AXP)
+      Category: power_pmu
+
+config POWER_PMU_DA900_R0
+    tristate "PMU DA900 Rev0"
+    default n
+    help
+      Support for PMU DA900 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA900_R1
+    tristate "PMU DA900 Rev1"
+    default n
+    help
+      Support for PMU DA900 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA900_R2
+    tristate "PMU DA900 Rev2"
+    default n
+    help
+      Support for PMU DA900 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA901_R0
+    tristate "PMU DA901 Rev0"
+    default n
+    help
+      Support for PMU DA901 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA901_R1
+    tristate "PMU DA901 Rev1"
+    default n
+    help
+      Support for PMU DA901 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA901_R2
+    tristate "PMU DA901 Rev2"
+    default n
+    help
+      Support for PMU DA901 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA902_R0
+    tristate "PMU DA902 Rev0"
+    default n
+    help
+      Support for PMU DA902 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA902_R1
+    tristate "PMU DA902 Rev1"
+    default n
+    help
+      Support for PMU DA902 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA902_R2
+    tristate "PMU DA902 Rev2"
+    default n
+    help
+      Support for PMU DA902 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA903_R0
+    tristate "PMU DA903 Rev0"
+    default n
+    help
+      Support for PMU DA903 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA903_R1
+    tristate "PMU DA903 Rev1"
+    default n
+    help
+      Support for PMU DA903 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA903_R2
+    tristate "PMU DA903 Rev2"
+    default n
+    help
+      Support for PMU DA903 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA904_R0
+    tristate "PMU DA904 Rev0"
+    default n
+    help
+      Support for PMU DA904 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA904_R1
+    tristate "PMU DA904 Rev1"
+    default n
+    help
+      Support for PMU DA904 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA904_R2
+    tristate "PMU DA904 Rev2"
+    default n
+    help
+      Support for PMU DA904 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA905_R0
+    tristate "PMU DA905 Rev0"
+    default n
+    help
+      Support for PMU DA905 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA905_R1
+    tristate "PMU DA905 Rev1"
+    default n
+    help
+      Support for PMU DA905 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA905_R2
+    tristate "PMU DA905 Rev2"
+    default n
+    help
+      Support for PMU DA905 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA906_R0
+    tristate "PMU DA906 Rev0"
+    default n
+    help
+      Support for PMU DA906 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA906_R1
+    tristate "PMU DA906 Rev1"
+    default n
+    help
+      Support for PMU DA906 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA906_R2
+    tristate "PMU DA906 Rev2"
+    default n
+    help
+      Support for PMU DA906 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA907_R0
+    tristate "PMU DA907 Rev0"
+    default n
+    help
+      Support for PMU DA907 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA907_R1
+    tristate "PMU DA907 Rev1"
+    default n
+    help
+      Support for PMU DA907 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA907_R2
+    tristate "PMU DA907 Rev2"
+    default n
+    help
+      Support for PMU DA907 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA908_R0
+    tristate "PMU DA908 Rev0"
+    default n
+    help
+      Support for PMU DA908 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA908_R1
+    tristate "PMU DA908 Rev1"
+    default n
+    help
+      Support for PMU DA908 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA908_R2
+    tristate "PMU DA908 Rev2"
+    default n
+    help
+      Support for PMU DA908 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA909_R0
+    tristate "PMU DA909 Rev0"
+    default n
+    help
+      Support for PMU DA909 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA909_R1
+    tristate "PMU DA909 Rev1"
+    default n
+    help
+      Support for PMU DA909 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA909_R2
+    tristate "PMU DA909 Rev2"
+    default n
+    help
+      Support for PMU DA909 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA910_R0
+    tristate "PMU DA910 Rev0"
+    default n
+    help
+      Support for PMU DA910 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA910_R1
+    tristate "PMU DA910 Rev1"
+    default n
+    help
+      Support for PMU DA910 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA910_R2
+    tristate "PMU DA910 Rev2"
+    default n
+    help
+      Support for PMU DA910 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA911_R0
+    tristate "PMU DA911 Rev0"
+    default n
+    help
+      Support for PMU DA911 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA911_R1
+    tristate "PMU DA911 Rev1"
+    default n
+    help
+      Support for PMU DA911 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA911_R2
+    tristate "PMU DA911 Rev2"
+    default n
+    help
+      Support for PMU DA911 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA912_R0
+    tristate "PMU DA912 Rev0"
+    default n
+    help
+      Support for PMU DA912 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA912_R1
+    tristate "PMU DA912 Rev1"
+    default n
+    help
+      Support for PMU DA912 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA912_R2
+    tristate "PMU DA912 Rev2"
+    default n
+    help
+      Support for PMU DA912 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA913_R0
+    tristate "PMU DA913 Rev0"
+    default n
+    help
+      Support for PMU DA913 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA913_R1
+    tristate "PMU DA913 Rev1"
+    default n
+    help
+      Support for PMU DA913 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA913_R2
+    tristate "PMU DA913 Rev2"
+    default n
+    help
+      Support for PMU DA913 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA914_R0
+    tristate "PMU DA914 Rev0"
+    default n
+    help
+      Support for PMU DA914 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA914_R1
+    tristate "PMU DA914 Rev1"
+    default n
+    help
+      Support for PMU DA914 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA914_R2
+    tristate "PMU DA914 Rev2"
+    default n
+    help
+      Support for PMU DA914 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA915_R0
+    tristate "PMU DA915 Rev0"
+    default n
+    help
+      Support for PMU DA915 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA915_R1
+    tristate "PMU DA915 Rev1"
+    default n
+    help
+      Support for PMU DA915 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA915_R2
+    tristate "PMU DA915 Rev2"
+    default n
+    help
+      Support for PMU DA915 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA916_R0
+    tristate "PMU DA916 Rev0"
+    default n
+    help
+      Support for PMU DA916 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA916_R1
+    tristate "PMU DA916 Rev1"
+    default n
+    help
+      Support for PMU DA916 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA916_R2
+    tristate "PMU DA916 Rev2"
+    default n
+    help
+      Support for PMU DA916 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA917_R0
+    tristate "PMU DA917 Rev0"
+    default n
+    help
+      Support for PMU DA917 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA917_R1
+    tristate "PMU DA917 Rev1"
+    default n
+    help
+      Support for PMU DA917 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA917_R2
+    tristate "PMU DA917 Rev2"
+    default n
+    help
+      Support for PMU DA917 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA918_R0
+    tristate "PMU DA918 Rev0"
+    default n
+    help
+      Support for PMU DA918 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA918_R1
+    tristate "PMU DA918 Rev1"
+    default n
+    help
+      Support for PMU DA918 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA918_R2
+    tristate "PMU DA918 Rev2"
+    default n
+    help
+      Support for PMU DA918 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA919_R0
+    tristate "PMU DA919 Rev0"
+    default n
+    help
+      Support for PMU DA919 Rev0 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA919_R1
+    tristate "PMU DA919 Rev1"
+    default n
+    help
+      Support for PMU DA919 Rev1 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_DA919_R2
+    tristate "PMU DA919 Rev2"
+    default n
+    help
+      Support for PMU DA919 Rev2 (DA9)
+      Category: power_pmu
+
+config POWER_PMU_MAX7700_R0
+    tristate "PMU MAX7700 Rev0"
+    default n
+    help
+      Support for PMU MAX7700 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7700_R1
+    tristate "PMU MAX7700 Rev1"
+    default n
+    help
+      Support for PMU MAX7700 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7700_R2
+    tristate "PMU MAX7700 Rev2"
+    default n
+    help
+      Support for PMU MAX7700 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7701_R0
+    tristate "PMU MAX7701 Rev0"
+    default n
+    help
+      Support for PMU MAX7701 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7701_R1
+    tristate "PMU MAX7701 Rev1"
+    default n
+    help
+      Support for PMU MAX7701 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7701_R2
+    tristate "PMU MAX7701 Rev2"
+    default n
+    help
+      Support for PMU MAX7701 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7702_R0
+    tristate "PMU MAX7702 Rev0"
+    default n
+    help
+      Support for PMU MAX7702 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7702_R1
+    tristate "PMU MAX7702 Rev1"
+    default n
+    help
+      Support for PMU MAX7702 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7702_R2
+    tristate "PMU MAX7702 Rev2"
+    default n
+    help
+      Support for PMU MAX7702 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7703_R0
+    tristate "PMU MAX7703 Rev0"
+    default n
+    help
+      Support for PMU MAX7703 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7703_R1
+    tristate "PMU MAX7703 Rev1"
+    default n
+    help
+      Support for PMU MAX7703 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7703_R2
+    tristate "PMU MAX7703 Rev2"
+    default n
+    help
+      Support for PMU MAX7703 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7704_R0
+    tristate "PMU MAX7704 Rev0"
+    default n
+    help
+      Support for PMU MAX7704 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7704_R1
+    tristate "PMU MAX7704 Rev1"
+    default n
+    help
+      Support for PMU MAX7704 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7704_R2
+    tristate "PMU MAX7704 Rev2"
+    default n
+    help
+      Support for PMU MAX7704 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7705_R0
+    tristate "PMU MAX7705 Rev0"
+    default n
+    help
+      Support for PMU MAX7705 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7705_R1
+    tristate "PMU MAX7705 Rev1"
+    default n
+    help
+      Support for PMU MAX7705 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7705_R2
+    tristate "PMU MAX7705 Rev2"
+    default n
+    help
+      Support for PMU MAX7705 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7706_R0
+    tristate "PMU MAX7706 Rev0"
+    default n
+    help
+      Support for PMU MAX7706 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7706_R1
+    tristate "PMU MAX7706 Rev1"
+    default n
+    help
+      Support for PMU MAX7706 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7706_R2
+    tristate "PMU MAX7706 Rev2"
+    default n
+    help
+      Support for PMU MAX7706 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7707_R0
+    tristate "PMU MAX7707 Rev0"
+    default n
+    help
+      Support for PMU MAX7707 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7707_R1
+    tristate "PMU MAX7707 Rev1"
+    default n
+    help
+      Support for PMU MAX7707 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7707_R2
+    tristate "PMU MAX7707 Rev2"
+    default n
+    help
+      Support for PMU MAX7707 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7708_R0
+    tristate "PMU MAX7708 Rev0"
+    default n
+    help
+      Support for PMU MAX7708 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7708_R1
+    tristate "PMU MAX7708 Rev1"
+    default n
+    help
+      Support for PMU MAX7708 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7708_R2
+    tristate "PMU MAX7708 Rev2"
+    default n
+    help
+      Support for PMU MAX7708 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7709_R0
+    tristate "PMU MAX7709 Rev0"
+    default n
+    help
+      Support for PMU MAX7709 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7709_R1
+    tristate "PMU MAX7709 Rev1"
+    default n
+    help
+      Support for PMU MAX7709 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7709_R2
+    tristate "PMU MAX7709 Rev2"
+    default n
+    help
+      Support for PMU MAX7709 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7710_R0
+    tristate "PMU MAX7710 Rev0"
+    default n
+    help
+      Support for PMU MAX7710 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7710_R1
+    tristate "PMU MAX7710 Rev1"
+    default n
+    help
+      Support for PMU MAX7710 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7710_R2
+    tristate "PMU MAX7710 Rev2"
+    default n
+    help
+      Support for PMU MAX7710 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7711_R0
+    tristate "PMU MAX7711 Rev0"
+    default n
+    help
+      Support for PMU MAX7711 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7711_R1
+    tristate "PMU MAX7711 Rev1"
+    default n
+    help
+      Support for PMU MAX7711 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7711_R2
+    tristate "PMU MAX7711 Rev2"
+    default n
+    help
+      Support for PMU MAX7711 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7712_R0
+    tristate "PMU MAX7712 Rev0"
+    default n
+    help
+      Support for PMU MAX7712 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7712_R1
+    tristate "PMU MAX7712 Rev1"
+    default n
+    help
+      Support for PMU MAX7712 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7712_R2
+    tristate "PMU MAX7712 Rev2"
+    default n
+    help
+      Support for PMU MAX7712 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7713_R0
+    tristate "PMU MAX7713 Rev0"
+    default n
+    help
+      Support for PMU MAX7713 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7713_R1
+    tristate "PMU MAX7713 Rev1"
+    default n
+    help
+      Support for PMU MAX7713 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7713_R2
+    tristate "PMU MAX7713 Rev2"
+    default n
+    help
+      Support for PMU MAX7713 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7714_R0
+    tristate "PMU MAX7714 Rev0"
+    default n
+    help
+      Support for PMU MAX7714 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7714_R1
+    tristate "PMU MAX7714 Rev1"
+    default n
+    help
+      Support for PMU MAX7714 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7714_R2
+    tristate "PMU MAX7714 Rev2"
+    default n
+    help
+      Support for PMU MAX7714 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7715_R0
+    tristate "PMU MAX7715 Rev0"
+    default n
+    help
+      Support for PMU MAX7715 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7715_R1
+    tristate "PMU MAX7715 Rev1"
+    default n
+    help
+      Support for PMU MAX7715 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7715_R2
+    tristate "PMU MAX7715 Rev2"
+    default n
+    help
+      Support for PMU MAX7715 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7716_R0
+    tristate "PMU MAX7716 Rev0"
+    default n
+    help
+      Support for PMU MAX7716 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7716_R1
+    tristate "PMU MAX7716 Rev1"
+    default n
+    help
+      Support for PMU MAX7716 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7716_R2
+    tristate "PMU MAX7716 Rev2"
+    default n
+    help
+      Support for PMU MAX7716 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7717_R0
+    tristate "PMU MAX7717 Rev0"
+    default n
+    help
+      Support for PMU MAX7717 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7717_R1
+    tristate "PMU MAX7717 Rev1"
+    default n
+    help
+      Support for PMU MAX7717 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7717_R2
+    tristate "PMU MAX7717 Rev2"
+    default n
+    help
+      Support for PMU MAX7717 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7718_R0
+    tristate "PMU MAX7718 Rev0"
+    default n
+    help
+      Support for PMU MAX7718 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7718_R1
+    tristate "PMU MAX7718 Rev1"
+    default n
+    help
+      Support for PMU MAX7718 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7718_R2
+    tristate "PMU MAX7718 Rev2"
+    default n
+    help
+      Support for PMU MAX7718 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7719_R0
+    tristate "PMU MAX7719 Rev0"
+    default n
+    help
+      Support for PMU MAX7719 Rev0 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7719_R1
+    tristate "PMU MAX7719 Rev1"
+    default n
+    help
+      Support for PMU MAX7719 Rev1 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_MAX7719_R2
+    tristate "PMU MAX7719 Rev2"
+    default n
+    help
+      Support for PMU MAX7719 Rev2 (MAX77)
+      Category: power_pmu
+
+config POWER_PMU_RK8000_R0
+    tristate "PMU RK8000 Rev0"
+    default n
+    help
+      Support for PMU RK8000 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8000_R1
+    tristate "PMU RK8000 Rev1"
+    default n
+    help
+      Support for PMU RK8000 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8000_R2
+    tristate "PMU RK8000 Rev2"
+    default n
+    help
+      Support for PMU RK8000 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8001_R0
+    tristate "PMU RK8001 Rev0"
+    default n
+    help
+      Support for PMU RK8001 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8001_R1
+    tristate "PMU RK8001 Rev1"
+    default n
+    help
+      Support for PMU RK8001 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8001_R2
+    tristate "PMU RK8001 Rev2"
+    default n
+    help
+      Support for PMU RK8001 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8002_R0
+    tristate "PMU RK8002 Rev0"
+    default n
+    help
+      Support for PMU RK8002 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8002_R1
+    tristate "PMU RK8002 Rev1"
+    default n
+    help
+      Support for PMU RK8002 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8002_R2
+    tristate "PMU RK8002 Rev2"
+    default n
+    help
+      Support for PMU RK8002 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8003_R0
+    tristate "PMU RK8003 Rev0"
+    default n
+    help
+      Support for PMU RK8003 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8003_R1
+    tristate "PMU RK8003 Rev1"
+    default n
+    help
+      Support for PMU RK8003 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8003_R2
+    tristate "PMU RK8003 Rev2"
+    default n
+    help
+      Support for PMU RK8003 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8004_R0
+    tristate "PMU RK8004 Rev0"
+    default n
+    help
+      Support for PMU RK8004 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8004_R1
+    tristate "PMU RK8004 Rev1"
+    default n
+    help
+      Support for PMU RK8004 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8004_R2
+    tristate "PMU RK8004 Rev2"
+    default n
+    help
+      Support for PMU RK8004 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8005_R0
+    tristate "PMU RK8005 Rev0"
+    default n
+    help
+      Support for PMU RK8005 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8005_R1
+    tristate "PMU RK8005 Rev1"
+    default n
+    help
+      Support for PMU RK8005 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8005_R2
+    tristate "PMU RK8005 Rev2"
+    default n
+    help
+      Support for PMU RK8005 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8006_R0
+    tristate "PMU RK8006 Rev0"
+    default n
+    help
+      Support for PMU RK8006 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8006_R1
+    tristate "PMU RK8006 Rev1"
+    default n
+    help
+      Support for PMU RK8006 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8006_R2
+    tristate "PMU RK8006 Rev2"
+    default n
+    help
+      Support for PMU RK8006 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8007_R0
+    tristate "PMU RK8007 Rev0"
+    default n
+    help
+      Support for PMU RK8007 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8007_R1
+    tristate "PMU RK8007 Rev1"
+    default n
+    help
+      Support for PMU RK8007 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8007_R2
+    tristate "PMU RK8007 Rev2"
+    default n
+    help
+      Support for PMU RK8007 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8008_R0
+    tristate "PMU RK8008 Rev0"
+    default n
+    help
+      Support for PMU RK8008 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8008_R1
+    tristate "PMU RK8008 Rev1"
+    default n
+    help
+      Support for PMU RK8008 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8008_R2
+    tristate "PMU RK8008 Rev2"
+    default n
+    help
+      Support for PMU RK8008 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8009_R0
+    tristate "PMU RK8009 Rev0"
+    default n
+    help
+      Support for PMU RK8009 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8009_R1
+    tristate "PMU RK8009 Rev1"
+    default n
+    help
+      Support for PMU RK8009 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8009_R2
+    tristate "PMU RK8009 Rev2"
+    default n
+    help
+      Support for PMU RK8009 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8010_R0
+    tristate "PMU RK8010 Rev0"
+    default n
+    help
+      Support for PMU RK8010 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8010_R1
+    tristate "PMU RK8010 Rev1"
+    default n
+    help
+      Support for PMU RK8010 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8010_R2
+    tristate "PMU RK8010 Rev2"
+    default n
+    help
+      Support for PMU RK8010 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8011_R0
+    tristate "PMU RK8011 Rev0"
+    default n
+    help
+      Support for PMU RK8011 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8011_R1
+    tristate "PMU RK8011 Rev1"
+    default n
+    help
+      Support for PMU RK8011 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8011_R2
+    tristate "PMU RK8011 Rev2"
+    default n
+    help
+      Support for PMU RK8011 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8012_R0
+    tristate "PMU RK8012 Rev0"
+    default n
+    help
+      Support for PMU RK8012 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8012_R1
+    tristate "PMU RK8012 Rev1"
+    default n
+    help
+      Support for PMU RK8012 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8012_R2
+    tristate "PMU RK8012 Rev2"
+    default n
+    help
+      Support for PMU RK8012 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8013_R0
+    tristate "PMU RK8013 Rev0"
+    default n
+    help
+      Support for PMU RK8013 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8013_R1
+    tristate "PMU RK8013 Rev1"
+    default n
+    help
+      Support for PMU RK8013 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8013_R2
+    tristate "PMU RK8013 Rev2"
+    default n
+    help
+      Support for PMU RK8013 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8014_R0
+    tristate "PMU RK8014 Rev0"
+    default n
+    help
+      Support for PMU RK8014 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8014_R1
+    tristate "PMU RK8014 Rev1"
+    default n
+    help
+      Support for PMU RK8014 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8014_R2
+    tristate "PMU RK8014 Rev2"
+    default n
+    help
+      Support for PMU RK8014 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8015_R0
+    tristate "PMU RK8015 Rev0"
+    default n
+    help
+      Support for PMU RK8015 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8015_R1
+    tristate "PMU RK8015 Rev1"
+    default n
+    help
+      Support for PMU RK8015 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8015_R2
+    tristate "PMU RK8015 Rev2"
+    default n
+    help
+      Support for PMU RK8015 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8016_R0
+    tristate "PMU RK8016 Rev0"
+    default n
+    help
+      Support for PMU RK8016 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8016_R1
+    tristate "PMU RK8016 Rev1"
+    default n
+    help
+      Support for PMU RK8016 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8016_R2
+    tristate "PMU RK8016 Rev2"
+    default n
+    help
+      Support for PMU RK8016 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8017_R0
+    tristate "PMU RK8017 Rev0"
+    default n
+    help
+      Support for PMU RK8017 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8017_R1
+    tristate "PMU RK8017 Rev1"
+    default n
+    help
+      Support for PMU RK8017 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8017_R2
+    tristate "PMU RK8017 Rev2"
+    default n
+    help
+      Support for PMU RK8017 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8018_R0
+    tristate "PMU RK8018 Rev0"
+    default n
+    help
+      Support for PMU RK8018 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8018_R1
+    tristate "PMU RK8018 Rev1"
+    default n
+    help
+      Support for PMU RK8018 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8018_R2
+    tristate "PMU RK8018 Rev2"
+    default n
+    help
+      Support for PMU RK8018 Rev2 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8019_R0
+    tristate "PMU RK8019 Rev0"
+    default n
+    help
+      Support for PMU RK8019 Rev0 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8019_R1
+    tristate "PMU RK8019 Rev1"
+    default n
+    help
+      Support for PMU RK8019 Rev1 (RK80)
+      Category: power_pmu
+
+config POWER_PMU_RK8019_R2
+    tristate "PMU RK8019 Rev2"
+    default n
+    help
+      Support for PMU RK8019 Rev2 (RK80)
+      Category: power_pmu
+
+endmenu

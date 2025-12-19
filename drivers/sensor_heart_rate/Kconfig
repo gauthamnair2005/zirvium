@@ -1,0 +1,508 @@
+
+menu "Sensor_Heart_Rate Drivers"
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R0
+    tristate "Heart_Rate MAX30102 I2C Rev0"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev0 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R1
+    tristate "Heart_Rate MAX30102 I2C Rev1"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev1 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R2
+    tristate "Heart_Rate MAX30102 I2C Rev2"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev2 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R3
+    tristate "Heart_Rate MAX30102 I2C Rev3"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev3 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R4
+    tristate "Heart_Rate MAX30102 I2C Rev4"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev4 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R5
+    tristate "Heart_Rate MAX30102 I2C Rev5"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev5 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R6
+    tristate "Heart_Rate MAX30102 I2C Rev6"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev6 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_I2C_R7
+    tristate "Heart_Rate MAX30102 I2C Rev7"
+    default n
+    help
+      Support for Heart_Rate MAX30102 I2C Rev7 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R0
+    tristate "Heart_Rate MAX30102 SPI Rev0"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev0 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R1
+    tristate "Heart_Rate MAX30102 SPI Rev1"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev1 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R2
+    tristate "Heart_Rate MAX30102 SPI Rev2"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev2 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R3
+    tristate "Heart_Rate MAX30102 SPI Rev3"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev3 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R4
+    tristate "Heart_Rate MAX30102 SPI Rev4"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev4 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R5
+    tristate "Heart_Rate MAX30102 SPI Rev5"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev5 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R6
+    tristate "Heart_Rate MAX30102 SPI Rev6"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev6 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_SPI_R7
+    tristate "Heart_Rate MAX30102 SPI Rev7"
+    default n
+    help
+      Support for Heart_Rate MAX30102 SPI Rev7 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R0
+    tristate "Heart_Rate MAX30102 UART Rev0"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev0 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R1
+    tristate "Heart_Rate MAX30102 UART Rev1"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev1 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R2
+    tristate "Heart_Rate MAX30102 UART Rev2"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev2 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R3
+    tristate "Heart_Rate MAX30102 UART Rev3"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev3 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R4
+    tristate "Heart_Rate MAX30102 UART Rev4"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev4 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R5
+    tristate "Heart_Rate MAX30102 UART Rev5"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev5 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R6
+    tristate "Heart_Rate MAX30102 UART Rev6"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev6 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX30102_UART_R7
+    tristate "Heart_Rate MAX30102 UART Rev7"
+    default n
+    help
+      Support for Heart_Rate MAX30102 UART Rev7 (MAX30102)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R0
+    tristate "Heart_Rate MAX86150 I2C Rev0"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev0 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R1
+    tristate "Heart_Rate MAX86150 I2C Rev1"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev1 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R2
+    tristate "Heart_Rate MAX86150 I2C Rev2"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev2 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R3
+    tristate "Heart_Rate MAX86150 I2C Rev3"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev3 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R4
+    tristate "Heart_Rate MAX86150 I2C Rev4"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev4 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R5
+    tristate "Heart_Rate MAX86150 I2C Rev5"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev5 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R6
+    tristate "Heart_Rate MAX86150 I2C Rev6"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev6 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_I2C_R7
+    tristate "Heart_Rate MAX86150 I2C Rev7"
+    default n
+    help
+      Support for Heart_Rate MAX86150 I2C Rev7 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R0
+    tristate "Heart_Rate MAX86150 SPI Rev0"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev0 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R1
+    tristate "Heart_Rate MAX86150 SPI Rev1"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev1 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R2
+    tristate "Heart_Rate MAX86150 SPI Rev2"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev2 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R3
+    tristate "Heart_Rate MAX86150 SPI Rev3"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev3 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R4
+    tristate "Heart_Rate MAX86150 SPI Rev4"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev4 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R5
+    tristate "Heart_Rate MAX86150 SPI Rev5"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev5 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R6
+    tristate "Heart_Rate MAX86150 SPI Rev6"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev6 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_SPI_R7
+    tristate "Heart_Rate MAX86150 SPI Rev7"
+    default n
+    help
+      Support for Heart_Rate MAX86150 SPI Rev7 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R0
+    tristate "Heart_Rate MAX86150 UART Rev0"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev0 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R1
+    tristate "Heart_Rate MAX86150 UART Rev1"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev1 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R2
+    tristate "Heart_Rate MAX86150 UART Rev2"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev2 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R3
+    tristate "Heart_Rate MAX86150 UART Rev3"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev3 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R4
+    tristate "Heart_Rate MAX86150 UART Rev4"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev4 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R5
+    tristate "Heart_Rate MAX86150 UART Rev5"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev5 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R6
+    tristate "Heart_Rate MAX86150 UART Rev6"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev6 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_MAX86150_UART_R7
+    tristate "Heart_Rate MAX86150 UART Rev7"
+    default n
+    help
+      Support for Heart_Rate MAX86150 UART Rev7 (MAX86150)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R0
+    tristate "Heart_Rate AFE4404 I2C Rev0"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev0 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R1
+    tristate "Heart_Rate AFE4404 I2C Rev1"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev1 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R2
+    tristate "Heart_Rate AFE4404 I2C Rev2"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev2 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R3
+    tristate "Heart_Rate AFE4404 I2C Rev3"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev3 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R4
+    tristate "Heart_Rate AFE4404 I2C Rev4"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev4 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R5
+    tristate "Heart_Rate AFE4404 I2C Rev5"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev5 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R6
+    tristate "Heart_Rate AFE4404 I2C Rev6"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev6 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_I2C_R7
+    tristate "Heart_Rate AFE4404 I2C Rev7"
+    default n
+    help
+      Support for Heart_Rate AFE4404 I2C Rev7 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R0
+    tristate "Heart_Rate AFE4404 SPI Rev0"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev0 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R1
+    tristate "Heart_Rate AFE4404 SPI Rev1"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev1 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R2
+    tristate "Heart_Rate AFE4404 SPI Rev2"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev2 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R3
+    tristate "Heart_Rate AFE4404 SPI Rev3"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev3 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R4
+    tristate "Heart_Rate AFE4404 SPI Rev4"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev4 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R5
+    tristate "Heart_Rate AFE4404 SPI Rev5"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev5 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R6
+    tristate "Heart_Rate AFE4404 SPI Rev6"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev6 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_SPI_R7
+    tristate "Heart_Rate AFE4404 SPI Rev7"
+    default n
+    help
+      Support for Heart_Rate AFE4404 SPI Rev7 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R0
+    tristate "Heart_Rate AFE4404 UART Rev0"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev0 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R1
+    tristate "Heart_Rate AFE4404 UART Rev1"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev1 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R2
+    tristate "Heart_Rate AFE4404 UART Rev2"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev2 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R3
+    tristate "Heart_Rate AFE4404 UART Rev3"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev3 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R4
+    tristate "Heart_Rate AFE4404 UART Rev4"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev4 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R5
+    tristate "Heart_Rate AFE4404 UART Rev5"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev5 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R6
+    tristate "Heart_Rate AFE4404 UART Rev6"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev6 (AFE4404)
+      Category: sensor_heart_rate
+
+config SENSOR_HEART_RATE_AFE4404_UART_R7
+    tristate "Heart_Rate AFE4404 UART Rev7"
+    default n
+    help
+      Support for Heart_Rate AFE4404 UART Rev7 (AFE4404)
+      Category: sensor_heart_rate
+
+endmenu

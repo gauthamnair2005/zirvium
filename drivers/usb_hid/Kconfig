@@ -1,0 +1,529 @@
+
+menu "Usb_Hid Drivers"
+
+config USB_HID_Keyboard_0
+    tristate "USB HID Keyboard variant 0"
+    default n
+    help
+      Support for USB HID Keyboard variant 0 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_1
+    tristate "USB HID Keyboard variant 1"
+    default n
+    help
+      Support for USB HID Keyboard variant 1 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_2
+    tristate "USB HID Keyboard variant 2"
+    default n
+    help
+      Support for USB HID Keyboard variant 2 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_3
+    tristate "USB HID Keyboard variant 3"
+    default n
+    help
+      Support for USB HID Keyboard variant 3 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_4
+    tristate "USB HID Keyboard variant 4"
+    default n
+    help
+      Support for USB HID Keyboard variant 4 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_5
+    tristate "USB HID Keyboard variant 5"
+    default n
+    help
+      Support for USB HID Keyboard variant 5 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_6
+    tristate "USB HID Keyboard variant 6"
+    default n
+    help
+      Support for USB HID Keyboard variant 6 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_7
+    tristate "USB HID Keyboard variant 7"
+    default n
+    help
+      Support for USB HID Keyboard variant 7 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_8
+    tristate "USB HID Keyboard variant 8"
+    default n
+    help
+      Support for USB HID Keyboard variant 8 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_9
+    tristate "USB HID Keyboard variant 9"
+    default n
+    help
+      Support for USB HID Keyboard variant 9 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_10
+    tristate "USB HID Keyboard variant 10"
+    default n
+    help
+      Support for USB HID Keyboard variant 10 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_11
+    tristate "USB HID Keyboard variant 11"
+    default n
+    help
+      Support for USB HID Keyboard variant 11 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_12
+    tristate "USB HID Keyboard variant 12"
+    default n
+    help
+      Support for USB HID Keyboard variant 12 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_13
+    tristate "USB HID Keyboard variant 13"
+    default n
+    help
+      Support for USB HID Keyboard variant 13 (Generic)
+      Category: usb_hid
+
+config USB_HID_Keyboard_14
+    tristate "USB HID Keyboard variant 14"
+    default n
+    help
+      Support for USB HID Keyboard variant 14 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_0
+    tristate "USB HID Mouse variant 0"
+    default n
+    help
+      Support for USB HID Mouse variant 0 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_1
+    tristate "USB HID Mouse variant 1"
+    default n
+    help
+      Support for USB HID Mouse variant 1 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_2
+    tristate "USB HID Mouse variant 2"
+    default n
+    help
+      Support for USB HID Mouse variant 2 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_3
+    tristate "USB HID Mouse variant 3"
+    default n
+    help
+      Support for USB HID Mouse variant 3 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_4
+    tristate "USB HID Mouse variant 4"
+    default n
+    help
+      Support for USB HID Mouse variant 4 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_5
+    tristate "USB HID Mouse variant 5"
+    default n
+    help
+      Support for USB HID Mouse variant 5 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_6
+    tristate "USB HID Mouse variant 6"
+    default n
+    help
+      Support for USB HID Mouse variant 6 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_7
+    tristate "USB HID Mouse variant 7"
+    default n
+    help
+      Support for USB HID Mouse variant 7 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_8
+    tristate "USB HID Mouse variant 8"
+    default n
+    help
+      Support for USB HID Mouse variant 8 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_9
+    tristate "USB HID Mouse variant 9"
+    default n
+    help
+      Support for USB HID Mouse variant 9 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_10
+    tristate "USB HID Mouse variant 10"
+    default n
+    help
+      Support for USB HID Mouse variant 10 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_11
+    tristate "USB HID Mouse variant 11"
+    default n
+    help
+      Support for USB HID Mouse variant 11 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_12
+    tristate "USB HID Mouse variant 12"
+    default n
+    help
+      Support for USB HID Mouse variant 12 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_13
+    tristate "USB HID Mouse variant 13"
+    default n
+    help
+      Support for USB HID Mouse variant 13 (Generic)
+      Category: usb_hid
+
+config USB_HID_Mouse_14
+    tristate "USB HID Mouse variant 14"
+    default n
+    help
+      Support for USB HID Mouse variant 14 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_0
+    tristate "USB HID Touchpad variant 0"
+    default n
+    help
+      Support for USB HID Touchpad variant 0 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_1
+    tristate "USB HID Touchpad variant 1"
+    default n
+    help
+      Support for USB HID Touchpad variant 1 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_2
+    tristate "USB HID Touchpad variant 2"
+    default n
+    help
+      Support for USB HID Touchpad variant 2 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_3
+    tristate "USB HID Touchpad variant 3"
+    default n
+    help
+      Support for USB HID Touchpad variant 3 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_4
+    tristate "USB HID Touchpad variant 4"
+    default n
+    help
+      Support for USB HID Touchpad variant 4 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_5
+    tristate "USB HID Touchpad variant 5"
+    default n
+    help
+      Support for USB HID Touchpad variant 5 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_6
+    tristate "USB HID Touchpad variant 6"
+    default n
+    help
+      Support for USB HID Touchpad variant 6 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_7
+    tristate "USB HID Touchpad variant 7"
+    default n
+    help
+      Support for USB HID Touchpad variant 7 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_8
+    tristate "USB HID Touchpad variant 8"
+    default n
+    help
+      Support for USB HID Touchpad variant 8 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_9
+    tristate "USB HID Touchpad variant 9"
+    default n
+    help
+      Support for USB HID Touchpad variant 9 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_10
+    tristate "USB HID Touchpad variant 10"
+    default n
+    help
+      Support for USB HID Touchpad variant 10 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_11
+    tristate "USB HID Touchpad variant 11"
+    default n
+    help
+      Support for USB HID Touchpad variant 11 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_12
+    tristate "USB HID Touchpad variant 12"
+    default n
+    help
+      Support for USB HID Touchpad variant 12 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_13
+    tristate "USB HID Touchpad variant 13"
+    default n
+    help
+      Support for USB HID Touchpad variant 13 (Generic)
+      Category: usb_hid
+
+config USB_HID_Touchpad_14
+    tristate "USB HID Touchpad variant 14"
+    default n
+    help
+      Support for USB HID Touchpad variant 14 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_0
+    tristate "USB HID Game_Controller variant 0"
+    default n
+    help
+      Support for USB HID Game_Controller variant 0 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_1
+    tristate "USB HID Game_Controller variant 1"
+    default n
+    help
+      Support for USB HID Game_Controller variant 1 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_2
+    tristate "USB HID Game_Controller variant 2"
+    default n
+    help
+      Support for USB HID Game_Controller variant 2 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_3
+    tristate "USB HID Game_Controller variant 3"
+    default n
+    help
+      Support for USB HID Game_Controller variant 3 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_4
+    tristate "USB HID Game_Controller variant 4"
+    default n
+    help
+      Support for USB HID Game_Controller variant 4 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_5
+    tristate "USB HID Game_Controller variant 5"
+    default n
+    help
+      Support for USB HID Game_Controller variant 5 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_6
+    tristate "USB HID Game_Controller variant 6"
+    default n
+    help
+      Support for USB HID Game_Controller variant 6 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_7
+    tristate "USB HID Game_Controller variant 7"
+    default n
+    help
+      Support for USB HID Game_Controller variant 7 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_8
+    tristate "USB HID Game_Controller variant 8"
+    default n
+    help
+      Support for USB HID Game_Controller variant 8 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_9
+    tristate "USB HID Game_Controller variant 9"
+    default n
+    help
+      Support for USB HID Game_Controller variant 9 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_10
+    tristate "USB HID Game_Controller variant 10"
+    default n
+    help
+      Support for USB HID Game_Controller variant 10 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_11
+    tristate "USB HID Game_Controller variant 11"
+    default n
+    help
+      Support for USB HID Game_Controller variant 11 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_12
+    tristate "USB HID Game_Controller variant 12"
+    default n
+    help
+      Support for USB HID Game_Controller variant 12 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_13
+    tristate "USB HID Game_Controller variant 13"
+    default n
+    help
+      Support for USB HID Game_Controller variant 13 (Generic)
+      Category: usb_hid
+
+config USB_HID_Game_Controller_14
+    tristate "USB HID Game_Controller variant 14"
+    default n
+    help
+      Support for USB HID Game_Controller variant 14 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_0
+    tristate "USB HID Drawing_Tablet variant 0"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 0 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_1
+    tristate "USB HID Drawing_Tablet variant 1"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 1 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_2
+    tristate "USB HID Drawing_Tablet variant 2"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 2 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_3
+    tristate "USB HID Drawing_Tablet variant 3"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 3 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_4
+    tristate "USB HID Drawing_Tablet variant 4"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 4 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_5
+    tristate "USB HID Drawing_Tablet variant 5"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 5 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_6
+    tristate "USB HID Drawing_Tablet variant 6"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 6 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_7
+    tristate "USB HID Drawing_Tablet variant 7"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 7 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_8
+    tristate "USB HID Drawing_Tablet variant 8"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 8 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_9
+    tristate "USB HID Drawing_Tablet variant 9"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 9 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_10
+    tristate "USB HID Drawing_Tablet variant 10"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 10 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_11
+    tristate "USB HID Drawing_Tablet variant 11"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 11 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_12
+    tristate "USB HID Drawing_Tablet variant 12"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 12 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_13
+    tristate "USB HID Drawing_Tablet variant 13"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 13 (Generic)
+      Category: usb_hid
+
+config USB_HID_Drawing_Tablet_14
+    tristate "USB HID Drawing_Tablet variant 14"
+    default n
+    help
+      Support for USB HID Drawing_Tablet variant 14 (Generic)
+      Category: usb_hid
+
+endmenu

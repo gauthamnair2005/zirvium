@@ -1,0 +1,340 @@
+
+menu "Storage_Scsi Drivers"
+
+config STORAGE_SCSI_LSI_C4_R0
+    tristate "LSI SCSI 4-channel Rev0"
+    default n
+    help
+      Support for LSI SCSI 4-channel Rev0 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C4_R1
+    tristate "LSI SCSI 4-channel Rev1"
+    default n
+    help
+      Support for LSI SCSI 4-channel Rev1 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C4_R2
+    tristate "LSI SCSI 4-channel Rev2"
+    default n
+    help
+      Support for LSI SCSI 4-channel Rev2 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C4_R3
+    tristate "LSI SCSI 4-channel Rev3"
+    default n
+    help
+      Support for LSI SCSI 4-channel Rev3 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C8_R0
+    tristate "LSI SCSI 8-channel Rev0"
+    default n
+    help
+      Support for LSI SCSI 8-channel Rev0 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C8_R1
+    tristate "LSI SCSI 8-channel Rev1"
+    default n
+    help
+      Support for LSI SCSI 8-channel Rev1 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C8_R2
+    tristate "LSI SCSI 8-channel Rev2"
+    default n
+    help
+      Support for LSI SCSI 8-channel Rev2 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C8_R3
+    tristate "LSI SCSI 8-channel Rev3"
+    default n
+    help
+      Support for LSI SCSI 8-channel Rev3 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C16_R0
+    tristate "LSI SCSI 16-channel Rev0"
+    default n
+    help
+      Support for LSI SCSI 16-channel Rev0 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C16_R1
+    tristate "LSI SCSI 16-channel Rev1"
+    default n
+    help
+      Support for LSI SCSI 16-channel Rev1 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C16_R2
+    tristate "LSI SCSI 16-channel Rev2"
+    default n
+    help
+      Support for LSI SCSI 16-channel Rev2 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_LSI_C16_R3
+    tristate "LSI SCSI 16-channel Rev3"
+    default n
+    help
+      Support for LSI SCSI 16-channel Rev3 (LSI)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C4_R0
+    tristate "Adaptec SCSI 4-channel Rev0"
+    default n
+    help
+      Support for Adaptec SCSI 4-channel Rev0 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C4_R1
+    tristate "Adaptec SCSI 4-channel Rev1"
+    default n
+    help
+      Support for Adaptec SCSI 4-channel Rev1 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C4_R2
+    tristate "Adaptec SCSI 4-channel Rev2"
+    default n
+    help
+      Support for Adaptec SCSI 4-channel Rev2 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C4_R3
+    tristate "Adaptec SCSI 4-channel Rev3"
+    default n
+    help
+      Support for Adaptec SCSI 4-channel Rev3 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C8_R0
+    tristate "Adaptec SCSI 8-channel Rev0"
+    default n
+    help
+      Support for Adaptec SCSI 8-channel Rev0 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C8_R1
+    tristate "Adaptec SCSI 8-channel Rev1"
+    default n
+    help
+      Support for Adaptec SCSI 8-channel Rev1 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C8_R2
+    tristate "Adaptec SCSI 8-channel Rev2"
+    default n
+    help
+      Support for Adaptec SCSI 8-channel Rev2 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C8_R3
+    tristate "Adaptec SCSI 8-channel Rev3"
+    default n
+    help
+      Support for Adaptec SCSI 8-channel Rev3 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C16_R0
+    tristate "Adaptec SCSI 16-channel Rev0"
+    default n
+    help
+      Support for Adaptec SCSI 16-channel Rev0 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C16_R1
+    tristate "Adaptec SCSI 16-channel Rev1"
+    default n
+    help
+      Support for Adaptec SCSI 16-channel Rev1 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C16_R2
+    tristate "Adaptec SCSI 16-channel Rev2"
+    default n
+    help
+      Support for Adaptec SCSI 16-channel Rev2 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_ADAPTEC_C16_R3
+    tristate "Adaptec SCSI 16-channel Rev3"
+    default n
+    help
+      Support for Adaptec SCSI 16-channel Rev3 (Adaptec)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C4_R0
+    tristate "Broadcom SCSI 4-channel Rev0"
+    default n
+    help
+      Support for Broadcom SCSI 4-channel Rev0 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C4_R1
+    tristate "Broadcom SCSI 4-channel Rev1"
+    default n
+    help
+      Support for Broadcom SCSI 4-channel Rev1 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C4_R2
+    tristate "Broadcom SCSI 4-channel Rev2"
+    default n
+    help
+      Support for Broadcom SCSI 4-channel Rev2 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C4_R3
+    tristate "Broadcom SCSI 4-channel Rev3"
+    default n
+    help
+      Support for Broadcom SCSI 4-channel Rev3 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C8_R0
+    tristate "Broadcom SCSI 8-channel Rev0"
+    default n
+    help
+      Support for Broadcom SCSI 8-channel Rev0 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C8_R1
+    tristate "Broadcom SCSI 8-channel Rev1"
+    default n
+    help
+      Support for Broadcom SCSI 8-channel Rev1 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C8_R2
+    tristate "Broadcom SCSI 8-channel Rev2"
+    default n
+    help
+      Support for Broadcom SCSI 8-channel Rev2 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C8_R3
+    tristate "Broadcom SCSI 8-channel Rev3"
+    default n
+    help
+      Support for Broadcom SCSI 8-channel Rev3 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C16_R0
+    tristate "Broadcom SCSI 16-channel Rev0"
+    default n
+    help
+      Support for Broadcom SCSI 16-channel Rev0 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C16_R1
+    tristate "Broadcom SCSI 16-channel Rev1"
+    default n
+    help
+      Support for Broadcom SCSI 16-channel Rev1 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C16_R2
+    tristate "Broadcom SCSI 16-channel Rev2"
+    default n
+    help
+      Support for Broadcom SCSI 16-channel Rev2 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_BROADCOM_C16_R3
+    tristate "Broadcom SCSI 16-channel Rev3"
+    default n
+    help
+      Support for Broadcom SCSI 16-channel Rev3 (Broadcom)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C4_R0
+    tristate "Marvell SCSI 4-channel Rev0"
+    default n
+    help
+      Support for Marvell SCSI 4-channel Rev0 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C4_R1
+    tristate "Marvell SCSI 4-channel Rev1"
+    default n
+    help
+      Support for Marvell SCSI 4-channel Rev1 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C4_R2
+    tristate "Marvell SCSI 4-channel Rev2"
+    default n
+    help
+      Support for Marvell SCSI 4-channel Rev2 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C4_R3
+    tristate "Marvell SCSI 4-channel Rev3"
+    default n
+    help
+      Support for Marvell SCSI 4-channel Rev3 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C8_R0
+    tristate "Marvell SCSI 8-channel Rev0"
+    default n
+    help
+      Support for Marvell SCSI 8-channel Rev0 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C8_R1
+    tristate "Marvell SCSI 8-channel Rev1"
+    default n
+    help
+      Support for Marvell SCSI 8-channel Rev1 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C8_R2
+    tristate "Marvell SCSI 8-channel Rev2"
+    default n
+    help
+      Support for Marvell SCSI 8-channel Rev2 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C8_R3
+    tristate "Marvell SCSI 8-channel Rev3"
+    default n
+    help
+      Support for Marvell SCSI 8-channel Rev3 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C16_R0
+    tristate "Marvell SCSI 16-channel Rev0"
+    default n
+    help
+      Support for Marvell SCSI 16-channel Rev0 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C16_R1
+    tristate "Marvell SCSI 16-channel Rev1"
+    default n
+    help
+      Support for Marvell SCSI 16-channel Rev1 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C16_R2
+    tristate "Marvell SCSI 16-channel Rev2"
+    default n
+    help
+      Support for Marvell SCSI 16-channel Rev2 (Marvell)
+      Category: storage_scsi
+
+config STORAGE_SCSI_MARVELL_C16_R3
+    tristate "Marvell SCSI 16-channel Rev3"
+    default n
+    help
+      Support for Marvell SCSI 16-channel Rev3 (Marvell)
+      Category: storage_scsi
+
+endmenu

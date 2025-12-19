@@ -1,0 +1,8 @@
+# MDIO driver Kconfig for Zirvium
+
+config MDIO_BUS_DRIVER
+    tristate "MDIO bus driver implementation"
+    depends on MDIO_BUS
+    default y
+    help
+      MDIO bus driver for Ethernet PHY management.

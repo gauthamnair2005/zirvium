@@ -1,0 +1,508 @@
+
+menu "Sensor_Hall_Effect Drivers"
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R0
+    tristate "Hall_Effect AKM09911 I2C Rev0"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev0 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R1
+    tristate "Hall_Effect AKM09911 I2C Rev1"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev1 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R2
+    tristate "Hall_Effect AKM09911 I2C Rev2"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev2 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R3
+    tristate "Hall_Effect AKM09911 I2C Rev3"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev3 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R4
+    tristate "Hall_Effect AKM09911 I2C Rev4"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev4 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R5
+    tristate "Hall_Effect AKM09911 I2C Rev5"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev5 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R6
+    tristate "Hall_Effect AKM09911 I2C Rev6"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev6 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_I2C_R7
+    tristate "Hall_Effect AKM09911 I2C Rev7"
+    default n
+    help
+      Support for Hall_Effect AKM09911 I2C Rev7 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R0
+    tristate "Hall_Effect AKM09911 SPI Rev0"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev0 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R1
+    tristate "Hall_Effect AKM09911 SPI Rev1"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev1 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R2
+    tristate "Hall_Effect AKM09911 SPI Rev2"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev2 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R3
+    tristate "Hall_Effect AKM09911 SPI Rev3"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev3 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R4
+    tristate "Hall_Effect AKM09911 SPI Rev4"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev4 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R5
+    tristate "Hall_Effect AKM09911 SPI Rev5"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev5 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R6
+    tristate "Hall_Effect AKM09911 SPI Rev6"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev6 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_SPI_R7
+    tristate "Hall_Effect AKM09911 SPI Rev7"
+    default n
+    help
+      Support for Hall_Effect AKM09911 SPI Rev7 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R0
+    tristate "Hall_Effect AKM09911 UART Rev0"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev0 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R1
+    tristate "Hall_Effect AKM09911 UART Rev1"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev1 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R2
+    tristate "Hall_Effect AKM09911 UART Rev2"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev2 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R3
+    tristate "Hall_Effect AKM09911 UART Rev3"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev3 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R4
+    tristate "Hall_Effect AKM09911 UART Rev4"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev4 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R5
+    tristate "Hall_Effect AKM09911 UART Rev5"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev5 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R6
+    tristate "Hall_Effect AKM09911 UART Rev6"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev6 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_AKM09911_UART_R7
+    tristate "Hall_Effect AKM09911 UART Rev7"
+    default n
+    help
+      Support for Hall_Effect AKM09911 UART Rev7 (AKM09911)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R0
+    tristate "Hall_Effect ST480 I2C Rev0"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev0 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R1
+    tristate "Hall_Effect ST480 I2C Rev1"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev1 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R2
+    tristate "Hall_Effect ST480 I2C Rev2"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev2 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R3
+    tristate "Hall_Effect ST480 I2C Rev3"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev3 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R4
+    tristate "Hall_Effect ST480 I2C Rev4"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev4 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R5
+    tristate "Hall_Effect ST480 I2C Rev5"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev5 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R6
+    tristate "Hall_Effect ST480 I2C Rev6"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev6 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_I2C_R7
+    tristate "Hall_Effect ST480 I2C Rev7"
+    default n
+    help
+      Support for Hall_Effect ST480 I2C Rev7 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R0
+    tristate "Hall_Effect ST480 SPI Rev0"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev0 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R1
+    tristate "Hall_Effect ST480 SPI Rev1"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev1 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R2
+    tristate "Hall_Effect ST480 SPI Rev2"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev2 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R3
+    tristate "Hall_Effect ST480 SPI Rev3"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev3 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R4
+    tristate "Hall_Effect ST480 SPI Rev4"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev4 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R5
+    tristate "Hall_Effect ST480 SPI Rev5"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev5 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R6
+    tristate "Hall_Effect ST480 SPI Rev6"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev6 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_SPI_R7
+    tristate "Hall_Effect ST480 SPI Rev7"
+    default n
+    help
+      Support for Hall_Effect ST480 SPI Rev7 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R0
+    tristate "Hall_Effect ST480 UART Rev0"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev0 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R1
+    tristate "Hall_Effect ST480 UART Rev1"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev1 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R2
+    tristate "Hall_Effect ST480 UART Rev2"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev2 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R3
+    tristate "Hall_Effect ST480 UART Rev3"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev3 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R4
+    tristate "Hall_Effect ST480 UART Rev4"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev4 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R5
+    tristate "Hall_Effect ST480 UART Rev5"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev5 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R6
+    tristate "Hall_Effect ST480 UART Rev6"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev6 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_ST480_UART_R7
+    tristate "Hall_Effect ST480 UART Rev7"
+    default n
+    help
+      Support for Hall_Effect ST480 UART Rev7 (ST480)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R0
+    tristate "Hall_Effect YAS537 I2C Rev0"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev0 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R1
+    tristate "Hall_Effect YAS537 I2C Rev1"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev1 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R2
+    tristate "Hall_Effect YAS537 I2C Rev2"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev2 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R3
+    tristate "Hall_Effect YAS537 I2C Rev3"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev3 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R4
+    tristate "Hall_Effect YAS537 I2C Rev4"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev4 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R5
+    tristate "Hall_Effect YAS537 I2C Rev5"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev5 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R6
+    tristate "Hall_Effect YAS537 I2C Rev6"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev6 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_I2C_R7
+    tristate "Hall_Effect YAS537 I2C Rev7"
+    default n
+    help
+      Support for Hall_Effect YAS537 I2C Rev7 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R0
+    tristate "Hall_Effect YAS537 SPI Rev0"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev0 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R1
+    tristate "Hall_Effect YAS537 SPI Rev1"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev1 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R2
+    tristate "Hall_Effect YAS537 SPI Rev2"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev2 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R3
+    tristate "Hall_Effect YAS537 SPI Rev3"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev3 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R4
+    tristate "Hall_Effect YAS537 SPI Rev4"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev4 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R5
+    tristate "Hall_Effect YAS537 SPI Rev5"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev5 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R6
+    tristate "Hall_Effect YAS537 SPI Rev6"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev6 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_SPI_R7
+    tristate "Hall_Effect YAS537 SPI Rev7"
+    default n
+    help
+      Support for Hall_Effect YAS537 SPI Rev7 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R0
+    tristate "Hall_Effect YAS537 UART Rev0"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev0 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R1
+    tristate "Hall_Effect YAS537 UART Rev1"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev1 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R2
+    tristate "Hall_Effect YAS537 UART Rev2"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev2 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R3
+    tristate "Hall_Effect YAS537 UART Rev3"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev3 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R4
+    tristate "Hall_Effect YAS537 UART Rev4"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev4 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R5
+    tristate "Hall_Effect YAS537 UART Rev5"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev5 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R6
+    tristate "Hall_Effect YAS537 UART Rev6"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev6 (YAS537)
+      Category: sensor_hall_effect
+
+config SENSOR_HALL_EFFECT_YAS537_UART_R7
+    tristate "Hall_Effect YAS537 UART Rev7"
+    default n
+    help
+      Support for Hall_Effect YAS537 UART Rev7 (YAS537)
+      Category: sensor_hall_effect
+
+endmenu

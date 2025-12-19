@@ -1,0 +1,1264 @@
+
+menu "Power_Thermal Drivers"
+
+config POWER_THERMAL_ACPI00_R0
+    tristate "Thermal ACPI00 Rev0"
+    default n
+    help
+      Support for Thermal ACPI00 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI00_R1
+    tristate "Thermal ACPI00 Rev1"
+    default n
+    help
+      Support for Thermal ACPI00 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI00_R2
+    tristate "Thermal ACPI00 Rev2"
+    default n
+    help
+      Support for Thermal ACPI00 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI01_R0
+    tristate "Thermal ACPI01 Rev0"
+    default n
+    help
+      Support for Thermal ACPI01 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI01_R1
+    tristate "Thermal ACPI01 Rev1"
+    default n
+    help
+      Support for Thermal ACPI01 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI01_R2
+    tristate "Thermal ACPI01 Rev2"
+    default n
+    help
+      Support for Thermal ACPI01 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI02_R0
+    tristate "Thermal ACPI02 Rev0"
+    default n
+    help
+      Support for Thermal ACPI02 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI02_R1
+    tristate "Thermal ACPI02 Rev1"
+    default n
+    help
+      Support for Thermal ACPI02 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI02_R2
+    tristate "Thermal ACPI02 Rev2"
+    default n
+    help
+      Support for Thermal ACPI02 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI03_R0
+    tristate "Thermal ACPI03 Rev0"
+    default n
+    help
+      Support for Thermal ACPI03 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI03_R1
+    tristate "Thermal ACPI03 Rev1"
+    default n
+    help
+      Support for Thermal ACPI03 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI03_R2
+    tristate "Thermal ACPI03 Rev2"
+    default n
+    help
+      Support for Thermal ACPI03 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI04_R0
+    tristate "Thermal ACPI04 Rev0"
+    default n
+    help
+      Support for Thermal ACPI04 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI04_R1
+    tristate "Thermal ACPI04 Rev1"
+    default n
+    help
+      Support for Thermal ACPI04 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI04_R2
+    tristate "Thermal ACPI04 Rev2"
+    default n
+    help
+      Support for Thermal ACPI04 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI05_R0
+    tristate "Thermal ACPI05 Rev0"
+    default n
+    help
+      Support for Thermal ACPI05 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI05_R1
+    tristate "Thermal ACPI05 Rev1"
+    default n
+    help
+      Support for Thermal ACPI05 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI05_R2
+    tristate "Thermal ACPI05 Rev2"
+    default n
+    help
+      Support for Thermal ACPI05 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI06_R0
+    tristate "Thermal ACPI06 Rev0"
+    default n
+    help
+      Support for Thermal ACPI06 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI06_R1
+    tristate "Thermal ACPI06 Rev1"
+    default n
+    help
+      Support for Thermal ACPI06 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI06_R2
+    tristate "Thermal ACPI06 Rev2"
+    default n
+    help
+      Support for Thermal ACPI06 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI07_R0
+    tristate "Thermal ACPI07 Rev0"
+    default n
+    help
+      Support for Thermal ACPI07 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI07_R1
+    tristate "Thermal ACPI07 Rev1"
+    default n
+    help
+      Support for Thermal ACPI07 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI07_R2
+    tristate "Thermal ACPI07 Rev2"
+    default n
+    help
+      Support for Thermal ACPI07 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI08_R0
+    tristate "Thermal ACPI08 Rev0"
+    default n
+    help
+      Support for Thermal ACPI08 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI08_R1
+    tristate "Thermal ACPI08 Rev1"
+    default n
+    help
+      Support for Thermal ACPI08 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI08_R2
+    tristate "Thermal ACPI08 Rev2"
+    default n
+    help
+      Support for Thermal ACPI08 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI09_R0
+    tristate "Thermal ACPI09 Rev0"
+    default n
+    help
+      Support for Thermal ACPI09 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI09_R1
+    tristate "Thermal ACPI09 Rev1"
+    default n
+    help
+      Support for Thermal ACPI09 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI09_R2
+    tristate "Thermal ACPI09 Rev2"
+    default n
+    help
+      Support for Thermal ACPI09 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI10_R0
+    tristate "Thermal ACPI10 Rev0"
+    default n
+    help
+      Support for Thermal ACPI10 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI10_R1
+    tristate "Thermal ACPI10 Rev1"
+    default n
+    help
+      Support for Thermal ACPI10 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI10_R2
+    tristate "Thermal ACPI10 Rev2"
+    default n
+    help
+      Support for Thermal ACPI10 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI11_R0
+    tristate "Thermal ACPI11 Rev0"
+    default n
+    help
+      Support for Thermal ACPI11 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI11_R1
+    tristate "Thermal ACPI11 Rev1"
+    default n
+    help
+      Support for Thermal ACPI11 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI11_R2
+    tristate "Thermal ACPI11 Rev2"
+    default n
+    help
+      Support for Thermal ACPI11 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI12_R0
+    tristate "Thermal ACPI12 Rev0"
+    default n
+    help
+      Support for Thermal ACPI12 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI12_R1
+    tristate "Thermal ACPI12 Rev1"
+    default n
+    help
+      Support for Thermal ACPI12 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI12_R2
+    tristate "Thermal ACPI12 Rev2"
+    default n
+    help
+      Support for Thermal ACPI12 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI13_R0
+    tristate "Thermal ACPI13 Rev0"
+    default n
+    help
+      Support for Thermal ACPI13 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI13_R1
+    tristate "Thermal ACPI13 Rev1"
+    default n
+    help
+      Support for Thermal ACPI13 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI13_R2
+    tristate "Thermal ACPI13 Rev2"
+    default n
+    help
+      Support for Thermal ACPI13 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI14_R0
+    tristate "Thermal ACPI14 Rev0"
+    default n
+    help
+      Support for Thermal ACPI14 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI14_R1
+    tristate "Thermal ACPI14 Rev1"
+    default n
+    help
+      Support for Thermal ACPI14 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI14_R2
+    tristate "Thermal ACPI14 Rev2"
+    default n
+    help
+      Support for Thermal ACPI14 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI15_R0
+    tristate "Thermal ACPI15 Rev0"
+    default n
+    help
+      Support for Thermal ACPI15 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI15_R1
+    tristate "Thermal ACPI15 Rev1"
+    default n
+    help
+      Support for Thermal ACPI15 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI15_R2
+    tristate "Thermal ACPI15 Rev2"
+    default n
+    help
+      Support for Thermal ACPI15 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI16_R0
+    tristate "Thermal ACPI16 Rev0"
+    default n
+    help
+      Support for Thermal ACPI16 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI16_R1
+    tristate "Thermal ACPI16 Rev1"
+    default n
+    help
+      Support for Thermal ACPI16 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI16_R2
+    tristate "Thermal ACPI16 Rev2"
+    default n
+    help
+      Support for Thermal ACPI16 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI17_R0
+    tristate "Thermal ACPI17 Rev0"
+    default n
+    help
+      Support for Thermal ACPI17 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI17_R1
+    tristate "Thermal ACPI17 Rev1"
+    default n
+    help
+      Support for Thermal ACPI17 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI17_R2
+    tristate "Thermal ACPI17 Rev2"
+    default n
+    help
+      Support for Thermal ACPI17 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI18_R0
+    tristate "Thermal ACPI18 Rev0"
+    default n
+    help
+      Support for Thermal ACPI18 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI18_R1
+    tristate "Thermal ACPI18 Rev1"
+    default n
+    help
+      Support for Thermal ACPI18 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI18_R2
+    tristate "Thermal ACPI18 Rev2"
+    default n
+    help
+      Support for Thermal ACPI18 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI19_R0
+    tristate "Thermal ACPI19 Rev0"
+    default n
+    help
+      Support for Thermal ACPI19 Rev0 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI19_R1
+    tristate "Thermal ACPI19 Rev1"
+    default n
+    help
+      Support for Thermal ACPI19 Rev1 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_ACPI19_R2
+    tristate "Thermal ACPI19 Rev2"
+    default n
+    help
+      Support for Thermal ACPI19 Rev2 (ACPI)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF00_R0
+    tristate "Thermal Intel_DPTF00 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF00 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF00_R1
+    tristate "Thermal Intel_DPTF00 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF00 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF00_R2
+    tristate "Thermal Intel_DPTF00 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF00 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF01_R0
+    tristate "Thermal Intel_DPTF01 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF01 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF01_R1
+    tristate "Thermal Intel_DPTF01 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF01 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF01_R2
+    tristate "Thermal Intel_DPTF01 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF01 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF02_R0
+    tristate "Thermal Intel_DPTF02 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF02 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF02_R1
+    tristate "Thermal Intel_DPTF02 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF02 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF02_R2
+    tristate "Thermal Intel_DPTF02 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF02 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF03_R0
+    tristate "Thermal Intel_DPTF03 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF03 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF03_R1
+    tristate "Thermal Intel_DPTF03 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF03 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF03_R2
+    tristate "Thermal Intel_DPTF03 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF03 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF04_R0
+    tristate "Thermal Intel_DPTF04 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF04 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF04_R1
+    tristate "Thermal Intel_DPTF04 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF04 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF04_R2
+    tristate "Thermal Intel_DPTF04 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF04 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF05_R0
+    tristate "Thermal Intel_DPTF05 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF05 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF05_R1
+    tristate "Thermal Intel_DPTF05 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF05 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF05_R2
+    tristate "Thermal Intel_DPTF05 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF05 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF06_R0
+    tristate "Thermal Intel_DPTF06 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF06 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF06_R1
+    tristate "Thermal Intel_DPTF06 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF06 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF06_R2
+    tristate "Thermal Intel_DPTF06 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF06 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF07_R0
+    tristate "Thermal Intel_DPTF07 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF07 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF07_R1
+    tristate "Thermal Intel_DPTF07 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF07 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF07_R2
+    tristate "Thermal Intel_DPTF07 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF07 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF08_R0
+    tristate "Thermal Intel_DPTF08 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF08 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF08_R1
+    tristate "Thermal Intel_DPTF08 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF08 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF08_R2
+    tristate "Thermal Intel_DPTF08 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF08 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF09_R0
+    tristate "Thermal Intel_DPTF09 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF09 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF09_R1
+    tristate "Thermal Intel_DPTF09 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF09 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF09_R2
+    tristate "Thermal Intel_DPTF09 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF09 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF10_R0
+    tristate "Thermal Intel_DPTF10 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF10 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF10_R1
+    tristate "Thermal Intel_DPTF10 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF10 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF10_R2
+    tristate "Thermal Intel_DPTF10 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF10 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF11_R0
+    tristate "Thermal Intel_DPTF11 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF11 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF11_R1
+    tristate "Thermal Intel_DPTF11 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF11 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF11_R2
+    tristate "Thermal Intel_DPTF11 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF11 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF12_R0
+    tristate "Thermal Intel_DPTF12 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF12 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF12_R1
+    tristate "Thermal Intel_DPTF12 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF12 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF12_R2
+    tristate "Thermal Intel_DPTF12 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF12 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF13_R0
+    tristate "Thermal Intel_DPTF13 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF13 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF13_R1
+    tristate "Thermal Intel_DPTF13 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF13 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF13_R2
+    tristate "Thermal Intel_DPTF13 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF13 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF14_R0
+    tristate "Thermal Intel_DPTF14 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF14 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF14_R1
+    tristate "Thermal Intel_DPTF14 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF14 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF14_R2
+    tristate "Thermal Intel_DPTF14 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF14 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF15_R0
+    tristate "Thermal Intel_DPTF15 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF15 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF15_R1
+    tristate "Thermal Intel_DPTF15 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF15 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF15_R2
+    tristate "Thermal Intel_DPTF15 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF15 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF16_R0
+    tristate "Thermal Intel_DPTF16 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF16 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF16_R1
+    tristate "Thermal Intel_DPTF16 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF16 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF16_R2
+    tristate "Thermal Intel_DPTF16 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF16 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF17_R0
+    tristate "Thermal Intel_DPTF17 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF17 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF17_R1
+    tristate "Thermal Intel_DPTF17 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF17 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF17_R2
+    tristate "Thermal Intel_DPTF17 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF17 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF18_R0
+    tristate "Thermal Intel_DPTF18 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF18 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF18_R1
+    tristate "Thermal Intel_DPTF18 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF18 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF18_R2
+    tristate "Thermal Intel_DPTF18 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF18 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF19_R0
+    tristate "Thermal Intel_DPTF19 Rev0"
+    default n
+    help
+      Support for Thermal Intel_DPTF19 Rev0 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF19_R1
+    tristate "Thermal Intel_DPTF19 Rev1"
+    default n
+    help
+      Support for Thermal Intel_DPTF19 Rev1 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Intel_DPTF19_R2
+    tristate "Thermal Intel_DPTF19 Rev2"
+    default n
+    help
+      Support for Thermal Intel_DPTF19 Rev2 (Intel_DPTF)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic00_R0
+    tristate "Thermal Generic00 Rev0"
+    default n
+    help
+      Support for Thermal Generic00 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic00_R1
+    tristate "Thermal Generic00 Rev1"
+    default n
+    help
+      Support for Thermal Generic00 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic00_R2
+    tristate "Thermal Generic00 Rev2"
+    default n
+    help
+      Support for Thermal Generic00 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic01_R0
+    tristate "Thermal Generic01 Rev0"
+    default n
+    help
+      Support for Thermal Generic01 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic01_R1
+    tristate "Thermal Generic01 Rev1"
+    default n
+    help
+      Support for Thermal Generic01 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic01_R2
+    tristate "Thermal Generic01 Rev2"
+    default n
+    help
+      Support for Thermal Generic01 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic02_R0
+    tristate "Thermal Generic02 Rev0"
+    default n
+    help
+      Support for Thermal Generic02 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic02_R1
+    tristate "Thermal Generic02 Rev1"
+    default n
+    help
+      Support for Thermal Generic02 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic02_R2
+    tristate "Thermal Generic02 Rev2"
+    default n
+    help
+      Support for Thermal Generic02 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic03_R0
+    tristate "Thermal Generic03 Rev0"
+    default n
+    help
+      Support for Thermal Generic03 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic03_R1
+    tristate "Thermal Generic03 Rev1"
+    default n
+    help
+      Support for Thermal Generic03 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic03_R2
+    tristate "Thermal Generic03 Rev2"
+    default n
+    help
+      Support for Thermal Generic03 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic04_R0
+    tristate "Thermal Generic04 Rev0"
+    default n
+    help
+      Support for Thermal Generic04 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic04_R1
+    tristate "Thermal Generic04 Rev1"
+    default n
+    help
+      Support for Thermal Generic04 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic04_R2
+    tristate "Thermal Generic04 Rev2"
+    default n
+    help
+      Support for Thermal Generic04 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic05_R0
+    tristate "Thermal Generic05 Rev0"
+    default n
+    help
+      Support for Thermal Generic05 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic05_R1
+    tristate "Thermal Generic05 Rev1"
+    default n
+    help
+      Support for Thermal Generic05 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic05_R2
+    tristate "Thermal Generic05 Rev2"
+    default n
+    help
+      Support for Thermal Generic05 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic06_R0
+    tristate "Thermal Generic06 Rev0"
+    default n
+    help
+      Support for Thermal Generic06 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic06_R1
+    tristate "Thermal Generic06 Rev1"
+    default n
+    help
+      Support for Thermal Generic06 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic06_R2
+    tristate "Thermal Generic06 Rev2"
+    default n
+    help
+      Support for Thermal Generic06 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic07_R0
+    tristate "Thermal Generic07 Rev0"
+    default n
+    help
+      Support for Thermal Generic07 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic07_R1
+    tristate "Thermal Generic07 Rev1"
+    default n
+    help
+      Support for Thermal Generic07 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic07_R2
+    tristate "Thermal Generic07 Rev2"
+    default n
+    help
+      Support for Thermal Generic07 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic08_R0
+    tristate "Thermal Generic08 Rev0"
+    default n
+    help
+      Support for Thermal Generic08 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic08_R1
+    tristate "Thermal Generic08 Rev1"
+    default n
+    help
+      Support for Thermal Generic08 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic08_R2
+    tristate "Thermal Generic08 Rev2"
+    default n
+    help
+      Support for Thermal Generic08 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic09_R0
+    tristate "Thermal Generic09 Rev0"
+    default n
+    help
+      Support for Thermal Generic09 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic09_R1
+    tristate "Thermal Generic09 Rev1"
+    default n
+    help
+      Support for Thermal Generic09 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic09_R2
+    tristate "Thermal Generic09 Rev2"
+    default n
+    help
+      Support for Thermal Generic09 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic10_R0
+    tristate "Thermal Generic10 Rev0"
+    default n
+    help
+      Support for Thermal Generic10 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic10_R1
+    tristate "Thermal Generic10 Rev1"
+    default n
+    help
+      Support for Thermal Generic10 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic10_R2
+    tristate "Thermal Generic10 Rev2"
+    default n
+    help
+      Support for Thermal Generic10 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic11_R0
+    tristate "Thermal Generic11 Rev0"
+    default n
+    help
+      Support for Thermal Generic11 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic11_R1
+    tristate "Thermal Generic11 Rev1"
+    default n
+    help
+      Support for Thermal Generic11 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic11_R2
+    tristate "Thermal Generic11 Rev2"
+    default n
+    help
+      Support for Thermal Generic11 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic12_R0
+    tristate "Thermal Generic12 Rev0"
+    default n
+    help
+      Support for Thermal Generic12 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic12_R1
+    tristate "Thermal Generic12 Rev1"
+    default n
+    help
+      Support for Thermal Generic12 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic12_R2
+    tristate "Thermal Generic12 Rev2"
+    default n
+    help
+      Support for Thermal Generic12 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic13_R0
+    tristate "Thermal Generic13 Rev0"
+    default n
+    help
+      Support for Thermal Generic13 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic13_R1
+    tristate "Thermal Generic13 Rev1"
+    default n
+    help
+      Support for Thermal Generic13 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic13_R2
+    tristate "Thermal Generic13 Rev2"
+    default n
+    help
+      Support for Thermal Generic13 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic14_R0
+    tristate "Thermal Generic14 Rev0"
+    default n
+    help
+      Support for Thermal Generic14 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic14_R1
+    tristate "Thermal Generic14 Rev1"
+    default n
+    help
+      Support for Thermal Generic14 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic14_R2
+    tristate "Thermal Generic14 Rev2"
+    default n
+    help
+      Support for Thermal Generic14 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic15_R0
+    tristate "Thermal Generic15 Rev0"
+    default n
+    help
+      Support for Thermal Generic15 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic15_R1
+    tristate "Thermal Generic15 Rev1"
+    default n
+    help
+      Support for Thermal Generic15 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic15_R2
+    tristate "Thermal Generic15 Rev2"
+    default n
+    help
+      Support for Thermal Generic15 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic16_R0
+    tristate "Thermal Generic16 Rev0"
+    default n
+    help
+      Support for Thermal Generic16 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic16_R1
+    tristate "Thermal Generic16 Rev1"
+    default n
+    help
+      Support for Thermal Generic16 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic16_R2
+    tristate "Thermal Generic16 Rev2"
+    default n
+    help
+      Support for Thermal Generic16 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic17_R0
+    tristate "Thermal Generic17 Rev0"
+    default n
+    help
+      Support for Thermal Generic17 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic17_R1
+    tristate "Thermal Generic17 Rev1"
+    default n
+    help
+      Support for Thermal Generic17 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic17_R2
+    tristate "Thermal Generic17 Rev2"
+    default n
+    help
+      Support for Thermal Generic17 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic18_R0
+    tristate "Thermal Generic18 Rev0"
+    default n
+    help
+      Support for Thermal Generic18 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic18_R1
+    tristate "Thermal Generic18 Rev1"
+    default n
+    help
+      Support for Thermal Generic18 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic18_R2
+    tristate "Thermal Generic18 Rev2"
+    default n
+    help
+      Support for Thermal Generic18 Rev2 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic19_R0
+    tristate "Thermal Generic19 Rev0"
+    default n
+    help
+      Support for Thermal Generic19 Rev0 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic19_R1
+    tristate "Thermal Generic19 Rev1"
+    default n
+    help
+      Support for Thermal Generic19 Rev1 (Generic)
+      Category: power_thermal
+
+config POWER_THERMAL_Generic19_R2
+    tristate "Thermal Generic19 Rev2"
+    default n
+    help
+      Support for Thermal Generic19 Rev2 (Generic)
+      Category: power_thermal
+
+endmenu

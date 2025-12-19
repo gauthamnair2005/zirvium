@@ -1,0 +1,676 @@
+
+menu "Sensor_Humidity Drivers"
+
+config SENSOR_HUMIDITY_DHT22_I2C_R0
+    tristate "Humidity DHT22 I2C Rev0"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev0 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_I2C_R1
+    tristate "Humidity DHT22 I2C Rev1"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev1 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_I2C_R2
+    tristate "Humidity DHT22 I2C Rev2"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev2 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_I2C_R3
+    tristate "Humidity DHT22 I2C Rev3"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev3 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_I2C_R4
+    tristate "Humidity DHT22 I2C Rev4"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev4 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_I2C_R5
+    tristate "Humidity DHT22 I2C Rev5"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev5 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_I2C_R6
+    tristate "Humidity DHT22 I2C Rev6"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev6 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_I2C_R7
+    tristate "Humidity DHT22 I2C Rev7"
+    default n
+    help
+      Support for Humidity DHT22 I2C Rev7 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R0
+    tristate "Humidity DHT22 SPI Rev0"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev0 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R1
+    tristate "Humidity DHT22 SPI Rev1"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev1 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R2
+    tristate "Humidity DHT22 SPI Rev2"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev2 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R3
+    tristate "Humidity DHT22 SPI Rev3"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev3 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R4
+    tristate "Humidity DHT22 SPI Rev4"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev4 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R5
+    tristate "Humidity DHT22 SPI Rev5"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev5 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R6
+    tristate "Humidity DHT22 SPI Rev6"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev6 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_SPI_R7
+    tristate "Humidity DHT22 SPI Rev7"
+    default n
+    help
+      Support for Humidity DHT22 SPI Rev7 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R0
+    tristate "Humidity DHT22 UART Rev0"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev0 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R1
+    tristate "Humidity DHT22 UART Rev1"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev1 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R2
+    tristate "Humidity DHT22 UART Rev2"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev2 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R3
+    tristate "Humidity DHT22 UART Rev3"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev3 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R4
+    tristate "Humidity DHT22 UART Rev4"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev4 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R5
+    tristate "Humidity DHT22 UART Rev5"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev5 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R6
+    tristate "Humidity DHT22 UART Rev6"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev6 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_DHT22_UART_R7
+    tristate "Humidity DHT22 UART Rev7"
+    default n
+    help
+      Support for Humidity DHT22 UART Rev7 (DHT22)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R0
+    tristate "Humidity SHT3x I2C Rev0"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev0 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R1
+    tristate "Humidity SHT3x I2C Rev1"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev1 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R2
+    tristate "Humidity SHT3x I2C Rev2"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev2 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R3
+    tristate "Humidity SHT3x I2C Rev3"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev3 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R4
+    tristate "Humidity SHT3x I2C Rev4"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev4 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R5
+    tristate "Humidity SHT3x I2C Rev5"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev5 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R6
+    tristate "Humidity SHT3x I2C Rev6"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev6 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_I2C_R7
+    tristate "Humidity SHT3x I2C Rev7"
+    default n
+    help
+      Support for Humidity SHT3x I2C Rev7 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R0
+    tristate "Humidity SHT3x SPI Rev0"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev0 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R1
+    tristate "Humidity SHT3x SPI Rev1"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev1 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R2
+    tristate "Humidity SHT3x SPI Rev2"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev2 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R3
+    tristate "Humidity SHT3x SPI Rev3"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev3 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R4
+    tristate "Humidity SHT3x SPI Rev4"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev4 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R5
+    tristate "Humidity SHT3x SPI Rev5"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev5 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R6
+    tristate "Humidity SHT3x SPI Rev6"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev6 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_SPI_R7
+    tristate "Humidity SHT3x SPI Rev7"
+    default n
+    help
+      Support for Humidity SHT3x SPI Rev7 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R0
+    tristate "Humidity SHT3x UART Rev0"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev0 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R1
+    tristate "Humidity SHT3x UART Rev1"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev1 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R2
+    tristate "Humidity SHT3x UART Rev2"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev2 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R3
+    tristate "Humidity SHT3x UART Rev3"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev3 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R4
+    tristate "Humidity SHT3x UART Rev4"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev4 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R5
+    tristate "Humidity SHT3x UART Rev5"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev5 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R6
+    tristate "Humidity SHT3x UART Rev6"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev6 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_SHT3x_UART_R7
+    tristate "Humidity SHT3x UART Rev7"
+    default n
+    help
+      Support for Humidity SHT3x UART Rev7 (SHT3x)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R0
+    tristate "Humidity BME280 I2C Rev0"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev0 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R1
+    tristate "Humidity BME280 I2C Rev1"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev1 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R2
+    tristate "Humidity BME280 I2C Rev2"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev2 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R3
+    tristate "Humidity BME280 I2C Rev3"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev3 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R4
+    tristate "Humidity BME280 I2C Rev4"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev4 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R5
+    tristate "Humidity BME280 I2C Rev5"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev5 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R6
+    tristate "Humidity BME280 I2C Rev6"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev6 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_I2C_R7
+    tristate "Humidity BME280 I2C Rev7"
+    default n
+    help
+      Support for Humidity BME280 I2C Rev7 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R0
+    tristate "Humidity BME280 SPI Rev0"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev0 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R1
+    tristate "Humidity BME280 SPI Rev1"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev1 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R2
+    tristate "Humidity BME280 SPI Rev2"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev2 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R3
+    tristate "Humidity BME280 SPI Rev3"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev3 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R4
+    tristate "Humidity BME280 SPI Rev4"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev4 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R5
+    tristate "Humidity BME280 SPI Rev5"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev5 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R6
+    tristate "Humidity BME280 SPI Rev6"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev6 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_SPI_R7
+    tristate "Humidity BME280 SPI Rev7"
+    default n
+    help
+      Support for Humidity BME280 SPI Rev7 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R0
+    tristate "Humidity BME280 UART Rev0"
+    default n
+    help
+      Support for Humidity BME280 UART Rev0 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R1
+    tristate "Humidity BME280 UART Rev1"
+    default n
+    help
+      Support for Humidity BME280 UART Rev1 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R2
+    tristate "Humidity BME280 UART Rev2"
+    default n
+    help
+      Support for Humidity BME280 UART Rev2 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R3
+    tristate "Humidity BME280 UART Rev3"
+    default n
+    help
+      Support for Humidity BME280 UART Rev3 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R4
+    tristate "Humidity BME280 UART Rev4"
+    default n
+    help
+      Support for Humidity BME280 UART Rev4 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R5
+    tristate "Humidity BME280 UART Rev5"
+    default n
+    help
+      Support for Humidity BME280 UART Rev5 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R6
+    tristate "Humidity BME280 UART Rev6"
+    default n
+    help
+      Support for Humidity BME280 UART Rev6 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_BME280_UART_R7
+    tristate "Humidity BME280 UART Rev7"
+    default n
+    help
+      Support for Humidity BME280 UART Rev7 (BME280)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R0
+    tristate "Humidity HDC1080 I2C Rev0"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev0 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R1
+    tristate "Humidity HDC1080 I2C Rev1"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev1 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R2
+    tristate "Humidity HDC1080 I2C Rev2"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev2 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R3
+    tristate "Humidity HDC1080 I2C Rev3"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev3 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R4
+    tristate "Humidity HDC1080 I2C Rev4"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev4 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R5
+    tristate "Humidity HDC1080 I2C Rev5"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev5 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R6
+    tristate "Humidity HDC1080 I2C Rev6"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev6 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_I2C_R7
+    tristate "Humidity HDC1080 I2C Rev7"
+    default n
+    help
+      Support for Humidity HDC1080 I2C Rev7 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R0
+    tristate "Humidity HDC1080 SPI Rev0"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev0 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R1
+    tristate "Humidity HDC1080 SPI Rev1"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev1 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R2
+    tristate "Humidity HDC1080 SPI Rev2"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev2 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R3
+    tristate "Humidity HDC1080 SPI Rev3"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev3 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R4
+    tristate "Humidity HDC1080 SPI Rev4"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev4 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R5
+    tristate "Humidity HDC1080 SPI Rev5"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev5 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R6
+    tristate "Humidity HDC1080 SPI Rev6"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev6 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_SPI_R7
+    tristate "Humidity HDC1080 SPI Rev7"
+    default n
+    help
+      Support for Humidity HDC1080 SPI Rev7 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R0
+    tristate "Humidity HDC1080 UART Rev0"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev0 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R1
+    tristate "Humidity HDC1080 UART Rev1"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev1 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R2
+    tristate "Humidity HDC1080 UART Rev2"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev2 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R3
+    tristate "Humidity HDC1080 UART Rev3"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev3 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R4
+    tristate "Humidity HDC1080 UART Rev4"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev4 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R5
+    tristate "Humidity HDC1080 UART Rev5"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev5 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R6
+    tristate "Humidity HDC1080 UART Rev6"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev6 (HDC1080)
+      Category: sensor_humidity
+
+config SENSOR_HUMIDITY_HDC1080_UART_R7
+    tristate "Humidity HDC1080 UART Rev7"
+    default n
+    help
+      Support for Humidity HDC1080 UART Rev7 (HDC1080)
+      Category: sensor_humidity
+
+endmenu

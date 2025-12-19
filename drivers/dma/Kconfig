@@ -1,0 +1,8 @@
+# DMA driver Kconfig for Zirvium
+
+config INTEL_IDMA64_DRIVER
+    tristate "Intel IDMA64 driver implementation"
+    depends on INTEL_IDMA64
+    default y
+    help
+      Intel integrated DMA 64-bit driver.

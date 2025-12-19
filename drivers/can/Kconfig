@@ -1,0 +1,8 @@
+# CAN driver Kconfig for Zirvium
+
+config CAN_MCP251X_DRIVER
+    tristate "MCP2515 CAN driver implementation"
+    depends on CAN_MCP251X
+    default m
+    help
+      Microchip MCP2515 CAN controller driver.

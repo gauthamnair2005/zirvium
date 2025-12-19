@@ -1,11 +1,117 @@
+# Compiled Object files
 *.o
+*.ko
+*.obj
 *.elf
-*.efi
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.la
+*.lo
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+zirvium
+vmzirvium
 *.bin
-*.img
+
+# Kernel Images
 *.iso
+*.img
+
+# Build directories
+iso/
 build/
+obj/
+
+# Dependency files
+*.d
+*.dep
+
+# Assembly listings
+*.lst
+*.map
+
+# Linker outputs
+*.ld.o
+
+# Debug files
+*.dSYM/
+*.su
+
+# Log files
+*.log
+*.out
+
+# Editor backup files
+*~
 *.swp
 *.swo
-*~
+*.bak
+.*.swp
+.*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+*.code-workspace
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Config cache (keep .config but ignore temp files)
+.config.old
+.config.cmd
+.kconfig.d
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Boot files (generated)
+grub.cfg.backup
+
+# Documentation builds
+docs/_build/
+docs/.doctrees/
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+
+# VNC/QEMU runtime
+*.qcow2
+*.vdi
+*.vmdk
+qemu_*.log
+
+# Keep these config files
+!.config
+!Kconfig
+!Kconfig.*
+!*/Kconfig
+!*/Makefile
+!Makefile

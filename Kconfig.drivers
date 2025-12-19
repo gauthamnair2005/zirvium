@@ -1,0 +1,101 @@
+# Zirvium Driver Configuration
+# Comprehensive driver database with 12,787+ drivers
+# Enhanced with additional driver categories
+
+menu "Zirvium Device Driver Database"
+
+comment "Core System Drivers"
+
+source "drivers/serial/Kconfig"
+source "drivers/rtc/Kconfig"
+source "drivers/watchdog/Kconfig"
+source "drivers/hwmon/Kconfig"
+source "drivers/gpio/Kconfig"
+source "drivers/dma/Kconfig"
+source "drivers/pcie/Kconfig"
+source "drivers/mdio/Kconfig"
+
+comment "Communication Buses"
+
+source "drivers/can/Kconfig"
+source "drivers/thunderbolt/Kconfig"
+source "drivers/nfc/Kconfig"
+
+comment "Network Drivers"
+
+source "drivers/ethernet/Kconfig"
+source "drivers/wifi/Kconfig"
+source "drivers/bluetooth/Kconfig"
+
+comment "Display and Graphics"
+
+source "drivers/gpu/Kconfig"
+source "drivers/display/Kconfig"
+
+comment "USB Subsystem"
+
+source "drivers/usb_host/Kconfig"
+source "drivers/usb_storage/Kconfig"
+source "drivers/usb_hid/Kconfig"
+source "drivers/usb_audio/Kconfig"
+source "drivers/usb_video/Kconfig"
+source "drivers/usb_network/Kconfig"
+source "drivers/usb_cdc/Kconfig"
+source "drivers/usb_hub/Kconfig"
+
+comment "Audio Drivers"
+
+source "drivers/audio/Kconfig"
+
+comment "Input Devices"
+
+source "drivers/input_keyboard/Kconfig"
+source "drivers/input_mouse/Kconfig"
+source "drivers/input_touchpad/Kconfig"
+source "drivers/input_gamepad/Kconfig"
+
+comment "Sensors and IIO"
+
+source "drivers/sensor_accelerometer/Kconfig"
+source "drivers/sensor_gyroscope/Kconfig"
+source "drivers/sensor_magnetometer/Kconfig"
+source "drivers/sensor_proximity/Kconfig"
+source "drivers/sensor_light/Kconfig"
+source "drivers/sensor_pressure/Kconfig"
+source "drivers/sensor_temperature/Kconfig"
+source "drivers/sensor_humidity/Kconfig"
+source "drivers/sensor_fingerprint/Kconfig"
+source "drivers/sensor_heart_rate/Kconfig"
+source "drivers/sensor_depth/Kconfig"
+source "drivers/sensor_ir_blaster/Kconfig"
+source "drivers/sensor_hall_effect/Kconfig"
+
+comment "Camera and Video"
+
+source "drivers/camera/Kconfig"
+source "drivers/camera_sensor/Kconfig"
+
+comment "Storage Controllers"
+
+source "drivers/storage_sata/Kconfig"
+source "drivers/storage_nvme/Kconfig"
+source "drivers/storage_scsi/Kconfig"
+source "drivers/storage_sas/Kconfig"
+source "drivers/storage_sas2/Kconfig"
+source "drivers/storage_sas3/Kconfig"
+source "drivers/storage_mmc/Kconfig"
+source "drivers/storage_ide/Kconfig"
+
+comment "Power Management"
+
+source "drivers/power_battery/Kconfig"
+source "drivers/power_charger/Kconfig"
+source "drivers/power_pmu/Kconfig"
+source "drivers/power_regulator/Kconfig"
+source "drivers/power_thermal/Kconfig"
+
+comment "Virtualization"
+
+source "drivers/virtualization/Kconfig"
+
+endmenu

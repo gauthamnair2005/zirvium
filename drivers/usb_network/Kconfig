@@ -1,0 +1,424 @@
+
+menu "Usb_Network Drivers"
+
+config USB_NETWORK_Ethernet_0
+    tristate "USB Network Ethernet variant 0"
+    default n
+    help
+      Support for USB Network Ethernet variant 0 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_1
+    tristate "USB Network Ethernet variant 1"
+    default n
+    help
+      Support for USB Network Ethernet variant 1 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_2
+    tristate "USB Network Ethernet variant 2"
+    default n
+    help
+      Support for USB Network Ethernet variant 2 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_3
+    tristate "USB Network Ethernet variant 3"
+    default n
+    help
+      Support for USB Network Ethernet variant 3 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_4
+    tristate "USB Network Ethernet variant 4"
+    default n
+    help
+      Support for USB Network Ethernet variant 4 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_5
+    tristate "USB Network Ethernet variant 5"
+    default n
+    help
+      Support for USB Network Ethernet variant 5 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_6
+    tristate "USB Network Ethernet variant 6"
+    default n
+    help
+      Support for USB Network Ethernet variant 6 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_7
+    tristate "USB Network Ethernet variant 7"
+    default n
+    help
+      Support for USB Network Ethernet variant 7 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_8
+    tristate "USB Network Ethernet variant 8"
+    default n
+    help
+      Support for USB Network Ethernet variant 8 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_9
+    tristate "USB Network Ethernet variant 9"
+    default n
+    help
+      Support for USB Network Ethernet variant 9 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_10
+    tristate "USB Network Ethernet variant 10"
+    default n
+    help
+      Support for USB Network Ethernet variant 10 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_11
+    tristate "USB Network Ethernet variant 11"
+    default n
+    help
+      Support for USB Network Ethernet variant 11 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_12
+    tristate "USB Network Ethernet variant 12"
+    default n
+    help
+      Support for USB Network Ethernet variant 12 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_13
+    tristate "USB Network Ethernet variant 13"
+    default n
+    help
+      Support for USB Network Ethernet variant 13 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Ethernet_14
+    tristate "USB Network Ethernet variant 14"
+    default n
+    help
+      Support for USB Network Ethernet variant 14 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_0
+    tristate "USB Network WiFi variant 0"
+    default n
+    help
+      Support for USB Network WiFi variant 0 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_1
+    tristate "USB Network WiFi variant 1"
+    default n
+    help
+      Support for USB Network WiFi variant 1 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_2
+    tristate "USB Network WiFi variant 2"
+    default n
+    help
+      Support for USB Network WiFi variant 2 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_3
+    tristate "USB Network WiFi variant 3"
+    default n
+    help
+      Support for USB Network WiFi variant 3 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_4
+    tristate "USB Network WiFi variant 4"
+    default n
+    help
+      Support for USB Network WiFi variant 4 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_5
+    tristate "USB Network WiFi variant 5"
+    default n
+    help
+      Support for USB Network WiFi variant 5 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_6
+    tristate "USB Network WiFi variant 6"
+    default n
+    help
+      Support for USB Network WiFi variant 6 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_7
+    tristate "USB Network WiFi variant 7"
+    default n
+    help
+      Support for USB Network WiFi variant 7 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_8
+    tristate "USB Network WiFi variant 8"
+    default n
+    help
+      Support for USB Network WiFi variant 8 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_9
+    tristate "USB Network WiFi variant 9"
+    default n
+    help
+      Support for USB Network WiFi variant 9 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_10
+    tristate "USB Network WiFi variant 10"
+    default n
+    help
+      Support for USB Network WiFi variant 10 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_11
+    tristate "USB Network WiFi variant 11"
+    default n
+    help
+      Support for USB Network WiFi variant 11 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_12
+    tristate "USB Network WiFi variant 12"
+    default n
+    help
+      Support for USB Network WiFi variant 12 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_13
+    tristate "USB Network WiFi variant 13"
+    default n
+    help
+      Support for USB Network WiFi variant 13 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_WiFi_14
+    tristate "USB Network WiFi variant 14"
+    default n
+    help
+      Support for USB Network WiFi variant 14 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_0
+    tristate "USB Network Bluetooth variant 0"
+    default n
+    help
+      Support for USB Network Bluetooth variant 0 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_1
+    tristate "USB Network Bluetooth variant 1"
+    default n
+    help
+      Support for USB Network Bluetooth variant 1 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_2
+    tristate "USB Network Bluetooth variant 2"
+    default n
+    help
+      Support for USB Network Bluetooth variant 2 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_3
+    tristate "USB Network Bluetooth variant 3"
+    default n
+    help
+      Support for USB Network Bluetooth variant 3 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_4
+    tristate "USB Network Bluetooth variant 4"
+    default n
+    help
+      Support for USB Network Bluetooth variant 4 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_5
+    tristate "USB Network Bluetooth variant 5"
+    default n
+    help
+      Support for USB Network Bluetooth variant 5 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_6
+    tristate "USB Network Bluetooth variant 6"
+    default n
+    help
+      Support for USB Network Bluetooth variant 6 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_7
+    tristate "USB Network Bluetooth variant 7"
+    default n
+    help
+      Support for USB Network Bluetooth variant 7 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_8
+    tristate "USB Network Bluetooth variant 8"
+    default n
+    help
+      Support for USB Network Bluetooth variant 8 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_9
+    tristate "USB Network Bluetooth variant 9"
+    default n
+    help
+      Support for USB Network Bluetooth variant 9 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_10
+    tristate "USB Network Bluetooth variant 10"
+    default n
+    help
+      Support for USB Network Bluetooth variant 10 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_11
+    tristate "USB Network Bluetooth variant 11"
+    default n
+    help
+      Support for USB Network Bluetooth variant 11 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_12
+    tristate "USB Network Bluetooth variant 12"
+    default n
+    help
+      Support for USB Network Bluetooth variant 12 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_13
+    tristate "USB Network Bluetooth variant 13"
+    default n
+    help
+      Support for USB Network Bluetooth variant 13 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Bluetooth_14
+    tristate "USB Network Bluetooth variant 14"
+    default n
+    help
+      Support for USB Network Bluetooth variant 14 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_0
+    tristate "USB Network Modem variant 0"
+    default n
+    help
+      Support for USB Network Modem variant 0 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_1
+    tristate "USB Network Modem variant 1"
+    default n
+    help
+      Support for USB Network Modem variant 1 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_2
+    tristate "USB Network Modem variant 2"
+    default n
+    help
+      Support for USB Network Modem variant 2 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_3
+    tristate "USB Network Modem variant 3"
+    default n
+    help
+      Support for USB Network Modem variant 3 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_4
+    tristate "USB Network Modem variant 4"
+    default n
+    help
+      Support for USB Network Modem variant 4 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_5
+    tristate "USB Network Modem variant 5"
+    default n
+    help
+      Support for USB Network Modem variant 5 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_6
+    tristate "USB Network Modem variant 6"
+    default n
+    help
+      Support for USB Network Modem variant 6 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_7
+    tristate "USB Network Modem variant 7"
+    default n
+    help
+      Support for USB Network Modem variant 7 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_8
+    tristate "USB Network Modem variant 8"
+    default n
+    help
+      Support for USB Network Modem variant 8 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_9
+    tristate "USB Network Modem variant 9"
+    default n
+    help
+      Support for USB Network Modem variant 9 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_10
+    tristate "USB Network Modem variant 10"
+    default n
+    help
+      Support for USB Network Modem variant 10 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_11
+    tristate "USB Network Modem variant 11"
+    default n
+    help
+      Support for USB Network Modem variant 11 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_12
+    tristate "USB Network Modem variant 12"
+    default n
+    help
+      Support for USB Network Modem variant 12 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_13
+    tristate "USB Network Modem variant 13"
+    default n
+    help
+      Support for USB Network Modem variant 13 (Generic)
+      Category: usb_network
+
+config USB_NETWORK_Modem_14
+    tristate "USB Network Modem variant 14"
+    default n
+    help
+      Support for USB Network Modem variant 14 (Generic)
+      Category: usb_network
+
+endmenu

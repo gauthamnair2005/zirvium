@@ -1,0 +1,8 @@
+# Serial driver Kconfig for Zirvium
+
+config SERIAL_8250_DRIVER
+    tristate "8250 UART driver implementation"
+    depends on SERIAL_8250
+    default y
+    help
+      8250/16550 UART driver implementation.

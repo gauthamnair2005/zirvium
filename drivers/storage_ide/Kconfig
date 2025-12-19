@@ -1,0 +1,1404 @@
+
+menu "Storage_Ide Drivers"
+
+config STORAGE_IDE_INTEL_C1_PIO_R0
+    tristate "Intel IDE 1-channel PIO Rev0"
+    default n
+    help
+      Support for Intel IDE 1-channel PIO Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_PIO_R1
+    tristate "Intel IDE 1-channel PIO Rev1"
+    default n
+    help
+      Support for Intel IDE 1-channel PIO Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_PIO_R2
+    tristate "Intel IDE 1-channel PIO Rev2"
+    default n
+    help
+      Support for Intel IDE 1-channel PIO Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_PIO_R3
+    tristate "Intel IDE 1-channel PIO Rev3"
+    default n
+    help
+      Support for Intel IDE 1-channel PIO Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA33_R0
+    tristate "Intel IDE 1-channel UDMA33 Rev0"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA33 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA33_R1
+    tristate "Intel IDE 1-channel UDMA33 Rev1"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA33 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA33_R2
+    tristate "Intel IDE 1-channel UDMA33 Rev2"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA33 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA33_R3
+    tristate "Intel IDE 1-channel UDMA33 Rev3"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA33 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA66_R0
+    tristate "Intel IDE 1-channel UDMA66 Rev0"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA66 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA66_R1
+    tristate "Intel IDE 1-channel UDMA66 Rev1"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA66 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA66_R2
+    tristate "Intel IDE 1-channel UDMA66 Rev2"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA66 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA66_R3
+    tristate "Intel IDE 1-channel UDMA66 Rev3"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA66 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA100_R0
+    tristate "Intel IDE 1-channel UDMA100 Rev0"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA100 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA100_R1
+    tristate "Intel IDE 1-channel UDMA100 Rev1"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA100 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA100_R2
+    tristate "Intel IDE 1-channel UDMA100 Rev2"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA100 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA100_R3
+    tristate "Intel IDE 1-channel UDMA100 Rev3"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA100 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA133_R0
+    tristate "Intel IDE 1-channel UDMA133 Rev0"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA133 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA133_R1
+    tristate "Intel IDE 1-channel UDMA133 Rev1"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA133 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA133_R2
+    tristate "Intel IDE 1-channel UDMA133 Rev2"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA133 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C1_UDMA133_R3
+    tristate "Intel IDE 1-channel UDMA133 Rev3"
+    default n
+    help
+      Support for Intel IDE 1-channel UDMA133 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_PIO_R0
+    tristate "Intel IDE 2-channel PIO Rev0"
+    default n
+    help
+      Support for Intel IDE 2-channel PIO Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_PIO_R1
+    tristate "Intel IDE 2-channel PIO Rev1"
+    default n
+    help
+      Support for Intel IDE 2-channel PIO Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_PIO_R2
+    tristate "Intel IDE 2-channel PIO Rev2"
+    default n
+    help
+      Support for Intel IDE 2-channel PIO Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_PIO_R3
+    tristate "Intel IDE 2-channel PIO Rev3"
+    default n
+    help
+      Support for Intel IDE 2-channel PIO Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA33_R0
+    tristate "Intel IDE 2-channel UDMA33 Rev0"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA33 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA33_R1
+    tristate "Intel IDE 2-channel UDMA33 Rev1"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA33 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA33_R2
+    tristate "Intel IDE 2-channel UDMA33 Rev2"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA33 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA33_R3
+    tristate "Intel IDE 2-channel UDMA33 Rev3"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA33 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA66_R0
+    tristate "Intel IDE 2-channel UDMA66 Rev0"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA66 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA66_R1
+    tristate "Intel IDE 2-channel UDMA66 Rev1"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA66 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA66_R2
+    tristate "Intel IDE 2-channel UDMA66 Rev2"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA66 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA66_R3
+    tristate "Intel IDE 2-channel UDMA66 Rev3"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA66 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA100_R0
+    tristate "Intel IDE 2-channel UDMA100 Rev0"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA100 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA100_R1
+    tristate "Intel IDE 2-channel UDMA100 Rev1"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA100 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA100_R2
+    tristate "Intel IDE 2-channel UDMA100 Rev2"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA100 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA100_R3
+    tristate "Intel IDE 2-channel UDMA100 Rev3"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA100 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA133_R0
+    tristate "Intel IDE 2-channel UDMA133 Rev0"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA133 Rev0 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA133_R1
+    tristate "Intel IDE 2-channel UDMA133 Rev1"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA133 Rev1 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA133_R2
+    tristate "Intel IDE 2-channel UDMA133 Rev2"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA133 Rev2 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_INTEL_C2_UDMA133_R3
+    tristate "Intel IDE 2-channel UDMA133 Rev3"
+    default n
+    help
+      Support for Intel IDE 2-channel UDMA133 Rev3 (Intel)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_PIO_R0
+    tristate "AMD IDE 1-channel PIO Rev0"
+    default n
+    help
+      Support for AMD IDE 1-channel PIO Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_PIO_R1
+    tristate "AMD IDE 1-channel PIO Rev1"
+    default n
+    help
+      Support for AMD IDE 1-channel PIO Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_PIO_R2
+    tristate "AMD IDE 1-channel PIO Rev2"
+    default n
+    help
+      Support for AMD IDE 1-channel PIO Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_PIO_R3
+    tristate "AMD IDE 1-channel PIO Rev3"
+    default n
+    help
+      Support for AMD IDE 1-channel PIO Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA33_R0
+    tristate "AMD IDE 1-channel UDMA33 Rev0"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA33 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA33_R1
+    tristate "AMD IDE 1-channel UDMA33 Rev1"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA33 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA33_R2
+    tristate "AMD IDE 1-channel UDMA33 Rev2"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA33 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA33_R3
+    tristate "AMD IDE 1-channel UDMA33 Rev3"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA33 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA66_R0
+    tristate "AMD IDE 1-channel UDMA66 Rev0"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA66 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA66_R1
+    tristate "AMD IDE 1-channel UDMA66 Rev1"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA66 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA66_R2
+    tristate "AMD IDE 1-channel UDMA66 Rev2"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA66 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA66_R3
+    tristate "AMD IDE 1-channel UDMA66 Rev3"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA66 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA100_R0
+    tristate "AMD IDE 1-channel UDMA100 Rev0"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA100 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA100_R1
+    tristate "AMD IDE 1-channel UDMA100 Rev1"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA100 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA100_R2
+    tristate "AMD IDE 1-channel UDMA100 Rev2"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA100 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA100_R3
+    tristate "AMD IDE 1-channel UDMA100 Rev3"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA100 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA133_R0
+    tristate "AMD IDE 1-channel UDMA133 Rev0"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA133 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA133_R1
+    tristate "AMD IDE 1-channel UDMA133 Rev1"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA133 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA133_R2
+    tristate "AMD IDE 1-channel UDMA133 Rev2"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA133 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C1_UDMA133_R3
+    tristate "AMD IDE 1-channel UDMA133 Rev3"
+    default n
+    help
+      Support for AMD IDE 1-channel UDMA133 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_PIO_R0
+    tristate "AMD IDE 2-channel PIO Rev0"
+    default n
+    help
+      Support for AMD IDE 2-channel PIO Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_PIO_R1
+    tristate "AMD IDE 2-channel PIO Rev1"
+    default n
+    help
+      Support for AMD IDE 2-channel PIO Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_PIO_R2
+    tristate "AMD IDE 2-channel PIO Rev2"
+    default n
+    help
+      Support for AMD IDE 2-channel PIO Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_PIO_R3
+    tristate "AMD IDE 2-channel PIO Rev3"
+    default n
+    help
+      Support for AMD IDE 2-channel PIO Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA33_R0
+    tristate "AMD IDE 2-channel UDMA33 Rev0"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA33 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA33_R1
+    tristate "AMD IDE 2-channel UDMA33 Rev1"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA33 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA33_R2
+    tristate "AMD IDE 2-channel UDMA33 Rev2"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA33 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA33_R3
+    tristate "AMD IDE 2-channel UDMA33 Rev3"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA33 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA66_R0
+    tristate "AMD IDE 2-channel UDMA66 Rev0"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA66 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA66_R1
+    tristate "AMD IDE 2-channel UDMA66 Rev1"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA66 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA66_R2
+    tristate "AMD IDE 2-channel UDMA66 Rev2"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA66 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA66_R3
+    tristate "AMD IDE 2-channel UDMA66 Rev3"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA66 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA100_R0
+    tristate "AMD IDE 2-channel UDMA100 Rev0"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA100 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA100_R1
+    tristate "AMD IDE 2-channel UDMA100 Rev1"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA100 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA100_R2
+    tristate "AMD IDE 2-channel UDMA100 Rev2"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA100 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA100_R3
+    tristate "AMD IDE 2-channel UDMA100 Rev3"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA100 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA133_R0
+    tristate "AMD IDE 2-channel UDMA133 Rev0"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA133 Rev0 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA133_R1
+    tristate "AMD IDE 2-channel UDMA133 Rev1"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA133 Rev1 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA133_R2
+    tristate "AMD IDE 2-channel UDMA133 Rev2"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA133 Rev2 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_AMD_C2_UDMA133_R3
+    tristate "AMD IDE 2-channel UDMA133 Rev3"
+    default n
+    help
+      Support for AMD IDE 2-channel UDMA133 Rev3 (AMD)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_PIO_R0
+    tristate "VIA IDE 1-channel PIO Rev0"
+    default n
+    help
+      Support for VIA IDE 1-channel PIO Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_PIO_R1
+    tristate "VIA IDE 1-channel PIO Rev1"
+    default n
+    help
+      Support for VIA IDE 1-channel PIO Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_PIO_R2
+    tristate "VIA IDE 1-channel PIO Rev2"
+    default n
+    help
+      Support for VIA IDE 1-channel PIO Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_PIO_R3
+    tristate "VIA IDE 1-channel PIO Rev3"
+    default n
+    help
+      Support for VIA IDE 1-channel PIO Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA33_R0
+    tristate "VIA IDE 1-channel UDMA33 Rev0"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA33 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA33_R1
+    tristate "VIA IDE 1-channel UDMA33 Rev1"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA33 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA33_R2
+    tristate "VIA IDE 1-channel UDMA33 Rev2"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA33 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA33_R3
+    tristate "VIA IDE 1-channel UDMA33 Rev3"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA33 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA66_R0
+    tristate "VIA IDE 1-channel UDMA66 Rev0"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA66 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA66_R1
+    tristate "VIA IDE 1-channel UDMA66 Rev1"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA66 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA66_R2
+    tristate "VIA IDE 1-channel UDMA66 Rev2"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA66 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA66_R3
+    tristate "VIA IDE 1-channel UDMA66 Rev3"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA66 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA100_R0
+    tristate "VIA IDE 1-channel UDMA100 Rev0"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA100 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA100_R1
+    tristate "VIA IDE 1-channel UDMA100 Rev1"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA100 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA100_R2
+    tristate "VIA IDE 1-channel UDMA100 Rev2"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA100 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA100_R3
+    tristate "VIA IDE 1-channel UDMA100 Rev3"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA100 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA133_R0
+    tristate "VIA IDE 1-channel UDMA133 Rev0"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA133 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA133_R1
+    tristate "VIA IDE 1-channel UDMA133 Rev1"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA133 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA133_R2
+    tristate "VIA IDE 1-channel UDMA133 Rev2"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA133 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C1_UDMA133_R3
+    tristate "VIA IDE 1-channel UDMA133 Rev3"
+    default n
+    help
+      Support for VIA IDE 1-channel UDMA133 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_PIO_R0
+    tristate "VIA IDE 2-channel PIO Rev0"
+    default n
+    help
+      Support for VIA IDE 2-channel PIO Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_PIO_R1
+    tristate "VIA IDE 2-channel PIO Rev1"
+    default n
+    help
+      Support for VIA IDE 2-channel PIO Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_PIO_R2
+    tristate "VIA IDE 2-channel PIO Rev2"
+    default n
+    help
+      Support for VIA IDE 2-channel PIO Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_PIO_R3
+    tristate "VIA IDE 2-channel PIO Rev3"
+    default n
+    help
+      Support for VIA IDE 2-channel PIO Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA33_R0
+    tristate "VIA IDE 2-channel UDMA33 Rev0"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA33 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA33_R1
+    tristate "VIA IDE 2-channel UDMA33 Rev1"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA33 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA33_R2
+    tristate "VIA IDE 2-channel UDMA33 Rev2"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA33 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA33_R3
+    tristate "VIA IDE 2-channel UDMA33 Rev3"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA33 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA66_R0
+    tristate "VIA IDE 2-channel UDMA66 Rev0"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA66 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA66_R1
+    tristate "VIA IDE 2-channel UDMA66 Rev1"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA66 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA66_R2
+    tristate "VIA IDE 2-channel UDMA66 Rev2"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA66 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA66_R3
+    tristate "VIA IDE 2-channel UDMA66 Rev3"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA66 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA100_R0
+    tristate "VIA IDE 2-channel UDMA100 Rev0"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA100 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA100_R1
+    tristate "VIA IDE 2-channel UDMA100 Rev1"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA100 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA100_R2
+    tristate "VIA IDE 2-channel UDMA100 Rev2"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA100 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA100_R3
+    tristate "VIA IDE 2-channel UDMA100 Rev3"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA100 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA133_R0
+    tristate "VIA IDE 2-channel UDMA133 Rev0"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA133 Rev0 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA133_R1
+    tristate "VIA IDE 2-channel UDMA133 Rev1"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA133 Rev1 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA133_R2
+    tristate "VIA IDE 2-channel UDMA133 Rev2"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA133 Rev2 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_VIA_C2_UDMA133_R3
+    tristate "VIA IDE 2-channel UDMA133 Rev3"
+    default n
+    help
+      Support for VIA IDE 2-channel UDMA133 Rev3 (VIA)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_PIO_R0
+    tristate "SIS IDE 1-channel PIO Rev0"
+    default n
+    help
+      Support for SIS IDE 1-channel PIO Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_PIO_R1
+    tristate "SIS IDE 1-channel PIO Rev1"
+    default n
+    help
+      Support for SIS IDE 1-channel PIO Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_PIO_R2
+    tristate "SIS IDE 1-channel PIO Rev2"
+    default n
+    help
+      Support for SIS IDE 1-channel PIO Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_PIO_R3
+    tristate "SIS IDE 1-channel PIO Rev3"
+    default n
+    help
+      Support for SIS IDE 1-channel PIO Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA33_R0
+    tristate "SIS IDE 1-channel UDMA33 Rev0"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA33 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA33_R1
+    tristate "SIS IDE 1-channel UDMA33 Rev1"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA33 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA33_R2
+    tristate "SIS IDE 1-channel UDMA33 Rev2"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA33 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA33_R3
+    tristate "SIS IDE 1-channel UDMA33 Rev3"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA33 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA66_R0
+    tristate "SIS IDE 1-channel UDMA66 Rev0"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA66 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA66_R1
+    tristate "SIS IDE 1-channel UDMA66 Rev1"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA66 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA66_R2
+    tristate "SIS IDE 1-channel UDMA66 Rev2"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA66 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA66_R3
+    tristate "SIS IDE 1-channel UDMA66 Rev3"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA66 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA100_R0
+    tristate "SIS IDE 1-channel UDMA100 Rev0"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA100 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA100_R1
+    tristate "SIS IDE 1-channel UDMA100 Rev1"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA100 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA100_R2
+    tristate "SIS IDE 1-channel UDMA100 Rev2"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA100 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA100_R3
+    tristate "SIS IDE 1-channel UDMA100 Rev3"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA100 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA133_R0
+    tristate "SIS IDE 1-channel UDMA133 Rev0"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA133 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA133_R1
+    tristate "SIS IDE 1-channel UDMA133 Rev1"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA133 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA133_R2
+    tristate "SIS IDE 1-channel UDMA133 Rev2"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA133 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C1_UDMA133_R3
+    tristate "SIS IDE 1-channel UDMA133 Rev3"
+    default n
+    help
+      Support for SIS IDE 1-channel UDMA133 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_PIO_R0
+    tristate "SIS IDE 2-channel PIO Rev0"
+    default n
+    help
+      Support for SIS IDE 2-channel PIO Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_PIO_R1
+    tristate "SIS IDE 2-channel PIO Rev1"
+    default n
+    help
+      Support for SIS IDE 2-channel PIO Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_PIO_R2
+    tristate "SIS IDE 2-channel PIO Rev2"
+    default n
+    help
+      Support for SIS IDE 2-channel PIO Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_PIO_R3
+    tristate "SIS IDE 2-channel PIO Rev3"
+    default n
+    help
+      Support for SIS IDE 2-channel PIO Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA33_R0
+    tristate "SIS IDE 2-channel UDMA33 Rev0"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA33 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA33_R1
+    tristate "SIS IDE 2-channel UDMA33 Rev1"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA33 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA33_R2
+    tristate "SIS IDE 2-channel UDMA33 Rev2"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA33 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA33_R3
+    tristate "SIS IDE 2-channel UDMA33 Rev3"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA33 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA66_R0
+    tristate "SIS IDE 2-channel UDMA66 Rev0"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA66 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA66_R1
+    tristate "SIS IDE 2-channel UDMA66 Rev1"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA66 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA66_R2
+    tristate "SIS IDE 2-channel UDMA66 Rev2"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA66 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA66_R3
+    tristate "SIS IDE 2-channel UDMA66 Rev3"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA66 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA100_R0
+    tristate "SIS IDE 2-channel UDMA100 Rev0"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA100 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA100_R1
+    tristate "SIS IDE 2-channel UDMA100 Rev1"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA100 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA100_R2
+    tristate "SIS IDE 2-channel UDMA100 Rev2"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA100 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA100_R3
+    tristate "SIS IDE 2-channel UDMA100 Rev3"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA100 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA133_R0
+    tristate "SIS IDE 2-channel UDMA133 Rev0"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA133 Rev0 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA133_R1
+    tristate "SIS IDE 2-channel UDMA133 Rev1"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA133 Rev1 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA133_R2
+    tristate "SIS IDE 2-channel UDMA133 Rev2"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA133 Rev2 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_SIS_C2_UDMA133_R3
+    tristate "SIS IDE 2-channel UDMA133 Rev3"
+    default n
+    help
+      Support for SIS IDE 2-channel UDMA133 Rev3 (SIS)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_PIO_R0
+    tristate "ALi IDE 1-channel PIO Rev0"
+    default n
+    help
+      Support for ALi IDE 1-channel PIO Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_PIO_R1
+    tristate "ALi IDE 1-channel PIO Rev1"
+    default n
+    help
+      Support for ALi IDE 1-channel PIO Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_PIO_R2
+    tristate "ALi IDE 1-channel PIO Rev2"
+    default n
+    help
+      Support for ALi IDE 1-channel PIO Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_PIO_R3
+    tristate "ALi IDE 1-channel PIO Rev3"
+    default n
+    help
+      Support for ALi IDE 1-channel PIO Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA33_R0
+    tristate "ALi IDE 1-channel UDMA33 Rev0"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA33 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA33_R1
+    tristate "ALi IDE 1-channel UDMA33 Rev1"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA33 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA33_R2
+    tristate "ALi IDE 1-channel UDMA33 Rev2"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA33 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA33_R3
+    tristate "ALi IDE 1-channel UDMA33 Rev3"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA33 Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA66_R0
+    tristate "ALi IDE 1-channel UDMA66 Rev0"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA66 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA66_R1
+    tristate "ALi IDE 1-channel UDMA66 Rev1"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA66 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA66_R2
+    tristate "ALi IDE 1-channel UDMA66 Rev2"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA66 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA66_R3
+    tristate "ALi IDE 1-channel UDMA66 Rev3"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA66 Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA100_R0
+    tristate "ALi IDE 1-channel UDMA100 Rev0"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA100 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA100_R1
+    tristate "ALi IDE 1-channel UDMA100 Rev1"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA100 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA100_R2
+    tristate "ALi IDE 1-channel UDMA100 Rev2"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA100 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA100_R3
+    tristate "ALi IDE 1-channel UDMA100 Rev3"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA100 Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA133_R0
+    tristate "ALi IDE 1-channel UDMA133 Rev0"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA133 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA133_R1
+    tristate "ALi IDE 1-channel UDMA133 Rev1"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA133 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA133_R2
+    tristate "ALi IDE 1-channel UDMA133 Rev2"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA133 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C1_UDMA133_R3
+    tristate "ALi IDE 1-channel UDMA133 Rev3"
+    default n
+    help
+      Support for ALi IDE 1-channel UDMA133 Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_PIO_R0
+    tristate "ALi IDE 2-channel PIO Rev0"
+    default n
+    help
+      Support for ALi IDE 2-channel PIO Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_PIO_R1
+    tristate "ALi IDE 2-channel PIO Rev1"
+    default n
+    help
+      Support for ALi IDE 2-channel PIO Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_PIO_R2
+    tristate "ALi IDE 2-channel PIO Rev2"
+    default n
+    help
+      Support for ALi IDE 2-channel PIO Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_PIO_R3
+    tristate "ALi IDE 2-channel PIO Rev3"
+    default n
+    help
+      Support for ALi IDE 2-channel PIO Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA33_R0
+    tristate "ALi IDE 2-channel UDMA33 Rev0"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA33 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA33_R1
+    tristate "ALi IDE 2-channel UDMA33 Rev1"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA33 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA33_R2
+    tristate "ALi IDE 2-channel UDMA33 Rev2"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA33 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA33_R3
+    tristate "ALi IDE 2-channel UDMA33 Rev3"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA33 Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA66_R0
+    tristate "ALi IDE 2-channel UDMA66 Rev0"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA66 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA66_R1
+    tristate "ALi IDE 2-channel UDMA66 Rev1"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA66 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA66_R2
+    tristate "ALi IDE 2-channel UDMA66 Rev2"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA66 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA66_R3
+    tristate "ALi IDE 2-channel UDMA66 Rev3"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA66 Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA100_R0
+    tristate "ALi IDE 2-channel UDMA100 Rev0"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA100 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA100_R1
+    tristate "ALi IDE 2-channel UDMA100 Rev1"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA100 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA100_R2
+    tristate "ALi IDE 2-channel UDMA100 Rev2"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA100 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA100_R3
+    tristate "ALi IDE 2-channel UDMA100 Rev3"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA100 Rev3 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA133_R0
+    tristate "ALi IDE 2-channel UDMA133 Rev0"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA133 Rev0 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA133_R1
+    tristate "ALi IDE 2-channel UDMA133 Rev1"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA133 Rev1 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA133_R2
+    tristate "ALi IDE 2-channel UDMA133 Rev2"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA133 Rev2 (ALi)
+      Category: storage_ide
+
+config STORAGE_IDE_ALI_C2_UDMA133_R3
+    tristate "ALi IDE 2-channel UDMA133 Rev3"
+    default n
+    help
+      Support for ALi IDE 2-channel UDMA133 Rev3 (ALi)
+      Category: storage_ide
+
+endmenu

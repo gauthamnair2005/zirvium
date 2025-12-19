@@ -1,0 +1,844 @@
+
+menu "Sensor_Accelerometer Drivers"
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R0
+    tristate "Accelerometer ADXL345 I2C Rev0"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev0 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R1
+    tristate "Accelerometer ADXL345 I2C Rev1"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev1 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R2
+    tristate "Accelerometer ADXL345 I2C Rev2"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev2 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R3
+    tristate "Accelerometer ADXL345 I2C Rev3"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev3 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R4
+    tristate "Accelerometer ADXL345 I2C Rev4"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev4 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R5
+    tristate "Accelerometer ADXL345 I2C Rev5"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev5 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R6
+    tristate "Accelerometer ADXL345 I2C Rev6"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev6 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_I2C_R7
+    tristate "Accelerometer ADXL345 I2C Rev7"
+    default n
+    help
+      Support for Accelerometer ADXL345 I2C Rev7 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R0
+    tristate "Accelerometer ADXL345 SPI Rev0"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev0 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R1
+    tristate "Accelerometer ADXL345 SPI Rev1"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev1 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R2
+    tristate "Accelerometer ADXL345 SPI Rev2"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev2 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R3
+    tristate "Accelerometer ADXL345 SPI Rev3"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev3 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R4
+    tristate "Accelerometer ADXL345 SPI Rev4"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev4 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R5
+    tristate "Accelerometer ADXL345 SPI Rev5"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev5 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R6
+    tristate "Accelerometer ADXL345 SPI Rev6"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev6 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_SPI_R7
+    tristate "Accelerometer ADXL345 SPI Rev7"
+    default n
+    help
+      Support for Accelerometer ADXL345 SPI Rev7 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R0
+    tristate "Accelerometer ADXL345 UART Rev0"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev0 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R1
+    tristate "Accelerometer ADXL345 UART Rev1"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev1 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R2
+    tristate "Accelerometer ADXL345 UART Rev2"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev2 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R3
+    tristate "Accelerometer ADXL345 UART Rev3"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev3 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R4
+    tristate "Accelerometer ADXL345 UART Rev4"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev4 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R5
+    tristate "Accelerometer ADXL345 UART Rev5"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev5 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R6
+    tristate "Accelerometer ADXL345 UART Rev6"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev6 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_ADXL345_UART_R7
+    tristate "Accelerometer ADXL345 UART Rev7"
+    default n
+    help
+      Support for Accelerometer ADXL345 UART Rev7 (ADXL345)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R0
+    tristate "Accelerometer MPU6050 I2C Rev0"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev0 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R1
+    tristate "Accelerometer MPU6050 I2C Rev1"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev1 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R2
+    tristate "Accelerometer MPU6050 I2C Rev2"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev2 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R3
+    tristate "Accelerometer MPU6050 I2C Rev3"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev3 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R4
+    tristate "Accelerometer MPU6050 I2C Rev4"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev4 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R5
+    tristate "Accelerometer MPU6050 I2C Rev5"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev5 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R6
+    tristate "Accelerometer MPU6050 I2C Rev6"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev6 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_I2C_R7
+    tristate "Accelerometer MPU6050 I2C Rev7"
+    default n
+    help
+      Support for Accelerometer MPU6050 I2C Rev7 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R0
+    tristate "Accelerometer MPU6050 SPI Rev0"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev0 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R1
+    tristate "Accelerometer MPU6050 SPI Rev1"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev1 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R2
+    tristate "Accelerometer MPU6050 SPI Rev2"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev2 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R3
+    tristate "Accelerometer MPU6050 SPI Rev3"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev3 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R4
+    tristate "Accelerometer MPU6050 SPI Rev4"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev4 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R5
+    tristate "Accelerometer MPU6050 SPI Rev5"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev5 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R6
+    tristate "Accelerometer MPU6050 SPI Rev6"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev6 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_SPI_R7
+    tristate "Accelerometer MPU6050 SPI Rev7"
+    default n
+    help
+      Support for Accelerometer MPU6050 SPI Rev7 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R0
+    tristate "Accelerometer MPU6050 UART Rev0"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev0 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R1
+    tristate "Accelerometer MPU6050 UART Rev1"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev1 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R2
+    tristate "Accelerometer MPU6050 UART Rev2"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev2 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R3
+    tristate "Accelerometer MPU6050 UART Rev3"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev3 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R4
+    tristate "Accelerometer MPU6050 UART Rev4"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev4 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R5
+    tristate "Accelerometer MPU6050 UART Rev5"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev5 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R6
+    tristate "Accelerometer MPU6050 UART Rev6"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev6 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_MPU6050_UART_R7
+    tristate "Accelerometer MPU6050 UART Rev7"
+    default n
+    help
+      Support for Accelerometer MPU6050 UART Rev7 (MPU6050)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R0
+    tristate "Accelerometer LSM6DS I2C Rev0"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev0 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R1
+    tristate "Accelerometer LSM6DS I2C Rev1"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev1 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R2
+    tristate "Accelerometer LSM6DS I2C Rev2"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev2 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R3
+    tristate "Accelerometer LSM6DS I2C Rev3"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev3 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R4
+    tristate "Accelerometer LSM6DS I2C Rev4"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev4 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R5
+    tristate "Accelerometer LSM6DS I2C Rev5"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev5 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R6
+    tristate "Accelerometer LSM6DS I2C Rev6"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev6 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_I2C_R7
+    tristate "Accelerometer LSM6DS I2C Rev7"
+    default n
+    help
+      Support for Accelerometer LSM6DS I2C Rev7 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R0
+    tristate "Accelerometer LSM6DS SPI Rev0"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev0 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R1
+    tristate "Accelerometer LSM6DS SPI Rev1"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev1 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R2
+    tristate "Accelerometer LSM6DS SPI Rev2"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev2 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R3
+    tristate "Accelerometer LSM6DS SPI Rev3"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev3 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R4
+    tristate "Accelerometer LSM6DS SPI Rev4"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev4 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R5
+    tristate "Accelerometer LSM6DS SPI Rev5"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev5 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R6
+    tristate "Accelerometer LSM6DS SPI Rev6"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev6 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_SPI_R7
+    tristate "Accelerometer LSM6DS SPI Rev7"
+    default n
+    help
+      Support for Accelerometer LSM6DS SPI Rev7 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R0
+    tristate "Accelerometer LSM6DS UART Rev0"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev0 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R1
+    tristate "Accelerometer LSM6DS UART Rev1"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev1 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R2
+    tristate "Accelerometer LSM6DS UART Rev2"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev2 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R3
+    tristate "Accelerometer LSM6DS UART Rev3"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev3 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R4
+    tristate "Accelerometer LSM6DS UART Rev4"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev4 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R5
+    tristate "Accelerometer LSM6DS UART Rev5"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev5 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R6
+    tristate "Accelerometer LSM6DS UART Rev6"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev6 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_LSM6DS_UART_R7
+    tristate "Accelerometer LSM6DS UART Rev7"
+    default n
+    help
+      Support for Accelerometer LSM6DS UART Rev7 (LSM6DS)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R0
+    tristate "Accelerometer BMI160 I2C Rev0"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev0 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R1
+    tristate "Accelerometer BMI160 I2C Rev1"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev1 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R2
+    tristate "Accelerometer BMI160 I2C Rev2"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev2 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R3
+    tristate "Accelerometer BMI160 I2C Rev3"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev3 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R4
+    tristate "Accelerometer BMI160 I2C Rev4"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev4 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R5
+    tristate "Accelerometer BMI160 I2C Rev5"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev5 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R6
+    tristate "Accelerometer BMI160 I2C Rev6"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev6 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_I2C_R7
+    tristate "Accelerometer BMI160 I2C Rev7"
+    default n
+    help
+      Support for Accelerometer BMI160 I2C Rev7 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R0
+    tristate "Accelerometer BMI160 SPI Rev0"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev0 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R1
+    tristate "Accelerometer BMI160 SPI Rev1"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev1 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R2
+    tristate "Accelerometer BMI160 SPI Rev2"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev2 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R3
+    tristate "Accelerometer BMI160 SPI Rev3"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev3 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R4
+    tristate "Accelerometer BMI160 SPI Rev4"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev4 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R5
+    tristate "Accelerometer BMI160 SPI Rev5"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev5 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R6
+    tristate "Accelerometer BMI160 SPI Rev6"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev6 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_SPI_R7
+    tristate "Accelerometer BMI160 SPI Rev7"
+    default n
+    help
+      Support for Accelerometer BMI160 SPI Rev7 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R0
+    tristate "Accelerometer BMI160 UART Rev0"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev0 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R1
+    tristate "Accelerometer BMI160 UART Rev1"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev1 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R2
+    tristate "Accelerometer BMI160 UART Rev2"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev2 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R3
+    tristate "Accelerometer BMI160 UART Rev3"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev3 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R4
+    tristate "Accelerometer BMI160 UART Rev4"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev4 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R5
+    tristate "Accelerometer BMI160 UART Rev5"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev5 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R6
+    tristate "Accelerometer BMI160 UART Rev6"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev6 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_BMI160_UART_R7
+    tristate "Accelerometer BMI160 UART Rev7"
+    default n
+    help
+      Support for Accelerometer BMI160 UART Rev7 (BMI160)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R0
+    tristate "Accelerometer KX022 I2C Rev0"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev0 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R1
+    tristate "Accelerometer KX022 I2C Rev1"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev1 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R2
+    tristate "Accelerometer KX022 I2C Rev2"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev2 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R3
+    tristate "Accelerometer KX022 I2C Rev3"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev3 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R4
+    tristate "Accelerometer KX022 I2C Rev4"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev4 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R5
+    tristate "Accelerometer KX022 I2C Rev5"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev5 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R6
+    tristate "Accelerometer KX022 I2C Rev6"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev6 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_I2C_R7
+    tristate "Accelerometer KX022 I2C Rev7"
+    default n
+    help
+      Support for Accelerometer KX022 I2C Rev7 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R0
+    tristate "Accelerometer KX022 SPI Rev0"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev0 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R1
+    tristate "Accelerometer KX022 SPI Rev1"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev1 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R2
+    tristate "Accelerometer KX022 SPI Rev2"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev2 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R3
+    tristate "Accelerometer KX022 SPI Rev3"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev3 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R4
+    tristate "Accelerometer KX022 SPI Rev4"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev4 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R5
+    tristate "Accelerometer KX022 SPI Rev5"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev5 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R6
+    tristate "Accelerometer KX022 SPI Rev6"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev6 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_SPI_R7
+    tristate "Accelerometer KX022 SPI Rev7"
+    default n
+    help
+      Support for Accelerometer KX022 SPI Rev7 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R0
+    tristate "Accelerometer KX022 UART Rev0"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev0 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R1
+    tristate "Accelerometer KX022 UART Rev1"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev1 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R2
+    tristate "Accelerometer KX022 UART Rev2"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev2 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R3
+    tristate "Accelerometer KX022 UART Rev3"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev3 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R4
+    tristate "Accelerometer KX022 UART Rev4"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev4 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R5
+    tristate "Accelerometer KX022 UART Rev5"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev5 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R6
+    tristate "Accelerometer KX022 UART Rev6"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev6 (KX022)
+      Category: sensor_accelerometer
+
+config SENSOR_ACCELEROMETER_KX022_UART_R7
+    tristate "Accelerometer KX022 UART Rev7"
+    default n
+    help
+      Support for Accelerometer KX022 UART Rev7 (KX022)
+      Category: sensor_accelerometer
+
+endmenu
