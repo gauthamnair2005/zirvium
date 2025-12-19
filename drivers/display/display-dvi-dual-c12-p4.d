@@ -1,2 +1,0 @@
-drivers/display/display-dvi-dual-c12-p4.o: \
- drivers/display/display-dvi-dual-c12-p4.c

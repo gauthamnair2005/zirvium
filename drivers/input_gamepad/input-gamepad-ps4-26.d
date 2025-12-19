@@ -1,2 +1,0 @@
-drivers/input_gamepad/input-gamepad-ps4-26.o: \
- drivers/input_gamepad/input-gamepad-ps4-26.c

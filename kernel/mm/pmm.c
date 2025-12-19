@@ -20,22 +20,16 @@ static int bitmap_test(uint32_t bit) {
 }
 
 void pmm_init(void) {
-    kprintf("PMM: Initializing physical memory manager...\n");
-    
     // Clear bitmap - all pages initially free
     for (uint32_t i = 0; i < BITMAP_SIZE; i++) {
         bitmap[i] = 0;
     }
-    
-    kprintf("PMM: Bitmap cleared (%u bytes)\n", BITMAP_SIZE);
     
     // Reserve first 1MB (256 pages) for kernel and BIOS
     for (uint32_t i = 0; i < 256; i++) {
         bitmap_set(i);
         free_pages--;
     }
-    
-    kprintf("PMM: Reserved first 1MB, %u pages free\n", free_pages);
 }
 
 uint32_t pmm_get_free_pages(void) {

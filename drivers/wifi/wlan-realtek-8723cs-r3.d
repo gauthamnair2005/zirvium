@@ -1,2 +1,0 @@
-drivers/wifi/wlan-realtek-8723cs-r3.o: \
- drivers/wifi/wlan-realtek-8723cs-r3.c

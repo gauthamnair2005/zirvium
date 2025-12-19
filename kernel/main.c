@@ -15,21 +15,27 @@ extern void cpu_print_info(void);
 extern int zeloof_init(void);
 
 static void print_banner(void) {
+    console_set_color(COLOR_LIGHT_CYAN, COLOR_BLACK);
     kprintf("\n");
     kprintf("  _______ _______      _______ _     _ _____ _     _ _______ \n");
     kprintf(" |_____|   |   |____| |______  \\___/    |   |     | |  |  | \n");
     kprintf(" |     | __|__ |    |  ______| _/ \\_  __|__ |_____| |  |  | \n");
     kprintf("\n");
+    console_set_color(COLOR_WHITE, COLOR_BLACK);
     kprintf("        Zirvium Operating System v%s\n", KERNEL_VERSION);
+    console_set_color(COLOR_LIGHT_GREY, COLOR_BLACK);
     kprintf("        Universal Multi-Architecture Kernel\n");
     kprintf("        Supporting 35,000+ Devices\n");
+    console_reset_color();
+    kprintf("\n");
+    boot_separator();
     kprintf("\n");
 }
 
 static int init_subsystem(const char *name, void (*init_func)(void)) {
-    kprintf("[ .. ] Initializing %s...\r", name);
+    boot_msg_starting(name);
     init_func();
-    kprintf("[ OK ] %s initialized\n", name);
+    boot_msg_ok(name);
     return 0;
 }
 
@@ -41,10 +47,12 @@ void kernel_main(uint32_t magic __attribute__((unused)), uint32_t addr __attribu
     console_init();
     print_banner();
     
-    kprintf("Starting kernel initialization sequence...\n\n");
+    boot_header("Kernel Initialization");
+    boot_msg_info("Starting kernel initialization sequence...");
+    kprintf("\n");
     
     // Detect architecture
-    kprintf("Detecting system architecture...\n");
+    boot_msg_info("Detecting system architecture...");
     arch_print_info();
     
     // Detect CPU features
@@ -56,12 +64,23 @@ void kernel_main(uint32_t magic __attribute__((unused)), uint32_t addr __attribu
     zeloof_init();
     #endif
     
+    kprintf("\n");
+    boot_header("Core Subsystems");
+    
     // Core architecture setup
-    init_subsystem("GDT (Global Descriptor Table)", gdt_init);
-    init_subsystem("IDT (Interrupt Descriptor Table)", idt_init);
+    init_subsystem("Global Descriptor Table (GDT)", gdt_init);
+    init_subsystem("Interrupt Descriptor Table (IDT)", idt_init);
+    
+    kprintf("\n");
+    boot_header("Memory Management");
     
     // Memory management
-    init_subsystem("Memory Management (PMM/VMM)", mm_init);
+    init_subsystem("Physical Memory Manager (PMM)", pmm_init);
+    init_subsystem("Virtual Memory Manager (VMM)", vmm_init);
+    init_subsystem("Kernel Heap Allocator", kmalloc_init);
+    
+    kprintf("\n");
+    boot_header("File Systems & I/O");
     
     // Virtual File System
     init_subsystem("Virtual File System (VFS)", vfs_init);
@@ -69,20 +88,31 @@ void kernel_main(uint32_t magic __attribute__((unused)), uint32_t addr __attribu
     // System calls
     init_subsystem("System Call Interface", syscall_init);
     
+    kprintf("\n");
+    boot_header("Process Management");
+    
     // Process management
     init_subsystem("Process Scheduler", proc_init);
+    
+    kprintf("\n");
+    boot_header("Device Drivers");
     
     // Driver subsystem
     init_subsystem("Driver Framework", driver_subsystem_init);
     
     // Enable interrupts
     interrupts_enable();
-    kprintf("[ OK ] Hardware interrupts enabled\n");
+    boot_msg_ok("Hardware Interrupts");
     
-    kprintf("\n==============================================\n");
-    kprintf("Kernel initialization complete!\n");
-    kprintf("System ready. Entering idle loop...\n");
-    kprintf("==============================================\n\n");
+    kprintf("\n");
+    boot_separator();
+    console_set_color(COLOR_LIGHT_GREEN, COLOR_BLACK);
+    kprintf("\n    Kernel initialization complete!\n");
+    console_set_color(COLOR_WHITE, COLOR_BLACK);
+    kprintf("    System ready. Entering idle loop...\n");
+    console_reset_color();
+    boot_separator();
+    kprintf("\n");
     
     // Idle loop with power management
     while(1) {

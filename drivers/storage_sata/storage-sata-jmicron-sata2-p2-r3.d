@@ -1,2 +1,0 @@
-drivers/storage_sata/storage-sata-jmicron-sata2-p2-r3.o: \
- drivers/storage_sata/storage-sata-jmicron-sata2-p2-r3.c

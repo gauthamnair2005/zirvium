@@ -1,2 +1,0 @@
-drivers/power_charger/power-charger-tps6513-r0.o: \
- drivers/power_charger/power-charger-tps6513-r0.c

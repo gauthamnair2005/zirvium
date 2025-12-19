@@ -29,7 +29,6 @@ void vmm_init(void) {
     kernel_page_dir = (uint32_t*)pmm_alloc();
     
     if (!kernel_page_dir) {
-        kprintf("Warning: Failed to allocate page directory\n");
         return;
     }
     
@@ -44,8 +43,6 @@ void vmm_init(void) {
     
     // DON'T enable paging yet - we're fine with flat memory model
     // asm volatile("mov %0, %%cr3" :: "r"(kernel_page_dir));
-    
-    kprintf("VMM: Page tables initialized (paging not enabled)\n");
 }
 
 void vmm_map(uint32_t virt, uint32_t phys, uint32_t flags) {
