@@ -152,8 +152,6 @@ void kprintf(const char *fmt, ...) {
 // Systemd-style boot status functions
 void console_print_status(const char *msg, const char *status, uint8_t status_color) {
     // Save current position
-    int saved_x = cursor_x;
-    int saved_y = cursor_y;
     
     // Print message in normal color
     console_write(msg);
