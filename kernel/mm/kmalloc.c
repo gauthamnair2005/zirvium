@@ -39,7 +39,7 @@ void *kmalloc(size_t size) {
         if (curr->free && curr->size >= size) {
             curr->free = 0;
             allocations++;
-            return (void*)((uint64_t)curr + sizeof(block_t));
+            return (void*)((uintptr_t)curr + sizeof(block_t));
         }
         prev = curr;
         curr = curr->next;
@@ -66,13 +66,13 @@ void *kmalloc(size_t size) {
     heap_pos += sizeof(block_t) + size;
     allocations++;
     
-    return (void*)((uint64_t)block + sizeof(block_t));
+    return (void*)((uintptr_t)block + sizeof(block_t));
 }
 
 void kfree(void *ptr) {
     if (!ptr || !heap_initialized) return;
     
-    block_t *block = (block_t*)((uint64_t)ptr - sizeof(block_t));
+    block_t *block = (block_t*)((uintptr_t)ptr - sizeof(block_t));
     block->free = 1;
     deallocations++;
 }

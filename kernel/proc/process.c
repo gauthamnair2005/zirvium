@@ -25,7 +25,7 @@ process_t *proc_create(void (*entry)(void)) {
     
     proc->pid = next_pid++;
     proc->state = PROC_STATE_READY;
-    proc->rip = (uint64_t)entry;
+    proc->rip = (uintptr_t)entry;
     
     // Allocate 16KB stack
     void *stack = vmm_alloc(4);
@@ -34,7 +34,7 @@ process_t *proc_create(void (*entry)(void)) {
         kfree(proc);
         return NULL;
     }
-    proc->rsp = (uint64_t)stack + (4 * PAGE_SIZE);
+    proc->rsp = (uintptr_t)stack + (4 * PAGE_SIZE);
     
     proc->page_table = NULL;
     proc->parent = current_process;

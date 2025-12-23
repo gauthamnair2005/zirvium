@@ -41,8 +41,14 @@ void vmm_init(void) {
         vmm_map(addr, addr, PAGE_PRESENT | PAGE_WRITE);
     }
     
-    // DON'T enable paging yet - we're fine with flat memory model
-    // asm volatile("mov %0, %%cr3" :: "r"(kernel_page_dir));
+    // Enable paging
+    asm volatile("mov %0, %%cr3" :: "r"(kernel_page_dir));
+    
+    // Enable paging bit in CR0
+    uint32_t cr0;
+    asm volatile("mov %%cr0, %0" : "=r"(cr0));
+    cr0 |= 0x80000000;
+    asm volatile("mov %0, %%cr0" :: "r"(cr0));
 }
 
 void vmm_map(uint32_t virt, uint32_t phys, uint32_t flags) {

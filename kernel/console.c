@@ -64,6 +64,10 @@ static void scroll(void) {
 }
 
 void console_putchar(char c) {
+    // Also send to serial for debugging/headless
+    extern void serial_putc(char c);
+    serial_putc(c);
+
     if (c == '\n') {
         cursor_x = 0;
         cursor_y++;
@@ -91,19 +95,27 @@ void console_write(const char *str) {
     }
 }
 
-static void print_num(uint64_t num, int base) {
+static void print_num(int64_t num, int base) {
     char buffer[32];
     int i = 0;
+    uint32_t u_num; // Downgrade to 32-bit to avoid __udivmoddi4
     
     if (num == 0) {
         console_putchar('0');
         return;
     }
     
-    while (num > 0) {
-        int digit = num % base;
+    // Handle negatives for base 10 (32-bit only)
+    if (base == 10 && num < 0) {
+        u_num = (uint32_t)-num;
+    } else {
+        u_num = (uint32_t)num;
+    }
+    
+    while (u_num > 0) {
+        int digit = u_num % base;
         buffer[i++] = (digit < 10) ? ('0' + digit) : ('a' + digit - 10);
-        num /= base;
+        u_num /= base;
     }
     
     while (i > 0) {
@@ -112,7 +124,7 @@ static void print_num(uint64_t num, int base) {
 }
 
 void kprintf(const char *fmt, ...) {
-    uint64_t *args = (uint64_t*)&fmt + 1;
+    uint32_t *args = (uint32_t*)&fmt + 1;
     int arg_index = 0;
     
     while (*fmt) {
@@ -125,12 +137,13 @@ void kprintf(const char *fmt, ...) {
                     break;
                 }
                 case 'd': {
-                    int64_t n = (int64_t)args[arg_index++];
+                    int32_t n = (int32_t)args[arg_index++];
                     if (n < 0) {
                         console_putchar('-');
-                        n = -n;
+                        print_num(-n, 10);
+                    } else {
+                        print_num(n, 10);
                     }
-                    print_num(n, 10);
                     break;
                 }
                 case 'x': {

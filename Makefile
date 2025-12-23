@@ -60,7 +60,7 @@ ASFLAGS = $(ASFLAGS_ARCH)
 # Source files - modular structure
 CORE_SRC = kernel/main.c kernel/console.c
 ARCH_SRC = $(shell find kernel/arch/$(ARCH_DIR) -name "*.c" 2>/dev/null)
-ARCH_ASM = $(shell find kernel/arch/$(ARCH_DIR) -name "*.asm" 2>/dev/null)
+ARCH_ASM = $(shell find kernel/arch/$(ARCH_DIR) -name "*.S" 2>/dev/null)
 
 MM_SRC = $(wildcard kernel/mm/*.c)
 PROC_SRC = $(wildcard kernel/proc/*.c)
@@ -108,7 +108,7 @@ DRIVER_BUILTIN =
 -include scripts/driver_modules.mk
 
 # All object files (including built-in drivers)
-ALL_OBJ = $(ALL_SRC:.c=.o) $(ARCH_ASM:.asm=.o) $(DRIVER_BUILTIN) kernel/printk.o
+ALL_OBJ = $(ALL_SRC:.c=.o) $(ARCH_ASM:.S=.o) $(DRIVER_BUILTIN) kernel/printk.o
 
 # Targets
 .PHONY: all vmzirvium modules menuconfig prepare clean mrproper install help
@@ -211,7 +211,7 @@ install: vmzirvium
 # Run in QEMU
 run: iso
 	@echo "  QEMU    zirvium.iso"
-	@qemu-system-x86_64 -cdrom zirvium.iso -m 512M -serial stdio
+	@qemu-system-x86_64 -cdrom zirvium.iso -m 512M -serial stdio -display none
 
 run-debug: iso
 	@echo "  QEMU    zirvium.iso (debug mode)"
@@ -223,10 +223,10 @@ run-debug: iso
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-%.o: %.asm
+%.o: %.S
 	@echo "  AS      $<"
 	@mkdir -p $(dir $@)
-	@$(AS) $(ASFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Include dependency files
 -include $(ALL_OBJ:.o=.d)

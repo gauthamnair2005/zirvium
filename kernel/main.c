@@ -13,6 +13,8 @@ extern void arch_print_info(void);
 extern void cpu_feature_init(void);
 extern void cpu_print_info(void);
 extern int zeloof_init(void);
+extern void zirvfs_init(void);
+extern void mosix_init(void);
 
 static void print_banner(void) {
     console_set_color(COLOR_LIGHT_CYAN, COLOR_BLACK);
@@ -40,9 +42,14 @@ static int init_subsystem(const char *name, void (*init_func)(void)) {
 }
 
 void kernel_main(uint32_t magic __attribute__((unused)), uint32_t addr __attribute__((unused))) {
-    // Direct VGA write to prove we got here - write "K" in green
+extern void serial_8250_init(void);
+
+    // Initial direct VGA write
     volatile uint16_t *vga = (uint16_t*)0xB8000;
     vga[1] = 0x2A4B;  // 'K' in green on black
+    
+    // Initialize serial first for logging
+    serial_8250_init();
     
     console_init();
     print_banner();
@@ -84,6 +91,14 @@ void kernel_main(uint32_t magic __attribute__((unused)), uint32_t addr __attribu
     
     // Virtual File System
     init_subsystem("Virtual File System (VFS)", vfs_init);
+    init_subsystem("ZirvFS Core", zirvfs_init);
+    init_subsystem("MOSIX Subsystem", mosix_init);
+    
+    // Simulate User formatting a drive via /zirv/mkfs
+    // In a real scenario, this happens from userspace
+    kprintf("\n[AUTO-TEST] Triggering ZirvFS Format via /zirv/mkfs...\n");
+    extern void zirv_control_write(const char *node, const char *data);
+    zirv_control_write("/zirv/mkfs", "/zirv/nvme/disk0");
     
     // System calls
     init_subsystem("System Call Interface", syscall_init);

@@ -67,17 +67,17 @@ int64_t syscall_handler(uint64_t syscall_num, uint64_t arg1, uint64_t arg2,
     
     switch (syscall_num) {
         case SYS_READ:
-            return sys_read((int)arg1, (void*)arg2, (size_t)arg3);
+            return sys_read((int)arg1, (void*)(uintptr_t)arg2, (size_t)arg3);
         case SYS_WRITE:
-            return sys_write((int)arg1, (const void*)arg2, (size_t)arg3);
+            return sys_write((int)arg1, (const void*)(uintptr_t)arg2, (size_t)arg3);
         case SYS_OPEN:
-            return sys_open((const char*)arg1, (int)arg2);
+            return sys_open((const char*)(uintptr_t)arg1, (int)arg2);
         case SYS_CLOSE:
             return sys_close((int)arg1);
         case SYS_FORK:
             return sys_fork();
         case SYS_EXEC:
-            return sys_exec((const char*)arg1, (char *const *)arg2);
+            return sys_exec((const char*)(uintptr_t)arg1, (char *const *)(uintptr_t)arg2);
         case SYS_EXIT:
             return sys_exit((int)arg1);
         case SYS_GETPID:
