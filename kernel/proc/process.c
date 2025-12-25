@@ -25,6 +25,7 @@ process_t *proc_create(void (*entry)(void)) {
     
     proc->pid = next_pid++;
     proc->state = PROC_STATE_READY;
+    proc->permissions = 0;
     proc->rip = (uintptr_t)entry;
     
     // Allocate 16KB stack

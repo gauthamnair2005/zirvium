@@ -8,9 +8,12 @@
 #define PROC_STATE_BLOCKED  2
 #define PROC_STATE_ZOMBIE   3
 
+#define PROC_PERM_ROOT      0x1
+
 typedef struct process {
     pid_t pid;
     uint64_t state;
+    uint32_t permissions;
     uint64_t *page_table;
     
     uint64_t rsp;

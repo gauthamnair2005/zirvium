@@ -53,6 +53,23 @@ static int64_t sys_kill(pid_t pid, int sig) {
     return -1;
 }
 
+static int64_t sys_admin(int command) {
+    process_t *proc = proc_current();
+    if (!proc) return -1;
+    
+    if (command == 1) {
+        // Enable admin/root permissions
+        proc->permissions |= PROC_PERM_ROOT;
+        kprintf("Process %d granted admin permissions\n", proc->pid);
+        return 0;
+    } else if (command == 0) {
+        // Disable admin/root permissions
+        proc->permissions &= ~PROC_PERM_ROOT;
+        return 0;
+    }
+    return -1;
+}
+
 static uint64_t syscall_count = 0;
 
 void syscall_init(void) {
@@ -84,6 +101,8 @@ int64_t syscall_handler(uint64_t syscall_num, uint64_t arg1, uint64_t arg2,
             return sys_getpid();
         case SYS_KILL:
             return sys_kill((pid_t)arg1, (int)arg2);
+        case SYS_ADMIN:
+            return sys_admin((int)arg1);
         default:
             return -1;
     }

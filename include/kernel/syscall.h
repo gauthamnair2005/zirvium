@@ -12,6 +12,7 @@
 #define SYS_EXIT    6
 #define SYS_GETPID  7
 #define SYS_KILL    8
+#define SYS_ADMIN   9
 
 void syscall_init(void);
 int64_t syscall_handler(uint64_t syscall_num, uint64_t arg1, uint64_t arg2, 
