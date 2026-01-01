@@ -10,9 +10,6 @@
 typedef enum {
     ARCH_UNKNOWN = 0,
     /* x86 Family */
-    ARCH_8008,
-    ARCH_8086,
-    ARCH_I286,
     ARCH_I386,
     ARCH_I486,
     ARCH_I586,          /* Pentium */
@@ -55,17 +52,12 @@ typedef enum {
     ARCH_SPARC32,
     ARCH_SPARC64,
     ARCH_ARS,           /* Custom arch */
-    ARCH_ZELOOF_Z1,     /* Sam Zeloof Z1 - First homemade IC */
-    ARCH_ZELOOF_Z2,     /* Sam Zeloof Z2 - First homemade CPU */
     
     ARCH_MAX
 } arch_type_t;
 
 static const char *arch_names[] = {
     [ARCH_UNKNOWN] = "Unknown",
-    [ARCH_8008] = "Intel 8008",
-    [ARCH_8086] = "Intel 8086",
-    [ARCH_I286] = "Intel 80286",
     [ARCH_I386] = "Intel 80386",
     [ARCH_I486] = "Intel 80486",
     [ARCH_I586] = "Intel Pentium",
@@ -100,8 +92,6 @@ static const char *arch_names[] = {
     [ARCH_SPARC32] = "SPARC 32-bit",
     [ARCH_SPARC64] = "SPARC 64-bit",
     [ARCH_ARS] = "ARS Architecture",
-    [ARCH_ZELOOF_Z1] = "Sam Zeloof Z1 (Homemade IC, 2018)",
-    [ARCH_ZELOOF_Z2] = "Sam Zeloof Z2 (Homemade CPU, 2021)",
 };
 
 static arch_type_t current_arch = ARCH_UNKNOWN;

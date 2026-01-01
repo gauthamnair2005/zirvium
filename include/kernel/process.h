@@ -18,6 +18,7 @@ typedef struct process {
     
     uint64_t rsp;
     uint64_t rip;
+    uint64_t stack_base;
     
     struct process *next;
     struct process *parent;

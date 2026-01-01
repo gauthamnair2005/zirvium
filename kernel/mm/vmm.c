@@ -54,10 +54,18 @@ void vmm_init(void) {
 void vmm_map(uint32_t virt, uint32_t phys, uint32_t flags) {
     if (!kernel_page_dir) return;
     
-    uint32_t *pt = get_or_create_table(kernel_page_dir, PD_INDEX(virt));
+    uint32_t pd_idx = PD_INDEX(virt);
+    uint32_t pt_idx = PT_INDEX(virt);
+    
+    if (pd_idx >= 1024 || pt_idx >= 1024) return;
+    
+    uint32_t *pt = get_or_create_table(kernel_page_dir, pd_idx);
     if (!pt) return;
     
-    pt[PT_INDEX(virt)] = phys | flags;
+    pt[pt_idx] = phys | flags;
+    
+    /* Flush TLB for this address */
+    asm volatile("invlpg (%0)" :: "r"(virt) : "memory");
 }
 
 void *vmm_alloc(size_t pages) {
@@ -76,7 +84,27 @@ void *vmm_alloc(size_t pages) {
 }
 
 void vmm_free(void *addr, size_t pages) {
-    (void)addr;
-    (void)pages;
-    /* TODO: Implement page unmapping */
+    if (!addr || !kernel_page_dir) return;
+    
+    uint32_t virt = (uint32_t)(uintptr_t)addr;
+    
+    for (size_t i = 0; i < pages; i++) {
+        uint32_t pd_idx = PD_INDEX(virt);
+        uint32_t pt_idx = PT_INDEX(virt);
+        
+        if (pd_idx >= 1024 || !(kernel_page_dir[pd_idx] & PAGE_PRESENT)) {
+            virt += PAGE_SIZE;
+            continue;
+        }
+        
+        uint32_t *pt = (uint32_t*)(kernel_page_dir[pd_idx] & ~0xFFF);
+        if (pt[pt_idx] & PAGE_PRESENT) {
+            uint32_t phys = pt[pt_idx] & ~0xFFF;
+            pmm_free((void*)(uintptr_t)phys);
+            pt[pt_idx] = 0;
+            asm volatile("invlpg (%0)" :: "r"(virt) : "memory");
+        }
+        
+        virt += PAGE_SIZE;
+    }
 }

@@ -9,11 +9,12 @@ default y
 help
   Intel/AMD x86 (32-bit) and x86-64 (64-bit) processors
 
-config ARCH_X86_LEGACY
-bool "Legacy x86 Support (8008, 8086, 286, 386, 486)"
+config ARCH_X86_MODERN
+bool "Modern x86 Support (i386, i486, i586, i686)"
 depends on ARCH_X86
+default y
 help
-  Support for ancient x86 processors
+  Support for modern x86 processors (i386 and newer)
 
 config ARCH_X86_PENTIUM
 bool "Pentium Family (586, 686, MMX)"
@@ -73,7 +74,7 @@ bool "PowerPC 64-bit"
 depends on ARCH_PPC
 
 config ARCH_EXOTIC
-bool "Exotic Architectures (Xtensa, Itanium, SPARC, ARS, Zeloof)"
+bool "Exotic Architectures (Xtensa, Itanium, SPARC, ARS)"
 help
   Support for less common architectures
 
@@ -680,38 +681,6 @@ bool "Nokia X-Series (Premium)"
 depends on NOKIA_DEVICES
 help
   Nokia X10, X20, X30 5G
-
-endmenu
-
-menu "DIY / Homebrew CPUs"
-
-config ARCH_ZELOOF
-bool "Sam Zeloof Homemade CPU Support"
-help
-  Support for Sam Zeloof's revolutionary homemade CPUs.
-  First person to fabricate working silicon in a home garage!
-
-config ZELOOF_Z1
-bool "Zeloof Z1 (2018 - First IC)"
-depends on ARCH_ZELOOF
-help
-  Support for Z1 - First homemade integrated circuit with 6 transistors.
-  10 micron process, fabricated with DIY lithography equipment.
-
-config ZELOOF_Z2
-bool "Zeloof Z2 (2021 - First CPU)"
-depends on ARCH_ZELOOF
-default y
-help
-  Support for Z2 - First homemade CPU with 1200 transistors!
-  4-bit processor running at ~50 Hz, 10 micron CMOS process.
-  Revolutionary achievement in DIY semiconductor fabrication.
-
-config ZELOOF_Z3
-bool "Zeloof Z3 (Future - Improved CPU)"
-depends on ARCH_ZELOOF
-help
-  Planned support for Z3 - 8-bit processor with 5000 transistors.
 
 endmenu
 

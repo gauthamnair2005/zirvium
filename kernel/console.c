@@ -90,6 +90,7 @@ void console_putchar(char c) {
 }
 
 void console_write(const char *str) {
+    if (!str) return;
     while (*str) {
         console_putchar(*str++);
     }
@@ -124,6 +125,8 @@ static void print_num(int64_t num, int base) {
 }
 
 void kprintf(const char *fmt, ...) {
+    if (!fmt) return;
+    
     uint32_t *args = (uint32_t*)&fmt + 1;
     int arg_index = 0;
     
@@ -133,7 +136,11 @@ void kprintf(const char *fmt, ...) {
             switch (*fmt) {
                 case 's': {
                     const char *s = (const char*)args[arg_index++];
-                    console_write(s);
+                    if (s) {
+                        console_write(s);
+                    } else {
+                        console_write("(null)");
+                    }
                     break;
                 }
                 case 'd': {
@@ -146,13 +153,42 @@ void kprintf(const char *fmt, ...) {
                     }
                     break;
                 }
+                case 'u': {
+                    uint32_t n = args[arg_index++];
+                    print_num(n, 10);
+                    break;
+                }
+                case 'l': {
+                    /* Handle %lu for unsigned long */
+                    if (*(fmt + 1) == 'u') {
+                        fmt++;
+                        uint32_t n = args[arg_index++];
+                        print_num(n, 10);
+                    }
+                    break;
+                }
+                case 'p': {
+                    /* Pointer - print as hex with 0x prefix */
+                    console_write("0x");
+                    uint32_t n = args[arg_index++];
+                    print_num(n, 16);
+                    break;
+                }
                 case 'x': {
-                    uint64_t n = args[arg_index++];
+                    uint32_t n = args[arg_index++];
                     print_num(n, 16);
                     break;
                 }
                 case '%':
                     console_putchar('%');
+                    break;
+                case 'c': {
+                    char c = (char)args[arg_index++];
+                    console_putchar(c);
+                    break;
+                }
+                default:
+                    console_putchar(*fmt);
                     break;
             }
         } else {

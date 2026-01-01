@@ -1,23 +1,16 @@
 #include <kernel/vfs.h>
 #include <kernel/memory.h>
 #include <kernel/kernel.h>
+#include <kernel/string.h>
 
 static vfs_node_t *root_fs = NULL;
 
 static int str_cmp(const char *s1, const char *s2) {
-    while (*s1 && *s2 && *s1 == *s2) {
-        s1++;
-        s2++;
-    }
-    return *s1 - *s2;
+    return strcmp(s1, s2);
 }
 
 static void str_copy(char *dst, const char *src, size_t n) {
-    size_t i;
-    for (i = 0; i < n - 1 && src[i]; i++) {
-        dst[i] = src[i];
-    }
-    dst[i] = '\0';
+    strlcpy(dst, src, n);
 }
 
 #include <kernel/mosix.h>
@@ -53,6 +46,8 @@ void vfs_init(void) {
 }
 
 vfs_node_t *vfs_open(const char *path, uint64_t flags) {
+    if (!path) return NULL;
+    
     (void)flags;
     vfs_node_t *node = root_fs;
     
@@ -76,14 +71,18 @@ void vfs_close(vfs_node_t *node) {
 }
 
 ssize_t vfs_read(vfs_node_t *node, uint64_t offset, uint64_t size, uint8_t *buffer) {
-    if (node && node->read) {
+    if (!node || !buffer || size == 0) return -1;
+    
+    if (node->read) {
         return node->read(node, offset, size, buffer);
     }
     return -1;
 }
 
 ssize_t vfs_write(vfs_node_t *node, uint64_t offset, uint64_t size, uint8_t *buffer) {
-    if (node && node->write) {
+    if (!node || !buffer || size == 0) return -1;
+    
+    if (node->write) {
         return node->write(node, offset, size, buffer);
     }
     return -1;

@@ -52,9 +52,13 @@ void *pmm_alloc(void) {
 }
 
 void pmm_free(void *addr) {
+    if (!addr) return;
+    
     uint32_t page = (uint32_t)(uintptr_t)addr / PAGE_SIZE;
     if (page < TOTAL_PAGES && bitmap_test(page)) {
         bitmap_clear(page);
-        free_pages++;
+        if (free_pages < TOTAL_PAGES) {
+            free_pages++;
+        }
     }
 }

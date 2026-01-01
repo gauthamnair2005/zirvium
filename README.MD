@@ -1,6 +1,6 @@
 # Zirvium OS - Universal Multi-Architecture Kernel
 
-A comprehensive, high-performance UNIX-like operating system kernel with **15,103+ driver source files** and **12,787 drivers** in database, supporting virtually every processor architecture ever made - from Intel 8008 (1972) to Apple M4 (2024) and Sam Zeloof's homemade silicon. Built with modern kernel design principles and professional build system.
+A comprehensive, high-performance UNIX-like operating system kernel with **15,103+ driver source files** and **12,787 drivers** in database, supporting virtually every modern processor architecture - from Intel i686 to Apple M4 (2024). Built with modern kernel design principles and professional build system.
 
 ## 🌟 Highlights
 
@@ -19,7 +19,7 @@ A comprehensive, high-performance UNIX-like operating system kernel with **15,10
   - Plus NPU/TPU, Wacom tablets, webcams, and exotic hardware!
 
 - **Universal Architecture Support (50+ CPU Families)**:
-  - **x86 Legacy**: 8008, 8086, i286, i386, i486, i586 (Pentium), i686 (Pentium Pro)
+  - **x86**: i386, i486, i586 (Pentium), i686 (Pentium Pro)
   - **x86 Modern**: Coppermine, Prescott, Dothan, Yonah, Core Solo/Duo/Quad, Nehalem, x86-64
   - **ARM**: ARM32 (ARMv7), ARM64 (ARMv8/AArch64), Cortex-A/M/R series
   - **Apple Silicon**: M1/M2/M3 (Pro/Max/Ultra variants)
@@ -27,7 +27,6 @@ A comprehensive, high-performance UNIX-like operating system kernel with **15,10
   - **Mobile SoCs**: Spreadtrum/UNISOC (SC9863A/T310/T606/T618), Nokia C3 CPU, MediaTek Dimensity
   - **RISC-V**: RV32, RV64 (all standard extensions)
   - **PowerPC**: PPC32 (G3/G4), PPC64 (G5/POWER series)
-  - **Homemade Silicon**: Sam Zeloof Z1/Z2 processors
   - **Exotic**: Xtensa (ESP32), Itanium (IA-64), SPARC (32/64), ARS
 
 - **Advanced Kernel Features**:

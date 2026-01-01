@@ -26,7 +26,7 @@ void kmalloc_init(void) {
 }
 
 void *kmalloc(size_t size) {
-    if (!heap_initialized || size == 0) return NULL;
+    if (!heap_initialized || size == 0 || size > HEAP_SIZE) return NULL;
     
     // Align to 16-byte boundary for performance
     size = (size + 15) & ~15;
@@ -72,9 +72,32 @@ void *kmalloc(size_t size) {
 void kfree(void *ptr) {
     if (!ptr || !heap_initialized) return;
     
-    block_t *block = (block_t*)((uintptr_t)ptr - sizeof(block_t));
+    /* Validate pointer is within heap bounds */
+    uintptr_t ptr_addr = (uintptr_t)ptr;
+    uintptr_t heap_start = (uintptr_t)heap;
+    uintptr_t heap_end = heap_start + HEAP_SIZE;
+    
+    if (ptr_addr < heap_start + sizeof(block_t) || ptr_addr >= heap_end) {
+        kprintf("kfree: Invalid pointer %p\n", ptr);
+        return;
+    }
+    
+    block_t *block = (block_t*)(ptr_addr - sizeof(block_t));
+    
+    /* Validate block header */
+    if (block->free) {
+        kprintf("kfree: Double free detected at %p\n", ptr);
+        return;
+    }
+    
     block->free = 1;
     deallocations++;
+    
+    /* Try to coalesce with next block */
+    if (block->next && block->next->free) {
+        block->size += sizeof(block_t) + block->next->size;
+        block->next = block->next->next;
+    }
 }
 
 size_t kmalloc_get_used(void) {

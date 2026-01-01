@@ -14,6 +14,15 @@
 #define SYS_KILL    8
 #define SYS_ADMIN   9
 
+/* DisplayJet syscalls */
+#define SYS_DISPLAYJET_CREATE_SESSION   10
+#define SYS_DISPLAYJET_ALLOC_BUFFER     11
+#define SYS_DISPLAYJET_FREE_BUFFER      12
+#define SYS_DISPLAYJET_UPDATE_BUFFER    13
+#define SYS_DISPLAYJET_REQUEST_ACCESS   14
+#define SYS_DISPLAYJET_VERIFY_KEY       15
+#define SYS_DISPLAYJET_DECRYPT_ONCE     16
+
 void syscall_init(void);
 int64_t syscall_handler(uint64_t syscall_num, uint64_t arg1, uint64_t arg2, 
                         uint64_t arg3, uint64_t arg4, uint64_t arg5);

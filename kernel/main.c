@@ -4,6 +4,9 @@
 #include <kernel/syscall.h>
 #include <kernel/vfs.h>
 #include <kernel/driver.h>
+#include <kernel/admin.h>
+#include <kernel/integrity.h>
+#include <kernel/displayjet.h>
 #include <arch/x64.h>
 #include <kernel/types.h>
 
@@ -12,9 +15,9 @@ extern void driver_subsystem_init(void);
 extern void arch_print_info(void);
 extern void cpu_feature_init(void);
 extern void cpu_print_info(void);
-extern int zeloof_init(void);
 extern void zirvfs_init(void);
 extern void mosix_init(void);
+extern void displayjet_demo(void);
 
 static void print_banner(void) {
     console_set_color(COLOR_LIGHT_CYAN, COLOR_BLACK);
@@ -66,11 +69,6 @@ extern void serial_8250_init(void);
     cpu_feature_init();
     cpu_print_info();
     
-    // Check for DIY/Homebrew CPUs
-    #ifdef CONFIG_ZELOOF_Z2
-    zeloof_init();
-    #endif
-    
     kprintf("\n");
     boot_header("Core Subsystems");
     
@@ -104,6 +102,19 @@ extern void serial_8250_init(void);
     init_subsystem("System Call Interface", syscall_init);
     
     kprintf("\n");
+    boot_header("Security & Admin");
+    
+    // Admin subsystem
+    init_subsystem("Admin/Superuser System", admin_init);
+    init_subsystem("Integrity Checking", integrity_init);
+    
+    kprintf("\n");
+    boot_header("Display & Graphics");
+    
+    // DisplayJet subsystem
+    init_subsystem("DisplayJet (Zero-Trust Display)", displayjet_init);
+    
+    kprintf("\n");
     boot_header("Process Management");
     
     // Process management
@@ -128,6 +139,27 @@ extern void serial_8250_init(void);
     console_reset_color();
     boot_separator();
     kprintf("\n");
+    
+    /* Run integrity check */
+    kprintf("Running post-boot integrity check...\n");
+    int integrity_status = integrity_check(INTEGRITY_CHECK_ALL);
+    if (integrity_status == INTEGRITY_OK) {
+        boot_msg_ok("Integrity Check");
+    } else if (integrity_status == INTEGRITY_WARNING) {
+        boot_msg_warn("Integrity check found warnings");
+    } else {
+        boot_msg_fail("Integrity Check", "Critical issues detected");
+    }
+    
+    kprintf("\n");
+    integrity_report();
+    
+    kprintf("\n");
+    displayjet_print_status();
+    
+    kprintf("\n");
+    boot_header("DisplayJet Demo");
+    displayjet_demo();
     
     // Idle loop with power management
     while(1) {

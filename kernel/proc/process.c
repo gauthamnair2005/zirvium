@@ -17,6 +17,11 @@ void proc_init(void) {
 }
 
 process_t *proc_create(void (*entry)(void)) {
+    if (!entry) {
+        kprintf("proc_create: Invalid entry point\n");
+        return NULL;
+    }
+    
     process_t *proc = (process_t*)kmalloc(sizeof(process_t));
     if (!proc) {
         kprintf("proc_create: Failed to allocate process structure\n");
@@ -36,6 +41,7 @@ process_t *proc_create(void (*entry)(void)) {
         return NULL;
     }
     proc->rsp = (uintptr_t)stack + (4 * PAGE_SIZE);
+    proc->stack_base = (uintptr_t)stack;
     
     proc->page_table = NULL;
     proc->parent = current_process;
@@ -51,6 +57,13 @@ void proc_exit(int status) {
     if (!current_process) return;
     
     current_process->state = PROC_STATE_ZOMBIE;
+    
+    /* Free process stack */
+    if (current_process->stack_base) {
+        vmm_free((void*)(uintptr_t)current_process->stack_base, 4);
+        current_process->stack_base = 0;
+    }
+    
     if (process_count > 0) {
         process_count--;
     }
