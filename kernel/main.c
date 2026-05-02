@@ -24,6 +24,7 @@
 #include "drivers/zirv/wifi/rtl8723de/rtl8723de.h"
 #include "drivers/zirv/bluetooth/btrtl.h"
 #include "drivers/zirv/display/i915/i915.h"
+#include "drivers/zirv/audio/hda/hda.h"
 
 #include <stdint.h>
 #include <stddef.h>
@@ -187,10 +188,14 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     btrtl_init(0);   /* 0 = auto-detect UART port */
 
     /* ── Step 15: Intel i915 display ─────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] Intel i915 display (UHD 610/620)\n");
+    serial_puts(SERIAL_COM1, "[init] Intel i915 display (UHD 610 → Arc)\n");
     i915_init();
 
-    /* ── Step 16: Enable interrupts ───────────────────────────────────── */
+    /* ── Step 16: Intel HDA audio ────────────────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] Intel HDA audio\n");
+    hda_init();
+
+    /* ── Step 17: Enable interrupts ───────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] Enabling interrupts\n");
     __asm__ volatile("sti");
 
@@ -206,6 +211,7 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
         "   /zirv/sata/*  /zirv/nvme/*\n"
         "   /zirv/net/wlan0  /zirv/net/bt0\n"
         "   /zirv/display/gpu0\n"
+        "   /zirv/audio/output0\n"
         "   /zirv/input/keyboard0\n"
         "   /zirv/input/touchpad0\n"
         "============================================\n"

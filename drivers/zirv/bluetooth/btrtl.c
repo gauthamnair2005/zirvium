@@ -173,15 +173,13 @@ void btrtl_init(uint16_t uart_port)
     /* Register with /zirv/net/bt0 */
     device_desc_t *desc = (device_desc_t *)kzalloc(sizeof(device_desc_t), 0);
     if (desc) {
-        /* Reuse NET_WLAN bus class as a placeholder until a BT class is added */
-        desc->bus_class   = DEV_CLASS_NET_WLAN;
-        desc->media_class = DEV_CLASS_NET_WLAN;
+        desc->bus_class   = DEV_CLASS_NET_BT;
+        desc->media_class = DEV_CLASS_NET_BT;
         desc->present     = true;
         desc->driver_data = &g_bt;
         const char *model = "Realtek RTL8723DE Bluetooth 4.0";
         for (int i = 0; model[i] && i < 63; i++) desc->model[i] = model[i];
-        /* Register as /zirv/net/bt0 by using index 1 (wlan0 is index 0) */
-        vfs_register_device(DEV_CLASS_NET_WLAN, DEV_CLASS_NET_WLAN, 1, desc);
+        vfs_register_device(DEV_CLASS_NET_BT, DEV_CLASS_NET_BT, 0, desc);
     }
 
     serial_puts(SERIAL_COM1, "[btrtl] Bluetooth ready → /zirv/net/bt0\n");

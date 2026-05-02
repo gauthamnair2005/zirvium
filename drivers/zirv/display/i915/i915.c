@@ -29,6 +29,7 @@ static bool g_i915_found = false;
 
 /* ── Supported PCI devices ────────────────────────────────────────────────── */
 static const uint16_t i915_device_ids[] = {
+    /* Gen9.5 — Kaby Lake / Coffee Lake */
     INTEL_KBL_GT1_ULT,   /* UHD 610 (Kaby Lake) */
     INTEL_KBL_GT1_ULX,   /* UHD 610 (Kaby Lake X) */
     INTEL_KBLR_GT2,      /* UHD 620 (Kaby Lake-R) */
@@ -36,6 +37,45 @@ static const uint16_t i915_device_ids[] = {
     INTEL_CFL_GT2_ULT,   /* UHD 620 (Coffee Lake) */
     0x3E92,              /* UHD 630 (Coffee Lake DT) */
     0x3E9B,              /* UHD 630 (Coffee Lake Mobile) */
+    /* Gen11 — Ice Lake */
+    INTEL_ICL_GT2_ULT,   /* Iris Plus G7 80EU */
+    INTEL_ICL_GT2_ULT_1, /* Iris Plus G4 */
+    INTEL_ICL_GT2_ULT_2, /* Iris Plus G4 */
+    INTEL_ICL_GT2_ULT_3, /* Iris Plus G4 */
+    INTEL_ICL_GT2_ULT_4, /* Iris Plus G7 */
+    INTEL_ICL_GT1_ULT,   /* UHD Graphics */
+    INTEL_ICL_GT05_ULT,  /* UHD Graphics 32EU */
+    INTEL_ICL_GT05_ULT_1,/* Iris Plus G1 */
+    INTEL_ICL_GT05_ULT_2,/* UHD Graphics */
+    /* Gen12 — Tiger Lake */
+    INTEL_TGL_GT2_U,     /* Iris Xe G7 96EU */
+    INTEL_TGL_GT2_U_1,   /* Iris Xe G7 80EU */
+    INTEL_TGL_GT2_U_2,   /* Iris Xe */
+    INTEL_TGL_GT1_U,     /* UHD Graphics */
+    INTEL_TGL_GT1_U_1,   /* UHD Graphics */
+    INTEL_TGL_GT1_U_2,   /* UHD Graphics */
+    INTEL_TGL_GT1_U_3,   /* UHD Graphics */
+    /* Gen12.2 — Alder Lake */
+    INTEL_ADL_S_GT1,     /* UHD 730 */
+    INTEL_ADL_S_GT1_1,   /* UHD 730 */
+    INTEL_ADL_S_GT2,     /* UHD 770 */
+    INTEL_ADL_P_GT2,     /* Iris Xe */
+    INTEL_ADL_P_GT2_1,   /* Iris Xe */
+    INTEL_ADL_P_GT2_2,   /* Iris Xe */
+    INTEL_ADL_P_GT1,     /* UHD Graphics */
+    INTEL_ADL_N_GT1,     /* UHD Graphics */
+    INTEL_ADL_N_GT1_1,   /* UHD Graphics */
+    INTEL_ADL_N_GT1_2,   /* UHD Graphics */
+    /* Gen12.2 — Raptor Lake */
+    INTEL_RPL_S_GT1,     /* UHD 730 */
+    INTEL_RPL_S_GT2,     /* UHD 770 */
+    INTEL_RPL_P_GT2,     /* Iris Xe */
+    INTEL_RPL_P_GT2_1,   /* Iris Xe */
+    INTEL_RPL_P_GT1,     /* UHD Graphics */
+    /* Gen14 — Meteor Lake */
+    INTEL_MTL_M_GT2,     /* Arc Graphics */
+    INTEL_MTL_P_GT2,     /* Graphics */
+    INTEL_MTL_P_GT2_1,   /* Arc Graphics */
 };
 
 /* ── MMIO helpers ─────────────────────────────────────────────────────────── */
