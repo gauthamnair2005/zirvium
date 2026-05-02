@@ -1,0 +1,8 @@
+# Build artefacts
+build/
+
+# Editor / OS cruft
+*.o
+*.d
+*.swp
+.DS_Store
