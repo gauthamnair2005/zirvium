@@ -35,6 +35,7 @@ typedef struct {
 #define KEY_C       0x06
 #define KEY_Z       0x1D
 #define KEY_1       0x1E
+#define KEY_2       0x1F
 #define KEY_0       0x27
 #define KEY_ENTER   0x28
 #define KEY_ESC     0x29

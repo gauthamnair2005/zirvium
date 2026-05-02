@@ -15,6 +15,14 @@
 #include <stdbool.h>
 #include <string.h>
 
+/* ── Local keycodes used only in the scan-code table below ──────────────── */
+#define KEY_LCTRL   0x01
+#define KEY_LSHIFT  0x02
+#define KEY_RSHIFT  0x03
+#define KEY_LALT    0x39
+#define KEY_CAPS    0x3A
+#define KEY_NUMLOCK 0x53
+
 /* ── Scan-code set 1 → MOSIX keycode table ───────────────────────────────── */
 /* Index = scan-code byte (make code); value = MOSIX keycode */
 static const uint8_t sc1_to_keycode[128] = {
@@ -51,13 +59,6 @@ static const uint8_t sc1_to_keycode[128] = {
     /* 0x78 */ KEY_NONE,  KEY_NONE, KEY_NONE, KEY_NONE,
     /* 0x7C */ KEY_NONE,  KEY_NONE, KEY_NONE, KEY_NONE,
 };
-
-#define KEY_LCTRL   0x01   /* local definitions for table */
-#define KEY_LSHIFT  0x02
-#define KEY_RSHIFT  0x03
-#define KEY_LALT    0x39
-#define KEY_CAPS    0x39+1
-#define KEY_NUMLOCK 0x53
 
 /* ── Ring buffer ──────────────────────────────────────────────────────────── */
 static key_event_t ring[KBD_RING_SIZE];
