@@ -103,3 +103,16 @@ void zirv_foreach_device(bool (*cb)(registered_device_t *dev, void *ctx),
         if (!cb(&device_pool[i], ctx)) return;
     }
 }
+
+registered_device_t *zirv_find_device_by_path(const char *path)
+{
+    vnode_t *node = vfs_lookup(path);
+    if (!node || node->type != VNODE_DEVICE || !node->device)
+        return NULL;
+
+    for (uint32_t i = 0; i < device_count_total; i++) {
+        if (&device_pool[i].desc == node->device)
+            return &device_pool[i];
+    }
+    return NULL;
+}
