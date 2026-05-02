@@ -177,23 +177,8 @@ void serial_puts(unsigned short port, const char *s);
 /* ── PCI types (minimal, for driver registration) ────────────────────────── */
 #define PCI_ANY_ID   (~0U)
 
-struct pci_device_id {
-    u32 vendor, device;
-    u32 subvendor, subdevice;
-    u32 class_val, class_mask;
-    unsigned long driver_data;
-};
-
 /* Forward declaration — full definition in drivers/pci/pci.h */
 struct pci_dev;
-struct pci_driver {
-    const char                  *name;
-    const struct pci_device_id  *id_table;
-    int  (*probe)(struct pci_dev *pdev, const struct pci_device_id *id);
-    void (*remove)(struct pci_dev *pdev);
-    int  (*suspend)(struct pci_dev *pdev, u32 state);
-    int  (*resume)(struct pci_dev *pdev);
-};
 
 /* ── Spinlock stub (single-core for now, replaced by SMP spinlocks later) ── */
 typedef struct { volatile int locked; } spinlock_t;

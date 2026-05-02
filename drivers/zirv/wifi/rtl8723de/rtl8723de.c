@@ -13,7 +13,10 @@
 #include "drivers/zirv/device.h"
 #include "drivers/serial/serial.h"
 #include "kernel/irq/irq.h"
+#include "kernel/mm/pmm.h"
+#include "kernel/mm/vmm.h"
 #include "drivers/compat/linux_compat.h"
+#include <string.h>
 
 /* ── Static device state ──────────────────────────────────────────────────── */
 static rtl8723de_priv_t g_priv;
@@ -136,6 +139,66 @@ static int rtl8723de_hw_init(rtl8723de_priv_t *p)
     return 0;
 }
 
+/* ── DMA ring initialisation ─────────────────────────────────────────────── */
+/*
+ * Allocate contiguous physical pages for the TX and RX descriptor rings and
+ * the per-slot RX data buffers.  Point each RX descriptor's buffer address at
+ * the corresponding pre-allocated page and hand ownership to the NIC.
+ *
+ * After this call the ring base registers (RTL_TDLSA / RTL_RDQSA) are written
+ * so the DMA engine knows where to find each ring.
+ */
+static int rtl8723de_ring_init(rtl8723de_priv_t *p)
+{
+    /* ── TX ring ── */
+    size_t tx_pages = (sizeof(rtl_tx_desc_t) * RTL_TX_RING_SIZE
+                       + PAGE_SIZE - 1) / PAGE_SIZE;
+    p->tx_ring_phys = pmm_alloc_pages(tx_pages);
+    if (!p->tx_ring_phys) {
+        serial_puts(SERIAL_COM1, "[rtl8723de] TX ring alloc failed\n");
+        return -ENOMEM;
+    }
+    p->tx_ring = (rtl_tx_desc_t *)PHYS_TO_VIRT(p->tx_ring_phys);
+    memset(p->tx_ring, 0, sizeof(rtl_tx_desc_t) * RTL_TX_RING_SIZE);
+    /* Mark last descriptor as end-of-ring */
+    p->tx_ring[RTL_TX_RING_SIZE - 1].dw0 |= RTL_DESC_EOR;
+    p->tx_head = 0;
+    p->tx_tail = 0;
+    rtl_write32(p, RTL_TDLSA, (uint32_t)(p->tx_ring_phys & 0xFFFFFFFFu));
+
+    /* ── RX ring ── */
+    size_t rx_pages = (sizeof(rtl_rx_desc_t) * RTL_RX_RING_SIZE
+                       + PAGE_SIZE - 1) / PAGE_SIZE;
+    p->rx_ring_phys = pmm_alloc_pages(rx_pages);
+    if (!p->rx_ring_phys) {
+        serial_puts(SERIAL_COM1, "[rtl8723de] RX ring alloc failed\n");
+        return -ENOMEM;
+    }
+    p->rx_ring = (rtl_rx_desc_t *)PHYS_TO_VIRT(p->rx_ring_phys);
+    memset(p->rx_ring, 0, sizeof(rtl_rx_desc_t) * RTL_RX_RING_SIZE);
+
+    for (int i = 0; i < RTL_RX_RING_SIZE; i++) {
+        uint64_t phys = pmm_alloc_page();
+        if (!phys) {
+            serial_puts(SERIAL_COM1, "[rtl8723de] RX buf alloc failed\n");
+            return -ENOMEM;
+        }
+        p->rx_bufs_phys[i] = phys;
+        p->rx_bufs[i]      = PHYS_TO_VIRT(phys);
+        p->rx_ring[i].dw6  = (uint32_t)(phys & 0xFFFFFFFFu);
+        p->rx_ring[i].dw7  = (uint32_t)(phys >> 32);
+        /* Hand the descriptor to the NIC */
+        p->rx_ring[i].dw0  = RTL_DESC_OWN
+                           | (uint32_t)(RTL_RX_BUF_SIZE & RTL_RX_PKTSIZE_MASK);
+    }
+    p->rx_ring[RTL_RX_RING_SIZE - 1].dw0 |= RTL_DESC_EOR;
+    p->rx_head = 0;
+    rtl_write32(p, RTL_RDQSA, (uint32_t)(p->rx_ring_phys & 0xFFFFFFFFu));
+
+    serial_puts(SERIAL_COM1, "[rtl8723de] TX/RX rings initialised\n");
+    return 0;
+}
+
 /* ── IRQ handler ──────────────────────────────────────────────────────────── */
 static int rtl8723de_irq_handler(int irq, void *data)
 {
@@ -145,15 +208,41 @@ static int rtl8723de_irq_handler(int irq, void *data)
     u32 status = rtl_read32(p, RTL_HISR);
     if (!status) return IRQ_NONE;
 
-    /* Acknowledge */
+    /* Acknowledge all pending interrupts */
     rtl_write32(p, RTL_HISR, status);
 
     if (status & RTL_HISR_ROK) {
-        /* TODO: process received frames from the RX ring */
+        /* Walk RX ring: reclaim all descriptors whose OWN bit is clear */
+        for (int i = 0; i < RTL_RX_RING_SIZE; i++) {
+            uint32_t idx = (p->rx_head + (uint32_t)i) & (RTL_RX_RING_SIZE - 1);
+            rtl_rx_desc_t *d = &p->rx_ring[idx];
+            if (d->dw0 & RTL_DESC_OWN)
+                break;   /* NIC still owns this slot and all that follow */
+            uint16_t pkt_len = (uint16_t)(d->dw0 & RTL_RX_PKTSIZE_MASK);
+            (void)pkt_len;   /* TODO: pass frame to network stack */
+
+            /* Give the buffer back to the NIC */
+            d->dw0 = RTL_DESC_OWN
+                   | (uint32_t)(RTL_RX_BUF_SIZE & RTL_RX_PKTSIZE_MASK);
+            if (idx == RTL_RX_RING_SIZE - 1)
+                d->dw0 |= RTL_DESC_EOR;
+
+            /* Advance head for each processed descriptor */
+            p->rx_head = (p->rx_head + 1u) & (RTL_RX_RING_SIZE - 1u);
+        }
     }
+
     if (status & RTL_HISR_TOK) {
-        /* TODO: advance the TX ring, wake any waiting sends */
+        /* Reclaim TX descriptors that the NIC has finished with */
+        while (p->tx_head != p->tx_tail) {
+            rtl_tx_desc_t *d = &p->tx_ring[p->tx_head];
+            if (d->dw0 & RTL_DESC_OWN)
+                break;   /* NIC is still working on this one */
+            /* TODO: free the associated TX buffer / wake net-stack */
+            p->tx_head = (p->tx_head + 1u) & (RTL_TX_RING_SIZE - 1u);
+        }
     }
+
     if (status & (RTL_HISR_RXERR | RTL_HISR_TXERR)) {
         serial_puts(SERIAL_COM1, "[rtl8723de] DMA error — reset pending\n");
     }
@@ -189,6 +278,11 @@ void rtl8723de_init(void)
         return;
     }
 
+    if (rtl8723de_ring_init(&g_priv) != 0) {
+        serial_puts(SERIAL_COM1, "[rtl8723de] Ring init failed\n");
+        return;
+    }
+
     /* Install IRQ handler */
     request_irq(pdev->irq_line, rtl8723de_irq_handler,
                 IRQF_SHARED, "rtl8723de", &g_priv);
@@ -214,5 +308,49 @@ bool rtl8723de_get_mac(uint8_t buf[6])
 {
     if (!g_found || !g_priv.hw_ready) return false;
     for (int i = 0; i < 6; i++) buf[i] = g_priv.mac_addr[i];
+    return true;
+}
+
+bool rtl8723de_send(const void *data, uint16_t len)
+{
+    if (!g_found || !g_priv.hw_ready) return false;
+    if (!data || len == 0 || len > RTL_TX_MAX_LEN) return false;
+
+    /* Check TX ring not full: tail+1 != head */
+    uint32_t next_tail = (g_priv.tx_tail + 1u) & (RTL_TX_RING_SIZE - 1u);
+    if (next_tail == g_priv.tx_head) {
+        serial_puts(SERIAL_COM1, "[rtl8723de] TX ring full\n");
+        return false;
+    }
+
+    rtl_tx_desc_t *d = &g_priv.tx_ring[g_priv.tx_tail];
+
+    /* Allocate a TX buffer page and copy frame data into it */
+    uint64_t phys = pmm_alloc_page();
+    if (!phys) {
+        serial_puts(SERIAL_COM1, "[rtl8723de] TX buf alloc failed\n");
+        return false;
+    }
+    void *virt = PHYS_TO_VIRT(phys);
+    memcpy(virt, data, len);
+
+    /* Fill descriptor */
+    d->dw14 = (uint32_t)(phys & 0xFFFFFFFFu);
+    d->dw15 = (uint32_t)(phys >> 32);
+    d->dw8  = (uint32_t)len;          /* TX buffer size */
+    d->dw0  = RTL_DESC_OWN            /* hand to NIC */
+            | ((uint32_t)len & RTL_TX_PKTSIZE_MASK)
+            | (1u << 25)              /* FS: first segment */
+            | (1u << 24);             /* LS: last segment */
+    if (g_priv.tx_tail == RTL_TX_RING_SIZE - 1)
+        d->dw0 |= RTL_DESC_EOR;
+
+    /* Advance tail */
+    g_priv.tx_tail = next_tail;
+
+    /* Kick the TX DMA engine by writing TX poll demand */
+    rtl_write8(&g_priv, RTL_CR, RTL_CR_TE);
+    wmb();
+
     return true;
 }

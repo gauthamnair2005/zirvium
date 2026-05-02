@@ -72,6 +72,7 @@ typedef enum {
     /* Network */
     DEV_CLASS_NET_ETH,
     DEV_CLASS_NET_WLAN,
+    DEV_CLASS_NET_BT,
     DEV_CLASS_NET_LOOPBACK,
 
     /* Input */

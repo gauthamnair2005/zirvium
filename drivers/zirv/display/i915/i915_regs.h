@@ -34,6 +34,50 @@
 /* Coffee Lake-U GT1 — UHD 610 */
 #define INTEL_CFL_GT1_ULT      0x3EA0
 
+/* ── Gen11 — Ice Lake (2019) ─────────────────────────────────────────────── */
+#define INTEL_ICL_GT2_ULT      0x8A52   /* Iris Plus G7 (80EU) */
+#define INTEL_ICL_GT2_ULT_1    0x8A5A   /* Iris Plus G4 (48EU) */
+#define INTEL_ICL_GT2_ULT_2    0x8A51   /* Iris Plus G4 */
+#define INTEL_ICL_GT2_ULT_3    0x8A53   /* Iris Plus G4 */
+#define INTEL_ICL_GT2_ULT_4    0x8A50   /* Iris Plus G7 */
+#define INTEL_ICL_GT1_ULT      0x8A5C   /* UHD Graphics  */
+#define INTEL_ICL_GT05_ULT     0x8A56   /* UHD Graphics (32EU) */
+#define INTEL_ICL_GT05_ULT_1   0x8A57   /* Iris Plus G1 */
+#define INTEL_ICL_GT05_ULT_2   0x8A58   /* UHD Graphics  */
+
+/* ── Gen12 — Tiger Lake (2020) ───────────────────────────────────────────── */
+#define INTEL_TGL_GT2_U        0x9A49   /* Iris Xe Graphics G7 (96EU) */
+#define INTEL_TGL_GT2_U_1      0x9A40   /* Iris Xe Graphics G7 (80EU) */
+#define INTEL_TGL_GT2_U_2      0x9A59   /* Iris Xe Graphics */
+#define INTEL_TGL_GT1_U        0x9A60   /* UHD Graphics */
+#define INTEL_TGL_GT1_U_1      0x9A68   /* UHD Graphics */
+#define INTEL_TGL_GT1_U_2      0x9A70   /* UHD Graphics */
+#define INTEL_TGL_GT1_U_3      0x9A78   /* UHD Graphics */
+
+/* ── Gen12.2 — Alder Lake (2021-2022) ────────────────────────────────────── */
+#define INTEL_ADL_S_GT1        0x4692   /* UHD Graphics 730 */
+#define INTEL_ADL_S_GT1_1      0x4690   /* UHD Graphics 730 */
+#define INTEL_ADL_S_GT2        0x4680   /* UHD Graphics 770 */
+#define INTEL_ADL_P_GT2        0x46A0   /* Iris Xe Graphics */
+#define INTEL_ADL_P_GT2_1      0x46A6   /* Iris Xe Graphics */
+#define INTEL_ADL_P_GT2_2      0x46A8   /* Iris Xe Graphics */
+#define INTEL_ADL_P_GT1        0x46A1   /* UHD Graphics */
+#define INTEL_ADL_N_GT1        0x46D0   /* UHD Graphics */
+#define INTEL_ADL_N_GT1_1      0x46D1   /* UHD Graphics */
+#define INTEL_ADL_N_GT1_2      0x46D2   /* UHD Graphics */
+
+/* ── Gen12.2 — Raptor Lake (2022-2023) ───────────────────────────────────── */
+#define INTEL_RPL_S_GT1        0xA781   /* UHD Graphics 730 */
+#define INTEL_RPL_S_GT2        0xA780   /* UHD Graphics 770 */
+#define INTEL_RPL_P_GT2        0xA7A0   /* Iris Xe Graphics */
+#define INTEL_RPL_P_GT2_1      0xA7A8   /* Iris Xe Graphics */
+#define INTEL_RPL_P_GT1        0xA7A1   /* UHD Graphics */
+
+/* ── Gen14 — Meteor Lake (2023) ──────────────────────────────────────────── */
+#define INTEL_MTL_M_GT2        0x7D55   /* Arc Graphics */
+#define INTEL_MTL_P_GT2        0x7D45   /* Graphics */
+#define INTEL_MTL_P_GT2_1      0x7DD5   /* Arc Graphics */
+
 /* ── GT/display generation ────────────────────────────────────────────────── */
 #define GEN9                   9
 

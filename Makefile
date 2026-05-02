@@ -68,6 +68,7 @@ C_SRCS := \
     drivers/zirv/wifi/rtl8723de/rtl8723de.c \
     drivers/zirv/bluetooth/btrtl.c          \
     drivers/zirv/display/i915/i915.c        \
+    drivers/zirv/audio/hda/hda.c            \
     drivers/serial/serial.c                 \
     lib/string.c                            \
     lib/stdio.c                             \
