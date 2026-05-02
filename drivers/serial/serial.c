@@ -2,7 +2,7 @@
  * Zirvium Kernel — 16550 UART driver
  */
 #include "serial.h"
-#include "../../arch/x64/cpu.h"
+#include "arch/x64/cpu.h"
 #include <stdint.h>
 #include <stddef.h>
 

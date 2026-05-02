@@ -7,15 +7,23 @@
  *  @multiboot2_magic  — must equal 0x36D76289 to confirm a valid MB2 loader
  *  @mb2_info_phys     — physical address of the Multiboot2 information structure
  */
-#include "../arch/x64/gdt.h"
-#include "../arch/x64/idt.h"
-#include "../kernel/mm/pmm.h"
-#include "../kernel/mm/vmm.h"
-#include "../fs/mosix.h"
-#include "../drivers/serial/serial.h"
-#include "../drivers/zirv/device.h"
-#include "../drivers/zirv/nvme.h"
-#include "../drivers/zirv/usb_storage.h"
+#include "arch/x64/gdt.h"
+#include "arch/x64/idt.h"
+#include "kernel/mm/pmm.h"
+#include "kernel/mm/vmm.h"
+#include "kernel/irq/irq.h"
+#include "fs/mosix.h"
+#include "drivers/serial/serial.h"
+#include "drivers/pci/pci.h"
+#include "drivers/zirv/device.h"
+#include "drivers/zirv/nvme.h"
+#include "drivers/zirv/usb_storage.h"
+#include "drivers/zirv/input/ps2/i8042.h"
+#include "drivers/zirv/input/ps2/keyboard.h"
+#include "drivers/zirv/input/ps2/synaptics.h"
+#include "drivers/zirv/wifi/rtl8723de/rtl8723de.h"
+#include "drivers/zirv/bluetooth/btrtl.h"
+#include "drivers/zirv/display/i915/i915.h"
 
 #include <stdint.h>
 #include <stddef.h>
@@ -24,7 +32,7 @@
 void sata_init(void);
 
 /* Forward declaration for ISR dispatch (arch/x64/) */
-void isr_dispatch(void *state);
+void isr_dispatch_handler(void *state);
 
 /* ── Multiboot2 constants ─────────────────────────────────────────────────── */
 #define MB2_BOOTLOADER_MAGIC  0x36D76289U
@@ -142,7 +150,11 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     serial_puts(SERIAL_COM1, "[init] /zirv device registry\n");
     zirv_dev_init();
 
-    /* ── Step 9: Storage drivers ──────────────────────────────────────── */
+    /* ── Step 9: PCI bus enumeration ─────────────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] PCI bus scan\n");
+    pci_init();
+
+    /* ── Step 10: Storage drivers ─────────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] SATA/PATA\n");
     sata_init();
 
@@ -152,20 +164,51 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     serial_puts(SERIAL_COM1, "[init] USB storage\n");
     usb_storage_init();
 
-    /* ── Step 10: Enable interrupts ───────────────────────────────────── */
+    /* ── Step 11: IRQ subsystem (8259A PIC) ───────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] IRQ / PIC\n");
+    irq_init();
+
+    /* ── Step 12: Input devices ───────────────────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] PS/2 controller (i8042)\n");
+    i8042_init();
+
+    serial_puts(SERIAL_COM1, "[init] PS/2 keyboard\n");
+    keyboard_init();
+
+    serial_puts(SERIAL_COM1, "[init] Synaptics touchpad\n");
+    synaptics_init();
+
+    /* ── Step 13: WiFi — RTL8723DE ────────────────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] RTL8723DE WiFi\n");
+    rtl8723de_init();
+
+    /* ── Step 14: Bluetooth — RTL8723DE ───────────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] RTL8723DE Bluetooth\n");
+    btrtl_init(0);   /* 0 = auto-detect UART port */
+
+    /* ── Step 15: Intel i915 display ─────────────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] Intel i915 display (UHD 610/620)\n");
+    i915_init();
+
+    /* ── Step 16: Enable interrupts ───────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] Enabling interrupts\n");
     __asm__ volatile("sti");
 
     /* ── Boot complete ────────────────────────────────────────────────── */
     serial_puts(SERIAL_COM1,
         "\n"
-        "======================================\n"
+        "============================================\n"
         " Zirvium Kernel boot complete\n"
         " MOSIX filesystem hierarchy active:\n"
         "   /bin  /lib  /user  /boot\n"
         "   /config  /zirv  /mounts  /tmp\n"
-        " /zirv device namespace populated\n"
-        "======================================\n"
+        " /zirv device namespace populated:\n"
+        "   /zirv/sata/*  /zirv/nvme/*\n"
+        "   /zirv/net/wlan0  /zirv/net/bt0\n"
+        "   /zirv/display/gpu0\n"
+        "   /zirv/input/keyboard0\n"
+        "   /zirv/input/touchpad0\n"
+        "============================================\n"
     );
 
     /* Idle loop — scheduler / user-space init goes here */
@@ -175,7 +218,23 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
 /* ── ISR dispatch (called from isr_stubs.asm) ─────────────────────────────── */
 void isr_dispatch(void *state)
 {
-    /* TODO: Route to per-vector handlers (page fault, IRQ, syscall …).
-     *       For now, just log to serial and continue. */
-    (void)state;
+    /* The cpu_state_t is laid out so int_no is at a known offset.
+     * Vectors 32–255 are hardware IRQs — route to the IRQ subsystem. */
+    typedef struct { uint64_t r15,r14,r13,r12,r11,r10,r9,r8;
+                     uint64_t rdi,rsi,rbp,rbx,rdx,rcx,rax;
+                     uint64_t int_no, err_code;
+                     uint64_t rip, cs, rflags, rsp, ss; } cpu_state_t;
+    cpu_state_t *s = (cpu_state_t *)state;
+
+    if (s->int_no >= 32) {
+        irq_dispatch((int)s->int_no);
+    } else {
+        /* CPU exception — log and halt for now */
+        serial_puts(SERIAL_COM1, "[EXCEPTION] #");
+        serial_putdec(SERIAL_COM1, s->int_no);
+        serial_puts(SERIAL_COM1, " err=");
+        serial_putdec(SERIAL_COM1, s->err_code);
+        serial_puts(SERIAL_COM1, "\n");
+        __asm__ volatile("cli; hlt");
+    }
 }

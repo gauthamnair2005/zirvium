@@ -49,16 +49,25 @@ LDFLAGS := \
 
 # ── Sources ────────────────────────────────────────────────────────────────────
 C_SRCS := \
-    kernel/main.c               \
-    kernel/mm/pmm.c             \
-    kernel/mm/vmm.c             \
-    arch/x64/gdt.c              \
-    arch/x64/idt.c              \
-    fs/vfs.c                    \
-    drivers/zirv/device.c       \
-    drivers/zirv/sata.c         \
-    drivers/zirv/nvme.c         \
-    drivers/zirv/usb_storage.c  \
+    kernel/main.c                           \
+    kernel/mm/pmm.c                         \
+    kernel/mm/vmm.c                         \
+    kernel/mm/heap.c                        \
+    kernel/irq/irq.c                        \
+    arch/x64/gdt.c                          \
+    arch/x64/idt.c                          \
+    fs/vfs.c                                \
+    drivers/pci/pci.c                       \
+    drivers/zirv/device.c                   \
+    drivers/zirv/sata.c                     \
+    drivers/zirv/nvme.c                     \
+    drivers/zirv/usb_storage.c              \
+    drivers/zirv/input/ps2/i8042.c          \
+    drivers/zirv/input/ps2/keyboard.c       \
+    drivers/zirv/input/ps2/synaptics.c      \
+    drivers/zirv/wifi/rtl8723de/rtl8723de.c \
+    drivers/zirv/bluetooth/btrtl.c          \
+    drivers/zirv/display/i915/i915.c        \
     drivers/serial/serial.c
 
 ASM_SRCS := \

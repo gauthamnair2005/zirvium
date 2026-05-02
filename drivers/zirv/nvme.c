@@ -15,7 +15,7 @@
 #include <string.h>
 
 /* ── PCI config-space access (legacy CF8/CFC mechanism) ──────────────────── */
-#include "../../arch/x64/cpu.h"
+#include "arch/x64/cpu.h"
 
 #define PCI_ADDR_PORT  0xCF8
 #define PCI_DATA_PORT  0xCFC

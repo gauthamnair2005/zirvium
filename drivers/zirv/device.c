@@ -2,7 +2,7 @@
  * Zirvium Kernel — /zirv device registry implementation
  */
 #include "device.h"
-#include "../../fs/mosix.h"
+#include "fs/mosix.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>

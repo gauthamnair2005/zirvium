@@ -8,7 +8,7 @@
 #ifndef ZIRVIUM_DRIVERS_ZIRV_DEVICE_H
 #define ZIRVIUM_DRIVERS_ZIRV_DEVICE_H
 
-#include "../../fs/mosix.h"
+#include "fs/mosix.h"
 #include <stdint.h>
 #include <stdbool.h>
 

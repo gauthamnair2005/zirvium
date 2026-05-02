@@ -13,7 +13,7 @@
  *   /zirv/sata/cdrom0, /zirv/sata/cdrw0, …
  */
 #include "device.h"
-#include "../../arch/x64/cpu.h"
+#include "arch/x64/cpu.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
