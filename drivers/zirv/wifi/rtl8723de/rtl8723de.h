@@ -84,6 +84,7 @@
 #define RTL_TX_RING_SIZE     32          /* TX ring depth (must be power of 2) */
 #define RTL_RX_RING_SIZE     32          /* RX ring depth (must be power of 2) */
 #define RTL_RX_BUF_SIZE    1536          /* bytes per RX buffer (≥ max MPDU) */
+#define RTL_TX_MAX_LEN     1500          /* maximum TX frame size (IEEE 802.11 MSDU) */
 
 typedef struct __attribute__((packed)) {
     uint32_t dw0;   /* [31]=OWN [30]=LINIP [29]=NO_ACM [28]=GF [26]=EOR

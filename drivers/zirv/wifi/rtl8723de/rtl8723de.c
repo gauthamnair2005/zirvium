@@ -226,8 +226,10 @@ static int rtl8723de_irq_handler(int irq, void *data)
                    | (uint32_t)(RTL_RX_BUF_SIZE & RTL_RX_PKTSIZE_MASK);
             if (idx == RTL_RX_RING_SIZE - 1)
                 d->dw0 |= RTL_DESC_EOR;
+
+            /* Advance head for each processed descriptor */
+            p->rx_head = (p->rx_head + 1u) & (RTL_RX_RING_SIZE - 1u);
         }
-        p->rx_head = (p->rx_head + 1u) & (RTL_RX_RING_SIZE - 1u);
     }
 
     if (status & RTL_HISR_TOK) {
@@ -312,7 +314,7 @@ bool rtl8723de_get_mac(uint8_t buf[6])
 bool rtl8723de_send(const void *data, uint16_t len)
 {
     if (!g_found || !g_priv.hw_ready) return false;
-    if (!data || len == 0 || len > RTL_RX_BUF_SIZE) return false;
+    if (!data || len == 0 || len > RTL_TX_MAX_LEN) return false;
 
     /* Check TX ring not full: tail+1 != head */
     uint32_t next_tail = (g_priv.tx_tail + 1u) & (RTL_TX_RING_SIZE - 1u);

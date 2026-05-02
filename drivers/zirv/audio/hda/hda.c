@@ -174,12 +174,16 @@ static void hda_enumerate_codecs(void)
         }
 
         serial_puts(SERIAL_COM1, "[hda] Codec found (addr=");
-        /* Simple hex nibble output */
-        char tmp[3] = { (char)('0' + i), '\0', '\0' };
+        /* Proper hex byte output (codec address is 0..14) */
+        char tmp[3];
+        tmp[0] = (char)((i < 10) ? ('0' + i) : ('A' + i - 10));
+        tmp[1] = '\0';
         serial_puts(SERIAL_COM1, tmp);
         serial_puts(SERIAL_COM1, " AFG=");
-        tmp[0] = (char)('0' + (c->afg_nid >> 4));
-        tmp[1] = (char)('0' + (c->afg_nid & 0xF));
+        uint8_t hi = (c->afg_nid >> 4) & 0xFu;
+        uint8_t lo =  c->afg_nid       & 0xFu;
+        tmp[0] = (char)((hi < 10) ? ('0' + hi) : ('A' + hi - 10));
+        tmp[1] = (char)((lo < 10) ? ('0' + lo) : ('A' + lo - 10));
         tmp[2] = '\0';
         serial_puts(SERIAL_COM1, tmp);
         serial_puts(SERIAL_COM1, ")\n");
