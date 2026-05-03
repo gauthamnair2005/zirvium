@@ -44,6 +44,15 @@ void *memmove(void *dest, const void *src, size_t n) {
     return dest;
 }
 
+int memcmp(const void *s1, const void *s2, size_t n) {
+    const unsigned char *a = s1, *b = s2;
+    while (n--) {
+        if (*a != *b) return (int)*a - (int)*b;
+        a++; b++;
+    }
+    return 0;
+}
+
 char *strchr(const char *s, int c) {
     while (*s) {
         if (*s == (char)c) return (char *)s;
