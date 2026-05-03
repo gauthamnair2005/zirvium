@@ -35,6 +35,8 @@ CFLAGS := \
     -mno-mmx                \
     -mno-sse                \
     -mno-sse2               \
+    -mcmodel=kernel         \
+    -D_FORTIFY_SOURCE=0     \
     -Wall                   \
     -Wextra                 \
     -O2                     \

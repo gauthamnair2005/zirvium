@@ -56,6 +56,8 @@ void *kcalloc(size_t n, size_t size, unsigned int flags)
     return kzalloc(n * size, flags);
 }
 
+void kfree(void *ptr);
+
 void *krealloc(void *ptr, size_t new_size, unsigned int flags)
 {
     if (!ptr) return kmalloc(new_size, flags);
