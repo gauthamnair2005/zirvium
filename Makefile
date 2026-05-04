@@ -58,6 +58,9 @@ C_SRCS := \
     kernel/mm/vmm.c                         \
     kernel/mm/heap.c                        \
     kernel/irq/irq.c                        \
+    kernel/proc/process.c                   \
+    kernel/syscall/syscall.c                \
+    kernel/ipc/pipe.c                       \
     arch/x64/gdt.c                          \
     arch/x64/idt.c                          \
     fs/vfs.c                                \
@@ -80,7 +83,8 @@ C_SRCS := \
 
 ASM_SRCS := \
     arch/x64/boot.asm           \
-    arch/x64/isr_stubs.asm
+    arch/x64/isr_stubs.asm      \
+    arch/x64/syscall_entry.asm
 
 # ── Derived object lists ───────────────────────────────────────────────────────
 BUILD_DIR := build
