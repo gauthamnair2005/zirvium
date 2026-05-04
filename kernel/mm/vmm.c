@@ -17,6 +17,9 @@
 /* Physical address of a page-table entry's child table */
 #define PTE_CHILD_PHYS(e)  ((e) & 0x000FFFFFFFFFF000ULL)
 
+/* Physical address mask for a 2 MiB huge-page PDE (bits [51:21]) */
+#define PTE_2MIB_PHYS_MASK  0x000FFFFFFFE00000ULL
+
 static address_space_t kernel_as;
 
 /* ── Early-init helpers (before PHYS_MAP is active) ──────────────────────── */
@@ -27,7 +30,7 @@ static address_space_t kernel_as;
  * PHYS_TO_VIRT() adds PHYS_MAP_BASE and therefore cannot be used until the
  * new page tables are loaded.  These helpers use the identity map instead.
  */
-static inline pte_t *early_phys_to_virt(uint64_t phys)
+static inline pte_t *early_identity_ptr(uint64_t phys)
 {
     return (pte_t *)(uintptr_t)phys;
 }
@@ -39,7 +42,7 @@ static uint64_t early_alloc_zeroed(void)
         __asm__ volatile("cli; hlt");
         for (;;) __asm__ volatile("hlt");
     }
-    memset(early_phys_to_virt(phys), 0, PAGE_SIZE);
+    memset(early_identity_ptr(phys), 0, PAGE_SIZE);
     return phys;
 }
 
@@ -55,13 +58,13 @@ static void early_map_2m(pte_t *pml4, uint64_t virt, uint64_t phys,
 
     if (!(pml4[PML4_IDX(virt)] & PTE_PRESENT))
         pml4[PML4_IDX(virt)] = early_alloc_zeroed() | tbl_flags;
-    pte_t *pdp = early_phys_to_virt(PTE_CHILD_PHYS(pml4[PML4_IDX(virt)]));
+    pte_t *pdp = early_identity_ptr(PTE_CHILD_PHYS(pml4[PML4_IDX(virt)]));
 
     if (!(pdp[PDP_IDX(virt)] & PTE_PRESENT))
         pdp[PDP_IDX(virt)] = early_alloc_zeroed() | tbl_flags;
-    pte_t *pd = early_phys_to_virt(PTE_CHILD_PHYS(pdp[PDP_IDX(virt)]));
+    pte_t *pd = early_identity_ptr(PTE_CHILD_PHYS(pdp[PDP_IDX(virt)]));
 
-    pd[PD_IDX(virt)] = (phys & 0x000FFFFFFFE00000ULL) | flags | PTE_PRESENT | PTE_HUGE;
+    pd[PD_IDX(virt)] = (phys & PTE_2MIB_PHYS_MASK) | flags | PTE_PRESENT | PTE_HUGE;
 }
 
 /* ── Low-level page-table helpers ────────────────────────────────────────── */
@@ -95,7 +98,7 @@ void vmm_map_page(address_space_t *as, uint64_t virt, uint64_t phys,
 
     if (flags & PTE_HUGE) {
         /* 2 MiB page: set the PDE directly — no PT needed */
-        pd[PD_IDX(virt)] = (phys & 0x000FFFFFFFE00000ULL) | flags | PTE_PRESENT;
+        pd[PD_IDX(virt)] = (phys & PTE_2MIB_PHYS_MASK) | flags | PTE_PRESENT;
         __asm__ volatile("invlpg (%0)" : : "r"(virt) : "memory");
         return;
     }
@@ -205,9 +208,9 @@ void vmm_init(void)
         __asm__ volatile("cli; hlt");
         for (;;) __asm__ volatile("hlt");
     }
-    memset(early_phys_to_virt(pml4_phys), 0, PAGE_SIZE);
+    memset(early_identity_ptr(pml4_phys), 0, PAGE_SIZE);
     kernel_as.pml4_phys = pml4_phys;
-    pte_t *pml4 = early_phys_to_virt(pml4_phys);
+    pte_t *pml4 = early_identity_ptr(pml4_phys);
 
     /* Identity map 0 – 4 GiB (2 MiB huge pages) */
     for (uint64_t addr = 0; addr < 0x100000000ULL; addr += 0x200000ULL)
