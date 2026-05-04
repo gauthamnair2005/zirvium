@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 #include <stddef.h>
-#include "drivers/serial/serial.h"
+#include "kernel/console.h"
 
 static void itoa(uint64_t n, char *s, int base) {
     static const char digits[] = "0123456789abcdef";
@@ -31,44 +31,44 @@ void kprintf(const char *fmt, ...) {
 
     for (const char *p = fmt; *p; p++) {
         if (*p != '%') {
-            serial_putc(SERIAL_COM1, *p);
+            kputc(*p);
             continue;
         }
 
         p++;
         if (*p == 's') {
             const char *s = va_arg(args, const char *);
-            serial_puts(SERIAL_COM1, s ? s : "(null)");
+            kputs(s ? s : "(null)");
         } else if (*p == 'd') {
             int n = va_arg(args, int);
             if (n < 0) {
-                serial_putc(SERIAL_COM1, '-');
+                kputc('-');
                 n = -n;
             }
             char buf[32];
             itoa((uint32_t)n, buf, 10);
-            serial_puts(SERIAL_COM1, buf);
+            kputs(buf);
         } else if (*p == 'u') {
             uint32_t n = va_arg(args, uint32_t);
             char buf[32];
             itoa(n, buf, 10);
-            serial_puts(SERIAL_COM1, buf);
+            kputs(buf);
         } else if (*p == 'x') {
             uint32_t n = va_arg(args, uint32_t);
             char buf[32];
             itoa(n, buf, 16);
-            serial_puts(SERIAL_COM1, buf);
+            kputs(buf);
         } else if (*p == 'p') {
             uint64_t n = (uint64_t)va_arg(args, void *);
-            serial_puts(SERIAL_COM1, "0x");
+            kputs("0x");
             char buf[65];
             itoa(n, buf, 16);
-            serial_puts(SERIAL_COM1, buf);
+            kputs(buf);
         } else if (*p == 'c') {
             char c = (char)va_arg(args, int);
-            serial_putc(SERIAL_COM1, c);
+            kputc(c);
         } else if (*p == '%') {
-            serial_putc(SERIAL_COM1, '%');
+            kputc('%');
         }
     }
 

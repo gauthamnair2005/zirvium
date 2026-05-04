@@ -14,8 +14,10 @@
 #include "kernel/irq/irq.h"
 #include "kernel/proc/process.h"
 #include "kernel/syscall/syscall.h"
+#include "kernel/console.h"
 #include "fs/mosix.h"
 #include "drivers/serial/serial.h"
+#include "drivers/vga/vga.h"
 #include "drivers/pci/pci.h"
 #include "drivers/zirv/device.h"
 #include "drivers/zirv/nvme.h"
@@ -25,6 +27,7 @@
 #include "drivers/zirv/input/ps2/synaptics.h"
 #include "drivers/zirv/wifi/rtl8723de/rtl8723de.h"
 #include "drivers/zirv/bluetooth/btrtl.h"
+#include "drivers/zirv/display/bochs/bochs_vga.h"
 #include "drivers/zirv/display/i915/i915.h"
 #include "drivers/zirv/audio/hda/hda.h"
 
@@ -69,49 +72,52 @@ typedef struct __attribute__((packed)) {
 /* ── Panic ────────────────────────────────────────────────────────────────── */
 static void kpanic(const char *msg)
 {
-    serial_puts(SERIAL_COM1, "\n[ZIRVIUM PANIC] ");
-    serial_puts(SERIAL_COM1, msg);
-    serial_puts(SERIAL_COM1, "\n");
+    kputs("\n[ZIRVIUM PANIC] ");
+    kputs(msg);
+    kputs("\n");
     __asm__ volatile("cli");
     for (;;) __asm__ volatile("hlt");
 }
 
-/* ── Simple decimal formatter for serial output ──────────────────────────── */
-static void serial_putdec(uint16_t port, uint64_t val)
+/* ── Simple decimal formatter ────────────────────────────────────────────── */
+static void kputdec(uint64_t val)
 {
     char buf[21];
     int i = 20;
     buf[i] = '\0';
-    if (val == 0) { serial_putc(port, '0'); return; }
+    if (val == 0) { kputc('0'); return; }
     while (val && i > 0) {
         buf[--i] = (char)('0' + val % 10);
         val /= 10;
     }
-    serial_puts(port, buf + i);
+    kputs(buf + i);
 }
 
 /* ── kernel_main ──────────────────────────────────────────────────────────── */
 void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
 {
-    /* ── Step 1: Serial console (very early, no memory manager needed) ─── */
+    /* ── Step 1: Serial console + VGA text console (very early) ──────── */
     serial_init(SERIAL_COM1);
-    serial_puts(SERIAL_COM1, "Zirvium Kernel starting...\n");
+    vga_init();
+    console_init();
+    console_enable_vga();
+    kputs("Zirvium Kernel starting...\n");
 
     /* ── Step 2: Validate Multiboot2 magic ────────────────────────────── */
     if (multiboot2_magic != MB2_BOOTLOADER_MAGIC)
         kpanic("Not loaded by a Multiboot2-compliant bootloader");
 
     /* ── Step 3: Set up a proper GDT + TSS ───────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] GDT\n");
+    kputs("[init] GDT\n");
     gdt_init();
     gdt_load_tss();
 
     /* ── Step 4: Set up IDT (exception + IRQ handling) ───────────────── */
-    serial_puts(SERIAL_COM1, "[init] IDT\n");
+    kputs("[init] IDT\n");
     idt_init();
 
     /* ── Step 5: Parse Multiboot2 memory map ─────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] PMM\n");
+    kputs("[init] PMM\n");
     const mb2_info_t *info = (const mb2_info_t *)(uintptr_t)mb2_info_phys;
     const mb2_mmap_tag_t *mmap_tag = NULL;
 
@@ -135,82 +141,86 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
                       - (uint32_t)sizeof(mb2_mmap_tag_t);
     pmm_init(mmap_entries_addr, mmap_len, mmap_tag->entry_size);
 
-    serial_puts(SERIAL_COM1, "[pmm] Total pages: ");
-    serial_putdec(SERIAL_COM1, pmm_total_pages());
-    serial_puts(SERIAL_COM1, "  Free: ");
-    serial_putdec(SERIAL_COM1, pmm_free_page_count());
-    serial_puts(SERIAL_COM1, "\n");
+    kputs("[pmm] Total pages: ");
+    kputdec(pmm_total_pages());
+    kputs("  Free: ");
+    kputdec(pmm_free_page_count());
+    kputs("\n");
 
     /* ── Step 6: Virtual memory manager ─────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] VMM\n");
+    kputs("[init] VMM\n");
     vmm_init();
 
     /* ── Step 7: MOSIX VFS root namespace ─────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] MOSIX VFS\n");
+    kputs("[init] MOSIX VFS\n");
     vfs_init();
 
     /* ── Step 8: Process subsystem ────────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] Process subsystem\n");
+    kputs("[init] Process subsystem\n");
     proc_init();
 
     /* ── Step 9: Syscall interface (SYSCALL / SYSRET) ──────────────────── */
-    serial_puts(SERIAL_COM1, "[init] Syscall interface\n");
+    kputs("[init] Syscall interface\n");
     syscall_init();
 
     /* ── Step 10: Device registry ─────────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] /zirv device registry\n");
+    kputs("[init] /zirv device registry\n");
     zirv_dev_init();
 
     /* ── Step 11: PCI bus enumeration ─────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] PCI bus scan\n");
+    kputs("[init] PCI bus scan\n");
     pci_init();
 
-    /* ── Step 12: Storage drivers ─────────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] SATA/PATA\n");
+    /* ── Step 12: Bochs/QEMU VGA framebuffer (requires PCI + VMM) ──────── */
+    kputs("[init] Bochs/QEMU VGA display\n");
+    bochs_vga_init();
+
+    /* ── Step 13: Storage drivers ─────────────────────────────────────── */
+    kputs("[init] SATA/PATA\n");
     sata_init();
 
-    serial_puts(SERIAL_COM1, "[init] NVMe\n");
+    kputs("[init] NVMe\n");
     nvme_init();
 
-    serial_puts(SERIAL_COM1, "[init] USB storage\n");
+    kputs("[init] USB storage\n");
     usb_storage_init();
 
-    /* ── Step 13: IRQ subsystem (8259A PIC) ───────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] IRQ / PIC\n");
+    /* ── Step 14: IRQ subsystem (8259A PIC) ───────────────────────────── */
+    kputs("[init] IRQ / PIC\n");
     irq_init();
 
-    /* ── Step 14: Input devices ───────────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] PS/2 controller (i8042)\n");
+    /* ── Step 15: Input devices ───────────────────────────────────────── */
+    kputs("[init] PS/2 controller (i8042)\n");
     i8042_init();
 
-    serial_puts(SERIAL_COM1, "[init] PS/2 keyboard\n");
+    kputs("[init] PS/2 keyboard\n");
     keyboard_init();
 
-    serial_puts(SERIAL_COM1, "[init] Synaptics touchpad\n");
+    kputs("[init] Synaptics touchpad\n");
     synaptics_init();
 
-    /* ── Step 15: WiFi — RTL8723DE ────────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] RTL8723DE WiFi\n");
+    /* ── Step 16: WiFi — RTL8723DE ────────────────────────────────────── */
+    kputs("[init] RTL8723DE WiFi\n");
     rtl8723de_init();
 
-    /* ── Step 16: Bluetooth — RTL8723DE ───────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] RTL8723DE Bluetooth\n");
+    /* ── Step 17: Bluetooth — RTL8723DE ───────────────────────────────── */
+    kputs("[init] RTL8723DE Bluetooth\n");
     btrtl_init(0);   /* 0 = auto-detect UART port */
 
-    /* ── Step 17: Intel i915 display ─────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] Intel i915 display (UHD 610 → Arc)\n");
+    /* ── Step 18: Intel i915 display ─────────────────────────────────── */
+    kputs("[init] Intel i915 display (UHD 610 → Arc)\n");
     i915_init();
 
-    /* ── Step 18: Intel HDA audio ────────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] Intel HDA audio\n");
+    /* ── Step 19: Intel HDA audio ────────────────────────────────────── */
+    kputs("[init] Intel HDA audio\n");
     hda_init();
 
-    /* ── Step 19: Enable interrupts ───────────────────────────────────── */
-    serial_puts(SERIAL_COM1, "[init] Enabling interrupts\n");
+    /* ── Step 20: Enable interrupts ───────────────────────────────────── */
+    kputs("[init] Enabling interrupts\n");
     __asm__ volatile("sti");
 
     /* ── Boot complete ────────────────────────────────────────────────── */
-    serial_puts(SERIAL_COM1,
+    kputs(
         "\n"
         "============================================\n"
         " Zirvium Kernel boot complete\n"
@@ -231,7 +241,7 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
         "============================================\n"
     );
 
-    serial_puts(SERIAL_COM1, "Zirvium 0.1 loaded successfully\n");
+    kputs("Zirvium 0.1 loaded successfully\n");
 
     /* Idle loop — scheduler / user-space init goes here */
     for (;;) __asm__ volatile("hlt");
@@ -252,11 +262,11 @@ void isr_dispatch(void *state)
         irq_dispatch((int)s->int_no);
     } else {
         /* CPU exception — log and halt for now */
-        serial_puts(SERIAL_COM1, "[EXCEPTION] #");
-        serial_putdec(SERIAL_COM1, s->int_no);
-        serial_puts(SERIAL_COM1, " err=");
-        serial_putdec(SERIAL_COM1, s->err_code);
-        serial_puts(SERIAL_COM1, "\n");
+        kputs("[EXCEPTION] #");
+        kputdec(s->int_no);
+        kputs(" err=");
+        kputdec(s->err_code);
+        kputs("\n");
         __asm__ volatile("cli; hlt");
     }
 }
