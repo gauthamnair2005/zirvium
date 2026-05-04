@@ -40,6 +40,9 @@ global syscall_entry
 
 section .bss
 align 8
+; Per-CPU save slot for the user RSP on SYSCALL entry.
+; TODO(SMP): replace with a per-CPU structure (e.g. via GSBASE MSR) so that
+; concurrent syscalls on different cores do not overwrite each other's slot.
 tmp_user_rsp:   resq 1          ; temporary user-RSP save (single-CPU)
 
 section .text

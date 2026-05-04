@@ -35,6 +35,9 @@
 #define MSR_FMASK  0xC0000084U   /* RFLAGS mask on SYSCALL entry     */
 
 /* ── Shared kernel syscall stack ─────────────────────────────────────────── */
+/* TODO(SMP): each logical CPU requires its own syscall stack.  In a
+ * multi-core configuration, replace this single static array with a
+ * per-CPU allocation indexed via the GSBASE MSR. */
 #define SYSCALL_KSTACK_SIZE  (16u * 1024u)
 static uint8_t syscall_kstack[SYSCALL_KSTACK_SIZE] __attribute__((aligned(16)));
 
@@ -181,9 +184,11 @@ static uint64_t sys_pipe(process_t *proc, int *fds)
     int rfd = proc_alloc_fd(proc, rf);
     int wfd = proc_alloc_fd(proc, wf);
     if (rfd < 0 || wfd < 0) {
-        if (rfd >= 0) { proc->fds[rfd] = NULL; }
-        if (wfd >= 0) { proc->fds[wfd] = NULL; }
-        kfree(rf); kfree(wf); pipe_destroy(p);
+        /* Roll back: proc_close_fd handles kfree; fall back to plain kfree
+         * for any end that was never inserted into the table. */
+        if (rfd >= 0) proc_close_fd(proc, rfd); else kfree(rf);
+        if (wfd >= 0) proc_close_fd(proc, wfd); else kfree(wf);
+        pipe_destroy(p);
         return (uint64_t)(int64_t)ESYS_ENOMEM;
     }
 
