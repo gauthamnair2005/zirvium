@@ -13,7 +13,8 @@
 #include <stddef.h>
 
 /* ── Virtual address layout ──────────────────────────────────────────────── */
-#define KERNEL_VIRT_BASE    0xFFFFFFFF80000000ULL   /* kernel image base */
+#define KERNEL_VIRT_BASE    0xFFFFFFFF80000000ULL   /* kernel image virtual base */
+#define KERNEL_PHYS_BASE    0x0000000000200000ULL   /* kernel image physical load address */
 #define PHYS_MAP_BASE       0xFFFF800000000000ULL   /* direct physical map */
 
 /* Convert a kernel virtual address to the physical address it was linked at */
