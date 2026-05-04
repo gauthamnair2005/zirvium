@@ -222,9 +222,9 @@ void vmm_init(void)
         early_map_2m(pml4, PHYS_MAP_BASE + addr, addr,
                      PTE_WRITABLE | PTE_GLOBAL | PTE_NO_EXEC);
 
-    /* Map kernel image (1 GiB region at KERNEL_VIRT_BASE, from physical 0) */
+    /* Map kernel image (1 GiB region at KERNEL_VIRT_BASE, from physical KERNEL_PHYS_BASE) */
     for (uint64_t addr = 0; addr < 0x40000000ULL; addr += 0x200000ULL)
-        early_map_2m(pml4, KERNEL_VIRT_BASE + addr, addr,
+        early_map_2m(pml4, KERNEL_VIRT_BASE + addr, KERNEL_PHYS_BASE + addr,
                      PTE_WRITABLE | PTE_GLOBAL);
 
     /*

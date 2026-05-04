@@ -176,10 +176,10 @@ _start:
     or   eax, 1 << 5
     mov  cr4, eax
 
-    ; ── Set EFER.LME (long mode enable) ─────────────────────────────────────
+    ; ── Set EFER.LME + EFER.NXE (long mode + no-execute enable) ────────────────
     mov  ecx, 0xC0000080
     rdmsr
-    or   eax, 1 << 8
+    or   eax, (1 << 8) | (1 << 11)   ; LME = bit 8, NXE = bit 11
     wrmsr
 
     ; ── Enable paging + protected mode (CR0.PG | CR0.PE) ────────────────────
