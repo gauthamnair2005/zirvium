@@ -83,15 +83,15 @@ void gdt_init(void)
               GDT_PRESENT | GDT_DPL_RING0 | GDT_SEGMENT | GDT_READWRITE,
               GDT_GRANULARITY_4K);
 
-    /* 3: user code (0x18) — long mode, DPL 3 */
+    /* 3: user data (0x18) — DPL 3 (must come before user code for SYSRETQ) */
     set_entry(3, 0, 0xFFFFF,
-              GDT_PRESENT | GDT_DPL_RING3 | GDT_SEGMENT | GDT_EXEC | GDT_READWRITE,
-              GDT_GRANULARITY_4K | GDT_LONG_MODE);
-
-    /* 4: user data (0x20) — DPL 3 */
-    set_entry(4, 0, 0xFFFFF,
               GDT_PRESENT | GDT_DPL_RING3 | GDT_SEGMENT | GDT_READWRITE,
               GDT_GRANULARITY_4K);
+
+    /* 4: user code (0x20) — long mode, DPL 3 */
+    set_entry(4, 0, 0xFFFFF,
+              GDT_PRESENT | GDT_DPL_RING3 | GDT_SEGMENT | GDT_EXEC | GDT_READWRITE,
+              GDT_GRANULARITY_4K | GDT_LONG_MODE);
 
     /* 5–6: TSS (0x28, 16-byte system descriptor) */
     set_tss_descriptor((uint64_t)&tss, sizeof(tss) - 1);

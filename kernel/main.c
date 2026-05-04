@@ -12,6 +12,8 @@
 #include "kernel/mm/pmm.h"
 #include "kernel/mm/vmm.h"
 #include "kernel/irq/irq.h"
+#include "kernel/proc/process.h"
+#include "kernel/syscall/syscall.h"
 #include "fs/mosix.h"
 #include "drivers/serial/serial.h"
 #include "drivers/pci/pci.h"
@@ -147,15 +149,23 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     serial_puts(SERIAL_COM1, "[init] MOSIX VFS\n");
     vfs_init();
 
-    /* ── Step 8: Device registry ─────────────────────────────────────── */
+    /* ── Step 8: Process subsystem ────────────────────────────────────── */
+    serial_puts(SERIAL_COM1, "[init] Process subsystem\n");
+    proc_init();
+
+    /* ── Step 9: Syscall interface (SYSCALL / SYSRET) ──────────────────── */
+    serial_puts(SERIAL_COM1, "[init] Syscall interface\n");
+    syscall_init();
+
+    /* ── Step 10: Device registry ─────────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] /zirv device registry\n");
     zirv_dev_init();
 
-    /* ── Step 9: PCI bus enumeration ─────────────────────────────────── */
+    /* ── Step 11: PCI bus enumeration ─────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] PCI bus scan\n");
     pci_init();
 
-    /* ── Step 10: Storage drivers ─────────────────────────────────────── */
+    /* ── Step 12: Storage drivers ─────────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] SATA/PATA\n");
     sata_init();
 
@@ -165,11 +175,11 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     serial_puts(SERIAL_COM1, "[init] USB storage\n");
     usb_storage_init();
 
-    /* ── Step 11: IRQ subsystem (8259A PIC) ───────────────────────────── */
+    /* ── Step 13: IRQ subsystem (8259A PIC) ───────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] IRQ / PIC\n");
     irq_init();
 
-    /* ── Step 12: Input devices ───────────────────────────────────────── */
+    /* ── Step 14: Input devices ───────────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] PS/2 controller (i8042)\n");
     i8042_init();
 
@@ -179,23 +189,23 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     serial_puts(SERIAL_COM1, "[init] Synaptics touchpad\n");
     synaptics_init();
 
-    /* ── Step 13: WiFi — RTL8723DE ────────────────────────────────────── */
+    /* ── Step 15: WiFi — RTL8723DE ────────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] RTL8723DE WiFi\n");
     rtl8723de_init();
 
-    /* ── Step 14: Bluetooth — RTL8723DE ───────────────────────────────── */
+    /* ── Step 16: Bluetooth — RTL8723DE ───────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] RTL8723DE Bluetooth\n");
     btrtl_init(0);   /* 0 = auto-detect UART port */
 
-    /* ── Step 15: Intel i915 display ─────────────────────────────────── */
+    /* ── Step 17: Intel i915 display ─────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] Intel i915 display (UHD 610 → Arc)\n");
     i915_init();
 
-    /* ── Step 16: Intel HDA audio ────────────────────────────────────── */
+    /* ── Step 18: Intel HDA audio ────────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] Intel HDA audio\n");
     hda_init();
 
-    /* ── Step 17: Enable interrupts ───────────────────────────────────── */
+    /* ── Step 19: Enable interrupts ───────────────────────────────────── */
     serial_puts(SERIAL_COM1, "[init] Enabling interrupts\n");
     __asm__ volatile("sti");
 
@@ -214,6 +224,10 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
         "   /zirv/audio/output0\n"
         "   /zirv/input/keyboard0\n"
         "   /zirv/input/touchpad0\n"
+        " Userspace support ready (zirvlibc ABI):\n"
+        "   SYSCALL/SYSRET  read write open close\n"
+        "   mmap munmap brk pipe getpid exit\n"
+        "   Ring-3 entry via iretq\n"
         "============================================\n"
     );
 
