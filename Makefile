@@ -2,15 +2,17 @@
 #
 # Targets:
 #   make          — build the kernel ELF
-#   make iso      — build a bootable ISO image (requires grub-mkrescue & xorriso)
+#   make iso      — build a bootable ISO image (requires grub-mkrescue, xorriso & mtools)
+#   make run      — build ISO and run in QEMU via GRUB (-cdrom)
 #   make clean    — remove build artefacts
 #
 # Requirements:
 #   x86_64-elf-gcc   (or gcc with multilib / cross-compile configured)
 #   x86_64-elf-ld    (or ld)
 #   nasm             (>= 2.14)
-#   grub-mkrescue    (for `make iso`)
-#   xorriso          (for `make iso`)
+#   grub-mkrescue    (for `make iso` / `make run`)
+#   xorriso          (for `make iso` / `make run`)
+#   mtools           (for `make iso` / `make run` — install with: sudo apt install mtools)
 
 # ── Toolchain ─────────────────────────────────────────────────────────────────
 CC      := x86_64-elf-gcc
@@ -124,6 +126,8 @@ KERNEL_ISO := $(BUILD_DIR)/zirvium.iso
 
 .PHONY: iso
 iso: $(KERNEL_ELF)
+	@command -v mformat >/dev/null 2>&1 || \
+	    { echo "Error: 'mformat' not found. Install mtools: sudo apt install mtools"; exit 1; }
 	@mkdir -p $(ISO_DIR)/boot/grub
 	cp $(KERNEL_ELF) $(ISO_DIR)/boot/zirvium.elf
 	@printf 'set timeout=0\nset default=0\n\nmenuentry "Zirvium" {\n  multiboot2 /boot/zirvium.elf\n  boot\n}\n' \
@@ -132,10 +136,13 @@ iso: $(KERNEL_ELF)
 	@echo "  ISO $(KERNEL_ISO)"
 
 # ── Run in QEMU ────────────────────────────────────────────────────────────────
+# QEMU's -kernel flag requires a Linux bzImage or PVH ELF; it does not support
+# Multiboot2.  Boot via GRUB using the ISO image instead.
 .PHONY: run
-run: $(KERNEL_ELF)
+run: $(KERNEL_ISO)
 	qemu-system-x86_64              \
-	    -kernel $(KERNEL_ELF)       \
+	    -cdrom $(KERNEL_ISO)        \
+	    -boot d                     \
 	    -serial stdio               \
 	    -display none               \
 	    -m 256M                     \
@@ -143,9 +150,10 @@ run: $(KERNEL_ELF)
 
 # ── Run with GDB attached ─────────────────────────────────────────────────────
 .PHONY: debug
-debug: $(KERNEL_ELF)
+debug: $(KERNEL_ISO)
 	qemu-system-x86_64              \
-	    -kernel $(KERNEL_ELF)       \
+	    -cdrom $(KERNEL_ISO)        \
+	    -boot d                     \
 	    -serial stdio               \
 	    -display none               \
 	    -m 256M                     \
