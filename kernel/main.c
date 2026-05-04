@@ -217,6 +217,8 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
         "============================================\n"
     );
 
+    serial_puts(SERIAL_COM1, "Zirvium 0.1 loaded successfully\n");
+
     /* Idle loop — scheduler / user-space init goes here */
     for (;;) __asm__ volatile("hlt");
 }
