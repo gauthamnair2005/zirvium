@@ -53,32 +53,35 @@ LDFLAGS := \
 
 # ── Sources ────────────────────────────────────────────────────────────────────
 C_SRCS := \
-    kernel/main.c                           \
-    kernel/mm/pmm.c                         \
-    kernel/mm/vmm.c                         \
-    kernel/mm/heap.c                        \
-    kernel/irq/irq.c                        \
-    kernel/proc/process.c                   \
-    kernel/syscall/syscall.c                \
-    kernel/ipc/pipe.c                       \
-    arch/x64/gdt.c                          \
-    arch/x64/idt.c                          \
-    fs/vfs.c                                \
-    drivers/pci/pci.c                       \
-    drivers/zirv/device.c                   \
-    drivers/zirv/sata.c                     \
-    drivers/zirv/nvme.c                     \
-    drivers/zirv/usb_storage.c              \
-    drivers/zirv/input/ps2/i8042.c          \
-    drivers/zirv/input/ps2/keyboard.c       \
-    drivers/zirv/input/ps2/synaptics.c      \
-    drivers/zirv/wifi/rtl8723de/rtl8723de.c \
-    drivers/zirv/bluetooth/btrtl.c          \
-    drivers/zirv/display/i915/i915.c        \
-    drivers/zirv/audio/hda/hda.c            \
-    drivers/serial/serial.c                 \
-    lib/string.c                            \
-    lib/stdio.c                             \
+    kernel/main.c                                   \
+    kernel/console.c                                \
+    kernel/mm/pmm.c                                 \
+    kernel/mm/vmm.c                                 \
+    kernel/mm/heap.c                                \
+    kernel/irq/irq.c                                \
+    kernel/proc/process.c                           \
+    kernel/syscall/syscall.c                        \
+    kernel/ipc/pipe.c                               \
+    arch/x64/gdt.c                                  \
+    arch/x64/idt.c                                  \
+    fs/vfs.c                                        \
+    drivers/pci/pci.c                               \
+    drivers/vga/vga.c                               \
+    drivers/zirv/device.c                           \
+    drivers/zirv/sata.c                             \
+    drivers/zirv/nvme.c                             \
+    drivers/zirv/usb_storage.c                      \
+    drivers/zirv/input/ps2/i8042.c                  \
+    drivers/zirv/input/ps2/keyboard.c               \
+    drivers/zirv/input/ps2/synaptics.c              \
+    drivers/zirv/wifi/rtl8723de/rtl8723de.c         \
+    drivers/zirv/bluetooth/btrtl.c                  \
+    drivers/zirv/display/bochs/bochs_vga.c          \
+    drivers/zirv/display/i915/i915.c                \
+    drivers/zirv/audio/hda/hda.c                    \
+    drivers/serial/serial.c                         \
+    lib/string.c                                    \
+    lib/stdio.c                                     \
     lib/ctype.c
 
 ASM_SRCS := \
@@ -142,13 +145,18 @@ iso: $(KERNEL_ELF)
 # ── Run in QEMU ────────────────────────────────────────────────────────────────
 # QEMU's -kernel flag requires a Linux bzImage or PVH ELF; it does not support
 # Multiboot2.  Boot via GRUB using the ISO image instead.
+#
+# -vga std   — standard VGA adapter with Bochs VBE extensions (PCI 0x1234:0x1111)
+# -display sdl — open a window so boot messages appear on the VGA console
+# -serial stdio — mirror serial output to the host terminal for debugging
 .PHONY: run
 run: $(KERNEL_ISO)
 	qemu-system-x86_64              \
 	    -cdrom $(KERNEL_ISO)        \
 	    -boot d                     \
+	    -vga std                    \
+	    -display sdl                \
 	    -serial stdio               \
-	    -display none               \
 	    -m 256M                     \
 	    -no-reboot
 
@@ -158,8 +166,9 @@ debug: $(KERNEL_ISO)
 	qemu-system-x86_64              \
 	    -cdrom $(KERNEL_ISO)        \
 	    -boot d                     \
+	    -vga std                    \
+	    -display sdl                \
 	    -serial stdio               \
-	    -display none               \
 	    -m 256M                     \
 	    -s -S &
 	gdb $(KERNEL_ELF)               \
