@@ -19,6 +19,51 @@
 
 static address_space_t kernel_as;
 
+/* ── Early-init helpers (before PHYS_MAP is active) ──────────────────────── */
+
+/*
+ * During early boot the CPU is still using the boot page-tables, which
+ * provide an identity map (PA == VA) for the first 4 GiB of physical memory.
+ * PHYS_TO_VIRT() adds PHYS_MAP_BASE and therefore cannot be used until the
+ * new page tables are loaded.  These helpers use the identity map instead.
+ */
+static inline pte_t *early_phys_to_virt(uint64_t phys)
+{
+    return (pte_t *)(uintptr_t)phys;
+}
+
+static uint64_t early_alloc_zeroed(void)
+{
+    uint64_t phys = pmm_alloc_page();
+    if (!phys) {
+        __asm__ volatile("cli; hlt");
+        for (;;) __asm__ volatile("hlt");
+    }
+    memset(early_phys_to_virt(phys), 0, PAGE_SIZE);
+    return phys;
+}
+
+/*
+ * Map a single 2 MiB huge page into pml4 (accessed via identity map).
+ * flags should include PTE_WRITABLE, PTE_GLOBAL, PTE_NO_EXEC as needed;
+ * PTE_PRESENT and PTE_HUGE are always added by this function.
+ */
+static void early_map_2m(pte_t *pml4, uint64_t virt, uint64_t phys,
+                          uint64_t flags)
+{
+    const uint64_t tbl_flags = PTE_PRESENT | PTE_WRITABLE;
+
+    if (!(pml4[PML4_IDX(virt)] & PTE_PRESENT))
+        pml4[PML4_IDX(virt)] = early_alloc_zeroed() | tbl_flags;
+    pte_t *pdp = early_phys_to_virt(PTE_CHILD_PHYS(pml4[PML4_IDX(virt)]));
+
+    if (!(pdp[PDP_IDX(virt)] & PTE_PRESENT))
+        pdp[PDP_IDX(virt)] = early_alloc_zeroed() | tbl_flags;
+    pte_t *pd = early_phys_to_virt(PTE_CHILD_PHYS(pdp[PDP_IDX(virt)]));
+
+    pd[PD_IDX(virt)] = (phys & 0x000FFFFFFFE00000ULL) | flags | PTE_PRESENT | PTE_HUGE;
+}
+
 /* ── Low-level page-table helpers ────────────────────────────────────────── */
 
 /* Get (or allocate) a child table pointer from a parent entry */
@@ -47,6 +92,14 @@ void vmm_map_page(address_space_t *as, uint64_t virt, uint64_t phys,
     if (!pdp) return;
     pte_t *pd  = get_or_alloc_table(&pdp[PDP_IDX(virt)],  table_flags);
     if (!pd)  return;
+
+    if (flags & PTE_HUGE) {
+        /* 2 MiB page: set the PDE directly — no PT needed */
+        pd[PD_IDX(virt)] = (phys & 0x000FFFFFFFE00000ULL) | flags | PTE_PRESENT;
+        __asm__ volatile("invlpg (%0)" : : "r"(virt) : "memory");
+        return;
+    }
+
     pte_t *pt  = get_or_alloc_table(&pd[PD_IDX(virt)],    table_flags);
     if (!pt)  return;
 
@@ -137,32 +190,43 @@ void vmm_switch_address_space(address_space_t *as)
 /* ── Kernel VMM initialisation ───────────────────────────────────────────── */
 void vmm_init(void)
 {
-    /* Allocate a fresh PML4 for the kernel */
+    /*
+     * At this point the boot page-tables (from boot.asm) are still active.
+     * They provide only an identity map of 0–4 GiB and the kernel higher-half
+     * mapping.  PHYS_MAP_BASE is NOT yet mapped, so PHYS_TO_VIRT() must not
+     * be used until after vmm_switch_address_space() below.
+     *
+     * We build the new kernel page tables using early_* helpers that access
+     * physical pages through the identity map (PA == VA).
+     */
     uint64_t pml4_phys = pmm_alloc_page();
     if (!pml4_phys) {
         /* Cannot proceed without page tables */
         __asm__ volatile("cli; hlt");
+        for (;;) __asm__ volatile("hlt");
     }
-    memset(PHYS_TO_VIRT(pml4_phys), 0, PAGE_SIZE);
+    memset(early_phys_to_virt(pml4_phys), 0, PAGE_SIZE);
     kernel_as.pml4_phys = pml4_phys;
+    pte_t *pml4 = early_phys_to_virt(pml4_phys);
 
     /* Identity map 0 – 4 GiB (2 MiB huge pages) */
-    for (uint64_t addr = 0; addr < 0x100000000ULL; addr += 0x200000ULL) {
-        vmm_map_page(&kernel_as, addr, addr,
-                     PTE_PRESENT | PTE_WRITABLE | PTE_HUGE | PTE_GLOBAL);
-    }
+    for (uint64_t addr = 0; addr < 0x100000000ULL; addr += 0x200000ULL)
+        early_map_2m(pml4, addr, addr,
+                     PTE_WRITABLE | PTE_GLOBAL);
 
     /* Direct physical map at PHYS_MAP_BASE (0 – 4 GiB with 2 MiB pages) */
-    for (uint64_t addr = 0; addr < 0x100000000ULL; addr += 0x200000ULL) {
-        vmm_map_page(&kernel_as, PHYS_MAP_BASE + addr, addr,
-                     PTE_PRESENT | PTE_WRITABLE | PTE_HUGE | PTE_GLOBAL | PTE_NO_EXEC);
-    }
+    for (uint64_t addr = 0; addr < 0x100000000ULL; addr += 0x200000ULL)
+        early_map_2m(pml4, PHYS_MAP_BASE + addr, addr,
+                     PTE_WRITABLE | PTE_GLOBAL | PTE_NO_EXEC);
 
     /* Map kernel image (1 GiB region at KERNEL_VIRT_BASE, from physical 0) */
-    for (uint64_t addr = 0; addr < 0x40000000ULL; addr += 0x200000ULL) {
-        vmm_map_page(&kernel_as, KERNEL_VIRT_BASE + addr, addr,
-                     PTE_PRESENT | PTE_WRITABLE | PTE_HUGE | PTE_GLOBAL);
-    }
+    for (uint64_t addr = 0; addr < 0x40000000ULL; addr += 0x200000ULL)
+        early_map_2m(pml4, KERNEL_VIRT_BASE + addr, addr,
+                     PTE_WRITABLE | PTE_GLOBAL);
 
+    /*
+     * Switch to the new page tables.  From this point on PHYS_TO_VIRT() is
+     * valid and vmm_map_page() / get_or_alloc_table() can be used normally.
+     */
     vmm_switch_address_space(&kernel_as);
 }
