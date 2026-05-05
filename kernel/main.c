@@ -240,6 +240,12 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     __asm__ volatile("sti");
     kprint_ok();
 
+	kputs("[info] Color Codes\n");
+	kprint_ok();
+	kputs("			This means the component have been loaded without any issue\n");
+	kprint_warn();
+	kputs("			This means the component is either absent or not loaded properly, however is not a fatal issue and won't hang or crash system\n");
+
     /* ── Boot complete ────────────────────────────────────────────────── */
 	kputs("-----------------------------LOADED----------------------------\n");
     kputs("Zirvium Kernel 0.3.1\nGautham Nair\n");
