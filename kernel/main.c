@@ -101,7 +101,7 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     vga_init();
     console_init();
     console_enable_vga();
-    kputs("Zirvium Kernel starting...\n");
+    kputs("Loading Zirvium Kernel\n");
 
     /* ── Step 2: Validate Multiboot2 magic ────────────────────────────── */
     if (multiboot2_magic != MB2_BOOTLOADER_MAGIC)
@@ -220,28 +220,7 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     __asm__ volatile("sti");
 
     /* ── Boot complete ────────────────────────────────────────────────── */
-    kputs(
-        "\n"
-        "============================================\n"
-        " Zirvium Kernel boot complete\n"
-        " MOSIX filesystem hierarchy active:\n"
-        "   /bin  /lib  /user  /boot\n"
-        "   /config  /zirv  /mounts  /tmp\n"
-        " /zirv device namespace populated:\n"
-        "   /zirv/sata/*  /zirv/nvme/*\n"
-        "   /zirv/net/wlan0  /zirv/net/bt0\n"
-        "   /zirv/display/gpu0\n"
-        "   /zirv/audio/output0\n"
-        "   /zirv/input/keyboard0\n"
-        "   /zirv/input/touchpad0\n"
-        " Userspace support ready (zirvlibc ABI):\n"
-        "   SYSCALL/SYSRET  read write open close\n"
-        "   mmap munmap brk pipe getpid exit\n"
-        "   Ring-3 entry via iretq\n"
-        "============================================\n"
-    );
-
-    kputs("Zirvium 0.1 loaded successfully\n");
+    kputs("Zirvium Kernel 0.2\nGautham Nair\n");
 
     /* Idle loop — scheduler / user-space init goes here */
     for (;;) __asm__ volatile("hlt");
