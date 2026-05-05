@@ -242,7 +242,7 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
 
     /* ── Boot complete ────────────────────────────────────────────────── */
 	kputs("-----------------------------LOADED----------------------------\n");
-    kputs("Zirvium Kernel 0.3\nGautham Nair\n");
+    kputs("Zirvium Kernel 0.3.1\nGautham Nair\n");
 
     /* Idle loop — scheduler / usr-space init goes here */
     for (;;) __asm__ volatile("hlt");
