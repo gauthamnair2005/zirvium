@@ -226,7 +226,7 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     kprint_warn();
 
     /* ── Step 18: Intel i915 display ─────────────────────────────────── */
-    kputs("[init] Intel i915 display (UHD 610 → Arc) ");
+    kputs("[init] Intel i915 display (starting detector)\n");
     i915_init();
     kprint_ok();
 
@@ -241,9 +241,10 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     kprint_ok();
 
     /* ── Boot complete ────────────────────────────────────────────────── */
-    kputs("Zirvium Kernel 0.2\nGautham Nair\n");
+	kputs("-----------------------------LOADED----------------------------\n");
+    kputs("Zirvium Kernel 0.3\nGautham Nair\n");
 
-    /* Idle loop — scheduler / user-space init goes here */
+    /* Idle loop — scheduler / usr-space init goes here */
     for (;;) __asm__ volatile("hlt");
 }
 
