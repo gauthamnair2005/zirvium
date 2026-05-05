@@ -101,7 +101,27 @@ void console_set_color(console_color_t color);
  */
 void console_reset_color(void);
 
-/* ── Status helpers ───────────────────────────────────────────────────────── */
+/* ── Logging system ───────────────────────────────────────────────────────── */
+typedef enum {
+    LOG_OK = 0,
+    LOG_INFO,
+    LOG_WARN,
+    LOG_FAIL,
+    LOG_DEBUG
+} log_level_t;
+
+/**
+ * klog - formatted output with a status prefix.
+ * @level:     severity level (LOG_OK, LOG_INFO, ...)
+ * @component: 1-4 character component tag (e.g. "PMM", "VMM", "INIT")
+ * @fmt:       format string
+ *
+ * Example: klog(LOG_OK, "PMM", "Initialised %u pages", count);
+ * Result:  [ 000000 ] [  OK  ] [ PMM  ] Initialised 1024 pages
+ */
+void klog(log_level_t level, const char *component, const char *fmt, ...);
+
+/* ── Status helpers (DEPRECATED) ──────────────────────────────────────────── */
 
 /** kprint_ok   - print " [done]\n" in green then restore default colour. */
 void kprint_ok(void);

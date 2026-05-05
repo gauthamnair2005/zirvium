@@ -12,8 +12,8 @@
 #include <stddef.h>
 
 /* ── Configuration ────────────────────────────────────────────────────────── */
-/* 16 GiB / 4 KiB = 4 194 304 frames → bitmap = 512 KiB */
-#define MAX_PMM_PAGES   (16UL * 1024UL * 1024UL * 1024UL / PAGE_SIZE)
+/* 1 TiB / 4 KiB = 268 435 456 frames → bitmap = 32 MiB */
+#define MAX_PMM_PAGES   (1024UL * 1024UL * 1024UL * 1024UL / PAGE_SIZE)
 
 /* ── Multiboot2 memory-map entry type values ─────────────────────────────── */
 #define MB2_MMAP_AVAILABLE  1

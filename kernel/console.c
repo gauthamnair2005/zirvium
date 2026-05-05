@@ -18,6 +18,7 @@
 #include <stddef.h>
 #include <stdarg.h>
 #include <stdint.h>
+#include <stdio.h>
 
 static bool g_vga_active = false;
 
@@ -70,64 +71,18 @@ void kwrite(const char *buf, size_t len)
 }
 
 /* ── kprintf — formatted output ──────────────────────────────────────────── */
-static void kprintf_itoa(uint64_t n, char *s, int base)
+static void kvprintf(const char *fmt, va_list args)
 {
-    static const char digits[] = "0123456789abcdef";
-    char buf[65];
-    int i = 0;
-    if (n == 0) { s[0] = '0'; s[1] = '\0'; return; }
-    while (n > 0) { buf[i++] = digits[n % (unsigned)base]; n /= (unsigned)base; }
-    for (int j = 0; j < i; j++) s[j] = buf[i - j - 1];
-    s[i] = '\0';
+    char buf[1024];
+    vsnprintf(buf, sizeof(buf), fmt, args);
+    kputs(buf);
 }
 
 void kprintf(const char *fmt, ...)
 {
     va_list args;
     va_start(args, fmt);
-
-    for (const char *p = fmt; *p; p++) {
-        if (*p != '%') { kputc(*p); continue; }
-        p++;
-        switch (*p) {
-        case 's': {
-            const char *s = va_arg(args, const char *);
-            kputs(s ? s : "(null)");
-            break;
-        }
-        case 'd': {
-            int n = va_arg(args, int);
-            uint32_t u;
-            if (n < 0) { kputc('-'); u = (n == -2147483647 - 1) ? 2147483648u : (uint32_t)-n; }
-            else { u = (uint32_t)n; }
-            char buf[32]; kprintf_itoa(u, buf, 10); kputs(buf);
-            break;
-        }
-        case 'u': {
-            char buf[32]; kprintf_itoa(va_arg(args, uint32_t), buf, 10); kputs(buf);
-            break;
-        }
-        case 'x': {
-            char buf[32]; kprintf_itoa(va_arg(args, uint32_t), buf, 16); kputs(buf);
-            break;
-        }
-        case 'p': {
-            kputs("0x");
-            char buf[65]; kprintf_itoa((uint64_t)(uintptr_t)va_arg(args, void *), buf, 16); kputs(buf);
-            break;
-        }
-        case 'c':
-            kputc((char)va_arg(args, int));
-            break;
-        case '%':
-            kputc('%');
-            break;
-        default:
-            kputc('%'); kputc(*p);
-            break;
-        }
-    }
-
+    kvprintf(fmt, args);
     va_end(args);
 }
 
@@ -139,6 +94,8 @@ static const char *const g_ansi_color[] = {
     [CONSOLE_COLOR_GREEN]   = "\033[32m",
     [CONSOLE_COLOR_RED]     = "\033[31m",
     [CONSOLE_COLOR_YELLOW]  = "\033[33m",
+    [4]                     = "\033[36m", /* cyan for info */
+    [5]                     = "\033[90m", /* bright black (grey) for debug */
 };
 
 /* VGA text-mode attributes (fg on black background) */
@@ -147,6 +104,8 @@ static const uint8_t g_vga_color[] = {
     [CONSOLE_COLOR_GREEN]   = VGA_COLOR(VGA_LIGHT_GREEN, VGA_BLACK),
     [CONSOLE_COLOR_RED]     = VGA_COLOR(VGA_LIGHT_RED, VGA_BLACK),
     [CONSOLE_COLOR_YELLOW]  = VGA_COLOR(VGA_YELLOW, VGA_BLACK),
+    [4]                     = VGA_COLOR(VGA_CYAN, VGA_BLACK),
+    [5]                     = VGA_COLOR(VGA_DARK_GREY, VGA_BLACK),
 };
 
 /* Pixel framebuffer colours (0x00RRGGBB) */
@@ -155,11 +114,13 @@ static const uint32_t g_fb_color[] = {
     [CONSOLE_COLOR_GREEN]   = 0x0000C000u,   /* green       */
     [CONSOLE_COLOR_RED]     = 0x00C00000u,   /* red         */
     [CONSOLE_COLOR_YELLOW]  = 0x00C0C000u,   /* yellow      */
+    [4]                     = 0x0000C0C0u,   /* cyan        */
+    [5]                     = 0x00808080u,   /* dark grey   */
 };
 
 void console_set_color(console_color_t color)
 {
-    if ((unsigned)color >= 4u)
+    if ((unsigned)color >= 6u)
         color = CONSOLE_COLOR_DEFAULT;
 
     /* Serial: ANSI escape sequence */
@@ -179,28 +140,56 @@ void console_reset_color(void)
     console_set_color(CONSOLE_COLOR_DEFAULT);
 }
 
-/* ── Status helpers ───────────────────────────────────────────────────────── */
+/* ── klog implementation ─────────────────────────────────────────────────── */
 
-void kprint_ok(void)
+void klog(log_level_t level, const char *component, const char *fmt, ...)
 {
-    console_set_color(CONSOLE_COLOR_GREEN);
-    kputs("[done]");
+    /* Format: [ 000000 ] [  OK  ] [ COMP ] Message */
+    kputs("[ 000000 ] "); /* TODO: add uptime counter */
+
+    switch (level) {
+    case LOG_OK:
+        console_set_color(CONSOLE_COLOR_GREEN);
+        kputs("[  OK  ] ");
+        break;
+    case LOG_INFO:
+        console_set_color((console_color_t)4);
+        kputs("[ INFO ] ");
+        break;
+    case LOG_WARN:
+        console_set_color(CONSOLE_COLOR_YELLOW);
+        kputs("[ WARN ] ");
+        break;
+    case LOG_FAIL:
+        console_set_color(CONSOLE_COLOR_RED);
+        kputs("[ FAIL ] ");
+        break;
+    case LOG_DEBUG:
+        console_set_color((console_color_t)5);
+        kputs("[DEBUG ] ");
+        break;
+    }
     console_reset_color();
+
+    /* Component tag */
+    kputs("[ ");
+    if (component) {
+        int len = 0;
+        while (component[len] && len < 4) { kputc(component[len]); len++; }
+        while (len < 4) { kputc(' '); len++; }
+    } else {
+        kputs("    ");
+    }
+    kputs(" ] ");
+
+    va_list args;
+    va_start(args, fmt);
+    kvprintf(fmt, args);
+    va_end(args);
+
     kputc('\n');
 }
 
-void kprint_fail(void)
-{
-    console_set_color(CONSOLE_COLOR_RED);
-    kputs("[failed]");
-    console_reset_color();
-    kputc('\n');
-}
-
-void kprint_warn(void)
-{
-    console_set_color(CONSOLE_COLOR_YELLOW);
-    kputs("[warn]");
-    console_reset_color();
-    kputc('\n');
-}
+void kprint_ok(void)   { klog(LOG_OK,   "INIT", "Success"); }
+void kprint_fail(void) { klog(LOG_FAIL, "INIT", "Failure"); }
+void kprint_warn(void) { klog(LOG_WARN, "INIT", "Warning"); }

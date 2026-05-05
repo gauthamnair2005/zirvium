@@ -217,8 +217,12 @@ void vmm_init(void)
         early_map_2m(pml4, addr, addr,
                      PTE_WRITABLE | PTE_GLOBAL);
 
-    /* Direct physical map at PHYS_MAP_BASE (0 – 4 GiB with 2 MiB pages) */
-    for (uint64_t addr = 0; addr < 0x100000000ULL; addr += 0x200000ULL)
+    /* Direct physical map at PHYS_MAP_BASE (map all available physical memory) */
+    /* Ensure we map at least the first 4 GiB to cover MMIO regions (PCI BARs, etc.) */
+    uint64_t total_mem = (uint64_t)pmm_total_pages() << PAGE_SHIFT;
+    if (total_mem < 0x100000000ULL) total_mem = 0x100000000ULL;
+
+    for (uint64_t addr = 0; addr < total_mem; addr += 0x200000ULL)
         early_map_2m(pml4, PHYS_MAP_BASE + addr, addr,
                      PTE_WRITABLE | PTE_GLOBAL | PTE_NO_EXEC);
 

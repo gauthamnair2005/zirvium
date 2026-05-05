@@ -155,7 +155,8 @@ _start:
 
     ; pd_high entries: 2 MiB pages mapping VA 0xFFFFFFFF80000000 → PA 0x200000
     ; (PHYS_KERNEL = 0x200000, which is 2 MiB aligned — required for huge pages)
-    ; Maps 4 × 2 MiB = 8 MiB of kernel virtual address space.
+    ; Maps 32 × 2 MiB = 64 MiB of kernel virtual address space to accommodate
+    ; the large physical memory bitmap in .bss.
     mov  ecx, 0
 .pd_high_loop:
     mov  eax, ecx
@@ -164,7 +165,7 @@ _start:
     or   eax, 0x83          ; present + writable + huge
     mov  [pd_high + ecx * 8], eax
     inc  ecx
-    cmp  ecx, 4
+    cmp  ecx, 32
     jl   .pd_high_loop
 
     ; ── Load PML4 into CR3 ───────────────────────────────────────────────────

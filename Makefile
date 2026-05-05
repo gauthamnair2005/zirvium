@@ -42,7 +42,9 @@ CFLAGS := \
     -Wall                   \
     -Wextra                 \
     -O2                     \
-    -I.
+    -DKERNEL                \
+    -I. \
+    -Ilibs/zirvlibc/include
 
 ASFLAGS := -f elf64
 
@@ -81,9 +83,9 @@ C_SRCS := \
     drivers/zirv/display/i915/i915.c                \
     drivers/zirv/audio/hda/hda.c                    \
     drivers/serial/serial.c                         \
-    lib/string.c                                    \
-    lib/stdio.c                                     \
-    lib/ctype.c
+    libs/zirvlibc/src/string.c                      \
+    libs/zirvlibc/src/stdio.c                       \
+    libs/zirvlibc/src/ctype.c
 
 ASM_SRCS := \
     arch/x64/boot.asm           \

@@ -79,19 +79,6 @@ static void kpanic(const char *msg)
     for (;;) __asm__ volatile("hlt");
 }
 
-/* ── Simple decimal formatter ────────────────────────────────────────────── */
-static void kputdec(uint64_t val)
-{
-    char buf[21];
-    int i = 20;
-    buf[i] = '\0';
-    if (val == 0) { kputc('0'); return; }
-    while (val && i > 0) {
-        buf[--i] = (char)('0' + val % 10);
-        val /= 10;
-    }
-    kputs(buf + i);
-}
 
 /* ── kernel_main ──────────────────────────────────────────────────────────── */
 void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
@@ -108,18 +95,15 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
         kpanic("Not loaded by a Multiboot2-compliant bootloader");
 
     /* ── Step 3: Set up a proper GDT + TSS ───────────────────────────── */
-    kputs("[init] GDT ");
     gdt_init();
     gdt_load_tss();
-    kprint_ok();
+    klog(LOG_OK, "GDT", "Global Descriptor Table initialised");
 
     /* ── Step 4: Set up IDT (exception + IRQ handling) ───────────────── */
-    kputs("[init] IDT ");
     idt_init();
-    kprint_ok();
+    klog(LOG_OK, "IDT", "Interrupt Descriptor Table initialised");
 
     /* ── Step 5: Parse Multiboot2 memory map ─────────────────────────── */
-    kputs("[init] PMM ");
     const mb2_info_t *info = (const mb2_info_t *)(uintptr_t)mb2_info_phys;
     const mb2_mmap_tag_t *mmap_tag = NULL;
 
@@ -143,102 +127,80 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
                       - (uint32_t)sizeof(mb2_mmap_tag_t);
     pmm_init(mmap_entries_addr, mmap_len, mmap_tag->entry_size);
 
-    kputs("[pmm] Total pages: ");
-    kputdec(pmm_total_pages());
-    kputs("  Free: ");
-    kputdec(pmm_free_page_count());
-    kputs("\n");
+    klog(LOG_INFO, "PMM", "Total pages: %u, Free: %u", 
+         (uint32_t)pmm_total_pages(), (uint32_t)pmm_free_page_count());
 
     /* ── Step 6: Virtual memory manager ─────────────────────────────── */
-    kputs("[init] VMM ");
     vmm_init();
-    kprint_ok();
+    klog(LOG_OK, "VMM", "Kernel page tables loaded (1 TiB direct-map ready)");
 
     /* ── Step 7: MOSIX VFS root namespace ─────────────────────────────── */
-    kputs("[init] MOSIX VFS ");
     vfs_init();
-    kprint_ok();
+    klog(LOG_OK, "VFS", "MOSIX root namespace mounted");
 
     /* ── Step 8: Process subsystem ────────────────────────────────────── */
-    kputs("[init] Process subsystem ");
     proc_init();
-    kprint_ok();
+    klog(LOG_OK, "PROC", "Process scheduler initialised");
 
     /* ── Step 9: Syscall interface (SYSCALL / SYSRET) ──────────────────── */
-    kputs("[init] Syscall interface ");
     syscall_init();
-    kprint_ok();
+    klog(LOG_OK, "SYSC", "Syscall interface active");
 
     /* ── Step 10: Device registry ─────────────────────────────────────── */
-    kputs("[init] /zirv device registry ");
     zirv_dev_init();
-    kprint_ok();
+    klog(LOG_OK, "DEV", "/zirv device registry ready");
 
     /* ── Step 11: PCI bus enumeration ─────────────────────────────────── */
-    kputs("[init] PCI bus scan ");
     pci_init();
-    kprint_ok();
+    klog(LOG_OK, "PCI", "Bus enumeration complete");
 
     /* ── Step 12: Bochs/QEMU VGA framebuffer (requires PCI + VMM) ──────── */
-    kputs("[init] Bochs/QEMU VGA display ");
     bochs_vga_init();
-    kprint_ok();
+    klog(LOG_OK, "VGA", "Bochs/QEMU display driver active");
 
     /* ── Step 13: Storage drivers ─────────────────────────────────────── */
-    kputs("[init] SATA/PATA ");
     sata_init();
-    kprint_ok();
+    klog(LOG_OK, "SATA", "SATA/PATA controllers probed");
 
-    kputs("[init] NVMe ");
     nvme_init();
-    kprint_ok();
+    klog(LOG_OK, "NVME", "NVMe storage volumes active");
 
-    kputs("[init] USB storage ");
     usb_storage_init();
-    kprint_ok();
+    klog(LOG_OK, "USB", "USB mass storage support ready");
 
     /* ── Step 14: IRQ subsystem (8259A PIC) ───────────────────────────── */
-    kputs("[init] IRQ / PIC ");
     irq_init();
-    kprint_ok();
+    klog(LOG_OK, "IRQ", "8259A PIC / IRQ routing enabled");
 
     /* ── Step 15: Input devices ───────────────────────────────────────── */
-    kputs("[init] PS/2 controller (i8042) ");
     i8042_init();
-    kprint_ok();
+    klog(LOG_OK, "PS2", "i8042 controller initialised");
 
-    kputs("[init] PS/2 keyboard ");
     keyboard_init();
-    kprint_ok();
+    klog(LOG_OK, "KBD", "PS/2 keyboard active");
 
-    kputs("[init] Synaptics touchpad ");
     synaptics_init();
-    kprint_warn();
+    klog(LOG_WARN, "SYN", "Synaptics touchpad not found");
 
     /* ── Step 16: WiFi — RTL8723DE ────────────────────────────────────── */
-    kputs("[init] RTL8723DE WiFi ");
     rtl8723de_init();
-    kprint_warn();
+    klog(LOG_WARN, "WIFI", "RTL8723DE hardware missing");
 
     /* ── Step 17: Bluetooth — RTL8723DE ───────────────────────────────── */
-    kputs("[init] RTL8723DE Bluetooth ");
-    btrtl_init(0);   /* 0 = auto-detect UART port */
-    kprint_warn();
+    btrtl_init(0);
+    klog(LOG_WARN, "BT", "Bluetooth stack starting (no device)");
 
     /* ── Step 18: Intel i915 display ─────────────────────────────────── */
-    kputs("[init] Intel i915 display (starting detector)\n");
     i915_init();
-    kprint_ok();
+    klog(LOG_OK, "I915", "Intel i915 detector finished");
 
     /* ── Step 19: Intel HDA audio ────────────────────────────────────── */
-    kputs("[init] Intel HDA audio ");
     hda_init();
-    kprint_warn();
+    klog(LOG_WARN, "HDA", "No HDA codecs found");
 
     /* ── Step 20: Enable interrupts ───────────────────────────────────── */
-    kputs("[init] Enabling interrupts ");
     __asm__ volatile("sti");
-    kprint_ok();
+    klog(LOG_OK, "INIT", "Hardware interrupts enabled");
 
 	kputs("[info] Color Codes\n");
 	kprint_ok();
@@ -269,11 +231,8 @@ void isr_dispatch(void *state)
         irq_dispatch((int)s->int_no);
     } else {
         /* CPU exception — log and halt for now */
-        kputs("[EXCEPTION] #");
-        kputdec(s->int_no);
-        kputs(" err=");
-        kputdec(s->err_code);
-        kputs("\n");
+        klog(LOG_FAIL, "CPU", "Exception #%u (error code: %u)", 
+             (uint32_t)s->int_no, (uint32_t)s->err_code);
         __asm__ volatile("cli; hlt");
     }
 }
