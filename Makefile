@@ -83,6 +83,12 @@ C_SRCS := \
     drivers/zirv/display/i915/i915.c                \
     drivers/zirv/audio/hda/hda.c                    \
     drivers/serial/serial.c                         \
+    drivers/zirv/driver.c                           \
+    drivers/zirv/display/vmware.c                   \
+    drivers/zirv/tpm.c                              \
+    drivers/zirv/intel_e1000.c                      \
+    drivers/zirv/virtio.c                           \
+    drivers/zirv/realtek.c                          \
     libs/zirvlibc/src/string.c                      \
     libs/zirvlibc/src/stdio.c                       \
     libs/zirvlibc/src/ctype.c
@@ -154,13 +160,20 @@ iso: $(KERNEL_ELF)
 # -serial stdio — mirror serial output to the host terminal for debugging
 .PHONY: run
 run: $(KERNEL_ISO)
+	@mkdir -p $(BUILD_DIR)
+	@if [ ! -f $(BUILD_DIR)/blank.img ]; then dd if=/dev/zero of=$(BUILD_DIR)/blank.img bs=1M count=10; fi
 	qemu-system-x86_64              \
 	    -cdrom $(KERNEL_ISO)        \
+	    -drive file=$(BUILD_DIR)/blank.img,format=raw,if=ide \
+	    -drive file=/dev/zero,format=raw,if=none,id=vdisk0 -device virtio-blk-pci,drive=vdisk0 \
+	    -netdev user,id=net0 -device e1000,netdev=net0      \
+	    -netdev user,id=net1 -device virtio-net-pci,netdev=net1 \
+	    -netdev user,id=net2 -device rtl8139,netdev=net2    \
 	    -boot d                     \
 	    -vga std                    \
 	    -display sdl                \
 	    -serial stdio               \
-	    -m 256M                     \
+	    -m 512M                     \
 	    -no-reboot
 
 # ── Run with GDB attached ─────────────────────────────────────────────────────

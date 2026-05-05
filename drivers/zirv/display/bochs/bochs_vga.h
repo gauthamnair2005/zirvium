@@ -74,6 +74,10 @@ typedef struct {
  *
  * Must be called after pci_init() and vmm_init().
  */
+#include "drivers/zirv/driver.h"
+
+extern const zirv_driver_t g_bochs_vga_driver;
+
 void bochs_vga_init(void);
 
 /**

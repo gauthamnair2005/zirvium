@@ -39,6 +39,66 @@ static uint16_t vbe_read(uint16_t index)
 }
 
 /* ── Public API ───────────────────────────────────────────────────────────── */
+static int bochs_vga_probe(void *hw_desc)
+{
+    pci_dev_t *pdev = (pci_dev_t *)hw_desc;
+    pci_enable_device(pdev);
+
+    /* BAR0 holds the linear framebuffer */
+    void *fb_virt = pci_map_bar(pdev, 0);
+    if (!fb_virt) return -1;
+
+    /* Verify the Bochs VBE interface is present */
+    uint16_t ver = vbe_read(VBE_DISPI_INDEX_ID);
+    if ((ver & 0xB0C0u) != 0xB0C0u) return -1;
+
+    /* Disable VBE before reprogramming */
+    vbe_write(VBE_DISPI_INDEX_ENABLE, VBE_DISPI_DISABLED);
+
+    /* Program resolution and colour depth */
+    vbe_write(VBE_DISPI_INDEX_XRES, (uint16_t)BOCHS_VGA_WIDTH);
+    vbe_write(VBE_DISPI_INDEX_YRES, (uint16_t)BOCHS_VGA_HEIGHT);
+    vbe_write(VBE_DISPI_INDEX_BPP,  (uint16_t)BOCHS_VGA_BPP);
+
+    /* Enable with linear framebuffer */
+    vbe_write(VBE_DISPI_INDEX_ENABLE,
+              VBE_DISPI_ENABLED | VBE_DISPI_LFB_ENABLED);
+
+    /* Fill in the descriptor */
+    g_fb.fb_virt = fb_virt;
+    g_fb.fb_phys = pdev->bars[0].phys_addr;
+    g_fb.width   = BOCHS_VGA_WIDTH;
+    g_fb.height  = BOCHS_VGA_HEIGHT;
+    g_fb.stride  = BOCHS_VGA_WIDTH * (BOCHS_VGA_BPP / 8u);
+    g_fb.bpp     = BOCHS_VGA_BPP;
+    g_fb.ready   = true;
+
+    /* Clear the framebuffer to black */
+    memset(fb_virt, 0, g_fb.stride * g_fb.height);
+
+    /* Register with /zirv/display/gpu0 */
+    zirv_register_device(DEV_CLASS_DISPLAY_GPU, DEV_CLASS_DISPLAY_GPU,
+                         "Bochs/QEMU VGA (bochs_vga)", NULL);
+
+    /* Route console output to the pixel framebuffer */
+    console_enable_fb(fb_virt,
+                      g_fb.width, g_fb.height,
+                      g_fb.stride, g_fb.bpp);
+
+    return 0;
+}
+
+const zirv_driver_t g_bochs_vga_driver = {
+    .name = "bochs_vga",
+    .component_tag = "VGA ",
+    .type = DRIVER_TYPE_PCI,
+    .match.pci = {
+        .vendor_id = BOCHS_VGA_VENDOR_ID,
+        .device_id = BOCHS_VGA_DEVICE_STD
+    },
+    .probe = bochs_vga_probe
+};
+
 void bochs_vga_init(void)
 {
     kputs("[bochs_vga] Scanning PCI for Bochs/QEMU VGA device\n");
