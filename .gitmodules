@@ -1,0 +1,3 @@
+[submodule "libs/zirvlibc"]
+	path = libs/zirvlibc
+	url = https://github.com/gauthamnair2005/zirvlibc.git
