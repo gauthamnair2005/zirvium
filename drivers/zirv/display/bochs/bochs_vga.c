@@ -98,6 +98,12 @@ void bochs_vga_init(void)
     zirv_register_device(DEV_CLASS_DISPLAY_GPU, DEV_CLASS_DISPLAY_GPU,
                          "Bochs/QEMU VGA (bochs_vga)", NULL);
 
+    /* Route console output to the pixel framebuffer so boot messages remain
+     * visible in the QEMU SDL window now that VBE pixel mode is active. */
+    console_enable_fb(fb_virt,
+                      g_fb.width, g_fb.height,
+                      g_fb.stride, g_fb.bpp);
+
     kputs("[bochs_vga] Framebuffer ready → /zirv/display/gpu0\n");
 }
 

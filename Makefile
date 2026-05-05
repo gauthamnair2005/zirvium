@@ -67,6 +67,7 @@ C_SRCS := \
     fs/vfs.c                                        \
     drivers/pci/pci.c                               \
     drivers/vga/vga.c                               \
+    drivers/vga/fb_console.c                        \
     drivers/zirv/device.c                           \
     drivers/zirv/sata.c                             \
     drivers/zirv/nvme.c                             \
