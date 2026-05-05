@@ -130,3 +130,77 @@ void kprintf(const char *fmt, ...)
 
     va_end(args);
 }
+
+/* ── Colour support ───────────────────────────────────────────────────────── */
+
+/* ANSI SGR escape sequences emitted on the serial port */
+static const char *const g_ansi_color[] = {
+    [CONSOLE_COLOR_DEFAULT] = "\033[0m",
+    [CONSOLE_COLOR_GREEN]   = "\033[32m",
+    [CONSOLE_COLOR_RED]     = "\033[31m",
+    [CONSOLE_COLOR_YELLOW]  = "\033[33m",
+};
+
+/* VGA text-mode attributes (fg on black background) */
+static const uint8_t g_vga_color[] = {
+    [CONSOLE_COLOR_DEFAULT] = VGA_COLOR(VGA_LIGHT_GREY, VGA_BLACK),
+    [CONSOLE_COLOR_GREEN]   = VGA_COLOR(VGA_LIGHT_GREEN, VGA_BLACK),
+    [CONSOLE_COLOR_RED]     = VGA_COLOR(VGA_LIGHT_RED, VGA_BLACK),
+    [CONSOLE_COLOR_YELLOW]  = VGA_COLOR(VGA_YELLOW, VGA_BLACK),
+};
+
+/* Pixel framebuffer colours (0x00RRGGBB) */
+static const uint32_t g_fb_color[] = {
+    [CONSOLE_COLOR_DEFAULT] = 0x00C0C0C0u,   /* light grey  */
+    [CONSOLE_COLOR_GREEN]   = 0x0000C000u,   /* green       */
+    [CONSOLE_COLOR_RED]     = 0x00C00000u,   /* red         */
+    [CONSOLE_COLOR_YELLOW]  = 0x00C0C000u,   /* yellow      */
+};
+
+void console_set_color(console_color_t color)
+{
+    if ((unsigned)color >= 4u)
+        color = CONSOLE_COLOR_DEFAULT;
+
+    /* Serial: ANSI escape sequence */
+    serial_puts(SERIAL_COM1, g_ansi_color[color]);
+
+    /* VGA text console */
+    if (g_vga_active)
+        vga_set_color(g_vga_color[color]);
+
+    /* Pixel framebuffer */
+    if (fb_console_ready())
+        fb_console_set_fg_color(g_fb_color[color]);
+}
+
+void console_reset_color(void)
+{
+    console_set_color(CONSOLE_COLOR_DEFAULT);
+}
+
+/* ── Status helpers ───────────────────────────────────────────────────────── */
+
+void kprint_ok(void)
+{
+    console_set_color(CONSOLE_COLOR_GREEN);
+    kputs("[done]");
+    console_reset_color();
+    kputc('\n');
+}
+
+void kprint_fail(void)
+{
+    console_set_color(CONSOLE_COLOR_RED);
+    kputs("[failed]");
+    console_reset_color();
+    kputc('\n');
+}
+
+void kprint_warn(void)
+{
+    console_set_color(CONSOLE_COLOR_YELLOW);
+    kputs("[warn]");
+    console_reset_color();
+    kputc('\n');
+}

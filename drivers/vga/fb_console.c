@@ -125,6 +125,7 @@ static struct {
     uint32_t  rows;      /* character rows:    height / FB_FONT_H */
     uint32_t  cur_col;   /* current cursor column */
     uint32_t  cur_row;   /* current cursor row    */
+    uint32_t  fg_color;  /* current foreground colour (0x00RRGGBB) */
     bool      ready;
 } g_fb;
 
@@ -159,7 +160,7 @@ static void draw_glyph(uint32_t char_col, uint32_t char_row, char c)
         uint8_t bits = glyph[row];
         for (uint32_t col = 0; col < FB_FONT_W; col++) {
             uint32_t colour = (bits & (0x80u >> col))
-                              ? FB_COL_FG : FB_COL_BG;
+                              ? g_fb.fg_color : FB_COL_BG;
             put_pixel(px + col, py + row, colour);
         }
     }
@@ -195,6 +196,7 @@ bool fb_console_init(void *fb, uint32_t width, uint32_t height,
     g_fb.rows      = height / FB_FONT_H;
     g_fb.cur_col   = 0;
     g_fb.cur_row   = 0;
+    g_fb.fg_color  = FB_COL_FG;
     g_fb.ready     = true;
 
     /* Clear screen */
@@ -251,4 +253,9 @@ void fb_console_puts(const char *s)
     if (!s) return;
     for (; *s; s++)
         fb_console_putc(*s);
+}
+
+void fb_console_set_fg_color(uint32_t color)
+{
+    g_fb.fg_color = color;
 }

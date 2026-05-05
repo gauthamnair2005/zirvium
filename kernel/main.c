@@ -108,16 +108,18 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
         kpanic("Not loaded by a Multiboot2-compliant bootloader");
 
     /* ── Step 3: Set up a proper GDT + TSS ───────────────────────────── */
-    kputs("[init] GDT\n");
+    kputs("[init] GDT ");
     gdt_init();
     gdt_load_tss();
+    kprint_ok();
 
     /* ── Step 4: Set up IDT (exception + IRQ handling) ───────────────── */
-    kputs("[init] IDT\n");
+    kputs("[init] IDT ");
     idt_init();
+    kprint_ok();
 
     /* ── Step 5: Parse Multiboot2 memory map ─────────────────────────── */
-    kputs("[init] PMM\n");
+    kputs("[init] PMM ");
     const mb2_info_t *info = (const mb2_info_t *)(uintptr_t)mb2_info_phys;
     const mb2_mmap_tag_t *mmap_tag = NULL;
 
@@ -148,76 +150,95 @@ void kernel_main(uint32_t multiboot2_magic, uint32_t mb2_info_phys)
     kputs("\n");
 
     /* ── Step 6: Virtual memory manager ─────────────────────────────── */
-    kputs("[init] VMM\n");
+    kputs("[init] VMM ");
     vmm_init();
+    kprint_ok();
 
     /* ── Step 7: MOSIX VFS root namespace ─────────────────────────────── */
-    kputs("[init] MOSIX VFS\n");
+    kputs("[init] MOSIX VFS ");
     vfs_init();
+    kprint_ok();
 
     /* ── Step 8: Process subsystem ────────────────────────────────────── */
-    kputs("[init] Process subsystem\n");
+    kputs("[init] Process subsystem ");
     proc_init();
+    kprint_ok();
 
     /* ── Step 9: Syscall interface (SYSCALL / SYSRET) ──────────────────── */
-    kputs("[init] Syscall interface\n");
+    kputs("[init] Syscall interface ");
     syscall_init();
+    kprint_ok();
 
     /* ── Step 10: Device registry ─────────────────────────────────────── */
-    kputs("[init] /zirv device registry\n");
+    kputs("[init] /zirv device registry ");
     zirv_dev_init();
+    kprint_ok();
 
     /* ── Step 11: PCI bus enumeration ─────────────────────────────────── */
-    kputs("[init] PCI bus scan\n");
+    kputs("[init] PCI bus scan ");
     pci_init();
+    kprint_ok();
 
     /* ── Step 12: Bochs/QEMU VGA framebuffer (requires PCI + VMM) ──────── */
-    kputs("[init] Bochs/QEMU VGA display\n");
+    kputs("[init] Bochs/QEMU VGA display ");
     bochs_vga_init();
+    kprint_ok();
 
     /* ── Step 13: Storage drivers ─────────────────────────────────────── */
-    kputs("[init] SATA/PATA\n");
+    kputs("[init] SATA/PATA ");
     sata_init();
+    kprint_ok();
 
-    kputs("[init] NVMe\n");
+    kputs("[init] NVMe ");
     nvme_init();
+    kprint_ok();
 
-    kputs("[init] USB storage\n");
+    kputs("[init] USB storage ");
     usb_storage_init();
+    kprint_ok();
 
     /* ── Step 14: IRQ subsystem (8259A PIC) ───────────────────────────── */
-    kputs("[init] IRQ / PIC\n");
+    kputs("[init] IRQ / PIC ");
     irq_init();
+    kprint_ok();
 
     /* ── Step 15: Input devices ───────────────────────────────────────── */
-    kputs("[init] PS/2 controller (i8042)\n");
+    kputs("[init] PS/2 controller (i8042) ");
     i8042_init();
+    kprint_ok();
 
-    kputs("[init] PS/2 keyboard\n");
+    kputs("[init] PS/2 keyboard ");
     keyboard_init();
+    kprint_ok();
 
-    kputs("[init] Synaptics touchpad\n");
+    kputs("[init] Synaptics touchpad ");
     synaptics_init();
+    kprint_warn();
 
     /* ── Step 16: WiFi — RTL8723DE ────────────────────────────────────── */
-    kputs("[init] RTL8723DE WiFi\n");
+    kputs("[init] RTL8723DE WiFi ");
     rtl8723de_init();
+    kprint_warn();
 
     /* ── Step 17: Bluetooth — RTL8723DE ───────────────────────────────── */
-    kputs("[init] RTL8723DE Bluetooth\n");
+    kputs("[init] RTL8723DE Bluetooth ");
     btrtl_init(0);   /* 0 = auto-detect UART port */
+    kprint_warn();
 
     /* ── Step 18: Intel i915 display ─────────────────────────────────── */
-    kputs("[init] Intel i915 display (UHD 610 → Arc)\n");
+    kputs("[init] Intel i915 display (UHD 610 → Arc) ");
     i915_init();
+    kprint_ok();
 
     /* ── Step 19: Intel HDA audio ────────────────────────────────────── */
-    kputs("[init] Intel HDA audio\n");
+    kputs("[init] Intel HDA audio ");
     hda_init();
+    kprint_warn();
 
     /* ── Step 20: Enable interrupts ───────────────────────────────────── */
-    kputs("[init] Enabling interrupts\n");
+    kputs("[init] Enabling interrupts ");
     __asm__ volatile("sti");
+    kprint_ok();
 
     /* ── Boot complete ────────────────────────────────────────────────── */
     kputs("Zirvium Kernel 0.2\nGautham Nair\n");

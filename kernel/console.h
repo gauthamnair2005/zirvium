@@ -69,4 +69,47 @@ void kwrite(const char *buf, size_t len);
 /** kprintf - formatted output to all active console backends (%s %d %u %x %p %c). */
 void kprintf(const char *fmt, ...);
 
+/* ── Colour support ───────────────────────────────────────────────────────── */
+
+/**
+ * console_color_t - named colours for console output.
+ *
+ * CONSOLE_COLOR_DEFAULT restores the normal light-grey-on-black appearance.
+ * The named colours map to VGA text attributes, FB pixel colours, and ANSI
+ * escape codes on the serial port.
+ */
+typedef enum {
+    CONSOLE_COLOR_DEFAULT = 0,
+    CONSOLE_COLOR_GREEN,          /* success / [done]  */
+    CONSOLE_COLOR_RED,            /* hard failure / [failed] */
+    CONSOLE_COLOR_YELLOW,         /* non-critical warning / [warn] */
+} console_color_t;
+
+/**
+ * console_set_color - change the active text colour on all backends.
+ *
+ * Changes take effect immediately for all subsequent kputc() / kputs() /
+ * kprintf() calls.  Always pair with console_reset_color() to restore the
+ * default colour.
+ */
+void console_set_color(console_color_t color);
+
+/**
+ * console_reset_color - restore the default text colour on all backends.
+ *
+ * Equivalent to console_set_color(CONSOLE_COLOR_DEFAULT).
+ */
+void console_reset_color(void);
+
+/* ── Status helpers ───────────────────────────────────────────────────────── */
+
+/** kprint_ok   - print " [done]\n" in green then restore default colour. */
+void kprint_ok(void);
+
+/** kprint_fail - print " [failed]\n" in red then restore default colour. */
+void kprint_fail(void);
+
+/** kprint_warn - print " [warn]\n" in yellow then restore default colour. */
+void kprint_warn(void);
+
 #endif /* ZIRVIUM_KERNEL_CONSOLE_H */
