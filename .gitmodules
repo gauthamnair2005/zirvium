@@ -2,3 +2,6 @@
 	path = libs/zirvlibc
 	url = https://github.com/gauthamnair2005/zirvlibc.git
 	branch = main
+[submodule "zirvinit"]
+	path = zirvinit
+	url = ./zirvinit
