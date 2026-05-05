@@ -97,8 +97,10 @@ void kprintf(const char *fmt, ...)
         }
         case 'd': {
             int n = va_arg(args, int);
-            if (n < 0) { kputc('-'); n = -n; }
-            char buf[32]; kprintf_itoa((uint32_t)n, buf, 10); kputs(buf);
+            uint32_t u;
+            if (n < 0) { kputc('-'); u = (n == -2147483647 - 1) ? 2147483648u : (uint32_t)-n; }
+            else { u = (uint32_t)n; }
+            char buf[32]; kprintf_itoa(u, buf, 10); kputs(buf);
             break;
         }
         case 'u': {
