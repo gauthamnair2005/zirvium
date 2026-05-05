@@ -59,4 +59,14 @@ void fb_console_puts(const char *s);
  */
 bool fb_console_ready(void);
 
+/**
+ * fb_console_set_fg_color - change the foreground (text) colour.
+ *
+ * @color: 32-bit pixel value in 0x00RRGGBB format.
+ *
+ * Subsequent calls to fb_console_putc() / fb_console_puts() will draw
+ * glyphs using this colour.  Pass FB_COL_FG to restore the default.
+ */
+void fb_console_set_fg_color(uint32_t color);
+
 #endif /* ZIRVIUM_DRIVERS_VGA_FB_CONSOLE_H */
