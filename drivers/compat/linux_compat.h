@@ -159,13 +159,13 @@ static inline void usleep_range(unsigned long min_us, unsigned long max_us)
     { udelay((min_us + max_us) / 2); }
 
 /* ── Logging ──────────────────────────────────────────────────────────────── */
-/* Forward-declare serial output so drivers can use dev_err / dev_info */
-void serial_puts(unsigned short port, const char *s);
-#define SERIAL_COM1  0x3F8
+/* Route driver log messages through the unified kernel console so they
+ * appear on VGA, the framebuffer, and the serial port simultaneously. */
+void kputs(const char *s);   /* kernel/console.h — forward declaration */
 
-#define pr_err(fmt, ...)   serial_puts(SERIAL_COM1, "[ERR] " fmt)
-#define pr_warn(fmt, ...)  serial_puts(SERIAL_COM1, "[WRN] " fmt)
-#define pr_info(fmt, ...)  serial_puts(SERIAL_COM1, "[INF] " fmt)
+#define pr_err(fmt, ...)   kputs("[ERR] " fmt)
+#define pr_warn(fmt, ...)  kputs("[WRN] " fmt)
+#define pr_info(fmt, ...)  kputs("[INF] " fmt)
 #define pr_debug(fmt, ...) /* debug disabled by default */
 
 /* Device-context logging (dev pointer ignored, messages go to serial) */

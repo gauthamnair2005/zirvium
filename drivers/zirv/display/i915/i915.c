@@ -15,7 +15,7 @@
 #include "i915_regs.h"
 #include "drivers/pci/pci.h"
 #include "drivers/zirv/device.h"
-#include "drivers/serial/serial.h"
+#include "kernel/console.h"
 #include "kernel/mm/pmm.h"
 #include "kernel/mm/vmm.h"
 #include "drivers/compat/linux_compat.h"
@@ -124,7 +124,7 @@ static bool i915_read_edid(edid_t *edid)
     uint8_t *out = (uint8_t *)edid;
     for (int word = 0; word < 32; word++) {
         if (!gmbus_wait_hw_rdy()) {
-            serial_puts(SERIAL_COM1, "[i915] GMBUS timeout reading EDID\n");
+            kputs("[i915] GMBUS timeout reading EDID\n");
             /* Clear GMBUS */
             I915_WRITE(GMBUS1, GMBUS_SW_CLR_INT);
             return false;
@@ -268,7 +268,7 @@ void i915_set_backlight(uint8_t level)
 /* ── Public API ───────────────────────────────────────────────────────────── */
 void i915_init(void)
 {
-    serial_puts(SERIAL_COM1, "[i915] Scanning PCI for Intel GPU\n");
+    kputs("[i915] Scanning PCI for Intel GPU\n");
 
     pci_dev_t *pdev = NULL;
     for (size_t k = 0; k < sizeof(i915_device_ids)/sizeof(i915_device_ids[0]); k++) {
@@ -276,11 +276,11 @@ void i915_init(void)
         if (pdev) break;
     }
     if (!pdev) {
-        serial_puts(SERIAL_COM1, "[i915] Intel GPU not found\n");
+        kputs("[i915] Intel GPU not found\n");
         return;
     }
 
-    serial_puts(SERIAL_COM1, "[i915] Intel integrated GPU found\n");
+    kputs("[i915] Intel integrated GPU found\n");
     pci_enable_device(pdev);
 
     g_i915.pdev = pdev;
@@ -288,7 +288,7 @@ void i915_init(void)
     /* Map BAR0 (16 MiB MMIO register space) */
     g_i915.mmio = pci_map_bar(pdev, 0);
     if (!g_i915.mmio) {
-        serial_puts(SERIAL_COM1, "[i915] Failed to map BAR0 (MMIO)\n");
+        kputs("[i915] Failed to map BAR0 (MMIO)\n");
         return;
     }
 
@@ -300,9 +300,9 @@ void i915_init(void)
     /* Try to read EDID from internal panel */
     if (i915_read_edid(&g_i915.edid)) {
         g_i915.edid_valid = true;
-        serial_puts(SERIAL_COM1, "[i915] EDID read successfully\n");
+        kputs("[i915] EDID read successfully\n");
     } else {
-        serial_puts(SERIAL_COM1, "[i915] EDID read failed, using 1366x768\n");
+        kputs("[i915] EDID read failed, using 1366x768\n");
     }
 
     /* Determine display resolution */
@@ -312,7 +312,7 @@ void i915_init(void)
 
     /* Allocate framebuffer */
     if (!i915_alloc_fb(width, height)) {
-        serial_puts(SERIAL_COM1, "[i915] FB allocation failed\n");
+        kputs("[i915] FB allocation failed\n");
         return;
     }
 
@@ -337,8 +337,13 @@ void i915_init(void)
         vfs_register_device(DEV_CLASS_DISPLAY_GPU, DEV_CLASS_DISPLAY_GPU, 0, desc);
     }
 
-    serial_puts(SERIAL_COM1,
-        "[i915] Display initialised → /zirv/display/gpu0\n");
+    /* Route console output to the pixel framebuffer so boot messages remain
+     * visible on the physical display once the i915 scanout is active. */
+    console_enable_fb(g_i915.fb.virt_addr,
+                      g_i915.fb.width, g_i915.fb.height,
+                      g_i915.fb.stride, g_i915.fb.bpp);
+
+    kputs("[i915] Display initialised → /zirv/display/gpu0\n");
 }
 
 const i915_framebuffer_t *i915_get_fb(void)
