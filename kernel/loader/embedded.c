@@ -8,16 +8,24 @@ extern char zirvutil_cat_bin_start[], zirvutil_cat_bin_end[];
 extern char zirvutil_sysinfo_bin_start[], zirvutil_sysinfo_bin_end[];
 extern char zirvutil_clear_bin_start[], zirvutil_clear_bin_end[];
 extern char zirvutil_echo_bin_start[], zirvutil_echo_bin_end[];
+extern char zirvutil_reboot_bin_start[], zirvutil_reboot_bin_end[];
+extern char zirvutil_shutdown_bin_start[], zirvutil_shutdown_bin_end[];
+extern char zirvutil_suspend_bin_start[], zirvutil_suspend_bin_end[];
+extern char zirvutil_poweroff_bin_start[], zirvutil_poweroff_bin_end[];
 
 static embedded_binary_t embedded_binaries_data[] = {
-    { .path = "/bin/init",    .data = NULL, .size = 0 },
-    { .path = "/bin/shell",   .data = NULL, .size = 0 },
-    { .path = "/bin/hello",   .data = NULL, .size = 0 },
-    { .path = "/bin/cat",     .data = NULL, .size = 0 },
-    { .path = "/bin/sysinfo", .data = NULL, .size = 0 },
-    { .path = "/bin/clear",   .data = NULL, .size = 0 },
-    { .path = "/bin/echo",    .data = NULL, .size = 0 },
-    { .path = NULL,           .data = NULL, .size = 0 },
+    { .path = "/bin/init",     .data = NULL, .size = 0 },
+    { .path = "/bin/shell",    .data = NULL, .size = 0 },
+    { .path = "/bin/hello",    .data = NULL, .size = 0 },
+    { .path = "/bin/cat",      .data = NULL, .size = 0 },
+    { .path = "/bin/sysinfo",  .data = NULL, .size = 0 },
+    { .path = "/bin/clear",    .data = NULL, .size = 0 },
+    { .path = "/bin/echo",     .data = NULL, .size = 0 },
+    { .path = "/bin/reboot",   .data = NULL, .size = 0 },
+    { .path = "/bin/shutdown", .data = NULL, .size = 0 },
+    { .path = "/bin/suspend",  .data = NULL, .size = 0 },
+    { .path = "/bin/poweroff", .data = NULL, .size = 0 },
+    { .path = NULL,            .data = NULL, .size = 0 },
 };
 
 const embedded_binary_t *embedded_binaries = embedded_binaries_data;
@@ -38,6 +46,14 @@ void embedded_init(void)
     embedded_binaries_data[5].size = (size_t)(zirvutil_clear_bin_end - zirvutil_clear_bin_start);
     embedded_binaries_data[6].data = zirvutil_echo_bin_start;
     embedded_binaries_data[6].size = (size_t)(zirvutil_echo_bin_end - zirvutil_echo_bin_start);
+    embedded_binaries_data[7].data = zirvutil_reboot_bin_start;
+    embedded_binaries_data[7].size = (size_t)(zirvutil_reboot_bin_end - zirvutil_reboot_bin_start);
+    embedded_binaries_data[8].data = zirvutil_shutdown_bin_start;
+    embedded_binaries_data[8].size = (size_t)(zirvutil_shutdown_bin_end - zirvutil_shutdown_bin_start);
+    embedded_binaries_data[9].data = zirvutil_suspend_bin_start;
+    embedded_binaries_data[9].size = (size_t)(zirvutil_suspend_bin_end - zirvutil_suspend_bin_start);
+    embedded_binaries_data[10].data = zirvutil_poweroff_bin_start;
+    embedded_binaries_data[10].size = (size_t)(zirvutil_poweroff_bin_end - zirvutil_poweroff_bin_start);
 }
 
 const void *embedded_find(const char *path, size_t *size_out)

@@ -13,6 +13,7 @@
 #include "fs/mosix.h"
 #include "arch/x64/cpu.h"
 #include "arch/x64/gdt.h"
+#include "drivers/serial/serial.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -522,6 +523,17 @@ uint64_t syscall_dispatch(uint64_t num,
         return sys_gettz(proc);
     case SYS_SETTZ:
         return sys_settz(proc, (int)a1);
+    case SYS_REBOOT:
+        serial_puts(SERIAL_COM1, "[syscall] reboot via keyboard controller\n");
+        outb(0x64, 0xFE);
+        for (;;) __asm__ volatile("hlt");
+        return 0;
+    case SYS_SHUTDOWN:
+        serial_puts(SERIAL_COM1, "[syscall] shutdown via QEMU/Bochs exit\n");
+        outw(0x604, 0x2000);  /* QEMU */
+        outw(0xB004, 0x2000); /* Bochs */
+        for (;;) __asm__ volatile("hlt");
+        return 0;
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }

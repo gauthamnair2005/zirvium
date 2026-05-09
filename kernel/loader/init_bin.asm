@@ -13,6 +13,14 @@ global zirvutil_clear_bin_start
 global zirvutil_clear_bin_end
 global zirvutil_echo_bin_start
 global zirvutil_echo_bin_end
+global zirvutil_reboot_bin_start
+global zirvutil_reboot_bin_end
+global zirvutil_shutdown_bin_start
+global zirvutil_shutdown_bin_end
+global zirvutil_suspend_bin_start
+global zirvutil_suspend_bin_end
+global zirvutil_poweroff_bin_start
+global zirvutil_poweroff_bin_end
 
 align 4096
 zirvinit_bin_start:
@@ -55,3 +63,27 @@ zirvutil_echo_bin_start:
     incbin "zirvutils/echo.elf"
 align 4096
 zirvutil_echo_bin_end:
+
+align 4096
+zirvutil_reboot_bin_start:
+    incbin "zirvutils/reboot.elf"
+align 4096
+zirvutil_reboot_bin_end:
+
+align 4096
+zirvutil_shutdown_bin_start:
+    incbin "zirvutils/shutdown.elf"
+align 4096
+zirvutil_shutdown_bin_end:
+
+align 4096
+zirvutil_suspend_bin_start:
+    incbin "zirvutils/suspend.elf"
+align 4096
+zirvutil_suspend_bin_end:
+
+align 4096
+zirvutil_poweroff_bin_start:
+    incbin "zirvutils/poweroff.elf"
+align 4096
+zirvutil_poweroff_bin_end:

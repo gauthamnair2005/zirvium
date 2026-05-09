@@ -38,6 +38,8 @@
 #define SYS_SETDATETIME 97   /* setdatetime(dt)                       */
 #define SYS_GETTZ       98   /* gettz()                               */
 #define SYS_SETTZ       99   /* settz(minutes)                        */
+#define SYS_REBOOT     100   /* reboot()                              */
+#define SYS_SHUTDOWN   101   /* shutdown()                             */
 
 /* ── Negated errno values returned in RAX ────────────────────────────────── */
 #define ESYS_EBADF   (-9)

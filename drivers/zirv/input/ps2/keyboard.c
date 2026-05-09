@@ -27,9 +27,9 @@
 /* Index = scan-code byte (make code); value = MOSIX keycode */
 static const uint8_t sc1_to_keycode[128] = {
     /* 0x00 */ KEY_NONE,  KEY_ESC,  KEY_1,    KEY_2,    /* 0 - 3 */
-    /* 0x04 */ 0x23,      0x24,     0x25,     0x26,     /* 4 key, 5, 6, 7 */
-    /* 0x08 */ 0x27+1,    0x27+2,   0x27+3,   0x27+4,   /* 8-B */
-    /* 0x0C */ 0x27+5,    0x27+6,   KEY_BSPACE,KEY_TAB, /* C-F */
+    /* 0x04 */ 0x20,      0x21,     0x22,     0x23,     /* 3 4 5 6 */
+    /* 0x08 */ 0x24,      0x25,     0x26,     0x27,     /* 7 8 9 0 */
+    /* 0x0C */ 0x2D,      0x2E,     KEY_BSPACE,KEY_TAB, /* - = bksp tab */
     /* 0x10 */ 0x14,      0x1A,     0x08,     0x15,     /* Q W E R */
     /* 0x14 */ 0x17,      0x1C,     0x18,     0x0C,     /* T Y U I */
     /* 0x18 */ 0x12,      0x13,     0x2F,     0x30,     /* O P [ ] */
