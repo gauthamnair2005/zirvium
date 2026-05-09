@@ -1,56 +1,44 @@
 # Zirvium Kernel
 
-A kernel written from scratch for **x86-64** devices that runs the full
-**Zirvium stack** (no GNU tools, no libc).  
+A kernel written from scratch for **x86-64** devices that runs the full **Zirvium stack** (no GNU libc).  
 It implements the **MOSIX** (Modern OSIX) standard instead of POSIX.
 
 ---
 
 ## MOSIX Filesystem Hierarchy
 
-MOSIX replaces the traditional POSIX/FHS layout with a simpler, purpose-driven
-structure:
+MOSIX replaces the traditional POSIX/FHS layout with a simpler, purpose-driven structure:
 
 | Path | Purpose |
 |------|---------|
-| `/bin` | Executable binaries **only** (no libraries, execute permission required) |
+| `/bin` | Executable binaries only (execute permission required) |
 | `/lib` | Non-executable library (`.a`/`.so`) and header files |
 | `/user` | User home directories — replaces `/home` (NOT `/usr`) |
-| `/boot` | Bootloader and kernel images (same role as POSIX `/boot`) |
-| `/config` | Machine/human-readable configuration files — replaces `/etc` |
+| `/boot` | Bootloader and kernel images |
+| `/config` | Machine/human-readable config — replaces `/etc` |
 | `/zirv` | Virtual device namespace — replaces `/dev`, `/run`, `/sys` |
-| `/mounts` | Mount points for removable / additional filesystems — replaces `/mnt` |
-| `/tmp` | Ephemeral temporary files (same as Linux `/tmp`) |
+| `/mounts` | Mount points for removable filesystems — replaces `/mnt` |
+| `/tmp` | Ephemeral temporary files |
 
 ---
 
 ## /zirv Device Namespace
 
-Every physical device is identified by a canonical path that encodes the
-**bus technology** and **media type**:
-
 ```
 /zirv/<bus>/<type><index>
 ```
 
-| Bus | Media type | Example path |
-|-----|-----------|--------------|
-| `sata` | `hdd` | `/zirv/sata/hdd0` |
-| `sata` | `ssd` | `/zirv/sata/ssd0` |
-| `sata` | `cdrom` | `/zirv/sata/cdrom0` |
-| `sata` | `cdrw` | `/zirv/sata/cdrw0` |
-| `pata` | `hdd` | `/zirv/pata/hdd0` |
-| `pata` | `ssd` | `/zirv/pata/ssd0` |
-| `pata` | `cdrom` | `/zirv/pata/cdrom0` |
-| `pata` | `cdrw` | `/zirv/pata/cdrw0` |
-| `nvme` | `ssd` | `/zirv/nvme/ssd0` |
-| `usb` | `pendrive` | `/zirv/usb/pendrive0` |
-| `usb` | `hdd` | `/zirv/usb/hdd0` |
-| `net` | `eth` | `/zirv/net/eth0` |
-| `net` | `wlan` | `/zirv/net/wlan0` |
-| `input` | `keyboard` | `/zirv/input/keyboard0` |
-| `display` | `framebuffer` | `/zirv/display/framebuffer0` |
-| `tty` | `serial` | `/zirv/tty/serial0` |
+| Bus | Media types |
+|-----|-------------|
+| `sata` | `hdd`, `ssd`, `cdrom`, `cdrw` |
+| `pata` | `hdd`, `ssd`, `cdrom`, `cdrw` |
+| `nvme` | `ssd` |
+| `usb` | `pendrive`, `hdd` |
+| `net` | `eth`, `wlan` |
+| `input` | `keyboard`, `mouse`, `touchpad` |
+| `display` | `framebuffer`, `gpu` |
+| `tty` | `serial`, `virtual` |
+| `audio` | `output`, `input` |
 
 ---
 
@@ -58,34 +46,49 @@ Every physical device is identified by a canonical path that encodes the
 
 ```
 zirvium/
-├── arch/
-│   └── x64/
-│       ├── boot.asm          # Multiboot2 entry, 32→64-bit transition, paging
-│       ├── cpu.h             # Port I/O, CR/MSR access, RDTSC
-│       ├── gdt.h / gdt.c     # GDT + TSS setup
-│       └── idt.h / idt.c     # IDT + ISR dispatch
-│           isr_stubs.asm     # 256 ISR stub entry-points
+├── arch/x64/          # Boot, GDT, IDT, CPU helpers, ISR stubs, syscall entry
 ├── kernel/
-│   ├── main.c                # kernel_main(): boot sequence orchestrator
-│   ├── kernel.ld             # Linker script (loads at 1 MiB, links at −2 GiB)
-│   └── mm/
-│       ├── pmm.h / pmm.c     # Physical memory manager (bitmap allocator)
-│       └── vmm.h / vmm.c     # Virtual memory manager (4-level paging)
-├── fs/
-│   ├── mosix.h               # MOSIX VFS types, directory constants, public API
-│   └── vfs.c                 # In-memory VFS tree + /zirv namespace
+│   ├── main.c          # Boot orchestrator
+│   ├── mm/             # PMM (bitmap), VMM (4-level paging), heap
+│   ├── proc/           # Process management, usermode entry
+│   ├── syscall/        # Syscall dispatch table
+│   ├── irq/            # 8259A PIC + IRQ handler registration
+│   ├── ipc/            # Pipe implementation
+│   └── loader/         # ELF loader, embedded binary table, init_bin.asm
+├── fs/                 # MOSIX VFS tree, console device node
 ├── drivers/
-│   ├── serial/
-│   │   ├── serial.h
-│   │   └── serial.c          # 16550 UART driver (115200 8N1)
+│   ├── serial/         # 16550 UART (COM1, 115200 8N1)
+│   ├── vga/            # VGA text-mode console (PHYS_MAP_BASE)
+│   ├── pci/            # PCI bus scanner
 │   └── zirv/
-│       ├── device.h / device.c  # /zirv device registry
-│       ├── sata.c            # ATA PIO driver → /zirv/sata/*
-│       ├── nvme.h / nvme.c   # NVMe PCI driver → /zirv/nvme/*
-│       └── usb_storage.h / usb_storage.c  # USB MSD stub → /zirv/usb/*
-├── Makefile
-└── README.md
+│       ├── input/ps2/  # i8042 controller + PS/2 keyboard decoder
+│       ├── display/    # Bochs VGA, VMware SVGA, i915
+│       ├── net/        # Intel E1000, VirtIO-Net, RTL8139
+│       └── ...         # SATA, NVMe, USB, VirtIO-Blk, TPM, audio
+├── libs/zirvlibc/      # Freestanding C library (submodule)
+├── zirvinit/           # PID 1 init process (submodule)
+├── zirvshell/          # Interactive shell (submodule)
+├── zirvutils/          # System utilities (submodule)
+└── Makefile
 ```
+
+---
+
+## Embedded Binaries
+
+Userspace programs are compiled as statically linked, no-pie ELFs and embedded into the kernel via `incbin`:
+
+| Path | Source | Description |
+|------|--------|-------------|
+| `/bin/init` | `zirvinit/` | PID 1 — launches shell |
+| `/bin/shell` | `zirvshell/` | Interactive shell |
+| `/bin/hello` | `zirvutils/` | Test utility |
+| `/bin/cat` | `zirvutils/` | File reader |
+| `/bin/sysinfo` | `zirvutils/` | System info |
+| `/bin/clear` | `zirvutils/` | Clear screen |
+| `/bin/echo` | `zirvutils/` | Print arguments |
+
+Run them from the shell: `run /bin/hello`
 
 ---
 
@@ -95,20 +98,20 @@ zirvium/
 
 | Tool | Purpose |
 |------|---------|
-| `x86_64-elf-gcc` | Freestanding C compiler |
-| `nasm ≥ 2.14` | Assembler |
-| `x86_64-elf-ld` | Linker |
-| `grub-mkrescue` + `xorriso` | ISO creation (optional) |
-| `qemu-system-x86_64` | Testing (optional) |
+| `x86_64-elf-gcc` (or `gcc`) | Freestanding C compiler |
+| `nasm >= 2.14` | Assembler |
+| `x86_64-elf-ld` (or `ld`) | Linker |
+| `grub-mkrescue` + `xorriso` | ISO creation |
+| `qemu-system-x86_64` | Testing |
 
 ```bash
-# Build the kernel ELF
+# Build everything
 make
 
-# Build a GRUB2 bootable ISO
+# GRUB2 bootable ISO
 make iso
 
-# Run under QEMU (serial output goes to terminal)
+# Run under QEMU (serial → terminal, VGA → SDL window)
 make run
 
 # Debug with GDB
@@ -119,21 +122,16 @@ make debug
 
 ## Boot Sequence
 
-1. **Multiboot2 header** (`arch/x64/boot.asm`) — loaded by GRUB2
-2. CPUID checks for long-mode support
-3. Identity page-tables for the first 4 GiB (2 MiB huge pages)
-4. Switch to 64-bit long mode, load 64-bit GDT, far-jump
-5. `kernel_main()` is called with multiboot2 magic + info pointer
-6. Serial console initialised (COM1, 115200 baud)
-7. Full GDT (with TSS) and IDT installed
-8. Multiboot2 memory map parsed → PMM initialised
-9. VMM sets up 4-level paging with kernel direct map
-10. MOSIX VFS namespace created (`/bin`, `/lib`, `/user`, `/boot`, `/config`, `/zirv`, `/mounts`, `/tmp`)
-11. Device registry initialised; SATA/PATA, NVMe and USB storage probed
-12. Interrupts enabled; idle loop
-
----
-
-## License
-
-See [LICENSE](LICENSE).
+1. **Multiboot2** header loaded by GRUB
+2. CPUID checks for long-mode, PAE
+3. Identity page-tables (2 MiB huge pages, 0–4 GiB) + higher-half kernel map
+4. 64-bit long mode, GDT loaded, far-jump to C code
+5. `kernel_main()`: serial init → GDT/TSS/IDT/PIC → PMM → VMM → VGA console
+6. MOSIX VFS namespace created (`/bin`, `/lib`, `/user`, etc.)
+7. VFS console (`/zirv/tty/virtual0`) with keyboard + serial read
+8. PCI bus scan + driver probing (VirtIO, E1000, RTL8139, etc.)
+9. PS/2 controller + keyboard init (i8042 IRQ1 driver)
+10. Embedded binary table populated
+11. Syscall init (LSTAR MSR → `syscall_entry`)
+12. PID 1 created, `zirvinit.elf` loaded, `proc_enter_usermode()` via IRETQ
+13. Init execve's into shell → interactive MOSIX shell
