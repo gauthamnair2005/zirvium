@@ -81,6 +81,11 @@ void serial_write(uint16_t port, const char *buf, size_t len)
         serial_putc(port, buf[i]);
 }
 
+int serial_available(uint16_t port)
+{
+    return (inb((uint16_t)(port + UART_LSR)) & LSR_DR) ? 1 : 0;
+}
+
 char serial_getc(uint16_t port)
 {
     while (!(inb((uint16_t)(port + UART_LSR)) & LSR_DR))

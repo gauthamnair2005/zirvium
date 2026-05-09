@@ -156,3 +156,51 @@ int keyboard_pending(void)
 {
     return (ring_head - ring_tail + KBD_RING_SIZE) % KBD_RING_SIZE;
 }
+
+int keyboard_read_ascii(void)
+{
+    key_event_t ev;
+    while (keyboard_read_event(&ev)) {
+        if (!ev.pressed) continue;
+
+        int shift = (ev.mods & (MOD_LSHIFT | MOD_RSHIFT)) ? 1 : 0;
+        int caps  = (ev.mods & MOD_CAPS) ? 1 : 0;
+
+        /* Letters a-z (USB HID usage 0x04-0x1D) */
+        if (ev.keycode >= 0x04 && ev.keycode <= 0x1D) {
+            char c = 'a' + (int)(ev.keycode - 0x04);
+            if (shift ^ caps)
+                c -= 0x20;
+            return c;
+        }
+
+        /* Digits 1-9 (USB HID usage 0x1E-0x26) */
+        if (ev.keycode >= 0x1E && ev.keycode <= 0x26) {
+            static const char shifted[] = "!@#$%^&*(";
+            if (shift)
+                return shifted[ev.keycode - 0x1E];
+            return '1' + (int)(ev.keycode - 0x1E);
+        }
+
+        /* Digit 0 (USB HID usage 0x27) */
+        if (ev.keycode == 0x27)
+            return shift ? ')' : '0';
+
+        /* Enter */
+        if (ev.keycode == 0x28)
+            return '\n';
+
+        /* Backspace */
+        if (ev.keycode == 0x2A)
+            return '\b';
+
+        /* Tab */
+        if (ev.keycode == 0x2B)
+            return '\t';
+
+        /* Space */
+        if (ev.keycode == 0x2C)
+            return ' ';
+    }
+    return 0;
+}

@@ -5,10 +5,15 @@
  * directory hierarchy and the /zirv device namespace.
  */
 #include "mosix.h"
+#include "drivers/serial/serial.h"
+#include "drivers/zirv/input/ps2/keyboard.h"
+#include "arch/x64/cpu.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
 #include <string.h>
+
+extern void *kmalloc(size_t size, unsigned int flags);
 
 /* ── Simple kernel memory allocation shim ────────────────────────────────── */
 /* A very small slab-style bump allocator seeded from a static arena.
@@ -161,6 +166,42 @@ static const vnode_ops_t dir_ops = {
     .release = NULL,
 };
 
+/* ── Console Device Ops ──────────────────────────────────────────────────── */
+extern void kputs(const char *s);
+
+static int console_write_vfs(vnode_t *vn, const void *buf, size_t count, uint64_t off)
+{
+    (void)vn; (void)off;
+    const char *cbuf = (const char *)buf;
+    for (size_t i = 0; i < count; i++) {
+        char s[2] = {cbuf[i], 0};
+        kputs(s);
+    }
+    return (int)count;
+}
+
+static int console_read_vfs(vnode_t *vn, void *buf, size_t count, uint64_t off)
+{
+    (void)vn; (void)off;
+    char *cbuf = (char *)buf;
+    for (size_t i = 0; i < count; i++) {
+        char c = 0;
+        for (;;) {
+            int kc = keyboard_read_ascii();
+            if (kc > 0) { c = (char)kc; break; }
+            if (serial_available(SERIAL_COM1)) { c = serial_getc(SERIAL_COM1); break; }
+            __asm__ volatile("sti; pause; cli");
+        }
+        cbuf[i] = c;
+    }
+    return (int)count;
+}
+
+static const vnode_ops_t console_vnode_ops = {
+    .read  = console_read_vfs,
+    .write = console_write_vfs,
+};
+
 /* ── VFS public API ───────────────────────────────────────────────────────── */
 
 void vfs_init(void)
@@ -203,6 +244,17 @@ void vfs_init(void)
         if (busdir) {
             busdir->inode = alloc_inode();
             busdir->ops   = &dir_ops;
+        }
+    }
+
+    /* Create /zirv/tty/virtual0 (The system console) */
+    vnode_t *tty_dir = vfs_lookup("/zirv/tty");
+    if (tty_dir) {
+        vnode_t *con = make_vnode("virtual0", VNODE_DEVICE,
+                                  MOSIX_PERM_READ | MOSIX_PERM_WRITE, tty_dir);
+        if (con) {
+            con->inode = alloc_inode();
+            con->ops   = &console_vnode_ops;
         }
     }
 }
@@ -305,4 +357,22 @@ vnode_t *vfs_register_device(dev_class_t bus_class, dev_class_t media_class,
     devnode->device = desc;
 
     return devnode;
+}
+
+/* ── Process StdIO Helper ────────────────────────────────────────────────── */
+#include "kernel/proc/process.h"
+
+void proc_init_stdio(process_t *proc)
+{
+    vnode_t *con = vfs_lookup("/zirv/tty/virtual0");
+    if (!con) return;
+
+    for (int i = 0; i < 3; i++) {
+        open_file_t *f = (open_file_t *)kmalloc(sizeof(open_file_t), 0);
+        if (!f) continue;
+        memset(f, 0, sizeof(open_file_t));
+        f->type  = FILE_TYPE_VFS;
+        f->vnode = con;
+        proc->fds[i] = f;
+    }
 }

@@ -28,6 +28,9 @@ void serial_puts(uint16_t port, const char *s);
 /** serial_write - write @len bytes from @buf. */
 void serial_write(uint16_t port, const char *buf, size_t len);
 
+/** serial_available - returns non-zero if a character is ready to read. */
+int serial_available(uint16_t port);
+
 /** serial_getc - read one character (blocking). */
 char serial_getc(uint16_t port);
 

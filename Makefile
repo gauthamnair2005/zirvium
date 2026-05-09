@@ -42,6 +42,7 @@ CFLAGS := \
     -Wall                   \
     -Wextra                 \
     -O2                     \
+    -fcf-protection=none    \
     -DKERNEL                \
     -I. \
     -Ilibs/zirvlibc/include
@@ -60,6 +61,8 @@ C_SRCS := \
     kernel/mm/pmm.c                                 \
     kernel/mm/vmm.c                                 \
     kernel/mm/heap.c                                \
+    kernel/loader/elf.c                             \
+    kernel/loader/embedded.c                        \
     kernel/irq/irq.c                                \
     kernel/proc/process.c                           \
     kernel/syscall/syscall.c                        \
@@ -96,7 +99,12 @@ C_SRCS := \
 ASM_SRCS := \
     arch/x64/boot.asm           \
     arch/x64/isr_stubs.asm      \
-    arch/x64/syscall_entry.asm
+    arch/x64/syscall_entry.asm  \
+    kernel/loader/init_bin.asm
+
+ZIRVINIT_ELF := zirvinit/zirvinit.elf
+ZIRVSHELL_ELF := zirvshell/zirvshell.elf
+ZIRVUTILS_ELF := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf
 
 # ── Derived object lists ───────────────────────────────────────────────────────
 BUILD_DIR := build
@@ -128,6 +136,17 @@ $(BUILD_DIR)/%.asm.o: %.asm
 	@mkdir -p $(@D)
 	$(AS) $(ASFLAGS) -o $@ $<
 	@echo "  AS  $<"
+
+$(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm $(ZIRVINIT_ELF) $(ZIRVSHELL_ELF) $(ZIRVUTILS_ELF)
+
+$(ZIRVINIT_ELF):
+	$(MAKE) -C zirvinit
+
+$(ZIRVSHELL_ELF):
+	$(MAKE) -C zirvshell
+
+$(ZIRVUTILS_ELF):
+	$(MAKE) -C zirvutils
 
 # ── Strip to flat binary (optional) ───────────────────────────────────────────
 .PHONY: bin
@@ -194,4 +213,7 @@ debug: $(KERNEL_ISO)
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
+	$(MAKE) -C zirvinit clean || true
+	$(MAKE) -C zirvshell clean || true
+	$(MAKE) -C zirvutils clean || true
 	@echo "  CLEAN"

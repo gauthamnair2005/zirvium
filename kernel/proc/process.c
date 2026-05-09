@@ -36,6 +36,13 @@ process_t *proc_create(uint64_t entry_virt)
     proc->pid   = next_pid++;
     proc->state = PROC_STATE_RUNNING;
 
+    /* Set parent to current process (if any) */
+    process_t *cur = proc_current();
+    if (cur) {
+        proc->parent = cur;
+        proc_link_child(cur, proc);
+    }
+
     /* Create a fresh user address space (upper half shared with kernel) */
     proc->as = vmm_create_address_space();
     if (!proc->as) {
@@ -59,6 +66,10 @@ process_t *proc_create(uint64_t entry_virt)
     proc->brk        = PROC_HEAP_START;
     proc->mmap_cursor = PROC_MMAP_START;
 
+    /* Set default CWD to root */
+    proc->cwd[0] = '/';
+    proc->cwd[1] = '\0';
+
     /* Allocate a kernel stack for this process (used by TSS on hardware IRQ) */
     uint64_t kstack_phys = pmm_alloc_pages(PROC_KSTACK_PAGES);
     if (!kstack_phys) goto fail;
@@ -76,7 +87,7 @@ fail:
     return NULL;
 }
 
-/* ── proc_enter_usermode ─────────────────────────────────────────────────── */
+    /* ── proc_enter_usermode ─────────────────────────────────────────────────── */
 __attribute__((noreturn))
 void proc_enter_usermode(process_t *proc)
 {
@@ -86,11 +97,33 @@ void proc_enter_usermode(process_t *proc)
      * interrupts arriving from ring 3 use the correct stack. */
     tss_set_kernel_stack(proc->kstack_top);
 
-    /* Switch to the process address space */
-    vmm_switch_address_space(proc->as);
+    /*
+     * Save values needed after the stack switch into local variables.
+     * These are read now (so they live in registers), making them safe
+     * across the subsequent RSP change.
+     */
+    uint64_t user_rip  = proc->user_rip;
+    uint64_t user_rsp  = proc->user_rsp;
+    uint64_t kstack    = proc->kstack_top;
+    address_space_t *as = proc->as;
 
-    const uint64_t user_rip  = proc->user_rip;
-    const uint64_t user_rsp  = proc->user_rsp;
+    /*
+     * Switch to the per-process kernel stack BEFORE switching address space.
+     *
+     * The boot stack lives in .boot_bss at a physical address which is only
+     * accessible via the identity map (PML4[0]).  The process address space
+     * does NOT have the identity map, so accessing the boot stack after
+     * switching CR3 would fault.
+     *
+     * The per-process kernel stack was allocated from PMM and is accessed
+     * via PHYS_TO_VIRT() → PHYS_MAP_BASE (PML4[511]), which IS shared with
+     * the process address space.
+     */
+    __asm__ volatile("mov %0, %%rsp" : : "r"(kstack) : "memory");
+
+    /* Switch to the process address space */
+    vmm_switch_address_space(as);
+
     const uint64_t user_cs   = (uint64_t)(GDT_USER_CODE | 3);
     const uint64_t user_ss   = (uint64_t)(GDT_USER_DATA | 3);
     const uint64_t rflags    = 0x200ULL;  /* IF = 1, IOPL = 0 */
@@ -155,4 +188,37 @@ void proc_close_fd(process_t *proc, int fd)
 
     kfree(f);
     proc->fds[fd] = NULL;
+}
+
+/* ── CWD helpers ────────────────────────────────────────────────────────── */
+void proc_set_cwd(process_t *proc, const char *path)
+{
+    if (!proc || !path) return;
+    size_t len = strlen(path);
+    if (len >= sizeof(proc->cwd)) len = sizeof(proc->cwd) - 1;
+    memcpy(proc->cwd, path, len);
+    proc->cwd[len] = '\0';
+}
+
+const char *proc_get_cwd(process_t *proc)
+{
+    if (!proc) return "/";
+    return proc->cwd;
+}
+
+/* ── Parent / child helpers ─────────────────────────────────────────────── */
+void proc_link_child(process_t *parent, process_t *child)
+{
+    if (!parent || !child) return;
+    child->next_sibling = parent->child;
+    parent->child = child;
+}
+
+process_t *proc_find_child(process_t *proc, uint32_t pid)
+{
+    if (!proc) return NULL;
+    for (process_t *c = proc->child; c; c = c->next_sibling) {
+        if (pid == 0 || c->pid == pid) return c;
+    }
+    return NULL;
 }

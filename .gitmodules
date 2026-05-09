@@ -8,3 +8,6 @@
 [submodule "zirvshell"]
 	path = zirvshell
 	url = ./zirvshell
+[submodule "zirvutils"]
+	path = zirvutils
+	url = https://github.com/gauthamnair2005/zirvutils.git

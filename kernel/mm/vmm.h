@@ -98,4 +98,11 @@ void vmm_destroy_address_space(address_space_t *as);
  */
 void vmm_switch_address_space(address_space_t *as);
 
+/**
+ * vmm_clear_user_space - free all user-space page tables and pages.
+ * Keeps kernel mappings (PML4 entries 256-511) intact.
+ * Flushes the TLB.
+ */
+void vmm_clear_user_space(address_space_t *as);
+
 #endif /* ZIRVIUM_KERNEL_MM_VMM_H */

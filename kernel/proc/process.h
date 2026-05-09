@@ -84,7 +84,15 @@ typedef struct process {
     /* Exit state */
     int              exit_code;
 
-    /* Intrusive linked list of all processes */
+    /* Parent / child tracking */
+    struct process  *parent;       /* parent process, NULL for PID 1   */
+    struct process  *child;        /* first child in singly-linked list */
+    struct process  *next_sibling; /* next sibling in parent's list    */
+
+    /* Current working directory */
+    char             cwd[256];
+
+    /* Intrusive linked list of all processes (scheduling) */
     struct process  *next;
 } process_t;
 
@@ -141,5 +149,27 @@ open_file_t *proc_get_fd(process_t *proc, int fd);
  * applicable) and frees the open_file_t.
  */
 void proc_close_fd(process_t *proc, int fd);
+
+/**
+ * proc_set_cwd — set the current working directory of @proc.
+ */
+void proc_set_cwd(process_t *proc, const char *path);
+
+/**
+ * proc_get_cwd — get the current working directory of @proc.
+ * Returns a pointer to the internal buffer.
+ */
+const char *proc_get_cwd(process_t *proc);
+
+/**
+ * proc_link_child — add @child to @parent's list of children.
+ */
+void proc_link_child(process_t *parent, process_t *child);
+
+/**
+ * proc_find_child — find a child of @proc by PID (0 = any child).
+ * Returns the first matching child, or NULL.
+ */
+process_t *proc_find_child(process_t *proc, uint32_t pid);
 
 #endif /* ZIRVIUM_KERNEL_PROC_PROCESS_H */

@@ -1,15 +1,19 @@
 /* drivers/vga/vga.c
  * Zirvium Kernel — VGA text-mode console driver
  *
- * The VGA text buffer lives at physical 0xB8000 (< 4 GiB), which is covered
- * by the identity mapping that boot.asm establishes and vmm_init preserves.
- * Therefore this driver works before vmm_init() is called.
+ * The VGA text buffer lives at physical 0xB8000.  We access it through the
+ * direct physical map (PHYS_MAP_BASE) so it remains accessible after
+ * switching to a process address space that does NOT have an identity map.
  *
  * Hardware cursor position is updated via the standard CRT controller ports
  * (0x3D4/0x3D5) after every character write.
+ *
+ * NOTE: vga_init() must be called AFTER vmm_init() so that the physical map
+ * at PHYS_MAP_BASE is active.
  */
 #include "vga.h"
 #include "arch/x64/cpu.h"
+#include "kernel/mm/vmm.h"
 #include <stdint.h>
 #include <stddef.h>
 
@@ -21,7 +25,7 @@
 
 /* ── Driver state ─────────────────────────────────────────────────────────── */
 static volatile uint16_t *const g_buf =
-    (volatile uint16_t *)(uintptr_t)VGA_BUFFER_PHYS;
+    (volatile uint16_t *)(uintptr_t)(PHYS_MAP_BASE + VGA_BUFFER_PHYS);
 
 static int     g_col   = 0;
 static int     g_row   = 0;

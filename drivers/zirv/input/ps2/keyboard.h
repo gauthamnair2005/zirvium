@@ -70,4 +70,10 @@ bool keyboard_read_event(key_event_t *out);
  */
 int keyboard_pending(void);
 
+/**
+ * keyboard_read_ascii - dequeue the next pressed key and convert to ASCII.
+ * Returns the ASCII character, or 0 if no pressed key event is available.
+ */
+int keyboard_read_ascii(void);
+
 #endif /* ZIRVIUM_DRIVERS_INPUT_PS2_KEYBOARD_H */

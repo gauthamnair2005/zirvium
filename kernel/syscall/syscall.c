@@ -1,26 +1,14 @@
 /* kernel/syscall/syscall.c
  * Zirvium Kernel — System call initialisation and dispatch
- *
- * syscall_init()   — writes the necessary x86-64 MSRs (EFER/STAR/LSTAR/FMASK)
- *                    so the SYSCALL instruction lands in our assembly stub.
- * syscall_dispatch() — C handler called by the stub; routes each call to its
- *                    implementation and returns the result in RAX.
- *
- * STAR MSR encoding (with swapped GDT user segments):
- *   GDT layout  0x00=null  0x08=kcode  0x10=kdata  0x18=udata  0x20=ucode
- *
- *   STAR[47:32] = GDT_KERNEL_CODE (0x08)
- *     → SYSCALL: CS = 0x08, SS = 0x08+8 = 0x10 (kernel data) ✓
- *
- *   STAR[63:48] = GDT_KERNEL_DATA (0x10)
- *     → SYSRETQ: CS = 0x10+16 = 0x20 (user code, RPL forced 3) ✓
- *                SS = 0x10+8  = 0x18 (user data, RPL forced 3) ✓
  */
 #include "syscall.h"
 #include "kernel/proc/process.h"
+#include "kernel/console.h"
 #include "kernel/mm/vmm.h"
 #include "kernel/mm/pmm.h"
 #include "kernel/ipc/pipe.h"
+#include "kernel/loader/embedded.h"
+#include "kernel/loader/elf.h"
 #include "fs/mosix.h"
 #include "arch/x64/cpu.h"
 #include "arch/x64/gdt.h"
@@ -29,22 +17,17 @@
 #include <string.h>
 
 /* ── MSR addresses ───────────────────────────────────────────────────────── */
-#define MSR_EFER   0xC0000080U   /* Extended Feature Enable Register */
-#define MSR_STAR   0xC0000081U   /* Syscall/Sysret segment selectors */
-#define MSR_LSTAR  0xC0000082U   /* 64-bit SYSCALL target RIP        */
-#define MSR_FMASK  0xC0000084U   /* RFLAGS mask on SYSCALL entry     */
+#define MSR_EFER   0xC0000080U
+#define MSR_STAR   0xC0000081U
+#define MSR_LSTAR  0xC0000082U
+#define MSR_FMASK  0xC0000084U
 
 /* ── Shared kernel syscall stack ─────────────────────────────────────────── */
-/* TODO(SMP): each logical CPU requires its own syscall stack.  In a
- * multi-core configuration, replace this single static array with a
- * per-CPU allocation indexed via the GSBASE MSR. */
 #define SYSCALL_KSTACK_SIZE  (16u * 1024u)
 static uint8_t syscall_kstack[SYSCALL_KSTACK_SIZE] __attribute__((aligned(16)));
 
-/* Referenced by arch/x64/syscall_entry.asm */
 uint64_t syscall_kernel_stack_top;
 
-/* Assembly entry stub (arch/x64/syscall_entry.asm) */
 extern void syscall_entry(void);
 
 /* ── syscall_init ────────────────────────────────────────────────────────── */
@@ -53,24 +36,20 @@ void syscall_init(void)
     syscall_kernel_stack_top = (uint64_t)(uintptr_t)
                                (syscall_kstack + SYSCALL_KSTACK_SIZE);
 
-    /* Enable SYSCALL/SYSRET: set EFER.SCE (bit 0) */
     uint64_t efer = rdmsr(MSR_EFER);
     efer |= (1ULL << 0);
     wrmsr(MSR_EFER, efer);
 
-    /* STAR: kernel CS in [47:32], SYSRET base in [63:48] */
     uint64_t star = ((uint64_t)GDT_KERNEL_CODE << 32)
                   | ((uint64_t)GDT_KERNEL_DATA << 48);
     wrmsr(MSR_STAR, star);
 
-    /* LSTAR: 64-bit SYSCALL entry address */
     wrmsr(MSR_LSTAR, (uint64_t)(uintptr_t)syscall_entry);
 
-    /* FMASK: clear IF (bit 9) so interrupts are disabled inside syscalls */
     wrmsr(MSR_FMASK, (1ULL << 9));
 }
 
-/* ── Kernel heap wrappers ────────────────────────────────────────────────── */
+/* ── Kernel heap wrappers ──────────────────────────────────────────────── */
 extern void *kmalloc(size_t size, unsigned int flags);
 extern void  kfree(void *ptr);
 
@@ -85,7 +64,6 @@ static open_file_t *alloc_file(file_type_t type)
 
 /* ── Individual syscall handlers ──────────────────────────────────────────── */
 
-/* read(fd, buf, count) */
 static uint64_t sys_read(process_t *proc,
                          int fd, void *buf, size_t count)
 {
@@ -108,7 +86,6 @@ static uint64_t sys_read(process_t *proc,
     }
 }
 
-/* write(fd, buf, count) */
 static uint64_t sys_write(process_t *proc,
                           int fd, const void *buf, size_t count)
 {
@@ -131,9 +108,6 @@ static uint64_t sys_write(process_t *proc,
     }
 }
 
-/* open(path, flags)
- * NOTE: @path is a user virtual address.  Because the kernel runs with the
- * process CR3 loaded, user VA is directly dereferenceable here. */
 static uint64_t sys_open(process_t *proc,
                          const char *path, int flags)
 {
@@ -153,7 +127,6 @@ static uint64_t sys_open(process_t *proc,
     return (uint64_t)fd;
 }
 
-/* close(fd) */
 static uint64_t sys_close(process_t *proc, int fd)
 {
     if (!proc_get_fd(proc, fd)) return (uint64_t)(int64_t)ESYS_EBADF;
@@ -161,9 +134,6 @@ static uint64_t sys_close(process_t *proc, int fd)
     return 0;
 }
 
-/* pipe(fds[2])
- * Creates a unidirectional pipe.  fds[0] is the read end, fds[1] the write
- * end.  @fds is a user virtual address (directly accessible, see sys_open). */
 static uint64_t sys_pipe(process_t *proc, int *fds)
 {
     if (!fds) return (uint64_t)(int64_t)ESYS_EFAULT;
@@ -184,8 +154,6 @@ static uint64_t sys_pipe(process_t *proc, int *fds)
     int rfd = proc_alloc_fd(proc, rf);
     int wfd = proc_alloc_fd(proc, wf);
     if (rfd < 0 || wfd < 0) {
-        /* Roll back: proc_close_fd handles kfree; fall back to plain kfree
-         * for any end that was never inserted into the table. */
         if (rfd >= 0) proc_close_fd(proc, rfd); else kfree(rf);
         if (wfd >= 0) proc_close_fd(proc, wfd); else kfree(wf);
         pipe_destroy(p);
@@ -197,20 +165,17 @@ static uint64_t sys_pipe(process_t *proc, int *fds)
     return 0;
 }
 
-/* brk(new_brk) → returns the resulting brk value
- * Extends (or queries) the process heap.  new_brk == 0 queries current brk. */
 static uint64_t sys_brk(process_t *proc, uint64_t new_brk)
 {
     if (new_brk == 0 || new_brk <= proc->brk)
         return proc->brk;
 
-    /* Map pages between the old and new break */
     uint64_t old_top = (proc->brk  + PAGE_SIZE - 1) & ~(uint64_t)(PAGE_SIZE - 1);
     uint64_t new_top = (new_brk    + PAGE_SIZE - 1) & ~(uint64_t)(PAGE_SIZE - 1);
 
     for (uint64_t va = old_top; va < new_top; va += PAGE_SIZE) {
         uint64_t phys = pmm_alloc_page();
-        if (!phys) return proc->brk;  /* OOM: return unchanged brk */
+        if (!phys) return proc->brk;
         vmm_map_page(proc->as, va, phys,
                      PTE_PRESENT | PTE_WRITABLE | PTE_USER | PTE_NO_EXEC);
     }
@@ -218,8 +183,6 @@ static uint64_t sys_brk(process_t *proc, uint64_t new_brk)
     return new_brk;
 }
 
-/* mmap(addr, len, prot, flags, fd, off)
- * Simplified implementation: anonymous-only, read/write, no file backing. */
 static uint64_t sys_mmap(process_t *proc,
                          uint64_t addr, size_t length,
                          int prot, int map_flags)
@@ -230,7 +193,6 @@ static uint64_t sys_mmap(process_t *proc,
     size_t   pages = (length + PAGE_SIZE - 1) / PAGE_SIZE;
     uint64_t flags = PTE_PRESENT | PTE_WRITABLE | PTE_USER | PTE_NO_EXEC;
 
-    /* Use the per-process mmap cursor when no address hint is given */
     if (addr == 0) {
         addr = proc->mmap_cursor;
         proc->mmap_cursor += (uint64_t)pages * PAGE_SIZE;
@@ -244,7 +206,6 @@ static uint64_t sys_mmap(process_t *proc,
     return addr;
 }
 
-/* munmap(addr, len) */
 static uint64_t sys_munmap(process_t *proc, uint64_t addr, size_t length)
 {
     if (length == 0) return (uint64_t)(int64_t)ESYS_EINVAL;
@@ -258,6 +219,170 @@ static uint64_t sys_munmap(process_t *proc, uint64_t addr, size_t length)
             vmm_unmap_page(proc->as, va);
         }
     }
+    return 0;
+}
+
+/* ── execve ──────────────────────────────────────────────────────────────── */
+static uint64_t setup_user_stack(address_space_t *as, const char *path,
+                                  char *const argv[], char *const envp[])
+{
+    (void)argv;
+    (void)envp;
+
+    uint64_t stack_base = PROC_USTACK_TOP - (uint64_t)PROC_USTACK_PAGES * PAGE_SIZE;
+    for (int i = 0; i < PROC_USTACK_PAGES; i++) {
+        uint64_t phys = pmm_alloc_page();
+        if (!phys) return 0;
+        vmm_map_page(as, stack_base + (uint64_t)i * PAGE_SIZE, phys,
+                     PTE_PRESENT | PTE_WRITABLE | PTE_USER | PTE_NO_EXEC);
+    }
+
+    uint64_t stack_top_page = PROC_USTACK_TOP - PAGE_SIZE;
+    uint64_t stack_top_page_phys = vmm_virt_to_phys(as, stack_top_page);
+    if (!stack_top_page_phys) return 0;
+    char *stack_ka = (char *)PHYS_TO_VIRT(stack_top_page_phys);
+
+    uint64_t sp = PAGE_SIZE;
+
+    size_t path_len = strlen(path) + 1;
+    sp -= path_len;
+    memcpy(stack_ka + sp, path, path_len);
+    uint64_t path_on_stack = stack_top_page + sp;
+
+    if (sp % 8) sp -= (sp % 8);
+
+    sp -= 8;
+    *(uint64_t *)(stack_ka + sp) = 0;
+
+    sp -= 8;
+    *(uint64_t *)(stack_ka + sp) = 0;
+
+    sp -= 8;
+    *(uint64_t *)(stack_ka + sp) = (uint64_t)(uintptr_t)path_on_stack;
+
+    sp -= 8;
+    *(uint64_t *)(stack_ka + sp) = 1;
+    uint64_t rsp = stack_top_page + sp;
+
+    return rsp;
+}
+
+static void __attribute__((noreturn))
+exec_enter_usermode(process_t *proc)
+{
+    extern void tss_set_kernel_stack(uint64_t rsp0);
+    tss_set_kernel_stack(proc->kstack_top);
+    vmm_switch_address_space(proc->as);
+
+    const uint64_t user_rip = proc->user_rip;
+    const uint64_t user_rsp = proc->user_rsp;
+    const uint64_t user_cs  = (uint64_t)(GDT_USER_CODE | 3);
+    const uint64_t user_ss  = (uint64_t)(GDT_USER_DATA | 3);
+    const uint64_t rflags   = 0x202ULL;
+
+    __asm__ volatile(
+        "push %0\n\t"
+        "push %1\n\t"
+        "push %2\n\t"
+        "push %3\n\t"
+        "push %4\n\t"
+        "iretq"
+        :: "r"(user_ss), "r"(user_rsp), "r"(rflags),
+           "r"(user_cs), "r"(user_rip)
+        : "memory"
+    );
+    __builtin_unreachable();
+}
+
+static uint64_t sys_execve(process_t *proc,
+                           const char *path,
+                           char *const argv[],
+                           char *const envp[])
+{
+    (void)argv;
+    (void)envp;
+    if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
+
+    size_t bin_size;
+    const void *binary = embedded_find(path, &bin_size);
+    if (!binary) return (uint64_t)(int64_t)ESYS_ENOENT;
+
+    address_space_t *new_as = vmm_create_address_space();
+    if (!new_as) return (uint64_t)(int64_t)ESYS_ENOMEM;
+
+    uint64_t new_entry;
+    if (!elf_load_into_as(new_as, binary, &new_entry)) {
+        vmm_destroy_address_space(new_as);
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+    }
+
+    uint64_t new_rsp = setup_user_stack(new_as, path, NULL, NULL);
+    if (!new_rsp) {
+        vmm_destroy_address_space(new_as);
+        return (uint64_t)(int64_t)ESYS_ENOMEM;
+    }
+
+    address_space_t *old_as = proc->as;
+    proc->as = new_as;
+    proc->user_rip   = new_entry;
+    proc->user_rsp   = new_rsp;
+    proc->brk        = PROC_HEAP_START;
+    proc->mmap_cursor = PROC_MMAP_START;
+    proc->state      = PROC_STATE_RUNNING;
+
+    vmm_destroy_address_space(old_as);
+
+    exec_enter_usermode(proc);
+    __builtin_unreachable();
+}
+
+/* ── wait4 ───────────────────────────────────────────────────────────────── */
+static uint64_t sys_wait4(process_t *proc,
+                          int pid, int *wstatus, int options, void *rusage)
+{
+    (void)options;
+    (void)rusage;
+
+    process_t *child = proc_find_child(proc, (uint32_t)(pid > 0 ? (uint32_t)pid : 0));
+    if (!child) return (uint64_t)(int64_t)(-10); /* -ECHILD */
+    if (child->state != PROC_STATE_ZOMBIE) return 0;
+
+    if (wstatus) {
+        int status = 0;
+        status |= (child->exit_code & 0xFF) << 8;
+        *wstatus = status;
+    }
+
+    uint32_t child_pid = child->pid;
+    child->state = PROC_STATE_UNUSED;
+    return (uint64_t)child_pid;
+}
+
+/* ── getcwd ──────────────────────────────────────────────────────────────── */
+static uint64_t sys_getcwd(process_t *proc, char *buf, size_t size)
+{
+    if (!buf) return (uint64_t)(int64_t)ESYS_EFAULT;
+
+    const char *cwd = proc_get_cwd(proc);
+    size_t len = strlen(cwd) + 1;
+
+    if (len > size) return (uint64_t)(int64_t)ESYS_ERANGE;
+
+    memcpy(buf, cwd, len);
+    return (uint64_t)(len - 1);
+}
+
+/* ── chdir ───────────────────────────────────────────────────────────────── */
+static uint64_t sys_chdir(process_t *proc, const char *path)
+{
+    if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
+
+    vnode_t *v = vfs_lookup(path);
+    if (!v) return (uint64_t)(int64_t)ESYS_ENOENT;
+    if (v->type != VNODE_DIR && v->type != VNODE_MOUNTPT)
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+
+    proc_set_cwd(proc, path);
     return 0;
 }
 
@@ -292,12 +417,25 @@ uint64_t syscall_dispatch(uint64_t num,
         return sys_pipe(proc, (int *)(uintptr_t)a1);
     case SYS_GETPID:
         return (uint64_t)proc->pid;
+    case SYS_EXECVE:
+        return sys_execve(proc,
+                          (const char *)(uintptr_t)a1,
+                          (char *const *)(uintptr_t)a2,
+                          (char *const *)(uintptr_t)a3);
     case SYS_EXIT:
         proc_exit(proc, (int)a1);
-        /* TODO: invoke scheduler to run next process */
         __asm__ volatile("cli");
         for (;;) __asm__ volatile("hlt");
-        return 0;   /* unreachable */
+        return 0;
+    case SYS_WAIT4:
+        return sys_wait4(proc, (int)a1,
+                         (int *)(uintptr_t)a2, (int)a3,
+                         (void *)(uintptr_t)a4);
+    case SYS_GETCWD:
+        return sys_getcwd(proc,
+                          (char *)(uintptr_t)a1, (size_t)a2);
+    case SYS_CHDIR:
+        return sys_chdir(proc, (const char *)(uintptr_t)a1);
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }

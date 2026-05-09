@@ -179,14 +179,76 @@ address_space_t *vmm_create_address_space(void)
 void vmm_destroy_address_space(address_space_t *as)
 {
     if (!as) return;
-    /* TODO: walk and free all user-space page tables */
+    /* Free all user pages and page tables */
+    vmm_clear_user_space(as);
+    /* Free the PML4 itself */
     pmm_free_page(as->pml4_phys);
+    /* Free the address_space_t descriptor */
     pmm_free_page((uint64_t)vmm_virt_to_phys(NULL, (uint64_t)as));
 }
 
 void vmm_switch_address_space(address_space_t *as)
 {
     if (!as) as = &kernel_as;
+    __asm__ volatile("mov %0, %%cr3" : : "r"(as->pml4_phys) : "memory");
+}
+
+void vmm_clear_user_space(address_space_t *as)
+{
+    if (!as) return;
+    pte_t *pml4 = (pte_t *)PHYS_TO_VIRT(as->pml4_phys);
+
+    for (int pml4_idx = 0; pml4_idx < 256; pml4_idx++) {
+        pte_t pml4e = pml4[pml4_idx];
+        if (!(pml4e & PTE_PRESENT)) continue;
+
+        uint64_t pdp_phys = PTE_CHILD_PHYS(pml4e);
+        pte_t *pdp = (pte_t *)PHYS_TO_VIRT(pdp_phys);
+
+        for (int pdp_idx = 0; pdp_idx < 512; pdp_idx++) {
+            pte_t pdpe = pdp[pdp_idx];
+            if (!(pdpe & PTE_PRESENT)) continue;
+
+            if (pdpe & PTE_HUGE) {
+                pdp[pdp_idx] = 0;
+                continue;
+            }
+
+            uint64_t pd_phys = PTE_CHILD_PHYS(pdpe);
+            pte_t *pd = (pte_t *)PHYS_TO_VIRT(pd_phys);
+
+            for (int pd_idx = 0; pd_idx < 512; pd_idx++) {
+                pte_t pde = pd[pd_idx];
+                if (!(pde & PTE_PRESENT)) continue;
+
+                if (pde & PTE_HUGE) {
+                    pd[pd_idx] = 0;
+                    continue;
+                }
+
+                uint64_t pt_phys = PTE_CHILD_PHYS(pde);
+                pte_t *pt = (pte_t *)PHYS_TO_VIRT(pt_phys);
+
+                for (int pt_idx = 0; pt_idx < 512; pt_idx++) {
+                    pte_t pte = pt[pt_idx];
+                    if (!(pte & PTE_PRESENT)) continue;
+                    pmm_free_page(PTE_CHILD_PHYS(pte));
+                    pt[pt_idx] = 0;
+                }
+
+                pmm_free_page(pt_phys);
+                pd[pd_idx] = 0;
+            }
+
+            pmm_free_page(pd_phys);
+            pdp[pdp_idx] = 0;
+        }
+
+        pmm_free_page(pdp_phys);
+        pml4[pml4_idx] = 0;
+    }
+
+    /* Flush entire TLB */
     __asm__ volatile("mov %0, %%cr3" : : "r"(as->pml4_phys) : "memory");
 }
 

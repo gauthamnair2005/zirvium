@@ -6,3 +6,4 @@ build/
 *.d
 *.swp
 .DS_Store
+*.log

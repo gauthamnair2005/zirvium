@@ -1,0 +1,87 @@
+#include "elf.h"
+#include "kernel/mm/vmm.h"
+#include "kernel/mm/pmm.h"
+#include <string.h>
+
+/* ELF64 definitions */
+typedef struct {
+    unsigned char e_ident[16];
+    uint16_t      e_type;
+    uint16_t      e_machine;
+    uint32_t      e_version;
+    uint64_t      e_entry;
+    uint64_t      e_phoff;
+    uint64_t      e_shoff;
+    uint32_t      e_flags;
+    uint16_t      e_ehsize;
+    uint16_t      e_phentsize;
+    uint16_t      e_phnum;
+    uint16_t      e_shentsize;
+    uint16_t      e_shnum;
+    uint16_t      e_shstrndx;
+} elf64_header_t;
+
+typedef struct {
+    uint32_t p_type;
+    uint32_t p_flags;
+    uint64_t p_offset;
+    uint64_t p_vaddr;
+    uint64_t p_paddr;
+    uint64_t p_filesz;
+    uint64_t p_memsz;
+    uint64_t p_align;
+} elf64_ph_t;
+
+#define PT_LOAD 1
+
+static bool elf_validate(const void *buffer)
+{
+    const elf64_header_t *hdr = (const elf64_header_t *)buffer;
+    if (memcmp(hdr->e_ident, "\x7f\x45\x4c\x46", 4) != 0) return false;
+    if (hdr->e_ident[4] != 2) return false;
+    return true;
+}
+
+bool elf_load_into_as(address_space_t *as, const void *buffer, uint64_t *entry)
+{
+    if (!elf_validate(buffer)) return false;
+
+    const elf64_header_t *hdr = (const elf64_header_t *)buffer;
+    const elf64_ph_t *ph = (const elf64_ph_t *)((uintptr_t)buffer + hdr->e_phoff);
+
+    for (int i = 0; i < hdr->e_phnum; i++) {
+        if (ph[i].p_type == PT_LOAD) {
+            uint64_t vaddr = ph[i].p_vaddr;
+            uint64_t size  = ph[i].p_memsz;
+            uint64_t offset = ph[i].p_offset;
+            uint64_t filesz = ph[i].p_filesz;
+
+            uint64_t pages = (size + PAGE_SIZE - 1) / PAGE_SIZE;
+            for (uint64_t p = 0; p < pages; p++) {
+                uintptr_t page_va = (vaddr & ~(PAGE_SIZE - 1)) + (p * PAGE_SIZE);
+                uint64_t phys = pmm_alloc_page();
+                if (!phys) return false;
+
+                uint64_t flags = PTE_PRESENT | PTE_WRITABLE | PTE_USER;
+                vmm_map_page(as, page_va, phys, flags);
+
+                void *page_ka = PHYS_TO_VIRT(phys);
+                memset(page_ka, 0, PAGE_SIZE);
+
+                if (p * PAGE_SIZE < filesz) {
+                    uint64_t copy_size = filesz - (p * PAGE_SIZE);
+                    if (copy_size > PAGE_SIZE) copy_size = PAGE_SIZE;
+                    memcpy(page_ka, (void *)((uintptr_t)buffer + offset + (p * PAGE_SIZE)), copy_size);
+                }
+            }
+        }
+    }
+
+    if (entry) *entry = hdr->e_entry;
+    return true;
+}
+
+bool elf_load_process(process_t *proc, const void *buffer)
+{
+    return elf_load_into_as(proc->as, buffer, &proc->user_rip);
+}
