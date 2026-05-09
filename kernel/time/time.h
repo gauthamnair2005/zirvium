@@ -16,5 +16,7 @@ void time_init(void);
 int time_get(struct datetime *dt);
 int time_set(const struct datetime *dt);
 uint64_t time_uptime_seconds(void);
+int  time_get_tz(void);
+void time_set_tz(int offset_minutes);
 
 #endif

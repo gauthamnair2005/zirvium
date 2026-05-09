@@ -33,9 +33,10 @@
 #define DEFAULT_MINUTE 36
 #define DEFAULT_SECOND 0
 
-static struct datetime boot_time;
+static struct datetime boot_utc;
 static uint64_t boot_tsc;
 static uint64_t tsc_hz;
+static int tz_offset_minutes;
 static bool time_initialised = false;
 
 static inline void cpuid(uint32_t leaf,
@@ -224,39 +225,37 @@ void time_init(void)
 
     tsc_hz = detect_tsc_hz();
     boot_tsc = rdtsc();
+    tz_offset_minutes = 0;
 
-    struct datetime dt;
-    if (!rtc_read_datetime(&dt)) {
-        dt.year   = DEFAULT_YEAR;
-        dt.month  = DEFAULT_MONTH;
-        dt.day    = DEFAULT_DAY;
-        dt.hour   = DEFAULT_HOUR;
-        dt.minute = DEFAULT_MINUTE;
-        dt.second = DEFAULT_SECOND;
+    if (!rtc_read_datetime(&boot_utc)) {
+        boot_utc.year   = DEFAULT_YEAR;
+        boot_utc.month  = DEFAULT_MONTH;
+        boot_utc.day    = DEFAULT_DAY;
+        boot_utc.hour   = DEFAULT_HOUR;
+        boot_utc.minute = DEFAULT_MINUTE;
+        boot_utc.second = DEFAULT_SECOND;
     }
-
-    boot_time = dt;
 }
 
 int time_get(struct datetime *dt)
 {
     if (!time_initialised) return -1;
 
+    uint64_t elapsed = 0;
     uint64_t now_tsc = rdtsc();
-    uint64_t total_seconds = 0;
     if (now_tsc > boot_tsc)
-        total_seconds = (now_tsc - boot_tsc) / tsc_hz;
+        elapsed = (now_tsc - boot_tsc) / tsc_hz;
 
-    *dt = boot_time;
+    struct datetime utc = boot_utc;
+    utc.second  += (int)(elapsed % 60); elapsed /= 60;
+    utc.minute  += (int)(elapsed % 60); elapsed /= 60;
+    utc.hour    += (int)(elapsed % 24); elapsed /= 24;
+    utc.day     += (int)elapsed;
+    normalize_datetime(&utc);
 
-    dt->second += (int)(total_seconds % 60);
-    total_seconds /= 60;
-    dt->minute += (int)(total_seconds % 60);
-    total_seconds /= 60;
-    dt->hour   += (int)(total_seconds % 24);
-    total_seconds /= 24;
-    dt->day    += (int)total_seconds;
-
+    *dt = utc;
+    dt->minute += tz_offset_minutes % 60;
+    dt->hour   += tz_offset_minutes / 60;
     normalize_datetime(dt);
     return 0;
 }
@@ -269,10 +268,15 @@ int time_set(const struct datetime *dt)
     if (dt->day < 1 || dt->day > 31) return -1;
     if (dt->hour > 23 || dt->minute > 59 || dt->second > 59) return -1;
 
-    boot_time = *dt;
+    struct datetime utc = *dt;
+    utc.minute -= tz_offset_minutes % 60;
+    utc.hour   -= tz_offset_minutes / 60;
+    normalize_datetime(&utc);
+
+    boot_utc = utc;
     boot_tsc = rdtsc();
 
-    rtc_write_datetime(dt);
+    rtc_write_datetime(&utc);
     return 0;
 }
 
@@ -283,4 +287,14 @@ uint64_t time_uptime_seconds(void)
     if (now_tsc > boot_tsc)
         return (now_tsc - boot_tsc) / tsc_hz;
     return 0;
+}
+
+int time_get_tz(void)
+{
+    return tz_offset_minutes;
+}
+
+void time_set_tz(int offset_minutes)
+{
+    tz_offset_minutes = offset_minutes;
 }

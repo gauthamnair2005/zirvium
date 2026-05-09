@@ -384,6 +384,19 @@ static uint64_t sys_setdatetime(process_t *proc, const struct datetime *dt)
     return 0;
 }
 
+static uint64_t sys_gettz(process_t *proc)
+{
+    (void)proc;
+    return (uint64_t)(int64_t)time_get_tz();
+}
+
+static uint64_t sys_settz(process_t *proc, int minutes)
+{
+    (void)proc;
+    time_set_tz(minutes);
+    return 0;
+}
+
 /* ── getdents ────────────────────────────────────────────────────────────── */
 struct dirent {
     uint64_t d_ino;
@@ -505,6 +518,10 @@ uint64_t syscall_dispatch(uint64_t num,
         return sys_getdatetime(proc, (struct datetime *)(uintptr_t)a1);
     case SYS_SETDATETIME:
         return sys_setdatetime(proc, (const struct datetime *)(uintptr_t)a1);
+    case SYS_GETTZ:
+        return sys_gettz(proc);
+    case SYS_SETTZ:
+        return sys_settz(proc, (int)a1);
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }

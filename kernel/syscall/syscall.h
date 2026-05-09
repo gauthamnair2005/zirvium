@@ -36,6 +36,8 @@
 #define SYS_CHDIR    80   /* chdir(path)                             */
 #define SYS_GETDATETIME 96   /* getdatetime(dt)                       */
 #define SYS_SETDATETIME 97   /* setdatetime(dt)                       */
+#define SYS_GETTZ       98   /* gettz()                               */
+#define SYS_SETTZ       99   /* settz(minutes)                        */
 
 /* ── Negated errno values returned in RAX ────────────────────────────────── */
 #define ESYS_EBADF   (-9)
