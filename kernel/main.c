@@ -130,6 +130,9 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     extern void syscall_init(void);
     syscall_init();
 
+    extern void time_init(void);
+    time_init();
+
     /* ── Step 5: Hardware Discovery ──────────────────────────────────── */
     pci_init();
     

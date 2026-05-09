@@ -58,6 +58,7 @@ LDFLAGS := \
 C_SRCS := \
     kernel/main.c                                   \
     kernel/console.c                                \
+    kernel/time/time.c                              \
     kernel/mm/pmm.c                                 \
     kernel/mm/vmm.c                                 \
     kernel/mm/heap.c                                \
@@ -102,9 +103,9 @@ ASM_SRCS := \
     arch/x64/syscall_entry.asm  \
     kernel/loader/init_bin.asm
 
-ZIRVINIT_ELF := zirvinit/zirvinit.elf
+ZIRVINIT_ELF  := zirvinit/zirvinit.elf
 ZIRVSHELL_ELF := zirvshell/zirvshell.elf
-ZIRVUTILS_ELF := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf
+ZIRVUTILS_ELFS := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf
 
 # ── Derived object lists ───────────────────────────────────────────────────────
 BUILD_DIR := build
@@ -137,7 +138,7 @@ $(BUILD_DIR)/%.asm.o: %.asm
 	$(AS) $(ASFLAGS) -o $@ $<
 	@echo "  AS  $<"
 
-$(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm $(ZIRVINIT_ELF) $(ZIRVSHELL_ELF) $(ZIRVUTILS_ELF)
+$(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm $(ZIRVINIT_ELF) $(ZIRVSHELL_ELF) $(ZIRVUTILS_ELFS)
 
 $(ZIRVINIT_ELF):
 	$(MAKE) -C zirvinit
@@ -145,8 +146,11 @@ $(ZIRVINIT_ELF):
 $(ZIRVSHELL_ELF):
 	$(MAKE) -C zirvshell
 
-$(ZIRVUTILS_ELF):
+# Build all utilities with a single sub-make invocation (avoids -j races)
+$(ZIRVUTILS_ELFS): $(BUILD_DIR)/.zirvutils_stamp
+$(BUILD_DIR)/.zirvutils_stamp:
 	$(MAKE) -C zirvutils
+	@touch $@
 
 # ── Strip to flat binary (optional) ───────────────────────────────────────────
 .PHONY: bin
@@ -213,6 +217,7 @@ debug: $(KERNEL_ISO)
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
+	$(MAKE) -C zirvutils clean || true
 	$(MAKE) -C zirvinit clean || true
 	$(MAKE) -C zirvshell clean || true
 	$(MAKE) -C zirvutils clean || true

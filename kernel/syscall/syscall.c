@@ -9,6 +9,7 @@
 #include "kernel/ipc/pipe.h"
 #include "kernel/loader/embedded.h"
 #include "kernel/loader/elf.h"
+#include "kernel/time/time.h"
 #include "fs/mosix.h"
 #include "arch/x64/cpu.h"
 #include "arch/x64/gdt.h"
@@ -358,6 +359,65 @@ static uint64_t sys_wait4(process_t *proc,
     return (uint64_t)child_pid;
 }
 
+/* ── time ────────────────────────────────────────────────────────────────── */
+static uint64_t sys_uptime(process_t *proc)
+{
+    (void)proc;
+    return time_uptime_seconds();
+}
+
+static uint64_t sys_getdatetime(process_t *proc, struct datetime *buf)
+{
+    (void)proc;
+    if (!buf) return (uint64_t)(int64_t)ESYS_EFAULT;
+    struct datetime dt;
+    if (time_get(&dt) < 0) return (uint64_t)(int64_t)ESYS_EINVAL;
+    *buf = dt;
+    return 0;
+}
+
+static uint64_t sys_setdatetime(process_t *proc, const struct datetime *dt)
+{
+    (void)proc;
+    if (!dt) return (uint64_t)(int64_t)ESYS_EFAULT;
+    if (time_set(dt) < 0) return (uint64_t)(int64_t)ESYS_EINVAL;
+    return 0;
+}
+
+/* ── getdents ────────────────────────────────────────────────────────────── */
+struct dirent {
+    uint64_t d_ino;
+    char     d_name[256];
+};
+
+static uint64_t sys_getdents(process_t *proc, int fd,
+                             struct dirent *ents, int count)
+{
+    open_file_t *f = proc_get_fd(proc, fd);
+    if (!f) return (uint64_t)(int64_t)ESYS_EBADF;
+    if (f->type != FILE_TYPE_VFS || !f->vnode)
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+    if (f->vnode->type != VNODE_DIR)
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+    if (!f->vnode->ops || !f->vnode->ops->readdir)
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+
+    int written = 0;
+    for (int i = 0; i < count; i++) {
+        char name[256];
+        if (f->vnode->ops->readdir(f->vnode, (uint32_t)i,
+                                    name, sizeof(name)) < 0)
+            break;
+        ents[i].d_ino = f->vnode->inode;
+        size_t nlen = strlen(name) + 1;
+        if (nlen > sizeof(ents[i].d_name))
+            nlen = sizeof(ents[i].d_name);
+        memcpy(ents[i].d_name, name, nlen);
+        written++;
+    }
+    return (uint64_t)written;
+}
+
 /* ── getcwd ──────────────────────────────────────────────────────────────── */
 static uint64_t sys_getcwd(process_t *proc, char *buf, size_t size)
 {
@@ -413,6 +473,8 @@ uint64_t syscall_dispatch(uint64_t num,
         return sys_munmap(proc, a1, (size_t)a2);
     case SYS_BRK:
         return sys_brk(proc, a1);
+    case SYS_UPTIME:
+        return sys_uptime(proc);
     case SYS_PIPE:
         return sys_pipe(proc, (int *)(uintptr_t)a1);
     case SYS_GETPID:
@@ -431,11 +493,18 @@ uint64_t syscall_dispatch(uint64_t num,
         return sys_wait4(proc, (int)a1,
                          (int *)(uintptr_t)a2, (int)a3,
                          (void *)(uintptr_t)a4);
+    case SYS_GETDENTS:
+        return sys_getdents(proc, (int)a1,
+                            (struct dirent *)(uintptr_t)a2, (int)a3);
     case SYS_GETCWD:
         return sys_getcwd(proc,
                           (char *)(uintptr_t)a1, (size_t)a2);
     case SYS_CHDIR:
         return sys_chdir(proc, (const char *)(uintptr_t)a1);
+    case SYS_GETDATETIME:
+        return sys_getdatetime(proc, (struct datetime *)(uintptr_t)a1);
+    case SYS_SETDATETIME:
+        return sys_setdatetime(proc, (const struct datetime *)(uintptr_t)a1);
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }

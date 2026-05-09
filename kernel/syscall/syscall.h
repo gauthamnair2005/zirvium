@@ -25,13 +25,17 @@
 #define SYS_MMAP     9    /* mmap(addr, len, prot, flags, fd, off)   */
 #define SYS_MUNMAP   11   /* munmap(addr, len)                       */
 #define SYS_BRK      12   /* brk(new_brk)  → returns actual brk     */
+#define SYS_UPTIME   13   /* uptime()                                */
 #define SYS_PIPE     22   /* pipe(fds[2])                            */
 #define SYS_GETPID   39   /* getpid()                                */
 #define SYS_EXECVE   59   /* execve(path, argv, envp)                */
 #define SYS_EXIT     60   /* exit(status)  → does not return        */
 #define SYS_WAIT4    61   /* wait4(pid, wstatus, options, rusage)    */
+#define SYS_GETDENTS 78   /* getdents(fd, ents, count)               */
 #define SYS_GETCWD   79   /* getcwd(buf, size)                       */
 #define SYS_CHDIR    80   /* chdir(path)                             */
+#define SYS_GETDATETIME 96   /* getdatetime(dt)                       */
+#define SYS_SETDATETIME 97   /* setdatetime(dt)                       */
 
 /* ── Negated errno values returned in RAX ────────────────────────────────── */
 #define ESYS_EBADF   (-9)
