@@ -93,6 +93,8 @@ C_SRCS := \
     drivers/zirv/intel_e1000.c                      \
     drivers/zirv/virtio.c                           \
     drivers/zirv/realtek.c                          \
+    drivers/pci/pci_compat.c                        \
+    drivers/gpu/nvidia/nvidia.c                     \
     libs/zirvlibc/src/string.c                      \
     libs/zirvlibc/src/stdio.c                       \
     libs/zirvlibc/src/ctype.c

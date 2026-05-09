@@ -15,6 +15,7 @@
 #include "drivers/zirv/input/ps2/i8042.h"
 #include "drivers/zirv/input/ps2/keyboard.h"
 #include "drivers/zirv/driver.h"
+#include "drivers/gpu/nvidia/nvidia.h"
 #include "arch/x64/gdt.h"
 #include "arch/x64/idt.h"
 #include <stdint.h>
@@ -154,6 +155,9 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     driver_register(&g_rtl8139_driver);
 
     driver_probe_all();
+
+    /* ── Linux-compat drivers (conditional on PCI detection) ──────────── */
+    nvidia_init();
 
     /* ── Step 6b: Legacy PS/2 Keyboard ───────────────────────────────── */
     if (i8042_init())
