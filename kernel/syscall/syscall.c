@@ -524,8 +524,10 @@ uint64_t syscall_dispatch(uint64_t num,
     case SYS_SETTZ:
         return sys_settz(proc, (int)a1);
     case SYS_REBOOT:
-        serial_puts(SERIAL_COM1, "[syscall] reboot via keyboard controller\n");
-        outb(0x64, 0xFE);
+        serial_puts(SERIAL_COM1, "[syscall] rebooting via ACPI reset register\n");
+        outb(0xCF9, 0x0E);  /* ACPI full reset (RST_CPU | SYS_RST) */
+        outb(0xCF9, 0x06);  /* ACPI hard reset (SYS_RST only) */
+        outb(0x64, 0xFE);   /* legacy keyboard controller reset */
         for (;;) __asm__ volatile("hlt");
         return 0;
     case SYS_SHUTDOWN:
