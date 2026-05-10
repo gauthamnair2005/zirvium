@@ -1,3 +1,5 @@
+%ifndef VMZIRV
+
 section .rodata
 global zirvinit_bin_start
 global zirvinit_bin_end
@@ -143,3 +145,37 @@ zirvutil_hostname_bin_start:
     incbin "zirvutils/hostname.elf"
 align 4096
 zirvutil_hostname_bin_end:
+
+%else
+; VMZIRV mode: define all symbols as empty stubs (start == end)
+; so the linker can resolve references from embedded.c without
+; embedding any user-space binaries.
+
+%macro vmzirv_bin_stub 2
+section .rodata
+global %1
+global %2
+%1:
+%2:
+%endmacro
+
+vmzirv_bin_stub zirvinit_bin_start, zirvinit_bin_end
+vmzirv_bin_stub zirvshell_bin_start, zirvshell_bin_end
+vmzirv_bin_stub zirvutil_hello_bin_start, zirvutil_hello_bin_end
+vmzirv_bin_stub zirvutil_cat_bin_start, zirvutil_cat_bin_end
+vmzirv_bin_stub zirvutil_sysinfo_bin_start, zirvutil_sysinfo_bin_end
+vmzirv_bin_stub zirvutil_clear_bin_start, zirvutil_clear_bin_end
+vmzirv_bin_stub zirvutil_echo_bin_start, zirvutil_echo_bin_end
+vmzirv_bin_stub zirvutil_reboot_bin_start, zirvutil_reboot_bin_end
+vmzirv_bin_stub zirvutil_shutdown_bin_start, zirvutil_shutdown_bin_end
+vmzirv_bin_stub zirvutil_suspend_bin_start, zirvutil_suspend_bin_end
+vmzirv_bin_stub zirvutil_poweroff_bin_start, zirvutil_poweroff_bin_end
+vmzirv_bin_stub zirvutil_ping_bin_start, zirvutil_ping_bin_end
+vmzirv_bin_stub zirvutil_sleep_bin_start, zirvutil_sleep_bin_end
+vmzirv_bin_stub zirvutil_true_bin_start, zirvutil_true_bin_end
+vmzirv_bin_stub zirvutil_false_bin_start, zirvutil_false_bin_end
+vmzirv_bin_stub zirvutil_yes_bin_start, zirvutil_yes_bin_end
+vmzirv_bin_stub zirvutil_uname_bin_start, zirvutil_uname_bin_end
+vmzirv_bin_stub zirvutil_hostname_bin_start, zirvutil_hostname_bin_end
+
+%endif

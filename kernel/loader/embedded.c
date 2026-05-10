@@ -1,6 +1,8 @@
 #include "embedded.h"
 #include <string.h>
 
+#ifndef VMZIRV
+
 extern char zirvinit_bin_start[], zirvinit_bin_end[];
 extern char zirvshell_bin_start[], zirvshell_bin_end[];
 extern char zirvutil_hello_bin_start[], zirvutil_hello_bin_end[];
@@ -84,14 +86,24 @@ void embedded_init(void)
     embedded_binaries_data[17].size = (size_t)(zirvutil_hostname_bin_end - zirvutil_hostname_bin_start);
 }
 
+#else
+/* VMZIRV mode: empty embedded binary table — no user-space utilities */
+
+static embedded_binary_t embedded_binaries_data[] = {
+    { .path = NULL, .data = NULL, .size = 0 },
+};
+
+const embedded_binary_t *embedded_binaries = embedded_binaries_data;
+
+void embedded_init(void)
+{
+}
+
+#endif
+
 const void *embedded_find(const char *path, size_t *size_out)
 {
-    if (!path) return NULL;
-    for (const embedded_binary_t *e = embedded_binaries; e->path; e++) {
-        if (strcmp(e->path, path) == 0) {
-            if (size_out) *size_out = e->size;
-            return e->data;
-        }
-    }
+    (void)path;
+    if (size_out) *size_out = 0;
     return NULL;
 }

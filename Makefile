@@ -1,9 +1,10 @@
 # Zirvium Kernel — Top-level Makefile
 #
 # Targets:
-#   make          — build the kernel ELF
+#   make          — build the kernel ELF (with embedded user-space binaries)
 #   make iso      — build a bootable ISO image (requires grub-mkrescue, xorriso & mtools)
 #   make run      — build ISO and run in QEMU via GRUB (-cdrom)
+#   make vmzirv   — build kernel-only ELF (no embedded binaries) for distro use
 #   make clean    — remove build artefacts
 #
 # Requirements:
@@ -140,7 +141,13 @@ $(BUILD_DIR)/%.asm.o: %.asm
 	$(AS) $(ASFLAGS) -o $@ $<
 	@echo "  AS  $<"
 
+ifneq ($(filter vmzirv,$(MAKECMDGOALS)),)
+# vmzirv build — init_bin.asm is assembled with -DVMZIRV which produces
+# empty stubs instead of incbin, so no user-space ELF dependency needed.
+$(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm
+else
 $(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm $(ZIRVINIT_ELF) $(ZIRVSHELL_ELF) $(ZIRVUTILS_ELFS)
+endif
 
 $(ZIRVINIT_ELF):
 	$(MAKE) -C zirvinit
@@ -214,6 +221,19 @@ debug: $(KERNEL_ISO)
 	    -s -S &
 	gdb $(KERNEL_ELF)               \
 	    -ex "target remote :1234"
+
+# ── vmzirv — Kernel-only ELF (no embedded user-space binaries) ─────────────────
+# Produces build/vmzirv, a pure kernel ELF at the normal link address.
+# Distro makers can use this and link in their own initramfs/userspace manually.
+# Existing targets (make, make iso, make run) are completely unaffected.
+.PHONY: vmzirv
+vmzirv: CFLAGS += -DVMZIRV
+vmzirv: ASFLAGS += -DVMZIRV
+vmzirv: $(BUILD_DIR)/vmzirv
+
+$(BUILD_DIR)/vmzirv: $(ALL_OBJS)
+	$(LD) $(LDFLAGS) -o $@ $^
+	@echo "  LD  vmzirv $@"
 
 # ── Clean ─────────────────────────────────────────────────────────────────────
 .PHONY: clean
