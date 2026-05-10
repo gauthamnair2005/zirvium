@@ -326,10 +326,12 @@ static inline int test_and_clear_bit(int nr, volatile unsigned long *addr) {
 #define hweight64(x) ((unsigned)__builtin_popcountll(x))
 
 static inline void *memset64(uint64_t *p, uint64_t v, size_t n) {
-    for (size_t i = 0; i < n; i++) p[i] = v; return p;
+    for (size_t i = 0; i < n; i++) p[i] = v;
+    return p;
 }
 static inline void *memset32(uint32_t *p, uint32_t v, size_t n) {
-    for (size_t i = 0; i < n; i++) p[i] = v; return p;
+    for (size_t i = 0; i < n; i++) p[i] = v;
+    return p;
 }
 #define memcpy_fromio(a, b, c) memcpy((a), (void *)(b), (c))
 #define memcpy_toio(a, b, c)   memcpy((void *)(a), (b), (c))
@@ -381,8 +383,8 @@ static inline int mod_timer(timer_list_t *t, unsigned long expires) {
     (void)expires; t->function ? t->function(t) : (void)0; return 0;
 }
 static inline int del_timer(timer_list_t *t) { (void)t; return 0; }
-static inline int del_timer_sync(timer_list_t *t) { return 0; }
-static inline int timer_pending(const timer_list_t *t) { return 0; }
+static inline int del_timer_sync(timer_list_t *t) { (void)t; return 0; }
+static inline int timer_pending(const timer_list_t *t) { (void)t; return 0; }
 
 typedef struct { volatile int pending; } wait_queue_head_t;
 #define init_waitqueue_head(w)  do { (w)->pending = 0; } while (0)
@@ -402,6 +404,9 @@ typedef struct { volatile int pending; } wait_queue_head_t;
 #define wait_event_timeout(wq, cond, timeout) ({ unsigned long _t = timeout; while (!(cond) && _t--) udelay(1); (cond) ? 1 : 0; })
 #define wait_event_interruptible_timeout(wq, cond, t) wait_event_timeout(wq, cond, t)
 
+/* ── IRQ API (only if kernel/irq/irq.h not already included) ─────────────── */
+#ifndef ZIRVIUM_KERNEL_IRQ_IRQ_H
+
 typedef struct { int irq; void *dev_id; } irq_handler_t;
 typedef int (*irq_handler_fn)(int, void *);
 #define IRQF_SHARED         0x0001
@@ -413,17 +418,19 @@ typedef int (*irq_handler_fn)(int, void *);
 
 static inline int request_irq(unsigned int irq, irq_handler_fn handler,
                                unsigned long flags, const char *name, void *dev) {
-    (void)handler; (void)flags; (void)name; (void)dev;
+    (void)irq; (void)handler; (void)flags; (void)name; (void)dev;
     pr_info("request_irq(%u) - stub\n", irq);
     return 0;
 }
 static inline void free_irq(unsigned int irq, void *dev_id) {
     (void)irq; (void)dev_id;
 }
-#define IRQ_RETVAL(x) (x)
 #define IRQ_NONE 0
 #define IRQ_HANDLED 1
 #define IRQ_WAKE_THREAD 2
+
+#endif /* ZIRVIUM_KERNEL_IRQ_IRQ_H */
+#define IRQ_RETVAL(x) (x)
 
 typedef struct kref { atomic_t refcount; } kref_t;
 #define kref_init(k)         atomic_set(&(k)->refcount, 1)

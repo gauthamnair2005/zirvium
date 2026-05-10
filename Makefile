@@ -107,7 +107,7 @@ ASM_SRCS := \
 
 ZIRVINIT_ELF  := zirvinit/zirvinit.elf
 ZIRVSHELL_ELF := zirvshell/zirvshell.elf
-ZIRVUTILS_ELFS := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf zirvutils/reboot.elf zirvutils/shutdown.elf zirvutils/suspend.elf zirvutils/poweroff.elf
+ZIRVUTILS_ELFS := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf zirvutils/reboot.elf zirvutils/shutdown.elf zirvutils/suspend.elf zirvutils/poweroff.elf zirvutils/ping.elf zirvutils/sleep.elf zirvutils/true.elf zirvutils/false.elf zirvutils/yes.elf zirvutils/uname.elf zirvutils/hostname.elf
 
 # ── Derived object lists ───────────────────────────────────────────────────────
 BUILD_DIR := build

@@ -39,6 +39,9 @@ typedef struct {
     uint32_t entry_version;
 } mb2_mmap_tag_t;
 
+/* ── Global hostname ──────────────────────────────────────────────────────── */
+char g_hostname[64] = "zirvium";
+
 /* ── Embedded Binaries ────────────────────────────────────────────────────── */
 extern char zirvinit_bin_start[];
 

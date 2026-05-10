@@ -21,6 +21,20 @@ global zirvutil_suspend_bin_start
 global zirvutil_suspend_bin_end
 global zirvutil_poweroff_bin_start
 global zirvutil_poweroff_bin_end
+global zirvutil_ping_bin_start
+global zirvutil_ping_bin_end
+global zirvutil_sleep_bin_start
+global zirvutil_sleep_bin_end
+global zirvutil_true_bin_start
+global zirvutil_true_bin_end
+global zirvutil_false_bin_start
+global zirvutil_false_bin_end
+global zirvutil_yes_bin_start
+global zirvutil_yes_bin_end
+global zirvutil_uname_bin_start
+global zirvutil_uname_bin_end
+global zirvutil_hostname_bin_start
+global zirvutil_hostname_bin_end
 
 align 4096
 zirvinit_bin_start:
@@ -87,3 +101,45 @@ zirvutil_poweroff_bin_start:
     incbin "zirvutils/poweroff.elf"
 align 4096
 zirvutil_poweroff_bin_end:
+
+align 4096
+zirvutil_ping_bin_start:
+    incbin "zirvutils/ping.elf"
+align 4096
+zirvutil_ping_bin_end:
+
+align 4096
+zirvutil_sleep_bin_start:
+    incbin "zirvutils/sleep.elf"
+align 4096
+zirvutil_sleep_bin_end:
+
+align 4096
+zirvutil_true_bin_start:
+    incbin "zirvutils/true.elf"
+align 4096
+zirvutil_true_bin_end:
+
+align 4096
+zirvutil_false_bin_start:
+    incbin "zirvutils/false.elf"
+align 4096
+zirvutil_false_bin_end:
+
+align 4096
+zirvutil_yes_bin_start:
+    incbin "zirvutils/yes.elf"
+align 4096
+zirvutil_yes_bin_end:
+
+align 4096
+zirvutil_uname_bin_start:
+    incbin "zirvutils/uname.elf"
+align 4096
+zirvutil_uname_bin_end:
+
+align 4096
+zirvutil_hostname_bin_start:
+    incbin "zirvutils/hostname.elf"
+align 4096
+zirvutil_hostname_bin_end:

@@ -8,14 +8,13 @@
  * and register definitions are derived from the publicly available Realtek
  * Linux driver source and RTL8723D hardware design guide.
  */
+#include "kernel/irq/irq.h"
+#include "kernel/mm/pmm.h"
+#include "kernel/mm/vmm.h"
 #include "rtl8723de.h"
 #include "drivers/pci/pci.h"
 #include "drivers/zirv/device.h"
 #include "drivers/serial/serial.h"
-#include "kernel/irq/irq.h"
-#include "kernel/mm/pmm.h"
-#include "kernel/mm/vmm.h"
-#include "drivers/compat/linux_compat.h"
 #include <string.h>
 
 /* ── Static device state ──────────────────────────────────────────────────── */

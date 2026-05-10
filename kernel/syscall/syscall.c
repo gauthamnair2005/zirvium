@@ -446,6 +446,29 @@ static uint64_t sys_getcwd(process_t *proc, char *buf, size_t size)
     return (uint64_t)(len - 1);
 }
 
+/* ── hostname ────────────────────────────────────────────────────────────── */
+extern char g_hostname[64];
+
+static uint64_t sys_gethostname(process_t *proc, char *buf, size_t size)
+{
+    (void)proc;
+    if (!buf) return (uint64_t)(int64_t)ESYS_EFAULT;
+    size_t len = strlen(g_hostname) + 1;
+    if (len > size) return (uint64_t)(int64_t)ESYS_ERANGE;
+    memcpy(buf, g_hostname, len);
+    return 0;
+}
+
+static uint64_t sys_sethostname(process_t *proc, const char *name, size_t len)
+{
+    (void)proc;
+    if (!name) return (uint64_t)(int64_t)ESYS_EFAULT;
+    if (len > 63) len = 63;
+    memcpy(g_hostname, name, len);
+    g_hostname[len] = '\0';
+    return 0;
+}
+
 /* ── chdir ───────────────────────────────────────────────────────────────── */
 static uint64_t sys_chdir(process_t *proc, const char *path)
 {
@@ -515,6 +538,10 @@ uint64_t syscall_dispatch(uint64_t num,
                           (char *)(uintptr_t)a1, (size_t)a2);
     case SYS_CHDIR:
         return sys_chdir(proc, (const char *)(uintptr_t)a1);
+    case SYS_GETHOSTNAME:
+        return sys_gethostname(proc, (char *)(uintptr_t)a1, (size_t)a2);
+    case SYS_SETHOSTNAME:
+        return sys_sethostname(proc, (const char *)(uintptr_t)a1, (size_t)a2);
     case SYS_GETDATETIME:
         return sys_getdatetime(proc, (struct datetime *)(uintptr_t)a1);
     case SYS_SETDATETIME:

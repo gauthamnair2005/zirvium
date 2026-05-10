@@ -34,6 +34,8 @@
 #define SYS_GETDENTS 78   /* getdents(fd, ents, count)               */
 #define SYS_GETCWD   79   /* getcwd(buf, size)                       */
 #define SYS_CHDIR    80   /* chdir(path)                             */
+#define SYS_GETHOSTNAME 89   /* gethostname(buf, size)                 */
+#define SYS_SETHOSTNAME 90   /* sethostname(name, len)                 */
 #define SYS_GETDATETIME 96   /* getdatetime(dt)                       */
 #define SYS_SETDATETIME 97   /* setdatetime(dt)                       */
 #define SYS_GETTZ       98   /* gettz()                               */
