@@ -11,3 +11,9 @@
 [submodule "zirvutils"]
 	path = zirvutils
 	url = https://github.com/gauthamnair2005/zirvutils.git
+[submodule "zirvui"]
+	path = zirvui
+	url = https://github.com/gauthamnair2005/zirvui.git
+[submodule "zirvdisplayjet"]
+	path = zirvdisplayjet
+	url = https://github.com/gauthamnair2005/zirvdisplayjet.git

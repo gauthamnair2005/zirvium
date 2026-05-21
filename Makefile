@@ -109,6 +109,7 @@ ASM_SRCS := \
 ZIRVINIT_ELF  := zirvinit/zirvinit.elf
 ZIRVSHELL_ELF := zirvshell/zirvshell.elf
 ZIRVUTILS_ELFS := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf zirvutils/reboot.elf zirvutils/shutdown.elf zirvutils/suspend.elf zirvutils/poweroff.elf zirvutils/ping.elf zirvutils/sleep.elf zirvutils/true.elf zirvutils/false.elf zirvutils/yes.elf zirvutils/uname.elf zirvutils/hostname.elf
+ZIRVUI_ELF := zirvui/zirvui.elf
 
 # ── Derived object lists ───────────────────────────────────────────────────────
 BUILD_DIR := build
@@ -146,7 +147,7 @@ ifneq ($(filter vmzirv,$(MAKECMDGOALS)),)
 # empty stubs instead of incbin, so no user-space ELF dependency needed.
 $(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm
 else
-$(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm $(ZIRVINIT_ELF) $(ZIRVSHELL_ELF) $(ZIRVUTILS_ELFS)
+$(BUILD_DIR)/kernel/loader/init_bin.asm.o: kernel/loader/init_bin.asm $(ZIRVINIT_ELF) $(ZIRVSHELL_ELF) $(ZIRVUTILS_ELFS) $(ZIRVUI_ELF)
 endif
 
 $(ZIRVINIT_ELF):
@@ -160,6 +161,9 @@ $(ZIRVUTILS_ELFS): $(BUILD_DIR)/.zirvutils_stamp
 $(BUILD_DIR)/.zirvutils_stamp:
 	$(MAKE) -C zirvutils
 	@touch $@
+
+$(ZIRVUI_ELF):
+	$(MAKE) -C zirvui
 
 # ── Strip to flat binary (optional) ───────────────────────────────────────────
 .PHONY: bin
@@ -245,4 +249,5 @@ clean:
 	$(MAKE) -C zirvinit clean || true
 	$(MAKE) -C zirvshell clean || true
 	$(MAKE) -C zirvutils clean || true
+	$(MAKE) -C zirvui clean || true
 	@echo "  CLEAN"
