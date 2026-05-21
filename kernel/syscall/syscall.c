@@ -14,6 +14,7 @@
 #include "arch/x64/cpu.h"
 #include "arch/x64/gdt.h"
 #include "drivers/serial/serial.h"
+#include "drivers/zirv/displayjet/displayjet.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -563,6 +564,40 @@ uint64_t syscall_dispatch(uint64_t num,
         outw(0xB004, 0x2000); /* Bochs */
         for (;;) __asm__ volatile("hlt");
         return 0;
+    case SYS_DJ_CONNECT:
+        return (uint64_t)(int64_t)displayjet_connect((int)proc->pid);
+    case SYS_DJ_DISCONNECT:
+        return (uint64_t)(int64_t)displayjet_disconnect((int)proc->pid);
+    case SYS_DJ_CREATE_SURFACE:
+        {
+            uint32_t id;
+            int ret = displayjet_create_surface((uint32_t)a1, (uint32_t)a2, &id);
+            if (ret == 0)
+                ret = (int)id;
+            return (uint64_t)(int64_t)ret;
+        }
+    case SYS_DJ_DESTROY_SURFACE:
+        return (uint64_t)(int64_t)displayjet_destroy_surface((uint32_t)a1);
+    case SYS_DJ_PRESENT:
+        return (uint64_t)(int64_t)displayjet_present((uint32_t)a1);
+    case SYS_DJ_GET_MODE:
+        return (uint64_t)(int64_t)displayjet_get_mode(
+                   (dj_display_mode_t *)(uintptr_t)a1);
+    case SYS_DJ_SURFACE_WRITE:
+        return (uint64_t)(int64_t)displayjet_surface_write(
+                   (uint32_t)a1, (const void *)(uintptr_t)a2, (size_t)a3);
+    case SYS_DJ_SURFACE_READ:
+        return (uint64_t)(int64_t)displayjet_surface_read(
+                   (uint32_t)a1, (void *)(uintptr_t)a2, (size_t)a3);
+    case SYS_DJ_LIST_SURFACES:
+        return (uint64_t)(int64_t)displayjet_list_surfaces(
+                   (dj_surface_info_t *)(uintptr_t)a1, (uint32_t *)(uintptr_t)a2);
+    case SYS_DJ_REQUEST_ACCESS:
+        return (uint64_t)(int64_t)displayjet_request_access(
+                   (uint32_t)a1, (dj_access_grant_t *)(uintptr_t)a2);
+    case SYS_DJ_GRANT_ACCESS:
+        return (uint64_t)(int64_t)displayjet_grant_access(
+                   (uint32_t)a1, (dj_access_grant_t *)(uintptr_t)a2);
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }

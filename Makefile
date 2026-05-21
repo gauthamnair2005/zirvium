@@ -46,7 +46,9 @@ CFLAGS := \
     -fcf-protection=none    \
     -DKERNEL                \
     -I. \
-    -Ilibs/zirvlibc/include
+    -Ilibs/zirvlibc/include \
+    -Izirvdisplayjet \
+    -Izirvdisplayjet/drivers/zirv/displayjet
 
 ASFLAGS := -f elf64
 
@@ -96,6 +98,8 @@ C_SRCS := \
     drivers/zirv/realtek.c                          \
     drivers/pci/pci_compat.c                        \
     drivers/gpu/nvidia/nvidia.c                     \
+    zirvdisplayjet/drivers/zirv/displayjet/displayjet.c \
+    zirvdisplayjet/drivers/zirv/displayjet/crypto.c \
     libs/zirvlibc/src/string.c                      \
     libs/zirvlibc/src/stdio.c                       \
     libs/zirvlibc/src/ctype.c

@@ -16,6 +16,7 @@
 #include "drivers/zirv/input/ps2/keyboard.h"
 #include "drivers/zirv/driver.h"
 #include "drivers/gpu/nvidia/nvidia.h"
+#include "drivers/zirv/displayjet/displayjet.h"
 #include "arch/x64/gdt.h"
 #include "arch/x64/idt.h"
 #include <stdint.h>
@@ -141,7 +142,7 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     pci_init();
     
     /* ── Step 6: Dynamic Driver Probing ──────────────────────────────── */
-    extern const zirv_driver_t g_bochs_vga_driver;
+    /* bochs_vga is superseded by displayjet (DisplayJet w/ MAEM) */
     extern const zirv_driver_t g_vmware_svga_driver;
     extern const zirv_driver_t g_tpm2_driver;
     extern const zirv_driver_t g_intel_e1000_driver;
@@ -149,7 +150,6 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     extern const zirv_driver_t g_virtio_blk_driver;
     extern const zirv_driver_t g_rtl8139_driver;
 
-    driver_register(&g_bochs_vga_driver);
     driver_register(&g_vmware_svga_driver);
     driver_register(&g_tpm2_driver);
     driver_register(&g_intel_e1000_driver);
@@ -158,6 +158,9 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     driver_register(&g_rtl8139_driver);
 
     driver_probe_all();
+
+    /* ── DisplayJet (user-space display framework, supersedes bochs_vga) ─ */
+    displayjet_init();
 
     /* ── Linux-compat drivers (conditional on PCI detection) ──────────── */
     nvidia_init();
