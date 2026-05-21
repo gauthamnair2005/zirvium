@@ -141,7 +141,7 @@ static int e1000_send(const void *data, uint16_t len)
 }
 
 /* ── Poll for one received frame (non-blocking, returns 0 if none) ──────── */
-static int e1000_poll_one(uint8_t *buf, uint16_t buflen)
+int e1000_poll_one(uint8_t *buf, uint16_t buflen)
 {
     uint32_t rd = (g_e1000.rx_cur + 1) % E1000_NUM_RX_DESC;
     e1000_rx_desc_t *d = &g_e1000.rx_ring[rd];
@@ -174,7 +174,13 @@ static int e1000_vfs_read(vnode_t *vn, void *buf, size_t count, uint64_t off)
     for (int try = 0; try < 64; try++) {
         uint8_t frame[2048];
         int n = e1000_poll_one(frame, sizeof(frame));
-        if (n <= 0) { __asm__("pause"); continue; }
+        if (n <= 0) {
+            /* Read STATUS register to trigger QEMU device model processing
+               of pending RX events (SLiRP packet delivery). */
+            if (try % 8 == 0) (void)e1000_read32(E1000_STATUS);
+            __asm__("pause");
+            continue;
+        }
         if (net_stack_rx(frame, (uint16_t)n)) continue;
         if ((size_t)n > count) n = (int)count;
         memcpy(buf, frame, (size_t)n);
@@ -211,6 +217,7 @@ static int intel_e1000_probe(void *hw_desc)
 
     net_stack_init(g_e1000.mac);
     net_stack_set_send(e1000_send);
+    net_stack_set_poll(e1000_poll_one);
     return 0;
 }
 

@@ -46,6 +46,7 @@
 #define SYS_SETTZ       99   /* settz(minutes)                        */
 #define SYS_REBOOT     100   /* reboot()                              */
 #define SYS_SHUTDOWN   101   /* shutdown()                             */
+#define SYS_DNS_LOOKUP 102   /* dns_lookup(domain, result_ip)          */
 
 /* ── Open flags (mirrored from user-space) ───────────────────────────────── */
 #define O_CREAT  0x40

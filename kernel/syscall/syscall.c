@@ -10,6 +10,7 @@
 #include "kernel/loader/embedded.h"
 #include "kernel/loader/elf.h"
 #include "kernel/time/time.h"
+#include "kernel/net/stack.h"
 #include "fs/mosix.h"
 #include "arch/x64/cpu.h"
 #include "arch/x64/gdt.h"
@@ -747,6 +748,15 @@ uint64_t syscall_dispatch(uint64_t num,
     case SYS_DJ_GRANT_ACCESS:
         return (uint64_t)(int64_t)displayjet_grant_access(
                    (uint32_t)a1, (dj_access_grant_t *)(uintptr_t)a2);
+    case SYS_DNS_LOOKUP:
+        {
+            const char *domain = (const char *)(uintptr_t)a1;
+            uint32_t *result_ip = (uint32_t *)(uintptr_t)a2;
+            if (!domain || !result_ip) return (uint64_t)(int64_t)ESYS_EFAULT;
+            uint32_t ip = net_stack_dns_resolve(domain);
+            *result_ip = ip;
+            return ip != 0 ? 0 : (uint64_t)(int64_t)ESYS_EINVAL;
+        }
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }
