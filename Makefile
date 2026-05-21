@@ -172,8 +172,7 @@ ISO_DIR   := $(BUILD_DIR)/iso
 GRUB_CFG  := $(ISO_DIR)/boot/grub/grub.cfg
 KERNEL_ISO := $(BUILD_DIR)/zirvium.iso
 
-.PHONY: iso
-iso: $(KERNEL_ELF)
+$(KERNEL_ISO): $(KERNEL_ELF)
 	@command -v mformat >/dev/null 2>&1 || \
 	    { echo "Error: 'mformat' not found. Install mtools: sudo apt install mtools"; exit 1; }
 	@mkdir -p $(ISO_DIR)/boot/grub
@@ -182,6 +181,9 @@ iso: $(KERNEL_ELF)
 	    > $(GRUB_CFG)
 	grub-mkrescue -o $(KERNEL_ISO) $(ISO_DIR)
 	@echo "  ISO $(KERNEL_ISO)"
+
+.PHONY: iso
+iso: $(KERNEL_ISO)
 
 # ── Run in QEMU ────────────────────────────────────────────────────────────────
 # QEMU's -kernel flag requires a Linux bzImage or PVH ELF; it does not support

@@ -103,7 +103,12 @@ void embedded_init(void)
 
 const void *embedded_find(const char *path, size_t *size_out)
 {
-    (void)path;
+    for (const embedded_binary_t *eb = embedded_binaries; eb->path; eb++) {
+        if (strcmp(eb->path, path) == 0) {
+            if (size_out) *size_out = eb->size;
+            return eb->data;
+        }
+    }
     if (size_out) *size_out = 0;
     return NULL;
 }
