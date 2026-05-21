@@ -1,39 +1,20 @@
-#include "drivers/zirv/driver.h"
-#include "kernel/console.h"
-#include <stdio.h>
+/* Zirvium VirtIO Drivers
+ * Ported from Linux kernel drivers/virtio/virtio_ring.c,
+ * drivers/block/virtio_blk.c, drivers/net/virtio_net.c
+ *
+ * Uses linux_compat.h + pci_compat_register_driver() for Linux-style probe */
+#include "../../drivers/pci/pci_compat.h"
 
-static int virtio_net_probe(void *hw_desc)
+/* Declarations from the ported driver files */
+extern struct pci_driver_linux virtio_blk_driver;
+extern struct pci_driver_linux virtio_net_driver;
+
+static int initialized = 0;
+
+void virtio_init(void)
 {
-    (void)hw_desc;
-    klog(LOG_OK, "VIRT", "VirtIO Network Device Found and Initialized");
-    return 0;
+    if (initialized) return;
+    initialized = 1;
+    pci_compat_register_driver(&virtio_blk_driver);
+    pci_compat_register_driver(&virtio_net_driver);
 }
-
-static int virtio_blk_probe(void *hw_desc)
-{
-    (void)hw_desc;
-    klog(LOG_OK, "VIRT", "VirtIO Block Device Found and Initialized");
-    return 0;
-}
-
-const zirv_driver_t g_virtio_net_driver = {
-    .name = "VirtIO-Net",
-    .component_tag = "VIRT",
-    .type = DRIVER_TYPE_PCI,
-    .match.pci = {
-        .vendor_id = 0x1af4,
-        .device_id = 0x1000
-    },
-    .probe = virtio_net_probe
-};
-
-const zirv_driver_t g_virtio_blk_driver = {
-    .name = "VirtIO-Blk",
-    .component_tag = "VIRT",
-    .type = DRIVER_TYPE_PCI,
-    .match.pci = {
-        .vendor_id = 0x1af4,
-        .device_id = 0x1001
-    },
-    .probe = virtio_blk_probe
-};

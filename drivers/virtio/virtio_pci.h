@@ -1,0 +1,41 @@
+#ifndef _VIRTIO_PCI_H
+#define _VIRTIO_PCI_H
+
+#define VIRTIO_PCI_HOST_FEATURES    0
+#define VIRTIO_PCI_GUEST_FEATURES   4
+#define VIRTIO_PCI_QUEUE_PFN        8
+#define VIRTIO_PCI_QUEUE_NUM        12
+#define VIRTIO_PCI_QUEUE_SEL        14
+#define VIRTIO_PCI_QUEUE_NOTIFY     16
+#define VIRTIO_PCI_DEVICE_STATUS    18
+#define VIRTIO_PCI_ISR              19
+#define VIRTIO_PCI_MSIX_CONFIG      20
+
+#define VIRTIO_PCI_LEGACY_BAR 0
+#define VIRTIO_PCI_MODERN_BAR 0
+
+#define VIRTIO_PCI_ABI_LEGACY  0
+#define VIRTIO_PCI_ABI_MODERN  1
+
+#define VIRTIO_CONFIG_S_ACKNOWLEDGE     1
+#define VIRTIO_CONFIG_S_DRIVER          2
+#define VIRTIO_CONFIG_S_DRIVER_OK       4
+#define VIRTIO_CONFIG_S_FEATURES_OK     8
+#define VIRTIO_CONFIG_S_DEVICE_NEEDS_RESET 0x40
+#define VIRTIO_CONFIG_S_FAILED          0x80
+
+#define VIRTIO_TRANSPORT_F_START        28
+#define VIRTIO_TRANSPORT_F_END          42
+
+#define VIRTIO_F_NOTIFY_ON_EMPTY        24
+#define VIRTIO_F_ANY_LAYOUT             27
+#define VIRTIO_F_VERSION_1              32
+#define VIRTIO_F_ACCESS_PLATFORM        33
+#define VIRTIO_F_IOMMU_PLATFORM         33
+#define VIRTIO_F_SR_IOV                 37
+#define VIRTIO_F_RING_PACKED            34
+#define VIRTIO_F_IN_ORDER               35
+#define VIRTIO_F_ORDER_PLATFORM         36
+#define VIRTIO_F_NOTIFICATION_DATA      38
+
+#endif

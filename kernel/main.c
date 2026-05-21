@@ -146,18 +146,18 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     extern const zirv_driver_t g_vmware_svga_driver;
     extern const zirv_driver_t g_tpm2_driver;
     extern const zirv_driver_t g_intel_e1000_driver;
-    extern const zirv_driver_t g_virtio_net_driver;
-    extern const zirv_driver_t g_virtio_blk_driver;
     extern const zirv_driver_t g_rtl8139_driver;
 
     driver_register(&g_vmware_svga_driver);
     driver_register(&g_tpm2_driver);
     driver_register(&g_intel_e1000_driver);
-    driver_register(&g_virtio_net_driver);
-    driver_register(&g_virtio_blk_driver);
     driver_register(&g_rtl8139_driver);
 
     driver_probe_all();
+
+    /* Ported Linux VirtIO drivers — use Linux-compat PCI probe */
+    extern void virtio_init(void);
+    virtio_init();
 
     /* ── DisplayJet (user-space display framework, supersedes bochs_vga) ─ */
     displayjet_init();

@@ -96,6 +96,9 @@ C_SRCS := \
     kernel/net/stack.c                              \
     drivers/zirv/intel_e1000.c                      \
     drivers/zirv/virtio.c                           \
+    drivers/virtio/virtio_ring.c                    \
+    drivers/virtio/virtio_blk.c                     \
+    drivers/virtio/virtio_net.c                     \
     drivers/zirv/realtek.c                          \
     drivers/pci/pci_compat.c                        \
     drivers/gpu/nvidia/nvidia.c                     \
