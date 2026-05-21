@@ -16,20 +16,21 @@
 #include <string.h>
 
 /* ── ₹ (Indian Rupee Sign U+20B9) 8×16 glyph ─────────────────────────────── */
-/* Top bar + R-like body */
+/* Wide top bar + double horizontal stroke + R-like body */
 static const uint8_t g_rupee_glyph[16] = {
-    0x7E,  /* .######.   top horizontal bar */
-    0x40,  /* .#......   stem */
-    0x40,  /* .#...... */
-    0x7C,  /* .#####..   R loop start */
-    0x42,  /* .#....#. */
-    0x42,  /* .#....#. */
-    0x42,  /* .#....#. */
-    0x7C,  /* .#####..   R loop end */
-    0x40,  /* .#......   stem */
-    0x40,  /* .#...... */
-    0x78,  /* .####...   tail */
-    0x00,0x00,0x00,0x00,0x00,
+    0x7E,  /* .######.   top horizontal bar (full width) */
+    0x60,  /* .##.....   stem */
+    0x7C,  /* .#####..   R loop top */
+    0x66,  /* .##..##. */
+    0x66,  /* .##..##. */
+    0x7E,  /* .######.   horizontal stroke through middle (₹!) */
+    0x66,  /* .##..##. */
+    0x66,  /* .##..##. */
+    0x7C,  /* .#####..   R loop bottom */
+    0x60,  /* .##.....   stem */
+    0x60,  /* .##..... */
+    0x70,  /* .###....   foot */
+    0x00,0x00,0x00,0x00,
 };
 
 /* ── UTF-8 decoder state ─────────────────────────────────────────────────── */
