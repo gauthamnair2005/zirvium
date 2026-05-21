@@ -99,9 +99,9 @@ C_SRCS := \
     drivers/virtio/virtio_ring.c                    \
     drivers/virtio/virtio_blk.c                     \
     drivers/virtio/virtio_net.c                     \
-    drivers/zirv/realtek.c                          \
+    drivers/net/rtl8139/rtl8139.c                   \
     drivers/pci/pci_compat.c                        \
-    drivers/gpu/nvidia/nvidia.c                     \
+    drivers/gpu/enveediya/enveediya.c               \
     zirvdisplayjet/drivers/zirv/displayjet/displayjet.c \
     zirvdisplayjet/drivers/zirv/displayjet/crypto.c \
     libs/zirvlibc/src/string.c                      \

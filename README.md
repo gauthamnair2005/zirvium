@@ -80,7 +80,7 @@ zirvium/
     serial/          16550 UART (COM1, 115200 8N1)
     vga/             VGA text-mode, pixel framebuffer console
     pci/             PCI bus scanner, Linux compat layer
-    gpu/             NVIDIA GPU (Linux compat)
+    gpu/             Enveediya GPU (Linux compat, nouveau port)
     compat/          linux_compat.h API bridge (610 lines)
     zirv/
       input/ps2/     i8042 controller + PS/2 keyboard + Synaptics
@@ -212,8 +212,8 @@ make debug
 | Category | Hardware |
 |----------|----------|
 | **Storage** | SATA (ATA PIO), NVMe, USB mass storage, VirtIO block (linux\_compat) |
-| **Networking** | Intel e1000, VirtIO net (linux\_compat), Realtek RTL8139, Realtek RTL8723DE WiFi |
-| **Display** | Bochs VGA, VMware SVGA II, Intel i915 UHD (Gen 9.5-14), NVIDIA GPU (linux\_compat) |
+| **Networking** | Intel e1000, VirtIO net (linux\_compat), RTL8139 (linux\_compat), Realtek RTL8723DE WiFi |
+| **Display** | Bochs VGA, VMware SVGA II, Intel i915 UHD (Gen 9.5-14), Enveediya GPU (linux\_compat, ported from nouveau) |
 | **Input** | PS/2 keyboard (i8042), Synaptics touchpad |
 | **Other** | HDA audio, Realtek Bluetooth, TPM 2.0, serial 16550 UART |
 

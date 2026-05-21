@@ -1,3 +1,5 @@
+/* Enveediya — NVIDIA GPU driver ported from Linux nouveau
+ * Zirvium/MOSIX adaptation via linux_compat.h */
 #include "drivers/compat/linux_compat.h"
 #include "drivers/pci/pci.h"
 #include "drivers/pci/pci_compat.h"
@@ -6,11 +8,11 @@
 #include <stddef.h>
 #include <string.h>
 
-#define NVIDIA_VENDOR  0x10DE
-#define NV_IOCTL_MAP_VIDEO  0x1001
-#define NV_IOCTL_GET_INFO   0x1002
+#define ENVEEDIYA_VENDOR  0x10DE
+#define ENVEEDIYA_IOCTL_MAP_VIDEO  0x1001
+#define ENVEEDIYA_IOCTL_GET_INFO   0x1002
 
-typedef struct nvidia_priv {
+typedef struct enveediya_priv {
     pci_dev_t        *pdev;
     void             *bar0;
     void             *bar1;
@@ -19,15 +21,15 @@ typedef struct nvidia_priv {
     uint32_t          chipset;
     uint32_t          revision;
     registered_device_t *rdev;
-} nvidia_priv_t;
+} enveediya_priv_t;
 
-static int nv_ioctl(device_desc_t *desc, uint32_t cmd, void *arg)
+static int enveediya_ioctl(device_desc_t *desc, uint32_t cmd, void *arg)
 {
-    nvidia_priv_t *priv = (nvidia_priv_t *)desc->driver_data;
+    enveediya_priv_t *priv = (enveediya_priv_t *)desc->driver_data;
     if (!priv) return -ENODEV;
 
     switch (cmd) {
-    case NV_IOCTL_GET_INFO: {
+    case ENVEEDIYA_IOCTL_GET_INFO: {
         uint32_t *info = (uint32_t *)arg;
         if (info) {
             info[0] = priv->chipset;
@@ -37,7 +39,7 @@ static int nv_ioctl(device_desc_t *desc, uint32_t cmd, void *arg)
         }
         return 0;
     }
-    case NV_IOCTL_MAP_VIDEO: {
+    case ENVEEDIYA_IOCTL_MAP_VIDEO: {
         return 0;
     }
     default:
@@ -45,27 +47,27 @@ static int nv_ioctl(device_desc_t *desc, uint32_t cmd, void *arg)
     }
 }
 
-static void nv_shutdown(device_desc_t *desc)
+static void enveediya_shutdown(device_desc_t *desc)
 {
     (void)desc;
-    klog(LOG_INFO, "nvidia", "GPU shutdown");
+    klog(LOG_INFO, "enveediya", "GPU shutdown");
 }
 
-static const dev_ops_t nv_dev_ops = {
-    .ioctl    = nv_ioctl,
-    .shutdown = nv_shutdown,
+static const dev_ops_t enveediya_dev_ops = {
+    .ioctl    = enveediya_ioctl,
+    .shutdown = enveediya_shutdown,
 };
 
-static int nvidia_probe(pci_dev_t *pdev, const pci_device_id_t *id)
+static int enveediya_probe(pci_dev_t *pdev, const pci_device_id_t *id)
 {
     if (pdev->class_code != PCI_CLASS_DISPLAY)
         return -ENODEV;
 
-    klog(LOG_INFO, "nvidia", "found GPU %04x:%04x (rev %02x, subsys %04x:%04x)",
+    klog(LOG_INFO, "enveediya", "found GPU %04x:%04x (rev %02x, subsys %04x:%04x)",
          pdev->vendor_id, pdev->device_id, pdev->revision,
          pdev->subsys_vendor, pdev->subsys_device);
 
-    nvidia_priv_t *priv = kzalloc(sizeof(nvidia_priv_t), GFP_KERNEL);
+    enveediya_priv_t *priv = kzalloc(sizeof(enveediya_priv_t), GFP_KERNEL);
     if (!priv) return -ENOMEM;
 
     priv->pdev     = pdev;
@@ -79,16 +81,16 @@ static int nvidia_probe(pci_dev_t *pdev, const pci_device_id_t *id)
     if (pdev->bars[0].size) priv->bar0_size = (size_t)pdev->bars[0].size;
     if (pdev->bars[2].size) priv->bar1_size = (size_t)pdev->bars[2].size;
 
-    klog(LOG_INFO, "nvidia", "BAR0 at %p (sz %zu), BAR1 at %p (sz %zu)",
+    klog(LOG_INFO, "enveediya", "BAR0 at %p (sz %zu), BAR1 at %p (sz %zu)",
          priv->bar0, priv->bar0_size, priv->bar1, priv->bar1_size);
 
     char model[64];
-    snprintf(model, sizeof(model), "NVIDIA GPU %04x:%04x rev %02x",
+    snprintf(model, sizeof(model), "Enveediya GPU %04x:%04x rev %02x",
              pdev->vendor_id, pdev->device_id, pdev->revision);
 
     priv->rdev = zirv_register_device(DEV_CLASS_DISPLAY_GPU,
                                        DEV_CLASS_DISPLAY_FB,
-                                       model, &nv_dev_ops);
+                                       model, &enveediya_dev_ops);
     if (priv->rdev) {
         priv->rdev->desc.driver_data = priv;
         priv->rdev->desc.present = true;
@@ -98,29 +100,29 @@ static int nvidia_probe(pci_dev_t *pdev, const pci_device_id_t *id)
     return 0;
 }
 
-static void nvidia_remove(pci_dev_t *pdev)
+static void enveediya_remove(pci_dev_t *pdev)
 {
-    nvidia_priv_t *priv = (nvidia_priv_t *)pdev->driver_data;
+    enveediya_priv_t *priv = (enveediya_priv_t *)pdev->driver_data;
     if (priv) {
         kfree(priv);
         pdev->driver_data = NULL;
     }
 }
 
-static const pci_device_id_t nvidia_id_table[] = {
-    { PCI_DEVICE(NVIDIA_VENDOR, PCI_ANY_ID) },
+static const pci_device_id_t enveediya_id_table[] = {
+    { PCI_DEVICE(ENVEEDIYA_VENDOR, PCI_ANY_ID) },
     { 0, 0, 0, 0, 0, 0, 0 },
 };
 
-static struct pci_driver_linux nvidia_driver = {
-    .name      = "nvidia",
-    .id_table  = nvidia_id_table,
-    .probe     = nvidia_probe,
-    .remove    = nvidia_remove,
+static struct pci_driver_linux enveediya_driver = {
+    .name      = "enveediya",
+    .id_table  = enveediya_id_table,
+    .probe     = enveediya_probe,
+    .remove    = enveediya_remove,
 };
 
-void nvidia_init(void)
+void enveediya_init(void)
 {
-    klog(LOG_INFO, "nvidia", "NVIDIA GPU driver (Linux compat)");
-    pci_compat_register_driver(&nvidia_driver);
+    klog(LOG_INFO, "enveediya", "Enveediya GPU driver (ported from Linux nouveau)");
+    pci_compat_register_driver(&enveediya_driver);
 }
