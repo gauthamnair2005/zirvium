@@ -15,23 +15,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-/* ── ₹ (Indian Rupee Sign U+20B9) 8×16 glyph ─────────────────────────────── */
-/* Based on the font's 'R' with two horizontal bars (top + middle). */
+/* ── ₹ (Indian Rupee Sign U+20B9) → rendered as '>' ──────────────────────── */
 static const uint8_t g_rupee_glyph[16] = {
-    0x7E,  /* .######.   top bar (wider than R for ₹ ) */
-    0x7C,  /* .#####..   R top */
-    0x66,  /* .##..##. */
-    0x66,  /* .##..##. */
-    0x66,  /* .##..##. */
-    0x7E,  /* .######.   bar through middle (₹ !) */
-    0x66,  /* .##..##. */
-    0x66,  /* .##..##. */
-    0x7C,  /* .#####..   R mid */
-    0x78,  /* .####...   leg transition */
-    0x6C,  /* .##.##.. */
-    0x66,  /* .##..##. */
-    0x66,  /* .##..##. */
-    0x00,0x00,0x00,
+    0x00,0x00,0x60,0x30,0x18,0x0C,0x06,0x0C,0x18,0x30,0x60,0x00,0x00,0x00,0x00,0x00,
 };
 
 /* ── UTF-8 decoder state ─────────────────────────────────────────────────── */

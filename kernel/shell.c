@@ -14,7 +14,7 @@
 #define SHELL_MAX_LINE 256
 
 static void shell_prompt(void) {
-    kprintf("Zirvium> ");
+    kprintf("root@Zirvium in / > ");
 }
 
 static void show_help(void) {
