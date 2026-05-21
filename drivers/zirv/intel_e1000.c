@@ -168,7 +168,10 @@ static int e1000_vfs_read(vnode_t *vn, void *buf, size_t count, uint64_t off)
 {
     (void)vn; (void)off;
     if (!g_e1000.mmio || count == 0) return -1;
-    for (;;) {
+    /* Poll once — non-blocking.  The kernel handles ARP requests inline,
+       then returns whatever is left (or 0 if nothing) so user-space can
+       retry without hanging the whole system. */
+    for (int try = 0; try < 64; try++) {
         uint8_t frame[2048];
         int n = e1000_poll_one(frame, sizeof(frame));
         if (n <= 0) { __asm__("pause"); continue; }
@@ -177,6 +180,7 @@ static int e1000_vfs_read(vnode_t *vn, void *buf, size_t count, uint64_t off)
         memcpy(buf, frame, (size_t)n);
         return n;
     }
+    return 0;
 }
 
 static const vnode_ops_t e1000_vnode_ops = {

@@ -273,12 +273,34 @@ static uint64_t sys_munmap(process_t *proc, uint64_t addr, size_t length)
 }
 
 /* ── execve ──────────────────────────────────────────────────────────────── */
+
+/* Copy one user-space string onto stack (growing down from sp) and return
+   its offset within the page.  Returns 0 on failure (but caller ignores). */
+static uint64_t push_str(char *stack_base, uint64_t *sp, const char *user_s)
+{
+    if (!user_s) return 0;
+    size_t len = 0;
+    const char *p = user_s;
+    while (*p) { if (++len > 4096) return 0; p++; }
+    len++; /* NUL */
+    *sp -= len;
+    memcpy(stack_base + *sp, user_s, len);
+    return *sp;
+}
+
+/* Count a NULL-terminated user-space pointer array (at most MAX). */
+#define MAX_STACK_ARGS 64
+static int count_ptrs(char *const *arr)
+{
+    if (!arr) return 0;
+    int n = 0;
+    while (arr[n] && n < MAX_STACK_ARGS) n++;
+    return n;
+}
+
 static uint64_t setup_user_stack(address_space_t *as, const char *path,
                                   char *const argv[], char *const envp[])
 {
-    (void)argv;
-    (void)envp;
-
     uint64_t stack_base = PROC_USTACK_TOP - (uint64_t)PROC_USTACK_PAGES * PAGE_SIZE;
     for (int i = 0; i < PROC_USTACK_PAGES; i++) {
         uint64_t phys = pmm_alloc_page();
@@ -294,26 +316,53 @@ static uint64_t setup_user_stack(address_space_t *as, const char *path,
 
     uint64_t sp = PAGE_SIZE;
 
-    size_t path_len = strlen(path) + 1;
-    sp -= path_len;
-    memcpy(stack_ka + sp, path, path_len);
-    uint64_t path_on_stack = stack_top_page + sp;
+    /* ── Count argv & envp ────────────────────────────────────────────────── */
+    int argc = count_ptrs(argv);
+    int envc = count_ptrs(envp);
 
-    if (sp % 8) sp -= (sp % 8);
+    /* If no argv was supplied, fabricate one with path as argv[0]. */
+    char *fake_argv[2] = { NULL, NULL };
+    if (!argv || argc == 0) {
+        fake_argv[0] = (char *)path;
+        argv = fake_argv;
+        argc = 1;
+    }
 
+    /* ── Copy all strings onto the stack (high → low) ──────────────────── */
+    uint64_t arg_off[MAX_STACK_ARGS];
+    uint64_t env_off[MAX_STACK_ARGS];
+    int i;
+
+    for (i = 0; i < argc; i++)
+        arg_off[i] = push_str(stack_ka, &sp, argv[i]);
+    for (i = 0; i < envc; i++)
+        env_off[i] = push_str(stack_ka, &sp, envp[i]);
+
+    /* 8-byte align */
+    if (sp % 8)
+        sp -= (sp % 8);
+
+    /* ── Push environment pointers ─────────────────────────────────────── */
     sp -= 8;
-    *(uint64_t *)(stack_ka + sp) = 0;
+    *(uint64_t *)(stack_ka + sp) = 0;            /* NULL sentinel */
+    for (i = envc - 1; i >= 0; i--) {
+        sp -= 8;
+        *(uint64_t *)(stack_ka + sp) = stack_top_page + env_off[i];
+    }
 
+    /* ── Push argument pointers ────────────────────────────────────────── */
     sp -= 8;
-    *(uint64_t *)(stack_ka + sp) = 0;
+    *(uint64_t *)(stack_ka + sp) = 0;            /* NULL sentinel */
+    for (i = argc - 1; i >= 0; i--) {
+        sp -= 8;
+        *(uint64_t *)(stack_ka + sp) = stack_top_page + arg_off[i];
+    }
 
+    /* ── Push argument count ───────────────────────────────────────────── */
     sp -= 8;
-    *(uint64_t *)(stack_ka + sp) = (uint64_t)(uintptr_t)path_on_stack;
+    *(uint64_t *)(stack_ka + sp) = (uint64_t)argc;
 
-    sp -= 8;
-    *(uint64_t *)(stack_ka + sp) = 1;
     uint64_t rsp = stack_top_page + sp;
-
     return rsp;
 }
 
@@ -349,8 +398,6 @@ static uint64_t sys_execve(process_t *proc,
                            char *const argv[],
                            char *const envp[])
 {
-    (void)argv;
-    (void)envp;
     kprintf("[dbg] sys_execve entered: path_p=0x%lx\n", (uintptr_t)path);
     if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
 
@@ -367,7 +414,7 @@ static uint64_t sys_execve(process_t *proc,
         return (uint64_t)(int64_t)ESYS_EINVAL;
     }
 
-    uint64_t new_rsp = setup_user_stack(new_as, path, NULL, NULL);
+    uint64_t new_rsp = setup_user_stack(new_as, path, argv, envp);
     if (!new_rsp) {
         vmm_destroy_address_space(new_as);
         return (uint64_t)(int64_t)ESYS_ENOMEM;
