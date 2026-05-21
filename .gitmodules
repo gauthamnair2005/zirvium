@@ -4,10 +4,10 @@
 	branch = main
 [submodule "zirvinit"]
 	path = zirvinit
-	url = ./zirvinit
+	url = https://github.com/gauthamnair2005/zirvinit.git
 [submodule "zirvshell"]
 	path = zirvshell
-	url = ./zirvshell
+	url = https://github.com/gauthamnair2005/zirvshell.git
 [submodule "zirvutils"]
 	path = zirvutils
 	url = https://github.com/gauthamnair2005/zirvutils.git
