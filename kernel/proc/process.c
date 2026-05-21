@@ -35,6 +35,7 @@ process_t *proc_create(uint64_t entry_virt)
 
     proc->pid   = next_pid++;
     proc->state = PROC_STATE_RUNNING;
+    proc->saved_as = NULL;
 
     /* Set parent to current process (if any) */
     process_t *cur = proc_current();

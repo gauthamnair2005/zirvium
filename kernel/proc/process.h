@@ -84,6 +84,12 @@ typedef struct process {
     /* Exit state */
     int              exit_code;
 
+    /* Saved parent state — used by execve to restore caller after child exits */
+    address_space_t *saved_as;       /* caller's address space (NULL = no saved state) */
+    uint64_t         saved_rip;      /* caller's user RIP */
+    uint64_t         saved_rsp;      /* caller's user RSP */
+    uint64_t         user_rax;       /* RAX to pass to user mode on next entry */
+
     /* Parent / child tracking */
     struct process  *parent;       /* parent process, NULL for PID 1   */
     struct process  *child;        /* first child in singly-linked list */

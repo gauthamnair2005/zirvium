@@ -369,7 +369,7 @@ static uint64_t setup_user_stack(address_space_t *as, const char *path,
 }
 
 static void __attribute__((noreturn))
-exec_enter_usermode(process_t *proc)
+exec_enter_usermode(process_t *proc, uint64_t retval)
 {
     extern void tss_set_kernel_stack(uint64_t rsp0);
     tss_set_kernel_stack(proc->kstack_top);
@@ -381,7 +381,9 @@ exec_enter_usermode(process_t *proc)
     const uint64_t user_ss  = (uint64_t)(GDT_USER_DATA | 3);
     const uint64_t rflags   = 0x202ULL;
 
+    /* Set RAX to the desired user-space return value, then build IRETQ frame */
     __asm__ volatile(
+        "mov %5, %%rax\n\t"
         "push %0\n\t"
         "push %1\n\t"
         "push %2\n\t"
@@ -389,7 +391,7 @@ exec_enter_usermode(process_t *proc)
         "push %4\n\t"
         "iretq"
         :: "r"(user_ss), "r"(user_rsp), "r"(rflags),
-           "r"(user_cs), "r"(user_rip)
+           "r"(user_cs), "r"(user_rip), "a"(retval)
         : "memory"
     );
     __builtin_unreachable();
@@ -422,20 +424,23 @@ static uint64_t sys_execve(process_t *proc,
         return (uint64_t)(int64_t)ESYS_ENOMEM;
     }
 
-    address_space_t *old_as = proc->as;
-    proc->as = new_as;
+    /* Save current state so it can be restored when the child exits */
+    proc->saved_as  = proc->as;
+    proc->saved_rip = proc->user_rip;
+    proc->saved_rsp = proc->user_rsp;
+
+    proc->as     = new_as;
     proc->user_rip   = new_entry;
     proc->user_rsp   = new_rsp;
     proc->brk        = PROC_HEAP_START;
     proc->mmap_cursor = PROC_MMAP_START;
     proc->state      = PROC_STATE_RUNNING;
 
-    kprintf("[dbg] sys_execve: entry=0x%lx rsp=0x%lx path=%s\n",
-            new_entry, new_rsp, path ? path : "(null)");
+    kprintf("[dbg] sys_execve: entry=0x%lx rsp=0x%lx path=%s (saved caller: as=%p rip=0x%lx rsp=0x%lx)\n",
+            new_entry, new_rsp, path ? path : "(null)",
+            (void*)proc->saved_as, proc->saved_rip, proc->saved_rsp);
 
-    vmm_destroy_address_space(old_as);
-
-    exec_enter_usermode(proc);
+    exec_enter_usermode(proc, 0);
     __builtin_unreachable();
 }
 
@@ -657,6 +662,21 @@ uint64_t syscall_dispatch(uint64_t num,
                           (char *const *)(uintptr_t)a2,
                           (char *const *)(uintptr_t)a3);
     case SYS_EXIT:
+        if (proc->saved_as) {
+            /* Child binary finished — restore saved (caller) state */
+            kprintf("[dbg] sys_exit: child '%s' done, restoring saved caller state\n",
+                    proc->saved_rip ? "?" : "?");
+            vmm_destroy_address_space(proc->as);
+            proc->as       = proc->saved_as;
+            proc->user_rip = proc->saved_rip;
+            proc->user_rsp = proc->saved_rsp;
+            proc->brk      = PROC_HEAP_START;
+            proc->mmap_cursor = PROC_MMAP_START;
+            proc->saved_as = NULL;
+            proc->state    = PROC_STATE_RUNNING;
+            exec_enter_usermode(proc, 0);
+            __builtin_unreachable();
+        }
         proc_exit(proc, (int)a1);
         __asm__ volatile("cli");
         for (;;) __asm__ volatile("hlt");
