@@ -15,6 +15,71 @@
 #include <stdbool.h>
 #include <string.h>
 
+/* ── ₹ (Indian Rupee Sign U+20B9) 8×16 glyph ─────────────────────────────── */
+/* Top bar + R-like body */
+static const uint8_t g_rupee_glyph[16] = {
+    0x7E,  /* .######.   top horizontal bar */
+    0x40,  /* .#......   stem */
+    0x40,  /* .#...... */
+    0x7C,  /* .#####..   R loop start */
+    0x42,  /* .#....#. */
+    0x42,  /* .#....#. */
+    0x42,  /* .#....#. */
+    0x7C,  /* .#####..   R loop end */
+    0x40,  /* .#......   stem */
+    0x40,  /* .#...... */
+    0x78,  /* .####...   tail */
+    0x00,0x00,0x00,0x00,0x00,
+};
+
+/* ── UTF-8 decoder state ─────────────────────────────────────────────────── */
+/* Decodes a single UTF-8 codepoint from a byte sequence, returns -1 if
+ * more bytes are needed, or the codepoint once complete. */
+/* State machine: 0 = idle, 1 = 2-byte seq expecting 1 more, etc. */
+static int g_utf8_state = 0;
+static int g_utf8_codepoint = 0;
+
+static int utf8_decode(char c)
+{
+    unsigned char uc = (unsigned char)c;
+
+    if (g_utf8_state == 0) {
+        /* idle */
+        if (uc < 0x80) {
+            return uc;                      /* ASCII */
+        } else if ((uc & 0xE0) == 0xC0) {
+            g_utf8_state = 1;
+            g_utf8_codepoint = uc & 0x1F;
+            return -1;                      /* need 1 more */
+        } else if ((uc & 0xF0) == 0xE0) {
+            g_utf8_state = 2;
+            g_utf8_codepoint = uc & 0x0F;
+            return -1;                      /* need 2 more */
+        } else if ((uc & 0xF8) == 0xF0) {
+            g_utf8_state = 3;
+            g_utf8_codepoint = uc & 0x07;
+            return -1;                      /* need 3 more */
+        } else {
+            return uc;                      /* invalid start byte, passthrough */
+        }
+    } else {
+        /* continuation byte: 0x80-0xBF */
+        if ((uc & 0xC0) != 0x80) {
+            g_utf8_state = 0;
+            g_utf8_codepoint = 0;
+            return uc;                      /* invalid, reset */
+        }
+        g_utf8_codepoint = (g_utf8_codepoint << 6) | (uc & 0x3F);
+        g_utf8_state--;
+        if (g_utf8_state == 0) {
+            int cp = g_utf8_codepoint;
+            g_utf8_codepoint = 0;
+            return cp;                      /* complete codepoint */
+        }
+        return -1;                          /* still need more */
+    }
+}
+
 /* ── Embedded 8×16 VGA font — printable ASCII 0x20 – 0x7E (95 chars) ──────── */
 /* Index = codepoint - 0x20 */
 static const uint8_t g_font[95][16] = {
@@ -144,17 +209,20 @@ static void fill_rect(uint32_t x, uint32_t y,
             put_pixel(x + col, y + row, colour);
 }
 
-/* ── Character renderer ───────────────────────────────────────────────────── */
-static void draw_glyph(uint32_t char_col, uint32_t char_row, char c)
+/* ── Character renderer (accepts Unicode codepoint) ────────────────────────── */
+static void draw_codepoint(uint32_t char_col, uint32_t char_row, int codepoint)
 {
     uint32_t px = char_col * FB_FONT_W;
     uint32_t py = char_row * FB_FONT_H;
 
-    unsigned int idx = (unsigned int)(unsigned char)c;
-    const uint8_t *glyph =
-        (idx >= 0x20u && idx <= 0x7Eu)
-            ? g_font[idx - 0x20u]
-            : g_font[0];   /* use space for unsupported glyphs */
+    const uint8_t *glyph;
+    if (codepoint == 0x20B9) {
+        glyph = g_rupee_glyph;
+    } else if (codepoint >= 0x20 && codepoint <= 0x7E) {
+        glyph = g_font[codepoint - 0x20];
+    } else {
+        glyph = g_font[0];   /* space for unsupported */
+    }
 
     for (uint32_t row = 0; row < FB_FONT_H; row++) {
         uint8_t bits = glyph[row];
@@ -213,35 +281,47 @@ void fb_console_putc(char c)
 {
     if (!g_fb.ready) return;
 
-    switch (c) {
-    case '\n':
+    /* Control characters: reset UTF-8 state and handle immediately */
+    if (c == '\n') {
+        g_utf8_state = 0;
         g_fb.cur_col = 0;
         g_fb.cur_row++;
-        break;
-    case '\r':
+        if (g_fb.cur_row >= g_fb.rows) fb_scroll();
+        return;
+    }
+    if (c == '\r') {
+        g_utf8_state = 0;
         g_fb.cur_col = 0;
-        break;
-    case '\t':
+        return;
+    }
+    if (c == '\t') {
+        g_utf8_state = 0;
         g_fb.cur_col = (g_fb.cur_col + 8u) & ~7u;
         if (g_fb.cur_col >= g_fb.cols) {
             g_fb.cur_col = 0;
             g_fb.cur_row++;
         }
-        break;
-    case '\b':
+        if (g_fb.cur_row >= g_fb.rows) fb_scroll();
+        return;
+    }
+    if (c == '\b') {
+        g_utf8_state = 0;
         if (g_fb.cur_col > 0) {
             g_fb.cur_col--;
-            draw_glyph(g_fb.cur_col, g_fb.cur_row, ' ');
+            draw_codepoint(g_fb.cur_col, g_fb.cur_row, ' ');
         }
-        break;
-    default:
-        draw_glyph(g_fb.cur_col, g_fb.cur_row, c);
-        g_fb.cur_col++;
-        if (g_fb.cur_col >= g_fb.cols) {
-            g_fb.cur_col = 0;
-            g_fb.cur_row++;
-        }
-        break;
+        return;
+    }
+
+    /* Printable: decode UTF-8 multi-byte sequences */
+    int cp = utf8_decode(c);
+    if (cp < 0) return;
+
+    draw_codepoint(g_fb.cur_col, g_fb.cur_row, cp);
+    g_fb.cur_col++;
+    if (g_fb.cur_col >= g_fb.cols) {
+        g_fb.cur_col = 0;
+        g_fb.cur_row++;
     }
 
     if (g_fb.cur_row >= g_fb.rows)

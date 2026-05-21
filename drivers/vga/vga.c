@@ -31,6 +31,11 @@ static int     g_col   = 0;
 static int     g_row   = 0;
 static uint8_t g_color = 0;   /* set in vga_init */
 
+/* UTF-8 decoder state for dropping multi-byte sequences gracefully.
+ * VGA text mode (CP437) cannot display non-ASCII; we skip continuation bytes
+ * and show '$' for the start byte as a visual fallback. */
+static int  g_vga_utf8_left = 0;   /* remaining continuation bytes expected */
+
 /* ── Helpers ──────────────────────────────────────────────────────────────── */
 static void update_cursor(void)
 {
@@ -82,7 +87,36 @@ void vga_init(void)
 
 void vga_putc(char c)
 {
-    switch (c) {
+    unsigned char uc = (unsigned char)c;
+
+    /* UTF-8 multi-byte sequence handling:
+     * VGA text mode (CP437) cannot render characters outside ASCII.
+     * We skip continuation bytes (0x80-0xBF) and show '$' for the start
+     * byte of multi-byte sequences as a visual placeholder. */
+    if (g_vga_utf8_left > 0) {
+        g_vga_utf8_left--;
+        if ((uc & 0xC0) != 0x80)
+            g_vga_utf8_left = 0;
+        return;   /* drop continuation bytes silently */
+    }
+    if (uc >= 0x80) {
+        if ((uc & 0xE0) == 0xC0) {
+            g_vga_utf8_left = 1;
+            uc = '$';
+        } else if ((uc & 0xF0) == 0xE0) {
+            g_vga_utf8_left = 2;
+            uc = '$';
+        } else if ((uc & 0xF8) == 0xF0) {
+            g_vga_utf8_left = 3;
+            uc = '$';
+        } else if ((uc & 0xC0) == 0x80) {
+            return;   /* stray continuation byte, drop */
+        } else {
+            return;   /* other non-ASCII, drop */
+        }
+    }
+
+    switch (uc) {
     case '\n':
         g_col = 0;
         g_row++;
@@ -91,12 +125,8 @@ void vga_putc(char c)
         g_col = 0;
         break;
     case '\t':
-        /* Advance to next 8-column tab stop */
         g_col = (g_col + 8) & ~7;
-        if (g_col >= VGA_COLS) {
-            g_col = 0;
-            g_row++;
-        }
+        if (g_col >= VGA_COLS) { g_col = 0; g_row++; }
         break;
     case '\b':
         if (g_col > 0) {
@@ -107,12 +137,9 @@ void vga_putc(char c)
         break;
     default:
         g_buf[g_row * VGA_COLS + g_col] =
-            (uint16_t)((uint8_t)c | ((uint16_t)g_color << 8));
+            (uint16_t)((uint8_t)uc | ((uint16_t)g_color << 8));
         g_col++;
-        if (g_col >= VGA_COLS) {
-            g_col = 0;
-            g_row++;
-        }
+        if (g_col >= VGA_COLS) { g_col = 0; g_row++; }
         break;
     }
 

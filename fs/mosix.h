@@ -193,4 +193,30 @@ vnode_t *vfs_register_device(dev_class_t bus_class, dev_class_t media_class,
  */
 vnode_t *vfs_root(void);
 
+/**
+ * vfs_mkdir - create a directory at @path (including parent path + leaf name).
+ * The parent directory must already exist.
+ * Returns 0 on success, -1 on failure.
+ */
+int vfs_mkdir(const char *path);
+
+/**
+ * vfs_rmdir - remove an empty directory at @path.
+ * Returns 0 on success, -1 on failure.
+ */
+int vfs_rmdir(const char *path);
+
+/**
+ * vfs_unlink - remove a file at @path.
+ * Returns 0 on success, -1 on failure.
+ */
+int vfs_unlink(const char *path);
+
+/**
+ * vfs_rename - rename a file or directory from @oldpath to @newpath.
+ * Both paths must reside on the same filesystem (in-memory).
+ * Returns 0 on success, -1 on failure.
+ */
+int vfs_rename(const char *oldpath, const char *newpath);
+
 #endif /* ZIRVIUM_FS_MOSIX_H */

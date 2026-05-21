@@ -156,15 +156,56 @@ static vnode_t *dir_lookup(vnode_t *dir, const char *name)
     return NULL;
 }
 
+static int dir_create(vnode_t *dir, const char *name, vnode_type_t type);
+
+static int dir_unlink(vnode_t *dir, const char *name);
+
 static const vnode_ops_t dir_ops = {
     .read    = NULL,
     .write   = NULL,
     .readdir = dir_readdir,
     .lookup  = dir_lookup,
-    .create  = NULL,
-    .unlink  = NULL,
+    .create  = dir_create,
+    .unlink  = dir_unlink,
     .release = NULL,
 };
+
+static int dir_create(vnode_t *dir, const char *name, vnode_type_t type)
+{
+    if (!dir || dir->type != VNODE_DIR) return -1;
+    if (!name || !*name) return -1;
+    if (dir_lookup(dir, name)) return -1;
+
+    uint8_t perms = MOSIX_PERM_READ | MOSIX_PERM_WRITE | MOSIX_PERM_EXEC;
+    vnode_t *v = make_vnode(name, type, perms, dir);
+    if (!v) return -1;
+    v->inode = alloc_inode();
+    v->ops   = &dir_ops;
+    return 0;
+}
+
+static int dir_unlink(vnode_t *dir, const char *name)
+{
+    if (!dir || dir->type != VNODE_DIR) return -1;
+    if (!name || !*name) return -1;
+
+    vnode_t *prev = NULL;
+    vnode_t *cur  = dir->children;
+    while (cur) {
+        if (strcmp(cur->name, name) == 0) {
+            if (cur->type == VNODE_DIR && cur->children)
+                return -1;
+            if (prev)
+                prev->next_sibling = cur->next_sibling;
+            else
+                dir->children = cur->next_sibling;
+            return 0;
+        }
+        prev = cur;
+        cur  = cur->next_sibling;
+    }
+    return -1;
+}
 
 /* ── Console Device Ops ──────────────────────────────────────────────────── */
 extern void kputs(const char *s);
@@ -357,6 +398,115 @@ vnode_t *vfs_register_device(dev_class_t bus_class, dev_class_t media_class,
     devnode->device = desc;
 
     return devnode;
+}
+
+/* ── Path helper: split "/parent/path/leaf" into parent_path + leaf ──────── */
+/* Returns leaf name pointer within path (mutates path: replaces '/' with '\0') */
+static const char *split_parent_path(char *path, char **parent_out)
+{
+    if (!path || path[0] != '/') return NULL;
+    char *leaf = NULL;
+    char *p = path;
+    while (*p) {
+        if (*p == '/') {
+            if (*(p+1) != '\0')
+                leaf = p + 1;
+        }
+        p++;
+    }
+    if (!leaf || !*leaf) return NULL;
+    /* terminate parent path: overwrite '/' before leaf */
+    *(leaf - 1) = '\0';
+    if (leaf - 1 == path) {
+        /* parent is root: restore the '/' so path reads "/" */
+        *path = '/';
+        *(path + 1) = '\0';
+        *parent_out = path;
+    } else {
+        *parent_out = path;
+    }
+    return leaf;
+}
+
+/* ── Public VFS API: mkdir, rmdir, unlink, rename ────────────────────────── */
+
+int vfs_mkdir(const char *path)
+{
+    if (!path || path[0] != '/') return -1;
+
+    char buf[1024];
+    size_t plen = strlen(path);
+    if (plen >= sizeof(buf)) return -1;
+    memcpy(buf, path, plen + 1);
+
+    char *parent_path;
+    const char *leaf = split_parent_path(buf, &parent_path);
+    if (!leaf) return -1;
+
+    vnode_t *parent = vfs_lookup(parent_path);
+    if (!parent || parent->type != VNODE_DIR) return -1;
+    if (!parent->ops || !parent->ops->create) return -1;
+
+    return parent->ops->create(parent, leaf, VNODE_DIR);
+}
+
+int vfs_rmdir(const char *path)
+{
+    if (!path || path[0] != '/') return -1;
+
+    char buf[1024];
+    size_t plen = strlen(path);
+    if (plen >= sizeof(buf)) return -1;
+    memcpy(buf, path, plen + 1);
+
+    char *parent_path;
+    const char *leaf = split_parent_path(buf, &parent_path);
+    if (!leaf) return -1;
+
+    vnode_t *parent = vfs_lookup(parent_path);
+    if (!parent || parent->type != VNODE_DIR) return -1;
+    if (!parent->ops || !parent->ops->unlink) return -1;
+
+    return parent->ops->unlink(parent, leaf);
+}
+
+int vfs_unlink(const char *path)
+{
+    return vfs_rmdir(path);
+}
+
+/* ── Helper: extract leaf name from a path (last component) ─────────────── */
+static const char *path_leaf(const char *path)
+{
+    if (!path || !*path) return NULL;
+    const char *leaf = path;
+    const char *p = path;
+    while (*p) {
+        if (*p == '/') {
+            if (*(p+1) != '\0')
+                leaf = p + 1;
+        }
+        p++;
+    }
+    return (*leaf) ? leaf : NULL;
+}
+
+int vfs_rename(const char *oldpath, const char *newpath)
+{
+    if (!oldpath || !newpath) return -1;
+
+    vnode_t *v = vfs_lookup(oldpath);
+    if (!v) return -1;
+
+    const char *leaf = path_leaf(newpath);
+    if (!leaf) return -1;
+
+    size_t nlen = strlen(leaf);
+    if (nlen > VNODE_NAME_MAX) return -1;
+
+    memcpy(v->name, leaf, nlen);
+    v->name[nlen] = '\0';
+    return 0;
 }
 
 /* ── Process StdIO Helper ────────────────────────────────────────────────── */

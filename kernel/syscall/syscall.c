@@ -111,12 +111,59 @@ static uint64_t sys_write(process_t *proc,
     }
 }
 
+/* ── internal helper: split "/parent/file" into parent + leaf ──────────── */
+/* Mutates buf: places '\\0' at the split point. Returns leaf pointer.       */
+static const char *split_path_dir(char *buf, char **parent_out)
+{
+    char *leaf = NULL;
+    char *p = buf;
+    while (*p) {
+        if (*p == '/') {
+            if (*(p+1) != '\0')
+                leaf = p + 1;
+        }
+        p++;
+    }
+    if (!leaf || !*leaf) return NULL;
+    *(leaf - 1) = '\0';
+    if (leaf - 1 == buf) {
+        *buf = '/'; *(buf+1) = '\0';
+        *parent_out = buf;
+    } else {
+        *parent_out = buf;
+    }
+    return leaf;
+}
+
 static uint64_t sys_open(process_t *proc,
                          const char *path, int flags)
 {
     if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
 
     vnode_t *v = vfs_lookup(path);
+
+    /* O_CREAT: if file doesn't exist, try to create it */
+    if (!v && (flags & O_CREAT)) {
+        char buf[1024];
+        size_t plen = strlen(path);
+        if (plen >= sizeof(buf)) return (uint64_t)(int64_t)ESYS_EINVAL;
+        memcpy(buf, path, plen + 1);
+
+        char *parent_path;
+        const char *leaf = split_path_dir(buf, &parent_path);
+        if (!leaf) return (uint64_t)(int64_t)ESYS_EINVAL;
+
+        vnode_t *parent = vfs_lookup(parent_path);
+        if (!parent || !parent->ops || !parent->ops->create)
+            return (uint64_t)(int64_t)ESYS_EINVAL;
+
+        if (parent->ops->create(parent, leaf, VNODE_FILE) < 0)
+            return (uint64_t)(int64_t)ESYS_EINVAL;
+
+        v = vfs_lookup(path);
+        if (!v) return (uint64_t)(int64_t)ESYS_EINVAL;
+    }
+
     if (!v) return (uint64_t)(int64_t)ESYS_EINVAL;
 
     open_file_t *f = alloc_file(FILE_TYPE_VFS);
@@ -304,6 +351,7 @@ static uint64_t sys_execve(process_t *proc,
 {
     (void)argv;
     (void)envp;
+    kprintf("[dbg] sys_execve entered: path_p=0x%lx\n", (uintptr_t)path);
     if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
 
     size_t bin_size;
@@ -332,6 +380,9 @@ static uint64_t sys_execve(process_t *proc,
     proc->brk        = PROC_HEAP_START;
     proc->mmap_cursor = PROC_MMAP_START;
     proc->state      = PROC_STATE_RUNNING;
+
+    kprintf("[dbg] sys_execve: entry=0x%lx rsp=0x%lx path=%s\n",
+            new_entry, new_rsp, path ? path : "(null)");
 
     vmm_destroy_address_space(old_as);
 
@@ -470,6 +521,35 @@ static uint64_t sys_sethostname(process_t *proc, const char *name, size_t len)
     return 0;
 }
 
+/* ── mkdir, rmdir, unlink, rename ────────────────────────────────────────── */
+static uint64_t sys_mkdir(process_t *proc, const char *path)
+{
+    (void)proc;
+    if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
+    return (uint64_t)(int64_t)vfs_mkdir(path);
+}
+
+static uint64_t sys_rmdir(process_t *proc, const char *path)
+{
+    (void)proc;
+    if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
+    return (uint64_t)(int64_t)vfs_rmdir(path);
+}
+
+static uint64_t sys_unlink(process_t *proc, const char *path)
+{
+    (void)proc;
+    if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
+    return (uint64_t)(int64_t)vfs_unlink(path);
+}
+
+static uint64_t sys_rename(process_t *proc, const char *oldpath, const char *newpath)
+{
+    (void)proc;
+    if (!oldpath || !newpath) return (uint64_t)(int64_t)ESYS_EFAULT;
+    return (uint64_t)(int64_t)vfs_rename(oldpath, newpath);
+}
+
 /* ── chdir ───────────────────────────────────────────────────────────────── */
 static uint64_t sys_chdir(process_t *proc, const char *path)
 {
@@ -493,6 +573,11 @@ uint64_t syscall_dispatch(uint64_t num,
 
     process_t *proc = proc_current();
     if (!proc) return (uint64_t)(int64_t)ESYS_EINVAL;
+
+    if (num == 59 || num >= 100) {
+        kprintf("[dbg] syscall pid=%d num=%lu a1=0x%lx\n",
+                (int)proc->pid, num, a1);
+    }
 
     switch ((int)num) {
     case SYS_READ:
@@ -539,6 +624,16 @@ uint64_t syscall_dispatch(uint64_t num,
                           (char *)(uintptr_t)a1, (size_t)a2);
     case SYS_CHDIR:
         return sys_chdir(proc, (const char *)(uintptr_t)a1);
+    case SYS_MKDIR:
+        return sys_mkdir(proc, (const char *)(uintptr_t)a1);
+    case SYS_RMDIR:
+        return sys_rmdir(proc, (const char *)(uintptr_t)a1);
+    case SYS_UNLINK:
+        return sys_unlink(proc, (const char *)(uintptr_t)a1);
+    case SYS_RENAME:
+        return sys_rename(proc,
+                          (const char *)(uintptr_t)a1,
+                          (const char *)(uintptr_t)a2);
     case SYS_GETHOSTNAME:
         return sys_gethostname(proc, (char *)(uintptr_t)a1, (size_t)a2);
     case SYS_SETHOSTNAME:
@@ -565,15 +660,22 @@ uint64_t syscall_dispatch(uint64_t num,
         for (;;) __asm__ volatile("hlt");
         return 0;
     case SYS_DJ_CONNECT:
+        kprintf("[dbg] SYS_DJ_CONNECT called (pid=%d)\n", (int)proc->pid);
         return (uint64_t)(int64_t)displayjet_connect((int)proc->pid);
     case SYS_DJ_DISCONNECT:
         return (uint64_t)(int64_t)displayjet_disconnect((int)proc->pid);
     case SYS_DJ_CREATE_SURFACE:
         {
             uint32_t id;
+            kprintf("[dbg] SYS_DJ_CREATE_SURFACE(w=%u, h=%u)\n",
+                    (uint32_t)a1, (uint32_t)a2);
             int ret = displayjet_create_surface((uint32_t)a1, (uint32_t)a2, &id);
-            if (ret == 0)
+            if (ret == 0) {
+                kprintf("[dbg] SYS_DJ_CREATE_SURFACE -> id=%u\n", id);
                 ret = (int)id;
+            } else {
+                kprintf("[dbg] SYS_DJ_CREATE_SURFACE failed ret=%d\n", ret);
+            }
             return (uint64_t)(int64_t)ret;
         }
     case SYS_DJ_DESTROY_SURFACE:

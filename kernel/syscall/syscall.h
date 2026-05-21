@@ -34,6 +34,10 @@
 #define SYS_GETDENTS 78   /* getdents(fd, ents, count)               */
 #define SYS_GETCWD   79   /* getcwd(buf, size)                       */
 #define SYS_CHDIR    80   /* chdir(path)                             */
+#define SYS_MKDIR      83   /* mkdir(path)                            */
+#define SYS_RMDIR      84   /* rmdir(path)                            */
+#define SYS_UNLINK     85   /* unlink(path)                           */
+#define SYS_RENAME     86   /* rename(oldpath, newpath)                */
 #define SYS_GETHOSTNAME 89   /* gethostname(buf, size)                 */
 #define SYS_SETHOSTNAME 90   /* sethostname(name, len)                 */
 #define SYS_GETDATETIME 96   /* getdatetime(dt)                       */
@@ -42,6 +46,9 @@
 #define SYS_SETTZ       99   /* settz(minutes)                        */
 #define SYS_REBOOT     100   /* reboot()                              */
 #define SYS_SHUTDOWN   101   /* shutdown()                             */
+
+/* ── Open flags (mirrored from user-space) ───────────────────────────────── */
+#define O_CREAT  0x40
 
 /* ── Negated errno values returned in RAX ────────────────────────────────── */
 #define ESYS_EBADF   (-9)
