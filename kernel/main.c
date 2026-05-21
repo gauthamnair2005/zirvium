@@ -16,6 +16,11 @@
 #include "drivers/zirv/input/ps2/keyboard.h"
 #include "drivers/zirv/driver.h"
 #include "drivers/gpu/enveediya/enveediya.h"
+#include "drivers/gpu/arc/arc.h"
+#include "drivers/gpu/radeon/radeon.h"
+#include "drivers/usb/xhci/xhci.h"
+#include "drivers/thunderbolt/tb.h"
+#include "drivers/net/wifi7/wifi7.h"
 #include "drivers/net/rtl8139/rtl8139.h"
 #include "drivers/zirv/displayjet/displayjet.h"
 #include "arch/x64/gdt.h"
@@ -163,6 +168,11 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
 
     /* ── Linux-compat drivers (conditional on PCI detection) ──────────── */
     enveediya_init();
+    arc_gpu_init();
+    radeon_gpu_init();
+    xhci_init();
+    thunderbolt_init();
+    wifi7_init();
     rtl8139_init();
 
     /* ── Step 6b: Legacy PS/2 Keyboard ───────────────────────────────── */

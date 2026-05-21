@@ -102,6 +102,11 @@ C_SRCS := \
     drivers/net/rtl8139/rtl8139.c                   \
     drivers/pci/pci_compat.c                        \
     drivers/gpu/enveediya/enveediya.c               \
+    drivers/gpu/arc/arc.c                           \
+    drivers/gpu/radeon/radeon.c                     \
+    drivers/usb/xhci/xhci.c                         \
+    drivers/thunderbolt/tb.c                        \
+    drivers/net/wifi7/wifi7.c                       \
     zirvdisplayjet/drivers/zirv/displayjet/displayjet.c \
     zirvdisplayjet/drivers/zirv/displayjet/crypto.c \
     libs/zirvlibc/src/string.c                      \

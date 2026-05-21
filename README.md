@@ -81,6 +81,11 @@ zirvium/
     vga/             VGA text-mode, pixel framebuffer console
     pci/             PCI bus scanner, Linux compat layer
     gpu/             Enveediya GPU (Linux compat, nouveau port)
+    gpu/             Intel Arc GPU (Linux compat, A/B/C-series)
+    gpu/             AMD Radeon GPU (Linux compat, GCN/RDNA)
+    usb/             xHCI USB 3.0 (Linux compat, polling)
+    thunderbolt/     Thunderbolt 3/4 & USB4 (Linux compat)
+    net/             RTL8139 NIC (Linux compat), WiFi 7 (Linux compat)
     compat/          linux_compat.h API bridge (610 lines)
     zirv/
       input/ps2/     i8042 controller + PS/2 keyboard + Synaptics
@@ -213,8 +218,11 @@ make debug
 |----------|----------|
 | **Storage** | SATA (ATA PIO), NVMe, USB mass storage, VirtIO block (linux\_compat) |
 | **Networking** | Intel e1000, VirtIO net (linux\_compat), RTL8139 (linux\_compat), Realtek RTL8723DE WiFi |
-| **Display** | Bochs VGA, VMware SVGA II, Intel i915 UHD (Gen 9.5-14), Enveediya GPU (linux\_compat, ported from nouveau) |
+| **Display** | Bochs VGA, VMware SVGA II, Intel i915 UHD (Gen 9.5-14), Enveediya GPU (linux\_compat, nouveau port — RTX/B-series), Intel Arc GPU (linux\_compat, A/B/C-series), AMD Radeon GPU (linux\_compat, GCN/RDNA) |
 | **Input** | PS/2 keyboard (i8042), Synaptics touchpad |
+| **USB** | xHCI (USB 3.0/2.0, linux\_compat, polling) — device enumeration, pendrive registration |
+| **Bus** | Thunderbolt 3/4, USB4 (linux\_compat, detection) |
+| **Wireless** | WiFi 7 / 802.11be (linux\_compat, Intel BE200/BE201, MediaTek MT7927, Qualcomm QCNCM865, Broadcom BCM4389) |
 | **Other** | HDA audio, Realtek Bluetooth, TPM 2.0, serial 16550 UART |
 
 ---
