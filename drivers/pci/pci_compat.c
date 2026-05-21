@@ -27,6 +27,7 @@ int pci_compat_register_driver(struct pci_driver_linux *ldrv)
 
             int ret = ldrv->probe(dev, id);
             if (ret == 0) {
+                dev->driver_name = ldrv->name;
                 klog(LOG_OK, ldrv->name, "probe OK for %04x:%04x",
                      dev->vendor_id, dev->device_id);
                 break;

@@ -47,6 +47,7 @@
 #define SYS_REBOOT     100   /* reboot()                              */
 #define SYS_SHUTDOWN   101   /* shutdown()                             */
 #define SYS_DNS_LOOKUP 102   /* dns_lookup(domain, result_ip)          */
+#define SYS_PCI_READ  103   /* pci_read(index, info)                  */
 
 /* ── Open flags (mirrored from user-space) ───────────────────────────────── */
 #define O_CREAT  0x40

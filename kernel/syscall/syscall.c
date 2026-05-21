@@ -16,6 +16,7 @@
 #include "arch/x64/gdt.h"
 #include "drivers/serial/serial.h"
 #include "drivers/zirv/displayjet/displayjet.h"
+#include "drivers/pci/pci.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -756,6 +757,44 @@ uint64_t syscall_dispatch(uint64_t num,
             uint32_t ip = net_stack_dns_resolve(domain);
             *result_ip = ip;
             return ip != 0 ? 0 : (uint64_t)(int64_t)ESYS_EINVAL;
+        }
+    case SYS_PCI_READ:
+        {
+            uint32_t idx = (uint32_t)a1;
+            pci_dev_info_t *info = (pci_dev_info_t *)(uintptr_t)a2;
+            if (!info) return (uint64_t)(int64_t)ESYS_EFAULT;
+            extern size_t pci_device_count(void);
+            extern pci_dev_t *pci_get_device(size_t index);
+            if (idx >= pci_device_count()) return (uint64_t)(int64_t)ESYS_ENOENT;
+            pci_dev_t *dev = pci_get_device(idx);
+            if (!dev) return (uint64_t)(int64_t)ESYS_ENOENT;
+            info->vendor_id      = dev->vendor_id;
+            info->device_id      = dev->device_id;
+            info->subsys_vendor  = dev->subsys_vendor;
+            info->subsys_device  = dev->subsys_device;
+            info->bus            = dev->bus;
+            info->dev            = dev->dev;
+            info->func           = dev->func;
+            info->class_code     = dev->class_code;
+            info->subclass       = dev->subclass;
+            info->prog_if        = dev->prog_if;
+            info->revision       = dev->revision;
+            info->irq_line       = dev->irq_line;
+            info->_pad           = 0;
+            info->bar0_addr      = dev->bars[0].phys_addr;
+            info->bar0_size      = dev->bars[0].size;
+            info->bar2_addr      = dev->bars[2].phys_addr;
+            info->bar2_size      = dev->bars[2].size;
+            if (dev->driver_name) {
+                size_t slen = strlen(dev->driver_name);
+                if (slen >= sizeof(info->driver_name))
+                    slen = sizeof(info->driver_name) - 1;
+                memcpy(info->driver_name, dev->driver_name, slen);
+                info->driver_name[slen] = 0;
+            } else {
+                info->driver_name[0] = 0;
+            }
+            return 0;
         }
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;

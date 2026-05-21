@@ -83,7 +83,20 @@ typedef struct pci_dev {
     uint8_t  irq_line, irq_pin;
     pci_bar_t bars[PCI_MAX_BARS];
     void    *driver_data;         /* driver-private storage */
+    const char *driver_name;      /* name of driver that claimed this device */
 } pci_dev_t;
+
+typedef struct {
+    uint16_t vendor_id, device_id;
+    uint16_t subsys_vendor, subsys_device;
+    uint8_t  bus, dev, func;
+    uint8_t  class_code, subclass, prog_if, revision;
+    uint8_t  irq_line;
+    uint8_t  _pad;
+    uint64_t bar0_addr, bar0_size;
+    uint64_t bar2_addr, bar2_size;
+    char     driver_name[32];
+} pci_dev_info_t;
 
 /* ── PCI driver registration ──────────────────────────────────────────────── */
 typedef struct {

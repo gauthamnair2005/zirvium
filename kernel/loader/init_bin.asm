@@ -39,6 +39,8 @@ global zirvutil_hostname_bin_start
 global zirvutil_hostname_bin_end
 global zirvutil_ifconfig_bin_start
 global zirvutil_ifconfig_bin_end
+global zirvutil_lspci_bin_start
+global zirvutil_lspci_bin_end
 global zirvui_bin_start
 global zirvui_bin_end
 
@@ -157,6 +159,12 @@ align 4096
 zirvutil_ifconfig_bin_end:
 
 align 4096
+zirvutil_lspci_bin_start:
+    incbin "zirvutils/lspci.elf"
+align 4096
+zirvutil_lspci_bin_end:
+
+align 4096
 zirvui_bin_start:
     incbin "zirvui/zirvui.elf"
 align 4096
@@ -194,6 +202,7 @@ vmzirv_bin_stub zirvutil_yes_bin_start, zirvutil_yes_bin_end
 vmzirv_bin_stub zirvutil_uname_bin_start, zirvutil_uname_bin_end
 vmzirv_bin_stub zirvutil_hostname_bin_start, zirvutil_hostname_bin_end
 vmzirv_bin_stub zirvutil_ifconfig_bin_start, zirvutil_ifconfig_bin_end
+vmzirv_bin_stub zirvutil_lspci_bin_start, zirvutil_lspci_bin_end
 vmzirv_bin_stub zirvui_bin_start, zirvui_bin_end
 
 %endif

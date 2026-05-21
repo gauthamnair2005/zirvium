@@ -22,6 +22,7 @@ extern char zirvutil_yes_bin_start[], zirvutil_yes_bin_end[];
 extern char zirvutil_uname_bin_start[], zirvutil_uname_bin_end[];
 extern char zirvutil_hostname_bin_start[], zirvutil_hostname_bin_end[];
 extern char zirvutil_ifconfig_bin_start[], zirvutil_ifconfig_bin_end[];
+extern char zirvutil_lspci_bin_start[], zirvutil_lspci_bin_end[];
 extern char zirvui_bin_start[], zirvui_bin_end[];
 
 static embedded_binary_t embedded_binaries_data[] = {
@@ -44,6 +45,7 @@ static embedded_binary_t embedded_binaries_data[] = {
     { .path = "/bin/uname",    .data = NULL, .size = 0 },
     { .path = "/bin/hostname", .data = NULL, .size = 0 },
     { .path = "/bin/ifconfig", .data = NULL, .size = 0 },
+    { .path = "/bin/lspci",    .data = NULL, .size = 0 },
     { .path = "/bin/zirvui",   .data = NULL, .size = 0 },
     { .path = NULL,            .data = NULL, .size = 0 },
 };
@@ -90,8 +92,10 @@ void embedded_init(void)
     embedded_binaries_data[17].size = (size_t)(zirvutil_hostname_bin_end - zirvutil_hostname_bin_start);
     embedded_binaries_data[18].data = zirvutil_ifconfig_bin_start;
     embedded_binaries_data[18].size = (size_t)(zirvutil_ifconfig_bin_end - zirvutil_ifconfig_bin_start);
-    embedded_binaries_data[19].data = zirvui_bin_start;
-    embedded_binaries_data[19].size = (size_t)(zirvui_bin_end - zirvui_bin_start);
+    embedded_binaries_data[19].data = zirvutil_lspci_bin_start;
+    embedded_binaries_data[19].size = (size_t)(zirvutil_lspci_bin_end - zirvutil_lspci_bin_start);
+    embedded_binaries_data[20].data = zirvui_bin_start;
+    embedded_binaries_data[20].size = (size_t)(zirvui_bin_end - zirvui_bin_start);
 }
 
 #else

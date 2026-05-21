@@ -239,8 +239,10 @@ int pci_register_driver(pci_driver_t *drv)
             const pci_id_t *id = &drv->id_table[ii];
             if ((id->vendor  == PCI_ID_ANY || id->vendor  == dev->vendor_id) &&
                 (id->device  == PCI_ID_ANY || id->device  == dev->device_id)) {
-                if (drv->probe(dev, id) == 0)
+                if (drv->probe(dev, id) == 0) {
+                    dev->driver_name = drv->name;
                     matched++;
+                }
             }
         }
     }
