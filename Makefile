@@ -93,6 +93,7 @@ C_SRCS := \
     drivers/zirv/driver.c                           \
     drivers/zirv/display/vmware.c                   \
     drivers/zirv/tpm.c                              \
+    kernel/net/stack.c                              \
     drivers/zirv/intel_e1000.c                      \
     drivers/zirv/virtio.c                           \
     drivers/zirv/realtek.c                          \
@@ -112,7 +113,7 @@ ASM_SRCS := \
 
 ZIRVINIT_ELF  := zirvinit/zirvinit.elf
 ZIRVSHELL_ELF := zirvshell/zirvshell.elf
-ZIRVUTILS_ELFS := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf zirvutils/reboot.elf zirvutils/shutdown.elf zirvutils/suspend.elf zirvutils/poweroff.elf zirvutils/ping.elf zirvutils/sleep.elf zirvutils/true.elf zirvutils/false.elf zirvutils/yes.elf zirvutils/uname.elf zirvutils/hostname.elf
+ZIRVUTILS_ELFS := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf zirvutils/reboot.elf zirvutils/shutdown.elf zirvutils/suspend.elf zirvutils/poweroff.elf zirvutils/ping.elf zirvutils/sleep.elf zirvutils/true.elf zirvutils/false.elf zirvutils/yes.elf zirvutils/uname.elf zirvutils/hostname.elf zirvutils/ifconfig.elf
 ZIRVUI_ELF := zirvui/zirvui.elf
 
 # ── Derived object lists ───────────────────────────────────────────────────────
