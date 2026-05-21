@@ -116,7 +116,7 @@ into the kernel via `incbin`:
 | `/bin/shutdown` | zirvutils/ | System shutdown |
 | `/bin/poweroff` | zirvutils/ | System power-off |
 | `/bin/suspend` | zirvutils/ | System suspend (stub) |
-| `/bin/ping` | zirvutils/ | VFS path reachability |
+| `/bin/ping` | zirvutils/ | ICMP echo / DNS resolution |
 | `/bin/sleep` | zirvutils/ | Busy-wait sleep |
 | `/bin/true` | zirvutils/ | Exit code 0 |
 | `/bin/false` | zirvutils/ | Exit code 1 |
@@ -131,7 +131,7 @@ Run from shell: `run /bin/<name>`
 ## Syscalls (24 total)
 
 Numbers follow Linux x86-64 ABI where applicable, with MOSIX extensions
-(13, 89-90, 96-101) and DisplayJet extensions (110-120).
+(13, 89-90, 96-102) and DisplayJet extensions (110-120).
 
 | # | Name | Description |
 |---|------|-------------|
@@ -159,6 +159,7 @@ Numbers follow Linux x86-64 ABI where applicable, with MOSIX extensions
 | 99 | SYS_SETTZ | Set timezone offset |
 | 100 | SYS_REBOOT | ACPI reset (0xCF9) |
 | 101 | SYS_SHUTDOWN | QEMU/Bochs exit |
+| 102 | SYS_DNS_LOOKUP | Resolve hostname via UDP/DNS |
 
 ---
 
@@ -210,9 +211,9 @@ make debug
 
 | Category | Hardware |
 |----------|----------|
-| **Storage** | SATA (ATA PIO), NVMe, USB mass storage, VirtIO block |
-| **Networking** | Intel e1000, VirtIO net, Realtek RTL8139, Realtek RTL8723DE WiFi |
-| **Display** | Bochs VGA, VMware SVGA II, Intel i915 UHD (Gen 9.5-14), NVIDIA GPU |
+| **Storage** | SATA (ATA PIO), NVMe, USB mass storage, VirtIO block (linux\_compat) |
+| **Networking** | Intel e1000, VirtIO net (linux\_compat), Realtek RTL8139, Realtek RTL8723DE WiFi |
+| **Display** | Bochs VGA, VMware SVGA II, Intel i915 UHD (Gen 9.5-14), NVIDIA GPU (linux\_compat) |
 | **Input** | PS/2 keyboard (i8042), Synaptics touchpad |
 | **Other** | HDA audio, Realtek Bluetooth, TPM 2.0, serial 16550 UART |
 
