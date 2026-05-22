@@ -15,6 +15,8 @@
 #include "arch/x64/cpu.h"
 #include "arch/x64/gdt.h"
 #include "drivers/serial/serial.h"
+#include "drivers/zirv/input/ps2/keyboard.h"
+#include "drivers/zirv/input/ps2/mouse.h"
 #include "drivers/zirv/displayjet/displayjet.h"
 #include "drivers/pci/pci.h"
 #include <stdint.h>
@@ -32,6 +34,8 @@
 static uint8_t syscall_kstack[SYSCALL_KSTACK_SIZE] __attribute__((aligned(16)));
 
 uint64_t syscall_kernel_stack_top;
+
+int g_gui_ready = 0;
 
 extern void syscall_entry(void);
 
@@ -368,7 +372,7 @@ static uint64_t setup_user_stack(address_space_t *as, const char *path,
     return rsp;
 }
 
-static void __attribute__((noreturn))
+void __attribute__((noreturn))
 exec_enter_usermode(process_t *proc, uint64_t retval)
 {
     extern void tss_set_kernel_stack(uint64_t rsp0);
@@ -402,23 +406,34 @@ static uint64_t sys_execve(process_t *proc,
                            char *const argv[],
                            char *const envp[])
 {
-    kprintf("[dbg] sys_execve entered: path_p=0x%lx\n", (uintptr_t)path);
+    if (!g_gui_ready)
+        kprintf("[dbg] sys_execve entered: path_p=0x%lx\n", (uintptr_t)path);
     if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
 
     size_t bin_size;
     const void *binary = embedded_find(path, &bin_size);
+    if (!g_gui_ready)
+        kprintf("[dbg] sys_execve: embedded_find returned binary=%p size=%lu\n", binary, (unsigned long)bin_size);
     if (!binary) return (uint64_t)(int64_t)ESYS_ENOENT;
 
     address_space_t *new_as = vmm_create_address_space();
+    if (!g_gui_ready)
+        kprintf("[dbg] sys_execve: new_as=%p\n", (void*)new_as);
     if (!new_as) return (uint64_t)(int64_t)ESYS_ENOMEM;
 
     uint64_t new_entry;
     if (!elf_load_into_as(new_as, binary, &new_entry)) {
+        if (!g_gui_ready)
+            kprintf("[dbg] sys_execve: elf_load_into_as FAILED\n");
         vmm_destroy_address_space(new_as);
         return (uint64_t)(int64_t)ESYS_EINVAL;
     }
+    if (!g_gui_ready)
+        kprintf("[dbg] sys_execve: elf_load_into_as OK, entry=0x%lx\n", new_entry);
 
     uint64_t new_rsp = setup_user_stack(new_as, path, argv, envp);
+    if (!g_gui_ready)
+        kprintf("[dbg] sys_execve: new_rsp=0x%lx\n", new_rsp);
     if (!new_rsp) {
         vmm_destroy_address_space(new_as);
         return (uint64_t)(int64_t)ESYS_ENOMEM;
@@ -436,9 +451,10 @@ static uint64_t sys_execve(process_t *proc,
     proc->mmap_cursor = PROC_MMAP_START;
     proc->state      = PROC_STATE_RUNNING;
 
-    kprintf("[dbg] sys_execve: entry=0x%lx rsp=0x%lx path=%s (saved caller: as=%p rip=0x%lx rsp=0x%lx)\n",
-            new_entry, new_rsp, path ? path : "(null)",
-            (void*)proc->saved_as, proc->saved_rip, proc->saved_rsp);
+    if (!g_gui_ready)
+        kprintf("[dbg] sys_execve: entry=0x%lx rsp=0x%lx path=%s (saved caller: as=%p rip=0x%lx rsp=0x%lx)\n",
+                new_entry, new_rsp, path ? path : "(null)",
+                (void*)proc->saved_as, proc->saved_rip, proc->saved_rsp);
 
     exec_enter_usermode(proc, 0);
     __builtin_unreachable();
@@ -471,6 +487,13 @@ static uint64_t sys_uptime(process_t *proc)
 {
     (void)proc;
     return time_uptime_seconds();
+}
+
+static uint64_t sys_msleep(process_t *proc, uint64_t ms)
+{
+    (void)proc;
+    time_msleep(ms);
+    return 0;
 }
 
 static uint64_t sys_getdatetime(process_t *proc, struct datetime *buf)
@@ -628,7 +651,16 @@ uint64_t syscall_dispatch(uint64_t num,
     process_t *proc = proc_current();
     if (!proc) return (uint64_t)(int64_t)ESYS_EINVAL;
 
-    if (num == 59 || num >= 100) {
+    /* Ctrl+Q → system quit (checked on every syscall) */
+    if (keyboard_quit_requested()) {
+        serial_puts(SERIAL_COM1, "[syscall] Ctrl+Q — rebooting\n");
+        outb(0xCF9, 0x0E);
+        outb(0xCF9, 0x06);
+        outb(0x64, 0xFE);
+        for (;;) __asm__ volatile("hlt");
+    }
+
+    if (!g_gui_ready && (num == 59 || num >= 100)) {
         kprintf("[dbg] syscall pid=%d num=%lu a1=0x%lx\n",
                 (int)proc->pid, num, a1);
     }
@@ -652,6 +684,8 @@ uint64_t syscall_dispatch(uint64_t num,
         return sys_brk(proc, a1);
     case SYS_UPTIME:
         return sys_uptime(proc);
+    case SYS_MSLEEP:
+        return sys_msleep(proc, a1);
     case SYS_PIPE:
         return sys_pipe(proc, (int *)(uintptr_t)a1);
     case SYS_GETPID:
@@ -662,10 +696,13 @@ uint64_t syscall_dispatch(uint64_t num,
                           (char *const *)(uintptr_t)a2,
                           (char *const *)(uintptr_t)a3);
     case SYS_EXIT:
+        /* Disconnect from DisplayJet if this was the compositor */
+        displayjet_disconnect((int)proc->pid);
+
         if (proc->saved_as) {
             /* Child binary finished — restore saved (caller) state */
-            kprintf("[dbg] sys_exit: child '%s' done, restoring saved caller state\n",
-                    proc->saved_rip ? "?" : "?");
+            if (!g_gui_ready)
+                kprintf("[dbg] sys_exit: child done, restoring saved caller state\n");
             vmm_destroy_address_space(proc->as);
             proc->as       = proc->saved_as;
             proc->user_rip = proc->saved_rip;
@@ -678,6 +715,8 @@ uint64_t syscall_dispatch(uint64_t num,
             __builtin_unreachable();
         }
         proc_exit(proc, (int)a1);
+        kprintf("[ PROC %d ] Exited with code %d — halted\n",
+                (int)proc->pid, (int)a1);
         __asm__ volatile("cli");
         for (;;) __asm__ volatile("hlt");
         return 0;
@@ -728,22 +767,29 @@ uint64_t syscall_dispatch(uint64_t num,
         outw(0xB004, 0x2000); /* Bochs */
         for (;;) __asm__ volatile("hlt");
         return 0;
+    case SYS_SUPPRESS_DBG:
+        g_gui_ready = 1;
+        return 0;
     case SYS_DJ_CONNECT:
-        kprintf("[dbg] SYS_DJ_CONNECT called (pid=%d)\n", (int)proc->pid);
+        if (!g_gui_ready)
+            kprintf("[dbg] SYS_DJ_CONNECT called (pid=%d)\n", (int)proc->pid);
         return (uint64_t)(int64_t)displayjet_connect((int)proc->pid);
     case SYS_DJ_DISCONNECT:
         return (uint64_t)(int64_t)displayjet_disconnect((int)proc->pid);
     case SYS_DJ_CREATE_SURFACE:
         {
             uint32_t id;
-            kprintf("[dbg] SYS_DJ_CREATE_SURFACE(w=%u, h=%u)\n",
-                    (uint32_t)a1, (uint32_t)a2);
+            if (!g_gui_ready)
+                kprintf("[dbg] SYS_DJ_CREATE_SURFACE(w=%u, h=%u)\n",
+                        (uint32_t)a1, (uint32_t)a2);
             int ret = displayjet_create_surface((uint32_t)a1, (uint32_t)a2, &id);
             if (ret == 0) {
-                kprintf("[dbg] SYS_DJ_CREATE_SURFACE -> id=%u\n", id);
+                if (!g_gui_ready)
+                    kprintf("[dbg] SYS_DJ_CREATE_SURFACE -> id=%u\n", id);
                 ret = (int)id;
             } else {
-                kprintf("[dbg] SYS_DJ_CREATE_SURFACE failed ret=%d\n", ret);
+                if (!g_gui_ready)
+                    kprintf("[dbg] SYS_DJ_CREATE_SURFACE failed ret=%d\n", ret);
             }
             return (uint64_t)(int64_t)ret;
         }
@@ -769,6 +815,9 @@ uint64_t syscall_dispatch(uint64_t num,
     case SYS_DJ_GRANT_ACCESS:
         return (uint64_t)(int64_t)displayjet_grant_access(
                    (uint32_t)a1, (dj_access_grant_t *)(uintptr_t)a2);
+    case SYS_DJ_SET_CURSOR:
+        return (uint64_t)(int64_t)displayjet_set_cursor(
+                   (int)a1, (int)a2);
     case SYS_DNS_LOOKUP:
         {
             const char *domain = (const char *)(uintptr_t)a1;
@@ -815,6 +864,12 @@ uint64_t syscall_dispatch(uint64_t num,
                 info->driver_name[0] = 0;
             }
             return 0;
+        }
+    case SYS_MOUSE_READ:
+        {
+            mouse_event_t *ev = (mouse_event_t *)(uintptr_t)a1;
+            if (!ev) return (uint64_t)(int64_t)ESYS_EFAULT;
+            return (uint64_t)(int64_t)mouse_read_event(ev);
         }
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;

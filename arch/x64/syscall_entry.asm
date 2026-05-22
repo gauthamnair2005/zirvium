@@ -65,12 +65,24 @@ syscall_entry:
     push    r14
     push    r15
 
-    ; ── 4. Build C arguments ──────────────────────────────────────────────
+    ; ── 4. Save caller-saved argument registers ──────────────────────────
+    ; The C dispatcher may clobber rdi, rsi, rdx, r8, r9, r10.
+    ; They MUST be restored before returning so user-space sees them
+    ; preserved (Linux ABI guarantees only rcx / r11 are clobbered).
+    push    r10
+    push    r9
+    push    r8
+    push    rdx
+    push    rsi
+    push    rdi
+
+    ; ── 5. Build C arguments ──────────────────────────────────────────────
     ; Target: syscall_dispatch(num, a1, a2, a3, a4, a5, a6)
     ; C ABI (System V):  rdi  rsi  rdx  rcx   r8   r9  [rsp+8]
     ; Available on entry: rax  rdi  rsi  rdx  r10   r8      r9
     ;
-    ; Push a6 (original r9) as the 7th C argument before modifying r9.
+    ; Push a6 (original r9 — still live since we saved it above) as the
+    ; 7th C argument before modifying r9.
     push    r9                       ; a6 → [rsp+8] after CALL (7th C arg)
 
     mov     r9, r8                   ; a5 → r9  (6th C arg)
@@ -80,13 +92,21 @@ syscall_entry:
     mov     rsi, rdi                 ; a1 → rsi (2nd C arg)
     mov     rdi, rax                 ; num → rdi (1st C arg)
 
-    ; ── 5. Dispatch ───────────────────────────────────────────────────────
+    ; ── 6. Dispatch ───────────────────────────────────────────────────────
     call    syscall_dispatch
     add     rsp, 8                   ; discard pushed a6
 
     ; Return value (or negated errno) is already in RAX.
 
-    ; ── 6. Restore callee-saved registers ─────────────────────────────────
+    ; ── 7. Restore caller-saved argument registers ────────────────────────
+    pop     rdi
+    pop     rsi
+    pop     rdx
+    pop     r8
+    pop     r9
+    pop     r10
+
+    ; ── 8. Restore callee-saved registers ─────────────────────────────────
     pop     r15
     pop     r14
     pop     r13
@@ -94,7 +114,7 @@ syscall_entry:
     pop     rbx
     pop     rbp
 
-    ; ── 7. Restore context and return to user mode ─────────────────────────
+    ; ── 9. Restore context and return to user mode ─────────────────────────
     pop     rcx                      ; user RIP  → RCX (used by SYSRETQ)
     pop     r11                      ; user RFLAGS → R11 (used by SYSRETQ)
     pop     rsp                      ; user RSP

@@ -298,3 +298,11 @@ void time_set_tz(int offset_minutes)
 {
     tz_offset_minutes = offset_minutes;
 }
+
+void time_msleep(uint64_t ms)
+{
+    if (!time_initialised || tsc_hz == 0) return;
+    uint64_t target = rdtsc() + (ms * tsc_hz) / 1000;
+    while (rdtsc() < target)
+        __asm__ volatile("pause");
+}

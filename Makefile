@@ -48,7 +48,8 @@ CFLAGS := \
     -I. \
     -Ilibs/zirvlibc/include \
     -Izirvdisplayjet \
-    -Izirvdisplayjet/drivers/zirv/displayjet
+    -Izirvdisplayjet/drivers/zirv/displayjet \
+    -Izirvflux/include
 
 ASFLAGS := -f elf64
 
@@ -124,6 +125,8 @@ ZIRVSHELL_ELF := zirvshell/zirvshell.elf
 ZIRVUTILS_ELFS := zirvutils/hello.elf zirvutils/cat.elf zirvutils/sysinfo.elf zirvutils/clear.elf zirvutils/echo.elf zirvutils/reboot.elf zirvutils/shutdown.elf zirvutils/suspend.elf zirvutils/poweroff.elf zirvutils/ping.elf zirvutils/sleep.elf zirvutils/true.elf zirvutils/false.elf zirvutils/yes.elf zirvutils/uname.elf zirvutils/hostname.elf zirvutils/ifconfig.elf zirvutils/lspci.elf
 ZIRVUI_ELF := zirvui/zirvui.elf
 
+ZIRVFLUX_LIB := zirvflux/libzirvflux.a
+
 # ── Derived object lists ───────────────────────────────────────────────────────
 BUILD_DIR := build
 
@@ -175,7 +178,10 @@ $(BUILD_DIR)/.zirvutils_stamp:
 	$(MAKE) -C zirvutils
 	@touch $@
 
-$(ZIRVUI_ELF):
+$(ZIRVFLUX_LIB):
+	$(MAKE) -C zirvflux
+
+$(ZIRVUI_ELF): $(ZIRVFLUX_LIB)
 	$(MAKE) -C zirvui
 
 # ── Strip to flat binary (optional) ───────────────────────────────────────────
@@ -263,4 +269,5 @@ clean:
 	$(MAKE) -C zirvshell clean || true
 	$(MAKE) -C zirvutils clean || true
 	$(MAKE) -C zirvui clean || true
+	$(MAKE) -C zirvflux clean || true
 	@echo "  CLEAN"

@@ -49,6 +49,11 @@
 #define SYS_DNS_LOOKUP 102   /* dns_lookup(domain, result_ip)          */
 #define SYS_PCI_READ  103   /* pci_read(index, info)                  */
 
+#define SYS_SUPPRESS_DBG  121   /* suppress_dbg() — compositor calls when GUI is live */
+#define SYS_MOUSE_READ    122   /* mouse_read_event(ev) — read next mouse event */
+#define SYS_DJ_SET_CURSOR 123   /* displayjet_set_cursor(x, y) */
+#define SYS_MSLEEP       124   /* msleep(milliseconds) */
+
 /* ── Open flags (mirrored from user-space) ───────────────────────────────── */
 #define O_CREAT  0x40
 
@@ -63,6 +68,9 @@
 #define ESYS_EACCES  (-13)
 #define ESYS_ERANGE  (-34)
 
+/* ── Forward declarations ──────────────────────────────────────────────── */
+struct process;
+
 /* ── Public kernel API ───────────────────────────────────────────────────── */
 void syscall_init(void);
 
@@ -71,5 +79,13 @@ uint64_t syscall_dispatch(uint64_t num,
                           uint64_t a4, uint64_t a5, uint64_t a6);
 
 extern uint64_t syscall_kernel_stack_top;
+
+/**
+ * exec_enter_usermode — switch to user mode with a given return value in RAX.
+ * Used by sys_exit and the fault handler to restore a saved (parent) process
+ * after a child terminates.
+ */
+void __attribute__((noreturn))
+exec_enter_usermode(struct process *proc, uint64_t retval);
 
 #endif /* ZIRVIUM_KERNEL_SYSCALL_SYSCALL_H */

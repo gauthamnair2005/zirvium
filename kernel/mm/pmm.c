@@ -8,6 +8,7 @@
  * Maximum supported physical memory: MAX_PMM_PAGES × PAGE_SIZE = 16 GiB.
  */
 #include "pmm.h"
+#include "kernel/mm/vmm.h"
 #include <stdint.h>
 #include <stddef.h>
 
@@ -87,6 +88,20 @@ void pmm_init(uint64_t mmap_addr, uint32_t mmap_len, uint32_t entry_size)
     }
 
     search_start = 1;
+
+    /* Reserve pages occupied by the kernel image itself */
+    extern char _kernel_start[], _kernel_end[];
+    uint64_t kpa_start = (uint64_t)_kernel_start
+                         - KERNEL_VIRT_BASE + KERNEL_PHYS_BASE;
+    uint64_t kpa_end   = (uint64_t)_kernel_end
+                         - KERNEL_VIRT_BASE + KERNEL_PHYS_BASE;
+    for (uint64_t pa = kpa_start; pa < kpa_end; pa += PAGE_SIZE) {
+        size_t pfn = ADDR_TO_PFN(pa);
+        if (pfn < MAX_PMM_PAGES && !bitmap_test(pfn)) {
+            bitmap_set(pfn);
+            if (free_pages > 0) free_pages--;
+        }
+    }
 }
 
 uint64_t pmm_alloc_page(void)

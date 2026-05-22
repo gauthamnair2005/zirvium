@@ -71,6 +71,12 @@ bool keyboard_read_event(key_event_t *out);
 int keyboard_pending(void);
 
 /**
+ * keyboard_quit_requested - check if Ctrl+Q was pressed since last call.
+ * Returns 1 if Ctrl+Q was pressed, 0 otherwise. Clears the flag.
+ */
+int keyboard_quit_requested(void);
+
+/**
  * keyboard_read_ascii - dequeue the next pressed key and convert to ASCII.
  * Returns the ASCII character, or 0 if no pressed key event is available.
  */

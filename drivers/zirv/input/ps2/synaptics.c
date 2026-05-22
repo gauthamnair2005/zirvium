@@ -11,6 +11,7 @@
 #include "fs/mosix.h"
 #include "arch/x64/cpu.h"
 #include "drivers/compat/linux_compat.h"
+#include "mouse.h"
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -42,6 +43,34 @@ static void tp_push(touchpad_event_t ev)
         tp_head = next;
     }
 }
+
+/* ── Mouse event ring buffer (relative mode) ─────────────────────────────── */
+#define MOUSE_RING_SIZE  16
+static mouse_event_t mouse_ring[MOUSE_RING_SIZE];
+static int mouse_head = 0, mouse_tail = 0;
+
+static void mouse_push(mouse_event_t ev)
+{
+    int next = (mouse_head + 1) % MOUSE_RING_SIZE;
+    if (next != mouse_tail) {
+        mouse_ring[mouse_head] = ev;
+        mouse_head = next;
+    }
+}
+
+static int mouse_read_vfs(vnode_t *vn, void *buf, size_t count, uint64_t off)
+{
+    (void)vn; (void)off;
+    if (count < sizeof(mouse_event_t)) return 0;
+    if (mouse_tail == mouse_head) return 0;
+    *(mouse_event_t *)buf = mouse_ring[mouse_tail];
+    mouse_tail = (mouse_tail + 1) % MOUSE_RING_SIZE;
+    return (int)sizeof(mouse_event_t);
+}
+
+static const vnode_ops_t mouse_vnode_ops = {
+    .read = mouse_read_vfs,
+};
 
 /* ── Packet accumulator ─────────────────────────────────────────────────── */
 static uint8_t pkt[6];
@@ -87,12 +116,26 @@ static void decode_absolute(void)
 }
 
 /* ── Raw byte handler ─────────────────────────────────────────────────────── */
+static int rel_pkt_idx = 0;
+static uint8_t rel_pkt[3];
+
 static void aux_byte_handler(uint8_t byte, void *data)
 {
     (void)data;
 
     if (!is_absolute) {
-        /* Standard 3-byte PS/2 mouse packet (ignore in absolute mode) */
+        /* Standard 3-byte PS/2 mouse packet */
+        if (rel_pkt_idx == 0 && !(byte & 0x08)) return;
+        rel_pkt[rel_pkt_idx++] = byte;
+        if (rel_pkt_idx == 3) {
+            int32_t dx = rel_pkt[1];
+            int32_t dy = rel_pkt[2];
+            if (rel_pkt[0] & 0x10) dx -= 256;
+            if (rel_pkt[0] & 0x20) dy -= 256;
+            mouse_event_t ev = { .dx = dx, .dy = -dy, .buttons = rel_pkt[0] & 0x07 };
+            mouse_push(ev);
+            rel_pkt_idx = 0;
+        }
         return;
     }
 
@@ -147,10 +190,22 @@ bool synaptics_init(void)
     }
 
     if (id[1] != SYN_ID_MAGIC_BYTE2) {
-        serial_puts(SERIAL_COM1, "[synaptics] Not found (no Synaptics magic)\n");
-        /* Fall back: register as generic PS/2 mouse */
+        serial_puts(SERIAL_COM1, "[synaptics] Not found - registering as generic PS/2 mouse\n");
         i8042_send_aux(0xF4);   /* enable */
         i8042_register_port_handler(I8042_PORT_AUX, aux_byte_handler, NULL);
+
+        device_desc_t *mdesc = (device_desc_t *)kzalloc(sizeof(device_desc_t), 0);
+        if (mdesc) {
+            mdesc->bus_class   = DEV_CLASS_INPUT_MOUSE;
+            mdesc->media_class = DEV_CLASS_INPUT_MOUSE;
+            mdesc->present     = true;
+            const char *model = "PS/2 Mouse";
+            for (int i = 0; model[i] && i < 63; i++) mdesc->model[i] = model[i];
+            vnode_t *mouse_vnode = vfs_register_device(DEV_CLASS_INPUT_MOUSE,
+                                        DEV_CLASS_INPUT_MOUSE, 0, mdesc);
+            if (mouse_vnode)
+                mouse_vnode->ops = &mouse_vnode_ops;
+        }
         return false;
     }
 
@@ -198,4 +253,13 @@ bool synaptics_read_event(touchpad_event_t *out)
 int synaptics_pending(void)
 {
     return (tp_head - tp_tail + TP_RING_SIZE) % TP_RING_SIZE;
+}
+
+int mouse_read_event(mouse_event_t *ev)
+{
+    if (!ev) return -1;
+    if (mouse_tail == mouse_head) return -1;
+    *ev = mouse_ring[mouse_tail];
+    mouse_tail = (mouse_tail + 1) % MOUSE_RING_SIZE;
+    return 0;
 }

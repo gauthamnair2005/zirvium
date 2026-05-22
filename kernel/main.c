@@ -6,6 +6,7 @@
 #include "kernel/mm/vmm.h"
 #include "kernel/irq/irq.h"
 #include "kernel/proc/process.h"
+#include "kernel/syscall/syscall.h"
 #include "kernel/loader/elf.h"
 #include "kernel/loader/embedded.h"
 #include "fs/mosix.h"
@@ -14,7 +15,9 @@
 #include "drivers/serial/serial.h"
 #include "drivers/zirv/input/ps2/i8042.h"
 #include "drivers/zirv/input/ps2/keyboard.h"
+#include "drivers/zirv/input/ps2/synaptics.h"
 #include "drivers/zirv/driver.h"
+#include "drivers/zirv/display/i915/i915.h"
 #include "drivers/gpu/enveediya/enveediya.h"
 #include "drivers/gpu/arc/arc.h"
 #include "drivers/gpu/radeon/radeon.h"
@@ -67,6 +70,44 @@ static void kpanic(const char *msg)
 void isr_dispatch(cpu_state_t *state)
 {
     if (state->int_no < 32) {
+        uint64_t user_cs = state->cs & 3;
+        if (user_cs == 3) {
+            kprintf("\n[ USER EXCEPTION %d ] error_code=0x%lx rip=0x%lx rsp=0x%lx\n",
+                    (int)state->int_no, state->err_code, state->rip, state->rsp);
+            if (state->int_no == 14) {
+                uint64_t cr2;
+                __asm__ volatile("mov %%cr2, %0" : "=r"(cr2));
+                kprintf("[ PAGE FAULT ] address=0x%lx\n", cr2);
+            }
+
+            process_t *proc = proc_current();
+            if (proc) {
+                kprintf("[ PROC %d ] Terminating due to exception %d\n",
+                        (int)proc->pid, (int)state->int_no);
+
+                /* Disconnect from DisplayJet if this was the compositor */
+                extern int displayjet_disconnect(int pid);
+                displayjet_disconnect((int)proc->pid);
+
+                if (proc->saved_as) {
+                    vmm_destroy_address_space(proc->as);
+                    proc->as       = proc->saved_as;
+                    proc->user_rip = proc->saved_rip;
+                    proc->user_rsp = proc->saved_rsp;
+                    proc->brk      = PROC_HEAP_START;
+                    proc->mmap_cursor = PROC_MMAP_START;
+                    proc->saved_as = NULL;
+                    proc->state    = PROC_STATE_RUNNING;
+                    kputs("[ KERNEL ] Restoring saved (parent) process\n");
+                    exec_enter_usermode(proc, 0);
+                }
+
+                proc_exit(proc, (int)state->int_no);
+                kputs("[ KERNEL ] Process terminated — halting\n");
+            }
+            for (;;) __asm__ volatile("cli; hlt");
+        }
+
         kprintf("\n[ CPU EXCEPTION %d ] error_code=0x%lx rip=0x%lx\n",
                 (int)state->int_no, state->err_code, state->rip);
         kpanic("Unhandled CPU exception");
@@ -148,7 +189,6 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     pci_init();
     
     /* ── Step 6: Dynamic Driver Probing ──────────────────────────────── */
-    /* bochs_vga is superseded by displayjet (DisplayJet w/ MAEM) */
     extern const zirv_driver_t g_vmware_svga_driver;
     extern const zirv_driver_t g_tpm2_driver;
     extern const zirv_driver_t g_intel_e1000_driver;
@@ -163,10 +203,22 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     extern void virtio_init(void);
     virtio_init();
 
-    /* ── DisplayJet (user-space display framework, supersedes bochs_vga) ─ */
+    /* ── Step 6a: Native GPU Display Drivers ──────────────────────────── *
+     * These kernel-level drivers (i915, bochs_vga) own the actual display
+     * hardware.  They set up scanout buffers and panel power sequences.
+     * Any found framebuffer is passed to DisplayJet below via
+     * displayjet_set_framebuffer().  For a pure QEMU target only the
+     * bochs VBE fallback inside DisplayJet will match. */
+    i915_init();
+
+    /* ── Step 6b: DisplayJet — MAEM-protected display server ──────────── *
+     * DisplayJet sits on top of whichever GPU driver found hardware.
+     * If no kernel driver provided a framebuffer it falls back to bochs VBE.
+     * User-space compositors (ZirvUI via ZirvFlux) talk to DisplayJet
+     * through MOSIX syscalls 110-120. */
     displayjet_init();
 
-    /* ── Linux-compat drivers (conditional on PCI detection) ──────────── */
+    /* ── Step 6c: Linux-compat GPU drivers (device info / routing) ───── */
     enveediya_init();
     arc_gpu_init();
     radeon_gpu_init();
@@ -176,8 +228,10 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     rtl8139_init();
 
     /* ── Step 6b: Legacy PS/2 Keyboard ───────────────────────────────── */
-    if (i8042_init())
+    if (i8042_init()) {
         keyboard_init();
+        synaptics_init();
+    }
 
     /* ── Step 7: Launch MOSIX Init ───────────────────────────────────── */
     kputs("\n");

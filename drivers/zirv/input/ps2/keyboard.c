@@ -73,6 +73,9 @@ static void ring_push(key_event_t ev)
     }
 }
 
+/* ── Ctrl+Q quit flag (checked from syscall_dispatch) ────────────────────── */
+volatile int g_ctrlq_requested = 0;
+
 /* ── Modifier state ──────────────────────────────────────────────────────── */
 static uint8_t mods = 0;
 
@@ -113,6 +116,10 @@ static void kbd_byte_handler(uint8_t byte, void *data)
 
     key_event_t ev = { .keycode = kc, .pressed = !released, .mods = mods };
     ring_push(ev);
+
+    /* Ctrl+Q → system quit */
+    if (kc == 0x14 && !released && (mods & MOD_LCTRL))
+        g_ctrlq_requested = 1;
 }
 
 /* ── Public API ───────────────────────────────────────────────────────────── */
@@ -155,6 +162,13 @@ bool keyboard_read_event(key_event_t *out)
 int keyboard_pending(void)
 {
     return (ring_head - ring_tail + KBD_RING_SIZE) % KBD_RING_SIZE;
+}
+
+int keyboard_quit_requested(void)
+{
+    int ret = g_ctrlq_requested;
+    g_ctrlq_requested = 0;
+    return ret;
 }
 
 int keyboard_read_ascii(void)
