@@ -70,9 +70,12 @@ static struct {
     void      *pcm_bufs[AC97_NUM_DESCS];
     uint32_t   pcm_bufs_phys[AC97_NUM_DESCS];
     int        cur_write;      /* next buffer to fill */
-    int        cur_play;       /* buffer being played */
+    int        cur_play;       /* buffer being played (from CIV) */
     bool       running;
     audio_driver_t driver;
+
+    /* bitmask: bit i = 1 means hardware has completed buffer i since we last wrote it */
+    uint8_t    completed;
 } g_ac97;
 
 /* ── I/O helpers ──────────────────────────────────────────────────────────── */
@@ -123,27 +126,50 @@ static int ac97_irq_handler(int irq, void *data)
     /* Update which buffer is being played */
     g_ac97.cur_play = ac97_nabm_read8(AC97_PO_CIV);
 
+    /* Mark the buffer that just completed as free.
+     * CIV is the buffer being played NOW; the one before it just finished. */
+    uint8_t completed = (uint8_t)((g_ac97.cur_play - 1 + AC97_NUM_DESCS) % AC97_NUM_DESCS);
+    g_ac97.completed |= (uint8_t)(1u << completed);
+
     return IRQ_HANDLED;
 }
 
 /* ── Audio driver interface ───────────────────────────────────────────────── */
-static bool ac97_write_pcm(const void *buf, uint32_t frames)
+static uint32_t ac97_write_pcm(const void *buf, uint32_t frames)
 {
-    if (!buf || frames == 0) return false;
-    if (!g_ac97.running) return false;
+    if (!buf || frames == 0) return 0;
+    if (!g_ac97.running) return 0;
 
-    int idx = g_ac97.cur_write;
-    uint32_t copy = frames;
-    if (copy > AC97_BUF_FRAMES) copy = AC97_BUF_FRAMES;
+    uint32_t written = 0;
+    const uint8_t *src = (const uint8_t *)buf;
 
-    memcpy(g_ac97.pcm_bufs[idx], buf, copy * 4);
-    /* Fill remainder with silence if partial */
-    if (copy < AC97_BUF_FRAMES)
-        memset((uint8_t*)g_ac97.pcm_bufs[idx] + copy * 4, 0,
-               (AC97_BUF_FRAMES - copy) * 4);
+    while (written < frames) {
+        int idx = g_ac97.cur_write;
 
-    g_ac97.cur_write = (idx + 1) % AC97_NUM_DESCS;
-    return true;
+        /* Check if this buffer has been consumed by hardware */
+        if (!(g_ac97.completed & (1u << idx)))
+            break;  /* no free slot right now — return what we've written so far */
+
+        g_ac97.completed &= (uint8_t)~(1u << idx);  /* claim this slot */
+
+        uint32_t copy = frames - written;
+        if (copy > AC97_BUF_FRAMES) copy = AC97_BUF_FRAMES;
+
+        memcpy(g_ac97.pcm_bufs[idx], src, copy * 4);
+        if (copy < AC97_BUF_FRAMES)
+            memset((uint8_t*)g_ac97.pcm_bufs[idx] + copy * 4, 0,
+                   (AC97_BUF_FRAMES - copy) * 4);
+
+        src += copy * 4;
+        written += copy;
+
+        /* Update LVI so the hardware knows there's data in this buffer */
+        ac97_nabm_write8(AC97_PO_LVI, (uint8_t)idx);
+
+        g_ac97.cur_write = (idx + 1) % AC97_NUM_DESCS;
+    }
+
+    return written;
 }
 
 static void ac97_set_volume(uint8_t vol)
@@ -188,6 +214,7 @@ static void ac97_start(void)
 
     g_ac97.cur_write = 0;
     g_ac97.cur_play = 0;
+    g_ac97.completed = 0;  /* no buffers completed yet; first BCIS will set a bit */
     g_ac97.running = true;
     serial_puts(SERIAL_COM1, "[ac97] Playback started\n");
 }

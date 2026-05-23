@@ -422,9 +422,9 @@ uint32_t hda_write_pcm(const void *buf, uint32_t frames)
     g_hda.write_idx = (g_hda.write_idx + 1) % HDA_BDL_ENTRIES;
     return copy;
 }
-bool hda_start_stream(void)
+void hda_start_stream(void)
 {
-    if (!g_hda_found) return false;
+    if (!g_hda_found) return;
 
     uint8_t sd = g_hda.out_sd;
     uint32_t ctl = hda_read32(HDA_SD_CTL(sd));
@@ -433,7 +433,6 @@ bool hda_start_stream(void)
     g_hda.stream_running = true;
 
     serial_puts(SERIAL_COM1, "[hda] Output stream started\n");
-    return true;
 }
 
 void hda_stop_stream(void)
@@ -538,10 +537,10 @@ void hda_init(void)
     /* Register with audio subsystem */
     static audio_driver_t hda_audio_driver;
     hda_audio_driver.name     = "Intel HDA";
-    hda_audio_driver.write_pcm = (void*)hda_write_pcm;
+    hda_audio_driver.write_pcm = hda_write_pcm;
     hda_audio_driver.set_volume = NULL;  /* codec volume handled via verbs */
-    hda_audio_driver.start     = (void*)hda_start_stream;
-    hda_audio_driver.stop      = (void*)hda_stop_stream;
+    hda_audio_driver.start     = hda_start_stream;
+    hda_audio_driver.stop      = hda_stop_stream;
     hda_audio_driver.ready     = true;
     audio_register(&hda_audio_driver);
 

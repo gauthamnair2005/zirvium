@@ -225,9 +225,8 @@ uint32_t hda_write_pcm(const void *buf, uint32_t frames);
 
 /**
  * hda_start_stream - start the output stream (sends PCM silence initially).
- * Returns true on success.
  */
-bool hda_start_stream(void);
+void hda_start_stream(void);
 
 /**
  * hda_stop_stream - stop the output stream.

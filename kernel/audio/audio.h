@@ -10,7 +10,7 @@
 
 typedef struct audio_driver {
     const char *name;
-    bool  (*write_pcm)(const void *buf, uint32_t frames);
+    uint32_t (*write_pcm)(const void *buf, uint32_t frames);
     void  (*set_volume)(uint8_t vol);
     void  (*start)(void);
     void  (*stop)(void);
