@@ -16,15 +16,50 @@
  *  6. Device registration under /zirv/audio/output0
  */
 #include "hda.h"
+#include "kernel/audio/audio.h"
 #include "drivers/pci/pci.h"
 #include "drivers/zirv/device.h"
 #include "drivers/serial/serial.h"
 #include "kernel/mm/pmm.h"
 #include "kernel/mm/vmm.h"
-#include "drivers/compat/linux_compat.h"
+#include "kernel/irq/irq.h"
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+
+/* MMIO and delay helpers (replacing linux_compat.h to avoid conflicts) */
+extern void *kzalloc(size_t size, unsigned int flags);
+extern void *kmalloc(size_t size, unsigned int flags);
+extern void kfree(void *ptr);
+static inline uint32_t readl(const volatile void *addr)
+{
+    return *(volatile uint32_t *)addr;
+}
+static inline void writel(uint32_t val, volatile void *addr)
+{
+    *(volatile uint32_t *)addr = val;
+}
+static inline uint16_t readw(const volatile void *addr)
+{
+    return *(volatile uint16_t *)addr;
+}
+static inline void writew(uint16_t val, volatile void *addr)
+{
+    *(volatile uint16_t *)addr = val;
+}
+static inline uint8_t readb(const volatile void *addr)
+{
+    return *(volatile uint8_t *)addr;
+}
+static inline void writeb(uint8_t val, volatile void *addr)
+{
+    *(volatile uint8_t *)addr = val;
+}
+static inline void udelay(uint32_t us)
+{
+    for (volatile uint32_t i = 0; i < us * 4; i++)
+        __asm__ volatile("pause");
+}
 
 /* ── Static device state ─────────────────────────────────────────────────── */
 static hda_priv_t g_hda;
@@ -336,7 +371,57 @@ static bool hda_stream_setup(void)
     return true;
 }
 
-/* ── Public API ───────────────────────────────────────────────────────────── */
+/* ── IRQ handler ──────────────────────────────────────────────────────────── */
+static int hda_irq_handler(int irq, void *data)
+{
+    (void)irq; (void)data;
+    uint32_t intsts = hda_read32(HDA_INTSTS);
+    if (!(intsts & (1u << g_hda.out_sd)))
+        return IRQ_NONE;
+
+    /* Clear status on the stream descriptor */
+    uint8_t sd = g_hda.out_sd;
+    uint8_t sts = hda_read8(HDA_SD_STS(sd));
+    if (sts & HDA_SD_STS_BCIS)
+        hda_write8(HDA_SD_STS(sd), sts);
+
+    return IRQ_HANDLED;
+}
+
+/* ── Audio driver interface ───────────────────────────────────────────────── */
+uint32_t hda_write_pcm(const void *buf, uint32_t frames)
+{
+    if (!buf || frames == 0 || !g_hda_found) return 0;
+    if (!g_hda.stream_running) return 0;
+
+    uint8_t  sd  = g_hda.out_sd;
+
+    /* Read LPIB to find which buffer the hardware is playing */
+    uint32_t lpib = hda_read32(HDA_SD_LPIB(sd));
+    int      play_idx = (int)(lpib / HDA_BUF_BYTES);
+
+    /* Compute how many slots are full */
+    int occupied = g_hda.write_idx - play_idx;
+    if (occupied < 0) occupied += HDA_BDL_ENTRIES;
+
+    /* If all slots are occupied, wait a bit and try again */
+    if (occupied >= HDA_BDL_ENTRIES) {
+        /* No free slot — caller will need to retry */
+        return 0;
+    }
+
+    uint32_t copy = frames;
+    if (copy > HDA_BUF_FRAMES) copy = HDA_BUF_FRAMES;
+
+    int idx = g_hda.write_idx % HDA_BDL_ENTRIES;
+    memcpy(g_hda.pcm_buf[idx], buf, copy * 4);
+    if (copy < HDA_BUF_FRAMES)
+        memset((uint8_t*)g_hda.pcm_buf[idx] + copy * 4, 0,
+               (HDA_BUF_FRAMES - copy) * 4);
+
+    g_hda.write_idx = (g_hda.write_idx + 1) % HDA_BDL_ENTRIES;
+    return copy;
+}
 bool hda_start_stream(void)
 {
     if (!g_hda_found) return false;
@@ -429,6 +514,11 @@ void hda_init(void)
 
     g_hda_found = true;
 
+    /* Request IRQ if available */
+    if (pdev->irq_line > 0 && pdev->irq_line < 16)
+        request_irq(pdev->irq_line, hda_irq_handler,
+                    IRQF_SHARED, "hda", NULL);
+
     /* Start playback immediately (silence until user fills the buffers) */
     hda_start_stream();
 
@@ -444,6 +534,16 @@ void hda_init(void)
         vfs_register_device(DEV_CLASS_AUDIO_OUTPUT, DEV_CLASS_AUDIO_OUTPUT,
                             0, desc);
     }
+
+    /* Register with audio subsystem */
+    static audio_driver_t hda_audio_driver;
+    hda_audio_driver.name     = "Intel HDA";
+    hda_audio_driver.write_pcm = (void*)hda_write_pcm;
+    hda_audio_driver.set_volume = NULL;  /* codec volume handled via verbs */
+    hda_audio_driver.start     = (void*)hda_start_stream;
+    hda_audio_driver.stop      = (void*)hda_stop_stream;
+    hda_audio_driver.ready     = true;
+    audio_register(&hda_audio_driver);
 
     serial_puts(SERIAL_COM1,
         "[hda] Audio ready → /zirv/audio/output0 (48 kHz / 16-bit stereo)\n");

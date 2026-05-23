@@ -38,7 +38,6 @@
 #ifndef ZIRVIUM_DRIVERS_AUDIO_HDA_H
 #define ZIRVIUM_DRIVERS_AUDIO_HDA_H
 
-#include "drivers/compat/linux_compat.h"
 #include "drivers/pci/pci.h"
 #include <stdint.h>
 #include <stdbool.h>
@@ -174,7 +173,7 @@ typedef struct __attribute__((packed)) {
     uint32_t ioc;      /* interrupt-on-completion flag (bit 0) */
 } hda_bdl_entry_t;
 
-#define HDA_BDL_ENTRIES   2            /* double-buffer: 2 × half-period      */
+#define HDA_BDL_ENTRIES   8            /* ring-buffer depth: 8 × half-second each */
 #define HDA_BUF_FRAMES    2048         /* PCM frames per BDL segment           */
 #define HDA_BUF_BYTES     (HDA_BUF_FRAMES * 4)  /* 16-bit stereo = 4 bytes/frame */
 
@@ -203,6 +202,8 @@ typedef struct {
     void             *pcm_buf[HDA_BDL_ENTRIES];
     uint64_t          pcm_buf_phys[HDA_BDL_ENTRIES];
     bool              stream_running;
+    volatile int      write_idx;    /* next buffer to fill (ring) */
+    int               irq;
 } hda_priv_t;
 
 /* ── Public API ───────────────────────────────────────────────────────────── */
@@ -213,6 +214,14 @@ typedef struct {
  * the device as /zirv/audio/output0.
  */
 void hda_init(void);
+
+/**
+ * hda_write_pcm - copy PCM frames into the next available ring-buffer slot.
+ * @buf:     interleaved 16-bit stereo PCM data (4 bytes per frame)
+ * @frames:  number of stereo frames to copy (max HDA_BUF_FRAMES)
+ * Returns the number of frames actually written (0 if no slot free).
+ */
+uint32_t hda_write_pcm(const void *buf, uint32_t frames);
 
 /**
  * hda_start_stream - start the output stream (sends PCM silence initially).

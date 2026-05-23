@@ -55,6 +55,8 @@
 #define SYS_DJ_SET_CURSOR 123   /* displayjet_set_cursor(x, y) */
 #define SYS_MSLEEP       124   /* msleep(milliseconds) */
 #define SYS_READ_KEYS    125   /* read_keys(event) — non-blocking keyboard event */
+#define SYS_AUDIO_PLAY   126   /* audio_play(buf, frames) — submit PCM frames    */
+#define SYS_AUDIO_VOLUME 127   /* audio_volume(vol) — set output volume 0-255    */
 
 /* ── Open flags (mirrored from user-space) ───────────────────────────────── */
 #define O_CREAT  0x40

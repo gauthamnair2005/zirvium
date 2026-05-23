@@ -9,6 +9,7 @@
 #include "kernel/syscall/syscall.h"
 #include "kernel/loader/elf.h"
 #include "kernel/loader/embedded.h"
+#include "kernel/audio/audio.h"
 #include "fs/mosix.h"
 #include "drivers/pci/pci.h"
 #include "drivers/vga/vga.h"
@@ -232,6 +233,9 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
         keyboard_init();
         synaptics_init();
     }
+
+    /* ── Step 6d: Audio Subsystem ────────────────────────────────────── */
+    audio_init();
 
     /* ── Step 7: Launch MOSIX Init ───────────────────────────────────── */
     kputs("\n");

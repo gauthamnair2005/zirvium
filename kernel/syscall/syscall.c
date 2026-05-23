@@ -19,6 +19,7 @@
 #include "drivers/zirv/input/ps2/mouse.h"
 #include "drivers/zirv/displayjet/displayjet.h"
 #include "drivers/pci/pci.h"
+#include "kernel/audio/audio.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -913,6 +914,25 @@ uint64_t syscall_dispatch(uint64_t num,
             if (keyboard_read_event(ev))
                 return 0;
             return (uint64_t)(int64_t)(-1);
+        }
+    case SYS_AUDIO_PLAY:
+        {
+            audio_driver_t *drv = audio_get_output();
+            if (!drv || !drv->write_pcm)
+                return (uint64_t)(int64_t)ESYS_ENOSYS;
+            const void *buf = (const void *)(uintptr_t)a1;
+            uint32_t frames = (uint32_t)a2;
+            if (!buf) return (uint64_t)(int64_t)ESYS_EFAULT;
+            uint32_t written = drv->write_pcm(buf, frames);
+            return (uint64_t)written;
+        }
+    case SYS_AUDIO_VOLUME:
+        {
+            audio_driver_t *drv = audio_get_output();
+            if (!drv || !drv->set_volume)
+                return (uint64_t)(int64_t)ESYS_ENOSYS;
+            drv->set_volume((uint8_t)a1);
+            return 0;
         }
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
