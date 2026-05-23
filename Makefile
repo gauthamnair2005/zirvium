@@ -231,6 +231,7 @@ run: $(KERNEL_ISO)
 	    -boot d                     \
 	    -vga std                    \
 	    -display sdl                \
+	    -audiodev pa,id=audio0 -device AC97 \
 	    -serial stdio               \
 	    -m 512M                     \
 	    -no-reboot
