@@ -425,7 +425,10 @@ static uint64_t sys_execve(process_t *proc,
     if (!elf_load_into_as(new_as, binary, &new_entry)) {
         if (!g_gui_ready)
             kprintf("[dbg] sys_execve: elf_load_into_as FAILED\n");
+        uint64_t save_cr3;
+        __asm__ volatile("mov %%cr3, %0" : "=r"(save_cr3));
         vmm_destroy_address_space(new_as);
+        __asm__ volatile("mov %0, %%cr3" : : "r"(save_cr3) : "memory");
         return (uint64_t)(int64_t)ESYS_EINVAL;
     }
     if (!g_gui_ready)
@@ -435,7 +438,10 @@ static uint64_t sys_execve(process_t *proc,
     if (!g_gui_ready)
         kprintf("[dbg] sys_execve: new_rsp=0x%lx\n", new_rsp);
     if (!new_rsp) {
+        uint64_t save_cr3;
+        __asm__ volatile("mov %%cr3, %0" : "=r"(save_cr3));
         vmm_destroy_address_space(new_as);
+        __asm__ volatile("mov %0, %%cr3" : : "r"(save_cr3) : "memory");
         return (uint64_t)(int64_t)ESYS_ENOMEM;
     }
 
@@ -458,6 +464,32 @@ static uint64_t sys_execve(process_t *proc,
 
     exec_enter_usermode(proc, 0);
     __builtin_unreachable();
+}
+
+/* ── dup2 ────────────────────────────────────────────────────────────────── */
+static uint64_t sys_dup2(process_t *proc, int oldfd, int newfd)
+{
+    open_file_t *old = proc_get_fd(proc, oldfd);
+    if (!old) return (uint64_t)(int64_t)ESYS_EBADF;
+
+    if (oldfd == newfd) return (uint64_t)newfd;
+
+    /* Close newfd if it is already open */
+    proc_close_fd(proc, newfd);
+
+    /* Allocate a new open_file_t pointing to the same underlying resource */
+    open_file_t *dup = alloc_file(old->type);
+    if (!dup) return (uint64_t)(int64_t)ESYS_ENOMEM;
+
+    if (old->type == FILE_TYPE_VFS)
+        dup->vnode = old->vnode;
+    else
+        dup->pipe = old->pipe;
+    dup->offset = old->offset;
+    dup->flags  = old->flags;
+
+    proc->fds[newfd] = dup;
+    return (uint64_t)newfd;
 }
 
 /* ── wait4 ───────────────────────────────────────────────────────────────── */
@@ -676,6 +708,8 @@ uint64_t syscall_dispatch(uint64_t num,
         return sys_open(proc, (const char *)(uintptr_t)a1, (int)a2);
     case SYS_CLOSE:
         return sys_close(proc, (int)a1);
+    case SYS_DUP2:
+        return sys_dup2(proc, (int)a1, (int)a2);
     case SYS_MMAP:
         return sys_mmap(proc, a1, (size_t)a2, (int)a3, (int)a4);
     case SYS_MUNMAP:
@@ -696,13 +730,12 @@ uint64_t syscall_dispatch(uint64_t num,
                           (char *const *)(uintptr_t)a2,
                           (char *const *)(uintptr_t)a3);
     case SYS_EXIT:
-        /* Disconnect from DisplayJet if this was the compositor */
-        displayjet_disconnect((int)proc->pid);
-
+        kprintf("[dbg] SYS_EXIT: pid=%d a1=%d saved_as=%p\n",
+                (int)proc->pid, (int)a1, (void*)proc->saved_as);
         if (proc->saved_as) {
             /* Child binary finished — restore saved (caller) state */
-            if (!g_gui_ready)
-                kprintf("[dbg] sys_exit: child done, restoring saved caller state\n");
+            kprintf("[dbg] sys_exit: restoring saved caller state (saved_as=%p rip=0x%lx)\n",
+                    (void*)proc->saved_as, proc->saved_rip);
             vmm_destroy_address_space(proc->as);
             proc->as       = proc->saved_as;
             proc->user_rip = proc->saved_rip;
@@ -714,6 +747,8 @@ uint64_t syscall_dispatch(uint64_t num,
             exec_enter_usermode(proc, 0);
             __builtin_unreachable();
         }
+        /* Disconnect from DisplayJet only on real exit (not when resuming parent) */
+        displayjet_disconnect((int)proc->pid);
         proc_exit(proc, (int)a1);
         kprintf("[ PROC %d ] Exited with code %d — halted\n",
                 (int)proc->pid, (int)a1);
@@ -870,6 +905,14 @@ uint64_t syscall_dispatch(uint64_t num,
             mouse_event_t *ev = (mouse_event_t *)(uintptr_t)a1;
             if (!ev) return (uint64_t)(int64_t)ESYS_EFAULT;
             return (uint64_t)(int64_t)mouse_read_event(ev);
+        }
+    case SYS_READ_KEYS:
+        {
+            key_event_t *ev = (key_event_t *)(uintptr_t)a1;
+            if (!ev) return (uint64_t)(int64_t)ESYS_EFAULT;
+            if (keyboard_read_event(ev))
+                return 0;
+            return (uint64_t)(int64_t)(-1);
         }
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;

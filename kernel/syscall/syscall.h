@@ -22,6 +22,7 @@
 #define SYS_WRITE    1    /* write(fd, buf, count)                   */
 #define SYS_OPEN     2    /* open(path, flags)                       */
 #define SYS_CLOSE    3    /* close(fd)                               */
+#define SYS_DUP2    33    /* dup2(oldfd, newfd)                      */
 #define SYS_MMAP     9    /* mmap(addr, len, prot, flags, fd, off)   */
 #define SYS_MUNMAP   11   /* munmap(addr, len)                       */
 #define SYS_BRK      12   /* brk(new_brk)  → returns actual brk     */
@@ -53,6 +54,7 @@
 #define SYS_MOUSE_READ    122   /* mouse_read_event(ev) — read next mouse event */
 #define SYS_DJ_SET_CURSOR 123   /* displayjet_set_cursor(x, y) */
 #define SYS_MSLEEP       124   /* msleep(milliseconds) */
+#define SYS_READ_KEYS    125   /* read_keys(event) — non-blocking keyboard event */
 
 /* ── Open flags (mirrored from user-space) ───────────────────────────────── */
 #define O_CREAT  0x40
