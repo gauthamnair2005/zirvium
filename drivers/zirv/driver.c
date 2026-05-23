@@ -18,7 +18,6 @@ static void probe_pci_devices(void) {
     size_t dev_count = pci_device_count();
     for (size_t i = 0; i < dev_count; i++) {
         pci_dev_t *dev = pci_get_device(i);
-        bool matched = false;
 
         for (size_t j = 0; j < g_driver_count; j++) {
             const zirv_driver_t *drv = g_drivers[j];
@@ -31,7 +30,6 @@ static void probe_pci_devices(void) {
                 if (res == 0) {
                     klog(LOG_OK, drv->component_tag, "Driver loaded for %04x:%04x", 
                          dev->vendor_id, dev->device_id);
-                    matched = true;
                     break;
                 }
             }

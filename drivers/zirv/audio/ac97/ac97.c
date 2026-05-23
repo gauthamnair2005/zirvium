@@ -70,12 +70,10 @@ static struct {
     void      *pcm_bufs[AC97_NUM_DESCS];
     uint32_t   pcm_bufs_phys[AC97_NUM_DESCS];
     int        cur_write;      /* next buffer to fill */
-    int        cur_play;       /* buffer being played (from CIV) */
+    uint8_t    cur_play;       /* current buffer being played */
+    uint8_t    completed;      /* mask of completed buffers */
     bool       running;
     audio_driver_t driver;
-
-    /* bitmask: bit i = 1 means hardware has completed buffer i since we last wrote it */
-    uint8_t    completed;
 } g_ac97;
 
 /* ── I/O helpers ──────────────────────────────────────────────────────────── */
