@@ -29,6 +29,7 @@
 #include "drivers/zirv/displayjet/displayjet.h"
 #include "arch/x64/gdt.h"
 #include "arch/x64/idt.h"
+#include "arch/x64/cpu.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <stdio.h>
@@ -237,6 +238,12 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     /* ── Step 6d: Audio Subsystem ────────────────────────────────────── */
     audio_init();
 
+    /* ── Step 6e: Message Queue / HPC Subsystem ─────────────────────── */
+    extern void mq_init(void);
+    mq_init();
+    extern int hpc_init(void);
+    hpc_init();
+
     /* ── Step 7: Launch MOSIX Init ───────────────────────────────────── */
     kputs("\n");
     console_set_color(CONSOLE_COLOR_GREEN);
@@ -255,5 +262,10 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     extern void proc_init_stdio(process_t *proc);
     proc_init_stdio(init);
 
+    extern void sched_init(void);
+    sched_init();
+
+    /* Interrupts must remain disabled here.  proc_enter_usermode will enable
+     * them via the IF bit in the RFLAGS that IRETQ loads. */
     proc_enter_usermode(init);
 }

@@ -58,6 +58,26 @@
 #define SYS_AUDIO_PLAY   126   /* audio_play(buf, frames) — submit PCM frames    */
 #define SYS_AUDIO_VOLUME 127   /* audio_volume(vol) — set output volume 0-255    */
 
+/* ── Message Queue syscalls ─────────────────────────────────────────────── */
+#define SYS_MQ_CREATE   140  /* mq_create() → mq_id                              */
+#define SYS_MQ_SEND     141  /* mq_send(mq_id, data, len, type) → 0 or -1       */
+#define SYS_MQ_RECV     142  /* mq_recv(mq_id, buf, len, type_p, block) → len    */
+#define SYS_MQ_DESTROY  143  /* mq_destroy(mq_id) → 0                           */
+
+/* ── HPC / MPI syscalls ─────────────────────────────────────────────────── */
+#define SYS_HPC_RANK    144  /* hpc_rank() → rank                               */
+#define SYS_HPC_SIZE    145  /* hpc_size() → num processes                      */
+#define SYS_HPC_BARRIER 146  /* hpc_barrier() → 0                               */
+#define SYS_HPC_SEND    147  /* hpc_send(rank, data, len, tag) → 0              */
+#define SYS_HPC_RECV    148  /* hpc_recv(rank, buf, len, tag) → actual_len      */
+#define SYS_HPC_BCAST   149  /* hpc_bcast(data, len, root) → 0                  */
+#define SYS_HPC_REDUCE  150  /* hpc_reduce(src, dst, len, op, root) → 0         */
+
+/* ── ZirvGPU syscalls ────────────────────────────────────────────────────── */
+#define SYS_GPU_MEM_ALLOC 130  /* gem_alloc(size) -> handle                     */
+#define SYS_GPU_MEM_FREE  131  /* gem_free(handle)                              */
+#define SYS_GPU_SUBMIT    132  /* gpu_submit(cmd_buf, size) -> status           */
+
 /* ── Open flags (mirrored from user-space) ───────────────────────────────── */
 #define O_CREAT  0x40
 

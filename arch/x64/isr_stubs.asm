@@ -35,6 +35,11 @@ isr_common_stub:
     mov  rdi, rsp            ; cpu_state_t * as first argument
     call isr_dispatch
 
+    extern sched_handler
+    mov  rdi, rsp
+    call sched_handler
+    mov  rsp, rax            ; switch stack if scheduler returned a new one
+
     pop  r15
     pop  r14
     pop  r13

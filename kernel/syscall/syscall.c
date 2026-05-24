@@ -20,6 +20,8 @@
 #include "drivers/zirv/displayjet/displayjet.h"
 #include "drivers/pci/pci.h"
 #include "kernel/audio/audio.h"
+#include "kernel/ipc/mqueue.h"
+#include "kernel/hpc/hpc.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -934,6 +936,52 @@ uint64_t syscall_dispatch(uint64_t num,
             drv->set_volume((uint8_t)a1);
             return 0;
         }
+    /* ── Message Queue syscalls ───────────────────────────────────── */
+    case SYS_MQ_CREATE:
+        {
+            uint32_t id;
+            if (mq_create(&id)) return (uint64_t)id;
+            return (uint64_t)(int64_t)ESYS_ENOMEM;
+        }
+    case SYS_MQ_SEND:
+        return (uint64_t)(int64_t)mq_send((uint32_t)a1, proc->pid, (uint32_t)a4,
+                               (const void *)(uintptr_t)a2, (uint32_t)a3);
+    case SYS_MQ_RECV:
+        {
+            uint32_t sender_pid, type, data_len = (uint32_t)a3;
+            int ret = mq_recv((uint32_t)a1, &sender_pid, &type,
+                              (void *)(uintptr_t)a2, &data_len, (int)a4);
+            if (ret == 0) {
+                if (a5) *(uint32_t *)(uintptr_t)a5 = sender_pid;
+                if (a6) *(uint32_t *)(uintptr_t)a6 = type;
+                return (uint64_t)data_len;
+            }
+            return (uint64_t)(int64_t)ret;
+        }
+    case SYS_MQ_DESTROY:
+        mq_destroy((uint32_t)a1);
+        return 0;
+
+    /* ── HPC / MPI syscalls ──────────────────────────────────────── */
+    case SYS_HPC_RANK:
+        return (uint64_t)(uint64_t)hpc_rank();
+    case SYS_HPC_SIZE:
+        return (uint64_t)(uint64_t)hpc_size();
+    case SYS_HPC_BARRIER:
+        return (uint64_t)(int64_t)hpc_barrier();
+    case SYS_HPC_SEND:
+        return (uint64_t)(int64_t)hpc_send((int)a1, (const void *)(uintptr_t)a2,
+                                (size_t)a3, (int)a4);
+    case SYS_HPC_RECV:
+        return (uint64_t)(int64_t)hpc_recv((int)a1, (void *)(uintptr_t)a2,
+                                (size_t)a3, (int)a4);
+    case SYS_HPC_BCAST:
+        return (uint64_t)(int64_t)hpc_bcast((int)a3, (void *)(uintptr_t)a1,
+                                 (size_t)a2);
+    case SYS_HPC_REDUCE:
+        return (uint64_t)(int64_t)hpc_reduce((int)a5,
+                                  (const void *)(uintptr_t)a1,
+                                  (void *)(uintptr_t)a2, (size_t)a3, (int)a4);
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }

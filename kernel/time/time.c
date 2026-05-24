@@ -1,5 +1,6 @@
 #include "time.h"
 #include "arch/x64/cpu.h"
+#include "kernel/irq/irq.h"
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
@@ -218,6 +219,27 @@ static void normalize_datetime(struct datetime *dt)
     }
 }
 
+#include "kernel/proc/scheduler.h"
+
+#define PIT_CHAN0   0x40
+#define PIT_CMD     0x43
+#define PIT_HZ      1193182
+
+static void pit_init(uint32_t frequency)
+{
+    uint32_t divisor = PIT_HZ / frequency;
+    outb(PIT_CMD, 0x36);
+    outb(PIT_CHAN0, (uint8_t)(divisor & 0xFF));
+    outb(PIT_CHAN0, (uint8_t)((divisor >> 8) & 0xFF));
+}
+
+static int timer_irq_handler(int irq, void *data)
+{
+    (void)irq; (void)data;
+    /* The scheduler handles IRQ 0 via sched_handler in isr_stubs.asm */
+    return IRQ_HANDLED;
+}
+
 void time_init(void)
 {
     if (time_initialised) return;
@@ -235,6 +257,10 @@ void time_init(void)
         boot_utc.minute = DEFAULT_MINUTE;
         boot_utc.second = DEFAULT_SECOND;
     }
+
+    /* Set up 100Hz timer for preemptive multitasking */
+    pit_init(100);
+    request_irq(0, timer_irq_handler, 0, "timer", NULL);
 }
 
 int time_get(struct datetime *dt)

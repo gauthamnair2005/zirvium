@@ -70,9 +70,12 @@ C_SRCS := \
     kernel/loader/embedded.c                        \
     kernel/irq/irq.c                                \
     kernel/proc/process.c                           \
+    kernel/proc/scheduler.c                         \
     kernel/syscall/syscall.c                        \
     kernel/audio/audio.c                            \
     kernel/ipc/pipe.c                               \
+    kernel/ipc/mqueue.c                             \
+    kernel/hpc/hpc.c                                \
     arch/x64/gdt.c                                  \
     arch/x64/idt.c                                  \
     fs/vfs.c                                        \

@@ -44,6 +44,12 @@ typedef struct dev_ops {
      * shutdown - quiesce the hardware before power-off / reboot.
      */
     void (*shutdown)(device_desc_t *dev);
+
+    /**
+     * submit_command - submit a graphics command buffer to the hardware.
+     * Returns 0 on success, negative errno on failure.
+     */
+    int (*submit_command)(device_desc_t *dev, const void *buf, size_t size);
 } dev_ops_t;
 
 /* ── Device registration entry ────────────────────────────────────────────── */

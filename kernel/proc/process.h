@@ -63,6 +63,10 @@ typedef enum {
 /* ── Kernel stack size per process ──────────────────────────────────────────── */
 #define PROC_KSTACK_PAGES  4   /* 16 KiB kernel stack */
 
+/* ── Globals exposed by process.c ──────────────────────────────────────────── */
+extern struct process *proc_list;
+extern struct process *proc_cur;
+
 /* ── Process descriptor ─────────────────────────────────────────────────────── */
 typedef struct process {
     uint32_t         pid;
@@ -73,6 +77,7 @@ typedef struct process {
     uint64_t         user_rip;     /* entry point / last saved user RIP */
     uint64_t         user_rsp;     /* last saved user RSP               */
     uint64_t         kstack_top;   /* top of kernel stack (used by TSS) */
+    uint64_t         kernel_rsp;   /* saved kernel RSP for preemptive switch */
 
     /* Heap / mmap state */
     uint64_t         brk;          /* current program break             */
@@ -97,6 +102,11 @@ typedef struct process {
 
     /* Current working directory */
     char             cwd[256];
+
+    /* HPC fields */
+    int              hpc_rank;
+    int              hpc_enabled;
+    int              hpc_barrier_count;
 
     /* Intrusive linked list of all processes (scheduling) */
     struct process  *next;

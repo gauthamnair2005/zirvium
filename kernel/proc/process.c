@@ -5,6 +5,7 @@
 #include "kernel/mm/vmm.h"
 #include "kernel/mm/pmm.h"
 #include "arch/x64/gdt.h"
+#include "arch/x64/idt.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -14,8 +15,8 @@ extern void *kmalloc(size_t size, unsigned int flags);
 extern void  kfree(void *ptr);
 
 /* ── Process table ──────────────────────────────────────────────────────── */
-static process_t *proc_list = NULL;   /* singly-linked list of all procs */
-static process_t *proc_cur  = NULL;   /* currently running process        */
+process_t *proc_list = NULL;   /* singly-linked list of all procs */
+process_t *proc_cur  = NULL;   /* currently running process        */
 static uint32_t   next_pid  = 1;
 
 /* ── proc_init ──────────────────────────────────────────────────────────── */
@@ -76,6 +77,17 @@ process_t *proc_create(uint64_t entry_virt)
     if (!kstack_phys) goto fail;
     proc->kstack_top = (uint64_t)(uintptr_t)PHYS_TO_VIRT(kstack_phys)
                        + (uint64_t)PROC_KSTACK_PAGES * PAGE_SIZE;
+
+    /* Prepare initial kernel stack for preemptive switching.
+     * We need to push a cpu_state_t-compatible frame so sched_handler can 'return' to it. */
+    cpu_state_t *state = (cpu_state_t *)(proc->kstack_top - sizeof(cpu_state_t));
+    memset(state, 0, sizeof(cpu_state_t));
+    state->rip    = proc->user_rip;
+    state->rsp    = proc->user_rsp;
+    state->cs     = GDT_USER_CODE | 3;
+    state->ss     = GDT_USER_DATA | 3;
+    state->rflags = 0x202; /* IF=1, bit 1 always 1 */
+    proc->kernel_rsp = (uint64_t)state;
 
     /* Link into process list */
     proc->next = proc_list;
