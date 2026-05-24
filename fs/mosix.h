@@ -140,6 +140,9 @@ typedef struct vnode {
 
     /* Device info (valid when type == VNODE_DEVICE) */
     device_desc_t *device;
+
+    /* Private data for filesystem implementations (tmpfs, etc.) */
+    void          *private_data;
 } vnode_t;
 
 /* ── VFS (mounted filesystem instance) ───────────────────────────────────── */

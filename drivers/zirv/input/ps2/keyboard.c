@@ -44,8 +44,8 @@ static const uint8_t sc1_to_keycode[128] = {
     /* 0x3C */ KEY_F1+1,  KEY_F1+2, KEY_F1+3, KEY_F1+4, /* f2-f5 */
     /* 0x40 */ KEY_F1+5,  KEY_F1+6, KEY_F1+7, KEY_F1+8, /* f6-f9 */
     /* 0x44 */ KEY_F1+9,  KEY_NUMLOCK, 0x47, 0x48,      /* f10 numlock scroll */
-    /* 0x48 */ KEY_UP,    0x4B,     0x4C,     KEY_RIGHT, /* up - kp5 right */
-    /* 0x4C */ 0x4D,      KEY_DOWN, 0x4E,     0x4F,     /* + down pgdn end */
+    /* 0x48 */ KEY_UP,    0x4B,     0x4C,     KEY_LEFT,  /* up - kp5 left */
+    /* 0x4C */ 0x4D,      KEY_RIGHT,0x4E,     0x4F,     /* right down pgdn end */
     /* 0x50 */ KEY_DOWN,  0x51,     0x52,     0x63,     /* del ins */
     /* 0x54 */ KEY_NONE,  KEY_NONE, KEY_NONE, KEY_F1+10, /* f11 */
     /* 0x58 */ KEY_F1+11, KEY_NONE, KEY_NONE, KEY_NONE,

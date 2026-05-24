@@ -79,6 +79,7 @@ C_SRCS := \
     arch/x64/gdt.c                                  \
     arch/x64/idt.c                                  \
     fs/vfs.c                                        \
+    fs/tmpfs.c                                      \
     drivers/pci/pci.c                               \
     drivers/vga/vga.c                               \
     drivers/vga/fb_console.c                        \
