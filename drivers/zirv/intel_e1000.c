@@ -143,14 +143,19 @@ static int e1000_send(const void *data, uint16_t len)
 /* ── Poll for one received frame (non-blocking, returns 0 if none) ──────── */
 int e1000_poll_one(uint8_t *buf, uint16_t buflen)
 {
-    uint32_t rd = (g_e1000.rx_cur + 1) % E1000_NUM_RX_DESC;
+    uint32_t rd = g_e1000.rx_cur;
     e1000_rx_desc_t *d = &g_e1000.rx_ring[rd];
-    if (!(d->status & 1)) return 0;
+    if (!(d->status & 1)) {
+        /* Read STATUS register to trigger QEMU device model processing
+           of pending RX events (SLiRP packet delivery). */
+        (void)e1000_read32(E1000_STATUS);
+        return 0;
+    }
     uint16_t plen = d->length;
     if (plen > buflen) plen = buflen;
     memcpy(buf, g_e1000.rx_bufs[rd], plen);
     d->status = 0;
-    g_e1000.rx_cur = rd;
+    g_e1000.rx_cur = (rd + 1) % E1000_NUM_RX_DESC;
     e1000_write32(E1000_RDT, g_e1000.rx_cur);
     return (int)plen;
 }
