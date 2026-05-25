@@ -172,9 +172,9 @@ _start:
     mov  eax, pml4_table
     mov  cr3, eax
 
-    ; ── Enable PAE (CR4.PAE) ─────────────────────────────────────────────────
+    ; ── Enable PAE + SSE (CR4.PAE | OSFXSR | OSXMMEXCPT) ─────────────────────
     mov  eax, cr4
-    or   eax, 1 << 5
+    or   eax, (1 << 5) | (1 << 9) | (1 << 10)
     mov  cr4, eax
 
     ; ── Set EFER.LME + EFER.NXE (long mode + no-execute enable) ────────────────
@@ -183,9 +183,11 @@ _start:
     or   eax, (1 << 8) | (1 << 11)   ; LME = bit 8, NXE = bit 11
     wrmsr
 
-    ; ── Enable paging + protected mode (CR0.PG | CR0.PE) ────────────────────
+    ; ── Enable paging + protected mode + FPU/SSE (CR0.PG | PE | MP | NE)
+    ;    Also ensure EM (bit 2) is clear so native FPU/SSE works.
     mov  eax, cr0
-    or   eax, (1 << 31) | (1 << 0)
+    and  eax, ~(1 << 2)                       ; clear EM (no emulation)
+    or   eax, (1 << 31) | (1 << 0) | (1 << 1) | (1 << 5) ; PG | PE | MP | NE
     mov  cr0, eax
 
     ; ── Load 64-bit GDT and far-jump into long mode ──────────────────────────

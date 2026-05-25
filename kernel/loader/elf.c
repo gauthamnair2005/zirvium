@@ -55,15 +55,19 @@ bool elf_load_into_as(address_space_t *as, const void *buffer, uint64_t *entry)
         kprintf("[dbg] elf_load: seg%d p_type=%d vaddr=0x%lx memsz=0x%lx\n",
                 i, ph[i].p_type, ph[i].p_vaddr, ph[i].p_memsz);
         if (ph[i].p_type == PT_LOAD) {
-            uint64_t vaddr = ph[i].p_vaddr;
-            uint64_t size  = ph[i].p_memsz;
-            uint64_t offset = ph[i].p_offset;
-            uint64_t filesz = ph[i].p_filesz;
+            uint64_t vaddr    = ph[i].p_vaddr;
+            uint64_t size     = ph[i].p_memsz;
+            uint64_t offset   = ph[i].p_offset;
+            uint64_t filesz   = ph[i].p_filesz;
 
-            uint64_t pages = (size + PAGE_SIZE - 1) / PAGE_SIZE;
-            kprintf("[dbg] elf_load: seg%d pages=%lu\n", i, pages);
+            /* ── Account for non-page-aligned vaddr ─────────────────────── */
+            uint64_t page_off = vaddr & (PAGE_SIZE - 1);   /* offset within first page */
+            uint64_t base_va  = vaddr & ~(PAGE_SIZE - 1);  /* page-aligned base */
+
+            uint64_t pages = (page_off + size + PAGE_SIZE - 1) / PAGE_SIZE;
+            kprintf("[dbg] elf_load: seg%d pages=%lu (page_off=0x%lx)\n", i, pages, page_off);
             for (uint64_t p = 0; p < pages; p++) {
-                uintptr_t page_va = (vaddr & ~(PAGE_SIZE - 1)) + (p * PAGE_SIZE);
+                uintptr_t page_va = base_va + (p * PAGE_SIZE);
                 uint64_t phys = pmm_alloc_page();
                 if (!phys) { kprintf("[dbg] elf_load: OOM p=%lu\n", p); return false; }
 
@@ -73,10 +77,15 @@ bool elf_load_into_as(address_space_t *as, const void *buffer, uint64_t *entry)
                 void *page_ka = PHYS_TO_VIRT(phys);
                 memset(page_ka, 0, PAGE_SIZE);
 
-                if (p * PAGE_SIZE < filesz) {
-                    uint64_t copy_size = filesz - (p * PAGE_SIZE);
-                    if (copy_size > PAGE_SIZE) copy_size = PAGE_SIZE;
-                    memcpy(page_ka, (void *)((uintptr_t)buffer + offset + (p * PAGE_SIZE)), copy_size);
+                /* source offset in file for this page's initialized data */
+                int64_t rel_page_start = (int64_t)(p * PAGE_SIZE) - (int64_t)page_off;
+                if (rel_page_start < (int64_t)filesz) {
+                    uint64_t dest_off   = (p == 0) ? page_off : 0;
+                    uint64_t remain     = filesz - (uint64_t)(rel_page_start < 0 ? 0 : rel_page_start);
+                    uint64_t copy_size  = (PAGE_SIZE - dest_off) < remain ? (PAGE_SIZE - dest_off) : remain;
+                    uint64_t src_off    = offset + (uint64_t)(rel_page_start < 0 ? 0 : rel_page_start);
+
+                    memcpy(page_ka + dest_off, (void *)((uintptr_t)buffer + src_off), copy_size);
                 }
             }
         }
