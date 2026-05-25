@@ -1,6 +1,13 @@
 #include "stack.h"
 #include <stdint.h>
 #include <string.h>
+#include "kernel/time/time.h"
+#include "kernel/proc/scheduler.h"
+
+/* ── Mutable network config (defaults = QEMU SLiRP) ──────────────────────── */
+uint32_t g_net_if_ip      = NET_GUEST_IP_DEFAULT;
+uint32_t g_net_gateway    = NET_GATEWAY_IP_DEFAULT;
+uint32_t g_net_dns_server = NET_DNS_SERVER_IP_DEFAULT;
 
 /* ── Packet header structures ────────────────────────────────────────────── */
 
@@ -112,7 +119,7 @@ static int handle_arp(const eth_hdr_t *eth, uint16_t len)
                          (uint32_t)arp->target_ip[2] << 8  |
                          (uint32_t)arp->target_ip[3];
 
-    if (target_ip != NET_GUEST_IP) return 0;
+    if (target_ip != g_net_if_ip) return 0;
 
     if (arp->op == ARP_OP_REQUEST) {
         if (!g_send_fn) return 1;
@@ -182,10 +189,10 @@ static int arp_resolve_kernel(uint32_t target_ip, uint8_t *out_mac)
     arp->proto_len  = 4;
     arp->op         = ARP_OP_REQUEST;
     memcpy(arp->sender_mac, g_our_mac, 6);
-    arp->sender_ip[0] = (NET_GUEST_IP >> 24) & 0xFF;
-    arp->sender_ip[1] = (NET_GUEST_IP >> 16) & 0xFF;
-    arp->sender_ip[2] = (NET_GUEST_IP >> 8) & 0xFF;
-    arp->sender_ip[3] = NET_GUEST_IP & 0xFF;
+    arp->sender_ip[0] = (g_net_if_ip >> 24) & 0xFF;
+    arp->sender_ip[1] = (g_net_if_ip >> 16) & 0xFF;
+    arp->sender_ip[2] = (g_net_if_ip >> 8) & 0xFF;
+    arp->sender_ip[3] = g_net_if_ip & 0xFF;
     memset(arp->target_mac, 0, 6);
     arp->target_ip[0] = (target_ip >> 24) & 0xFF;
     arp->target_ip[1] = (target_ip >> 16) & 0xFF;
@@ -194,10 +201,12 @@ static int arp_resolve_kernel(uint32_t target_ip, uint8_t *out_mac)
 
     g_send_fn(buf, sizeof(buf));
 
-    for (int i = 0; i < 5000; i++) {
+    uint64_t deadline = time_uptime_seconds() + 2;
+    for (;;) {
+        if (time_uptime_seconds() >= deadline) break;
         uint8_t rbuf[2048];
         int n = g_poll_fn(rbuf, sizeof(rbuf));
-        if (n <= 0) { __asm__("pause"); continue; }
+        if (n <= 0) { sched_yield(); continue; }
         if (net_stack_rx(rbuf, (uint16_t)n)) continue;
 
         if (n < (int)(sizeof(eth_hdr_t) + sizeof(arp_pkt_t))) continue;
@@ -330,7 +339,7 @@ uint32_t net_stack_dns_resolve(const char *domain)
 
     /* 1. ARP resolve the DNS server */
     uint8_t dns_mac[6];
-    if (arp_resolve_kernel(NET_DNS_SERVER_IP, dns_mac) < 0)
+    if (arp_resolve_kernel(g_net_dns_server, dns_mac) < 0)
         return 0;
 
     /* 2. Build DNS query */
@@ -358,8 +367,8 @@ uint32_t net_stack_dns_resolve(const char *domain)
     ip->id         = htons(0x0001);
     ip->ttl        = 64;
     ip->protocol   = IP_PROTO_UDP;
-    ip->src_ip     = htonl(NET_GUEST_IP);
-    ip->dst_ip     = htonl(NET_DNS_SERVER_IP);
+    ip->src_ip     = htonl(g_net_if_ip);
+    ip->dst_ip     = htonl(g_net_dns_server);
     ip->checksum   = ip_checksum(ip, sizeof(ip_hdr_t));
     memcpy(ip_buf + sizeof(ip_hdr_t), udp_buf, udp_len);
 
@@ -375,14 +384,13 @@ uint32_t net_stack_dns_resolve(const char *domain)
     /* 6. Send */
     g_send_fn(frame, frame_len);
 
-    /* 7. Poll for DNS response (try up to ~64000 polls) */
-    for (int i = 0; i < 64000; i++) {
+    /* 7. Poll for DNS response (up to 3-second timeout) */
+    uint64_t deadline = time_uptime_seconds() + 3;
+    for (;;) {
+        if (time_uptime_seconds() >= deadline) break;
         uint8_t rbuf[2048];
         int n = g_poll_fn(rbuf, sizeof(rbuf));
-        if (n <= 0) {
-            if (i % 64 == 0) __asm__("pause");
-            continue;
-        }
+        if (n <= 0) { sched_yield(); continue; }
         if (net_stack_rx(rbuf, (uint16_t)n)) continue;
         if (n < (int)(sizeof(eth_hdr_t) + sizeof(ip_hdr_t) + sizeof(udp_hdr_t)))
             continue;
@@ -394,7 +402,7 @@ uint32_t net_stack_dns_resolve(const char *domain)
         if (ri->protocol != IP_PROTO_UDP) continue;
 
         /* Verify it's from the DNS server (network byte order) */
-        if (ri->src_ip != htonl(NET_DNS_SERVER_IP)) continue;
+        if (ri->src_ip != htonl(g_net_dns_server)) continue;
 
         const udp_hdr_t *rudp = (const udp_hdr_t *)(ri + 1);
         if (htons(rudp->dst_port) != 0xC000 + 0x1234) continue;
@@ -409,3 +417,283 @@ uint32_t net_stack_dns_resolve(const char *domain)
 
     return 0;
 }
+
+/* ── DHCP client (boot-time only) ─────────────────────────────────────────── */
+
+#define DHCP_SERVER_PORT 67
+#define DHCP_CLIENT_PORT 68
+#define DHCP_MAGIC       0x63825363
+
+/* DHCP message types (option 53) */
+#define DHCP_DISCOVER 1
+#define DHCP_OFFER    2
+#define DHCP_REQUEST  3
+#define DHCP_ACK      5
+
+/* DHCP option tags */
+#define DHCP_OPT_PAD       0
+#define DHCP_OPT_MSG_TYPE  53
+#define DHCP_OPT_REQ_IP    50
+#define DHCP_OPT_SRV_ID    54
+#define DHCP_OPT_PARAM_REQ 55
+#define DHCP_OPT_SUBNET    1
+#define DHCP_OPT_ROUTER    3
+#define DHCP_OPT_DNS       6
+#define DHCP_OPT_END       255
+
+/* DHCP message (BOOTP format) */
+typedef struct __attribute__((packed)) dhcp_msg {
+    uint8_t  op;
+    uint8_t  htype;
+    uint8_t  hlen;
+    uint8_t  hops;
+    uint32_t xid;
+    uint16_t secs;
+    uint16_t flags;
+    uint32_t ciaddr;
+    uint32_t yiaddr;
+    uint32_t siaddr;
+    uint32_t giaddr;
+    uint8_t  chaddr[16];
+    uint8_t  sname[64];
+    uint8_t  file[128];
+    uint32_t magic;
+    uint8_t  options[312];
+} dhcp_msg_t;
+
+static uint8_t *dhcp_opt_byte(uint8_t *p, uint8_t tag, uint8_t val)
+{
+    *p++ = tag; *p++ = 1; *p++ = val;
+    return p;
+}
+
+static uint8_t *dhcp_opt_data(uint8_t *p, uint8_t tag, const void *data, uint8_t len)
+{
+    *p++ = tag; *p++ = len; memcpy(p, data, len); return p + len;
+}
+
+static uint8_t *dhcp_opt_end(uint8_t *p)
+{
+    *p++ = DHCP_OPT_END; return p;
+}
+
+static uint16_t build_dhcp_discover(uint8_t *frame, uint32_t xid)
+{
+    uint8_t bcast_mac[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+    eth_hdr_t *eth = (eth_hdr_t *)frame;
+    memcpy(eth->dst, bcast_mac, 6);
+    memcpy(eth->src, g_our_mac, 6);
+    eth->type = ETH_TYPE_IP;
+    ip_hdr_t *ip = (ip_hdr_t *)(eth + 1);
+    memset(ip, 0, sizeof(ip_hdr_t));
+    ip->ver_ihl   = 0x45;
+    ip->total_len = 0;
+    ip->id        = htons(0x0002);
+    ip->ttl       = 64;
+    ip->protocol  = IP_PROTO_UDP;
+    ip->src_ip    = 0;
+    ip->dst_ip    = htonl(0xFFFFFFFF);
+    udp_hdr_t *udp = (udp_hdr_t *)(ip + 1);
+    udp->src_port = htons(DHCP_CLIENT_PORT);
+    udp->dst_port = htons(DHCP_SERVER_PORT);
+    udp->checksum = 0;
+    dhcp_msg_t *dhcp = (dhcp_msg_t *)(udp + 1);
+    memset(dhcp, 0, sizeof(dhcp_msg_t));
+    dhcp->op      = 1;
+    dhcp->htype   = 1;
+    dhcp->hlen    = 6;
+    dhcp->xid     = xid;
+    dhcp->flags   = htons(0x8000);
+    memcpy(dhcp->chaddr, g_our_mac, 6);
+    dhcp->magic   = htonl(DHCP_MAGIC);
+    uint8_t *opt = dhcp->options;
+    opt = dhcp_opt_byte(opt, DHCP_OPT_MSG_TYPE, DHCP_DISCOVER);
+    uint8_t req_params[] = {DHCP_OPT_SUBNET, DHCP_OPT_ROUTER, DHCP_OPT_DNS};
+    opt = dhcp_opt_data(opt, DHCP_OPT_PARAM_REQ, req_params, 3);
+    opt = dhcp_opt_end(opt);
+    uint16_t dhcp_len = (uint16_t)(uintptr_t)(opt - (uint8_t *)dhcp);
+    uint16_t udp_len  = sizeof(udp_hdr_t) + dhcp_len;
+    uint16_t ip_total = sizeof(ip_hdr_t) + udp_len;
+    udp->len = htons(udp_len);
+    ip->total_len = htons(ip_total);
+    ip->checksum = ip_checksum(ip, sizeof(ip_hdr_t));
+    return sizeof(eth_hdr_t) + ip_total;
+}
+
+static uint16_t build_dhcp_request(uint8_t *frame, uint32_t xid,
+                                    uint32_t offered_ip, uint32_t server_ip)
+{
+    uint8_t bcast_mac[6] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+    eth_hdr_t *eth = (eth_hdr_t *)frame;
+    memcpy(eth->dst, bcast_mac, 6);
+    memcpy(eth->src, g_our_mac, 6);
+    eth->type = ETH_TYPE_IP;
+    ip_hdr_t *ip = (ip_hdr_t *)(eth + 1);
+    memset(ip, 0, sizeof(ip_hdr_t));
+    ip->ver_ihl   = 0x45;
+    ip->total_len = 0;
+    ip->id        = htons(0x0003);
+    ip->ttl       = 64;
+    ip->protocol  = IP_PROTO_UDP;
+    ip->src_ip    = 0;
+    ip->dst_ip    = htonl(0xFFFFFFFF);
+    udp_hdr_t *udp = (udp_hdr_t *)(ip + 1);
+    udp->src_port = htons(DHCP_CLIENT_PORT);
+    udp->dst_port = htons(DHCP_SERVER_PORT);
+    udp->checksum = 0;
+    dhcp_msg_t *dhcp = (dhcp_msg_t *)(udp + 1);
+    memset(dhcp, 0, sizeof(dhcp_msg_t));
+    dhcp->op      = 1;
+    dhcp->htype   = 1;
+    dhcp->hlen    = 6;
+    dhcp->xid     = xid;
+    dhcp->flags   = htons(0x8000);
+    memcpy(dhcp->chaddr, g_our_mac, 6);
+    dhcp->magic   = htonl(DHCP_MAGIC);
+    uint8_t *opt = dhcp->options;
+    opt = dhcp_opt_byte(opt, DHCP_OPT_MSG_TYPE, DHCP_REQUEST);
+    uint32_t nip = htonl(offered_ip);
+    opt = dhcp_opt_data(opt, DHCP_OPT_REQ_IP, &nip, 4);
+    uint32_t nsip = htonl(server_ip);
+    opt = dhcp_opt_data(opt, DHCP_OPT_SRV_ID, &nsip, 4);
+    opt = dhcp_opt_end(opt);
+    uint16_t dhcp_len = (uint16_t)(uintptr_t)(opt - (uint8_t *)dhcp);
+    uint16_t udp_len  = sizeof(udp_hdr_t) + dhcp_len;
+    uint16_t ip_total = sizeof(ip_hdr_t) + udp_len;
+    udp->len = htons(udp_len);
+    ip->total_len = htons(ip_total);
+    ip->checksum = ip_checksum(ip, sizeof(ip_hdr_t));
+    return sizeof(eth_hdr_t) + ip_total;
+}
+
+static bool parse_dhcp_reply(const uint8_t *frame, uint16_t len,
+                              uint32_t *yiaddr, uint32_t *router, uint32_t *dns)
+{
+    if (len < sizeof(eth_hdr_t) + sizeof(ip_hdr_t) + sizeof(udp_hdr_t) + 28)
+        return false;
+    const eth_hdr_t *eth = (const eth_hdr_t *)frame;
+    if (eth->type != ETH_TYPE_IP) return false;
+    const ip_hdr_t *ip = (const ip_hdr_t *)(eth + 1);
+    if (ip->protocol != IP_PROTO_UDP) return false;
+    const udp_hdr_t *udp = (const udp_hdr_t *)(ip + 1);
+    if (htons(udp->src_port) != DHCP_SERVER_PORT) return false;
+    if (htons(udp->dst_port) != DHCP_CLIENT_PORT) return false;
+    const dhcp_msg_t *dhcp = (const dhcp_msg_t *)(udp + 1);
+    uint16_t dhcp_len = htons(udp->len) - sizeof(udp_hdr_t);
+    if (dhcp_len < 28) return false;
+    if (dhcp->op != 2) return false;
+    if (htonl(dhcp->magic) != DHCP_MAGIC) return false;
+    *yiaddr = htonl(dhcp->yiaddr);
+    if (*yiaddr == 0) return false;
+    *router = 0;
+    *dns = 0;
+    const uint8_t *opt = dhcp->options;
+    uint16_t opt_len = dhcp_len > (uint16_t)(sizeof(dhcp_msg_t) - sizeof(dhcp->options))
+        ? dhcp_len - (uint16_t)(sizeof(dhcp_msg_t) - sizeof(dhcp->options)) : 0;
+    while (opt_len > 0) {
+        uint8_t tag = *opt++;
+        opt_len--;
+        if (tag == DHCP_OPT_END) break;
+        if (tag == DHCP_OPT_PAD) continue;
+        if (opt_len < 1) break;
+        uint8_t olen = *opt++;
+        opt_len--;
+        if (opt_len < olen) break;
+        if (tag == DHCP_OPT_ROUTER && olen >= 4) {
+            *router = ((uint32_t)opt[0] << 24) | ((uint32_t)opt[1] << 16) |
+                      ((uint32_t)opt[2] << 8) | (uint32_t)opt[3];
+        }
+        if (tag == DHCP_OPT_DNS && olen >= 4) {
+            *dns = ((uint32_t)opt[0] << 24) | ((uint32_t)opt[1] << 16) |
+                   ((uint32_t)opt[2] << 8) | (uint32_t)opt[3];
+        }
+        opt += olen;
+        opt_len -= olen;
+    }
+    return true;
+}
+
+bool net_stack_dhcp_discover(void)
+{
+    if (!g_send_fn || !g_poll_fn) return false;
+
+    uint32_t xid = (uint32_t)(uintptr_t)g_our_mac;
+    xid ^= (uint32_t)time_uptime_seconds();
+
+    /* ── Send DHCPDISCOVER ── */
+    uint8_t frame[2048];
+    uint16_t flen = build_dhcp_discover(frame, xid);
+    g_send_fn(frame, flen);
+
+    /* ── Poll for DHCPOFFER (up to 3 seconds) ── */
+    uint32_t offered_ip = 0, server_ip = 0, router_ip = 0, dns_ip = 0;
+    uint64_t deadline = time_uptime_seconds() + 3;
+    bool got_offer = false;
+
+    while (time_uptime_seconds() < deadline) {
+        uint8_t rbuf[2048];
+        int n = g_poll_fn(rbuf, sizeof(rbuf));
+        if (n <= 0) { sched_yield(); continue; }
+        if (net_stack_rx(rbuf, (uint16_t)n)) continue;
+
+        uint32_t yi = 0, ro = 0, dn = 0;
+        if (parse_dhcp_reply(rbuf, (uint16_t)n, &yi, &ro, &dn)) {
+            offered_ip = yi;
+            router_ip  = ro;
+            dns_ip     = dn;
+            /* Extract server IP from DHCP message siaddr */
+            const eth_hdr_t *re = (const eth_hdr_t *)rbuf;
+            if (n >= (int)(sizeof(eth_hdr_t) + sizeof(ip_hdr_t) + sizeof(udp_hdr_t) + 28)) {
+                const dhcp_msg_t *rdhcp = (const dhcp_msg_t *)
+                    ((const udp_hdr_t *)((const ip_hdr_t *)(re + 1) + 1) + 1);
+                server_ip = htonl(rdhcp->siaddr);
+            }
+            got_offer = true;
+            break;
+        }
+    }
+
+    if (!got_offer) {
+        return false;
+    }
+
+    /* ── Send DHCPREQUEST ── */
+    flen = build_dhcp_request(frame, xid, offered_ip, server_ip);
+    g_send_fn(frame, flen);
+
+    /* ── Poll for DHCPACK (up to 2 seconds) ── */
+    deadline = time_uptime_seconds() + 2;
+    bool got_ack = false;
+    uint32_t ack_router = 0, ack_dns = 0;
+
+    while (time_uptime_seconds() < deadline) {
+        uint8_t rbuf[2048];
+        int n = g_poll_fn(rbuf, sizeof(rbuf));
+        if (n <= 0) { sched_yield(); continue; }
+        if (net_stack_rx(rbuf, (uint16_t)n)) continue;
+
+        uint32_t yi = 0, ro = 0, dn = 0;
+        if (parse_dhcp_reply(rbuf, (uint16_t)n, &yi, &ro, &dn)) {
+            if (yi == offered_ip) {
+                ack_router = ro;
+                ack_dns    = dn;
+                got_ack = true;
+                break;
+            }
+        }
+    }
+
+    if (got_ack) {
+        g_net_if_ip      = offered_ip;
+        if (ack_router)   g_net_gateway    = ack_router;
+        if (ack_dns)      g_net_dns_server = ack_dns;
+    } else {
+        g_net_if_ip      = offered_ip;
+        if (router_ip)    g_net_gateway    = router_ip;
+        if (dns_ip)       g_net_dns_server = dns_ip;
+    }
+
+    return true;
+}
+
+

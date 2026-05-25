@@ -2,14 +2,20 @@
 #define ZIRVIUM_NET_STACK_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #define NET_IP_ALEN  4
 #define NET_MAC_ALEN 6
 
-/* Default QEMU SLiRP guest IP */
-#define NET_GUEST_IP      ((10u << 24) | (0u << 16) | (2u << 8) | 15u)
-#define NET_GATEWAY_IP    ((10u << 24) | (0u << 16) | (2u << 8) | 2u)
-#define NET_DNS_SERVER_IP ((10u << 24) | (0u << 16) | (2u << 8) | 3u)
+/* Default QEMU SLiRP guest IP — used as fallback if DHCP fails */
+#define NET_GUEST_IP_DEFAULT      ((10u << 24) | (0u << 16) | (2u << 8) | 15u)
+#define NET_GATEWAY_IP_DEFAULT    ((10u << 24) | (0u << 16) | (2u << 8) | 2u)
+#define NET_DNS_SERVER_IP_DEFAULT ((10u << 24) | (0u << 16) | (2u << 8) | 3u)
+
+/* Mutable network configuration — updated by DHCP at boot */
+extern uint32_t g_net_if_ip;
+extern uint32_t g_net_gateway;
+extern uint32_t g_net_dns_server;
 
 /* Callback: send a raw Ethernet frame */
 typedef int (*net_send_fn)(const void *data, uint16_t len);
@@ -34,5 +40,10 @@ int net_stack_rx(const uint8_t *frame, uint16_t len);
  * Returns the IP in host byte order on success, 0 on failure.
  * Uses the configured poll + send functions internally. */
 uint32_t net_stack_dns_resolve(const char *domain);
+
+/* Run a one-shot DHCP discover at boot to configure g_net_if_ip,
+ * g_net_gateway, and g_net_dns_server.  Non-blocking after a brief wait.
+ * Returns true if DHCP succeeded, false if defaults remain. */
+bool net_stack_dhcp_discover(void);
 
 #endif

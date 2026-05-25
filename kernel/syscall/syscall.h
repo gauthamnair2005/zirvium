@@ -50,7 +50,6 @@
 #define SYS_DNS_LOOKUP 102   /* dns_lookup(domain, result_ip)          */
 #define SYS_PCI_READ  103   /* pci_read(index, info)                  */
 
-#define SYS_SUPPRESS_DBG  121   /* suppress_dbg() — compositor calls when GUI is live */
 #define SYS_MOUSE_READ    122   /* mouse_read_event(ev) — read next mouse event */
 #define SYS_DJ_SET_CURSOR 123   /* displayjet_set_cursor(x, y) */
 #define SYS_MSLEEP       124   /* msleep(milliseconds) */

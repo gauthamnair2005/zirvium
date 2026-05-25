@@ -174,4 +174,42 @@ void tmpfs_init(void) {
     tmpfs_root->ops = &tmpfs_dir_ops;
     tmpfs_vfs.root = tmpfs_root;
     vfs_mount("/tmp", &tmpfs_vfs);
+
+    /* Mount a second tmpfs at /home for liveCD computing platform */
+    vnode_t *home_root = (vnode_t *)kmalloc(sizeof(vnode_t), 0);
+    if (home_root) {
+        memset(home_root, 0, sizeof(vnode_t));
+        home_root->name[0] = '/';
+        home_root->name[1] = '\0';
+        home_root->type = VNODE_DIR;
+        home_root->inode = tmpfs_alloc_ino();
+        home_root->permissions = MOSIX_PERM_READ | MOSIX_PERM_WRITE | MOSIX_PERM_EXEC;
+        home_root->ops = &tmpfs_dir_ops;
+        static vfs_t home_vfs = {
+            .type_name = "tmpfs",
+            .root = NULL,
+            .fs_data = NULL,
+        };
+        home_vfs.root = home_root;
+        vfs_mount("/home", &home_vfs);
+    }
+
+    /* Mount /var/run for runtime state */
+    vnode_t *var_root = (vnode_t *)kmalloc(sizeof(vnode_t), 0);
+    if (var_root) {
+        memset(var_root, 0, sizeof(vnode_t));
+        var_root->name[0] = '/';
+        var_root->name[1] = '\0';
+        var_root->type = VNODE_DIR;
+        var_root->inode = tmpfs_alloc_ino();
+        var_root->permissions = MOSIX_PERM_READ | MOSIX_PERM_WRITE | MOSIX_PERM_EXEC;
+        var_root->ops = &tmpfs_dir_ops;
+        static vfs_t var_vfs = {
+            .type_name = "tmpfs",
+            .root = NULL,
+            .fs_data = NULL,
+        };
+        var_vfs.root = var_root;
+        vfs_mount("/var", &var_vfs);
+    }
 }

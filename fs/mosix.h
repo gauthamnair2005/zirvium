@@ -153,7 +153,7 @@ typedef struct vfs {
 } vfs_t;
 
 /* ── MOSIX root namespace ─────────────────────────────────────────────────── */
-#define MOSIX_TOP_DIRS 8
+#define MOSIX_TOP_DIRS 10
 extern const char *mosix_top_dirs[MOSIX_TOP_DIRS];
 
 /* ── Public VFS API ───────────────────────────────────────────────────────── */

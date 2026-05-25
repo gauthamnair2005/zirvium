@@ -38,8 +38,6 @@ static uint8_t syscall_kstack[SYSCALL_KSTACK_SIZE] __attribute__((aligned(16)));
 
 uint64_t syscall_kernel_stack_top;
 
-int g_gui_ready = 0;
-
 extern void syscall_entry(void);
 
 /* ── syscall_init ────────────────────────────────────────────────────────── */
@@ -409,37 +407,25 @@ static uint64_t sys_execve(process_t *proc,
                            char *const argv[],
                            char *const envp[])
 {
-    if (!g_gui_ready)
-        kprintf("[dbg] sys_execve entered: path_p=0x%lx\n", (uintptr_t)path);
     if (!path) return (uint64_t)(int64_t)ESYS_EFAULT;
 
     size_t bin_size;
     const void *binary = embedded_find(path, &bin_size);
-    if (!g_gui_ready)
-        kprintf("[dbg] sys_execve: embedded_find returned binary=%p size=%lu\n", binary, (unsigned long)bin_size);
     if (!binary) return (uint64_t)(int64_t)ESYS_ENOENT;
 
     address_space_t *new_as = vmm_create_address_space();
-    if (!g_gui_ready)
-        kprintf("[dbg] sys_execve: new_as=%p\n", (void*)new_as);
     if (!new_as) return (uint64_t)(int64_t)ESYS_ENOMEM;
 
     uint64_t new_entry;
     if (!elf_load_into_as(new_as, binary, &new_entry)) {
-        if (!g_gui_ready)
-            kprintf("[dbg] sys_execve: elf_load_into_as FAILED\n");
         uint64_t save_cr3;
         __asm__ volatile("mov %%cr3, %0" : "=r"(save_cr3));
         vmm_destroy_address_space(new_as);
         __asm__ volatile("mov %0, %%cr3" : : "r"(save_cr3) : "memory");
         return (uint64_t)(int64_t)ESYS_EINVAL;
     }
-    if (!g_gui_ready)
-        kprintf("[dbg] sys_execve: elf_load_into_as OK, entry=0x%lx\n", new_entry);
 
     uint64_t new_rsp = setup_user_stack(new_as, path, argv, envp);
-    if (!g_gui_ready)
-        kprintf("[dbg] sys_execve: new_rsp=0x%lx\n", new_rsp);
     if (!new_rsp) {
         uint64_t save_cr3;
         __asm__ volatile("mov %%cr3, %0" : "=r"(save_cr3));
@@ -448,7 +434,6 @@ static uint64_t sys_execve(process_t *proc,
         return (uint64_t)(int64_t)ESYS_ENOMEM;
     }
 
-    /* Save current state so it can be restored when the child exits */
     proc->saved_as  = proc->as;
     proc->saved_rip = proc->user_rip;
     proc->saved_rsp = proc->user_rsp;
@@ -459,11 +444,6 @@ static uint64_t sys_execve(process_t *proc,
     proc->brk        = PROC_HEAP_START;
     proc->mmap_cursor = PROC_MMAP_START;
     proc->state      = PROC_STATE_RUNNING;
-
-    if (!g_gui_ready)
-        kprintf("[dbg] sys_execve: entry=0x%lx rsp=0x%lx path=%s (saved caller: as=%p rip=0x%lx rsp=0x%lx)\n",
-                new_entry, new_rsp, path ? path : "(null)",
-                (void*)proc->saved_as, proc->saved_rip, proc->saved_rsp);
 
     exec_enter_usermode(proc, 0);
     __builtin_unreachable();
@@ -695,11 +675,6 @@ uint64_t syscall_dispatch(uint64_t num,
         for (;;) __asm__ volatile("hlt");
     }
 
-    if (!g_gui_ready && (num == 59 || num >= 100)) {
-        kprintf("[dbg] syscall pid=%d num=%lu a1=0x%lx\n",
-                (int)proc->pid, num, a1);
-    }
-
     switch ((int)num) {
     case SYS_READ:
         return sys_read(proc, (int)a1,
@@ -733,12 +708,7 @@ uint64_t syscall_dispatch(uint64_t num,
                           (char *const *)(uintptr_t)a2,
                           (char *const *)(uintptr_t)a3);
     case SYS_EXIT:
-        kprintf("[dbg] SYS_EXIT: pid=%d a1=%d saved_as=%p\n",
-                (int)proc->pid, (int)a1, (void*)proc->saved_as);
         if (proc->saved_as) {
-            /* Child binary finished — restore saved (caller) state */
-            kprintf("[dbg] sys_exit: restoring saved caller state (saved_as=%p rip=0x%lx)\n",
-                    (void*)proc->saved_as, proc->saved_rip);
             vmm_destroy_address_space(proc->as);
             proc->as       = proc->saved_as;
             proc->user_rip = proc->saved_rip;
@@ -750,7 +720,6 @@ uint64_t syscall_dispatch(uint64_t num,
             exec_enter_usermode(proc, 0);
             __builtin_unreachable();
         }
-        /* Disconnect from DisplayJet only on real exit (not when resuming parent) */
         displayjet_disconnect((int)proc->pid);
         proc_exit(proc, (int)a1);
         kprintf("[ PROC %d ] Exited with code %d — halted\n",
@@ -805,30 +774,16 @@ uint64_t syscall_dispatch(uint64_t num,
         outw(0xB004, 0x2000); /* Bochs */
         for (;;) __asm__ volatile("hlt");
         return 0;
-    case SYS_SUPPRESS_DBG:
-        g_gui_ready = 1;
-        return 0;
     case SYS_DJ_CONNECT:
-        if (!g_gui_ready)
-            kprintf("[dbg] SYS_DJ_CONNECT called (pid=%d)\n", (int)proc->pid);
         return (uint64_t)(int64_t)displayjet_connect((int)proc->pid);
     case SYS_DJ_DISCONNECT:
         return (uint64_t)(int64_t)displayjet_disconnect((int)proc->pid);
     case SYS_DJ_CREATE_SURFACE:
         {
             uint32_t id;
-            if (!g_gui_ready)
-                kprintf("[dbg] SYS_DJ_CREATE_SURFACE(w=%u, h=%u)\n",
-                        (uint32_t)a1, (uint32_t)a2);
             int ret = displayjet_create_surface((uint32_t)a1, (uint32_t)a2, &id);
-            if (ret == 0) {
-                if (!g_gui_ready)
-                    kprintf("[dbg] SYS_DJ_CREATE_SURFACE -> id=%u\n", id);
+            if (ret == 0)
                 ret = (int)id;
-            } else {
-                if (!g_gui_ready)
-                    kprintf("[dbg] SYS_DJ_CREATE_SURFACE failed ret=%d\n", ret);
-            }
             return (uint64_t)(int64_t)ret;
         }
     case SYS_DJ_DESTROY_SURFACE:

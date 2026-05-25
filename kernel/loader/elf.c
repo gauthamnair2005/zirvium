@@ -50,10 +50,7 @@ bool elf_load_into_as(address_space_t *as, const void *buffer, uint64_t *entry)
     const elf64_header_t *hdr = (const elf64_header_t *)buffer;
     const elf64_ph_t *ph = (const elf64_ph_t *)((uintptr_t)buffer + hdr->e_phoff);
 
-    kprintf("[dbg] elf_load: phnum=%d\n", hdr->e_phnum);
     for (int i = 0; i < hdr->e_phnum; i++) {
-        kprintf("[dbg] elf_load: seg%d p_type=%d vaddr=0x%lx memsz=0x%lx\n",
-                i, ph[i].p_type, ph[i].p_vaddr, ph[i].p_memsz);
         if (ph[i].p_type == PT_LOAD) {
             uint64_t vaddr    = ph[i].p_vaddr;
             uint64_t size     = ph[i].p_memsz;
@@ -65,11 +62,10 @@ bool elf_load_into_as(address_space_t *as, const void *buffer, uint64_t *entry)
             uint64_t base_va  = vaddr & ~(PAGE_SIZE - 1);  /* page-aligned base */
 
             uint64_t pages = (page_off + size + PAGE_SIZE - 1) / PAGE_SIZE;
-            kprintf("[dbg] elf_load: seg%d pages=%lu (page_off=0x%lx)\n", i, pages, page_off);
             for (uint64_t p = 0; p < pages; p++) {
                 uintptr_t page_va = base_va + (p * PAGE_SIZE);
                 uint64_t phys = pmm_alloc_page();
-                if (!phys) { kprintf("[dbg] elf_load: OOM p=%lu\n", p); return false; }
+                if (!phys) return false;
 
                 uint64_t flags = PTE_PRESENT | PTE_WRITABLE | PTE_USER;
                 vmm_map_page(as, page_va, phys, flags);
@@ -89,7 +85,6 @@ bool elf_load_into_as(address_space_t *as, const void *buffer, uint64_t *entry)
                 }
             }
         }
-        kprintf("[dbg] elf_load: seg%d done\n", i);
     }
 
     if (entry) *entry = hdr->e_entry;

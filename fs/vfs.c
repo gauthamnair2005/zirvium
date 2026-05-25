@@ -36,7 +36,7 @@ static void *vfs_alloc(size_t sz)
 
 /* ── Top-level MOSIX directory names ──────────────────────────────────────── */
 const char *mosix_top_dirs[MOSIX_TOP_DIRS] = {
-    "bin", "lib", "user", "boot", "config", "zirv", "mounts", "tmp"
+    "bin", "lib", "user", "boot", "config", "zirv", "mounts", "tmp", "home", "var"
 };
 
 /* ── /zirv sub-directory names ────────────────────────────────────────────── */
@@ -262,9 +262,10 @@ void vfs_init(void)
     /* Create top-level MOSIX directories */
     for (int i = 0; i < MOSIX_TOP_DIRS; i++) {
         uint8_t perms = MOSIX_PERM_READ | MOSIX_PERM_EXEC;
-        /* /tmp and /mounts are writable by all */
+        /* /tmp, /mounts, and /home are writable by all */
         if (strcmp(mosix_top_dirs[i], "tmp")    == 0 ||
-            strcmp(mosix_top_dirs[i], "mounts") == 0)
+            strcmp(mosix_top_dirs[i], "mounts") == 0 ||
+            strcmp(mosix_top_dirs[i], "home")   == 0)
             perms |= MOSIX_PERM_WRITE;
 
         vnode_t *d = make_vnode(mosix_top_dirs[i], VNODE_DIR, perms, &root_vnode);

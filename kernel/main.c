@@ -27,6 +27,7 @@
 #include "drivers/net/wifi7/wifi7.h"
 #include "drivers/net/rtl8139/rtl8139.h"
 #include "drivers/zirv/displayjet/displayjet.h"
+#include "kernel/net/stack.h"
 #include "arch/x64/gdt.h"
 #include "arch/x64/idt.h"
 #include "arch/x64/cpu.h"
@@ -200,6 +201,9 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     driver_register(&g_intel_e1000_driver);
 
     driver_probe_all();
+
+    /* One-shot DHCP discover to configure IP, gateway, DNS server */
+    net_stack_dhcp_discover();
 
     /* Ported Linux VirtIO drivers — use Linux-compat PCI probe */
     extern void virtio_init(void);
