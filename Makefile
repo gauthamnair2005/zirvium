@@ -207,7 +207,6 @@ $(KERNEL_ISO): $(KERNEL_ELF) zirvui/zirvui.elf
 	@mkdir -p $(ISO_DIR)/boot/grub
 	cp $(KERNEL_ELF) $(ISO_DIR)/boot/zirvium.elf
 	@mkdir -p $(ISO_DIR)/usr/share/fonts
-	cp /tmp/inter/InterVariable.ttf $(ISO_DIR)/usr/share/fonts/
 	@printf 'set timeout=0\nset default=0\n\nmenuentry "Zirvium" {\n  multiboot2 /boot/zirvium.elf\n  boot\n}\n' \
 	    > $(GRUB_CFG)
 	grub-mkrescue -o $(KERNEL_ISO) $(ISO_DIR)
