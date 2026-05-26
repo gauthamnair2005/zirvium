@@ -201,11 +201,13 @@ ISO_DIR   := $(BUILD_DIR)/iso
 GRUB_CFG  := $(ISO_DIR)/boot/grub/grub.cfg
 KERNEL_ISO := $(BUILD_DIR)/zirvium.iso
 
-$(KERNEL_ISO): $(KERNEL_ELF)
+$(KERNEL_ISO): $(KERNEL_ELF) zirvui/zirvui.elf
 	@command -v mformat >/dev/null 2>&1 || \
 	    { echo "Error: 'mformat' not found. Install mtools: sudo apt install mtools"; exit 1; }
 	@mkdir -p $(ISO_DIR)/boot/grub
 	cp $(KERNEL_ELF) $(ISO_DIR)/boot/zirvium.elf
+	@mkdir -p $(ISO_DIR)/usr/share/fonts
+	cp /tmp/inter/InterVariable.ttf $(ISO_DIR)/usr/share/fonts/
 	@printf 'set timeout=0\nset default=0\n\nmenuentry "Zirvium" {\n  multiboot2 /boot/zirvium.elf\n  boot\n}\n' \
 	    > $(GRUB_CFG)
 	grub-mkrescue -o $(KERNEL_ISO) $(ISO_DIR)
