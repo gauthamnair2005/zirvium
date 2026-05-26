@@ -49,6 +49,7 @@
 #define SYS_SHUTDOWN   101   /* shutdown()                             */
 #define SYS_DNS_LOOKUP 102   /* dns_lookup(domain, result_ip)          */
 #define SYS_PCI_READ  103   /* pci_read(index, info)                  */
+#define SYS_NET_RESOLVE 104 /* net_resolve(target_ip, mac_out)        */
 
 #define SYS_MOUSE_READ    122   /* mouse_read_event(ev) — read next mouse event */
 #define SYS_DJ_SET_CURSOR 123   /* displayjet_set_cursor(x, y) */

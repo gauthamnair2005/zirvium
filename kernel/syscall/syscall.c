@@ -820,6 +820,13 @@ uint64_t syscall_dispatch(uint64_t num,
             *result_ip = ip;
             return ip != 0 ? 0 : (uint64_t)(int64_t)ESYS_EINVAL;
         }
+    case SYS_NET_RESOLVE:
+        {
+            uint32_t target_ip = (uint32_t)a1;
+            uint8_t *mac_out = (uint8_t *)(uintptr_t)a2;
+            if (!mac_out) return (uint64_t)(int64_t)ESYS_EFAULT;
+            return (uint64_t)(int64_t)net_stack_route_resolve(target_ip, mac_out);
+        }
     case SYS_PCI_READ:
         {
             uint32_t idx = (uint32_t)a1;

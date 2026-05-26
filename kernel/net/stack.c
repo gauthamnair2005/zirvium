@@ -1,6 +1,7 @@
 #include "stack.h"
 #include <stdint.h>
 #include <string.h>
+#include "kernel/console.h"
 #include "kernel/time/time.h"
 #include "kernel/proc/scheduler.h"
 
@@ -172,7 +173,10 @@ int net_stack_rx(const uint8_t *frame, uint16_t len)
    Returns the sender MAC on success (6 bytes copied into out_mac), or -1. */
 static int arp_resolve_kernel(uint32_t target_ip, uint8_t *out_mac)
 {
-    if (!g_send_fn || !g_poll_fn) return -1;
+    if (!g_send_fn || !g_poll_fn) { klog(LOG_FAIL, "ARP", "no send/poll fn"); return -1; }
+    klog(LOG_INFO, "ARP", "resolving %d.%d.%d.%d",
+         (target_ip >> 24) & 0xFF, (target_ip >> 16) & 0xFF,
+         (target_ip >> 8) & 0xFF, target_ip & 0xFF);
 
     uint8_t buf[sizeof(eth_hdr_t) + sizeof(arp_pkt_t)];
     eth_hdr_t *eth = (eth_hdr_t *)buf;
@@ -200,6 +204,7 @@ static int arp_resolve_kernel(uint32_t target_ip, uint8_t *out_mac)
     arp->target_ip[3] = target_ip & 0xFF;
 
     g_send_fn(buf, sizeof(buf));
+    time_msleep(1);
 
     uint64_t deadline = time_uptime_seconds() + 2;
     for (;;) {
@@ -223,9 +228,36 @@ static int arp_resolve_kernel(uint32_t target_ip, uint8_t *out_mac)
         if (resp_ip != target_ip) continue;
 
         memcpy(out_mac, ra->sender_mac, 6);
+        klog(LOG_OK, "ARP", "resolved %d.%d.%d.%d ok",
+             (target_ip >> 24) & 0xFF, (target_ip >> 16) & 0xFF,
+             (target_ip >> 8) & 0xFF, target_ip & 0xFF);
         return 0;
     }
+    klog(LOG_WARN, "ARP", "timeout for %d.%d.%d.%d",
+         (target_ip >> 24) & 0xFF, (target_ip >> 16) & 0xFF,
+         (target_ip >> 8) & 0xFF, target_ip & 0xFF);
     return -1;
+}
+
+/* ── Route resolve (ARP with gateway fallback) ────────────────────────────── */
+
+/* Check if IP is on the local /24 subnet */
+static inline int is_local_subnet(uint32_t ip)
+{
+    uint32_t mask = 0xFFFFFF00;
+    return (ip & mask) == (g_net_if_ip & mask);
+}
+
+int net_stack_route_resolve(uint32_t target_ip, uint8_t *out_mac)
+{
+    uint32_t resolve_ip = target_ip;
+    if (!is_local_subnet(target_ip)) {
+        resolve_ip = g_net_gateway;
+        klog(LOG_INFO, "ROUTE", "target external, routing via gateway %d.%d.%d.%d",
+             (resolve_ip >> 24) & 0xFF, (resolve_ip >> 16) & 0xFF,
+             (resolve_ip >> 8) & 0xFF, resolve_ip & 0xFF);
+    }
+    return arp_resolve_kernel(resolve_ip, out_mac);
 }
 
 /* ── DNS resolution ──────────────────────────────────────────────────────── */
@@ -302,13 +334,14 @@ static uint32_t parse_dns_response(const uint8_t *buf, uint16_t len)
 
     /* Parse answer section: find first A record */
     for (uint16_t i = 0; i < ancount; i++) {
-        /* Skip name */
+        /* Skip name (may be a pointer 0xC0xx or label sequence) */
+        int was_ptr = 0;
         while (remaining > 0 && *p != 0) {
-            if (*p & 0xC0) { p += 2; remaining -= 2; break; }
+            if (*p & 0xC0) { p += 2; remaining -= 2; was_ptr = 1; break; }
             else { p += *p + 1; remaining -= *p + 1; }
         }
         if (remaining == 0) return 0;
-        p++; remaining--; /* skip root label */
+        if (!was_ptr) { p++; remaining--; } /* skip root label only for literal names */
 
         if (remaining < 10) return 0;
         uint16_t type  = (uint16_t)(p[0] << 8) | p[1];
@@ -335,86 +368,100 @@ static uint32_t parse_dns_response(const uint8_t *buf, uint16_t len)
 
 uint32_t net_stack_dns_resolve(const char *domain)
 {
-    if (!g_send_fn || !g_poll_fn) return 0;
+    if (!g_send_fn || !g_poll_fn) { klog(LOG_FAIL, "DNS", "no send/poll fn"); return 0; }
 
-    /* 1. ARP resolve the DNS server */
-    uint8_t dns_mac[6];
-    if (arp_resolve_kernel(g_net_dns_server, dns_mac) < 0)
-        return 0;
+    /* Try DNS server candidates: primary DNS, then gateway as fallback.
+       QEMU SLiRP sometimes serves DNS at the gateway IP (10.0.2.2). */
+    uint32_t dns_candidates[] = { g_net_dns_server, g_net_gateway };
+    for (int ci = 0; ci < 2; ci++) {
+        uint32_t dns_ip = dns_candidates[ci];
+        if (dns_ip == 0) continue;
 
-    /* 2. Build DNS query */
-    uint8_t dns_buf[512];
-    uint16_t qlen = build_dns_query(dns_buf, 0x1234, domain);
-    if (qlen == 0) return 0;
-
-    /* 3. Build UDP datagram */
-    uint8_t udp_buf[sizeof(udp_hdr_t) + 512];
-    udp_hdr_t *udp = (udp_hdr_t *)udp_buf;
-    uint16_t udp_len = sizeof(udp_hdr_t) + qlen;
-    udp->src_port = htons(0xC000 + 0x1234);
-    udp->dst_port = htons(53);
-    udp->len      = htons(udp_len);
-    udp->checksum = 0;
-    memcpy(udp_buf + sizeof(udp_hdr_t), dns_buf, qlen);
-
-    /* 4. Build IP datagram */
-    uint8_t ip_buf[sizeof(ip_hdr_t) + sizeof(udp_hdr_t) + 512];
-    ip_hdr_t *ip = (ip_hdr_t *)ip_buf;
-    uint16_t ip_total = sizeof(ip_hdr_t) + udp_len;
-    memset(ip, 0, sizeof(ip_hdr_t));
-    ip->ver_ihl    = 0x45;
-    ip->total_len  = htons(ip_total);
-    ip->id         = htons(0x0001);
-    ip->ttl        = 64;
-    ip->protocol   = IP_PROTO_UDP;
-    ip->src_ip     = htonl(g_net_if_ip);
-    ip->dst_ip     = htonl(g_net_dns_server);
-    ip->checksum   = ip_checksum(ip, sizeof(ip_hdr_t));
-    memcpy(ip_buf + sizeof(ip_hdr_t), udp_buf, udp_len);
-
-    /* 5. Build Ethernet frame */
-    uint8_t frame[sizeof(eth_hdr_t) + sizeof(ip_hdr_t) + sizeof(udp_hdr_t) + 512];
-    eth_hdr_t *eth = (eth_hdr_t *)frame;
-    uint16_t frame_len = sizeof(eth_hdr_t) + ip_total;
-    memcpy(eth->dst, dns_mac, 6);
-    memcpy(eth->src, g_our_mac, 6);
-    eth->type = ETH_TYPE_IP;
-    memcpy(frame + sizeof(eth_hdr_t), ip_buf, ip_total);
-
-    /* 6. Send */
-    g_send_fn(frame, frame_len);
-
-    /* 7. Poll for DNS response (up to 3-second timeout) */
-    uint64_t deadline = time_uptime_seconds() + 3;
-    for (;;) {
-        if (time_uptime_seconds() >= deadline) break;
-        uint8_t rbuf[2048];
-        int n = g_poll_fn(rbuf, sizeof(rbuf));
-        if (n <= 0) { sched_yield(); continue; }
-        if (net_stack_rx(rbuf, (uint16_t)n)) continue;
-        if (n < (int)(sizeof(eth_hdr_t) + sizeof(ip_hdr_t) + sizeof(udp_hdr_t)))
+        klog(LOG_INFO, "DNS", "trying DNS server %d.%d.%d.%d",
+             (dns_ip >> 24) & 0xFF, (dns_ip >> 16) & 0xFF,
+             (dns_ip >> 8) & 0xFF, dns_ip & 0xFF);
+        uint8_t dns_mac[6];
+        if (arp_resolve_kernel(dns_ip, dns_mac) < 0) {
+            klog(LOG_WARN, "DNS", "ARP failed for DNS server");
             continue;
+        }
+        uint8_t dns_buf[512];
+        uint16_t qlen = build_dns_query(dns_buf, 0x1234, domain);
+        if (qlen == 0) return 0;
 
-        const eth_hdr_t *re = (const eth_hdr_t *)rbuf;
-        if (re->type != ETH_TYPE_IP) continue;
+        uint8_t udp_buf[sizeof(udp_hdr_t) + 512];
+        udp_hdr_t *udp = (udp_hdr_t *)udp_buf;
+        uint16_t udp_len = sizeof(udp_hdr_t) + qlen;
+        udp->src_port = htons(0xC000 + 0x1234);
+        udp->dst_port = htons(53);
+        udp->len      = htons(udp_len);
+        udp->checksum = 0;
+        memcpy(udp_buf + sizeof(udp_hdr_t), dns_buf, qlen);
 
-        const ip_hdr_t *ri = (const ip_hdr_t *)(re + 1);
-        if (ri->protocol != IP_PROTO_UDP) continue;
+        uint8_t ip_buf[sizeof(ip_hdr_t) + sizeof(udp_hdr_t) + 512];
+        ip_hdr_t *ip = (ip_hdr_t *)ip_buf;
+        uint16_t ip_total = sizeof(ip_hdr_t) + udp_len;
+        memset(ip, 0, sizeof(ip_hdr_t));
+        ip->ver_ihl    = 0x45;
+        ip->total_len  = htons(ip_total);
+        ip->id         = htons(0x0001);
+        ip->ttl        = 64;
+        ip->protocol   = IP_PROTO_UDP;
+        ip->src_ip     = htonl(g_net_if_ip);
+        ip->dst_ip     = htonl(dns_ip);
+        ip->checksum   = ip_checksum(ip, sizeof(ip_hdr_t));
+        memcpy(ip_buf + sizeof(ip_hdr_t), udp_buf, udp_len);
 
-        /* Verify it's from the DNS server (network byte order) */
-        if (ri->src_ip != htonl(g_net_dns_server)) continue;
+        uint8_t frame[sizeof(eth_hdr_t) + sizeof(ip_hdr_t) + sizeof(udp_hdr_t) + 512];
+        eth_hdr_t *eth = (eth_hdr_t *)frame;
+        uint16_t frame_len = sizeof(eth_hdr_t) + ip_total;
+        memcpy(eth->dst, dns_mac, 6);
+        memcpy(eth->src, g_our_mac, 6);
+        eth->type = ETH_TYPE_IP;
+        memcpy(frame + sizeof(eth_hdr_t), ip_buf, ip_total);
 
-        const udp_hdr_t *rudp = (const udp_hdr_t *)(ri + 1);
-        if (htons(rudp->dst_port) != 0xC000 + 0x1234) continue;
+        g_send_fn(frame, frame_len);
+        time_msleep(1);
 
-        uint16_t dns_resp_len = htons(rudp->len) - sizeof(udp_hdr_t);
-        const uint8_t *dns_resp = (const uint8_t *)(rudp + 1);
+        uint64_t deadline = time_uptime_seconds() + 3;
+        for (;;) {
+            if (time_uptime_seconds() >= deadline) break;
+            uint8_t rbuf[2048];
+            int n = g_poll_fn(rbuf, sizeof(rbuf));
+            if (n <= 0) { sched_yield(); continue; }
+            if (net_stack_rx(rbuf, (uint16_t)n)) continue;
+            if (n < (int)(sizeof(eth_hdr_t) + sizeof(ip_hdr_t) + sizeof(udp_hdr_t)))
+                continue;
 
-        uint32_t ip_result = parse_dns_response(dns_resp, dns_resp_len);
-        if (ip_result != 0)
-            return ip_result;
+            const eth_hdr_t *re = (const eth_hdr_t *)rbuf;
+            if (re->type != ETH_TYPE_IP) continue;
+
+            const ip_hdr_t *ri = (const ip_hdr_t *)(re + 1);
+            if (ri->protocol != IP_PROTO_UDP) continue;
+
+            if (ri->src_ip != htonl(dns_ip)) continue;
+
+            const udp_hdr_t *rudp = (const udp_hdr_t *)(ri + 1);
+            if (htons(rudp->dst_port) != 0xC000 + 0x1234) continue;
+
+            uint16_t dns_resp_len = htons(rudp->len) - sizeof(udp_hdr_t);
+            const uint8_t *dns_resp = (const uint8_t *)(rudp + 1);
+
+            uint32_t ip_result = parse_dns_response(dns_resp, dns_resp_len);
+            if (ip_result != 0) {
+                klog(LOG_OK, "DNS", "resolved %s to %d.%d.%d.%d",
+                     domain,
+                     (ip_result >> 24) & 0xFF, (ip_result >> 16) & 0xFF,
+                     (ip_result >> 8) & 0xFF, ip_result & 0xFF);
+                return ip_result;
+            }
+        }
+        klog(LOG_WARN, "DNS", "timeout for candidate %d.%d.%d.%d",
+             (dns_ip >> 24) & 0xFF, (dns_ip >> 16) & 0xFF,
+             (dns_ip >> 8) & 0xFF, dns_ip & 0xFF);
     }
 
+    klog(LOG_FAIL, "DNS", "all candidates failed for '%s'", domain);
     return 0;
 }
 

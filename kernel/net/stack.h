@@ -46,4 +46,9 @@ uint32_t net_stack_dns_resolve(const char *domain);
  * Returns true if DHCP succeeded, false if defaults remain. */
 bool net_stack_dhcp_discover(void);
 
+/* Resolve a target IP to a MAC address, routing external IPs through
+ * the default gateway.  Returns 0 on success with 6 bytes in out_mac,
+ * or -1 on failure. */
+int net_stack_route_resolve(uint32_t target_ip, uint8_t *out_mac);
+
 #endif
