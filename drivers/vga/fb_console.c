@@ -327,3 +327,56 @@ void fb_console_set_fg_color(uint32_t color)
 {
     g_fb.fg_color = color;
 }
+
+void fb_console_set_cursor(uint32_t col, uint32_t row)
+{
+    if (row >= g_fb.rows) row = g_fb.rows - 1;
+    if (col >= g_fb.cols) col = g_fb.cols - 1;
+    g_fb.cur_row = row;
+    g_fb.cur_col = col;
+}
+
+uint32_t fb_console_get_cursor_col(void)
+{
+    return g_fb.cur_col;
+}
+
+uint32_t fb_console_get_cursor_row(void)
+{
+    return g_fb.cur_row;
+}
+
+uint32_t fb_console_get_cols(void)
+{
+    return g_fb.cols;
+}
+
+uint32_t fb_console_get_rows(void)
+{
+    return g_fb.rows;
+}
+
+void fb_console_clear(void)
+{
+    fill_rect(0, 0, g_fb.width, g_fb.height, FB_COL_BG);
+    g_fb.cur_col = 0;
+    g_fb.cur_row = 0;
+}
+
+void fb_console_scroll(int lines)
+{
+    if (lines <= 0 || (uint32_t)lines >= g_fb.rows) {
+        fb_console_clear();
+        return;
+    }
+    uint32_t scroll_px = (uint32_t)lines * FB_FONT_H;
+    uint32_t copy_px   = (g_fb.rows - (uint32_t)lines) * FB_FONT_H;
+    memmove(g_fb.pixels,
+            g_fb.pixels + scroll_px * g_fb.stride_px,
+            copy_px * g_fb.stride_px * sizeof(uint32_t));
+    fill_rect(0, copy_px, g_fb.width, scroll_px, FB_COL_BG);
+    if (g_fb.cur_row >= (uint32_t)lines)
+        g_fb.cur_row -= (uint32_t)lines;
+    else
+        g_fb.cur_row = 0;
+}

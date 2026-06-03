@@ -77,6 +77,63 @@ void vga_clear(void)
     update_cursor();
 }
 
+void vga_set_cursor(int row, int col)
+{
+    if (row < 0) row = 0;
+    if (row >= VGA_ROWS) row = VGA_ROWS - 1;
+    if (col < 0) col = 0;
+    if (col >= VGA_COLS) col = VGA_COLS - 1;
+    g_row = row;
+    g_col = col;
+    update_cursor();
+}
+
+int vga_get_cursor_row(void)
+{
+    return g_row;
+}
+
+int vga_get_cursor_col(void)
+{
+    return g_col;
+}
+
+int vga_get_rows(void)
+{
+    return VGA_ROWS;
+}
+
+int vga_get_cols(void)
+{
+    return VGA_COLS;
+}
+
+void vga_scroll(int lines)
+{
+    if (lines <= 0) return;
+    if (lines >= VGA_ROWS) {
+        vga_clear();
+        return;
+    }
+    int remain = VGA_ROWS - lines;
+    for (int r = 0; r < remain; r++) {
+        for (int c = 0; c < VGA_COLS; c++) {
+            g_buf[r * VGA_COLS + c] = g_buf[(r + lines) * VGA_COLS + c];
+        }
+    }
+    uint16_t blank = (uint16_t)(' ' | ((uint16_t)g_color << 8));
+    for (int r = remain; r < VGA_ROWS; r++) {
+        for (int c = 0; c < VGA_COLS; c++) {
+            g_buf[r * VGA_COLS + c] = blank;
+        }
+    }
+    if (g_row >= remain) {
+        g_row -= lines;
+        if (g_row < 0) g_row = 0;
+    }
+    update_cursor();
+}
+
 void vga_init(void)
 {
     g_color = VGA_COLOR(VGA_LIGHT_GREY, VGA_BLACK);

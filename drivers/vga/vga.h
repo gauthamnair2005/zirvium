@@ -60,4 +60,22 @@ void vga_clear(void);
 /** vga_set_color - change the active foreground/background attribute. */
 void vga_set_color(uint8_t color);
 
+/** vga_set_cursor - set cursor position to (row, col). */
+void vga_set_cursor(int row, int col);
+
+/** vga_get_cursor_row - get current cursor row. */
+int vga_get_cursor_row(void);
+
+/** vga_get_cursor_col - get current cursor column. */
+int vga_get_cursor_col(void);
+
+/** vga_get_rows - get number of rows (VGA_ROWS). */
+int vga_get_rows(void);
+
+/** vga_get_cols - get number of columns (VGA_COLS). */
+int vga_get_cols(void);
+
+/** vga_scroll - scroll up by @lines rows. */
+void vga_scroll(int lines);
+
 #endif /* ZIRVIUM_DRIVERS_VGA_H */

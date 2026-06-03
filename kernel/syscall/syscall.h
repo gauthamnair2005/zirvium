@@ -78,6 +78,17 @@
 #define SYS_GPU_MEM_FREE  131  /* gem_free(handle)                              */
 #define SYS_GPU_SUBMIT    132  /* gpu_submit(cmd_buf, size) -> status           */
 
+/* ── Console / TTY control syscall ────────────────────────────────────────── */
+#define SYS_CONSOLE_IOCTL 151  /* console_ioctl(cmd, arg)                       */
+
+/* Console ioctl commands */
+#define TC_CLEAR       0   /* clear screen                                       */
+#define TC_SET_CURSOR  1   /* set cursor position arg=(row<<16|col)              */
+#define TC_GET_CURSOR  2   /* get cursor position returns (row<<16|col)          */
+#define TC_SET_COLOR   3   /* set color arg=(fg<<16|bg)                          */
+#define TC_GET_SIZE    4   /* get terminal size returns (rows<<16|cols)          */
+#define TC_SCROLL      5   /* scroll by arg lines (positive=down, negative=up)   */
+
 /* ── Open flags (mirrored from user-space) ───────────────────────────────── */
 #define O_CREAT  0x40
 

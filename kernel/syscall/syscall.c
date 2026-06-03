@@ -924,6 +924,10 @@ uint64_t syscall_dispatch(uint64_t num,
         mq_destroy((uint32_t)a1);
         return 0;
 
+    /* ── Console / TTY ioctl ──────────────────────────────────────── */
+    case SYS_CONSOLE_IOCTL:
+        return (uint64_t)(int64_t)console_ioctl((int)a1, a2);
+
     /* ── HPC / MPI syscalls ──────────────────────────────────────── */
     case SYS_HPC_RANK:
         return (uint64_t)(uint64_t)hpc_rank();

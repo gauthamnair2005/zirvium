@@ -9,7 +9,7 @@
 #include <stddef.h>
 #include <string.h>
 
-#define HEAP_SIZE (4 * 1024 * 1024)   /* 4 MiB static heap */
+#define HEAP_SIZE (16 * 1024 * 1024)   /* 16 MiB static heap */
 
 static uint8_t heap_arena[HEAP_SIZE];
 static size_t  heap_offset = 0;

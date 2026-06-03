@@ -98,6 +98,9 @@ zirvium/
   zirvinit/          PID 1 init process (submodule)
   zirvshell/         Interactive shell (submodule)
   zirvutils/         System utilities (submodule)
+  zirvflux/          Display framework library (submodule)
+  zirvui/            Desktop compositor linking ZirvTK (submodule)
+  zirvtk/            Rust desktop toolkit — clock, taskbar, launcher, glass UI (submodule)
   Makefile
 ```
 

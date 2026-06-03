@@ -69,4 +69,40 @@ bool fb_console_ready(void);
  */
 void fb_console_set_fg_color(uint32_t color);
 
+/**
+ * fb_console_set_cursor - set cursor to (col, row).
+ */
+void fb_console_set_cursor(uint32_t col, uint32_t row);
+
+/**
+ * fb_console_get_cursor_col - get current cursor column.
+ */
+uint32_t fb_console_get_cursor_col(void);
+
+/**
+ * fb_console_get_cursor_row - get current cursor row.
+ */
+uint32_t fb_console_get_cursor_row(void);
+
+/**
+ * fb_console_get_cols - get number of character columns.
+ */
+uint32_t fb_console_get_cols(void);
+
+/**
+ * fb_console_get_rows - get number of character rows.
+ */
+uint32_t fb_console_get_rows(void);
+
+/**
+ * fb_console_clear - fill the entire framebuffer with the background colour
+ * and reset the cursor to (0, 0).
+ */
+void fb_console_clear(void);
+
+/**
+ * fb_console_scroll - scroll the display up by @lines character rows.
+ */
+void fb_console_scroll(int lines);
+
 #endif /* ZIRVIUM_DRIVERS_VGA_FB_CONSOLE_H */

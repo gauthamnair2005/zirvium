@@ -121,6 +121,9 @@ typedef enum {
  */
 void klog(log_level_t level, const char *component, const char *fmt, ...);
 
+/** console_ioctl — terminal control for userspace (wraps SYS_CONSOLE_IOCTL). */
+int console_ioctl(int cmd, uint64_t arg);
+
 /* ── Status helpers (DEPRECATED) ──────────────────────────────────────────── */
 
 /** kprint_ok   - print " [done]\n" in green then restore default colour. */

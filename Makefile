@@ -235,10 +235,11 @@ run: $(KERNEL_ISO)
 	    -netdev user,id=net2 -device rtl8139,netdev=net2    \
 	    -boot d                     \
 	    -vga std                    \
+	    -global VGA.vgamem_mb=64    \
 	    -display sdl                \
 	    -audio pa,model=ac97 \
 	    -serial stdio               \
-	    -m 512M                     \
+	    -m 2G                       \
 	    -no-reboot
 
 # ── Run with GDB attached ─────────────────────────────────────────────────────

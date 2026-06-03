@@ -11,6 +11,7 @@
  * text mode to a native pixel mode.
  */
 #include "console.h"
+#include "kernel/syscall/syscall.h"
 #include "drivers/serial/serial.h"
 #include "drivers/vga/vga.h"
 #include "drivers/vga/fb_console.h"
@@ -138,6 +139,75 @@ void console_set_color(console_color_t color)
 void console_reset_color(void)
 {
     console_set_color(CONSOLE_COLOR_DEFAULT);
+}
+
+/* ── Console ioctl — terminal control from userspace ──────────────────────── */
+int console_ioctl(int cmd, uint64_t arg)
+{
+    switch (cmd) {
+    case TC_CLEAR:
+        if (g_vga_active) vga_clear();
+        if (fb_console_ready()) fb_console_clear();
+        return 0;
+
+    case TC_SET_CURSOR: {
+        int row = (int)(arg >> 16) & 0xFFFF;
+        int col = (int)(arg & 0xFFFF);
+        if (g_vga_active) vga_set_cursor(row, col);
+        if (fb_console_ready()) fb_console_set_cursor((uint32_t)col, (uint32_t)row);
+        return 0;
+    }
+
+    case TC_GET_CURSOR: {
+        int row = 0, col = 0;
+        if (g_vga_active) {
+            row = vga_get_cursor_row();
+            col = vga_get_cursor_col();
+        } else if (fb_console_ready()) {
+            row = (int)fb_console_get_cursor_row();
+            col = (int)fb_console_get_cursor_col();
+        }
+        return (row << 16) | (col & 0xFFFF);
+    }
+
+    case TC_SET_COLOR: {
+        uint8_t fg = (uint8_t)(arg >> 16) & 0x0F;
+        uint8_t bg = (uint8_t)(arg >> 24) & 0x0F;
+        if (g_vga_active) vga_set_color(VGA_COLOR(fg, bg));
+        if (fb_console_ready()) {
+            /* Map VGA colour index to 0x00RRGGBB using the fb color table */
+            static const uint32_t fb_palette[16] = {
+                0x00000000, 0x000000AA, 0x0000AA00, 0x0000AAAA,
+                0x00AA0000, 0x00AA00AA, 0x00AA5500, 0x00AAAAAA,
+                0x00555555, 0x005555FF, 0x0055FF55, 0x0055FFFF,
+                0x00FF5555, 0x00FF55FF, 0x00FFFF55, 0x00FFFFFF,
+            };
+            if ((unsigned)fg < 16)
+                fb_console_set_fg_color(fb_palette[fg]);
+        }
+        return 0;
+    }
+
+    case TC_GET_SIZE: {
+        int rows = 0, cols = 0;
+        if (g_vga_active) {
+            rows = vga_get_rows();
+            cols = vga_get_cols();
+        } else if (fb_console_ready()) {
+            rows = (int)fb_console_get_rows();
+            cols = (int)fb_console_get_cols();
+        }
+        return (rows << 16) | (cols & 0xFFFF);
+    }
+
+    case TC_SCROLL:
+        if (g_vga_active) vga_scroll((int)arg);
+        if (fb_console_ready()) fb_console_scroll((int)arg);
+        return 0;
+
+    default:
+        return -1;
+    }
 }
 
 /* ── klog implementation ─────────────────────────────────────────────────── */
