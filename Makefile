@@ -278,4 +278,6 @@ clean:
 	$(MAKE) -C zirvutils clean || true
 	$(MAKE) -C zirvui clean || true
 	$(MAKE) -C zirvflux clean || true
+	$(MAKE) -C zirvcurses clean || true
+	$(MAKE) -C ../zirvcurses clean || true
 	@echo "  CLEAN"

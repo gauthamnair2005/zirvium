@@ -23,3 +23,6 @@
 [submodule "zirvtk"]
 	path = zirvtk
 	url = https://github.com/gauthamnair2005/zirvtk.git
+[submodule "zirvcurses"]
+	path = zirvcurses
+	url = https://github.com/gauthamnair2005/zirvcurses.git
