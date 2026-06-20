@@ -22,6 +22,7 @@
 #include "kernel/audio/audio.h"
 #include "kernel/ipc/mqueue.h"
 #include "kernel/hpc/hpc.h"
+#include "fs/zirvfs.h"
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
@@ -656,6 +657,54 @@ static uint64_t sys_chdir(process_t *proc, const char *path)
     return 0;
 }
 
+/* ── ZirvFS snapshot syscalls ─────────────────────────────────────────────── */
+static uint64_t sys_zirvfs_snap_create(process_t *proc,
+                                        uint32_t fs_index,
+                                        const char *message,
+                                        uint64_t *snap_id)
+{
+    (void)proc;
+    if (!message || !snap_id)
+        return (uint64_t)(int64_t)ESYS_EFAULT;
+    zirvfs_t *fs = zirvfs_get_instance(fs_index);
+    if (!fs || !fs->mounted)
+        return (uint64_t)(int64_t)ESYS_ENOENT;
+    if (zirvfs_snapshot_create(fs, message, snap_id) < 0)
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+    return 0;
+}
+
+static uint64_t sys_zirvfs_snap_list(process_t *proc,
+                                      uint32_t fs_index,
+                                      zirvfs_snapshot_info_t *snaps,
+                                      uint32_t *count)
+{
+    (void)proc;
+    if (!snaps || !count)
+        return (uint64_t)(int64_t)ESYS_EFAULT;
+    zirvfs_t *fs = zirvfs_get_instance(fs_index);
+    if (!fs || !fs->mounted)
+        return (uint64_t)(int64_t)ESYS_ENOENT;
+    uint32_t cnt = *count;
+    if (zirvfs_snapshot_list(fs, snaps, &cnt) < 0)
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+    *count = cnt;
+    return 0;
+}
+
+static uint64_t sys_zirvfs_snap_restore(process_t *proc,
+                                         uint32_t fs_index,
+                                         uint64_t snap_id)
+{
+    (void)proc;
+    zirvfs_t *fs = zirvfs_get_instance(fs_index);
+    if (!fs || !fs->mounted)
+        return (uint64_t)(int64_t)ESYS_ENOENT;
+    if (zirvfs_snapshot_restore(fs, snap_id) < 0)
+        return (uint64_t)(int64_t)ESYS_EINVAL;
+    return 0;
+}
+
 /* ── syscall_dispatch ────────────────────────────────────────────────────── */
 uint64_t syscall_dispatch(uint64_t num,
                           uint64_t a1, uint64_t a2, uint64_t a3,
@@ -948,6 +997,21 @@ uint64_t syscall_dispatch(uint64_t num,
         return (uint64_t)(int64_t)hpc_reduce((int)a5,
                                   (const void *)(uintptr_t)a1,
                                   (void *)(uintptr_t)a2, (size_t)a3, (int)a4);
+    /* ── ZirvFS snapshot syscalls ────────────────────────────────── */
+    case SYS_ZIRVFS_SNAP_CREATE:
+        return sys_zirvfs_snap_create(proc,
+                           (uint32_t)a1,
+                           (const char *)(uintptr_t)a2,
+                           (uint64_t *)(uintptr_t)a3);
+    case SYS_ZIRVFS_SNAP_LIST:
+        return sys_zirvfs_snap_list(proc,
+                           (uint32_t)a1,
+                           (zirvfs_snapshot_info_t *)(uintptr_t)a2,
+                           (uint32_t *)(uintptr_t)a3);
+    case SYS_ZIRVFS_SNAP_RESTORE:
+        return sys_zirvfs_snap_restore(proc,
+                           (uint32_t)a1,
+                           (uint64_t)a2);
     default:
         return (uint64_t)(int64_t)ESYS_ENOSYS;
     }

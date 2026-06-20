@@ -101,4 +101,7 @@ uint32_t zirv_device_count(dev_class_t bus, dev_class_t media);
 void zirv_foreach_device(bool (*cb)(registered_device_t *dev, void *ctx),
                           void *ctx);
 
+extern registered_device_t device_pool[];
+extern uint32_t device_count_total;
+
 #endif /* ZIRVIUM_DRIVERS_ZIRV_DEVICE_H */

@@ -81,6 +81,11 @@
 /* ── Console / TTY control syscall ────────────────────────────────────────── */
 #define SYS_CONSOLE_IOCTL 151  /* console_ioctl(cmd, arg)                       */
 
+/* ── ZirvFS snapshot syscalls ─────────────────────────────────────────────── */
+#define SYS_ZIRVFS_SNAP_CREATE  152 /* zirvfs_snap_create(fs_index, msg, snap_id)    */
+#define SYS_ZIRVFS_SNAP_LIST    153 /* zirvfs_snap_list(fs_index, snaps, count)      */
+#define SYS_ZIRVFS_SNAP_RESTORE 154 /* zirvfs_snap_restore(fs_index, snap_id)        */
+
 /* Console ioctl commands */
 #define TC_CLEAR       0   /* clear screen                                       */
 #define TC_SET_CURSOR  1   /* set cursor position arg=(row<<16|col)              */

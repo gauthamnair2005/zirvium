@@ -80,6 +80,10 @@ C_SRCS := \
     arch/x64/idt.c                                  \
     fs/vfs.c                                        \
     fs/tmpfs.c                                      \
+    fs/zirvfs.c                                     \
+    fs/zirvfs_block.c                               \
+    fs/zirvfs_snap.c                                \
+    fs/sha256.c                                     \
     drivers/pci/pci.c                               \
     drivers/vga/vga.c                               \
     drivers/vga/fb_console.c                        \

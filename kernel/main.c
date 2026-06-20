@@ -252,6 +252,10 @@ void kernel_main(uint32_t magic, uint32_t info_phys)
     extern void tmpfs_init(void);
     tmpfs_init();
 
+    /* ── Step 6g: ZirvFS (CoW+Git native filesystem) ───────────────── */
+    extern void zirvfs_init(void);
+    zirvfs_init();
+
     /* ── Step 7: Launch MOSIX Init ───────────────────────────────────── */
     kputs("\n");
     console_set_color(CONSOLE_COLOR_GREEN);

@@ -10,8 +10,8 @@
 
 /* ── Static slab for device entries ──────────────────────────────────────── */
 #define MAX_DEVICES  256
-static registered_device_t device_pool[MAX_DEVICES];
-static uint32_t device_count_total = 0;
+registered_device_t device_pool[MAX_DEVICES];
+uint32_t device_count_total = 0;
 
 /* Per-(bus,media) instance counters */
 #define COUNTER_BUCKETS  (DEV_CLASS_MAX * DEV_CLASS_MAX)
