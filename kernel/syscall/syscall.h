@@ -57,6 +57,7 @@
 #define SYS_READ_KEYS    125   /* read_keys(event) — non-blocking keyboard event */
 #define SYS_AUDIO_PLAY   126   /* audio_play(buf, frames) — submit PCM frames    */
 #define SYS_AUDIO_VOLUME 127   /* audio_volume(vol) — set output volume 0-255    */
+#define SYS_DJ_SET_CURSOR_STYLE 128 /* displayjet_set_cursor_style(style) */
 
 /* ── Message Queue syscalls ─────────────────────────────────────────────── */
 #define SYS_MQ_CREATE   140  /* mq_create() → mq_id                              */
