@@ -863,6 +863,9 @@ uint64_t syscall_dispatch(uint64_t num,
     case SYS_DJ_SET_CURSOR_STYLE:
         return (uint64_t)(int64_t)displayjet_set_cursor_style(
                    (int)a1);
+    case SYS_DJ_SET_MODE:
+        return (uint64_t)(int64_t)displayjet_set_mode(
+                   (uint32_t)a1, (uint32_t)a2);
     case SYS_DNS_LOOKUP:
         {
             const char *domain = (const char *)(uintptr_t)a1;
