@@ -1,0 +1,8 @@
+[build]
+target = "x86_64-unknown-uefi"
+
+[target.x86_64-unknown-uefi]
+# The Rust UEFI target already emits a PE32+ EFI application and sets the
+# entry point to efi_main.  Keep the firmware-facing image self contained and
+# give ourselves a roomy boot stack for the early Rust code.
+rustflags = ["-C", "link-arg=/STACK:2097152"]

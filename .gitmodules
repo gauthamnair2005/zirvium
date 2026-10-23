@@ -1,28 +1,3 @@
-[submodule "libs/zirvlibc"]
-	path = libs/zirvlibc
-	url = https://github.com/gauthamnair2005/zirvlibc.git
-	branch = main
-[submodule "zirvinit"]
-	path = zirvinit
-	url = https://github.com/gauthamnair2005/zirvinit.git
-[submodule "zirvshell"]
-	path = zirvshell
-	url = https://github.com/gauthamnair2005/zirvshell.git
-[submodule "zirvutils"]
-	path = zirvutils
-	url = https://github.com/gauthamnair2005/zirvutils.git
-[submodule "zirvui"]
-	path = zirvui
-	url = https://github.com/gauthamnair2005/zirvui.git
-[submodule "zirvdisplayjet"]
-	path = zirvdisplayjet
-	url = https://github.com/gauthamnair2005/zirvdisplayjet.git
-[submodule "zirvflux"]
-	path = zirvflux
-	url = https://github.com/gauthamnair2005/zirvflux.git
-[submodule "zirvtk"]
-	path = zirvtk
-	url = https://github.com/gauthamnair2005/zirvtk.git
-[submodule "zirvcurses"]
-	path = zirvcurses
-	url = https://github.com/gauthamnair2005/zirvcurses.git
+[submodule "libs/zirvstdlib"]
+	path = libs/zirvstdlib
+	url = https://github.com/gauthamnair2005/zirvstdlib.git

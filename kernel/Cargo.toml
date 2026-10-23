@@ -1,0 +1,17 @@
+[package]
+name = "zirvium"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Zirvium v2: a 64-bit, Rust and assembly operating system with DisplayJet and MOSIX"
+
+[[bin]]
+name = "zirvium"
+path = "src/main.rs"
+
+[dependencies]
+zirvstdlib = { path = "../libs/zirvstdlib" }
+
+[features]
+default = []

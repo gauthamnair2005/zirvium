@@ -1,5 +1,6 @@
 # Build artefacts
 build/
+target/
 
 # Editor / OS cruft
 *.o
