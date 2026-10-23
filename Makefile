@@ -82,8 +82,6 @@ $(BUILD)/OVMF_VARS.fd:
 	mkdir -p $(BUILD)
 	cp $(OVMF_VARS) $(BUILD)/OVMF_VARS.fd
 
-ACCEL := $(shell test -w /dev/kvm && echo -enable-kvm || true)
-
 define qemu_common
 	$(QEMU) \
 		-machine q35,accel=kvm:tcg \
