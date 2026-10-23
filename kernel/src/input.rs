@@ -10,8 +10,7 @@ use zirvstdlib::sync::SpinLock;
 
 const CAPACITY: usize = 512;
 
-static QUEUE: SpinLock<RingBuffer<InputEvent, CAPACITY>> =
-    SpinLock::new(RingBuffer::new());
+static QUEUE: SpinLock<RingBuffer<InputEvent, CAPACITY>> = SpinLock::new(RingBuffer::new());
 
 /// Push an event.  Called from interrupt context.
 pub fn push(event: InputEvent) {

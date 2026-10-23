@@ -17,9 +17,7 @@ pub mod vfs;
 use alloc::string::String;
 use alloc::vec::Vec;
 
-use zirvstdlib::abi::{
-    set_name, NodeInfo, NodeState, ProcessInfo, ProcessState,
-};
+use zirvstdlib::abi::{NodeInfo, NodeState, ProcessInfo, ProcessState, set_name};
 use zirvstdlib::sync::SpinLock;
 
 const MAX_PROCESSES: usize = 256;

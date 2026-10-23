@@ -8,7 +8,7 @@ use core::ptr;
 use zirvstdlib::mem::PhysAddr;
 use zirvstdlib::sync::SpinLock;
 
-use crate::uefi::{memory_type, MemoryDescriptor};
+use crate::uefi::{MemoryDescriptor, memory_type};
 
 pub const FRAME_SIZE: u64 = 4096;
 pub const MAX_FRAMES: usize = 16 * 1024 * 1024; // 64 GiB.
@@ -165,10 +165,7 @@ pub fn init<'a>(
     framebuffer_end: u64,
 ) {
     let bitmap = unsafe {
-        core::slice::from_raw_parts_mut(
-            ptr::addr_of_mut!(FRAME_BITMAP) as *mut u64,
-            BITMAP_WORDS,
-        )
+        core::slice::from_raw_parts_mut(ptr::addr_of_mut!(FRAME_BITMAP) as *mut u64, BITMAP_WORDS)
     };
     let mut allocator = FrameAllocator::new(bitmap);
 

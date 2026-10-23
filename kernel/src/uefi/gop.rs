@@ -1,6 +1,6 @@
 //! Graphics Output Protocol (GOP) framebuffer acquisition.
 
-use super::{is_error, BootServices, Guid, Status, SystemTable, EFI_NOT_FOUND};
+use super::{BootServices, EFI_NOT_FOUND, Guid, Status, SystemTable, is_error};
 use crate::arch::serial;
 use core::ffi::c_void;
 use core::ptr;
@@ -88,9 +88,7 @@ impl Framebuffer {
 pub fn init(services: &mut BootServices, system_table: *mut SystemTable) -> Framebuffer {
     let mut interface: *mut c_void = ptr::null_mut();
     // SAFETY: this is the standard GOP protocol lookup.
-    let status = unsafe {
-        (services.locate_protocol)(&GOP_GUID, ptr::null_mut(), &mut interface)
-    };
+    let status = unsafe { (services.locate_protocol)(&GOP_GUID, ptr::null_mut(), &mut interface) };
     if is_error(status) || interface.is_null() {
         serial::write_str("GOP: protocol not found\n");
         return Framebuffer {

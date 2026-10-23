@@ -52,10 +52,7 @@ pub fn init_heap() {
     };
     // SAFETY: the frames were just reserved for the heap.
     unsafe {
-        heap::init(
-            base.0 as usize,
-            (base.0 + HEAP_SIZE) as usize,
-        );
+        heap::init(base.0 as usize, (base.0 + HEAP_SIZE) as usize);
     }
 }
 

@@ -52,8 +52,7 @@ pub fn init() {
             (*pdpt).entries[index] = table | PRESENT | WRITABLE;
             for entry in 0..TABLE_ENTRIES {
                 let physical = ((index * TABLE_ENTRIES + entry) as u64) << 21;
-                (*pd)[index].entries[entry] =
-                    physical | PRESENT | WRITABLE | HUGE | GLOBAL;
+                (*pd)[index].entries[entry] = physical | PRESENT | WRITABLE | HUGE | GLOBAL;
             }
         }
 

@@ -51,8 +51,16 @@ pub fn read() -> DateTime {
     let binary = status_b & 0x04 != 0;
     let is_24h = status_b & 0x02 != 0;
 
-    let mut second = if binary { second } else { bcd_to_binary(second) };
-    let mut minute = if binary { minute } else { bcd_to_binary(minute) };
+    let mut second = if binary {
+        second
+    } else {
+        bcd_to_binary(second)
+    };
+    let mut minute = if binary {
+        minute
+    } else {
+        bcd_to_binary(minute)
+    };
     let mut hour_raw = if binary { hour } else { bcd_to_binary(hour) };
     let pm = hour_raw & 0x80 != 0;
     hour_raw &= 0x7F;
@@ -85,7 +93,7 @@ pub fn read() -> DateTime {
     } else {
         1900 + year as i32
     };
-    if full_year < 1970 || full_year > 2300 {
+    if !(1970..=2300).contains(&full_year) {
         full_year = 2026;
     }
     if second > 59 {

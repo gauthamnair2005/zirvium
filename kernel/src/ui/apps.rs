@@ -7,7 +7,7 @@ use alloc::format;
 use alloc::string::{String, ToString};
 use alloc::vec::Vec;
 
-use zirvstdlib::abi::{key, NodeState};
+use zirvstdlib::abi::{NodeState, key};
 use zirvstdlib::geometry::{Point, Rect};
 use zirvstdlib::math;
 
@@ -38,6 +38,7 @@ impl Response {
     };
 }
 
+#[allow(clippy::too_many_arguments)]
 fn stat_card(
     display: &mut Display,
     rect: Rect,
@@ -49,16 +50,17 @@ fn stat_card(
     accent: u32,
 ) {
     widgets::card(display, rect, theme);
-    let badge = Rect::new(rect.x + 12, rect.y + 12, 24, 24);
-    display.fill_rounded(badge, 6, argb(0x24, accent & 0x00ff_ffff));
-    widgets::icon(display, badge.inset(4), icon, accent);
-    display.text(rect.x + 43, rect.y + 14, label, 11, true, TEXT_MUTED);
-    display.text(rect.x + 12, rect.y + 33, value, 21, true, TEXT);
+    let badge = Rect::new(rect.x + 13, rect.y + 13, 28, 28);
+    display.fill_rounded(badge, 8, argb(0x2c, accent & 0x00ff_ffff));
+    display.stroke_rounded(badge, 8, 1, argb(0x38, accent & 0x00ff_ffff));
+    widgets::icon(display, badge.inset(5), icon, accent);
+    display.text(rect.x + 48, rect.y + 17, label, 10, true, TEXT_MUTED);
+    display.text(rect.x + 13, rect.y + 36, value, 23, true, TEXT_STRONG);
     display.text_ellipsized(
-        rect.x + 12,
-        rect.y + 60,
+        rect.x + 13,
+        rect.y + 66,
         detail,
-        rect.w - 24,
+        rect.w - 26,
         10,
         false,
         TEXT_DIM,
@@ -77,8 +79,7 @@ pub struct Monitor {
 
 impl Monitor {
     pub fn new() -> Self {
-        let mut samples = Vec::new();
-        samples.resize(72, 0);
+        let samples = alloc::vec![0; 72];
         Self {
             samples,
             last_sample_ms: 0,
@@ -101,7 +102,7 @@ impl Monitor {
     }
 
     pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
-        let inner = content.inset(14);
+        let inner = content.inset(16);
         if inner.w < 240 || inner.h < 200 {
             return;
         }
@@ -115,9 +116,9 @@ impl Monitor {
 
         let wide = inner.w >= 520;
         let columns: usize = if wide { 4 } else { 2 };
-        let gap = 8;
+        let gap = 10;
         let card_width = (inner.w - gap * (columns as i32 - 1)) / columns as i32;
-        let card_height = 82;
+        let card_height = 88;
         let rows = if wide { 1 } else { 2 };
         let cards = [
             (
@@ -163,14 +164,7 @@ impl Monitor {
                 card_height,
             );
             stat_card(
-                display,
-                rect,
-                theme,
-                card.0,
-                card.1,
-                &card.2,
-                &card.3,
-                card.4,
+                display, rect, theme, card.0, card.1, &card.2, &card.3, card.4,
             );
         }
 
@@ -205,17 +199,17 @@ impl Monitor {
 
     fn draw_graph(&mut self, display: &mut Display, rect: Rect, theme: &Theme, load: u32) {
         widgets::card(display, rect, theme);
-        display.text(rect.x + 14, rect.y + 12, "CPU load", 12, true, TEXT);
+        display.text(rect.x + 16, rect.y + 13, "CPU load", 13, true, TEXT);
         let value = format!("{}%", load / 10);
         display.text(
-            rect.right() - 14 - widgets::text_width(&value, 14, true),
-            rect.y + 10,
+            rect.right() - 16 - widgets::text_width(&value, 15, true),
+            rect.y + 11,
             &value,
-            14,
+            15,
             true,
             theme.accent,
         );
-        let plot = Rect::new(rect.x + 14, rect.y + 36, rect.w - 28, rect.h - 52);
+        let plot = Rect::new(rect.x + 16, rect.y + 40, rect.w - 32, rect.h - 56);
         if plot.w <= 2 || plot.h <= 2 {
             return;
         }
@@ -269,8 +263,8 @@ impl Monitor {
         heap_ratio: f32,
     ) {
         widgets::card(display, rect, theme);
-        display.text(rect.x + 14, rect.y + 12, "Memory", 12, true, TEXT);
-        let mut y = rect.y + 38;
+        display.text(rect.x + 16, rect.y + 13, "Memory", 13, true, TEXT);
+        let mut y = rect.y + 42;
         let physical_ratio = if stats.total_bytes == 0 {
             0.0
         } else {
@@ -281,39 +275,39 @@ impl Monitor {
             ("Physical", physical_ratio, rgb(0x8b5cf6)),
         ];
         for (label, ratio, color) in rows {
-            display.text(rect.x + 14, y, label, 11, false, TEXT_MUTED);
+            display.text(rect.x + 16, y, label, 12, false, TEXT_MUTED);
             let value = format!("{:.0}%", ratio * 100.0);
             display.text(
-                rect.right() - 14 - widgets::text_width(&value, 11, true),
+                rect.right() - 16 - widgets::text_width(&value, 12, true),
                 y,
                 &value,
-                11,
+                12,
                 true,
                 TEXT,
             );
             widgets::progress(
                 display,
-                Rect::new(rect.x + 14, y + 17, rect.w - 28, 6),
+                Rect::new(rect.x + 16, y + 18, rect.w - 32, 7),
                 ratio,
                 color,
             );
-            y += 32;
+            y += 34;
         }
         let gpu = crate::drivers::pci::gpu();
         display.text_ellipsized(
-            rect.x + 14,
+            rect.x + 16,
             y + 4,
             gpu.name_str(),
-            rect.w - 28,
+            rect.w - 32,
             11,
             false,
             TEXT_MUTED,
         );
         display.text_ellipsized(
-            rect.x + 14,
+            rect.x + 16,
             y + 22,
             "DisplayJet ARGB · CPU SIMD",
-            rect.w - 28,
+            rect.w - 32,
             10,
             false,
             TEXT_DIM,
@@ -356,7 +350,14 @@ impl Monitor {
                     argb(0x18, 0xffffff),
                 );
             }
-            display.text(rect.x + 14, y, &format!("{}", process.pid), 11, false, theme.accent);
+            display.text(
+                rect.x + 14,
+                y,
+                &format!("{}", process.pid),
+                11,
+                false,
+                theme.accent,
+            );
             let state_color = match process.state {
                 zirvstdlib::abi::ProcessState::Running => SUCCESS,
                 zirvstdlib::abi::ProcessState::Ready => TEXT,
@@ -472,11 +473,7 @@ impl Files {
         } else {
             match vfs::read_limited(&entry.path, 64 * 1024) {
                 Some(content) => {
-                    self.status = format!(
-                        "{} · {}",
-                        entry.name,
-                        widgets::byte_size(entry.size)
-                    );
+                    self.status = format!("{} · {}", entry.name, widgets::byte_size(entry.size));
                     self.preview = Some(content);
                 }
                 None => {
@@ -499,12 +496,12 @@ impl Files {
     }
 
     fn layout(&self, content: Rect) -> (Rect, Rect, Rect, i32) {
-        let padding = 14;
+        let padding = 16;
         let header = Rect::new(
             content.x + padding,
-            content.y + 12,
+            content.y + 14,
             content.w - padding * 2,
-            34,
+            36,
         );
         let body_top = header.bottom() + 10;
         let body_height = (content.bottom() - 14 - body_top).max(40);
@@ -530,7 +527,7 @@ impl Files {
         }
         let (header, list, preview, row_height) = self.layout(content);
         // Header: up button, path, count.
-        let up = Rect::new(header.x, header.y, 58, 32);
+        let up = Rect::new(header.x, header.y, 62, 34);
         widgets::button(
             display,
             up,
@@ -542,18 +539,18 @@ impl Files {
         );
         widgets::icon(
             display,
-            Rect::new(up.x + 9, up.y + 9, 14, 14),
+            Rect::new(up.x + 10, up.y + 10, 14, 14),
             Icon::Up,
             TEXT_MUTED,
         );
         display.text_ellipsized(
-            header.x + 70,
-            header.y + 8,
+            header.x + 76,
+            header.y + 7,
             &self.cwd,
-            (header.w - 210).max(40),
-            14,
+            (header.w - 220).max(40),
+            15,
             true,
-            TEXT,
+            TEXT_STRONG,
         );
         display.text(
             header.right() - widgets::text_width(&self.status, 11, false),
@@ -568,9 +565,11 @@ impl Files {
         widgets::card(display, list, theme);
         let inner = list.inset(6);
         let visible = ((inner.h - 8) / row_height).max(1) as usize;
-        self.scroll = self
-            .scroll
-            .min(self.entries.len().saturating_sub(visible.min(self.entries.len())));
+        self.scroll = self.scroll.min(
+            self.entries
+                .len()
+                .saturating_sub(visible.min(self.entries.len())),
+        );
         let start = self.scroll.min(self.entries.len());
         for (offset, entry) in self.entries.iter().skip(start).take(visible).enumerate() {
             let index = start + offset;
@@ -585,20 +584,24 @@ impl Files {
                 display.fill_rounded(row, 7, theme.accent_soft(38));
                 display.stroke_rounded(row, 7, 1, theme.accent_soft(90));
             }
-            let icon_rect = Rect::new(row.x + 8, row.y + 8, 22, 22);
+            let icon_rect = Rect::new(row.x + 9, row.y + 8, 24, 24);
             let icon = if entry.is_dir {
                 Icon::Files
             } else {
                 Icon::Document
             };
-            let color = if entry.is_dir { theme.accent } else { TEXT_MUTED };
+            let color = if entry.is_dir {
+                theme.accent
+            } else {
+                TEXT_MUTED
+            };
             widgets::icon(display, icon_rect, icon, color);
             display.text_ellipsized(
-                row.x + 38,
-                row.y + 6,
+                row.x + 42,
+                row.y + 7,
                 &entry.name,
-                row.w - 110,
-                13,
+                row.w - 116,
+                14,
                 entry.is_dir,
                 TEXT,
             );
@@ -632,9 +635,8 @@ impl Files {
         if self.entries.len() > visible {
             let track = Rect::new(list.right() - 7, list.y + 8, 3, list.h - 16);
             display.fill_rounded(track, 2, argb(0x30, 0xffffff));
-            let length = ((track.h as f32) * visible as f32
-                / self.entries.len() as f32)
-                .max(18.0) as i32;
+            let length =
+                ((track.h as f32) * visible as f32 / self.entries.len() as f32).max(18.0) as i32;
             let max_scroll = self.entries.len() - visible;
             let offset = (((track.h - length) as f32) * self.scroll as f32
                 / max_scroll.max(1) as f32) as i32;
@@ -673,18 +675,15 @@ impl Files {
         let Some(entry) = self.entries.get(index) else {
             return;
         };
-        display.text_ellipsized(inner.x, inner.y, &entry.name, inner.w, 15, true, TEXT);
+        display.text_ellipsized(inner.x, inner.y, &entry.name, inner.w, 16, true, TEXT);
         let meta = if entry.is_dir {
             String::from("Directory")
         } else {
             format!("{} · text", widgets::byte_size(entry.size))
         };
-        display.text(inner.x, inner.y + 21, &meta, 10, false, TEXT_DIM);
-        display.fill_rect(
-            Rect::new(inner.x, inner.y + 38, inner.w, 1),
-            BORDER_SOFT,
-        );
-        let body = Rect::new(inner.x, inner.y + 48, inner.w, inner.h - 48);
+        display.text(inner.x, inner.y + 24, &meta, 10, false, TEXT_DIM);
+        display.fill_rect(Rect::new(inner.x, inner.y + 42, inner.w, 1), BORDER_SOFT);
+        let body = Rect::new(inner.x, inner.y + 52, inner.w, inner.h - 52);
         if entry.is_dir {
             let children = vfs::list(&entry.path);
             let mut y = body.y
@@ -696,7 +695,11 @@ impl Files {
                 if y > body.bottom() - 14 {
                     break;
                 }
-                let icon = if child.is_dir { Icon::Files } else { Icon::Document };
+                let icon = if child.is_dir {
+                    Icon::Files
+                } else {
+                    Icon::Document
+                };
                 widgets::icon(
                     display,
                     Rect::new(body.x, y + 1, 12, 12),
@@ -704,22 +707,22 @@ impl Files {
                     if child.is_dir { theme.accent } else { TEXT_DIM },
                 );
                 display.text_ellipsized(
-                    body.x + 18,
+                    body.x + 20,
                     y,
                     &child.name,
-                    body.w - 18,
-                    11,
+                    body.w - 20,
+                    12,
                     child.is_dir,
                     TEXT,
                 );
-                y += 15;
+                y += 17;
             }
             return;
         }
         let Some(content) = self.preview.as_ref() else {
             return;
         };
-        let face = crate::displayjet::font::face(12, false);
+        let face = crate::displayjet::font::face(14, false);
         let line_height = face.line_height + 2;
         let content = content.trim_end();
         let mut y = body.y - self.preview_scroll * line_height;
@@ -741,14 +744,9 @@ impl Files {
         self.preview_scroll = self.preview_scroll.min(max_scroll);
     }
 
-    pub fn pointer(
-        &mut self,
-        point: Point,
-        content: Rect,
-        _theme: &mut Theme,
-    ) -> Response {
+    pub fn pointer(&mut self, point: Point, content: Rect, _theme: &mut Theme) -> Response {
         let (header, list, _preview, row_height) = self.layout(content);
-        let up = Rect::new(header.x, header.y, 58, 32);
+        let up = Rect::new(header.x, header.y, 62, 34);
         if up.contains(point) && self.cwd != "/" {
             self.parent();
             return Response::REDRAW;
@@ -759,9 +757,7 @@ impl Files {
             if offset >= 0 {
                 let index = self.scroll + offset as usize;
                 if index < self.entries.len() {
-                    if self.entries[index].is_dir {
-                        self.activate(index);
-                    } else if self.selected == Some(index) {
+                    if self.entries[index].is_dir || self.selected == Some(index) {
                         self.activate(index);
                     } else {
                         self.select(index);
@@ -778,9 +774,8 @@ impl Files {
         let visible = ((list.h - 14) / row_height).max(1) as usize;
         if list.contains(point) {
             if amount > 0 {
-                self.scroll = (self.scroll + amount as usize).min(
-                    self.entries.len().saturating_sub(visible),
-                );
+                self.scroll =
+                    (self.scroll + amount as usize).min(self.entries.len().saturating_sub(visible));
             } else {
                 self.scroll = self.scroll.saturating_sub((-amount) as usize);
             }
@@ -882,7 +877,7 @@ impl Settings {
         // Wallpaper card.
         let wall_card = Rect::new(inner.x, y, inner.w, 104);
         widgets::card(display, wall_card, theme);
-        display.text(inner.x + 14, y + 12, "Wallpaper", 12, true, TEXT);
+        display.text(inner.x + 14, y + 12, "Wallpaper", 14, true, TEXT);
         let option_width = (inner.w - 28 - 3 * 8) / 4;
         for (index, name) in WALLPAPERS.iter().enumerate() {
             let rect = Rect::new(
@@ -911,11 +906,7 @@ impl Settings {
                 if selected { theme.accent } else { BORDER },
             );
             if selected {
-                display.fill_circle(
-                    Point::new(rect.right() - 11, rect.y + 11),
-                    6,
-                    theme.accent,
-                );
+                display.fill_circle(Point::new(rect.right() - 11, rect.y + 11), 6, theme.accent);
                 widgets::icon(
                     display,
                     Rect::new(rect.right() - 15, rect.y + 7, 8, 8),
@@ -940,7 +931,7 @@ impl Settings {
         // Accent card.
         let accent_card = Rect::new(inner.x, y, inner.w, 76);
         widgets::card(display, accent_card, theme);
-        display.text(inner.x + 14, y + 12, "Accent colour", 12, true, TEXT);
+        display.text(inner.x + 14, y + 12, "Accent colour", 14, true, TEXT);
         for (index, (value, name)) in ACCENTS.iter().enumerate() {
             let center = Point::new(inner.x + 30 + index as i32 * 44, y + 46);
             let color = rgb(*value);
@@ -974,17 +965,33 @@ impl Settings {
 
         // Behaviour rows.
         let rows = [
-            ("Show seconds in the clock", theme.show_seconds, Action::Seconds),
-            ("Animate window and dock changes", theme.animations, Action::Animations),
-            ("Magnify dock icons on hover", theme.dock_magnification, Action::Dock),
-            ("Show alignment grid on the desktop", theme.show_grid, Action::Grid),
+            (
+                "Show seconds in the clock",
+                theme.show_seconds,
+                Action::Seconds,
+            ),
+            (
+                "Animate window and dock changes",
+                theme.animations,
+                Action::Animations,
+            ),
+            (
+                "Magnify dock icons on hover",
+                theme.dock_magnification,
+                Action::Dock,
+            ),
+            (
+                "Show alignment grid on the desktop",
+                theme.show_grid,
+                Action::Grid,
+            ),
         ];
         let behaviour = Rect::new(inner.x, y, inner.w, 24 + rows.len() as i32 * 38);
         widgets::card(display, behaviour, theme);
-        display.text(inner.x + 14, y + 12, "Behaviour", 12, true, TEXT);
+        display.text(inner.x + 14, y + 12, "Behaviour", 14, true, TEXT);
         for (index, (label, value, action)) in rows.iter().enumerate() {
             let row_y = y + 32 + index as i32 * 38;
-            display.text(inner.x + 14, row_y + 8, label, 12, false, TEXT);
+            display.text(inner.x + 14, row_y + 8, label, 13, false, TEXT);
             let toggle = Rect::new(inner.right() - 56, row_y + 3, 38, 21);
             widgets::toggle(display, toggle, *value, theme);
             self.hits.push(Hit {
@@ -997,7 +1004,7 @@ impl Settings {
         // Display and system card.
         let info = Rect::new(inner.x, y, inner.w, 132);
         widgets::card(display, info, theme);
-        display.text(inner.x + 14, y + 12, "Display & system", 12, true, TEXT);
+        display.text(inner.x + 14, y + 12, "Display & system", 14, true, TEXT);
         let width = crate::ui::WIDTH_HINT.load(core::sync::atomic::Ordering::Relaxed);
         let height = crate::ui::HEIGHT_HINT.load(core::sync::atomic::Ordering::Relaxed);
         let gpu = crate::drivers::pci::gpu();
@@ -1005,24 +1012,19 @@ impl Settings {
             ("Resolution", format!("{width} x {height}")),
             ("Renderer", String::from("DisplayJet · CPU SIMD surface")),
             ("GPU", gpu.name_str().to_string()),
-            ("Cluster", format!(
-                "MOSIX · {} node(s) · {} process(es)",
-                crate::mosix::node_count(),
-                crate::mosix::process_count()
-            )),
+            (
+                "Cluster",
+                format!(
+                    "MOSIX · {} node(s) · {} process(es)",
+                    crate::mosix::node_count(),
+                    crate::mosix::process_count()
+                ),
+            ),
         ];
         for (index, (label, value)) in fields.iter().enumerate() {
             let row_y = y + 36 + index as i32 * 23;
             display.text(inner.x + 14, row_y, label, 11, false, TEXT_DIM);
-            display.text_ellipsized(
-                inner.x + 110,
-                row_y,
-                value,
-                inner.w - 124,
-                11,
-                false,
-                TEXT,
-            );
+            display.text_ellipsized(inner.x + 110, row_y, value, inner.w - 124, 11, false, TEXT);
         }
         y = info.bottom() + 10;
 
@@ -1040,10 +1042,9 @@ impl Settings {
         if total_height > inner.h {
             let track = Rect::new(inner.right() - 3, inner.y, 3, inner.h);
             display.fill_rounded(track, 2, argb(0x28, 0xffffff));
-            let length = ((inner.h as f32) * inner.h as f32 / total_height as f32)
-                .max(20.0) as i32;
-            let offset = (((inner.h - length) as f32) * self.scroll as f32
-                / maximum.max(1) as f32) as i32;
+            let length = ((inner.h as f32) * inner.h as f32 / total_height as f32).max(20.0) as i32;
+            let offset =
+                (((inner.h - length) as f32) * self.scroll as f32 / maximum.max(1) as f32) as i32;
             display.fill_rounded(
                 Rect::new(track.x, track.y + offset, 3, length),
                 2,
@@ -1052,12 +1053,7 @@ impl Settings {
         }
     }
 
-    pub fn pointer(
-        &mut self,
-        point: Point,
-        _content: Rect,
-        theme: &mut Theme,
-    ) -> Response {
+    pub fn pointer(&mut self, point: Point, _content: Rect, theme: &mut Theme) -> Response {
         for hit in &self.hits {
             if !hit.rect.contains(point) {
                 continue;
@@ -1123,31 +1119,33 @@ impl About {
         if inner.w < 320 || inner.h < 240 {
             return;
         }
-        let mark = Rect::new(inner.x, inner.y, 76, 76);
-        display.fill_rounded(mark, 18, theme.accent_soft(40));
-        display.stroke_rounded(mark, 18, 1, theme.accent_soft(120));
-        widgets::icon(display, mark.inset(16), Icon::Logo, theme.accent);
-        display.text(inner.x + 92, inner.y + 2, "Zirvium 2.0", 28, true, TEXT);
+        let mark = Rect::new(inner.x, inner.y, 84, 84);
+        display.radial_glow(mark.center(), 110, theme.accent_soft(255), 0.30);
+        display.fill_rounded_vertical(mark, 20, theme.accent_soft(64), theme.accent_alt_soft(24));
+        display.stroke_rounded(mark, 20, 1, theme.accent_soft(170));
+        widgets::icon(display, mark.inset(19), Icon::Logo, theme.accent);
+        display.text(inner.x + 102, inner.y, "Zirvium 2.0", 28, true, TEXT_STRONG);
         display.text(
-            inner.x + 94,
-            inner.y + 38,
+            inner.x + 104,
+            inner.y + 40,
             "one cluster, one display",
-            13,
+            14,
             false,
             theme.accent,
         );
         display.text(
-            inner.x + 94,
-            inner.y + 58,
+            inner.x + 104,
+            inner.y + 62,
             "A 64-bit operating system written from scratch.",
             11,
             false,
             TEXT_MUTED,
         );
-        let mut y = inner.y + 100;
-        display.fill_rect(
+        let mut y = inner.y + 104;
+        display.horizontal_gradient(
             Rect::new(inner.x, y, inner.w, 1),
-            BORDER_SOFT,
+            theme.accent_soft(120),
+            argb(0x20, 0xffffff),
         );
         y += 16;
         let ideas = [
@@ -1171,26 +1169,27 @@ impl About {
             ),
         ];
         for (icon, title, body, color) in ideas {
-            let badge = Rect::new(inner.x, y, 30, 30);
-            display.fill_rounded(badge, 8, argb(0x28, color & 0x00ff_ffff));
-            widgets::icon(display, badge.inset(6), icon, color);
-            display.text(inner.x + 42, y - 1, title, 13, true, TEXT);
-            let lines = widgets::wrap(
-                crate::displayjet::font::face(11, false),
-                body,
-                inner.w - 42,
-            );
+            let badge = Rect::new(inner.x, y, 32, 32);
+            display.fill_rounded(badge, 9, argb(0x30, color & 0x00ff_ffff));
+            display.stroke_rounded(badge, 9, 1, argb(0x38, color & 0x00ff_ffff));
+            widgets::icon(display, badge.inset(7), icon, color);
+            display.text(inner.x + 44, y - 1, title, 14, true, TEXT);
+            let lines = widgets::wrap(crate::displayjet::font::face(12, false), body, inner.w - 44);
             for (index, line) in lines.iter().take(2).enumerate() {
-                display.text(inner.x + 42, y + 18 + index as i32 * 15, line, 11, false, TEXT_MUTED);
+                display.text(
+                    inner.x + 44,
+                    y + 19 + index as i32 * 16,
+                    line,
+                    12,
+                    false,
+                    TEXT_MUTED,
+                );
             }
-            y += 58;
+            y += 60;
         }
         let footer = Rect::new(inner.x, inner.bottom() - 54, inner.w, 44);
         if footer.y > y {
-            display.fill_rect(
-                Rect::new(inner.x, footer.y - 10, inner.w, 1),
-                BORDER_SOFT,
-            );
+            display.fill_rect(Rect::new(inner.x, footer.y - 10, inner.w, 1), BORDER_SOFT);
             display.text(
                 inner.x,
                 footer.y,
@@ -1247,7 +1246,11 @@ impl Nodes {
         widgets::button(
             display,
             add,
-            if has_peer { "Peer online" } else { "Add demo peer" },
+            if has_peer {
+                "Peer online"
+            } else {
+                "Add demo peer"
+            },
             theme,
             widgets::ButtonStyle::Primary,
             false,
@@ -1293,7 +1296,7 @@ impl Nodes {
                 Icon::Nodes,
                 color,
             );
-            display.text(rect.x + 52, rect.y + 14, node.name_str(), 13, true, TEXT);
+            display.text(rect.x + 52, rect.y + 14, node.name_str(), 14, true, TEXT);
             widgets::pill(
                 display,
                 Point::new(rect.right() - 46, rect.y + 28),
@@ -1304,8 +1307,11 @@ impl Nodes {
             display.text(
                 rect.x + 14,
                 rect.y + 54,
-                &format!("{} CPU · {} MiB · id {}", node.cpu_count, node.memory_mib, node.id),
-                10,
+                &format!(
+                    "{} CPU · {} MiB · id {}",
+                    node.cpu_count, node.memory_mib, node.id
+                ),
+                11,
                 false,
                 TEXT_MUTED,
             );
@@ -1333,7 +1339,7 @@ impl Nodes {
                 } else {
                     "peer · migration target"
                 },
-                9,
+                10,
                 false,
                 TEXT_FAINT,
             );
@@ -1389,7 +1395,14 @@ impl Nodes {
         let header_y = y + 34;
         display.text(inner.x + 14, header_y, "PID", 10, true, TEXT_DIM);
         display.text(inner.x + 56, header_y, "PROCESS", 10, true, TEXT_DIM);
-        display.text(inner.x + 250, header_y, "HOME → CURRENT", 10, true, TEXT_DIM);
+        display.text(
+            inner.x + 250,
+            header_y,
+            "HOME → CURRENT",
+            10,
+            true,
+            TEXT_DIM,
+        );
         display.fill_rect(
             Rect::new(inner.x + 14, header_y + 15, table.w - 28, 1),
             BORDER_SOFT,
@@ -1409,7 +1422,7 @@ impl Nodes {
                 inner.x + 14,
                 row_y + 5,
                 &format!("{}", process.pid),
-                10,
+                11,
                 false,
                 theme.accent,
             );
@@ -1418,7 +1431,7 @@ impl Nodes {
                 row_y + 5,
                 process.name_str(),
                 180,
-                10,
+                11,
                 false,
                 TEXT,
             );
@@ -1426,7 +1439,7 @@ impl Nodes {
                 inner.x + 250,
                 row_y + 5,
                 &format!("{} → {}", process.home_node, process.current_node),
-                10,
+                11,
                 false,
                 if process.current_node != process.home_node {
                     theme.accent_alt
@@ -1459,12 +1472,7 @@ impl Nodes {
         }
     }
 
-    pub fn pointer(
-        &mut self,
-        point: Point,
-        _content: Rect,
-        _theme: &mut Theme,
-    ) -> Response {
+    pub fn pointer(&mut self, point: Point, _content: Rect, _theme: &mut Theme) -> Response {
         for hit in &self.hits {
             if !hit.rect.contains(point) {
                 continue;

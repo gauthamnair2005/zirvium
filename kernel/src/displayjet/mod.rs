@@ -17,10 +17,66 @@ use zirvstdlib::math;
 
 use crate::uefi::gop::Framebuffer;
 use zirvstdlib::abi::{GpuDriver, GpuInfo, GpuVendor};
+use zirvstdlib::sync::Once;
 
 const FALLBACK_COLOR: u32 = 0xff10_1116;
 const CURSOR_WIDTH: i32 = 13;
 const CURSOR_HEIGHT: i32 = 20;
+
+/// Lookup tables that let text compositing happen in linear light instead of
+/// sRGB.  Blending coverage in sRGB darkens anti-aliased edges and makes small
+/// glyphs look muddy; converting through these tables instead keeps stems
+/// crisp and gives the same perceived weight at every size.  Gamma 2.0 is used
+/// because a square and a square root are exact and cheap without a maths
+/// library.
+struct GammaTables {
+    to_linear: [u16; 256],
+    from_linear: [u8; 1024],
+}
+
+fn build_gamma_tables() -> GammaTables {
+    let mut to_linear = [0u16; 256];
+    let mut index = 0u32;
+    while index < 256 {
+        // (i / 255)^2 * 65535
+        to_linear[index as usize] = ((index * index * 65535 + 32_512) / 65_025) as u16;
+        index += 1;
+    }
+    let mut from_linear = [0u8; 1024];
+    let mut slot = 0usize;
+    while slot < 1024 {
+        let linear = slot as f32 / 1023.0;
+        from_linear[slot] = (math::sqrt(linear) * 255.0 + 0.5) as u8;
+        slot += 1;
+    }
+    GammaTables {
+        to_linear,
+        from_linear,
+    }
+}
+
+static GAMMA: Once<GammaTables> = Once::new();
+
+#[inline]
+fn gamma_tables() -> &'static GammaTables {
+    GAMMA.call_once(build_gamma_tables)
+}
+
+/// Blend `source` into `destination` through linear light with `alpha` 0..=255.
+#[inline]
+fn blend_linear(source: u32, destination: u32, alpha: u32, gamma: &GammaTables) -> u32 {
+    let inverse = 255 - alpha;
+    let channel = |shift: u32| -> u32 {
+        let source_linear = gamma.to_linear[((source >> shift) & 0xff) as usize] as u32;
+        let destination_linear = gamma.to_linear[((destination >> shift) & 0xff) as usize] as u32;
+        let mixed = (source_linear * alpha + destination_linear * inverse + 127) / 255;
+        gamma.from_linear[(mixed >> 6) as usize] as u32
+    };
+    let r = channel(16);
+    let g = channel(8);
+    let b = channel(0);
+    0xff00_0000 | (r << 16) | (g << 8) | b
+}
 
 /// A drawing surface with damage tracking and a firmware framebuffer sink.
 pub struct Display {
@@ -226,7 +282,8 @@ impl Display {
         self.mark(rect);
     }
 
-    /// A horizontal linear gradient between two opaque colours.
+    /// A horizontal linear gradient between two colours.  Translucent stops are
+    /// alpha-blended, so a soft accent hairline fades into the surface below.
     pub fn horizontal_gradient(&mut self, rect: Rect, left: u32, right: u32) {
         let rect = self.clipped(rect);
         if rect.is_empty() {
@@ -234,12 +291,26 @@ impl Display {
         }
         let width = rect.w.max(1);
         for x in 0..rect.w {
-            let t = if width <= 1 { 0 } else { (x * 255) / (width - 1) };
+            let t = if width <= 1 {
+                0
+            } else {
+                (x * 255) / (width - 1)
+            };
             let color = lerp_argb(left, right, t as u32);
             let column_x = rect.x + x;
-            for y in rect.y..rect.bottom() {
+            let alpha = color >> 24;
+            if alpha == 0 {
+                continue;
+            }
+            let mut y = rect.y;
+            while y < rect.bottom() {
                 let index = (y * self.width + column_x) as usize;
-                self.pixels[index] = color;
+                if alpha == 255 {
+                    self.pixels[index] = color;
+                } else {
+                    self.pixels[index] = blend_argb(color, self.pixels[index]);
+                }
+                y += 1;
             }
         }
         self.mark(rect);
@@ -258,9 +329,24 @@ impl Display {
         let y0 = clipped.y;
         let y1 = clipped.bottom();
         let width = self.width;
+        let middle_top = rect.y + radius;
+        let middle_bottom = rect.bottom() - radius;
         for y in y0..y1 {
             let py = y as f32 + 0.5;
             let row_start = (y * width) as usize;
+            let row = &mut self.pixels[row_start + x0 as usize..row_start + x1 as usize];
+            // The straight middle section has no rounded corners, so it can be
+            // filled in bulk; only the corner bands need a distance field.
+            if py >= middle_top as f32 && py < middle_bottom as f32 {
+                if alpha == 255 {
+                    fill_row(row, color | 0xff00_0000);
+                } else {
+                    for pixel in row.iter_mut() {
+                        *pixel = blend_argb(color, *pixel);
+                    }
+                }
+                continue;
+            }
             for x in x0..x1 {
                 let distance = math::rounded_rect_sdf(
                     x as f32 + 0.5,
@@ -279,12 +365,12 @@ impl Display {
                 if pixel_alpha == 0 {
                     continue;
                 }
-                let index = row_start + x as usize;
+                let index = (x - x0) as usize;
                 if pixel_alpha >= 255 {
-                    self.pixels[index] = color | 0xff00_0000;
+                    row[index] = color | 0xff00_0000;
                 } else {
                     let source = (color & 0x00ff_ffff) | (pixel_alpha << 24);
-                    self.pixels[index] = blend_argb(source, self.pixels[index]);
+                    row[index] = blend_argb(source, row[index]);
                 }
             }
         }
@@ -301,9 +387,204 @@ impl Display {
         let half = thickness as f32 * 0.5;
         let alpha = color >> 24;
         let width = self.width;
+        let middle_top = rect.y + radius;
+        let middle_bottom = rect.bottom() - radius;
+        let band = thickness.max(1) + 1;
         for y in clipped.y..clipped.bottom() {
             let py = y as f32 + 0.5;
             let row_start = (y * width) as usize;
+            // Rows through the straight sides only need the two vertical
+            // edges; the interior cannot contribute to the outline.
+            if py >= middle_top as f32 && py < middle_bottom as f32 {
+                let left_end = (rect.x + band).min(clipped.right());
+                for x in clipped.x..left_end {
+                    self.stroke_pixel(row_start, x, py, rect, radius, half, alpha, color);
+                }
+                let right_start = (rect.right() - band).max(clipped.x);
+                for x in right_start..clipped.right() {
+                    self.stroke_pixel(row_start, x, py, rect, radius, half, alpha, color);
+                }
+                continue;
+            }
+            for x in clipped.x..clipped.right() {
+                self.stroke_pixel(row_start, x, py, rect, radius, half, alpha, color);
+            }
+        }
+        self.mark(rect);
+    }
+
+    #[inline]
+    #[allow(clippy::too_many_arguments)]
+    fn stroke_pixel(
+        &mut self,
+        row_start: usize,
+        x: i32,
+        py: f32,
+        rect: Rect,
+        radius: i32,
+        half: f32,
+        alpha: u32,
+        color: u32,
+    ) {
+        let distance = math::rounded_rect_sdf(
+            x as f32 + 0.5,
+            py,
+            rect.x as f32,
+            rect.y as f32,
+            rect.w as f32,
+            rect.h as f32,
+            radius as f32,
+        );
+        let ring = (distance.abs() - half).max(0.0);
+        let coverage = (1.0 - ring).clamp(0.0, 1.0);
+        if coverage <= 0.0 {
+            return;
+        }
+        let pixel_alpha = (alpha as f32 * coverage) as u32;
+        if pixel_alpha == 0 {
+            return;
+        }
+        let index = row_start + x as usize;
+        if pixel_alpha >= 255 {
+            self.pixels[index] = color | 0xff00_0000;
+        } else {
+            let source = (color & 0x00ff_ffff) | (pixel_alpha << 24);
+            self.pixels[index] = blend_argb(source, self.pixels[index]);
+        }
+    }
+
+    /// A soft drop shadow.  This is a single pass over the shadow ring: pixels
+    /// under the window are skipped, and the falloff is evaluated only where
+    /// the shadow can actually be seen.  The previous implementation painted
+    /// ten full-area layers, which dominated frame time.
+    pub fn drop_shadow(&mut self, rect: Rect, radius: i32, spread: i32, color: u32) {
+        let base_alpha = color >> 24;
+        if base_alpha == 0 || spread <= 0 {
+            return;
+        }
+        let offset = spread / 2;
+        let shadow = Rect::new(rect.x, rect.y + offset, rect.w, rect.h);
+        let expanded = Rect::new(
+            rect.x - spread,
+            rect.y - spread + offset,
+            rect.w + spread * 2,
+            rect.h + spread * 2,
+        );
+        let clipped = self.clipped(expanded);
+        if clipped.is_empty() {
+            return;
+        }
+        let radius = radius.min(rect.w / 2).min(rect.h / 2).max(0);
+        let spread_f = spread as f32;
+        let window_top = rect.y;
+        let window_bottom = rect.bottom();
+        let window_left = rect.x;
+        let window_right = rect.right();
+        for y in clipped.y..clipped.bottom() {
+            let py = y as f32 + 0.5;
+            let row_start = (y * self.width) as usize;
+            // The central span of a row crossing the window is covered by the
+            // window itself.  In the corner bands only the straight middle is
+            // certainly covered, so the corner notches still receive shadow.
+            let (skip_start, skip_end) = if y < window_top || y >= window_bottom {
+                (clipped.right(), clipped.right())
+            } else if y < window_top + radius || y >= window_bottom - radius {
+                (
+                    (window_left + radius).clamp(clipped.x, clipped.right()),
+                    (window_right - radius).clamp(clipped.x, clipped.right()),
+                )
+            } else {
+                (
+                    window_left.clamp(clipped.x, clipped.right()),
+                    window_right.clamp(clipped.x, clipped.right()),
+                )
+            };
+            for x in clipped.x..skip_start {
+                self.shadow_pixel(
+                    row_start, x, py, shadow, radius, spread_f, base_alpha, color,
+                );
+            }
+            for x in skip_end..clipped.right() {
+                self.shadow_pixel(
+                    row_start, x, py, shadow, radius, spread_f, base_alpha, color,
+                );
+            }
+        }
+        self.mark(expanded);
+    }
+
+    #[inline]
+    #[allow(clippy::too_many_arguments)]
+    fn shadow_pixel(
+        &mut self,
+        row_start: usize,
+        x: i32,
+        py: f32,
+        shadow: Rect,
+        radius: i32,
+        spread: f32,
+        base_alpha: u32,
+        color: u32,
+    ) {
+        // Anything inside the shadow rectangle is covered by the window, so it
+        // can never be visible; the distance test handles that along with the
+        // outer falloff.
+        let distance = math::rounded_rect_sdf(
+            x as f32 + 0.5,
+            py,
+            shadow.x as f32,
+            shadow.y as f32,
+            shadow.w as f32,
+            shadow.h as f32,
+            radius as f32,
+        );
+        if distance <= 0.0 || distance >= spread {
+            return;
+        }
+        let falloff = 1.0 - distance / spread;
+        let alpha = (base_alpha as f32 * falloff * falloff) as u32;
+        if alpha == 0 {
+            return;
+        }
+        let index = row_start + x as usize;
+        let source = (color & 0x00ff_ffff) | (alpha.min(255) << 24);
+        self.pixels[index] = blend_argb(source, self.pixels[index]);
+    }
+
+    /// A vertical gradient confined to a rounded rectangle.  Interior rows are
+    /// filled in bulk; only the corner bands pay for a distance field.
+    pub fn fill_rounded_vertical(&mut self, rect: Rect, radius: i32, top: u32, bottom: u32) {
+        let clipped = self.clipped(rect);
+        if clipped.is_empty() {
+            return;
+        }
+        let radius = radius.min(rect.w / 2).min(rect.h / 2).max(0);
+        let height = rect.h.max(1);
+        let interior_top = rect.y as f32 + radius as f32;
+        let interior_bottom = rect.bottom() as f32 - radius as f32;
+        for y in clipped.y..clipped.bottom() {
+            let t = if height <= 1 {
+                0
+            } else {
+                ((y - rect.y) * 255) / (height - 1)
+            };
+            let color = lerp_argb(top, bottom, t as u32);
+            let alpha = color >> 24;
+            let row_start = (y * self.width) as usize;
+            let row = &mut self.pixels
+                [row_start + clipped.x as usize..row_start + clipped.right() as usize];
+            let py = y as f32 + 0.5;
+            if py >= interior_top && py < interior_bottom {
+                if alpha == 255 {
+                    fill_row(row, color);
+                } else if alpha != 0 {
+                    for pixel in row.iter_mut() {
+                        let source = (color & 0x00ff_ffff) | (alpha << 24);
+                        *pixel = blend_argb(source, *pixel);
+                    }
+                }
+                continue;
+            }
             for x in clipped.x..clipped.right() {
                 let distance = math::rounded_rect_sdf(
                     x as f32 + 0.5,
@@ -314,8 +595,78 @@ impl Display {
                     rect.h as f32,
                     radius as f32,
                 );
-                let ring = (distance.abs() - half).max(0.0);
-                let coverage = (1.0 - ring).clamp(0.0, 1.0);
+                let coverage = math::coverage_from_sdf(distance);
+                if coverage <= 0.0 {
+                    continue;
+                }
+                let pixel_alpha = (alpha as f32 * coverage) as u32;
+                if pixel_alpha == 0 {
+                    continue;
+                }
+                let index = (x - clipped.x) as usize;
+                if pixel_alpha >= 255 {
+                    row[index] = color | 0xff00_0000;
+                } else {
+                    let source = (color & 0x00ff_ffff) | (pixel_alpha << 24);
+                    row[index] = blend_argb(source, row[index]);
+                }
+            }
+        }
+        self.mark(rect);
+    }
+
+    /// Add a soft radial light.  `strength` scales the source alpha at the
+    /// centre; the falloff is quadratic so the edge never bands.
+    pub fn radial_glow(&mut self, center: Point, radius: i32, color: u32, strength: f32) {
+        if radius <= 0 || color >> 24 == 0 {
+            return;
+        }
+        let rect = Rect::new(center.x - radius, center.y - radius, radius * 2, radius * 2);
+        let clipped = self.clipped(rect);
+        if clipped.is_empty() {
+            return;
+        }
+        let radius_f = radius as f32;
+        let radius_squared = radius_f * radius_f;
+        let base = (color >> 24) as f32;
+        for y in clipped.y..clipped.bottom() {
+            let dy = y as f32 + 0.5 - center.y as f32;
+            let row_start = (y * self.width) as usize;
+            for x in clipped.x..clipped.right() {
+                let dx = x as f32 + 0.5 - center.x as f32;
+                let distance_squared = dx * dx + dy * dy;
+                if distance_squared >= radius_squared {
+                    continue;
+                }
+                let falloff = 1.0 - distance_squared / radius_squared;
+                let alpha = (base * falloff * falloff * strength) as u32;
+                if alpha == 0 {
+                    continue;
+                }
+                let index = row_start + x as usize;
+                let source = (color & 0x00ff_ffff) | (alpha.min(255) << 24);
+                self.pixels[index] = blend_argb(source, self.pixels[index]);
+            }
+        }
+        self.mark(rect);
+    }
+
+    /// A filled circle.
+    pub fn fill_circle(&mut self, center: Point, radius: i32, color: u32) {
+        let rect = Rect::new(center.x - radius, center.y - radius, radius * 2, radius * 2);
+        let clipped = self.clipped(rect);
+        if clipped.is_empty() || color >> 24 == 0 {
+            return;
+        }
+        let radius_f = radius as f32;
+        let alpha = color >> 24;
+        for y in clipped.y..clipped.bottom() {
+            let dy = y as f32 + 0.5 - center.y as f32;
+            let row_start = (y * self.width) as usize;
+            for x in clipped.x..clipped.right() {
+                let dx = x as f32 + 0.5 - center.x as f32;
+                let distance = math::sqrt(dx * dx + dy * dy);
+                let coverage = (radius_f + 0.5 - distance).clamp(0.0, 1.0);
                 if coverage <= 0.0 {
                     continue;
                 }
@@ -324,61 +675,6 @@ impl Display {
                     continue;
                 }
                 let index = row_start + x as usize;
-                let source = (color & 0x00ff_ffff) | (pixel_alpha << 24);
-                self.pixels[index] = blend_argb(source, self.pixels[index]);
-            }
-        }
-        self.mark(rect);
-    }
-
-    /// A soft drop shadow built from concentric translucent rounded rectangles.
-    pub fn drop_shadow(&mut self, rect: Rect, radius: i32, spread: i32, color: u32) {
-        let layers = 10;
-        for layer in (0..layers).rev() {
-            let delta = (layer + 1) * spread / layers;
-            let alpha = ((color >> 24) as u32 * (layers as u32 - layer as u32)) / (layers as u32 * 2);
-            if alpha == 0 {
-                continue;
-            }
-            let source = (color & 0x00ff_ffff) | (alpha << 24);
-            let expanded = Rect::new(
-                rect.x - delta,
-                rect.y - delta + spread / 2,
-                rect.w + delta * 2,
-                rect.h + delta * 2,
-            );
-            self.fill_rounded(expanded, radius + delta, source);
-        }
-    }
-
-    /// A filled circle.
-    pub fn fill_circle(&mut self, center: Point, radius: i32, color: u32) {
-        let rect = Rect::new(
-            center.x - radius,
-            center.y - radius,
-            radius * 2,
-            radius * 2,
-        );
-        let clipped = self.clipped(rect);
-        if clipped.is_empty() || color >> 24 == 0 {
-            return;
-        }
-        let radius_squared = (radius * radius) as f32;
-        let alpha = color >> 24;
-        for y in clipped.y..clipped.bottom() {
-            let dy = y - center.y;
-            for x in clipped.x..clipped.right() {
-                let dx = x - center.x;
-                let distance = (dx * dx + dy * dy) as f32;
-                let coverage = (radius_squared - distance).clamp(0.0, 1.0);
-                if coverage <= 0.0 {
-                    continue;
-                }
-                let pixel_alpha = (alpha as f32 * coverage) as u32;
-                if pixel_alpha == 0 {
-                    continue;
-                }
-                let index = (y * self.width + x) as usize;
                 let source = (color & 0x00ff_ffff) | (pixel_alpha << 24);
                 self.pixels[index] = blend_argb(source, self.pixels[index]);
             }
@@ -410,8 +706,8 @@ impl Display {
                     continue;
                 }
                 let index = (y * rect.w + x) as usize;
-                let destination = (rect.y + y) as usize * self.width as usize
-                    + (rect.x + x) as usize;
+                let destination =
+                    (rect.y + y) as usize * self.width as usize + (rect.x + x) as usize;
                 let background = saved[index];
                 let current = self.pixels[destination];
                 self.pixels[destination] = blend_coverage(background, current, coverage);
@@ -436,18 +732,13 @@ impl Display {
     }
 
     /// Draw text using a baseline coordinate.
-    pub fn text_face(
-        &mut self,
-        x: i32,
-        baseline: i32,
-        text: &str,
-        face: &font::Face,
-        color: u32,
-    ) {
+    pub fn text_face(&mut self, x: i32, baseline: i32, text: &str, face: &font::Face, color: u32) {
         if color >> 24 == 0 {
             return;
         }
+        let gamma = gamma_tables();
         let clip = self.clip;
+        let opaque = color >> 24 == 255;
         let mut pen_x = x;
         for character in text.chars() {
             let glyph = match face.glyph(character) {
@@ -458,7 +749,7 @@ impl Display {
                 let coverage = face.coverage(glyph);
                 let glyph_x = pen_x + glyph.bearing_x;
                 let glyph_y = baseline + glyph.bearing_y;
-                let source_alpha = (color >> 24) as u32;
+                let source_alpha = color >> 24;
                 for row in 0..glyph.height {
                     let y = glyph_y + row;
                     if y < clip.y || y >= clip.bottom() {
@@ -482,30 +773,22 @@ impl Display {
                             continue;
                         }
                         let index = (y * self.width + x) as usize;
-                        let source = (color & 0x00ff_ffff) | (alpha << 24);
-                        self.pixels[index] = blend_argb(source, self.pixels[index]);
+                        if opaque && alpha >= 255 {
+                            self.pixels[index] = color;
+                        } else {
+                            self.pixels[index] =
+                                blend_linear(color, self.pixels[index], alpha, gamma);
+                        }
                     }
                 }
-                self.mark(Rect::new(
-                    glyph_x,
-                    glyph_y,
-                    glyph.width,
-                    glyph.height,
-                ));
+                self.mark(Rect::new(glyph_x, glyph_y, glyph.width, glyph.height));
             }
             pen_x += glyph.advance as i32;
         }
     }
 
     /// Draw text centred inside a rectangle.
-    pub fn text_centered(
-        &mut self,
-        rect: Rect,
-        text: &str,
-        size: u32,
-        bold: bool,
-        color: u32,
-    ) {
+    pub fn text_centered(&mut self, rect: Rect, text: &str, size: u32, bold: bool, color: u32) {
         let face = font::face(size, bold);
         let width = face.width(text);
         let x = rect.x + (rect.w - width) / 2;
@@ -514,6 +797,7 @@ impl Display {
     }
 
     /// Truncate text with an ellipsis so it fits in `width` pixels.
+    #[allow(clippy::too_many_arguments)]
     pub fn text_ellipsized(
         &mut self,
         x: i32,
@@ -572,8 +856,7 @@ impl Display {
         let x = x.clamp(0, self.width - 1);
         let y = y.clamp(0, self.height - 1);
         self.cursor = Point::new(x, y);
-        let rect = Rect::new(x, y, CURSOR_WIDTH + 2, CURSOR_HEIGHT + 2)
-            .intersect(self.screen());
+        let rect = Rect::new(x, y, CURSOR_WIDTH + 2, CURSOR_HEIGHT + 2).intersect(self.screen());
         if rect.is_empty() {
             return;
         }
@@ -744,7 +1027,8 @@ fn distance_to_edges(x: i32, y: i32, points: &[(i32, i32)]) -> f32 {
         };
         let px = x0 as f32 + dx * t;
         let py = y0 as f32 + dy * t;
-        let distance = math::sqrt((x as f32 - px) * (x as f32 - px) + (y as f32 - py) * (y as f32 - py));
+        let distance =
+            math::sqrt((x as f32 - px) * (x as f32 - px) + (y as f32 - py) * (y as f32 - py));
         if distance < closest {
             closest = distance;
         }

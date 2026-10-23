@@ -174,14 +174,20 @@ const FILES: &[(&str, &str)] = &[
          \n\
          There is no 32-bit code anywhere in the tree.\n",
     ),
-    ("/var/log/boot.log", "boot log is available in the terminal with `dmesg`\n"),
+    (
+        "/var/log/boot.log",
+        "boot log is available in the terminal with `dmesg`\n",
+    ),
     ("/proc/cpuinfo", ""),
     ("/proc/meminfo", ""),
     ("/proc/nodes", ""),
     ("/proc/processes", ""),
     ("/proc/version", ""),
     ("/proc/uptime", ""),
-    ("/proc/mounts", "procfs /proc proc rw,nosuid,nodev,noexec 0 0\nramfs / ramfs rw 0 0\n"),
+    (
+        "/proc/mounts",
+        "procfs /proc proc rw,nosuid,nodev,noexec 0 0\nramfs / ramfs rw 0 0\n",
+    ),
 ];
 
 fn initialise() -> Vfs {
@@ -248,7 +254,7 @@ pub fn resolve(cwd: &str, path: &str) -> String {
     if path.starts_with('/') {
         normalize(path)
     } else if path == ".." {
-        normalize(&parent(cwd).to_string())
+        normalize(parent(cwd))
     } else {
         normalize(&alloc::format!("{cwd}/{path}"))
     }
@@ -256,8 +262,7 @@ pub fn resolve(cwd: &str, path: &str) -> String {
 
 pub fn exists(path: &str) -> bool {
     let path = normalize(path);
-    DIRECTORIES.contains(&path.as_str())
-        || vfs().files.lock().iter().any(|file| file.path == path)
+    DIRECTORIES.contains(&path.as_str()) || vfs().files.lock().iter().any(|file| file.path == path)
 }
 
 pub fn is_dir(path: &str) -> bool {
@@ -344,7 +349,11 @@ fn dynamic(path: &str) -> Option<String> {
         "/proc/processes" => {
             use core::fmt::Write;
             let mut output = String::new();
-            let _ = writeln!(output, "{:>5} {:>5} {:<10} {:<24} {:>6}", "PID", "PPID", "STATE", "NAME", "TICKS");
+            let _ = writeln!(
+                output,
+                "{:>5} {:>5} {:<10} {:<24} {:>6}",
+                "PID", "PPID", "STATE", "NAME", "TICKS"
+            );
             for process in crate::mosix::processes() {
                 let _ = writeln!(
                     output,

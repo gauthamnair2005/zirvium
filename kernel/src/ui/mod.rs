@@ -17,7 +17,7 @@ use alloc::string::String;
 use alloc::vec::Vec;
 use core::sync::atomic::{AtomicU32, Ordering};
 
-use zirvstdlib::abi::{buttons, key, modifiers, InputEvent, InputKind};
+use zirvstdlib::abi::{InputEvent, InputKind, buttons, key, modifiers};
 use zirvstdlib::geometry::{Point, Rect};
 
 use crate::displayjet::Display;
@@ -246,10 +246,10 @@ struct Notification {
 // Layout helpers
 // ---------------------------------------------------------------------------
 
-const DOCK_GAP: i32 = 12;
+const DOCK_GAP: i32 = 14;
 
 fn launcher_button_rect() -> Rect {
-    Rect::new(9, 5, 108, 24)
+    Rect::new(10, 6, 116, 24)
 }
 
 fn clock_rect(width: i32) -> Rect {
@@ -258,19 +258,19 @@ fn clock_rect(width: i32) -> Rect {
 
 fn dock_panel(width: i32, height: i32) -> Rect {
     let count = DOCK_APPS.len() as i32;
-    let panel_width = count * DOCK_ICON + (count - 1) * DOCK_GAP + 28;
+    let panel_width = count * DOCK_ICON + (count - 1) * DOCK_GAP + 34;
     Rect::new(
         (width - panel_width) / 2,
-        height - DOCK_HEIGHT + 6,
+        height - DOCK_HEIGHT + 4,
         panel_width,
-        62,
+        68,
     )
 }
 
 fn dock_icon_rect(panel: Rect, index: usize) -> Rect {
     Rect::new(
-        panel.x + 14 + index as i32 * (DOCK_ICON + DOCK_GAP),
-        panel.y + 10,
+        panel.x + 17 + index as i32 * (DOCK_ICON + DOCK_GAP),
+        panel.y + 11,
         DOCK_ICON,
         DOCK_ICON,
     )
@@ -278,26 +278,27 @@ fn dock_icon_rect(panel: Rect, index: usize) -> Rect {
 
 fn launch_panel_rect() -> Rect {
     let rows = DOCK_APPS.len() as i32;
-    Rect::new(14, TOP_BAR_HEIGHT + 8, 264, 42 + rows * 44 + 28)
+    Rect::new(14, TOP_BAR_HEIGHT + 10, 306, 60 + rows * 50 + 34)
 }
 
 fn launch_row_rect(index: usize) -> Rect {
     let panel = launch_panel_rect();
     Rect::new(
-        panel.x + 8,
-        panel.y + 38 + index as i32 * 44,
-        panel.w - 16,
-        40,
+        panel.x + 10,
+        panel.y + 52 + index as i32 * 50,
+        panel.w - 20,
+        46,
     )
 }
 
 fn title_buttons(rect: Rect) -> (Rect, Rect, Rect) {
-    let y = rect.y + TITLE_HEIGHT / 2 - 7;
+    let size = 14;
+    let y = rect.y + (TITLE_HEIGHT - size) / 2;
     let right = rect.right();
     (
-        Rect::new(right - 28, y, 14, 14),
-        Rect::new(right - 48, y, 14, 14),
-        Rect::new(right - 68, y, 14, 14),
+        Rect::new(right - 30, y, size, size),
+        Rect::new(right - 52, y, size, size),
+        Rect::new(right - 74, y, size, size),
     )
 }
 
@@ -470,12 +471,8 @@ impl Desktop {
                 window.rect = restore;
             } else {
                 window.restore = Some(window.rect);
-                window.rect = Rect::new(
-                    0,
-                    TOP_BAR_HEIGHT,
-                    width,
-                    (height - TOP_BAR_HEIGHT).max(160),
-                );
+                window.rect =
+                    Rect::new(0, TOP_BAR_HEIGHT, width, (height - TOP_BAR_HEIGHT).max(160));
             }
             self.focused = Some(id);
         }
@@ -525,9 +522,9 @@ impl Desktop {
         if self.launcher {
             let panel = launch_panel_rect();
             if panel.contains(point) {
-                for index in 0..DOCK_APPS.len() {
+                for (index, app) in DOCK_APPS.iter().enumerate() {
                     if launch_row_rect(index).contains(point) {
-                        return Target::Dock(DOCK_APPS[index]);
+                        return Target::Dock(*app);
                     }
                 }
                 return Target::Nothing;
@@ -588,8 +585,8 @@ impl Desktop {
 
     fn pointer_down(&mut self, point: Point) -> bool {
         if self.launcher {
-            if let Some(index) = (0..DOCK_APPS.len())
-                .find(|index| launch_row_rect(*index).contains(point))
+            if let Some(index) =
+                (0..DOCK_APPS.len()).find(|index| launch_row_rect(*index).contains(point))
             {
                 let kind = DOCK_APPS[index];
                 self.launcher = false;
@@ -652,7 +649,8 @@ impl Desktop {
                     let (screen_width, screen_height) = (self.width, self.height);
                     if let Some(rect) = rect {
                         self.focus(id);
-                        if let Some(window) = self.windows.iter_mut().find(|window| window.id == id) {
+                        if let Some(window) = self.windows.iter_mut().find(|window| window.id == id)
+                        {
                             if let Some(restore) = window.restore.take() {
                                 // Dragging a maximised window restores it
                                 // under the pointer.
@@ -667,16 +665,13 @@ impl Desktop {
                                     0.05
                                 };
                                 window.rect = restore;
-                                let new_x =
-                                    point.x - (restore.w as f32 * scale_x) as i32;
+                                let new_x = point.x - (restore.w as f32 * scale_x) as i32;
                                 let new_y = point.y - (restore.h as f32 * scale_y) as i32;
                                 window.rect.x = new_x.clamp(16 - restore.w, screen_width - 64);
                                 window.rect.y = new_y.clamp(TOP_BAR_HEIGHT, screen_height - 40);
                             }
-                            let offset = Point::new(
-                                point.x - window.rect.x,
-                                point.y - window.rect.y,
-                            );
+                            let offset =
+                                Point::new(point.x - window.rect.x, point.y - window.rect.y);
                             let id = window.id;
                             self.drag = Some(Drag::Move { id, offset });
                         }
@@ -738,10 +733,8 @@ impl Desktop {
                 Drag::Resize { id, origin, rect } => {
                     let (width, height) = (self.width, self.height);
                     if let Some(window) = self.window_mut(id) {
-                        let new_w = (rect.w + point.x - origin.x)
-                            .clamp(360, width - rect.x);
-                        let new_h = (rect.h + point.y - origin.y)
-                            .clamp(260, height - rect.y - 8);
+                        let new_w = (rect.w + point.x - origin.x).clamp(360, width - rect.x);
+                        let new_h = (rect.h + point.y - origin.y).clamp(260, height - rect.y - 8);
                         window.rect.w = new_w;
                         window.rect.h = new_h;
                     }
@@ -781,13 +774,13 @@ impl Desktop {
             InputKind::Scroll => {
                 let point = Point::new(event.x, event.y);
                 let target = self.target_at(point);
-                if let Target::Content(id) = target {
-                    if let Some(content) = self.window(id).map(|window| window.content()) {
-                        if let Some(window) = self.window_mut(id) {
-                            window.app.scroll(point, content, event.value);
-                        }
-                        return true;
+                if let Target::Content(id) = target
+                    && let Some(content) = self.window(id).map(|window| window.content())
+                {
+                    if let Some(window) = self.window_mut(id) {
+                        window.app.scroll(point, content, event.value);
                     }
+                    return true;
                 }
                 false
             }
@@ -836,11 +829,9 @@ impl Desktop {
         let Some(id) = self.focused else {
             return false;
         };
-        let changed = self
-            .window_mut(id)
+        self.window_mut(id)
             .map(|window| window.app.key(code, event_modifiers))
-            .unwrap_or(false);
-        changed
+            .unwrap_or(false)
     }
 
     // -- Timers -------------------------------------------------------------
@@ -859,7 +850,7 @@ impl Desktop {
             crate::mosix::set_load(load);
             crate::mosix::account(4, 1);
             crate::mosix::account(6, 1);
-            if self.theme.show_seconds || second % 60 == 0 {
+            if self.theme.show_seconds || second.is_multiple_of(60) {
                 redraw = true;
             }
         }
@@ -937,30 +928,50 @@ impl Desktop {
 
     fn draw_top_bar(&self, display: &mut Display) {
         let width = self.width;
-        display.fill_rect(Rect::new(0, 0, width, TOP_BAR_HEIGHT), TOP_BAR);
-        display.fill_rect(
-            Rect::new(0, TOP_BAR_HEIGHT - 1, width, 1),
-            TOP_BAR_BORDER,
-        );
-
+        let bar = Rect::new(0, 0, width, TOP_BAR_HEIGHT);
+        display.fill_rounded_vertical(bar, 0, argb(0xf4, 0x0d1018), argb(0xe2, 0x090c12));
+        display.fill_rect(Rect::new(0, TOP_BAR_HEIGHT - 1, width, 1), TOP_BAR_BORDER);
+        // The menubar's only saturated element is the launcher chip, so the
+        // eye always knows where to start.
         let button = launcher_button_rect();
         let hot = self.hover == Target::Launcher || self.launcher;
-        if hot {
-            display.fill_rounded(button, 7, self.theme.accent_soft(46));
-        }
+        display.fill_rounded_vertical(
+            button,
+            8,
+            if hot {
+                self.theme.accent_soft(66)
+            } else {
+                argb(0x22, 0xffffff)
+            },
+            if hot {
+                self.theme.accent_soft(30)
+            } else {
+                argb(0x10, 0xffffff)
+            },
+        );
+        display.stroke_rounded(
+            button,
+            8,
+            1,
+            if hot {
+                self.theme.accent_soft(150)
+            } else {
+                argb(0x28, 0xffffff)
+            },
+        );
         widgets::icon(
             display,
-            Rect::new(button.x + 7, button.y + 4, 16, 16),
+            Rect::new(button.x + 8, button.y + 4, 16, 16),
             Icon::Logo,
             if hot { self.theme.accent } else { TEXT_MUTED },
         );
         display.text(
-            button.x + 30,
+            button.x + 32,
             button.y + 4,
             "Zirvium",
             12,
             true,
-            if hot { TEXT } else { TEXT_MUTED },
+            if hot { TEXT_STRONG } else { TEXT_MUTED },
         );
 
         let title = self
@@ -968,65 +979,63 @@ impl Desktop {
             .and_then(|id| self.window(id))
             .map(|window| window.app.kind().title())
             .unwrap_or("Desktop");
-        let center = Rect::new(140, 0, (width - 420).max(80), TOP_BAR_HEIGHT);
+        let center = Rect::new(148, 0, (width - 440).max(80), TOP_BAR_HEIGHT);
         display.text_centered(center, title, 11, false, TEXT_DIM);
 
-        // Right side: date, clock and cluster status.
+        // Right cluster: cluster status, date and time, separated by hairlines.
         let now = crate::time::now();
         let clock = if self.theme.show_seconds {
             alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second)
         } else {
             alloc::format!("{:02}:{:02}", now.hour, now.minute)
         };
-        let clock_width = widgets::text_width(&clock, 12, true);
-        display.text(
-            width - 16 - clock_width,
-            9,
-            &clock,
-            12,
-            true,
-            TEXT,
-        );
+        let clock_width = widgets::text_width(&clock, 13, true);
+        let clock_x = width - 16 - clock_width;
+        display.text(clock_x, 8, &clock, 13, true, TEXT);
+
         let date = alloc::format!("{} {}", now.month_name(), now.day);
         let date_width = widgets::text_width(&date, 11, false);
-        display.text(
-            width - 30 - clock_width - date_width,
-            10,
-            &date,
-            11,
-            false,
-            TEXT_DIM,
+        let date_x = clock_x - 14 - date_width;
+        display.text(date_x, 10, &date, 11, false, TEXT_DIM);
+        display.fill_rect(
+            Rect::new(date_x - 12, 12, 1, TOP_BAR_HEIGHT - 24),
+            argb(0x40, 0xffffff),
         );
-        // Cluster indicator: an accent dot plus the process count.
+
         let processes = crate::mosix::process_count();
         let status = alloc::format!("{processes} proc");
         let status_width = widgets::text_width(&status, 10, true);
-        let status_x = width - 44 - clock_width - date_width - status_width;
+        let status_x = date_x - 24 - status_width;
         display.fill_circle(
-            Point::new(status_x - 8, TOP_BAR_HEIGHT / 2),
+            Point::new(status_x - 9, TOP_BAR_HEIGHT / 2),
+            6,
+            self.theme.accent_soft(36),
+        );
+        display.fill_circle(
+            Point::new(status_x - 9, TOP_BAR_HEIGHT / 2),
             3,
             self.theme.accent,
         );
-        display.text(
-            status_x,
-            11,
-            &status,
-            10,
-            true,
-            TEXT_MUTED,
-        );
+        display.text(status_x, 11, &status, 10, true, TEXT_MUTED);
     }
 
     fn draw_dock(&self, display: &mut Display) {
         let panel = dock_panel(self.width, self.height);
-        display.drop_shadow(panel, 16, 12, argb(0x88, 0x000000));
-        widgets::panel(
-            display,
-            panel,
-            16,
-            argb(0xf4, 0x12141b),
-            TOP_BAR_BORDER,
+        display.radial_glow(
+            Point::new(panel.center().x, panel.center().y),
+            panel.w / 2 + 26,
+            self.theme.accent_soft(60),
+            0.55,
         );
+        display.drop_shadow(panel, 20, 18, argb(0xb0, 0x000000));
+        display.fill_rounded_vertical(panel, 20, argb(0xf2, 0x141925), argb(0xd8, 0x0a0d14));
+        display.stroke_rounded(panel, 20, 1, argb(0xff, 0x2a3242));
+        display.fill_rounded(
+            Rect::new(panel.x + 18, panel.y + 1, panel.w - 36, 1),
+            1,
+            argb(0x24, 0xffffff),
+        );
+
         for (index, kind) in DOCK_APPS.iter().enumerate() {
             let base = dock_icon_rect(panel, index);
             let hot = !self.launcher && self.hover == Target::Dock(*kind);
@@ -1037,33 +1046,48 @@ impl Desktop {
             } else {
                 base
             };
-            display.fill_rounded(
+            if hot {
+                display.fill_rounded(rect, 13, self.theme.accent_soft(26));
+            }
+            display.fill_rounded_vertical(
                 rect,
-                11,
-                if hot {
-                    self.theme.accent_soft(58)
-                } else if open {
-                    argb(0xff, 0x1c2029)
+                13,
+                if open {
+                    argb(0xff, 0x232a39)
                 } else {
-                    argb(0x90, 0x171a22)
+                    argb(0xd0, 0x171c27)
+                },
+                if open {
+                    argb(0xff, 0x161b25)
+                } else {
+                    argb(0xb0, 0x10141d)
                 },
             );
             display.stroke_rounded(
                 rect,
-                11,
+                13,
                 1,
                 if hot {
-                    self.theme.accent_soft(160)
+                    self.theme.accent_soft(190)
+                } else if open {
+                    argb(0xff, 0x354052)
                 } else {
                     BORDER_SOFT
                 },
             );
+            if hot {
+                // A soft inner glow gives the magnified tile a pressed-glass
+                // feel without a second border.
+                display.stroke_rounded(rect.inset(1), 12, 1, self.theme.accent_soft(60));
+            }
             widgets::icon(
                 display,
-                rect.inset(if hot { 11 } else { 10 }),
+                rect.inset(if hot { 12 } else { 11 }),
                 kind.icon(),
                 if focused {
                     self.theme.accent
+                } else if hot {
+                    TEXT_STRONG
                 } else if open {
                     TEXT
                 } else {
@@ -1071,8 +1095,10 @@ impl Desktop {
                 },
             );
             if open {
+                let dot = Point::new(rect.center().x, panel.bottom() - 7);
+                display.fill_circle(dot, 4, self.theme.accent_soft(34));
                 display.fill_circle(
-                    Point::new(rect.center().x, panel.bottom() - 5),
+                    dot,
                     2,
                     if focused {
                         self.theme.accent
@@ -1082,81 +1108,140 @@ impl Desktop {
                 );
             }
         }
+
+        // Tooltip: the dock is icon-only, so hovering names the target.
+        if !self.launcher
+            && let Target::Dock(kind) = self.hover
+            && let Some(index) = DOCK_APPS.iter().position(|candidate| *candidate == kind)
+        {
+            let base = dock_icon_rect(panel, index);
+            let face = crate::displayjet::font::face(11, true);
+            let label = kind.title();
+            let width = face.width(label) + 20;
+            let rect = Rect::new(
+                (base.center().x - width / 2).clamp(8, self.width - width - 8),
+                panel.y - 30,
+                width,
+                22,
+            );
+            display.drop_shadow(rect, 7, 6, argb(0x80, 0x000000));
+            widgets::panel(display, rect, 7, argb(0xf8, 0x151a24), BORDER);
+            display.text_centered(rect, label, 11, true, TEXT);
+        }
     }
 
     fn draw_launcher(&self, display: &mut Display) {
         let panel = launch_panel_rect();
-        display.drop_shadow(panel, 14, 16, argb(0x99, 0x000000));
-        widgets::panel(
-            display,
-            panel,
-            14,
-            argb(0xf8, 0x12141b),
-            TOP_BAR_BORDER,
+        display.radial_glow(
+            Point::new(panel.x + 70, panel.y + 20),
+            180,
+            self.theme.accent_soft(50),
+            0.5,
         );
-        display.text(panel.x + 16, panel.y + 12, "Applications", 12, true, TEXT);
-        display.text(
-            panel.right() - 16 - widgets::text_width("Super", 10, false),
-            panel.y + 14,
-            "Super",
-            10,
-            false,
-            TEXT_DIM,
+        display.drop_shadow(panel, 18, 22, argb(0xb0, 0x000000));
+        display.fill_rounded_vertical(panel, 18, argb(0xfa, 0x161b26), argb(0xec, 0x0c0f16));
+        display.stroke_rounded(panel, 18, 1, argb(0xff, 0x303a4c));
+        display.horizontal_gradient(
+            Rect::new(panel.x + 18, panel.y + 1, panel.w - 36, 1),
+            self.theme.accent_soft(210),
+            self.theme.accent_alt_soft(40),
         );
+
+        display.text(panel.x + 20, panel.y + 14, "Applications", 15, true, TEXT);
+        let hint = "Super";
+        let hint_width = widgets::text_width(hint, 10, true);
+        let hint_rect = Rect::new(
+            panel.right() - 18 - hint_width - 16,
+            panel.y + 16,
+            hint_width + 16,
+            18,
+        );
+        display.fill_rounded(hint_rect, 9, argb(0x24, 0xffffff));
+        display.text_centered(hint_rect, hint, 10, true, TEXT_DIM);
+
         for (index, kind) in DOCK_APPS.iter().enumerate() {
             let row = launch_row_rect(index);
             let selected = index == self.launcher_selected;
             let hot = self.hover == Target::Dock(*kind);
             if selected || hot {
-                display.fill_rounded(
+                display.fill_rounded_vertical(
                     row,
-                    9,
+                    10,
                     if selected {
                         self.theme.accent_soft(46)
                     } else {
-                        argb(0x30, 0xffffff)
+                        argb(0x28, 0xffffff)
+                    },
+                    if selected {
+                        self.theme.accent_soft(18)
+                    } else {
+                        argb(0x10, 0xffffff)
                     },
                 );
-                display.stroke_rounded(row, 9, 1, self.theme.accent_soft(80));
-            }
-            let badge = Rect::new(row.x + 8, row.y + 6, 28, 28);
-            display.fill_rounded(
-                badge,
-                7,
+                display.stroke_rounded(
+                    row,
+                    10,
+                    1,
+                    self.theme.accent_soft(if selected { 120 } else { 50 }),
+                );
                 if selected {
-                    self.theme.accent_soft(70)
+                    display.fill_rounded(
+                        Rect::new(row.x + 5, row.y + 11, 3, row.h - 22),
+                        2,
+                        self.theme.accent,
+                    );
+                }
+            }
+            let badge = Rect::new(row.x + 14, row.y + 7, 32, 32);
+            display.fill_rounded_vertical(
+                badge,
+                9,
+                if selected {
+                    self.theme.accent_soft(76)
                 } else {
-                    argb(0x30, 0xffffff)
+                    argb(0x38, 0xffffff)
+                },
+                if selected {
+                    self.theme.accent_soft(28)
+                } else {
+                    argb(0x16, 0xffffff)
                 },
             );
+            display.stroke_rounded(badge, 9, 1, argb(0x30, 0xffffff));
             widgets::icon(
                 display,
-                badge.inset(6),
+                badge.inset(8),
                 kind.icon(),
-                if selected { self.theme.accent } else { TEXT_MUTED },
+                if selected {
+                    self.theme.accent
+                } else {
+                    TEXT_MUTED
+                },
             );
-            display.text(row.x + 46, row.y + 6, kind.title(), 12, true, TEXT);
+            display.text(row.x + 58, row.y + 6, kind.title(), 13, true, TEXT);
             display.text_ellipsized(
-                row.x + 46,
-                row.y + 23,
+                row.x + 58,
+                row.y + 26,
                 kind.subtitle(),
-                row.w - 54,
-                10,
+                row.w - 94,
+                11,
                 false,
                 TEXT_DIM,
             );
             if selected {
                 widgets::icon(
                     display,
-                    Rect::new(row.right() - 22, row.y + 13, 12, 12),
+                    Rect::new(row.right() - 26, row.y + 16, 13, 13),
                     Icon::Right,
                     self.theme.accent,
                 );
+            } else if self.windows.iter().any(|window| window.app.kind() == *kind) {
+                display.fill_circle(Point::new(row.right() - 18, row.center().y), 3, TEXT_FAINT);
             }
         }
         display.text_centered(
-            Rect::new(panel.x, panel.bottom() - 24, panel.w, 18),
-            "Enter opens · Esc closes",
+            Rect::new(panel.x, panel.bottom() - 28, panel.w, 20),
+            "↑ ↓ select    Enter open    Esc close",
             10,
             false,
             TEXT_FAINT,
@@ -1167,50 +1252,67 @@ impl Desktop {
         if self.notifications.is_empty() {
             return;
         }
-        let width = (self.width - 40).clamp(200, 330);
-        let height = 62;
-        let mut bottom = self.height - DOCK_HEIGHT - 10;
+        let width = (self.width - 40).clamp(240, 348);
+        let height = 74;
+        let mut bottom = self.height - DOCK_HEIGHT - 12;
         for note in self.notifications.iter().rev() {
-            let rect = Rect::new(self.width - width - 16, bottom - height, width, height);
-            bottom -= height + 10;
+            let rect = Rect::new(self.width - width - 18, bottom - height, width, height);
+            bottom -= height + 12;
             let now = zirvstdlib::time::monotonic_ms();
             let remaining = note.life.saturating_sub(now.saturating_sub(note.born));
-            let fade = if remaining < 600 { 150 } else { 250 };
-            display.drop_shadow(rect, 12, 10, argb(0x88, 0x000000));
-            widgets::panel(display, rect, 12, argb(fade, 0x161922), TOP_BAR_BORDER);
+            let fade = if remaining < 600 { 160 } else { 246 };
+            let rise = if remaining < 240 {
+                ((240 - remaining) / 12) as i32
+            } else {
+                0
+            };
+            let rect = Rect::new(rect.x, rect.y + rise, rect.w, rect.h);
+            display.drop_shadow(rect, 14, 14, argb(0xa0, 0x000000));
+            display.fill_rounded_vertical(
+                rect,
+                14,
+                argb(fade, 0x1a1f2b),
+                argb(fade.saturating_sub(12), 0x10141c),
+            );
+            display.stroke_rounded(rect, 14, 1, argb(0xff, 0x333d50));
             display.fill_rounded(
-                Rect::new(rect.x, rect.y + 10, 3, rect.h - 20),
+                Rect::new(rect.x + 10, rect.y + 12, 3, rect.h - 24),
                 2,
                 self.theme.accent,
             );
-            display.text(rect.x + 16, rect.y + 11, &note.title, 12, true, TEXT);
+            let badge = Rect::new(rect.x + 22, rect.y + 14, 30, 30);
+            display.fill_rounded(badge, 9, self.theme.accent_soft(38));
+            widgets::icon(display, badge.inset(8), Icon::Spark, self.theme.accent);
+            display.text(rect.x + 62, rect.y + 13, &note.title, 12, true, TEXT);
             display.text_ellipsized(
-                rect.x + 16,
-                rect.y + 31,
+                rect.x + 62,
+                rect.y + 33,
                 &note.body,
-                rect.w - 30,
+                rect.w - 78,
                 11,
                 false,
                 TEXT_MUTED,
             );
-            // A small progress hairline shows how long the toast will stay.
+            // A hairline shows how long the toast will stay.
             let ratio = if note.life == 0 {
                 0.0
             } else {
                 remaining as f32 / note.life as f32
             };
-            display.fill_rect(
-                Rect::new(rect.x + 16, rect.bottom() - 10, rect.w - 32, 2),
-                argb(0x30, 0xffffff),
+            display.fill_rounded(
+                Rect::new(rect.x + 62, rect.bottom() - 15, rect.w - 84, 2),
+                1,
+                argb(0x2e, 0xffffff),
             );
-            display.fill_rect(
+            display.fill_rounded(
                 Rect::new(
-                    rect.x + 16,
-                    rect.bottom() - 10,
-                    ((rect.w - 32) as f32 * ratio) as i32,
+                    rect.x + 62,
+                    rect.bottom() - 15,
+                    (((rect.w - 84) as f32 * ratio) as i32).max(2),
                     2,
                 ),
-                self.theme.accent_soft(190),
+                1,
+                self.theme.accent_soft(205),
             );
         }
     }
@@ -1233,59 +1335,67 @@ fn draw_window(
     }
     let radius = WINDOW_RADIUS.min(rect.w / 2).min(rect.h / 2);
     display.reset_clip();
-    display.drop_shadow(rect, radius, 12, argb(0x78, 0x000000));
-    display.fill_rounded(rect, radius, WINDOW_BG);
-
-    let title_color = if focused {
-        argb(0xff, 0x202634)
-    } else {
-        TITLE_BG
-    };
-    display.fill_rounded(
-        Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT),
+    display.drop_shadow(
+        rect,
         radius,
-        title_color,
+        18,
+        argb(if focused { 0xa0 } else { 0x70 }, 0x000000),
     );
+    display.fill_rounded_vertical(rect, radius, WINDOW_BG, WINDOW_BG_DEEP);
+
+    let title_top = if focused { TITLE_BG_FOCUS } else { TITLE_BG };
+    let title_bottom = if focused {
+        argb(0xff, 0x191e28)
+    } else {
+        argb(0xff, 0x141821)
+    };
+    let title_rect = Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT);
+    display.fill_rounded_vertical(title_rect, radius, title_top, title_bottom);
     display.fill_rect(
-        Rect::new(
-            rect.x,
-            rect.y + TITLE_HEIGHT - radius,
-            rect.w,
-            radius + 1,
-        ),
-        title_color,
+        Rect::new(rect.x, rect.y + TITLE_HEIGHT - radius, rect.w, radius),
+        title_bottom,
     );
     display.horizontal_gradient(
-        Rect::new(
-            rect.x + radius,
-            rect.y + 1,
-            (rect.w - radius * 2).max(1),
-            1,
-        ),
-        theme.accent_soft(if focused { 110 } else { 30 }),
-        theme.accent_alt_soft(if focused { 40 } else { 12 }),
+        Rect::new(rect.x + radius, rect.y + 1, (rect.w - radius * 2).max(1), 1),
+        theme.accent_soft(if focused { 88 } else { 26 }),
+        theme.accent_alt_soft(if focused { 14 } else { 6 }),
     );
     display.fill_rect(
-        Rect::new(rect.x, rect.y + TITLE_HEIGHT - 1, rect.w, 1),
-        BORDER_SOFT,
+        Rect::new(rect.x + 1, rect.y + TITLE_HEIGHT - 1, rect.w - 2, 1),
+        argb(0xff, 0x0a0d13),
     );
 
     let kind = window.app.kind();
-    widgets::icon(
-        display,
-        Rect::new(rect.x + 13, rect.y + 9, 18, 18),
-        kind.icon(),
-        if focused { theme.accent } else { TEXT_DIM },
-    );
-    display.text_ellipsized(
-        rect.x + 40,
-        rect.y + 10,
-        kind.title(),
-        (rect.w - 150).max(30),
-        13,
-        true,
-        if focused { TEXT } else { TEXT_MUTED },
-    );
+    if focused {
+        let tile = Rect::new(rect.x + 12, rect.y + 8, 22, 22);
+        display.fill_rounded(tile, 7, theme.accent_soft(34));
+        widgets::icon(display, tile.inset(4), kind.icon(), theme.accent);
+        display.text_ellipsized(
+            rect.x + 42,
+            rect.y + 10,
+            kind.title(),
+            (rect.w - 158).max(30),
+            13,
+            true,
+            TEXT_STRONG,
+        );
+    } else {
+        widgets::icon(
+            display,
+            Rect::new(rect.x + 14, rect.y + 10, 18, 18),
+            kind.icon(),
+            TEXT_DIM,
+        );
+        display.text_ellipsized(
+            rect.x + 42,
+            rect.y + 10,
+            kind.title(),
+            (rect.w - 158).max(30),
+            13,
+            true,
+            TEXT_MUTED,
+        );
+    }
 
     let (close, minimize, maximize) = title_buttons(rect);
     let id = window.id;
@@ -1297,9 +1407,26 @@ fn draw_window(
     for (hit, glyph, color, target) in buttons {
         let hot = hover == target;
         let center = hit.center();
-        display.fill_circle(center, 6, if hot { color } else { argb(0x55, 0xffffff) });
+        display.fill_circle(
+            center,
+            8,
+            if hot {
+                argb(0x66, color & 0x00ff_ffff)
+            } else {
+                argb(0x20, color & 0x00ff_ffff)
+            },
+        );
+        display.fill_circle(
+            center,
+            6,
+            if hot {
+                color
+            } else {
+                argb(0xc0, color & 0x00ff_ffff)
+            },
+        );
         if hot {
-            widgets::icon(display, hit.inset(3), glyph, rgb(0x140609));
+            widgets::icon(display, hit.inset(4), glyph, rgb(0x16080a));
         }
     }
 
@@ -1311,30 +1438,38 @@ fn draw_window(
         display.reset_clip();
     }
 
+    if focused {
+        // Inner sparkle: a faint accent line just inside the window edge.
+        display.stroke_rounded(rect.inset(1), radius - 1, 1, theme.accent_soft(34));
+    }
     display.stroke_rounded(
         rect,
         radius,
         1,
         if focused {
-            theme.accent_soft(160)
+            theme.accent_soft(82)
         } else {
             BORDER
         },
     );
 
-    if hover == Target::Resize(id) {
-        for step in 0..3 {
-            let offset = 4 + step * 4;
-            widgets::line(
-                display,
-                rect.right() - offset - 6,
-                rect.bottom() - 4,
-                rect.right() - 4,
-                rect.bottom() - offset - 6,
-                1,
-                theme.accent_soft(150),
-            );
-        }
+    // Resize grip: always present but quiet until the corner is hot.
+    let grip_alpha = if hover == Target::Resize(id) { 190 } else { 70 };
+    for step in 0..3 {
+        let offset = 5 + step * 4;
+        widgets::line(
+            display,
+            rect.right() - offset - 5,
+            rect.bottom() - 5,
+            rect.right() - 5,
+            rect.bottom() - offset - 5,
+            1,
+            if hover == Target::Resize(id) {
+                theme.accent_soft(grip_alpha)
+            } else {
+                argb(grip_alpha, 0xffffff)
+            },
+        );
     }
 }
 
@@ -1350,47 +1485,94 @@ pub fn splash(display: &mut Display) {
     let screen = display.screen();
     let (width, height) = (screen.w, screen.h);
     display.reset_clip();
-    display.vertical_gradient(screen, rgb(0x06080f), rgb(0x101b2e));
+    display.vertical_gradient(screen, rgb(0x04060c), rgb(0x0a1524));
 
     let center_x = width / 2;
     let center_y = height / 2;
-    let mark = Rect::new(center_x - 44, center_y - 132, 88, 88);
-    display.drop_shadow(mark, 22, 18, argb(0xa0, 0x000000));
-    display.fill_rounded(mark, 22, theme.accent_soft(44));
-    display.stroke_rounded(mark, 22, 1, theme.accent_soft(150));
-    widgets::icon(display, mark.inset(22), Icon::Logo, theme.accent);
 
-    display.text_centered(
-        Rect::new(0, center_y - 28, width, 48),
+    // Ambient light: two accent pools and a soft white core behind the mark.
+    display.radial_glow(
+        Point::new(width * 22 / 100, height * 26 / 100),
+        (width.max(height) as f32 * 0.55) as i32,
+        theme.accent_soft(255),
+        0.34,
+    );
+    display.radial_glow(
+        Point::new(width * 80 / 100, height * 76 / 100),
+        (width.max(height) as f32 * 0.62) as i32,
+        theme.accent_alt_soft(255),
+        0.30,
+    );
+    display.radial_glow(
+        Point::new(center_x, center_y - 96),
+        240,
+        rgb(0xffffff),
+        0.055,
+    );
+
+    let mark = Rect::new(center_x - 48, center_y - 154, 96, 96);
+    display.radial_glow(mark.center(), 150, theme.accent_soft(255), 0.42);
+    display.drop_shadow(mark, 26, 22, argb(0xb0, 0x000000));
+    display.fill_rounded_vertical(mark, 26, theme.accent_soft(78), theme.accent_alt_soft(34));
+    display.stroke_rounded(mark, 26, 1, theme.accent_soft(205));
+    display.stroke_rounded(mark.inset(1), 25, 1, argb(0x50, 0xffffff));
+    display.fill_rounded(
+        Rect::new(mark.x + 22, mark.y + 1, mark.w - 44, 1),
+        1,
+        argb(0x60, 0xffffff),
+    );
+    widgets::icon(display, mark.inset(25), Icon::Logo, rgb(0xffffff));
+    display.stroke_rounded(
+        Rect::new(mark.x - 12, mark.y - 12, mark.w + 24, mark.h + 24),
+        36,
+        1,
+        theme.accent_soft(36),
+    );
+
+    widgets::text_shadow(
+        display,
+        center_x - widgets::text_width("Zirvium", 40, true) / 2,
+        center_y - 44,
         "Zirvium",
         40,
         true,
-        TEXT,
+        TEXT_STRONG,
     );
     display.text_centered(
-        Rect::new(0, center_y + 24, width, 20),
+        Rect::new(0, center_y + 4, width, 24),
         "one cluster, one display",
-        13,
+        14,
         false,
         theme.accent,
     );
     display.text_centered(
-        Rect::new(0, center_y + 52, width, 18),
+        Rect::new(0, center_y + 32, width, 18),
         "2.0 · MOSIX + DisplayJet · 64-bit Rust and assembly",
         10,
         false,
         TEXT_DIM,
     );
 
-    let bar = Rect::new(center_x - 110, center_y + 104, 220, 3);
-    display.fill_rounded(bar, 1, argb(0x40, 0xffffff));
+    let bar = Rect::new(center_x - 120, center_y + 88, 240, 4);
+    display.fill_rounded(bar, 2, argb(0x38, 0xffffff));
     display.fill_rounded(
-        Rect::new(bar.x, bar.y, 150, 3),
+        Rect::new(bar.x, bar.y, 164, bar.h),
+        2,
+        theme.accent_soft(235),
+    );
+    display.fill_rounded(
+        Rect::new(bar.x + 2, bar.y + 1, 160, 1),
         1,
-        theme.accent_soft(220),
+        argb(0x70, 0xffffff),
+    );
+    display.fill_circle(Point::new(bar.x + 164, bar.center().y), 4, rgb(0xffffff));
+    display.fill_circle(
+        Point::new(bar.x + 164, bar.center().y),
+        7,
+        theme.accent_soft(70),
     );
     display.text_centered(
-        Rect::new(0, center_y + 118, width, 16),
+        Rect::new(0, center_y + 104, width, 16),
         "initialising DisplayJet scanout",
         9,
         false,

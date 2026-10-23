@@ -40,7 +40,7 @@ impl Terminal {
             history: Vec::new(),
             history_position: None,
         };
-        terminal.push(format!("Zirvium 2.0 — DisplayJet terminal"));
+        terminal.push(String::from("Zirvium 2.0 — DisplayJet terminal"));
         terminal.push(format!(
             "Kernel booted in {} on {} logical processor(s).",
             uptime,
@@ -95,7 +95,12 @@ impl Terminal {
         if input.trim().is_empty() {
             return;
         }
-        if self.history.last().map(|entry| entry != &input).unwrap_or(true) {
+        if self
+            .history
+            .last()
+            .map(|entry| entry != &input)
+            .unwrap_or(true)
+        {
             self.history.push(input.clone());
         }
         self.history_position = None;
@@ -138,23 +143,35 @@ impl Terminal {
                     ("OS", format!("Zirvium {} (64-bit)", zirvstdlib::VERSION)),
                     ("Host", String::from("UEFI / x86_64")),
                     ("Kernel", String::from("Rust + assembly, no libc")),
-                    ("CPU", format!(
-                        "{} ({} logical)",
-                        crate::arch::cpu::vendor_str(),
-                        crate::arch::cpu::logical_processors()
-                    )),
+                    (
+                        "CPU",
+                        format!(
+                            "{} ({} logical)",
+                            crate::arch::cpu::vendor_str(),
+                            crate::arch::cpu::logical_processors()
+                        ),
+                    ),
                     ("GPU", gpu.name_str().to_string()),
-                    ("Display", format!(
-                        "DisplayJet {}x{} SIMD compositor",
-                        crate::ui::WIDTH_HINT.load(core::sync::atomic::Ordering::Relaxed),
-                        crate::ui::HEIGHT_HINT.load(core::sync::atomic::Ordering::Relaxed)
-                    )),
-                    ("Memory", format!("{} free", widgets::byte_size(memory.free_bytes))),
-                    ("Cluster", format!(
-                        "MOSIX node 0 of {} ({} processes)",
-                        crate::mosix::node_count(),
-                        crate::mosix::process_count()
-                    )),
+                    (
+                        "Display",
+                        format!(
+                            "DisplayJet {}x{} SIMD compositor",
+                            crate::ui::WIDTH_HINT.load(core::sync::atomic::Ordering::Relaxed),
+                            crate::ui::HEIGHT_HINT.load(core::sync::atomic::Ordering::Relaxed)
+                        ),
+                    ),
+                    (
+                        "Memory",
+                        format!("{} free", widgets::byte_size(memory.free_bytes)),
+                    ),
+                    (
+                        "Cluster",
+                        format!(
+                            "MOSIX node 0 of {} ({} processes)",
+                            crate::mosix::node_count(),
+                            crate::mosix::process_count()
+                        ),
+                    ),
                     ("Uptime", thrust.to_string()),
                 ];
                 let logo = [
@@ -170,7 +187,9 @@ impl Terminal {
                     let art = logo.get(index).copied().unwrap_or("                  ");
                     self.push(format!("{art}  {:<8} {}", row.0, row.1));
                 }
-                self.push(String::from("                  Zirvium: one cluster, one display."));
+                self.push(String::from(
+                    "                  Zirvium: one cluster, one display.",
+                ));
             }
             "ps" => {
                 self.push(format!(
@@ -196,7 +215,9 @@ impl Terminal {
                 ));
             }
             "migrate" => {
-                let pid = arguments.first().and_then(|value| value.parse::<u32>().ok());
+                let pid = arguments
+                    .first()
+                    .and_then(|value| value.parse::<u32>().ok());
                 let node = arguments.get(1).and_then(|value| value.parse::<u32>().ok());
                 match (pid, node) {
                     (Some(pid), Some(node)) => {
@@ -216,11 +237,7 @@ impl Terminal {
                 if name.is_empty() {
                     self.push(String::from("usage: spawn NAME"));
                 } else {
-                    let pid = crate::mosix::spawn_process(
-                        crate::mosix::desktop_pid(),
-                        &name,
-                        1024,
-                    );
+                    let pid = crate::mosix::spawn_process(crate::mosix::desktop_pid(), &name, 1024);
                     if pid == 0 {
                         self.push(String::from("spawn failed: process table full"));
                     } else {
@@ -229,7 +246,9 @@ impl Terminal {
                 }
             }
             "kill" => {
-                let pid = arguments.first().and_then(|value| value.parse::<u32>().ok());
+                let pid = arguments
+                    .first()
+                    .and_then(|value| value.parse::<u32>().ok());
                 match pid {
                     Some(pid) if pid > 7 => {
                         if crate::mosix::exit_process(pid) {
@@ -245,7 +264,10 @@ impl Terminal {
             "gpu" => {
                 let gpu = crate::drivers::pci::gpu();
                 self.push(format!("adapter   {}", gpu.name_str()));
-                self.push(format!("vendor    {:?} ({:04x})", gpu.vendor, gpu.vendor_id));
+                self.push(format!(
+                    "vendor    {:?} ({:04x})",
+                    gpu.vendor, gpu.vendor_id
+                ));
                 self.push(format!("device    {:04x}", gpu.device_id));
                 self.push(format!(
                     "mmio      {:#x}..{:#x}",
@@ -376,10 +398,7 @@ impl Terminal {
                 ));
             }
             "echo" => {
-                let text = input
-                    .split_once(' ')
-                    .map(|(_, rest)| rest)
-                    .unwrap_or("");
+                let text = input.split_once(' ').map(|(_, rest)| rest).unwrap_or("");
                 self.push(text.to_string());
             }
             "clear" => {
@@ -463,24 +482,20 @@ impl Terminal {
         self.cursor = index;
     }
 
-    pub fn draw(
-        &mut self,
-        display: &mut Display,
-        content: Rect,
-        theme: &Theme,
-        focused: bool,
-    ) {
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, focused: bool) {
         let body = Rect::new(content.x, content.y, content.w, content.h);
-        display.fill_rect(body, rgb(0x0b0e15));
+        display.fill_rounded_vertical(body, 0, rgb(0x0d1119), rgb(0x080b11));
         // A faint top edge separates the terminal from the title bar.
-        display.fill_rect(
+        display.fill_rect(Rect::new(body.x, body.y, body.w, 1), argb(0x28, 0xffffff));
+        display.horizontal_gradient(
             Rect::new(body.x, body.y, body.w, 1),
-            argb(0x40, 0xffffff),
+            theme.accent_soft(70),
+            argb(0x00, 0x000000),
         );
 
         let face = crate::displayjet::font::face(14, false);
-        let line_height = (face.line_height + 1).max(14);
-        let padding = 14;
+        let line_height = (face.line_height + 2).max(16);
+        let padding = 18;
         let text_width = body.w - padding * 2 - 8;
         let available = (body.h - padding * 2) / line_height - 1;
         if available <= 0 {
@@ -545,7 +560,7 @@ impl Terminal {
             let input_x = body.x + padding + prompt_width;
             display.text_face(input_x, y + face.ascent, &self.input, face, TEXT);
             let caret_x = input_x + face.prefix_width(&self.input, self.char_count_before_cursor());
-            let blink = (zirvstdlib::time::monotonic_ms() / 530) % 2 == 0;
+            let blink = (zirvstdlib::time::monotonic_ms() / 530).is_multiple_of(2);
             if focused && blink {
                 display.fill_rect(
                     Rect::new(caret_x, y + 2, 2, (face.line_height - 4).max(8)),
@@ -558,10 +573,8 @@ impl Terminal {
         if max_scroll > 0 {
             let track = Rect::new(body.right() - 7, body.y + 6, 3, body.h - 12);
             display.fill_rounded(track, 2, argb(0x30, 0xffffff));
-            let length = ((track.h as f32) * available as f32 / total as f32)
-                .max(18.0) as i32;
-            let offset = (((track.h - length) as f32)
-                * self.scroll as f32
+            let length = ((track.h as f32) * available as f32 / total as f32).max(18.0) as i32;
+            let offset = (((track.h - length) as f32) * self.scroll as f32
                 / max_scroll.max(1) as f32) as i32;
             display.fill_rounded(
                 Rect::new(track.x, track.bottom() - length - offset, 3, length),
@@ -651,11 +664,12 @@ impl Terminal {
                     }
                     return true;
                 }
-                if code >= 0x20 && code != 0x7f {
-                    if let Some(character) = char::from_u32(code) {
-                        self.insert(character);
-                        self.scroll = 0;
-                    }
+                if code >= 0x20
+                    && code != 0x7f
+                    && let Some(character) = char::from_u32(code)
+                {
+                    self.insert(character);
+                    self.scroll = 0;
                 }
             }
         }

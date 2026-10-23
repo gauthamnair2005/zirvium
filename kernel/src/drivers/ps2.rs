@@ -6,7 +6,7 @@
 
 use core::sync::atomic::{AtomicBool, AtomicI32, AtomicU8, AtomicU16, Ordering};
 
-use zirvstdlib::abi::{buttons, key, modifiers, InputEvent, InputKind};
+use zirvstdlib::abi::{InputEvent, InputKind, buttons, key, modifiers};
 use zirvstdlib::sync::SpinLock;
 
 use crate::arch::port::{inb, outb};

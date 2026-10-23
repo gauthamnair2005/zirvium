@@ -6,8 +6,8 @@ use alloc::vec::Vec;
 use zirvstdlib::geometry::{Point, Rect};
 use zirvstdlib::math;
 
-use crate::displayjet::font::Face;
 use crate::displayjet::Display;
+use crate::displayjet::font::Face;
 use crate::ui::theme::*;
 
 /// Alpha-blend `source` over `destination` with an explicit 0..=255 alpha.
@@ -20,16 +20,14 @@ pub fn blend(source: u32, destination: u32, alpha: u32) -> u32 {
         return (source & 0x00ff_ffff) | 0xff00_0000;
     }
     let inverse = 255 - alpha;
-    let rb = (((source & 0x00ff_00ff) * alpha
-        + (destination & 0x00ff_00ff) * inverse
-        + 0x0080_0080)
-        >> 8)
-        & 0x00ff_00ff;
-    let g = (((source & 0x0000_ff00) * alpha
-        + (destination & 0x0000_ff00) * inverse
-        + 0x0000_8000)
-        >> 8)
-        & 0x0000_ff00;
+    let rb =
+        (((source & 0x00ff_00ff) * alpha + (destination & 0x00ff_00ff) * inverse + 0x0080_0080)
+            >> 8)
+            & 0x00ff_00ff;
+    let g =
+        (((source & 0x0000_ff00) * alpha + (destination & 0x0000_ff00) * inverse + 0x0000_8000)
+            >> 8)
+            & 0x0000_ff00;
     rb | g
 }
 
@@ -44,15 +42,7 @@ pub fn lerp_color(first: u32, second: u32, t: f32) -> u32 {
 }
 
 /// A line rasterised as a sequence of small squares.
-pub fn line(
-    display: &mut Display,
-    x0: i32,
-    y0: i32,
-    x1: i32,
-    y1: i32,
-    thickness: i32,
-    color: u32,
-) {
+pub fn line(display: &mut Display, x0: i32, y0: i32, x1: i32, y1: i32, thickness: i32, color: u32) {
     let dx = x1 - x0;
     let dy = y1 - y0;
     let steps = dx.abs().max(dy.abs()).max(1);
@@ -74,12 +64,7 @@ pub fn circle_outline(
     thickness: i32,
     color: u32,
 ) {
-    let rect = Rect::new(
-        center.x - radius,
-        center.y - radius,
-        radius * 2,
-        radius * 2,
-    );
+    let rect = Rect::new(center.x - radius, center.y - radius, radius * 2, radius * 2);
     display.stroke_rounded(rect, radius, thickness, color);
 }
 
@@ -88,16 +73,27 @@ pub fn panel(display: &mut Display, rect: Rect, radius: i32, fill: u32, border: 
     if border >> 24 != 0 {
         display.stroke_rounded(rect, radius, 1, border);
     }
+    if rect.h >= 24 {
+        // A one-pixel inner highlight along the top edge suggests a bevel
+        // without adding a second visible border.
+        let inset = radius.max(4);
+        if rect.w > inset * 2 {
+            display.fill_rect(
+                Rect::new(rect.x + inset, rect.y + 1, rect.w - inset * 2, 1),
+                argb(0x12, 0xffffff),
+            );
+        }
+    }
 }
 
-/// A rounded, tinted card with a hairline border.
+/// A rounded, tinted card with a hairline border and a faint accent edge.
 pub fn card(display: &mut Display, rect: Rect, theme: &Theme) {
-    panel(display, rect, 10, PANEL_SOFT, BORDER_SOFT);
-    // A very subtle top highlight.
+    display.fill_rounded_vertical(rect, 11, PANEL_SOFT, argb(0xff, 0x141821));
+    display.stroke_rounded(rect, 11, 1, BORDER_SOFT);
     display.horizontal_gradient(
-        Rect::new(rect.x + 1, rect.y + 1, rect.w - 2, 1),
-        theme.accent_soft(40),
-        theme.accent_alt_soft(18),
+        Rect::new(rect.x + 12, rect.y + 1, (rect.w - 24).max(1), 1),
+        theme.accent_soft(70),
+        theme.accent_alt_soft(22),
     );
 }
 
@@ -144,20 +140,62 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
 
     match kind {
         Icon::Logo => {
-            line(display, x(0.26), y(0.28), x(0.74), y(0.28), thickness, color);
-            line(display, x(0.74), y(0.28), x(0.26), y(0.72), thickness, color);
-            line(display, x(0.26), y(0.72), x(0.74), y(0.72), thickness, color);
-            line(display, x(0.26), y(0.28), x(0.30), y(0.28), thickness, color);
+            line(
+                display,
+                x(0.26),
+                y(0.28),
+                x(0.74),
+                y(0.28),
+                thickness,
+                color,
+            );
+            line(
+                display,
+                x(0.74),
+                y(0.28),
+                x(0.26),
+                y(0.72),
+                thickness,
+                color,
+            );
+            line(
+                display,
+                x(0.26),
+                y(0.72),
+                x(0.74),
+                y(0.72),
+                thickness,
+                color,
+            );
+            line(
+                display,
+                x(0.26),
+                y(0.28),
+                x(0.30),
+                y(0.28),
+                thickness,
+                color,
+            );
         }
         Icon::Terminal => {
-            let frame = Rect::new(x(0.14), y(0.18), (scale * 0.72) as i32, (scale * 0.64) as i32);
+            let frame = Rect::new(
+                x(0.14),
+                y(0.18),
+                (scale * 0.72) as i32,
+                (scale * 0.64) as i32,
+            );
             display.stroke_rounded(frame, (scale * 0.10) as i32, thin, color);
             line(display, x(0.30), y(0.39), x(0.41), y(0.50), thin, color);
             line(display, x(0.41), y(0.50), x(0.30), y(0.61), thin, color);
             line(display, x(0.52), y(0.61), x(0.68), y(0.61), thin, color);
         }
         Icon::Files => {
-            let folder = Rect::new(x(0.14), y(0.28), (scale * 0.72) as i32, (scale * 0.50) as i32);
+            let folder = Rect::new(
+                x(0.14),
+                y(0.28),
+                (scale * 0.72) as i32,
+                (scale * 0.50) as i32,
+            );
             display.stroke_rounded(folder, (scale * 0.07) as i32, thin, color);
             line(display, x(0.14), y(0.36), x(0.48), y(0.36), thin, color);
             line(display, x(0.30), y(0.28), x(0.30), y(0.22), thin, color);
@@ -165,7 +203,12 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
             line(display, x(0.46), y(0.22), x(0.46), y(0.28), thin, color);
         }
         Icon::Monitor => {
-            let screen = Rect::new(x(0.12), y(0.16), (scale * 0.76) as i32, (scale * 0.54) as i32);
+            let screen = Rect::new(
+                x(0.12),
+                y(0.16),
+                (scale * 0.76) as i32,
+                (scale * 0.54) as i32,
+            );
             display.stroke_rounded(screen, (scale * 0.08) as i32, thin, color);
             line(display, x(0.50), y(0.70), x(0.50), y(0.80), thin, color);
             line(display, x(0.34), y(0.82), x(0.66), y(0.82), thin, color);
@@ -191,7 +234,15 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
                 color,
             );
             display.fill_circle(Point::new(x(0.50), y(0.34)), (scale * 0.05) as i32, color);
-            line(display, x(0.50), y(0.46), x(0.50), y(0.66), thickness, color);
+            line(
+                display,
+                x(0.50),
+                y(0.46),
+                x(0.50),
+                y(0.66),
+                thickness,
+                color,
+            );
         }
         Icon::Nodes => {
             let radius = (scale * 0.095) as i32;
@@ -213,7 +264,12 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
             line(display, x(0.32), y(0.55), x(0.68), y(0.55), thin, color);
         }
         Icon::Maximize => {
-            let frame = Rect::new(x(0.34), y(0.34), (scale * 0.32) as i32, (scale * 0.32) as i32);
+            let frame = Rect::new(
+                x(0.34),
+                y(0.34),
+                (scale * 0.32) as i32,
+                (scale * 0.32) as i32,
+            );
             display.stroke_rounded(frame, (scale * 0.04) as i32, thin, color);
         }
         Icon::Up => {
@@ -236,12 +292,30 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
                 thin,
                 color,
             );
-            line(display, x(0.59), y(0.59), x(0.76), y(0.76), thickness, color);
+            line(
+                display,
+                x(0.59),
+                y(0.59),
+                x(0.76),
+                y(0.76),
+                thickness,
+                color,
+            );
         }
         Icon::Cpu => {
-            let body = Rect::new(x(0.28), y(0.28), (scale * 0.44) as i32, (scale * 0.44) as i32);
+            let body = Rect::new(
+                x(0.28),
+                y(0.28),
+                (scale * 0.44) as i32,
+                (scale * 0.44) as i32,
+            );
             display.stroke_rounded(body, (scale * 0.05) as i32, thin, color);
-            let inner = Rect::new(x(0.40), y(0.40), (scale * 0.20) as i32, (scale * 0.20) as i32);
+            let inner = Rect::new(
+                x(0.40),
+                y(0.40),
+                (scale * 0.20) as i32,
+                (scale * 0.20) as i32,
+            );
             display.fill_rounded(inner, (scale * 0.03) as i32, color);
             for offset in [0.36, 0.50, 0.64] {
                 line(display, x(offset), y(0.16), x(offset), y(0.28), thin, color);
@@ -260,7 +334,12 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
             }
         }
         Icon::Gpu => {
-            let body = Rect::new(x(0.16), y(0.26), (scale * 0.68) as i32, (scale * 0.48) as i32);
+            let body = Rect::new(
+                x(0.16),
+                y(0.26),
+                (scale * 0.68) as i32,
+                (scale * 0.48) as i32,
+            );
             display.stroke_rounded(body, (scale * 0.07) as i32, thin, color);
             circle_outline(
                 display,
@@ -284,12 +363,44 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
             line(display, x(0.50), y(0.50), x(0.64), y(0.58), thin, color);
         }
         Icon::Plus => {
-            line(display, x(0.50), y(0.28), x(0.50), y(0.72), thickness, color);
-            line(display, x(0.28), y(0.50), x(0.72), y(0.50), thickness, color);
+            line(
+                display,
+                x(0.50),
+                y(0.28),
+                x(0.50),
+                y(0.72),
+                thickness,
+                color,
+            );
+            line(
+                display,
+                x(0.28),
+                y(0.50),
+                x(0.72),
+                y(0.50),
+                thickness,
+                color,
+            );
         }
         Icon::Check => {
-            line(display, x(0.28), y(0.52), x(0.44), y(0.68), thickness, color);
-            line(display, x(0.44), y(0.68), x(0.74), y(0.34), thickness, color);
+            line(
+                display,
+                x(0.28),
+                y(0.52),
+                x(0.44),
+                y(0.68),
+                thickness,
+                color,
+            );
+            line(
+                display,
+                x(0.44),
+                y(0.68),
+                x(0.74),
+                y(0.34),
+                thickness,
+                color,
+            );
         }
         Icon::Power => {
             circle_outline(
@@ -304,7 +415,15 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
                 argb(0, 0),
             );
             // Redraw the top gap in the accent colour, then the stem.
-            line(display, x(0.50), y(0.24), x(0.50), y(0.52), thickness, color);
+            line(
+                display,
+                x(0.50),
+                y(0.24),
+                x(0.50),
+                y(0.52),
+                thickness,
+                color,
+            );
         }
         Icon::Spark => {
             line(display, x(0.50), y(0.20), x(0.50), y(0.80), thin, color);
@@ -313,7 +432,12 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
             line(display, x(0.70), y(0.30), x(0.30), y(0.70), thin, color);
         }
         Icon::Document => {
-            let page = Rect::new(x(0.24), y(0.14), (scale * 0.46) as i32, (scale * 0.72) as i32);
+            let page = Rect::new(
+                x(0.24),
+                y(0.14),
+                (scale * 0.46) as i32,
+                (scale * 0.72) as i32,
+            );
             display.stroke_rounded(page, (scale * 0.04) as i32, thin, color);
             line(display, x(0.58), y(0.14), x(0.70), y(0.26), thin, color);
             line(display, x(0.70), y(0.26), x(0.58), y(0.26), thin, color);
@@ -325,7 +449,13 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
     }
 }
 
-pub fn text(
+pub fn text(display: &mut Display, x: i32, y: i32, text: &str, size: u32, bold: bool, color: u32) {
+    display.text(x, y, text, size, bold, color);
+}
+
+/// Draw text with a soft one-pixel shadow.  Reserved for wordmarks and large
+/// headings where the extra depth pays for the second pass.
+pub fn text_shadow(
     display: &mut Display,
     x: i32,
     y: i32,
@@ -334,6 +464,7 @@ pub fn text(
     bold: bool,
     color: u32,
 ) {
+    display.text(x, y + 1, text, size, bold, argb(0x80, 0x000000));
     display.text(x, y, text, size, bold, color);
 }
 
@@ -395,14 +526,16 @@ pub fn section_header(
     subtitle: &str,
     theme: &Theme,
 ) {
-    display.text(x, y, title, 18, true, TEXT);
+    display.text(x, y, title, 19, true, TEXT);
     if !subtitle.is_empty() {
-        display.text(x, y + 24, subtitle, 12, false, TEXT_MUTED);
+        display.text(x, y + 26, subtitle, 12, false, TEXT_MUTED);
     }
+    let underline = Rect::new(x, y + 47, 38, 3);
+    display.fill_rounded(underline, 2, theme.accent_soft(235));
     display.fill_rounded(
-        Rect::new(x, y + 44, 34, 3),
-        1,
-        theme.accent,
+        Rect::new(underline.right() + 4, y + 47, 10, 3),
+        2,
+        theme.accent_alt_soft(120),
     );
 }
 
@@ -423,26 +556,50 @@ pub fn button(
     hovered: bool,
     enabled: bool,
 ) {
-    let (fill, border, text_color) = if !enabled {
-        (argb(0x40, 0x2a2f3a), BORDER_SOFT, TEXT_FAINT)
+    let (fill, fill_bottom, border, text_color) = if !enabled {
+        (
+            argb(0x40, 0x2a2f3a),
+            argb(0x30, 0x222732),
+            BORDER_SOFT,
+            TEXT_FAINT,
+        )
     } else {
         match style {
             ButtonStyle::Primary => (
                 if hovered {
                     theme.accent
                 } else {
-                    theme.accent_soft(235)
+                    theme.accent_soft(238)
+                },
+                if hovered {
+                    theme.accent_alt_soft(255)
+                } else {
+                    theme.accent_soft(210)
                 },
                 argb(0, 0),
                 rgb(0x06101f),
             ),
             ButtonStyle::Subtle => (
                 if hovered { PANEL_RAISED } else { PANEL_SOFT },
+                if hovered {
+                    argb(0xff, 0x1d222d)
+                } else {
+                    argb(0xff, 0x151923)
+                },
                 BORDER,
                 TEXT,
             ),
             ButtonStyle::Ghost => (
-                if hovered { argb(0x30, 0xffffff) } else { argb(0, 0) },
+                if hovered {
+                    argb(0x36, 0xffffff)
+                } else {
+                    argb(0, 0)
+                },
+                if hovered {
+                    argb(0x18, 0xffffff)
+                } else {
+                    argb(0, 0)
+                },
                 argb(0, 0),
                 TEXT_MUTED,
             ),
@@ -450,14 +607,26 @@ pub fn button(
                 if hovered {
                     DANGER
                 } else {
-                    argb(0x30, 0xf07178)
+                    argb(0x38, 0xf07178)
                 },
-                if hovered { DANGER } else { argb(0x60, 0xf07178) },
+                if hovered {
+                    argb(0xff, 0xd94a55)
+                } else {
+                    argb(0x24, 0xd94a55)
+                },
+                if hovered {
+                    DANGER
+                } else {
+                    argb(0x70, 0xf07178)
+                },
                 if hovered { rgb(0x1a0608) } else { DANGER },
             ),
         }
     };
-    panel(display, rect, 8, fill, border);
+    display.fill_rounded_vertical(rect, 9, fill, fill_bottom);
+    if border >> 24 != 0 {
+        display.stroke_rounded(rect, 9, 1, border);
+    }
     let face = crate::displayjet::font::face(13, true);
     let width = face.width(label);
     let x = rect.x + (rect.w - width) / 2;
@@ -467,11 +636,11 @@ pub fn button(
 
 pub fn pill(display: &mut Display, center: Point, label: &str, fg: u32, bg: u32) {
     let face = crate::displayjet::font::face(11, true);
-    let width = face.width(label) + 16;
+    let width = face.width(label) + 18;
     let rect = Rect::new(center.x - width / 2, center.y - 9, width, 18);
-    panel(display, rect, 9, bg, argb(0, 0));
+    panel(display, rect, 9, bg, argb(0x28, 0xffffff));
     display.text_face(
-        rect.x + 8,
+        rect.x + 9,
         rect.y + (18 - face.line_height) / 2 + face.ascent,
         label,
         face,
@@ -480,15 +649,29 @@ pub fn pill(display: &mut Display, center: Point, label: &str, fg: u32, bg: u32)
 }
 
 pub fn progress(display: &mut Display, rect: Rect, value: f32, color: u32) {
-    display.fill_rounded(rect, rect.h / 2, argb(0x40, 0x59627a));
+    display.fill_rounded(rect, rect.h / 2, argb(0x46, 0x59627a));
+    display.fill_rect(
+        Rect::new(rect.x + 1, rect.y + 1, (rect.w - 2).max(1), 1),
+        argb(0x20, 0xffffff),
+    );
     let value = value.clamp(0.0, 1.0);
     let width = (rect.w as f32 * value) as i32;
     if width > 0 {
-        display.fill_rounded(
-            Rect::new(rect.x, rect.y, width.max(4), rect.h),
+        let filled = Rect::new(rect.x, rect.y, width.max(rect.h), rect.h);
+        display.fill_rounded_vertical(
+            filled,
             rect.h / 2,
             color,
+            argb((color >> 24).min(220), color & 0x00ff_ffff),
         );
+        if width >= rect.h {
+            // A tiny specular highlight across the top of the bar.
+            display.fill_rounded(
+                Rect::new(filled.x + rect.h / 2, filled.y + 1, filled.w - rect.h, 1),
+                1,
+                argb(0x60, 0xffffff),
+            );
+        }
     }
 }
 
@@ -496,15 +679,21 @@ pub fn toggle(display: &mut Display, rect: Rect, on: bool, theme: &Theme) {
     let fill = if on {
         theme.accent
     } else {
-        argb(0x60, 0x4b5364)
+        argb(0x70, 0x4b5364)
     };
     display.fill_rounded(rect, rect.h / 2, fill);
+    display.stroke_rounded(rect, rect.h / 2, 1, argb(0x30, 0xffffff));
     let knob_radius = rect.h / 2 - 3;
     let knob_x = if on {
         rect.right() - rect.h / 2
     } else {
         rect.x + rect.h / 2
     };
+    display.fill_circle(
+        Point::new(knob_x, rect.y + rect.h / 2 + 1),
+        knob_radius,
+        argb(0x50, 0x000000),
+    );
     display.fill_circle(
         Point::new(knob_x, rect.y + rect.h / 2),
         knob_radius,

@@ -149,10 +149,7 @@ pub extern "efiapi" fn efi_main(image_handle: *mut c_void, system_table: *mut c_
     let stack_top = boot_stack_top();
     STACK_POINTER.store(stack_top as u64, Ordering::Relaxed);
 
-    crate::sprintln!(
-        "BOOT: firmware stack -> static stack at {:#x}",
-        stack_top
-    );
+    crate::sprintln!("BOOT: firmware stack -> static stack at {:#x}", stack_top);
 
     // SAFETY: the boot stack is statically allocated, aligned and never
     // reused.  `kernel_main` is `extern "sysv64"` and never returns.

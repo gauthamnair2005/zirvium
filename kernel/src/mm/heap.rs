@@ -335,7 +335,8 @@ unsafe impl GlobalAlloc for KernelAllocator {
         // SAFETY: allocate and deallocate have the same preconditions as the
         // trait contract.
         unsafe {
-            let new_pointer = self.alloc(Layout::from_size_align_unchecked(new_size, layout.align()));
+            let new_pointer =
+                self.alloc(Layout::from_size_align_unchecked(new_size, layout.align()));
             if !new_pointer.is_null() {
                 let copied = layout.size().min(new_size);
                 ptr::copy_nonoverlapping(pointer, new_pointer, copied);

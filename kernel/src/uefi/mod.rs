@@ -125,8 +125,13 @@ pub struct BootServices {
     pub restore_tpl: usize,
     pub allocate_pages: usize,
     pub free_pages: usize,
-    pub get_memory_map:
-        unsafe extern "efiapi" fn(*mut usize, *mut MemoryDescriptor, *mut usize, *mut usize, *mut u32) -> Status,
+    pub get_memory_map: unsafe extern "efiapi" fn(
+        *mut usize,
+        *mut MemoryDescriptor,
+        *mut usize,
+        *mut usize,
+        *mut u32,
+    ) -> Status,
     pub allocate_pool: unsafe extern "efiapi" fn(u32, usize, *mut *mut c_void) -> Status,
     pub free_pool: unsafe extern "efiapi" fn(*mut c_void) -> Status,
     pub create_event: usize,
@@ -159,7 +164,8 @@ pub struct BootServices {
     pub open_protocol_information: usize,
     pub protocols_per_handle: usize,
     pub locate_handle_buffer: usize,
-    pub locate_protocol: unsafe extern "efiapi" fn(*const Guid, *mut c_void, *mut *mut c_void) -> Status,
+    pub locate_protocol:
+        unsafe extern "efiapi" fn(*const Guid, *mut c_void, *mut *mut c_void) -> Status,
 }
 
 #[repr(C)]
@@ -320,7 +326,8 @@ pub fn exit_boot_services(info: &mut BootInfo) {
     let table = unsafe { &*info.system_table };
     let services = unsafe { &*table.boot_services };
     for attempt in 0..4 {
-        let status = unsafe { (services.exit_boot_services)(info.image_handle, info.memory_map_key) };
+        let status =
+            unsafe { (services.exit_boot_services)(info.image_handle, info.memory_map_key) };
         if status == EFI_SUCCESS {
             serial::write_str("UEFI: boot services exited\n");
             return;

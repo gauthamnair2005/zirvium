@@ -132,5 +132,10 @@ pub fn init() {
 /// The top of the interrupt stack.
 pub fn interrupt_stack_top() -> u64 {
     // SAFETY: the stack is a static object.
-    unsafe { (*core::ptr::addr_of_mut!(INTERRUPT_STACK)).0.as_mut_ptr().add(16_384) as u64 }
+    unsafe {
+        (*core::ptr::addr_of_mut!(INTERRUPT_STACK))
+            .0
+            .as_mut_ptr()
+            .add(16_384) as u64
+    }
 }

@@ -6,7 +6,7 @@
 //! scanout and a CPU SIMD rasteriser.
 
 use alloc::vec::Vec;
-use zirvstdlib::abi::{set_name, GpuDriver, GpuInfo, GpuVendor};
+use zirvstdlib::abi::{GpuDriver, GpuInfo, GpuVendor, set_name};
 use zirvstdlib::sync::Once;
 
 use crate::arch::port::{inl, outl};
@@ -219,7 +219,12 @@ fn build_gpu_info(device: Option<&PciDevice>) -> GpuInfo {
         let bar = device.bar[index];
         if bar != 0 && bar & 0x1 == 0 {
             let mut base = (bar & !0xF) as u64;
-            let mut size = bar_size(device.bus, device.slot, device.function, 0x10 + index as u8 * 4);
+            let mut size = bar_size(
+                device.bus,
+                device.slot,
+                device.function,
+                0x10 + index as u8 * 4,
+            );
             let is_64 = (bar >> 1) & 0x3 == 0x2;
             if is_64 && index + 1 < 6 {
                 let upper = device.bar[index + 1] as u64;
@@ -293,7 +298,10 @@ pub fn init() {
 }
 
 pub fn devices() -> &'static [PciDevice] {
-    DEVICES.get().map(|devices| devices.as_slice()).unwrap_or(&[])
+    DEVICES
+        .get()
+        .map(|devices| devices.as_slice())
+        .unwrap_or(&[])
 }
 
 pub fn gpu() -> GpuInfo {

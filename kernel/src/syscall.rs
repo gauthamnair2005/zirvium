@@ -126,7 +126,10 @@ pub fn self_test() {
     if result == number::PONG {
         crate::sprintln!("SYSCALL: int 0x80 gate operational");
     } else {
-        crate::sprintln!("SYSCALL: gate returned {result:#x}, expected {:#x}", number::PONG);
+        crate::sprintln!(
+            "SYSCALL: gate returned {result:#x}, expected {:#x}",
+            number::PONG
+        );
     }
 }
 

@@ -2,10 +2,10 @@
 //!
 //! The atlas is generated at build time by `tools/genfont.py` from DejaVu Sans
 //! (Bitstream Vera licence, see `assets/FONT-LICENSE.txt`).  Each face stores
-//! 95 ASCII glyphs as 8-bit coverage masks, which DisplayJet alpha-blends into
-//! the surface.  Using coverage masks instead of a bitmap font gives clean
-//! text at every size and lets the UI use the same renderer on CPU and on a
-//! future GPU backend.
+//! ASCII plus the Latin-1, typographic and arrow glyphs the desktop uses as
+//! 8-bit coverage masks, which DisplayJet alpha-blends into the surface.  Using
+//! coverage masks instead of a bitmap font gives clean text at every size and
+//! lets the UI use the same renderer on CPU and on a future GPU backend.
 
 use alloc::vec::Vec;
 
@@ -43,10 +43,7 @@ impl Face {
         let code = character as u32;
         match self.glyphs.binary_search_by_key(&code, |glyph| glyph.code) {
             Ok(index) => self.glyphs.get(index),
-            Err(_) => self
-                .glyphs
-                .iter()
-                .find(|glyph| glyph.code == b'?' as u32),
+            Err(_) => self.glyphs.iter().find(|glyph| glyph.code == b'?' as u32),
         }
     }
 

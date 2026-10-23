@@ -34,8 +34,7 @@ impl LogLine {
     }
 }
 
-static LINES: SpinLock<RingBuffer<LogLine, RING_CAPACITY>> =
-    SpinLock::new(RingBuffer::new());
+static LINES: SpinLock<RingBuffer<LogLine, RING_CAPACITY>> = SpinLock::new(RingBuffer::new());
 
 struct SerialLogger;
 
