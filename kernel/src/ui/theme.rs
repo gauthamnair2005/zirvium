@@ -21,7 +21,7 @@ pub const fn argb(alpha: u32, value: u32) -> u32 {
 // ---------------------------------------------------------------------------
 
 pub const TOP_BAR_HEIGHT: i32 = 44;
-pub const DOCK_HEIGHT: i32 = 68;
+pub const DOCK_HEIGHT: i32 = 0;
 pub const DOCK_ICON: i32 = 40;
 pub const TITLE_HEIGHT: i32 = 38;
 pub const WINDOW_RADIUS: i32 = 14;

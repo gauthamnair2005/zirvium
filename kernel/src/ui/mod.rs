@@ -1,7 +1,7 @@
 //! ZirvUI: the Zirvium desktop shell.
 //!
 //! The desktop is the first DisplayJet client: it owns the wallpaper cache,
-//! the window stack, the top bar, the dock and the launcher, and it routes
+//! the window stack, the top bar and the application navigator, and it routes
 //! input to the focused application.  Repainting is deliberately explicit —
 //! a scene redraw only happens when something structural changes, while
 //! pointer motion just moves the saved cursor patch.  That keeps motion
@@ -46,8 +46,8 @@ pub enum AppKind {
     Network,
 }
 
-/// Apps shown on the Start screen. The taskbar only carries the essentials.
-const START_APPS: [AppKind; 7] = [
+/// Applications shown by the ZirvUI navigator.
+const NAVIGATOR_APPS: [AppKind; 7] = [
     AppKind::Terminal,
     AppKind::Files,
     AppKind::Monitor,
@@ -260,8 +260,6 @@ impl Window {
 enum Target {
     Nothing,
     Start,
-    Power,
-    Dock(AppKind),
     Close(u32),
     Minimize(u32),
     Maximize(u32),
@@ -288,57 +286,14 @@ struct Notification {
 // Layout helpers
 // ---------------------------------------------------------------------------
 
-const DOCK_GAP: i32 = 14;
-
-fn launcher_button_rect() -> Rect {
-    Rect::new(10, 6, 116, 24)
-}
-
-fn clock_rect(width: i32) -> Rect {
-    Rect::new((width - 196).max(0), 0, 192, TOP_BAR_HEIGHT)
-}
-
-fn dock_panel(width: i32, height: i32, count: usize) -> Rect {
-    let count = count as i32;
-    let panel_width = count * DOCK_ICON + (count - 1) * DOCK_GAP + 34;
+fn launch_panel_rect(width: i32, height: i32) -> Rect {
+    let panel_width = 720.min(width - 64);
+    let panel_height = 540.min(height - TOP_BAR_HEIGHT - 64);
     Rect::new(
         (width - panel_width) / 2,
-        height - DOCK_HEIGHT + 4,
+        TOP_BAR_HEIGHT + (height - TOP_BAR_HEIGHT - panel_height) / 2,
         panel_width,
-        68,
-    )
-}
-
-fn dock_icon_rect(panel: Rect, index: usize) -> Rect {
-    Rect::new(
-        panel.x + 17 + index as i32 * (DOCK_ICON + DOCK_GAP),
-        panel.y + 11,
-        DOCK_ICON,
-        DOCK_ICON,
-    )
-}
-
-fn start_tile_rect(index: usize, slide: i32) -> Rect {
-    let mut x = 60;
-    let mut y = 190;
-    for current in 0..index {
-        let width = if current == 0 { 236 } else { 110 };
-        x += if width == 236 { 252 } else { 126 };
-        if x > 60 + 340 {
-            x = 60;
-            y += 126;
-        }
-    }
-    let (width, height) = if index == 0 { (236, 110) } else { (110, 110) };
-    Rect::new(x - slide, y, width, height)
-}
-
-fn launch_panel_rect(width: i32, height: i32) -> Rect {
-    Rect::new(
-        24,
-        (height - DOCK_HEIGHT - 576).max(TOP_BAR_HEIGHT + 12),
-        548.min(width - 48),
-        560.min(height - DOCK_HEIGHT - TOP_BAR_HEIGHT - 24),
+        panel_height,
     )
 }
 
@@ -346,10 +301,10 @@ fn launch_row_rect(panel: Rect, index: usize) -> Rect {
     let column = index % 2;
     let row = index / 2;
     Rect::new(
-        panel.x + 22 + column as i32 * 252,
-        panel.y + 168 + row as i32 * 82,
-        236,
-        70,
+        panel.x + 28 + column as i32 * 326,
+        panel.y + 184 + row as i32 * 82,
+        306,
+        68,
     )
 }
 
@@ -581,18 +536,6 @@ impl Desktop {
             .map(|window| window.app.kind())
     }
 
-    fn taskbar_apps(&self) -> Vec<AppKind> {
-        self.windows
-            .iter()
-            .map(|window| window.app.kind())
-            .fold(Vec::new(), |mut apps, kind| {
-                if !apps.contains(&kind) {
-                    apps.push(kind);
-                }
-                apps
-            })
-    }
-
     // -- Notifications ------------------------------------------------------
 
     fn notify(&mut self, title: &str, body: &str, life: u64) {
@@ -662,31 +605,14 @@ impl Desktop {
             return Target::Nothing;
         }
 
-            if self.launcher {
-            return Target::Nothing;
-        }
-
-        if point.y >= self.height - DOCK_HEIGHT {
-            let apps = self.taskbar_apps();
-            let dock = dock_panel(self.width, self.height, apps.len());
-            if dock.contains(point) {
-                for (index, kind) in apps.iter().enumerate() {
-                    if dock_icon_rect(dock, index).contains(point) {
-                        return Target::Dock(*kind);
-                    }
-                }
-                return Target::Nothing;
-            }
-            if Rect::new(8, self.height - DOCK_HEIGHT + 6, 52, 60).contains(point) {
-                return Target::Start;
-            }
-            if Rect::new(self.width - 60, self.height - DOCK_HEIGHT + 6, 52, 60).contains(point) {
-                return Target::Power;
-            }
+        if self.launcher {
             return Target::Nothing;
         }
 
         if point.y < TOP_BAR_HEIGHT {
+            if Rect::new(12, 6, 34, 32).contains(point) {
+                return Target::Start;
+            }
             return Target::Nothing;
         }
 
@@ -763,7 +689,7 @@ impl Desktop {
             let elapsed = zirvstdlib::time::monotonic_ms().saturating_sub(self.launcher_started);
             let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
             let eased = progress * progress * (3.0 - 2.0 * progress);
-            for (i, kind) in START_APPS.iter().enumerate() {
+            for (i, kind) in NAVIGATOR_APPS.iter().enumerate() {
                 let mut rect = launch_row_rect(panel, i);
                 rect.x -= ((1.0 - eased) * 28.0) as i32;
                 if rect.contains(point) {
@@ -811,36 +737,6 @@ impl Desktop {
                 if self.launcher {
                     self.launcher_selected = 0;
                     self.launcher_started = zirvstdlib::time::monotonic_ms();
-                }
-            }
-            Target::Power => {
-                self.launcher = !self.launcher;
-                if self.launcher {
-                    self.launcher_selected = 0;
-                    self.launcher_started = zirvstdlib::time::monotonic_ms();
-                }
-            }
-            Target::Dock(kind) => {
-                let focused_same = self.focused_kind() == Some(kind);
-                let existing = self
-                    .windows
-                    .iter()
-                    .find(|window| window.app.kind() == kind)
-                    .map(|window| (window.id, window.minimized));
-                match existing {
-                    Some((id, minimized)) => {
-                        if minimized {
-                            if let Some(window) = self.window_mut(id) {
-                                window.minimized = false;
-                            }
-                            self.focus(id);
-                        } else if focused_same {
-                            self.minimize(id);
-                        } else {
-                            self.focus(id);
-                        }
-                    }
-                    None => self.open(kind),
                 }
             }
             Target::Close(id) => self.close(id),
@@ -1170,7 +1066,6 @@ impl Desktop {
             draw_window(display, window, &theme, focused == Some(window.id), hover);
         }
         self.draw_top_bar(display);
-        self.draw_taskbar(display);
         self.draw_notifications(display);
         if self.launcher {
             self.draw_start_screen(display);
@@ -1191,6 +1086,7 @@ impl Desktop {
         display.fill_rect(Rect::new(0, TOP_BAR_HEIGHT - 1, self.width, 1), TOP_BAR_BORDER);
         widgets::logo(display, Rect::new(18, 10, 24, 24));
         display.text(52, 13, "ZirvUI", 12, true, self.theme.text());
+        display.text(132, 14, "APPLICATION NAVIGATOR", 8, false, self.theme.text_dim());
         let status = crate::net::status();
         let right = Rect::new(self.width - 350, 8, 332, 28);
         display.fill_rounded(right, 14, argb(0x32, 0xffffff));
@@ -1227,73 +1123,6 @@ impl Desktop {
             display.text(row.x + 10, row.y + 8, label, 10, false, self.theme.text());
         }
     }
-
-    fn draw_taskbar(&self, display: &mut Display) {
-        let width = self.width;
-        let height = self.height;
-        let chrome = self.theme.chrome();
-        let line = self.theme.line();
-        let bar = Rect::new(0, height - DOCK_HEIGHT, width, DOCK_HEIGHT);
-        display.fill_rect(bar, argb(0xd8, chrome & 0x00ff_ffff));
-        display.fill_rect(Rect::new(0, height - DOCK_HEIGHT, width, 1), line);
-
-        let start = Rect::new(18, height - DOCK_HEIGHT + 14, 40, 40);
-        let start_hot = self.hover == Target::Start || self.launcher;
-        if start_hot {
-            display.fill_rect(start, self.theme.accent_soft(40));
-        }
-        widgets::logo(display, Rect::new(start.x + 8, start.y + 8, 24, 24));
-
-        let apps = self.taskbar_apps();
-        let dock = dock_panel(width, height, apps.len());
-        for (index, kind) in apps.iter().enumerate() {
-            let rect = dock_icon_rect(dock, index);
-            let hot = self.hover == Target::Dock(*kind);
-            let open = self.windows.iter().any(|w| w.app.kind() == *kind && !w.minimized);
-            let focused = self.focused_kind() == Some(*kind);
-            if focused {
-                display.fill_rect(rect, self.theme.accent_soft(34));
-            } else if hot {
-                display.fill_rect(rect, self.theme.card());
-            }
-            widgets::icon(
-                display,
-                Rect::new(rect.x + 10, rect.y + 10, 24, 24),
-                kind.icon(),
-                if focused {
-                    self.theme.accent
-                } else if hot || open {
-                    self.theme.text()
-                } else {
-                    self.theme.text_dim()
-                },
-            );
-            if open {
-                display.fill_rect(
-                    Rect::new(rect.x + 12, rect.bottom() - 2, 20, 2),
-                    if focused { self.theme.accent } else { self.theme.text_dim() },
-                );
-            }
-        }
-
-        let power = Rect::new(width - 58, height - DOCK_HEIGHT + 14, 40, 40);
-        let power_hot = self.hover == Target::Power;
-        if power_hot {
-            display.fill_rect(power, argb(0x40, 0xe81123));
-        }
-        widgets::icon(
-            display,
-            Rect::new(power.x + 8, power.y + 8, 24, 24),
-            Icon::Close,
-            if power_hot { rgb(0xe81123) } else { self.theme.text_dim() },
-        );
-
-        display.text(width - 142, height - DOCK_HEIGHT + 22, "liveuser", 9, true, self.theme.text_muted());
-    }
-
-    fn draw_dock(&self, _display: &mut Display) {}
-
-    fn draw_launcher(&self, _display: &mut Display) {}
 
     fn draw_notifications(&self, display: &mut Display) {
         if self.notifications.is_empty() {
@@ -1337,7 +1166,7 @@ impl Desktop {
         let eased = progress * progress * (3.0 - 2.0 * progress);
         let panel = launch_panel_rect(self.width, self.height);
         display.fill_rect(
-            Rect::new(0, TOP_BAR_HEIGHT, self.width, self.height - TOP_BAR_HEIGHT - DOCK_HEIGHT),
+            Rect::new(0, TOP_BAR_HEIGHT, self.width, self.height - TOP_BAR_HEIGHT),
             argb(0x42, 0x000000),
         );
         let panel = Rect::new(panel.x, panel.y, panel.w, panel.h);
@@ -1364,7 +1193,7 @@ impl Desktop {
         display.text(search.x + 40, search.y + 12, "Search apps and settings", 10, false, argb(0xb0, 0xffffff));
         display.text(panel.x + 22, panel.y + 140, "Applications", 10, true, argb(0xd0, 0xffffff));
 
-        for (index, kind) in START_APPS.iter().enumerate() {
+        for (index, kind) in NAVIGATOR_APPS.iter().enumerate() {
             let mut rect = launch_row_rect(panel, index);
             rect.x -= ((1.0 - eased) * 28.0) as i32;
             display.fill_rounded(rect, 12, if self.focused_kind() == Some(*kind) {
