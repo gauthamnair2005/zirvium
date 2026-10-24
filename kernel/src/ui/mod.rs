@@ -1183,9 +1183,7 @@ impl Desktop {
             190,
             176,
         );
-        display.drop_shadow(menu, 0, 12, argb(0x70, 0x000000));
         display.fill_rounded(menu, 10, self.theme.card());
-        display.stroke_rounded(menu, 10, 1, self.theme.line());
         display.text(menu.x + 14, menu.y + 12, "Quick actions", 11, true, self.theme.text());
         let items = ["Copy", "Paste", "Select all", "Cursor: change"];
         for (index, label) in items.iter().enumerate() {
@@ -1214,9 +1212,7 @@ impl Desktop {
             let fade = if remaining < 600 { 160 } else { 246 };
             let rise = if remaining < 240 { ((240 - remaining) / 12) as i32 } else { 0 };
             let rect = Rect::new(rect.x, rect.y + rise, rect.w, rect.h);
-            display.drop_shadow(rect, 0, 12, argb(0x60, 0x000000));
             display.fill_rect(rect, argb(fade, self.theme.card() & 0x00ff_ffff));
-            display.stroke_rounded(rect, 0, 1, self.theme.line());
             display.fill_rect(Rect::new(rect.x + 10, rect.y + 12, 3, rect.h - 24), self.theme.accent);
             display.text(rect.x + 22, rect.y + 13, &note.title, 12, true, self.theme.text());
             display.text_ellipsized(rect.x + 22, rect.y + 33, &note.body, rect.w - 38, 11, false, self.theme.text_muted());
@@ -1245,9 +1241,7 @@ impl Desktop {
             argb(0x42, 0x000000),
         );
         let panel = Rect::new(panel.x, panel.y, panel.w, panel.h);
-        display.drop_shadow(panel, 0, 22, argb(0x80, 0x000000));
         display.fill_rounded(panel, 18, if self.theme.is_light() { argb(0xf5, 0xffffff) } else { argb(0xf2, 0x111b2c) });
-        display.stroke_rounded(panel, 18, 1, if self.theme.is_light() { self.theme.line() } else { argb(0x80, 0x6d91c8) });
 
         widgets::logo(display, Rect::new(panel.x + 22, panel.y + 24, 36, 36));
         display.text(panel.x + 70, panel.y + 25, "Zirvium", 18, true, self.theme.text());
@@ -1263,7 +1257,6 @@ impl Desktop {
 
         let search = Rect::new(panel.x + 22, panel.y + 82, panel.w - 44, 40);
         display.fill_rounded(search, 11, self.theme.well());
-        display.stroke_rounded(search, 11, 1, self.theme.line());
         widgets::icon(display, Rect::new(search.x + 13, search.y + 12, 16, 16), Icon::Search, self.theme.text_muted());
         if self.launcher_search.is_empty() {
             display.text(search.x + 40, search.y + 12, "Search apps and settings", 10, false, self.theme.text_muted());
@@ -1287,7 +1280,6 @@ impl Desktop {
             } else {
                 self.theme.well()
             });
-            display.stroke_rounded(rect, 12, 1, self.theme.line());
             widgets::icon(display, Rect::new(rect.x + 15, rect.y + 17, 32, 32), kind.icon(), self.theme.accent);
             display.text(rect.x + 60, rect.y + 16, kind.title(), 10, true, self.theme.text());
             display.text(rect.x + 60, rect.y + 37, kind.subtitle(), 8, false, self.theme.text_muted());
@@ -1299,9 +1291,7 @@ impl Desktop {
 
         if self.start_power_open {
             let power_panel = Rect::new(panel.right() - 194, panel.y + 72, 176, 148);
-            display.drop_shadow(power_panel, 0, 16, argb(0x70, 0x000000));
                 display.fill_rounded(power_panel, 14, self.theme.card());
-                display.stroke_rounded(power_panel, 14, 1, self.theme.line());
                 display.text(power_panel.x + 14, power_panel.y + 12, "Power", 11, true, self.theme.text());
             let shutdown = Rect::new(power_panel.x + 12, power_panel.y + 34, power_panel.w - 24, 30);
             display.fill_rounded(shutdown, 6, argb(0x50, 0xe81123));
@@ -1322,9 +1312,7 @@ impl Desktop {
         display.vertical_gradient(screen, rgb(0x05070b), rgb(0x0d1420));
 
         let card = Rect::new(self.width / 2 - 176, self.height / 2 - 152, 352, 330);
-        display.drop_shadow(card, 0, 18, argb(0x80, 0x000000));
         display.fill_rounded(card, 16, self.theme.card());
-        display.stroke_rounded(card, 16, 1, self.theme.line());
         widgets::logo(display, Rect::new(self.width / 2 - 38, card.y + 28, 76, 76));
         display.text_centered(
             Rect::new(card.x, card.y + 116, card.w, 26),
@@ -1342,7 +1330,6 @@ impl Desktop {
         );
         let user = Rect::new(card.x + 42, card.y + 184, card.w - 84, 36);
         display.fill_rounded(user, 8, self.theme.well());
-        display.stroke_rounded(user, 8, 1, self.theme.line());
         widgets::icon(
             display,
             Rect::new(user.x + 10, user.y + 10, 16, 16),
@@ -1378,9 +1365,7 @@ fn draw_window(
         return;
     }
     display.reset_clip();
-    display.drop_shadow(rect, 0, 18, argb(0x60, 0x000000));
     display.fill_rounded(rect, WINDOW_RADIUS, theme.surface());
-    display.stroke_rounded(rect, WINDOW_RADIUS, 1, if focused { theme.accent } else { theme.line() });
 
     let title_rect = Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT);
     display.fill_rounded(title_rect, WINDOW_RADIUS, if focused { theme.card() } else { theme.chrome() });
@@ -1399,7 +1384,6 @@ fn draw_window(
     let min = Rect::new(rect.right() - 54, rect.y + 6, 22, 22);
     let max = Rect::new(rect.right() - 80, rect.y + 6, 22, 22);
     display.fill_rounded(min, 4, if hot_min { theme.well() } else { theme.card() });
-    display.stroke_rounded(min, 4, 1, if hot_min { theme.accent } else { theme.line() });
     widgets::icon(
         display,
         min,
@@ -1407,7 +1391,6 @@ fn draw_window(
         if hot_min { theme.text() } else { theme.text_muted() },
     );
     display.fill_rounded(max, 4, if hot_max { theme.well() } else { theme.card() });
-    display.stroke_rounded(max, 4, 1, if hot_max { theme.accent } else { theme.line() });
     widgets::icon(
         display,
         max,
@@ -1415,7 +1398,6 @@ fn draw_window(
         if hot_max { theme.text() } else { theme.text_muted() },
     );
     display.fill_rounded(close, 4, if hot_close { rgb(0xe81123) } else { theme.card() });
-    display.stroke_rounded(close, 4, 1, if hot_close { rgb(0xff3344) } else { theme.line() });
     widgets::icon(
         display,
         close,
@@ -1430,7 +1412,6 @@ fn draw_window(
         display.pop_clip();
         display.reset_clip();
     }
-    display.stroke_rounded(rect, WINDOW_RADIUS, 1, if focused { theme.accent } else { theme.line() });
 }
 
 // ---------------------------------------------------------------------------

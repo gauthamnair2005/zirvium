@@ -170,11 +170,7 @@ impl Theme {
 
     /// Border colour for cards and dividers.
     pub fn line(&self) -> u32 {
-        if self.is_light() {
-            rgb(0xd4dfef)
-        } else {
-            rgb(0x2a2a2a)
-        }
+        argb(0, 0)
     }
 
     /// Primary text colour.

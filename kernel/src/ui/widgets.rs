@@ -70,37 +70,16 @@ pub fn circle_outline(
 
 pub fn panel(display: &mut Display, rect: Rect, radius: i32, fill: u32, border: u32) {
     display.fill_rounded(rect, radius, fill);
-    if border >> 24 != 0 {
-        display.stroke_rounded(rect, radius, 1, border);
-    }
-    if rect.h >= 24 {
-        // A one-pixel inner highlight along the top edge suggests a bevel
-        // without adding a second visible border.
-        let inset = radius.max(4);
-        if rect.w > inset * 2 {
-            display.fill_rect(
-                Rect::new(rect.x + inset, rect.y + 1, rect.w - inset * 2, 1),
-                argb(0x12, 0xffffff),
-            );
-        }
-    }
+    let _ = border;
 }
 
 /// A rounded, tinted card with a hairline border and a faint accent edge.
 pub fn card(display: &mut Display, rect: Rect, theme: &Theme) {
     if theme.is_light() {
-        display.drop_shadow(rect, 0, 8, argb(0x18, 0x20365d));
         display.fill_rounded_vertical(rect, 12, theme.card(), argb(0xff, 0xf7faff));
-        display.stroke_rounded(rect, 12, 1, theme.line());
     } else {
         display.fill_rounded_vertical(rect, 11, PANEL_SOFT, argb(0xff, 0x141821));
-        display.stroke_rounded(rect, 11, 1, BORDER_SOFT);
     }
-    display.horizontal_gradient(
-        Rect::new(rect.x + 12, rect.y + 1, (rect.w - 24).max(1), 1),
-        theme.accent_soft(70),
-        theme.accent_alt_soft(22),
-    );
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -703,9 +682,7 @@ pub fn button(
         }
     };
     display.fill_rounded_vertical(rect, 11, fill, fill_bottom);
-    if border >> 24 != 0 {
-        display.stroke_rounded(rect, 11, 1, border);
-    }
+    let _ = border;
     let face = crate::displayjet::font::face(13, true);
     let width = face.width(label);
     let x = rect.x + (rect.w - width) / 2;
