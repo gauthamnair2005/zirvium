@@ -98,12 +98,12 @@ pub struct Theme {
 impl Default for Theme {
     fn default() -> Self {
         Self {
-            accent: rgb(ACCENTS[0].0),
-            accent_alt: rgb(ACCENTS[1].0),
+            accent: rgb(0x00aaff),
+            accent_alt: rgb(0x66ccff),
             wallpaper: 0,
             show_seconds: true,
-            animations: true,
-            dock_magnification: true,
+            animations: false,
+            dock_magnification: false,
             show_grid: false,
         }
     }
