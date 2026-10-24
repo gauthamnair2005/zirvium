@@ -993,38 +993,38 @@ impl Desktop {
         let height = self.height;
         let bar = Rect::new(0, height - DOCK_HEIGHT, width, DOCK_HEIGHT);
         display.fill_rect(bar, rgb(0x000000));
-        display.fill_rect(Rect::new(0, height - DOCK_HEIGHT, width, 1), rgb(0x202020));
+        display.fill_rect(Rect::new(0, height - DOCK_HEIGHT, width, 1), rgb(0x333333));
 
-        let start = Rect::new(4, height - DOCK_HEIGHT + 4, 48, 48);
+        let start = Rect::new(4, height - DOCK_HEIGHT + 4, 44, 44);
         let start_hot = self.hover == Target::Start || self.launcher;
-        display.fill_rect(start, if start_hot { rgb(0x1a1a1a) } else { rgb(0x000000) });
-        display.stroke_rounded(start, 2, 1, if start_hot { self.theme.accent } else { rgb(0x303030) });
-        widgets::icon(display, Rect::new(start.x + 12, start.y + 12, 24, 24), Icon::Logo, if start_hot { self.theme.accent } else { rgb(0xe0e0e0) });
+        display.fill_rect(start, if start_hot { rgb(0x202020) } else { rgb(0x000000) });
+        display.stroke_rounded(start, 1, 1, if start_hot { self.theme.accent } else { rgb(0x333333) });
+        widgets::icon(display, Rect::new(start.x + 10, start.y + 10, 24, 24), Icon::Logo, if start_hot { self.theme.accent } else { rgb(0xe0e0e0) });
 
         for (index, kind) in DOCK_APPS.iter().enumerate() {
-            let rect = Rect::new(60 + index as i32 * 56, height - DOCK_HEIGHT + 4, 48, 48);
+            let rect = Rect::new(52 + index as i32 * 48, height - DOCK_HEIGHT + 4, 44, 44);
             let hot = self.hover == Target::Dock(*kind);
             let open = self.windows.iter().any(|w| w.app.kind() == *kind && !w.minimized);
             let focused = self.focused_kind() == Some(*kind);
-            display.fill_rect(rect, if focused { rgb(0x141414) } else if hot { rgb(0x101010) } else { rgb(0x000000) });
+            display.fill_rect(rect, if focused { rgb(0x1a1a1a) } else if hot { rgb(0x181818) } else { rgb(0x000000) });
             if focused || hot {
-                display.stroke_rounded(rect, 1, 1, if focused { self.theme.accent } else { rgb(0x404040) });
+                display.stroke_rounded(rect, 1, 1, if focused { self.theme.accent } else { rgb(0x444444) });
             }
-            widgets::icon(display, Rect::new(rect.x + 12, rect.y + 12, 24, 24), kind.icon(), if focused { self.theme.accent } else if hot { rgb(0xffffff) } else if open { rgb(0xe0e0e0) } else { rgb(0x808080) });
+            widgets::icon(display, Rect::new(rect.x + 10, rect.y + 10, 24, 24), kind.icon(), if focused { self.theme.accent } else if hot { rgb(0xffffff) } else if open { rgb(0xe0e0e0) } else { rgb(0x808080) });
             if open {
-                display.fill_rect(Rect::new(rect.x + 16, rect.bottom() - 2, 16, 2), if focused { self.theme.accent } else { rgb(0x606060) });
+                display.fill_rect(Rect::new(rect.x + 12, rect.bottom() - 2, 20, 2), if focused { self.theme.accent } else { rgb(0x606060) });
             }
         }
 
-        let power = Rect::new(width - 56, height - DOCK_HEIGHT + 4, 48, 48);
+        let power = Rect::new(width - 48, height - DOCK_HEIGHT + 4, 44, 44);
         let power_hot = self.hover == Target::Power;
-        display.fill_rect(power, if power_hot { rgb(0x200000) } else { rgb(0x000000) });
-        display.stroke_rounded(power, 1, 1, if power_hot { rgb(0x800000) } else { rgb(0x303030) });
-        widgets::icon(display, Rect::new(power.x + 12, power.y + 12, 24, 24), Icon::Close, if power_hot { rgb(0xff4040) } else { rgb(0x808080) });
+        display.fill_rect(power, if power_hot { rgb(0x2a0000) } else { rgb(0x000000) });
+        display.stroke_rounded(power, 1, 1, if power_hot { rgb(0xb00000) } else { rgb(0x333333) });
+        widgets::icon(display, Rect::new(power.x + 10, power.y + 10, 24, 24), Icon::Close, if power_hot { rgb(0xff4444) } else { rgb(0x808080) });
 
         let now = crate::time::now();
         let clock = if self.theme.show_seconds { alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second) } else { alloc::format!("{:02}:{:02}", now.hour, now.minute) };
-        display.text(width - 140, height - DOCK_HEIGHT + 18, &clock, 10, false, rgb(0xe0e0e0));
+        display.text(width - 110, height - DOCK_HEIGHT + 18, &clock, 9, false, rgb(0xc0c0c0));
     }
 
     fn draw_dock(&self, _display: &mut Display) {}
@@ -1064,37 +1064,37 @@ impl Desktop {
     fn draw_start_screen(&self, display: &mut Display) {
         let screen = Rect::new(0, 0, self.width, self.height);
         display.fill_rect(screen, rgb(0x000000));
-        display.text(80, 90, "Start", 44, true, rgb(0xffffff));
-        display.text(80, 150, "Apps", 11, true, rgb(0x808080));
+        display.text(60, 70, "Start", 48, true, rgb(0xffffff));
+        display.text(60, 130, "Apps", 11, true, rgb(0x808080));
 
-        let mut x = 80;
-        let mut y = 190;
+        let mut x = 60;
+        let mut y = 170;
         let mut i = 0;
         for kind in &DOCK_APPS {
-            let rect = Rect::new(x, y, 96, 96);
-            display.fill_rect(rect, rgb(0x101010));
-            display.stroke_rounded(rect, 1, 1, rgb(0x202020));
-            widgets::icon(display, Rect::new(rect.x + 32, rect.y + 26, 32, 32), kind.icon(), self.theme.accent);
-            display.text_centered(Rect::new(rect.x, rect.bottom() - 26, rect.w, 16), kind.title(), 9, false, rgb(0xd0d0d0));
-            x += 112;
+            let rect = Rect::new(x, y, 100, 100);
+            display.fill_rect(rect, rgb(0x111111));
+            display.stroke_rounded(rect, 1, 1, rgb(0x252525));
+            widgets::icon(display, Rect::new(rect.x + 34, rect.y + 28, 32, 32), kind.icon(), self.theme.accent);
+            display.text_centered(Rect::new(rect.x, rect.bottom() - 28, rect.w, 16), kind.title(), 9, false, rgb(0xd0d0d0));
+            x += 116;
             i += 1;
             if i % 6 == 0 {
-                x = 80;
-                y += 112;
+                x = 60;
+                y += 116;
             }
         }
 
-        let power_panel = Rect::new(self.width - 180, self.height - 160, 130, 110);
-        display.fill_rect(power_panel, rgb(0x101010));
-        display.stroke_rounded(power_panel, 1, 1, rgb(0x202020));
+        let power_panel = Rect::new(self.width - 170, self.height - 150, 120, 100);
+        display.fill_rect(power_panel, rgb(0x111111));
+        display.stroke_rounded(power_panel, 1, 1, rgb(0x252525));
         display.text(power_panel.x + 10, power_panel.y + 10, "Power", 11, true, rgb(0xffffff));
-        let shutdown = Rect::new(power_panel.x + 10, power_panel.y + 40, power_panel.w - 20, 28);
-        display.fill_rect(shutdown, rgb(0x200000));
-        display.stroke_rounded(shutdown, 1, 1, rgb(0x500000));
-        display.text_centered(shutdown, "Shutdown", 9, false, rgb(0xff5050));
-        let reboot = Rect::new(power_panel.x + 10, power_panel.y + 76, power_panel.w - 20, 28);
-        display.fill_rect(reboot, rgb(0x101010));
-        display.stroke_rounded(reboot, 1, 1, rgb(0x303030));
+        let shutdown = Rect::new(power_panel.x + 10, power_panel.y + 38, power_panel.w - 20, 26);
+        display.fill_rect(shutdown, rgb(0x250000));
+        display.stroke_rounded(shutdown, 1, 1, rgb(0x600000));
+        display.text_centered(shutdown, "Shutdown", 9, false, rgb(0xff5555));
+        let reboot = Rect::new(power_panel.x + 10, power_panel.y + 72, power_panel.w - 20, 26);
+        display.fill_rect(reboot, rgb(0x111111));
+        display.stroke_rounded(reboot, 1, 1, rgb(0x333333));
         display.text_centered(reboot, "Restart", 9, false, rgb(0xd0d0d0));
     }
 }
@@ -1117,25 +1117,32 @@ fn draw_window(
     let radius = WINDOW_RADIUS.min(rect.w / 2).min(rect.h / 2);
     display.reset_clip();
     display.fill_rect(rect, rgb(0x0a0a0a));
-    display.stroke_rounded(rect, 1, 1, if focused { theme.accent } else { rgb(0x303030) });
+    display.stroke_rounded(rect, 1, 1, if focused { theme.accent } else { rgb(0x333333) });
 
     let title_rect = Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT);
-    display.fill_rect(title_rect, if focused { rgb(0x141414) } else { rgb(0x0a0a0a) });
-    display.fill_rect(Rect::new(rect.x, rect.y + TITLE_HEIGHT - 1, rect.w, 1), if focused { theme.accent } else { rgb(0x202020) });
+    display.fill_rect(title_rect, if focused { rgb(0x1c1c1c) } else { rgb(0x151515) });
+    display.fill_rect(Rect::new(rect.x, rect.y + TITLE_HEIGHT - 1, rect.w, 1), if focused { theme.accent } else { rgb(0x2a2a2a) });
 
     let kind = window.app.kind();
-    widgets::icon(display, Rect::new(rect.x + 8, rect.y + 8, 16, 16), kind.icon(), if focused { theme.accent } else { rgb(0x808080) });
-    display.text_ellipsized(rect.x + 32, rect.y + 8, kind.title(), (rect.w - 120).max(30), 11, false, if focused { rgb(0xffffff) } else { rgb(0xb0b0b0) });
+    widgets::icon(display, Rect::new(rect.x + 6, rect.y + 7, 16, 16), kind.icon(), if focused { theme.accent } else { rgb(0x909090) });
+    display.text_ellipsized(rect.x + 28, rect.y + 7, kind.title(), (rect.w - 150).max(30), 11, false, if focused { rgb(0xffffff) } else { rgb(0xc8c8c8) });
 
-    let (close, minimize, maximize) = title_buttons(rect);
     let id = window.id;
-    // Minimal buttons
-    let _ = (minimize, maximize, hover, Target::Minimize(id), Target::Maximize(id)); // keep simple
     let hot_close = hover == Target::Close(id);
-    let c = Rect::new(rect.right() - 22, rect.y + 8, 14, 14);
-    display.fill_rect(c, if hot_close { rgb(0x400000) } else { rgb(0x0a0a0a) });
-    display.stroke_rounded(c, 1, 1, if hot_close { rgb(0xff4040) } else { rgb(0x303030) });
-    widgets::icon(display, c.inset(3), Icon::Close, if hot_close { rgb(0xff6060) } else { rgb(0x808080) });
+    let hot_min = hover == Target::Minimize(id);
+    let hot_max = hover == Target::Maximize(id);
+    let close = Rect::new(rect.right() - 28, rect.y + 6, 22, 18);
+    let min = Rect::new(rect.right() - 54, rect.y + 6, 22, 18);
+    let max = Rect::new(rect.right() - 80, rect.y + 6, 22, 18);
+    display.fill_rect(min, if hot_min { rgb(0x252525) } else { rgb(0x151515) });
+    display.stroke_rounded(min, 1, 1, if hot_min { rgb(0x505050) } else { rgb(0x2a2a2a) });
+    display.text_centered(min, "–", 12, false, if hot_min { rgb(0xffffff) } else { rgb(0xb0b0b0) });
+    display.fill_rect(max, if hot_max { rgb(0x252525) } else { rgb(0x151515) });
+    display.stroke_rounded(max, 1, 1, if hot_max { rgb(0x505050) } else { rgb(0x2a2a2a) });
+    display.text_centered(max, "□", 10, false, if hot_max { rgb(0xffffff) } else { rgb(0xb0b0b0) });
+    display.fill_rect(close, if hot_close { rgb(0xe81123) } else { rgb(0x151515) });
+    display.stroke_rounded(close, 1, 1, if hot_close { rgb(0xff3344) } else { rgb(0x2a2a2a) });
+    display.text_centered(close, "×", 14, false, if hot_close { rgb(0xffffff) } else { rgb(0xb0b0b0) });
 
     let content = window.content();
     if !content.is_empty() {
@@ -1144,11 +1151,7 @@ fn draw_window(
         display.pop_clip();
         display.reset_clip();
     }
-    if focused {
-        // Inner sparkle: a faint accent line just inside the window edge.
-        display.stroke_rounded(rect.inset(1), radius - 1, 1, theme.accent_soft(34));
-    }
-    display.stroke_rounded(rect, 1, 1, if focused { theme.accent } else { rgb(0x303030) });
+    display.stroke_rounded(rect, 1, 1, if focused { theme.accent } else { rgb(0x333333) });
 }
 
 // ---------------------------------------------------------------------------
