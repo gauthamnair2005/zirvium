@@ -5,6 +5,7 @@ pub mod platform;
 pub mod ps2;
 pub mod rtc;
 pub mod virtio;
+pub mod e1000;
 
 /// Initialise every driver that does not need the heap.
 ///
