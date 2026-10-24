@@ -22,7 +22,7 @@ QEMU_SMP    ?= 8
 QEMU_DISPLAY ?= gtk
 QEMU_CPU    ?= max
 
-.PHONY: all build esp iso run run-headless clean fmt clippy check test
+.PHONY: all build esp iso run run-gui run-headless clean fmt clippy check test
 
 all: esp iso
 
@@ -102,7 +102,9 @@ endef
 run: esp $(BUILD)/OVMF_VARS.fd
 	$(qemu_common) \
 		-serial stdio \
-		-display $(QEMU_DISPLAY),gl=on
+		-display $(QEMU_DISPLAY)
+
+run-gui: run
 
 run-headless: esp $(BUILD)/OVMF_VARS.fd
 	$(qemu_common) \
