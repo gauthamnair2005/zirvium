@@ -1,0 +1,63 @@
+//! Small network service boundary.
+//!
+//! The current kernel has no NIC driver yet, so the service provides a real
+//! loopback interface and explicit capability reporting.  Higher-level tools
+//! use this boundary instead of pretending that an unavailable Ethernet device
+//! is online.
+
+use alloc::string::String;
+
+use zirvstdlib::sync::Once;
+
+#[derive(Clone, Copy)]
+pub struct NetworkStatus {
+    pub loopback: bool,
+    pub ethernet: bool,
+    pub address: [u8; 4],
+}
+
+static STATUS: Once<NetworkStatus> = Once::new();
+
+pub fn init() {
+    let status = NetworkStatus {
+        loopback: true,
+        ethernet: false,
+        address: [127, 0, 0, 1],
+    };
+    STATUS.call_once(|| status);
+    crate::sprintln!("NET: loopback online, external interfaces unavailable");
+}
+
+pub fn status() -> NetworkStatus {
+    STATUS.get().copied().unwrap_or(NetworkStatus {
+        loopback: false,
+        ethernet: false,
+        address: [0, 0, 0, 0],
+    })
+}
+
+pub struct PingResult {
+    pub address: [u8; 4],
+    pub sequence: u32,
+    pub elapsed_ms: u32,
+}
+
+pub fn ping(host: &str, sequence: u32) -> Result<PingResult, &'static str> {
+    let address = match host {
+        "localhost" | "127.0.0.1" => [127, 0, 0, 1],
+        _ => return Err("host is unreachable: no network interface is configured"),
+    };
+    Ok(PingResult {
+        address,
+        sequence,
+        elapsed_ms: 0,
+    })
+}
+
+pub fn address_string(address: [u8; 4]) -> String {
+    alloc::format!("{}.{}.{}.{}", address[0], address[1], address[2], address[3])
+}
+
+pub fn http_available() -> bool {
+    false
+}

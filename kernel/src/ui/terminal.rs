@@ -1,9 +1,7 @@
-//! The DisplayJet terminal.
+//! The Zirvium shell.
 //!
-//! There is no fork/exec yet, so commands are implemented in Rust against the
-//! kernel APIs directly.  The command set is deliberately useful: it exposes
-//! MOSIX, the VFS, the display engine and the boot log, which makes the
-//! terminal a real diagnostic tool rather than a mock-up.
+//! Commands are implemented in Rust against kernel service boundaries until
+//! userspace and process execution are available.
 
 use alloc::format;
 use alloc::string::{String, ToString};
@@ -40,14 +38,14 @@ impl Terminal {
             history: Vec::new(),
             history_position: None,
         };
-        terminal.push(String::from("Zirvium 2.0 — Terminal"));
+        terminal.push(String::from("Zirvium Shell 2.0.1"));
         terminal.push(format!(
             "Kernel booted in {} on {} logical processor(s).",
             uptime,
             crate::arch::cpu::logical_processors()
         ));
         terminal.push(String::from(
-            "Type 'help' for commands. Tab completion is not implemented yet.",
+            "Type 'help' for commands. Use Ctrl+L to clear the screen.",
         ));
         terminal.push(String::new());
         terminal
@@ -121,6 +119,9 @@ impl Terminal {
                 self.push(String::from("  spawn NAME           create a process"));
                 self.push(String::from("  kill PID             remove a process"));
                 self.push(String::from("  gpu                  display adapter"));
+                self.push(String::from("  net                  network status"));
+                self.push(String::from("  ping HOST             test loopback or network reachability"));
+                self.push(String::from("  browse URL            open a text page"));
                 self.push(String::from("  fonts                loaded font faces"));
                 self.push(String::from("  dmesg                boot log"));
                 self.push(String::from("  ls [PATH]            list a directory"));
@@ -268,6 +269,63 @@ impl Terminal {
                 self.push(String::from(
                     "path      desktop surface -> firmware scanout",
                 ));
+            }
+            "net" | "network" => {
+                let status = crate::net::status();
+                self.push(format!(
+                    "loopback  {} ({})",
+                    if status.loopback { "online" } else { "offline" },
+                    crate::net::address_string(status.address)
+                ));
+                self.push(format!(
+                    "ethernet  {}",
+                    if status.ethernet {
+                        "online"
+                    } else {
+                        "not configured"
+                    }
+                ));
+            }
+            "ping" => {
+                let host = arguments.first().copied().unwrap_or("");
+                if host.is_empty() {
+                    self.push(String::from("usage: ping HOST"));
+                } else {
+                    match crate::net::ping(host, 1) {
+                        Ok(result) => self.push(format!(
+                            "PING {host} ({}) seq={} time={} ms",
+                            crate::net::address_string(result.address),
+                            result.sequence,
+                            result.elapsed_ms
+                        )),
+                        Err(error) => self.push(format!("ping: {error}")),
+                    }
+                }
+            }
+            "browse" | "w3m" | "links" => {
+                let url = arguments.first().copied().unwrap_or("");
+                if url.is_empty() {
+                    self.push(String::from("usage: browse URL"));
+                } else if let Some(path) = url.strip_prefix("zirv://") {
+                    let path = if path.is_empty() { "/README.md" } else { path };
+                    let resolved = crate::mosix::vfs::resolve("/", path);
+                    match crate::mosix::vfs::read_limited(&resolved, 32 * 1024) {
+                        Some(content) => {
+                            self.push(format!("--- {url} ---"));
+                            self.push_text(content.trim_end());
+                            self.push(String::from("--- end ---"));
+                        }
+                        None => self.push(format!("browse: page not found: {url}")),
+                    }
+                } else if url.starts_with("http://") || url.starts_with("https://") {
+                    self.push(String::from(
+                        "browse: external HTTP is unavailable until a NIC and TCP/IP stack are enabled",
+                    ));
+                } else {
+                    self.push(String::from(
+                        "browse: use a zirv:// page or an http(s) URL",
+                    ));
+                }
             }
             "fonts" => {
                 for face in crate::displayjet::font::faces() {

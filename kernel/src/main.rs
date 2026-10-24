@@ -32,6 +32,7 @@ mod input;
 mod logger;
 mod mm;
 mod mosix;
+mod net;
 mod syscall;
 mod time;
 mod uefi;
@@ -230,6 +231,7 @@ extern "sysv64" fn kernel_main(image_handle: *mut c_void, system_table: *mut c_v
     let logical = arch::cpu::logical_processors();
     let memory_mib = (mm::stats().total_bytes / (1024 * 1024)) as u32;
     mosix::init(logical, memory_mib);
+    net::init();
 
     set_phase("syscall");
     syscall::self_test();
