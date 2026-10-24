@@ -43,14 +43,20 @@ pub enum AppKind {
     Nodes,
     Settings,
     About,
+    Calculator,
+    Notes,
+    Network,
 }
 
 /// Dock order, also the launcher order.
-const DOCK_APPS: [AppKind; 6] = [
+const DOCK_APPS: [AppKind; 9] = [
     AppKind::Terminal,
     AppKind::Files,
     AppKind::Monitor,
     AppKind::Nodes,
+    AppKind::Network,
+    AppKind::Calculator,
+    AppKind::Notes,
     AppKind::Settings,
     AppKind::About,
 ];
@@ -64,6 +70,9 @@ impl AppKind {
             AppKind::Nodes => "MOSIX Nodes",
             AppKind::Settings => "Settings",
             AppKind::About => "About Zirvium",
+            AppKind::Calculator => "Calculator",
+            AppKind::Notes => "Notes",
+            AppKind::Network => "Network",
         }
     }
 
@@ -75,6 +84,9 @@ impl AppKind {
             AppKind::Nodes => "Cluster members and migration",
             AppKind::Settings => "Wallpaper, accent and display",
             AppKind::About => "The design behind Zirvium",
+            AppKind::Calculator => "Quick arithmetic",
+            AppKind::Notes => "Text notes and scratchpad",
+            AppKind::Network => "Connections and diagnostics",
         }
     }
 
@@ -86,6 +98,9 @@ impl AppKind {
             AppKind::Nodes => Icon::Nodes,
             AppKind::Settings => Icon::Settings,
             AppKind::About => Icon::About,
+            AppKind::Calculator => Icon::Settings,
+            AppKind::Notes => Icon::Files,
+            AppKind::Network => Icon::Nodes,
         }
     }
 
@@ -97,6 +112,9 @@ impl AppKind {
             AppKind::Nodes => (820, 590),
             AppKind::Settings => (700, 600),
             AppKind::About => (600, 470),
+            AppKind::Calculator => (320, 380),
+            AppKind::Notes => (640, 460),
+            AppKind::Network => (680, 520),
         }
     }
 }
@@ -108,6 +126,9 @@ enum App {
     Nodes(apps::Nodes),
     Settings(apps::Settings),
     About(apps::About),
+    Calculator(apps::Calculator),
+    Notes(apps::Notes),
+    Network(apps::Network),
 }
 
 impl App {
@@ -119,6 +140,9 @@ impl App {
             AppKind::Nodes => App::Nodes(apps::Nodes::new()),
             AppKind::Settings => App::Settings(apps::Settings::new()),
             AppKind::About => App::About(apps::About::new()),
+            AppKind::Calculator => App::Calculator(apps::Calculator::new()),
+            AppKind::Notes => App::Notes(apps::Notes::new()),
+            AppKind::Network => App::Network(apps::Network::new()),
         }
     }
 
@@ -130,6 +154,9 @@ impl App {
             App::Nodes(_) => AppKind::Nodes,
             App::Settings(_) => AppKind::Settings,
             App::About(_) => AppKind::About,
+            App::Calculator(_) => AppKind::Calculator,
+            App::Notes(_) => AppKind::Notes,
+            App::Network(_) => AppKind::Network,
         }
     }
 
@@ -141,6 +168,9 @@ impl App {
             App::Nodes(app) => app.draw(display, content, theme, focused),
             App::Settings(app) => app.draw(display, content, theme, focused),
             App::About(app) => app.draw(display, content, theme, focused),
+            App::Calculator(app) => app.draw(display, content, theme, focused),
+            App::Notes(app) => app.draw(display, content, theme, focused),
+            App::Network(app) => app.draw(display, content, theme, focused),
         }
     }
 
@@ -158,6 +188,9 @@ impl App {
             App::Nodes(app) => app.pointer(point, content, theme),
             App::Settings(app) => app.pointer(point, content, theme),
             App::About(_) => Response::NONE,
+            App::Calculator(app) => app.pointer(point, content, theme),
+            App::Notes(app) => app.pointer(point, content, theme),
+            App::Network(app) => app.pointer(point, content, theme),
         }
     }
 
@@ -169,6 +202,9 @@ impl App {
             App::Nodes(_) => false,
             App::Settings(_) => false,
             App::About(_) => false,
+            App::Calculator(app) => app.key(code, event_modifiers),
+            App::Notes(app) => app.key(code, event_modifiers),
+            App::Network(_) => false,
         }
     }
 
@@ -180,12 +216,21 @@ impl App {
             App::Nodes(_) => {}
             App::Settings(app) => app.scroll(point, content, amount),
             App::About(_) => {}
+            App::Calculator(_) => {}
+            App::Notes(app) => {
+                let _ = (point, content);
+                app.scroll = (app.scroll - amount * 24).max(0);
+            }
+            App::Network(_) => {}
         }
     }
 
     fn tick(&mut self) -> bool {
         match self {
             App::Monitor(app) => app.tick(),
+            App::Calculator(app) => app.tick(),
+            App::Notes(app) => app.tick(),
+            App::Network(app) => app.tick(),
             _ => false,
         }
     }

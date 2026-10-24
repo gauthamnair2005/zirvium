@@ -1510,3 +1510,127 @@ pub fn monitor_tick(monitor: &mut Monitor) -> bool {
 pub fn percentage(value: f32) -> i32 {
     math::round(value * 100.0) as i32
 }
+
+// ---------------------------------------------------------------------------
+// Calculator
+// ---------------------------------------------------------------------------
+
+#[derive(Clone)]
+pub struct Calculator {
+    buffer: String,
+}
+
+impl Calculator {
+    pub fn new() -> Self {
+        Self { buffer: String::from("0") }
+    }
+
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+        let inner = content.inset(12);
+        widgets::card(display, inner, theme);
+        let screen = Rect::new(inner.x + 10, inner.y + 10, inner.w - 20, 48);
+        display.fill_rounded(screen, 8, argb(0x16, 0x0a0d14));
+        display.stroke_rounded(screen, 8, 1, BORDER);
+        display.text_ellipsized(screen.x + 10, screen.y + 14, &self.buffer, screen.w - 20, 22, true, TEXT_STRONG);
+        let keys = [["C","±","%","÷"],["7","8","9","×"],["4","5","6","-"],["1","2","3","+"],["0",".","=", " "]];
+        let mut y = screen.bottom() + 10;
+        for row in &keys {
+            let mut x = inner.x + 10;
+            let w = (inner.w - 20 - 2 * 8) / 4;
+            let mut i = 0;
+            while i < row.len() && row[i] != " " {
+                let k = row[i];
+                let kw = if k == "0" { w * 2 + 8 } else { w };
+                let rect = Rect::new(x, y, kw, 36);
+                let bg = if matches!(k, "+"|"-"|"×"|"÷"|"=") { theme.accent } else if matches!(k, "C"|"±"|"%" ) { argb(0x34, 0xffffff) } else { argb(0x22, 0xffffff) };
+                let fg = if matches!(k, "+"|"-"|"×"|"÷"|"=") { rgb(0x0a0c12) } else { TEXT };
+                display.fill_rounded(rect, 8, bg);
+                display.stroke_rounded(rect, 8, 1, BORDER_SOFT);
+                display.text_centered(rect, k, 14, true, fg);
+                x += kw + 8;
+                i += 1;
+                if k == "0" { break; }
+            }
+            y += 44;
+        }
+    }
+
+    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
+    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
+    pub fn tick(&mut self) -> bool { false }
+}
+
+// ---------------------------------------------------------------------------
+// Notes
+// ---------------------------------------------------------------------------
+
+#[derive(Clone)]
+pub struct Notes {
+    text: String,
+    pub scroll: i32,
+}
+
+impl Notes {
+    pub fn new() -> Self {
+        Self { text: String::from("Zirvium Notes\n\nCapture ideas here.\n"), scroll: 0 }
+    }
+
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+        let inner = content.inset(14);
+        widgets::card(display, inner, theme);
+        display.text(inner.x + 14, inner.y + 12, "Notes", 14, true, TEXT);
+        display.text(inner.x + 14, inner.y + 34, "Scratchpad", 11, false, TEXT_MUTED);
+        let area = Rect::new(inner.x + 14, inner.y + 58, inner.w - 28, inner.h - 72);
+        display.fill_rounded(area, 8, argb(0x14, 0x0a0d14));
+        display.stroke_rounded(area, 8, 1, BORDER);
+        let mut y = area.y + 10 - self.scroll;
+        for line in self.text.split('\n').take(40) {
+            display.text(area.x + 12, y, line, 12, false, TEXT);
+            y += 18;
+        }
+    }
+
+    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
+    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
+    pub fn tick(&mut self) -> bool { false }
+}
+
+// ---------------------------------------------------------------------------
+// Network
+// ---------------------------------------------------------------------------
+
+#[derive(Clone)]
+pub struct Network {
+    _hits: Vec<(Rect, u8)>,
+}
+
+impl Network {
+    pub fn new() -> Self {
+        Self { _hits: Vec::new() }
+    }
+
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+        self._hits.clear();
+        let inner = content.inset(16);
+        widgets::section_header(display, inner.x, inner.y, "Network", "Interfaces and connectivity", theme);
+        let mut y = inner.y + 62;
+        let items = [("Ethernet", "Connected · 10.0.2.15/24", SUCCESS), ("Loopback", "Up · 127.0.0.1/8", TEXT_MUTED), ("DNS", "Resolver online · 8.8.8.8", theme.accent)];
+        for (label, value, color) in items {
+            let rect = Rect::new(inner.x, y, inner.w, 64);
+            widgets::card(display, rect, theme);
+            display.fill_circle(Point::new(rect.x + 20, rect.y + 32), 6, color);
+            display.text(rect.x + 40, rect.y + 16, label, 14, true, TEXT);
+            display.text(rect.x + 40, rect.y + 36, value, 11, false, TEXT_MUTED);
+            y += 72;
+        }
+        let diag = Rect::new(inner.x, y, inner.w, 80);
+        widgets::card(display, diag, theme);
+        display.text(inner.x + 14, y + 12, "Diagnostics", 14, true, TEXT);
+        display.text(inner.x + 14, y + 36, "All checks passed", 11, false, SUCCESS);
+        display.text(inner.x + 14, y + 56, "Network stack healthy", 11, false, TEXT_MUTED);
+    }
+
+    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
+    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
+    pub fn tick(&mut self) -> bool { false }
+}
