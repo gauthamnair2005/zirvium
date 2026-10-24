@@ -273,6 +273,71 @@ fn ember(canvas: &mut Canvas, accent: u32, accent_alt: u32) {
         canvas.blend(px, py - 1, color, brightness * 0.18);
         canvas.blend(px, py + 1, color, brightness * 0.18);
     }
+
+    fn ocean(canvas: &mut Canvas, accent: u32, accent_alt: u32) {
+        let width = canvas.width as f32;
+        let height = canvas.height as f32;
+        canvas.fill_vertical(rgb(0x061522), rgb(0x0b3547));
+        canvas.glow(0.18, 0.18, 0.72, accent_alt, 0.20);
+        canvas.glow(0.82, 0.76, 0.86, rgb(0x087f9b), 0.28);
+        for y in 0..canvas.height {
+            let fy = y as f32 / height;
+            for x in 0..canvas.width {
+                let fx = x as f32 / width;
+                let wave = math::sin(fx * 11.0 + fy * 8.0) * 0.5
+                    + math::sin(fx * 24.0 - fy * 4.0) * 0.2;
+                let shimmer = (wave + 0.5).max(0.0) * (1.0 - fy) * 0.035;
+                canvas.blend(x, y, accent, shimmer);
+            }
+        }
+        stars(canvas, 90, rgb(0xb9efff));
+    }
+
+    fn sunset(canvas: &mut Canvas, accent: u32, accent_alt: u32) {
+        canvas.fill_vertical(rgb(0x1b1020), rgb(0x44231b));
+        canvas.glow(0.78, 0.32, 0.42, rgb(0xffb05f), 0.45);
+        canvas.glow(0.16, 0.78, 0.72, accent, 0.26);
+        canvas.glow(0.60, 0.84, 0.66, accent_alt, 0.18);
+        let mut random = Random::new(0x51c0_ffee_2026_1024);
+        for _ in 0..240 {
+            let x = random.unit() * canvas.width as f32;
+            let y = random.unit() * canvas.height as f32;
+            let color = if random.unit() > 0.5 { rgb(0xffd18a) } else { accent };
+            canvas.blend(x as i32, y as i32, color, 0.04 + random.unit() * 0.18);
+        }
+    }
+}
+
+fn ocean(canvas: &mut Canvas, accent: u32, accent_alt: u32) {
+    let width = canvas.width as f32;
+    let height = canvas.height as f32;
+    canvas.fill_vertical(rgb(0x061522), rgb(0x0b3547));
+    canvas.glow(0.18, 0.18, 0.72, accent_alt, 0.20);
+    canvas.glow(0.82, 0.76, 0.86, rgb(0x087f9b), 0.28);
+    for y in 0..canvas.height {
+        let fy = y as f32 / height;
+        for x in 0..canvas.width {
+            let fx = x as f32 / width;
+            let wave = math::sin(fx * 11.0 + fy * 8.0) * 0.5
+                + math::sin(fx * 24.0 - fy * 4.0) * 0.2;
+            canvas.blend(x, y, accent, (wave + 0.5).max(0.0) * (1.0 - fy) * 0.035);
+        }
+    }
+    stars(canvas, 90, rgb(0xb9efff));
+}
+
+fn sunset(canvas: &mut Canvas, accent: u32, accent_alt: u32) {
+    canvas.fill_vertical(rgb(0x1b1020), rgb(0x44231b));
+    canvas.glow(0.78, 0.32, 0.42, rgb(0xffb05f), 0.45);
+    canvas.glow(0.16, 0.78, 0.72, accent, 0.26);
+    canvas.glow(0.60, 0.84, 0.66, accent_alt, 0.18);
+    let mut random = Random::new(0x51c0_ffee_2026_1024);
+    for _ in 0..240 {
+        let x = random.unit() * canvas.width as f32;
+        let y = random.unit() * canvas.height as f32;
+        let color = if random.unit() > 0.5 { rgb(0xffd18a) } else { accent };
+        canvas.blend(x as i32, y as i32, color, 0.04 + random.unit() * 0.18);
+    }
 }
 
 /// Ordered 4x4 Bayer matrix, centred on zero.
@@ -310,6 +375,8 @@ pub fn generate(width: i32, height: i32, style: u8, accent: u32, accent_alt: u32
         1 => aurora(&mut canvas, accent, accent_alt),
         2 => graphite(&mut canvas, accent, accent_alt),
         3 => ember(&mut canvas, accent, accent_alt),
+        4 => ocean(&mut canvas, accent, accent_alt),
+        5 => sunset(&mut canvas, accent, accent_alt),
         _ => nebula(&mut canvas, accent, accent_alt),
     }
     finish(&mut canvas);

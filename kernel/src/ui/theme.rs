@@ -80,7 +80,7 @@ pub const ACCENTS: [(u32, &str); 6] = [
 ];
 
 /// Wallpaper styles.
-pub const WALLPAPERS: [&str; 4] = ["Nebula", "Aurora", "Graphite", "Ember"];
+pub const WALLPAPERS: [&str; 6] = ["Nebula", "Aurora", "Graphite", "Ember", "Ocean", "Sunset"];
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ColorMode {

@@ -879,6 +879,17 @@ impl Files {
 
     pub fn right_click(&mut self, point: Point, content: Rect) -> bool {
         if content.contains(point) {
+            let (_, list, _, row_height) = self.layout(content);
+            if list.contains(point) {
+                let inner = list.inset(6);
+                let offset = (point.y - (inner.y + 4)) / row_height;
+                if offset >= 0 {
+                    let index = self.scroll + offset as usize;
+                    if index < self.entries.len() {
+                        self.select(index);
+                    }
+                }
+            }
             self.context_menu = Some(point);
             true
         } else {

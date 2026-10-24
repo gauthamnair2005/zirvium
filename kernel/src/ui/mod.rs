@@ -275,6 +275,8 @@ struct Window {
     restore: Option<Rect>,
     minimized: bool,
     maximized: bool,
+    motion: f32,
+    closing: bool,
 }
 
 impl Window {
@@ -427,6 +429,7 @@ pub struct Desktop {
     context_menu: Option<Point>,
     cursor_style: CursorStyle,
     start_power_open: bool,
+    hover_progress: f32,
 }
 
 impl Desktop {
@@ -460,6 +463,7 @@ impl Desktop {
             context_menu: None,
             cursor_style: CursorStyle::Pointer,
             start_power_open: false,
+            hover_progress: 0.0,
         };
         crate::displayjet::font::set_scale_for_resolution(width, height);
         desktop.theme.text_scale = crate::displayjet::font::scale();
@@ -537,13 +541,15 @@ impl Desktop {
             restore: None,
             minimized: false,
             maximized: false,
+            motion: 0.0,
+            closing: false,
         });
         self.focused = Some(id);
     }
 
     fn close(&mut self, id: u32) {
-        if let Some(index) = self.window_index(id) {
-            self.windows.remove(index);
+        if let Some(window) = self.window_mut(id) {
+            window.closing = true;
         }
         if self.focused == Some(id) {
             self.focus_top();
@@ -1183,9 +1189,27 @@ impl Desktop {
         }
 
         for window in self.windows.iter_mut() {
+            if window.closing {
+                window.motion = (window.motion - 0.16).max(0.0);
+                redraw = true;
+            } else if window.motion < 1.0 {
+                window.motion = (window.motion + 0.16).min(1.0);
+                redraw = true;
+            }
             if !window.minimized && window.app.tick() {
                 redraw = true;
             }
+        }
+        let removed = self.windows.len();
+        self.windows.retain(|window| !window.closing || window.motion > 0.0);
+        if self.windows.len() != removed {
+            self.focus_top();
+        }
+        let target_hover = if self.hover == Target::Nothing { 0.0 } else { 1.0 };
+        let previous_hover = self.hover_progress;
+        self.hover_progress += (target_hover - self.hover_progress) * 0.24;
+        if (self.hover_progress - previous_hover).abs() > 0.01 {
+            redraw = true;
         }
 
         let before = self.notifications.len();
@@ -1238,11 +1262,19 @@ impl Desktop {
         let theme = self.theme;
         let focused = self.focused;
         let hover = self.hover;
+        let hover_progress = self.hover_progress;
         for window in self.windows.iter_mut() {
             if window.minimized {
                 continue;
             }
-            draw_window(display, window, &theme, focused == Some(window.id), hover);
+            draw_window(
+                display,
+                window,
+                &theme,
+                focused == Some(window.id),
+                hover,
+                hover_progress,
+            );
         }
         self.draw_top_bar(display);
         self.draw_notifications(display);
@@ -1484,8 +1516,16 @@ fn draw_window(
     theme: &Theme,
     focused: bool,
     hover: Target,
+    hover_progress: f32,
 ) {
-    let rect = window.rect;
+    let progress = window.motion.clamp(0.0, 1.0);
+    let base = window.rect;
+    let rect = Rect::new(
+        base.x,
+        base.y + ((1.0 - progress) * 18.0) as i32,
+        base.w,
+        ((base.h as f32 * (0.86 + progress * 0.14)) as i32).max(100),
+    );
     if rect.w < 160 || rect.h < 100 {
         return;
     }
@@ -1508,14 +1548,15 @@ fn draw_window(
     let close = Rect::new(rect.right() - 28, rect.y + 6, 22, 22);
     let min = Rect::new(rect.right() - 54, rect.y + 6, 22, 22);
     let max = Rect::new(rect.right() - 80, rect.y + 6, 22, 22);
-    display.fill_rounded(min, 4, if hot_min { theme.well() } else { theme.card() });
+    let hot_fill = theme.accent_soft((18.0 + hover_progress * 32.0) as u32);
+    display.fill_rounded(min, 4, if hot_min { hot_fill } else { theme.card() });
     widgets::icon(
         display,
         min,
         Icon::Minimize,
         if hot_min { theme.text() } else { theme.text_muted() },
     );
-    display.fill_rounded(max, 4, if hot_max { theme.well() } else { theme.card() });
+    display.fill_rounded(max, 4, if hot_max { hot_fill } else { theme.card() });
     widgets::icon(
         display,
         max,
