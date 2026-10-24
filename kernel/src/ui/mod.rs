@@ -333,18 +333,23 @@ fn start_tile_rect(index: usize, slide: i32) -> Rect {
     Rect::new(x - slide, y, width, height)
 }
 
-fn launch_panel_rect() -> Rect {
-    let rows = START_APPS.len() as i32;
-    Rect::new(14, TOP_BAR_HEIGHT + 10, 306, 60 + rows * 50 + 34)
+fn launch_panel_rect(width: i32, height: i32) -> Rect {
+    Rect::new(
+        24,
+        (height - DOCK_HEIGHT - 576).max(TOP_BAR_HEIGHT + 12),
+        548.min(width - 48),
+        560.min(height - DOCK_HEIGHT - TOP_BAR_HEIGHT - 24),
+    )
 }
 
-fn launch_row_rect(index: usize) -> Rect {
-    let panel = launch_panel_rect();
+fn launch_row_rect(panel: Rect, index: usize) -> Rect {
+    let column = index % 2;
+    let row = index / 2;
     Rect::new(
-        panel.x + 10,
-        panel.y + 52 + index as i32 * 50,
-        panel.w - 20,
-        46,
+        panel.x + 22 + column as i32 * 252,
+        panel.y + 168 + row as i32 * 82,
+        236,
+        70,
     )
 }
 
@@ -735,14 +740,13 @@ impl Desktop {
             return false;
         }
         if self.launcher {
-            let screen_w = self.width;
-            // Click logo to close
-            let logo = Rect::new(58, 42, 44, 44);
+            let panel = launch_panel_rect(self.width, self.height);
+            let logo = Rect::new(panel.x + 22, panel.y + 24, 36, 36);
             if logo.contains(point) {
                 self.launcher = false;
                 return true;
             }
-            let user = Rect::new(screen_w - 238, 42, 118, 38);
+            let user = Rect::new(panel.right() - 142, panel.y + 24, 112, 36);
             if user.contains(point) {
                 self.logged_in = false;
                 self.launcher = false;
@@ -751,7 +755,7 @@ impl Desktop {
                 self.notify("Signed out", "The session is ready for the next user.", 4000);
                 return true;
             }
-            let power = Rect::new(screen_w - 106, 42, 46, 38);
+            let power = Rect::new(panel.right() - 54, panel.y + 24, 36, 36);
             if power.contains(point) {
                 self.start_power_open = !self.start_power_open;
                 return true;
@@ -759,9 +763,9 @@ impl Desktop {
             let elapsed = zirvstdlib::time::monotonic_ms().saturating_sub(self.launcher_started);
             let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
             let eased = progress * progress * (3.0 - 2.0 * progress);
-            let slide = ((1.0 - eased) * 72.0) as i32;
             for (i, kind) in START_APPS.iter().enumerate() {
-                let rect = start_tile_rect(i, slide);
+                let mut rect = launch_row_rect(panel, i);
+                rect.x -= ((1.0 - eased) * 28.0) as i32;
                 if rect.contains(point) {
                     self.launcher = false;
                     self.open(*kind);
@@ -769,9 +773,12 @@ impl Desktop {
                 }
             }
             if !self.start_power_open {
+                if !panel.contains(point) {
+                    self.launcher = false;
+                }
                 return true;
             }
-            let power_panel = Rect::new(screen_w - 238, 88, 176, 148);
+            let power_panel = Rect::new(panel.right() - 194, panel.y + 72, 176, 148);
             let shutdown = Rect::new(power_panel.x + 12, power_panel.y + 34, power_panel.w - 24, 30);
             let reboot = Rect::new(power_panel.x + 12, power_panel.y + 70, power_panel.w - 24, 30);
             if shutdown.contains(point) {
@@ -1153,21 +1160,20 @@ impl Desktop {
             draw_grid(display, self.width, self.height, &self.theme);
         }
 
+        let theme = self.theme;
+        let focused = self.focused;
+        let hover = self.hover;
+        for window in self.windows.iter_mut() {
+            if window.minimized {
+                continue;
+            }
+            draw_window(display, window, &theme, focused == Some(window.id), hover);
+        }
+        self.draw_top_bar(display);
+        self.draw_taskbar(display);
+        self.draw_notifications(display);
         if self.launcher {
             self.draw_start_screen(display);
-        } else {
-            let theme = self.theme;
-            let focused = self.focused;
-            let hover = self.hover;
-            for window in self.windows.iter_mut() {
-                if window.minimized {
-                    continue;
-                }
-                draw_window(display, window, &theme, focused == Some(window.id), hover);
-            }
-            self.draw_top_bar(display);
-            self.draw_taskbar(display);
-            self.draw_notifications(display);
         }
 
         if let Some(origin) = self.context_menu {
@@ -1329,94 +1335,51 @@ impl Desktop {
         let elapsed = now.saturating_sub(self.launcher_started);
         let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
         let eased = progress * progress * (3.0 - 2.0 * progress);
-        let screen = Rect::new(0, 0, self.width, self.height);
-        display.vertical_gradient(screen, rgb(0x152b55), rgb(0x070d19));
-        display.fill_circle(Point::new(self.width - 80, 92), 220, argb(0x12, 0x5aa2ff));
-        display.fill_circle(Point::new(90, self.height - 80), 180, argb(0x0c, 0x9b7bff));
+        let panel = launch_panel_rect(self.width, self.height);
+        display.fill_rect(
+            Rect::new(0, TOP_BAR_HEIGHT, self.width, self.height - TOP_BAR_HEIGHT - DOCK_HEIGHT),
+            argb(0x42, 0x000000),
+        );
+        let panel = Rect::new(panel.x, panel.y, panel.w, panel.h);
+        display.drop_shadow(panel, 0, 22, argb(0x80, 0x000000));
+        display.fill_rounded(panel, 18, argb(0xf2, 0x111b2c));
+        display.stroke_rounded(panel, 18, 1, argb(0x80, 0x6d91c8));
 
-        // Header.
-        let slide = ((1.0 - eased) * 72.0) as i32;
-        widgets::logo(display, Rect::new(58 - slide, 42, 44, 44));
-        display.text(120 - slide, 44, "Workspace", 32, true, rgb(0xffffff));
-        display.text(122 - slide, 82, "Everything you need, one calm surface.", 10, false, argb(0xb0, 0xffffff));
+        widgets::logo(display, Rect::new(panel.x + 22, panel.y + 24, 36, 36));
+        display.text(panel.x + 70, panel.y + 25, "ZirvUI", 18, true, rgb(0xffffff));
+        display.text(panel.x + 70, panel.y + 48, "Your workspace", 9, false, argb(0xb0, 0xffffff));
 
-        let search = Rect::new(60, 122, 420, 42);
-        let search = Rect::new(search.x - slide, search.y, search.w, search.h);
-        display.fill_rounded(search, 12, argb(0x28, 0xffffff));
-        display.stroke_rounded(search, 12, 1, argb(0x70, 0xffffff));
-        widgets::icon(display, Rect::new(search.x + 14, search.y + 13, 16, 16), Icon::Search, argb(0xc0, 0xffffff));
-        display.text(search.x + 42, search.y + 13, "Search apps, files and settings", 10, false, argb(0xb0, 0xffffff));
+        let user = Rect::new(panel.right() - 142, panel.y + 24, 112, 36);
+        display.fill_rounded(user, 10, argb(0x35, 0xffffff));
+        widgets::icon(display, Rect::new(user.x + 9, user.y + 9, 18, 18), Icon::User, rgb(0xffffff));
+        display.text(user.x + 34, user.y + 12, "liveuser", 9, true, rgb(0xffffff));
+        let power = Rect::new(panel.right() - 54, panel.y + 24, 36, 36);
+        display.fill_rounded(power, 10, if self.start_power_open { argb(0x65, 0xffffff) } else { argb(0x35, 0xffffff) });
+        widgets::icon(display, Rect::new(power.x + 7, power.y + 7, 22, 22), Icon::Power, rgb(0xffffff));
 
-        // Account controls.
-        let user = Rect::new(self.width - 238 - slide, 42, 118, 38);
-        display.fill_rounded(user, 9, argb(0x24, 0xffffff));
-        widgets::icon(display, Rect::new(user.x + 10, user.y + 10, 18, 18), Icon::User, rgb(0xffffff));
-        display.text(user.x + 36, user.y + 14, "liveuser", 10, false, argb(0xe0, 0xffffff));
-        let power = Rect::new(self.width - 106 - slide, 42, 46, 38);
-        display.fill_rounded(power, 9, if self.start_power_open { argb(0x58, 0xffffff) } else { argb(0x24, 0xffffff) });
-        widgets::icon(display, Rect::new(power.x + 11, power.y + 10, 22, 22), Icon::Power, rgb(0xffffff));
+        let search = Rect::new(panel.x + 22, panel.y + 82, panel.w - 44, 40);
+        display.fill_rounded(search, 11, argb(0x38, 0xffffff));
+        display.stroke_rounded(search, 11, 1, argb(0x55, 0xffffff));
+        widgets::icon(display, Rect::new(search.x + 13, search.y + 12, 16, 16), Icon::Search, argb(0xc0, 0xffffff));
+        display.text(search.x + 40, search.y + 12, "Search apps and settings", 10, false, argb(0xb0, 0xffffff));
+        display.text(panel.x + 22, panel.y + 140, "Applications", 10, true, argb(0xd0, 0xffffff));
 
-        display.text(60 - slide, 188, "Your apps", 11, true, argb(0xd0, 0xffffff));
-        display.text(self.width - 260 - slide, 188, "Today", 11, true, argb(0xd0, 0xffffff));
-
-        // App cards.
-        let mut x = 60;
-        let mut y = 208;
-        let now = crate::time::now();
         for (index, kind) in START_APPS.iter().enumerate() {
-            let (tw, th) = match index {
-                0 => (236, 110), // wide tile
-                1 => (110, 110),
-                2 => (110, 110),
-                _ => (110, 110),
-            };
-            let rect = Rect::new(x - slide, y, tw, th);
-            let tint = if index % 3 == 0 { 0x38 } else if index % 3 == 1 { 0x2d } else { 0x24 };
-            display.fill_rounded(rect, 14, argb(tint, 0xffffff));
-            display.stroke_rounded(rect, 14, 1, argb(0x44, 0xffffff));
-            if index == 0 {
-                // Live tile - shows time
-                display.text(rect.x + 18, rect.y + 16, &alloc::format!("{:02}:{:02}", now.hour, now.minute), 28, true, rgb(0xffffff));
-                display.text(rect.x + 18, rect.y + 58, "Good afternoon, liveuser", 11, true, rgb(0xffffff));
-                display.text(rect.x + 18, rect.y + 80, "Your workspace is ready.", 9, false, argb(0xb0, 0xffffff));
-            } else if index == 2 {
-                display.text(rect.x + 14, rect.y + 14, "System", 11, true, rgb(0xffffff));
-                display.text(rect.x + 14, rect.y + 42, "Ready", 22, true, rgb(0xffffff));
-                display.text(rect.x + 14, rect.y + 72, "All services online", 9, false, argb(0xa0, 0xffffff));
-            } else if index == 4 {
-                display.text(rect.x + 14, rect.y + 16, "Settings", 11, true, rgb(0xffffff));
-                display.fill_rect(Rect::new(rect.x + 14, rect.y + 42, rect.w - 28, 3), argb(0x70, 0xffffff));
-                display.text(rect.x + 14, rect.y + 58, "Personalize", 9, false, argb(0xb0, 0xffffff));
+            let mut rect = launch_row_rect(panel, index);
+            rect.x -= ((1.0 - eased) * 28.0) as i32;
+            display.fill_rounded(rect, 12, if self.focused_kind() == Some(*kind) {
+                self.theme.accent_soft(72)
             } else {
-                widgets::icon(
-                    display,
-                    Rect::new(rect.x + (tw - 38) / 2, rect.y + 22, 38, 38),
-                    kind.icon(),
-                    rgb(0xffffff),
-                );
-                display.text_centered(
-                    Rect::new(rect.x, rect.bottom() - 28, rect.w, 16),
-                    kind.title(),
-                    9,
-                    false,
-                    rgb(0xffffff),
-                );
-            }
-
-            display.fill_rounded(Rect::new(rect.x + 14, rect.bottom() - 8, 34, 3), 2, argb(0x90, 0xffffff));
-            if tw == 236 {
-                x += 252;
-            } else {
-                x += 126;
-            }
-            if x > 60 + 340 {
-                x = 60;
-                y += 126;
-            }
+                argb(0x2c, 0xffffff)
+            });
+            display.stroke_rounded(rect, 12, 1, argb(0x40, 0xffffff));
+            widgets::icon(display, Rect::new(rect.x + 15, rect.y + 17, 32, 32), kind.icon(), rgb(0xffffff));
+            display.text(rect.x + 60, rect.y + 16, kind.title(), 10, true, rgb(0xffffff));
+            display.text(rect.x + 60, rect.y + 37, kind.subtitle(), 8, false, argb(0xa0, 0xffffff));
         }
 
         if self.start_power_open {
-            let power_panel = Rect::new(self.width - 238, 88, 176, 148);
+            let power_panel = Rect::new(panel.right() - 194, panel.y + 72, 176, 148);
             display.drop_shadow(power_panel, 0, 16, argb(0x70, 0x000000));
             display.fill_rounded(power_panel, 14, argb(0xf0, 0x101827));
             display.stroke_rounded(power_panel, 14, 1, argb(0x70, 0xffffff));
@@ -1430,13 +1393,6 @@ impl Desktop {
             let logout = Rect::new(power_panel.x + 12, power_panel.y + 106, power_panel.w - 24, 30);
             display.fill_rounded(logout, 6, argb(0x30, 0xffffff));
             display.text_centered(logout, "Log out", 10, false, rgb(0xffffff));
-        }
-
-        if eased < 1.0 {
-            display.fill_rect(
-                screen,
-                argb(((1.0 - eased) * 190.0) as u32, 0x000000),
-            );
         }
 
     }
