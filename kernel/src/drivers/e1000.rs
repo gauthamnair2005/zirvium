@@ -35,6 +35,8 @@ const RCTL_BAM: u32 = 1 << 15;
 const TCTL_EN: u32 = 1;
 const TCTL_PSP: u32 = 1 << 1;
 const TXD_DONE: u8 = 1;
+const RXD_DONE: u8 = 1;
+const RXD_EOP: u8 = 2;
 const RING_SIZE: usize = 16;
 const BUFFER_SIZE: usize = 2048;
 
@@ -189,4 +191,25 @@ pub fn transmit(frame: &[u8]) -> Result<(), &'static str> {
         core::hint::spin_loop();
     }
     Err("E1000 transmit timeout")
+}
+
+pub fn receive(buffer: &mut [u8]) -> Option<usize> {
+    let state = STATE.get().copied()?;
+    let dma = unsafe { &mut *core::ptr::addr_of_mut!(DMA) };
+    let head = unsafe { read(state.mmio, RDH) as usize % RING_SIZE };
+    let descriptor = &mut dma.rx_descriptors[head];
+    if descriptor.status & RXD_DONE == 0 {
+        return None;
+    }
+    let end_of_packet = descriptor.status & RXD_EOP != 0;
+    let length = (descriptor.length as usize).min(buffer.len()).min(BUFFER_SIZE);
+    buffer[..length].copy_from_slice(&dma.rx_buffers[head][..length]);
+    descriptor.status = 0;
+    descriptor.length = 0;
+    core::sync::atomic::fence(Ordering::Release);
+    unsafe { write(state.mmio, RDT, head as u32) };
+    if !end_of_packet {
+        return None;
+    }
+    Some(length)
 }

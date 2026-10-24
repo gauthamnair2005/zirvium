@@ -12,6 +12,42 @@ pub struct Mac(pub [u8; 6]);
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Ipv4(pub [u8; 4]);
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct EthernetHeader {
+    pub destination: Mac,
+    pub source: Mac,
+    pub ethertype: u16,
+}
+
+pub fn parse_ethernet(frame: &[u8]) -> Option<(EthernetHeader, &[u8])> {
+    if frame.len() < 14 {
+        return None;
+    }
+    Some((
+        EthernetHeader {
+            destination: Mac(frame[0..6].try_into().ok()?),
+            source: Mac(frame[6..12].try_into().ok()?),
+            ethertype: u16::from_be_bytes([frame[12], frame[13]]),
+        },
+        &frame[14..],
+    ))
+}
+
+pub fn parse_icmp_echo_reply(packet: &[u8]) -> Option<(Ipv4, u16, u16)> {
+    if packet.len() < 28 || packet[0] >> 4 != 4 || packet[9] != IPPROTO_ICMP {
+        return None;
+    }
+    let header_len = ((packet[0] & 0x0f) * 4) as usize;
+    if packet.len() < header_len + 8 || packet[header_len] != 0 {
+        return None;
+    }
+    Some((
+        Ipv4(packet[12..16].try_into().ok()?),
+        u16::from_be_bytes([packet[header_len + 4], packet[header_len + 5]]),
+        u16::from_be_bytes([packet[header_len + 6], packet[header_len + 7]]),
+    ))
+}
+
 pub fn checksum(bytes: &[u8]) -> u16 {
     let mut sum = 0u32;
     let mut index = 0;
@@ -49,6 +85,18 @@ pub fn arp_request(source_mac: Mac, source_ip: Ipv4, target_ip: Ipv4) -> Vec<u8>
     arp.extend_from_slice(&[0; 6]);
     arp.extend_from_slice(&target_ip.0);
     ethernet_frame(Mac([0xff; 6]), source_mac, ETHERTYPE_ARP, &arp)
+}
+
+pub fn parse_arp_reply(payload: &[u8], target_ip: Ipv4) -> Option<Mac> {
+    if payload.len() < 28
+        || u16::from_be_bytes([payload[0], payload[1]]) != 1
+        || u16::from_be_bytes([payload[2], payload[3]]) != ETHERTYPE_IPV4
+        || u16::from_be_bytes([payload[6], payload[7]]) != 2
+        || payload[24..28] != target_ip.0
+    {
+        return None;
+    }
+    Some(Mac(payload[8..14].try_into().ok()?))
 }
 
 pub fn icmp_echo_request(identifier: u16, sequence: u16, payload: &[u8]) -> Vec<u8> {
