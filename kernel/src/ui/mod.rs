@@ -1,4 +1,4 @@
-//! ZirvUI: the Zirvium desktop shell.
+//! The desktop shell.
 //!
 //! The desktop is the first DisplayJet client: it owns the wallpaper cache,
 //! the window stack, the top bar and the application navigator, and it routes
@@ -46,7 +46,7 @@ pub enum AppKind {
     Network,
 }
 
-/// Applications shown by the ZirvUI navigator.
+/// Applications shown by the application navigator.
 const NAVIGATOR_APPS: [AppKind; 7] = [
     AppKind::Terminal,
     AppKind::Files,
@@ -410,7 +410,7 @@ impl Desktop {
         crate::displayjet::font::set_scale_for_resolution(width, height);
         desktop.theme.text_scale = crate::displayjet::font::scale();
         desktop.notify(
-            "Welcome to ZirvUI",
+            "Welcome to Zirvium",
             "Open the launcher to reach your apps and workspace.",
             9000,
         );
@@ -1160,8 +1160,8 @@ impl Desktop {
         display.fill_rect(bar, self.theme.chrome());
         display.fill_rect(Rect::new(0, TOP_BAR_HEIGHT - 1, self.width, 1), self.theme.line());
         widgets::logo(display, Rect::new(18, 10, 24, 24));
-        display.text(52, 13, "ZirvUI", 12, true, self.theme.text());
-        display.text(132, 14, "APPLICATION NAVIGATOR", 8, false, self.theme.text_dim());
+        display.text(52, 13, "Zirvium", 12, true, self.theme.text());
+        display.text(132, 14, "APPLICATIONS", 8, false, self.theme.text_dim());
         let status = crate::net::status();
         let right = Rect::new(self.width - 350, 8, 332, 28);
         display.fill_rounded(right, 14, self.theme.well());
@@ -1250,7 +1250,7 @@ impl Desktop {
         display.stroke_rounded(panel, 18, 1, if self.theme.is_light() { self.theme.line() } else { argb(0x80, 0x6d91c8) });
 
         widgets::logo(display, Rect::new(panel.x + 22, panel.y + 24, 36, 36));
-        display.text(panel.x + 70, panel.y + 25, "ZirvUI", 18, true, self.theme.text());
+        display.text(panel.x + 70, panel.y + 25, "Zirvium", 18, true, self.theme.text());
         display.text(panel.x + 70, panel.y + 48, "Your workspace", 9, false, self.theme.text_muted());
 
         let user = Rect::new(panel.right() - 142, panel.y + 24, 112, 36);

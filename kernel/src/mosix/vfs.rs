@@ -1,4 +1,4 @@
-//! The MOSIX virtual filesystem.
+//! The writable RAM-backed filesystem.
 //!
 //! This is a small, read-mostly in-memory filesystem that exposes the
 //! kernel's state under `/proc` alongside a handful of documentation files.
@@ -463,6 +463,12 @@ pub fn remove(path: &str) -> bool {
 /// File size, or zero when the file does not exist.
 pub fn size(path: &str) -> u64 {
     read(path).map(|content| content.len() as u64).unwrap_or(0)
+}
+
+/// This build has no block-device filesystem yet. Writable user data is kept
+/// in the RAM-backed filesystem and is available for the lifetime of a boot.
+pub fn storage_label() -> &'static str {
+    "Temporary storage (RAM)"
 }
 
 /// A short textual tree used by the Files application.

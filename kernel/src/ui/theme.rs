@@ -1,4 +1,4 @@
-//! Colours and metrics for ZirvUI, the Zirvium desktop shell.
+//! Colours and metrics for the desktop shell.
 //!
 //! All colours are packed `0xAARRGGBB`, matching DisplayJet's surface format.
 //! The palette is deliberately cool and low-chroma so that the accent can be

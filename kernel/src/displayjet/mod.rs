@@ -20,8 +20,8 @@ use zirvstdlib::abi::{GpuDriver, GpuInfo, GpuVendor};
 use zirvstdlib::sync::Once;
 
 const FALLBACK_COLOR: u32 = 0xff10_1116;
-const CURSOR_WIDTH: i32 = 13;
-const CURSOR_HEIGHT: i32 = 20;
+const CURSOR_WIDTH: i32 = 18;
+const CURSOR_HEIGHT: i32 = 24;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum CursorStyle {
@@ -896,22 +896,17 @@ impl Display {
     }
 
     fn draw_cursor_shape(&mut self, x: i32, y: i32, style: CursorStyle) {
-        const POINTER: [(i32, i32); 7] = [
-            (0, 0),
-            (0, 16),
-            (4, 12),
-            (7, 19),
-            (9, 18),
-            (6, 11),
-            (11, 11),
+        const POINTER: [(i32, i32); 9] = [
+            (1, 1), (1, 21), (6, 16), (10, 23), (14, 21),
+            (9, 14), (16, 14), (1, 1), (1, 1),
         ];
         const PRECISION: [(i32, i32); 12] = [
-            (6, 1), (8, 1), (8, 6), (13, 6), (13, 8), (8, 8),
-            (8, 14), (6, 14), (6, 8), (1, 8), (1, 6), (6, 6),
+            (8, 1), (10, 1), (10, 8), (17, 8), (17, 10), (10, 10),
+            (10, 17), (8, 17), (8, 10), (1, 10), (1, 8), (8, 8),
         ];
         const HAND: [(i32, i32); 12] = [
-            (3, 19), (1, 16), (2, 13), (4, 13), (4, 5), (6, 5),
-            (7, 10), (8, 4), (10, 5), (10, 11), (11, 8), (13, 10),
+            (5, 23), (2, 19), (3, 15), (6, 15), (6, 6), (8, 6),
+            (9, 12), (11, 5), (13, 6), (13, 14), (15, 10), (17, 12),
         ];
         let points = match style {
             CursorStyle::Pointer => &POINTER[..],
@@ -931,7 +926,7 @@ impl Display {
                     continue;
                 }
                 let edge = distance_to_edges(px, py, points);
-                let color = if edge > 1.25 { 0xffff_ffff } else { 0xff0a0a0c };
+                let color = if edge > 1.6 { 0xffff_ffff } else { 0xff101522 };
                 let index = (gy * self.width + gx) as usize;
                 self.pixels[index] = color;
             }

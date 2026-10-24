@@ -565,6 +565,14 @@ impl Files {
             false,
             theme.text_dim(),
         );
+        display.text(
+            header.x + 76,
+            header.y + 26,
+            crate::mosix::vfs::storage_label(),
+            8,
+            false,
+            theme.text_dim(),
+        );
 
         // File list.
         widgets::card(display, list, theme);
@@ -869,7 +877,7 @@ impl SettingsPage {
 
     fn subtitle(self) -> &'static str {
         match self {
-            SettingsPage::Home => "ZirvUI \u{00b7} one focused workspace",
+            SettingsPage::Home => "One focused workspace",
             SettingsPage::System => "Display, sound and power",
             SettingsPage::Personalization => "Appearance, surfaces and wallpaper",
             SettingsPage::Devices => "Hardware attached to this machine",
@@ -936,7 +944,7 @@ impl Settings {
         );
         widgets::logo(display, Rect::new(sidebar.x + 16, sidebar.y + 14, 22, 22));
         display.text(sidebar.x + 46, sidebar.y + 15, "Settings", 16, true, theme.text());
-        display.text(sidebar.x + 46, sidebar.y + 35, "ZirvUI", 9, false, theme.text_dim());
+        display.text(sidebar.x + 46, sidebar.y + 35, "Zirvium", 9, false, theme.text_dim());
 
         let nav: [(SettingsPage, &str, widgets::Icon); 7] = [
             (SettingsPage::Home, "Home", widgets::Icon::About),
@@ -1097,7 +1105,7 @@ impl Settings {
         self.card(display, intro, theme);
         let mark = Rect::new(intro.x + 14, intro.y + 14, 64, 64);
         widgets::logo(display, mark);
-        display.text(intro.x + 92, intro.y + 14, "ZirvUI", 18, true, theme.text());
+        display.text(intro.x + 92, intro.y + 14, "System settings", 18, true, theme.text());
         display.text(
             intro.x + 92,
             intro.y + 40,
@@ -1385,7 +1393,7 @@ impl Settings {
         y += 22;
         let build = Rect::new(area.x, y, area.w, 78);
         self.card(display, build, theme);
-        display.text(build.x + 14, build.y + 14, "ZirvUI", 13, true, theme.text());
+        display.text(build.x + 14, build.y + 14, "Zirvium", 13, true, theme.text());
         display.text(
             build.x + 14,
             build.y + 36,
@@ -1446,7 +1454,7 @@ impl Settings {
     fn draw_about(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
         let mark = Rect::new(area.x, area.y, 72, 72);
         widgets::logo(display, mark);
-        display.text(area.x + 90, area.y + 4, "ZirvUI", 24, true, theme.text());
+        display.text(area.x + 90, area.y + 4, "Zirvium", 24, true, theme.text());
         display.text(area.x + 90, area.y + 34, "A focused desktop experience", 11, false, theme.accent);
         display.text(
             area.x + 90,
@@ -1585,8 +1593,8 @@ impl Nodes {
             display,
             inner.x,
             inner.y,
-            "MOSIX",
-            "A cluster is one pool of resources. Processes migrate, not their identity.",
+            "Connections",
+            "Connected devices and local services.",
             theme,
         );
         let add = Rect::new(inner.right() - 132, inner.y + 4, 132, 30);
@@ -2102,10 +2110,15 @@ pub struct Notes {
 
 impl Notes {
     pub fn new() -> Self {
+        let saved = vfs::read("/tmp/notes.txt");
         Self {
-            text: String::from("Zirvium Notes\n\nCapture ideas here. Typing is saved for this session.\n"),
+            text: saved.unwrap_or_else(|| String::from("Notes\n\nCapture ideas here. Changes are saved to temporary storage.\n")),
             scroll: 0,
         }
+    }
+
+    fn save(&self) {
+        let _ = vfs::write("/tmp/notes.txt", &self.text);
     }
 
     pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
@@ -2145,14 +2158,17 @@ impl Notes {
         match code {
             key::BACKSPACE => {
                 self.text.pop();
+                self.save();
                 true
             }
             key::ENTER => {
                 self.text.push('\n');
+                self.save();
                 true
             }
             key::TAB => {
                 self.text.push_str("    ");
+                self.save();
                 true
             }
             key::PAGE_UP => {
@@ -2171,6 +2187,7 @@ impl Notes {
                 {
                     if self.text.len() < 64 * 1024 {
                         self.text.push(character);
+                        self.save();
                     }
                     return true;
                 }
