@@ -831,10 +831,13 @@ impl Files {
 enum Action {
     Wallpaper(u8),
     Accent(usize),
+    StartColor(usize),
     Seconds,
     Animations,
     Dock,
     Grid,
+    LightMode,
+    DarkMode,
     AddPeer,
     Migrate(u32, u32),
 }

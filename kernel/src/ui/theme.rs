@@ -84,10 +84,18 @@ pub const ACCENTS: [(u32, &str); 6] = [
 /// Wallpaper styles.
 pub const WALLPAPERS: [&str; 4] = ["Nebula", "Aurora", "Graphite", "Ember"];
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ColorMode {
+    Dark,
+    Light,
+}
+
 #[derive(Clone, Copy, Debug)]
 pub struct Theme {
+    pub mode: ColorMode,
     pub accent: u32,
     pub accent_alt: u32,
+    pub start_color: u32,
     pub wallpaper: u8,
     pub show_seconds: bool,
     pub animations: bool,
@@ -98,11 +106,13 @@ pub struct Theme {
 impl Default for Theme {
     fn default() -> Self {
         Self {
+            mode: ColorMode::Dark,
             accent: rgb(0x00aaff),
             accent_alt: rgb(0x66ccff),
+            start_color: rgb(0x0078d7),
             wallpaper: 0,
             show_seconds: true,
-            animations: false,
+            animations: true,
             dock_magnification: false,
             show_grid: false,
         }
