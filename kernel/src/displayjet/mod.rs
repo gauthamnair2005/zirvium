@@ -783,16 +783,6 @@ impl Display {
                         if cov == 0 {
                             continue;
                         }
-                        // Keep small grayscale fringes neutral and crisp on
-                        // RGB framebuffers. This is LCD-safe ClearType-style
-                        // edge weighting without introducing color fringing.
-                        let cov = if cov < 64 {
-                            cov / 2
-                        } else if cov > 192 {
-                            255 - (255 - cov) / 2
-                        } else {
-                            cov
-                        };
                         let alpha = (source_alpha * cov + 127) / 255;
                         if alpha == 0 {
                             continue;

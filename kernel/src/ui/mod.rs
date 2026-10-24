@@ -309,14 +309,23 @@ fn launch_row_rect(panel: Rect, index: usize) -> Rect {
 }
 
 fn title_buttons(rect: Rect) -> (Rect, Rect, Rect) {
-    let size = 14;
-    let y = rect.y + (TITLE_HEIGHT - size) / 2;
+    let size = 22;
+    let y = rect.y + 6;
     let right = rect.right();
     (
-        Rect::new(right - 30, y, size, size),
-        Rect::new(right - 52, y, size, size),
-        Rect::new(right - 74, y, size, size),
+        Rect::new(right - 28, y, size, size),
+        Rect::new(right - 54, y, size, size),
+        Rect::new(right - 80, y, size, size),
     )
+}
+
+fn contains_case_insensitive(text: &str, query: &str) -> bool {
+    if query.is_empty() {
+        return true;
+    }
+    let text: Vec<u8> = text.bytes().map(|byte| byte.to_ascii_lowercase()).collect();
+    let query: Vec<u8> = query.bytes().map(|byte| byte.to_ascii_lowercase()).collect();
+    text.windows(query.len()).any(|window| window == query)
 }
 
 /// Draw a faint alignment grid.  Settings exposes this as a toggle.
@@ -351,6 +360,8 @@ pub struct Desktop {
     drag: Option<Drag>,
     launcher: bool,
     launcher_selected: usize,
+    launcher_search: String,
+    launcher_search_active: bool,
     cursor: Point,
     wallpaper: Vec<u32>,
     last_wallpaper_key: Option<(u8, u32, u32)>,
@@ -381,6 +392,8 @@ impl Desktop {
             drag: None,
             launcher: false,
             launcher_selected: 0,
+            launcher_search: String::new(),
+            launcher_search_active: false,
             cursor: Point::new(cursor_x, cursor_y),
             wallpaper: Vec::new(),
             last_wallpaper_key: None,
@@ -538,6 +551,20 @@ impl Desktop {
             .map(|window| window.app.kind())
     }
 
+    fn launcher_matches(&self) -> Vec<AppKind> {
+        if self.launcher_search.is_empty() {
+            return NAVIGATOR_APPS.to_vec();
+        }
+        NAVIGATOR_APPS
+            .iter()
+            .copied()
+            .filter(|kind| {
+                contains_case_insensitive(kind.title(), &self.launcher_search)
+                    || contains_case_insensitive(kind.subtitle(), &self.launcher_search)
+            })
+            .collect()
+    }
+
     // -- Notifications ------------------------------------------------------
 
     fn notify(&mut self, title: &str, body: &str, life: u64) {
@@ -688,10 +715,16 @@ impl Desktop {
                 self.start_power_open = !self.start_power_open;
                 return true;
             }
+            let search = Rect::new(panel.x + 22, panel.y + 82, panel.w - 44, 40);
+            if search.contains(point) {
+                self.launcher_search_active = true;
+                return true;
+            }
             let elapsed = zirvstdlib::time::monotonic_ms().saturating_sub(self.launcher_started);
             let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
             let eased = progress * progress * (3.0 - 2.0 * progress);
-            for (i, kind) in NAVIGATOR_APPS.iter().enumerate() {
+            let matches = self.launcher_matches();
+            for (i, kind) in matches.iter().enumerate() {
                 let mut rect = launch_row_rect(panel, i);
                 rect.x -= ((1.0 - eased) * 28.0) as i32;
                 if rect.contains(point) {
@@ -921,6 +954,8 @@ impl Desktop {
         if code == key::SUPER {
             self.launcher = !self.launcher;
             self.launcher_selected = 0;
+            self.launcher_search.clear();
+            self.launcher_search_active = self.launcher;
             if self.launcher {
                 self.launcher_started = zirvstdlib::time::monotonic_ms();
             }
@@ -963,12 +998,50 @@ impl Desktop {
         if self.launcher {
             match code {
                 key::ESCAPE => {
-                    self.launcher = false;
+                    if !self.launcher_search.is_empty() {
+                        self.launcher_search.clear();
+                        self.launcher_selected = 0;
+                    } else {
+                        self.launcher = false;
+                        self.launcher_search_active = false;
+                    }
+                    return true;
+                }
+                key::BACKSPACE => {
+                    self.launcher_search.pop();
+                    self.launcher_selected = 0;
+                    return true;
+                }
+                key::UP => {
+                    self.launcher_selected = self.launcher_selected.saturating_sub(1);
+                    return true;
+                }
+                key::DOWN => {
+                    let count = self.launcher_matches().len();
+                    if count > 0 {
+                        self.launcher_selected = (self.launcher_selected + 1).min(count - 1);
+                    }
+                    return true;
+                }
+                key::ENTER => {
+                    if let Some(kind) = self.launcher_matches().get(self.launcher_selected).copied() {
+                        self.launcher = false;
+                        self.launcher_search_active = false;
+                        self.open(kind);
+                    }
                     return true;
                 }
                 _ => {
-                    self.launcher = false;
-                    return true;
+                    if self.launcher_search_active
+                        && code >= 0x20
+                        && code != 0x7f
+                        && let Some(character) = char::from_u32(code)
+                    {
+                        self.launcher_search.push(character);
+                        self.launcher_selected = 0;
+                        return true;
+                    }
+                    return false;
                 }
             }
         }
@@ -1192,13 +1265,24 @@ impl Desktop {
         display.fill_rounded(search, 11, self.theme.well());
         display.stroke_rounded(search, 11, 1, self.theme.line());
         widgets::icon(display, Rect::new(search.x + 13, search.y + 12, 16, 16), Icon::Search, self.theme.text_muted());
-        display.text(search.x + 40, search.y + 12, "Search apps and settings", 10, false, self.theme.text_muted());
+        if self.launcher_search.is_empty() {
+            display.text(search.x + 40, search.y + 12, "Search apps and settings", 10, false, self.theme.text_muted());
+        } else {
+            display.text(search.x + 40, search.y + 12, &self.launcher_search, 10, false, self.theme.text());
+        }
+        if self.launcher_search_active
+            && (zirvstdlib::time::monotonic_ms() / 530).is_multiple_of(2)
+        {
+            let cursor_x = search.x + 40 + display.text_width(&self.launcher_search, 10, false);
+            display.fill_rect(Rect::new(cursor_x, search.y + 10, 2, 20), self.theme.accent);
+        }
         display.text(panel.x + 22, panel.y + 140, "Applications", 10, true, self.theme.text());
 
-        for (index, kind) in NAVIGATOR_APPS.iter().enumerate() {
+        let matches = self.launcher_matches();
+        for (index, kind) in matches.iter().enumerate() {
             let mut rect = launch_row_rect(panel, index);
             rect.x -= ((1.0 - eased) * 28.0) as i32;
-            display.fill_rounded(rect, 12, if self.focused_kind() == Some(*kind) {
+            display.fill_rounded(rect, 12, if index == self.launcher_selected || self.focused_kind() == Some(*kind) {
                 self.theme.accent_soft(72)
             } else {
                 self.theme.well()
@@ -1207,6 +1291,10 @@ impl Desktop {
             widgets::icon(display, Rect::new(rect.x + 15, rect.y + 17, 32, 32), kind.icon(), self.theme.accent);
             display.text(rect.x + 60, rect.y + 16, kind.title(), 10, true, self.theme.text());
             display.text(rect.x + 60, rect.y + 37, kind.subtitle(), 8, false, self.theme.text_muted());
+        }
+        if matches.is_empty() {
+            display.text(panel.x + 22, panel.y + 190, "No matching apps", 11, true, self.theme.text());
+            display.text(panel.x + 22, panel.y + 214, "Try another name or keyword.", 9, false, self.theme.text_muted());
         }
 
         if self.start_power_open {
@@ -1307,18 +1395,33 @@ fn draw_window(
     let hot_close = hover == Target::Close(id);
     let hot_min = hover == Target::Minimize(id);
     let hot_max = hover == Target::Maximize(id);
-    let close = Rect::new(rect.right() - 28, rect.y + 6, 22, 18);
-    let min = Rect::new(rect.right() - 54, rect.y + 6, 22, 18);
-    let max = Rect::new(rect.right() - 80, rect.y + 6, 22, 18);
+    let close = Rect::new(rect.right() - 28, rect.y + 6, 22, 22);
+    let min = Rect::new(rect.right() - 54, rect.y + 6, 22, 22);
+    let max = Rect::new(rect.right() - 80, rect.y + 6, 22, 22);
     display.fill_rounded(min, 4, if hot_min { theme.well() } else { theme.card() });
     display.stroke_rounded(min, 4, 1, if hot_min { theme.accent } else { theme.line() });
-    display.text_centered(min, "–", 12, false, if hot_min { theme.text() } else { theme.text_muted() });
+    widgets::icon(
+        display,
+        min,
+        Icon::Minimize,
+        if hot_min { theme.text() } else { theme.text_muted() },
+    );
     display.fill_rounded(max, 4, if hot_max { theme.well() } else { theme.card() });
     display.stroke_rounded(max, 4, 1, if hot_max { theme.accent } else { theme.line() });
-    display.text_centered(max, "□", 10, false, if hot_max { theme.text() } else { theme.text_muted() });
+    widgets::icon(
+        display,
+        max,
+        Icon::Maximize,
+        if hot_max { theme.text() } else { theme.text_muted() },
+    );
     display.fill_rounded(close, 4, if hot_close { rgb(0xe81123) } else { theme.card() });
     display.stroke_rounded(close, 4, 1, if hot_close { rgb(0xff3344) } else { theme.line() });
-    display.text_centered(close, "×", 14, false, if hot_close { rgb(0xffffff) } else { theme.text_muted() });
+    widgets::icon(
+        display,
+        close,
+        Icon::Close,
+        if hot_close { rgb(0xffffff) } else { theme.text_muted() },
+    );
 
     let content = window.content();
     if !content.is_empty() {
