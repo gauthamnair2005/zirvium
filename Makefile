@@ -91,7 +91,9 @@ define qemu_common
 		-drive if=pflash,format=raw,readonly=on,file=$(OVMF_CODE) \
 		-drive if=pflash,format=raw,file=$(BUILD)/OVMF_VARS.fd \
 		-drive format=raw,file=$(ESP) \
-		-device virtio-vga
+		-device virtio-vga \
+		-netdev user,id=zirvium-net \
+		-device e1000,netdev=zirvium-net
 endef
 
 run: esp $(BUILD)/OVMF_VARS.fd

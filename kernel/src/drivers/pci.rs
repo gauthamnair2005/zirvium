@@ -38,6 +38,13 @@ impl PciDevice {
         self.class == 0x02
     }
 
+    pub fn enable_bus_mastering(&self) {
+        let mut command = config_read(self.bus, self.slot, self.function, 0x04) & 0xffff;
+        command |= 1 << 1;
+        command |= 1 << 2;
+        config_write(self.bus, self.slot, self.function, 0x04, command);
+    }
+
     pub fn address(&self) -> u32 {
         ((self.bus as u32) << 16) | ((self.slot as u32) << 11) | ((self.function as u32) << 8)
     }

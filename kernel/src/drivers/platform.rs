@@ -67,14 +67,34 @@ pub fn init() {
     let mut found = Vec::new();
     for device in super::pci::devices() {
         if let Some(driver) = identify(device) {
+            let ready = match driver.kind {
+                DriverKind::QemuE1000 => {
+                    device.enable_bus_mastering();
+                    let state = super::e1000::init(device);
+                    crate::sprintln!(
+                        "E1000: MAC {:02x}:{:02x}:{:02x}:{:02x}:{:02x}:{:02x} link={}",
+                        state.mac[0],
+                        state.mac[1],
+                        state.mac[2],
+                        state.mac[3],
+                        state.mac[4],
+                        state.mac[5],
+                        state.link_up
+                    );
+                    state.ready
+                }
+                _ => false,
+            };
+            let driver = DriverInfo { ready, ..driver };
             crate::sprintln!(
-                "DRIVER: {:?} {:04x}:{:04x} at {:02x}:{:02x}.{} detected",
+                "DRIVER: {:?} {:04x}:{:04x} at {:02x}:{:02x}.{} {}",
                 driver.kind,
                 driver.vendor,
                 driver.device,
                 driver.bus,
                 driver.slot,
-                driver.function
+                driver.function,
+                if driver.ready { "ready" } else { "detected" }
             );
             found.push(driver);
         }

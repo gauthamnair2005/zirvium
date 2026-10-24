@@ -17,6 +17,8 @@ pub struct NetworkStatus {
     pub ethernet: bool,
     pub driver_count: usize,
     pub address: [u8; 4],
+    pub mac: [u8; 6],
+    pub link_up: bool,
 }
 
 static STATUS: Once<NetworkStatus> = Once::new();
@@ -41,6 +43,10 @@ pub fn init() {
             })
             .count(),
         address: [127, 0, 0, 1],
+        mac: crate::drivers::e1000::state().map(|state| state.mac).unwrap_or([0; 6]),
+        link_up: crate::drivers::e1000::state()
+            .map(|state| state.link_up)
+            .unwrap_or(false),
     };
     STATUS.call_once(|| status);
     crate::sprintln!(
@@ -55,6 +61,8 @@ pub fn status() -> NetworkStatus {
         ethernet: false,
         driver_count: 0,
         address: [0, 0, 0, 0],
+        mac: [0; 6],
+        link_up: false,
     })
 }
 

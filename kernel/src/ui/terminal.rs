@@ -304,6 +304,19 @@ impl Terminal {
                     }
                 ));
                 self.push(format!("drivers   {}", status.driver_count));
+                self.push(format!(
+                    "link      {}",
+                    if status.link_up { "up" } else { "down" }
+                ));
+                self.push(format!(
+                    "mac       {:02x}:{:02x}:{:02x}:{:02x}:{:02x}:{:02x}",
+                    status.mac[0],
+                    status.mac[1],
+                    status.mac[2],
+                    status.mac[3],
+                    status.mac[4],
+                    status.mac[5]
+                ));
             }
             "ping" => {
                 let host = arguments.first().copied().unwrap_or("");
