@@ -1007,11 +1007,7 @@ impl Desktop {
         if start_hot {
             display.fill_rect(start, self.theme.accent_soft(40));
         }
-        if start_hot {
-            widgets::logo(display, Rect::new(start.x + 10, start.y + 10, 24, 24));
-        } else {
-            widgets::logo(display, Rect::new(start.x + 10, start.y + 10, 24, 24));
-        }
+        widgets::logo(display, Rect::new(start.x + 10, start.y + 10, 24, 24));
 
         for (index, kind) in DOCK_APPS.iter().enumerate() {
             let rect = Rect::new(52 + index as i32 * 48, height - DOCK_HEIGHT + 4, 44, 44);
@@ -1278,34 +1274,28 @@ pub fn splash(display: &mut Display) {
 
     let cx = center_x;
     let cy = center_y - 48;
-    let size = 42;
-    // Diamond logo
-    for y in 0..size {
-        let h = if y < size / 2 { y * 2 + 2 } else { (size - y) * 2 };
-        display.fill_rect(Rect::new(cx - h / 2, cy - size / 2 + y, h, 1), rgb(0x6aa6ff));
-    }
-    display.fill_rect(Rect::new(cx - 1, cy - 6, 2, 12), rgb(0xa9c8ff));
+    widgets::logo(display, Rect::new(cx - 34, cy - 34, 68, 68));
 
     widgets::text_shadow(
         display,
         cx - widgets::text_width("Zirvium", 28, true) / 2,
-        cy + 28,
+        cy + 38,
         "Zirvium",
         28,
         true,
         TEXT_STRONG,
     );
     display.text_centered(
-        Rect::new(0, cy + 62, width, 14),
-        "64-bit Rust OS",
+        Rect::new(0, cy + 76, width, 14),
+        "64-bit Rust OS  ·  Starting services",
         10,
         false,
         TEXT_MUTED,
     );
 
-    let bar = Rect::new(cx - 80, cy + 98, 160, 2);
-    display.fill_rounded(bar, 1, argb(0x28, 0xffffff));
-    display.fill_rounded(Rect::new(bar.x, bar.y, 110, bar.h), 1, rgb(0x6aa6ff));
+    let bar = Rect::new(cx - 100, cy + 112, 200, 4);
+    display.fill_rounded(bar, 2, argb(0x38, 0xffffff));
+    display.fill_rounded(Rect::new(bar.x, bar.y, 132, bar.h), 2, rgb(0x5aa2ff));
 
     display.present_all();
 }

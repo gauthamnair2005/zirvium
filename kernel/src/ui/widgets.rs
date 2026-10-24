@@ -134,21 +134,32 @@ pub enum Icon {
 /// Draw the Zirvium logo.
 pub fn logo(display: &mut Display, rect: Rect) {
     use crate::ui::logo_data;
-    let mut scale_x = rect.w / logo_data::LOGO_W;
-    let mut scale_y = rect.h / logo_data::LOGO_H;
-    if scale_x < 1 { scale_x = 1; }
-    if scale_y < 1 { scale_y = 1; }
-    let mut idx = 0;
-    for y in 0..logo_data::LOGO_H {
-        for x in 0..logo_data::LOGO_W {
-            let color = logo_data::LOGO[idx];
-            idx += 1;
-            if (color >> 24) == 0 {
-                continue;
+    if rect.w <= 0 || rect.h <= 0 {
+        return;
+    }
+
+    // The source bitmap includes transparent padding. Crop it before scaling
+    // so the mark remains legible in compact surfaces such as the taskbar.
+    const LEFT: i32 = 12;
+    const TOP: i32 = 10;
+    const RIGHT: i32 = 53;
+    const BOTTOM: i32 = 54;
+    let source_w = RIGHT - LEFT;
+    let source_h = BOTTOM - TOP;
+    let scale = (rect.w * 1024 / source_w).min(rect.h * 1024 / source_h);
+    let draw_w = (source_w * scale / 1024).max(1);
+    let draw_h = (source_h * scale / 1024).max(1);
+    let offset_x = rect.x + (rect.w - draw_w) / 2;
+    let offset_y = rect.y + (rect.h - draw_h) / 2;
+
+    for dy in 0..draw_h {
+        let sy = TOP + dy * source_h / draw_h;
+        for dx in 0..draw_w {
+            let sx = LEFT + dx * source_w / draw_w;
+            let color = logo_data::LOGO[(sy * logo_data::LOGO_W + sx) as usize];
+            if color >> 24 != 0 {
+                display.fill_rect(Rect::new(offset_x + dx, offset_y + dy, 1, 1), color);
             }
-            let px = rect.x + x * scale_x;
-            let py = rect.y + y * scale_y;
-            display.fill_rect(Rect::new(px, py, scale_x, scale_y), color);
         }
     }
 }
@@ -168,42 +179,8 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
 
     match kind {
         Icon::Logo => {
-            line(
-                display,
-                x(0.26),
-                y(0.28),
-                x(0.74),
-                y(0.28),
-                thickness,
-                color,
-            );
-            line(
-                display,
-                x(0.74),
-                y(0.28),
-                x(0.26),
-                y(0.72),
-                thickness,
-                color,
-            );
-            line(
-                display,
-                x(0.26),
-                y(0.72),
-                x(0.74),
-                y(0.72),
-                thickness,
-                color,
-            );
-            line(
-                display,
-                x(0.26),
-                y(0.28),
-                x(0.30),
-                y(0.28),
-                thickness,
-                color,
-            );
+            let _ = color;
+            logo(display, rect);
         }
         Icon::Terminal => {
             let frame = Rect::new(
