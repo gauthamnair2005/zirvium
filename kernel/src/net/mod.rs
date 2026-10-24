@@ -13,6 +13,7 @@ use zirvstdlib::sync::Once;
 pub struct NetworkStatus {
     pub loopback: bool,
     pub ethernet: bool,
+    pub driver_count: usize,
     pub address: [u8; 4],
 }
 
@@ -21,17 +22,36 @@ static STATUS: Once<NetworkStatus> = Once::new();
 pub fn init() {
     let status = NetworkStatus {
         loopback: true,
+        // Detection is exposed separately from readiness: no packet-ring
+        // protocol has been enabled yet.
         ethernet: false,
+        driver_count: crate::drivers::platform::all()
+            .iter()
+            .filter(|driver| {
+                matches!(
+                    driver.kind,
+                    crate::drivers::platform::DriverKind::VirtioNet
+                        | crate::drivers::platform::DriverKind::QemuE1000
+                        | crate::drivers::platform::DriverKind::VmwareNet
+                        | crate::drivers::platform::DriverKind::VirtualBoxNet
+                        | crate::drivers::platform::DriverKind::GenericNetwork
+                )
+            })
+            .count(),
         address: [127, 0, 0, 1],
     };
     STATUS.call_once(|| status);
-    crate::sprintln!("NET: loopback online, external interfaces unavailable");
+    crate::sprintln!(
+        "NET: loopback online, {} external driver(s) detected; protocol bring-up pending",
+        status.driver_count
+    );
 }
 
 pub fn status() -> NetworkStatus {
     STATUS.get().copied().unwrap_or(NetworkStatus {
         loopback: false,
         ethernet: false,
+        driver_count: 0,
         address: [0, 0, 0, 0],
     })
 }

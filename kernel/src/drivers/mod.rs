@@ -1,6 +1,7 @@
 //! Hardware drivers.
 
 pub mod pci;
+pub mod platform;
 pub mod ps2;
 pub mod rtc;
 
@@ -10,6 +11,7 @@ pub mod rtc;
 /// acknowledgements can be polled reliably.
 pub fn init_early() {
     pci::init();
+    platform::init();
     rtc::init();
     ps2::init();
 }

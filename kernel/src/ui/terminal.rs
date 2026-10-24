@@ -119,6 +119,7 @@ impl Terminal {
                 self.push(String::from("  spawn NAME           create a process"));
                 self.push(String::from("  kill PID             remove a process"));
                 self.push(String::from("  gpu                  display adapter"));
+                self.push(String::from("  drivers              detected hardware drivers"));
                 self.push(String::from("  net                  network status"));
                 self.push(String::from("  ping HOST             test loopback or network reachability"));
                 self.push(String::from("  browse URL            open a text page"));
@@ -270,6 +271,23 @@ impl Terminal {
                     "path      desktop surface -> firmware scanout",
                 ));
             }
+            "drivers" => {
+                for driver in crate::drivers::platform::all() {
+                    self.push(format!(
+                        "{:?} {:04x}:{:04x} at {:02x}:{:02x}.{} {}",
+                        driver.kind,
+                        driver.vendor,
+                        driver.device,
+                        driver.bus,
+                        driver.slot,
+                        driver.function,
+                        if driver.ready { "ready" } else { "detected only" }
+                    ));
+                }
+                if crate::drivers::platform::all().is_empty() {
+                    self.push(String::from("no supported virtual drivers detected"));
+                }
+            }
             "net" | "network" => {
                 let status = crate::net::status();
                 self.push(format!(
@@ -279,12 +297,13 @@ impl Terminal {
                 ));
                 self.push(format!(
                     "ethernet  {}",
-                    if status.ethernet {
-                        "online"
+                    if status.driver_count > 0 {
+                        "driver detected; protocol unavailable"
                     } else {
-                        "not configured"
+                        "not detected"
                     }
                 ));
+                self.push(format!("drivers   {}", status.driver_count));
             }
             "ping" => {
                 let host = arguments.first().copied().unwrap_or("");

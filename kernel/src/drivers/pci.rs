@@ -34,6 +34,10 @@ impl PciDevice {
         self.class == 0x03
     }
 
+    pub fn is_network(&self) -> bool {
+        self.class == 0x02
+    }
+
     pub fn address(&self) -> u32 {
         ((self.bus as u32) << 16) | ((self.slot as u32) << 11) | ((self.function as u32) << 8)
     }
