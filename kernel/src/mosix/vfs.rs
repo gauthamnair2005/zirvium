@@ -89,7 +89,7 @@ const FILES: &[(&str, &str)] = &[
     (
         "/etc/os-release",
         "NAME=Zirvium\n\
-         VERSION=2.0.0\n\
+         VERSION=2.0.1\n\
          ID=zirvium\n\
          PRETTY_NAME=\"Zirvium 2.0\"\n\
          ANSI_COLOR=\"38;2;96;165;250\"\n\

@@ -2147,6 +2147,23 @@ impl Notes {
     pub fn tick(&mut self) -> bool {
         false
     }
+
+    pub fn clipboard_copy(&self) -> String {
+        self.text.clone()
+    }
+
+    pub fn clipboard_paste(&mut self, text: &str) -> bool {
+        if text.is_empty() {
+            return false;
+        }
+        self.text.push_str(text);
+        true
+    }
+
+    pub fn select_all(&mut self) -> bool {
+        self.scroll = 0;
+        true
+    }
 }
 
 // ---------------------------------------------------------------------------

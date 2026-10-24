@@ -110,6 +110,7 @@ pub enum Icon {
     Monitor,
     Settings,
     About,
+    User,
     Nodes,
     Close,
     Minimize,
@@ -281,6 +282,15 @@ pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {
                 x(0.50),
                 y(0.66),
                 thickness,
+                color,
+            );
+        }
+        Icon::User => {
+            display.fill_circle(Point::new(x(0.50), y(0.32)), (scale * 0.16) as i32, color);
+            display.stroke_rounded(
+                Rect::new(x(0.24), y(0.52), (scale * 0.52) as i32, (scale * 0.30) as i32),
+                (scale * 0.16) as i32,
+                thin,
                 color,
             );
         }

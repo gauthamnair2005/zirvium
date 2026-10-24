@@ -23,6 +23,13 @@ const FALLBACK_COLOR: u32 = 0xff10_1116;
 const CURSOR_WIDTH: i32 = 13;
 const CURSOR_HEIGHT: i32 = 20;
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum CursorStyle {
+    Pointer,
+    Precision,
+    Hand,
+}
+
 /// Lookup tables that let text compositing happen in linear light instead of
 /// sRGB.  Blending coverage in sRGB darkens anti-aliased edges and makes small
 /// glyphs look muddy; converting through these tables instead keeps stems
@@ -89,6 +96,7 @@ pub struct Display {
     clip_stack: [Rect; 8],
     clip_depth: usize,
     cursor_visible: bool,
+    cursor_style: CursorStyle,
     cursor: Point,
     cursor_saved: Vec<u32>,
     cursor_saved_rect: Rect,
@@ -116,6 +124,7 @@ impl Display {
             clip_stack: [screen; 8],
             clip_depth: 0,
             cursor_visible: false,
+            cursor_style: CursorStyle::Pointer,
             cursor: Point::new(width / 2, height / 2),
             cursor_saved: Vec::new(),
             cursor_saved_rect: Rect::ZERO,
@@ -858,7 +867,12 @@ impl Display {
 
     /// Draw the cursor at `(x, y)`, saving what lies underneath.
     pub fn cursor_show(&mut self, x: i32, y: i32) {
+        self.cursor_show_with_style(x, y, CursorStyle::Pointer);
+    }
+
+    pub fn cursor_show_with_style(&mut self, x: i32, y: i32, style: CursorStyle) {
         self.cursor_hide();
+        self.cursor_style = style;
         let x = x.clamp(0, self.width - 1);
         let y = y.clamp(0, self.height - 1);
         self.cursor = Point::new(x, y);
@@ -868,7 +882,7 @@ impl Display {
         }
         self.cursor_saved = self.save_rect(rect);
         self.cursor_saved_rect = rect;
-        self.draw_cursor_shape(x, y);
+        self.draw_cursor_shape(x, y, style);
         self.cursor_visible = true;
         self.mark(rect);
     }
@@ -878,11 +892,11 @@ impl Display {
         if self.cursor_visible && self.cursor.x == x && self.cursor.y == y {
             return;
         }
-        self.cursor_show(x, y);
+        self.cursor_show_with_style(x, y, self.cursor_style);
     }
 
-    fn draw_cursor_shape(&mut self, x: i32, y: i32) {
-        const POINTS: [(i32, i32); 7] = [
+    fn draw_cursor_shape(&mut self, x: i32, y: i32, style: CursorStyle) {
+        const POINTER: [(i32, i32); 7] = [
             (0, 0),
             (0, 16),
             (4, 12),
@@ -891,6 +905,19 @@ impl Display {
             (6, 11),
             (11, 11),
         ];
+        const PRECISION: [(i32, i32); 12] = [
+            (6, 1), (8, 1), (8, 6), (13, 6), (13, 8), (8, 8),
+            (8, 14), (6, 14), (6, 8), (1, 8), (1, 6), (6, 6),
+        ];
+        const HAND: [(i32, i32); 12] = [
+            (3, 19), (1, 16), (2, 13), (4, 13), (4, 5), (6, 5),
+            (7, 10), (8, 4), (10, 5), (10, 11), (11, 8), (13, 10),
+        ];
+        let points = match style {
+            CursorStyle::Pointer => &POINTER[..],
+            CursorStyle::Precision => &PRECISION[..],
+            CursorStyle::Hand => &HAND[..],
+        };
         let clip = self.clip.intersect(self.screen());
         for py in 0..CURSOR_HEIGHT {
             for px in 0..CURSOR_WIDTH {
@@ -899,11 +926,11 @@ impl Display {
                 if gx < clip.x || gy < clip.y || gx >= clip.right() || gy >= clip.bottom() {
                     continue;
                 }
-                let inside = point_in_polygon(px, py, &POINTS);
+                let inside = point_in_polygon(px, py, points);
                 if !inside {
                     continue;
                 }
-                let edge = distance_to_edges(px, py, &POINTS);
+                let edge = distance_to_edges(px, py, points);
                 let color = if edge > 1.25 { 0xffff_ffff } else { 0xff0a0a0c };
                 let index = (gy * self.width + gx) as usize;
                 self.pixels[index] = color;

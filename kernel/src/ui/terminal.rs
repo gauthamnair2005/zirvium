@@ -670,4 +670,20 @@ impl Terminal {
         }
         false
     }
+
+    pub fn clipboard_copy(&self) -> String {
+        self.input.clone()
+    }
+
+    pub fn clipboard_paste(&mut self, text: &str) -> bool {
+        for character in text.chars() {
+            self.insert(character);
+        }
+        !text.is_empty()
+    }
+
+    pub fn select_all(&mut self) -> bool {
+        self.cursor = self.input.len();
+        true
+    }
 }

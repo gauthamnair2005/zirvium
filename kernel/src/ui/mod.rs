@@ -20,7 +20,7 @@ use core::sync::atomic::{AtomicU32, Ordering};
 use zirvstdlib::abi::{InputEvent, InputKind, buttons, key, modifiers};
 use zirvstdlib::geometry::{Point, Rect};
 
-use crate::displayjet::Display;
+use crate::displayjet::{CursorStyle, Display};
 use crate::ui::apps::Response;
 use crate::ui::theme::*;
 use crate::ui::widgets::Icon;
@@ -190,6 +190,30 @@ impl App {
             App::Calculator(app) => app.key(code, event_modifiers),
             App::Notes(app) => app.key(code, event_modifiers),
             App::Network(_) => false,
+        }
+    }
+
+    fn clipboard_copy(&self) -> String {
+        match self {
+            App::Terminal(app) => app.clipboard_copy(),
+            App::Notes(app) => app.clipboard_copy(),
+            _ => String::new(),
+        }
+    }
+
+    fn clipboard_paste(&mut self, text: &str) -> bool {
+        match self {
+            App::Terminal(app) => app.clipboard_paste(text),
+            App::Notes(app) => app.clipboard_paste(text),
+            _ => false,
+        }
+    }
+
+    fn select_all(&mut self) -> bool {
+        match self {
+            App::Terminal(app) => app.select_all(),
+            App::Notes(app) => app.select_all(),
+            _ => false,
         }
     }
 
@@ -369,6 +393,10 @@ pub struct Desktop {
     last_title_click: (u32, u64),
     launcher_started: u64,
     logged_in: bool,
+    clipboard: String,
+    context_menu: Option<Point>,
+    cursor_style: CursorStyle,
+    start_power_open: bool,
 }
 
 impl Desktop {
@@ -395,6 +423,10 @@ impl Desktop {
             last_title_click: (0, 0),
             launcher_started: zirvstdlib::time::monotonic_ms(),
             logged_in: false,
+            clipboard: String::new(),
+            context_menu: None,
+            cursor_style: CursorStyle::Pointer,
+            start_power_open: false,
         };
         desktop.notify(
             "Welcome to Zirvium 2.0",
@@ -552,13 +584,62 @@ impl Desktop {
         }
     }
 
+    fn context_item(&self, point: Point) -> Option<usize> {
+        let origin = self.context_menu?;
+        let menu = Rect::new(origin.x, origin.y, 190, 176);
+        if !menu.contains(point) {
+            return None;
+        }
+        let index = ((point.y - menu.y - 36) / 32) as usize;
+        (index < 4).then_some(index)
+    }
+
+    fn handle_context_action(&mut self, index: usize) -> bool {
+        match index {
+            0 => {
+                if let Some(id) = self.focused
+                    && let Some(window) = self.window(id)
+                {
+                    self.clipboard = window.app.clipboard_copy();
+                    self.notify("Copied", "Selection copied to the clipboard.", 2600);
+                }
+            }
+            1 => {
+                if let Some(id) = self.focused {
+                    let text = self.clipboard.clone();
+                    if let Some(window) = self.window_mut(id) {
+                        window.app.clipboard_paste(&text);
+                    }
+                }
+            }
+            2 => {
+                if let Some(id) = self.focused
+                    && let Some(window) = self.window_mut(id)
+                {
+                    window.app.select_all();
+                }
+            }
+            3 => {
+                self.cursor_style = match self.cursor_style {
+                    CursorStyle::Pointer => CursorStyle::Precision,
+                    CursorStyle::Precision => CursorStyle::Hand,
+                    CursorStyle::Hand => CursorStyle::Pointer,
+                };
+            }
+            _ => return false,
+        }
+        self.context_menu = None;
+        true
+    }
+
     // -- Input --------------------------------------------------------------
 
     fn target_at(&self, point: Point) -> Target {
         if !self.logged_in {
             return Target::Nothing;
         }
-        if self.launcher {
+
+            if self.launcher {
             return Target::Nothing;
         }
 
@@ -625,6 +706,13 @@ impl Desktop {
                 self.notify("Welcome back", "Signed in as liveuser.", 5000);
                 return true;
             }
+            if let Some(index) = self.context_item(point) {
+                return self.handle_context_action(index);
+            }
+            if self.context_menu.is_some() {
+                self.context_menu = None;
+                return true;
+            }
             return false;
         }
         if self.launcher {
@@ -633,6 +721,20 @@ impl Desktop {
             let logo = Rect::new(58, 42, 44, 44);
             if logo.contains(point) {
                 self.launcher = false;
+                return true;
+            }
+            let user = Rect::new(screen_w - 238, 42, 118, 38);
+            if user.contains(point) {
+                self.logged_in = false;
+                self.launcher = false;
+                self.start_power_open = false;
+                self.focused = None;
+                self.notify("Signed out", "The session is ready for the next user.", 4000);
+                return true;
+            }
+            let power = Rect::new(screen_w - 106, 42, 46, 38);
+            if power.contains(point) {
+                self.start_power_open = !self.start_power_open;
                 return true;
             }
             let mut x = 60i32;
@@ -660,9 +762,12 @@ impl Desktop {
                     y += 126;
                 }
             }
-            let power_panel = Rect::new(screen_w - 210, self.height - 236, 150, 176);
-            let shutdown = Rect::new(power_panel.x + 14, power_panel.y + 44, power_panel.w - 28, 36);
-            let reboot = Rect::new(power_panel.x + 14, power_panel.y + 90, power_panel.w - 28, 36);
+            if !self.start_power_open {
+                return true;
+            }
+            let power_panel = Rect::new(screen_w - 238, 88, 176, 148);
+            let shutdown = Rect::new(power_panel.x + 12, power_panel.y + 34, power_panel.w - 24, 30);
+            let reboot = Rect::new(power_panel.x + 12, power_panel.y + 70, power_panel.w - 24, 30);
             if shutdown.contains(point) {
                 self.launcher = false;
                 crate::sprintln!("UI: shutdown requested");
@@ -673,7 +778,7 @@ impl Desktop {
                 crate::sprintln!("UI: reboot requested");
                 return true;
             }
-            let logout = Rect::new(power_panel.x + 14, power_panel.y + 136, power_panel.w - 28, 36);
+            let logout = Rect::new(power_panel.x + 12, power_panel.y + 106, power_panel.w - 24, 30);
             if logout.contains(point) {
                 self.logged_in = false;
                 self.launcher = false;
@@ -857,6 +962,13 @@ impl Desktop {
                 self.cursor = Point::new(event.x, event.y);
                 if event.buttons & buttons::LEFT != 0 {
                     self.pointer_down(self.cursor)
+                } else if event.buttons & buttons::RIGHT != 0 {
+                    if self.logged_in && !self.launcher {
+                        self.context_menu = Some(self.cursor);
+                        true
+                    } else {
+                        false
+                    }
                 } else {
                     false
                 }
@@ -903,7 +1015,36 @@ impl Desktop {
             }
             return true;
         }
-        // Right click simulation via shift+click not needed, handle via events later; keep simple
+        if event_modifiers & modifiers::CTRL != 0 {
+            match code as u8 {
+                b'c' | b'C' => {
+                    if let Some(id) = self.focused
+                        && let Some(window) = self.window(id)
+                    {
+                        self.clipboard = window.app.clipboard_copy();
+                    }
+                    return true;
+                }
+                b'v' | b'V' => {
+                    if let Some(id) = self.focused {
+                        let text = self.clipboard.clone();
+                        if let Some(window) = self.window_mut(id) {
+                            window.app.clipboard_paste(&text);
+                        }
+                    }
+                    return true;
+                }
+                b'a' | b'A' => {
+                    if let Some(id) = self.focused
+                        && let Some(window) = self.window_mut(id)
+                    {
+                        window.app.select_all();
+                    }
+                    return true;
+                }
+                _ => {}
+            }
+        }
         if event_modifiers & modifiers::ALT != 0 && code == key::TAB {
             self.cycle_windows();
             return true;
@@ -1022,9 +1163,36 @@ impl Desktop {
             self.draw_notifications(display);
         }
 
+        if let Some(origin) = self.context_menu {
+            self.draw_context_menu(display, origin);
+        }
+
         let cursor = self.cursor;
-        display.cursor_show(cursor.x, cursor.y);
+        display.cursor_show_with_style(cursor.x, cursor.y, self.cursor_style);
         display.present();
+    }
+
+    fn draw_context_menu(&self, display: &mut Display, origin: Point) {
+        let menu = Rect::new(
+            origin.x.clamp(8, self.width - 198),
+            origin.y.clamp(8, self.height - DOCK_HEIGHT - 184),
+            190,
+            176,
+        );
+        display.drop_shadow(menu, 0, 12, argb(0x70, 0x000000));
+        display.fill_rounded(menu, 10, self.theme.card());
+        display.stroke_rounded(menu, 10, 1, self.theme.line());
+        display.text(menu.x + 14, menu.y + 12, "Quick actions", 11, true, self.theme.text());
+        let items = ["Copy", "Paste", "Select all", "Cursor: change"];
+        for (index, label) in items.iter().enumerate() {
+            let row = Rect::new(menu.x + 8, menu.y + 30 + index as i32 * 32, menu.w - 16, 28);
+            display.fill_rounded(row, 6, if self.context_item(self.cursor) == Some(index) {
+                self.theme.accent_soft(34)
+            } else {
+                self.theme.card()
+            });
+            display.text(row.x + 10, row.y + 8, label, 10, false, self.theme.text());
+        }
     }
 
     fn draw_taskbar(&self, display: &mut Display) {
@@ -1167,9 +1335,14 @@ impl Desktop {
         widgets::icon(display, Rect::new(search.x + 12, search.y + 10, 14, 14), Icon::Search, argb(0xc0, 0xffffff));
         display.text(search.x + 38, search.y + 10, "Search apps and settings", 10, false, argb(0xa0, 0xffffff));
 
-        // User tile.
-        let user = Rect::new(self.width - 260 - slide, 50, 200, 32);
-        display.text(user.right() - widgets::text_width("liveuser@zirvium", 10, false), user.y + 8, "liveuser@zirvium", 10, false, argb(0xd0, 0xffffff));
+        // Account controls.
+        let user = Rect::new(self.width - 238 - slide, 42, 118, 38);
+        display.fill_rounded(user, 9, argb(0x24, 0xffffff));
+        widgets::icon(display, Rect::new(user.x + 10, user.y + 10, 18, 18), Icon::User, rgb(0xffffff));
+        display.text(user.x + 36, user.y + 14, "liveuser", 10, false, argb(0xe0, 0xffffff));
+        let power = Rect::new(self.width - 106 - slide, 42, 46, 38);
+        display.fill_rounded(power, 9, if self.start_power_open { argb(0x58, 0xffffff) } else { argb(0x24, 0xffffff) });
+        widgets::icon(display, Rect::new(power.x + 11, power.y + 10, 22, 22), Icon::Power, rgb(0xffffff));
 
         // Live tiles.
         let mut x = 60;
@@ -1227,20 +1400,21 @@ impl Desktop {
             }
         }
 
-        // Power panel
-        let power_panel = Rect::new(self.width - 210, self.height - 236, 150, 176);
-        display.fill_rect(power_panel, argb(0x40, 0x000000));
-        display.stroke_rounded(power_panel, 0, 1, argb(0x70, 0xffffff));
-        display.text(power_panel.x + 16, power_panel.y + 14, "Power", 11, true, rgb(0xffffff));
-        let shutdown = Rect::new(power_panel.x + 14, power_panel.y + 44, power_panel.w - 28, 36);
-        display.fill_rect(shutdown, argb(0x50, 0xe81123));
-        display.text_centered(shutdown, "Shut down", 10, false, rgb(0xffffff));
-        let reboot = Rect::new(power_panel.x + 14, power_panel.y + 90, power_panel.w - 28, 36);
-        display.fill_rect(reboot, argb(0x30, 0xffffff));
-        display.text_centered(reboot, "Restart", 10, false, rgb(0xffffff));
-        let logout = Rect::new(power_panel.x + 14, power_panel.y + 136, power_panel.w - 28, 36);
-        display.fill_rect(logout, argb(0x30, 0xffffff));
-        display.text_centered(logout, "Log out", 10, false, rgb(0xffffff));
+        if self.start_power_open {
+            let power_panel = Rect::new(self.width - 238, 88, 176, 148);
+            display.fill_rounded(power_panel, 10, argb(0xe8, 0x10131a));
+            display.stroke_rounded(power_panel, 10, 1, argb(0x70, 0xffffff));
+            display.text(power_panel.x + 14, power_panel.y + 12, "Power", 11, true, rgb(0xffffff));
+            let shutdown = Rect::new(power_panel.x + 12, power_panel.y + 34, power_panel.w - 24, 30);
+            display.fill_rounded(shutdown, 6, argb(0x50, 0xe81123));
+            display.text_centered(shutdown, "Shut down", 10, false, rgb(0xffffff));
+            let reboot = Rect::new(power_panel.x + 12, power_panel.y + 70, power_panel.w - 24, 30);
+            display.fill_rounded(reboot, 6, argb(0x30, 0xffffff));
+            display.text_centered(reboot, "Restart", 10, false, rgb(0xffffff));
+            let logout = Rect::new(power_panel.x + 12, power_panel.y + 106, power_panel.w - 24, 30);
+            display.fill_rounded(logout, 6, argb(0x30, 0xffffff));
+            display.text_centered(logout, "Log out", 10, false, rgb(0xffffff));
+        }
 
         if eased < 1.0 {
             display.fill_rect(
