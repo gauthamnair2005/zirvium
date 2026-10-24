@@ -155,7 +155,7 @@ fn stars(canvas: &mut Canvas, count: usize, tint: u32) {
 fn nebula(canvas: &mut Canvas, accent: u32, accent_alt: u32) {
     canvas.fill_vertical(rgb(0x05070e), rgb(0x0c1422));
 
-    // A soft, dark-blue wash across the lower half keeps the dock area
+    // A soft, dark-blue wash across the lower half keeps system surfaces
     // readable while still adding depth behind the windows.
     canvas.glow(0.50, 0.98, 0.85, rgb(0x132a4a), 0.42);
 

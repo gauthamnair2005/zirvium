@@ -89,8 +89,9 @@ pub fn panel(display: &mut Display, rect: Rect, radius: i32, fill: u32, border: 
 /// A rounded, tinted card with a hairline border and a faint accent edge.
 pub fn card(display: &mut Display, rect: Rect, theme: &Theme) {
     if theme.is_light() {
-        display.fill_rounded_vertical(rect, 4, theme.card(), argb(0xff, 0xfafafa));
-        display.stroke_rounded(rect, 4, 1, theme.line());
+        display.drop_shadow(rect, 0, 8, argb(0x18, 0x20365d));
+        display.fill_rounded_vertical(rect, 12, theme.card(), argb(0xff, 0xf7faff));
+        display.stroke_rounded(rect, 12, 1, theme.line());
     } else {
         display.fill_rounded_vertical(rect, 11, PANEL_SOFT, argb(0xff, 0x141821));
         display.stroke_rounded(rect, 11, 1, BORDER_SOFT);
@@ -701,9 +702,9 @@ pub fn button(
             ),
         }
     };
-    display.fill_rounded_vertical(rect, 9, fill, fill_bottom);
+    display.fill_rounded_vertical(rect, 11, fill, fill_bottom);
     if border >> 24 != 0 {
-        display.stroke_rounded(rect, 9, 1, border);
+        display.stroke_rounded(rect, 11, 1, border);
     }
     let face = crate::displayjet::font::face(13, true);
     let width = face.width(label);

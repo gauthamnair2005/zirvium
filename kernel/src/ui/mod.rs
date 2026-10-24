@@ -451,12 +451,12 @@ impl Desktop {
         }
         let (desired_w, desired_h) = kind.default_size();
         let max_w = (self.width - 32).max(360);
-        let max_h = (self.height - TOP_BAR_HEIGHT - DOCK_HEIGHT - 16).max(240);
+        let max_h = (self.height - TOP_BAR_HEIGHT - 16).max(240);
         let w = desired_w.min(max_w);
         let h = desired_h.min(max_h);
         let cascade = (self.windows.len() as i32 % 6) * 28;
         let max_x = (self.width - w - 16).max(16);
-        let max_y = (self.height - h - DOCK_HEIGHT - 8).max(TOP_BAR_HEIGHT + 8);
+        let max_y = (self.height - h - 8).max(TOP_BAR_HEIGHT + 8);
         let x = ((self.width - w) / 2 - 60 + cascade).clamp(16, max_x);
         let y = (TOP_BAR_HEIGHT + 36 + cascade).clamp(TOP_BAR_HEIGHT + 8, max_y);
         let id = self.next_id;
@@ -505,7 +505,7 @@ impl Desktop {
                 window.maximized = false;
             } else {
                 window.restore = Some(window.rect);
-                window.rect = Rect::new(0, TOP_BAR_HEIGHT, width, (height - TOP_BAR_HEIGHT - DOCK_HEIGHT).max(160));
+                window.rect = Rect::new(0, TOP_BAR_HEIGHT, width, (height - TOP_BAR_HEIGHT).max(160));
                 window.maximized = true;
             }
             self.focused = Some(id);
@@ -1082,14 +1082,14 @@ impl Desktop {
 
     fn draw_top_bar(&self, display: &mut Display) {
         let bar = Rect::new(0, 0, self.width, TOP_BAR_HEIGHT);
-        display.fill_rect(bar, TOP_BAR);
-        display.fill_rect(Rect::new(0, TOP_BAR_HEIGHT - 1, self.width, 1), TOP_BAR_BORDER);
+        display.fill_rect(bar, self.theme.chrome());
+        display.fill_rect(Rect::new(0, TOP_BAR_HEIGHT - 1, self.width, 1), self.theme.line());
         widgets::logo(display, Rect::new(18, 10, 24, 24));
         display.text(52, 13, "ZirvUI", 12, true, self.theme.text());
         display.text(132, 14, "APPLICATION NAVIGATOR", 8, false, self.theme.text_dim());
         let status = crate::net::status();
         let right = Rect::new(self.width - 350, 8, 332, 28);
-        display.fill_rounded(right, 14, argb(0x32, 0xffffff));
+        display.fill_rounded(right, 14, self.theme.well());
         display.fill_circle(Point::new(right.x + 14, right.y + 14), 3, self.theme.accent);
         display.text(right.x + 25, right.y + 8, if status.ethernet { "Connected" } else { "Ready" }, 9, false, self.theme.text_muted());
         let now = crate::time::now();
@@ -1104,7 +1104,7 @@ impl Desktop {
     fn draw_context_menu(&self, display: &mut Display, origin: Point) {
         let menu = Rect::new(
             origin.x.clamp(8, self.width - 198),
-            origin.y.clamp(8, self.height - DOCK_HEIGHT - 184),
+            origin.y.clamp(8, self.height - 184),
             190,
             176,
         );
@@ -1130,7 +1130,7 @@ impl Desktop {
         }
         let width = (self.width - 40).clamp(240, 348);
         let height = 74;
-        let mut bottom = self.height - DOCK_HEIGHT - 12;
+        let mut bottom = self.height - 12;
         for note in self.notifications.iter().rev() {
             let rect = Rect::new(self.width - width - 18, bottom - height, width, height);
             bottom -= height + 12;
@@ -1171,27 +1171,27 @@ impl Desktop {
         );
         let panel = Rect::new(panel.x, panel.y, panel.w, panel.h);
         display.drop_shadow(panel, 0, 22, argb(0x80, 0x000000));
-        display.fill_rounded(panel, 18, argb(0xf2, 0x111b2c));
-        display.stroke_rounded(panel, 18, 1, argb(0x80, 0x6d91c8));
+        display.fill_rounded(panel, 18, if self.theme.is_light() { argb(0xf5, 0xffffff) } else { argb(0xf2, 0x111b2c) });
+        display.stroke_rounded(panel, 18, 1, if self.theme.is_light() { self.theme.line() } else { argb(0x80, 0x6d91c8) });
 
         widgets::logo(display, Rect::new(panel.x + 22, panel.y + 24, 36, 36));
-        display.text(panel.x + 70, panel.y + 25, "ZirvUI", 18, true, rgb(0xffffff));
-        display.text(panel.x + 70, panel.y + 48, "Your workspace", 9, false, argb(0xb0, 0xffffff));
+        display.text(panel.x + 70, panel.y + 25, "ZirvUI", 18, true, self.theme.text());
+        display.text(panel.x + 70, panel.y + 48, "Your workspace", 9, false, self.theme.text_muted());
 
         let user = Rect::new(panel.right() - 142, panel.y + 24, 112, 36);
-        display.fill_rounded(user, 10, argb(0x35, 0xffffff));
-        widgets::icon(display, Rect::new(user.x + 9, user.y + 9, 18, 18), Icon::User, rgb(0xffffff));
-        display.text(user.x + 34, user.y + 12, "liveuser", 9, true, rgb(0xffffff));
+        display.fill_rounded(user, 10, self.theme.well());
+        widgets::icon(display, Rect::new(user.x + 9, user.y + 9, 18, 18), Icon::User, self.theme.accent);
+        display.text(user.x + 34, user.y + 12, "liveuser", 9, true, self.theme.text());
         let power = Rect::new(panel.right() - 54, panel.y + 24, 36, 36);
-        display.fill_rounded(power, 10, if self.start_power_open { argb(0x65, 0xffffff) } else { argb(0x35, 0xffffff) });
-        widgets::icon(display, Rect::new(power.x + 7, power.y + 7, 22, 22), Icon::Power, rgb(0xffffff));
+        display.fill_rounded(power, 10, if self.start_power_open { self.theme.accent_soft(50) } else { self.theme.well() });
+        widgets::icon(display, Rect::new(power.x + 7, power.y + 7, 22, 22), Icon::Power, self.theme.accent);
 
         let search = Rect::new(panel.x + 22, panel.y + 82, panel.w - 44, 40);
-        display.fill_rounded(search, 11, argb(0x38, 0xffffff));
-        display.stroke_rounded(search, 11, 1, argb(0x55, 0xffffff));
-        widgets::icon(display, Rect::new(search.x + 13, search.y + 12, 16, 16), Icon::Search, argb(0xc0, 0xffffff));
-        display.text(search.x + 40, search.y + 12, "Search apps and settings", 10, false, argb(0xb0, 0xffffff));
-        display.text(panel.x + 22, panel.y + 140, "Applications", 10, true, argb(0xd0, 0xffffff));
+        display.fill_rounded(search, 11, self.theme.well());
+        display.stroke_rounded(search, 11, 1, self.theme.line());
+        widgets::icon(display, Rect::new(search.x + 13, search.y + 12, 16, 16), Icon::Search, self.theme.text_muted());
+        display.text(search.x + 40, search.y + 12, "Search apps and settings", 10, false, self.theme.text_muted());
+        display.text(panel.x + 22, panel.y + 140, "Applications", 10, true, self.theme.text());
 
         for (index, kind) in NAVIGATOR_APPS.iter().enumerate() {
             let mut rect = launch_row_rect(panel, index);
@@ -1199,29 +1199,29 @@ impl Desktop {
             display.fill_rounded(rect, 12, if self.focused_kind() == Some(*kind) {
                 self.theme.accent_soft(72)
             } else {
-                argb(0x2c, 0xffffff)
+                self.theme.well()
             });
-            display.stroke_rounded(rect, 12, 1, argb(0x40, 0xffffff));
-            widgets::icon(display, Rect::new(rect.x + 15, rect.y + 17, 32, 32), kind.icon(), rgb(0xffffff));
-            display.text(rect.x + 60, rect.y + 16, kind.title(), 10, true, rgb(0xffffff));
-            display.text(rect.x + 60, rect.y + 37, kind.subtitle(), 8, false, argb(0xa0, 0xffffff));
+            display.stroke_rounded(rect, 12, 1, self.theme.line());
+            widgets::icon(display, Rect::new(rect.x + 15, rect.y + 17, 32, 32), kind.icon(), self.theme.accent);
+            display.text(rect.x + 60, rect.y + 16, kind.title(), 10, true, self.theme.text());
+            display.text(rect.x + 60, rect.y + 37, kind.subtitle(), 8, false, self.theme.text_muted());
         }
 
         if self.start_power_open {
             let power_panel = Rect::new(panel.right() - 194, panel.y + 72, 176, 148);
             display.drop_shadow(power_panel, 0, 16, argb(0x70, 0x000000));
-            display.fill_rounded(power_panel, 14, argb(0xf0, 0x101827));
-            display.stroke_rounded(power_panel, 14, 1, argb(0x70, 0xffffff));
-            display.text(power_panel.x + 14, power_panel.y + 12, "Power", 11, true, rgb(0xffffff));
+                display.fill_rounded(power_panel, 14, self.theme.card());
+                display.stroke_rounded(power_panel, 14, 1, self.theme.line());
+                display.text(power_panel.x + 14, power_panel.y + 12, "Power", 11, true, self.theme.text());
             let shutdown = Rect::new(power_panel.x + 12, power_panel.y + 34, power_panel.w - 24, 30);
             display.fill_rounded(shutdown, 6, argb(0x50, 0xe81123));
-            display.text_centered(shutdown, "Shut down", 10, false, rgb(0xffffff));
+            display.text_centered(shutdown, "Shut down", 10, false, self.theme.text());
             let reboot = Rect::new(power_panel.x + 12, power_panel.y + 70, power_panel.w - 24, 30);
             display.fill_rounded(reboot, 6, argb(0x30, 0xffffff));
-            display.text_centered(reboot, "Restart", 10, false, rgb(0xffffff));
+            display.text_centered(reboot, "Restart", 10, false, self.theme.text());
             let logout = Rect::new(power_panel.x + 12, power_panel.y + 106, power_panel.w - 24, 30);
             display.fill_rounded(logout, 6, argb(0x30, 0xffffff));
-            display.text_centered(logout, "Log out", 10, false, rgb(0xffffff));
+            display.text_centered(logout, "Log out", 10, false, self.theme.text());
         }
 
     }
@@ -1233,42 +1233,41 @@ impl Desktop {
 
         let card = Rect::new(self.width / 2 - 176, self.height / 2 - 152, 352, 330);
         display.drop_shadow(card, 0, 18, argb(0x80, 0x000000));
-        display.fill_rounded(card, 12, argb(0xf0, 0x111722));
-        display.stroke_rounded(card, 12, 1, argb(0xff, 0x2b3850));
+        display.fill_rounded(card, 16, self.theme.card());
+        display.stroke_rounded(card, 16, 1, self.theme.line());
         widgets::logo(display, Rect::new(self.width / 2 - 38, card.y + 28, 76, 76));
         display.text_centered(
             Rect::new(card.x, card.y + 116, card.w, 26),
             "Welcome to Zirvium",
             18,
             true,
-            TEXT_STRONG,
+            self.theme.text(),
         );
         display.text_centered(
             Rect::new(card.x, card.y + 148, card.w, 16),
             "Sign in to continue",
             10,
             false,
-            TEXT_MUTED,
+            self.theme.text_muted(),
         );
         let user = Rect::new(card.x + 42, card.y + 184, card.w - 84, 36);
-        display.fill_rect(user, argb(0xff, 0x202938));
-        display.stroke_rounded(user, 5, 1, argb(0xff, 0x3a4962));
+        display.fill_rounded(user, 8, self.theme.well());
+        display.stroke_rounded(user, 8, 1, self.theme.line());
         widgets::icon(
             display,
             Rect::new(user.x + 10, user.y + 10, 16, 16),
             Icon::About,
-            TEXT_MUTED,
+            self.theme.text_muted(),
         );
-        display.text(user.x + 36, user.y + 11, "liveuser", 11, true, TEXT);
+        display.text(user.x + 36, user.y + 11, "liveuser", 11, true, self.theme.text());
         let button = Rect::new(self.width / 2 - 92, self.height / 2 + 92, 184, 38);
-        display.fill_rounded(button, 5, rgb(0x5aa2ff));
-        display.text_centered(button, "Sign in", 11, true, rgb(0x07101d));
+        widgets::button(display, button, "Enter workspace", &self.theme, widgets::ButtonStyle::Primary, false, true);
         display.text_centered(
             Rect::new(card.x, card.bottom() - 28, card.w, 14),
             "Press Enter or click Sign in",
             9,
             false,
-            TEXT_DIM,
+            self.theme.text_dim(),
         );
     }
 }
@@ -1294,8 +1293,8 @@ fn draw_window(
     display.stroke_rounded(rect, WINDOW_RADIUS, 1, if focused { theme.accent } else { theme.line() });
 
     let title_rect = Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT);
-    display.fill_rounded(title_rect, WINDOW_RADIUS, if focused { TITLE_BG_FOCUS } else { TITLE_BG });
-    display.fill_rect(Rect::new(rect.x, rect.y + WINDOW_RADIUS, rect.w, TITLE_HEIGHT - WINDOW_RADIUS), if focused { TITLE_BG_FOCUS } else { TITLE_BG });
+    display.fill_rounded(title_rect, WINDOW_RADIUS, if focused { theme.card() } else { theme.chrome() });
+    display.fill_rect(Rect::new(rect.x, rect.y + WINDOW_RADIUS, rect.w, TITLE_HEIGHT - WINDOW_RADIUS), if focused { theme.card() } else { theme.chrome() });
     display.fill_rect(Rect::new(rect.x + 18, rect.y + TITLE_HEIGHT - 1, rect.w - 36, 1), if focused { theme.accent } else { theme.line() });
 
     let kind = window.app.kind();

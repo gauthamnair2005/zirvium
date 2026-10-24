@@ -21,8 +21,6 @@ pub const fn argb(alpha: u32, value: u32) -> u32 {
 // ---------------------------------------------------------------------------
 
 pub const TOP_BAR_HEIGHT: i32 = 44;
-pub const DOCK_HEIGHT: i32 = 0;
-pub const DOCK_ICON: i32 = 40;
 pub const TITLE_HEIGHT: i32 = 38;
 pub const WINDOW_RADIUS: i32 = 14;
 pub const CONTENT_PADDING: i32 = 22;
@@ -99,21 +97,19 @@ pub struct Theme {
     pub wallpaper: u8,
     pub show_seconds: bool,
     pub animations: bool,
-    pub dock_magnification: bool,
     pub show_grid: bool,
 }
 
 impl Default for Theme {
     fn default() -> Self {
         Self {
-            mode: ColorMode::Dark,
+            mode: ColorMode::Light,
             accent: rgb(0x00aaff),
             accent_alt: rgb(0x66ccff),
-            start_color: rgb(0x182b55),
+            start_color: rgb(0xeaf2ff),
             wallpaper: 0,
             show_seconds: true,
             animations: true,
-            dock_magnification: false,
             show_grid: false,
         }
     }
@@ -146,7 +142,7 @@ impl Theme {
     /// The base surface for application content.
     pub fn surface(&self) -> u32 {
         if self.is_light() {
-            rgb(0xf5f5f5)
+            rgb(0xf7faff)
         } else {
             rgb(0x101010)
         }
@@ -164,7 +160,7 @@ impl Theme {
     /// The deepest surface, used for well-like areas such as search fields.
     pub fn well(&self) -> u32 {
         if self.is_light() {
-            rgb(0xe8e8e8)
+            rgb(0xeaf0f8)
         } else {
             rgb(0x0c0c0c)
         }
@@ -173,7 +169,7 @@ impl Theme {
     /// Border colour for cards and dividers.
     pub fn line(&self) -> u32 {
         if self.is_light() {
-            rgb(0xd6d6d6)
+            rgb(0xd4dfef)
         } else {
             rgb(0x2a2a2a)
         }
@@ -182,7 +178,7 @@ impl Theme {
     /// Primary text colour.
     pub fn text(&self) -> u32 {
         if self.is_light() {
-            rgb(0x1a1a1a)
+            rgb(0x172033)
         } else {
             rgb(0xffffff)
         }
@@ -191,7 +187,7 @@ impl Theme {
     /// Secondary text colour.
     pub fn text_muted(&self) -> u32 {
         if self.is_light() {
-            rgb(0x5a5a5a)
+            rgb(0x53627a)
         } else {
             rgb(0xa0a0a0)
         }
@@ -200,22 +196,22 @@ impl Theme {
     /// Tertiary text colour.
     pub fn text_dim(&self) -> u32 {
         if self.is_light() {
-            rgb(0x808080)
+            rgb(0x7a8aa3)
         } else {
             rgb(0x6e6e6e)
         }
     }
 
-    /// The chrome colour for the taskbar and window title bars.
+    /// The chrome colour for the system header and window title bars.
     pub fn chrome(&self) -> u32 {
         if self.is_light() {
-            rgb(0xf0f0f0)
+            rgb(0xffffff)
         } else {
             rgb(0x000000)
         }
     }
 
-    /// The Start screen backdrop.
+    /// The navigator highlight backdrop.
     pub fn start_background(&self) -> u32 {
         if self.is_light() {
             self.start_color
