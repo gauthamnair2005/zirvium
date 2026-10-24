@@ -325,15 +325,21 @@ fn launch_panel_rect(width: i32, height: i32) -> Rect {
     )
 }
 
-fn launch_row_rect(panel: Rect, index: usize) -> Rect {
-    let column = index % 2;
-    let row = index / 2;
+fn launch_card_rect(panel: Rect, index: usize, scroll: i32) -> Rect {
     Rect::new(
-        panel.x + 28 + column as i32 * 326,
-        panel.y + 184 + row as i32 * 82,
-        306,
+        panel.x + 22 + index as i32 * 232 - scroll,
+        panel.y + 184,
+        220,
         68,
     )
+}
+
+fn launcher_viewport(panel: Rect) -> Rect {
+    Rect::new(panel.x + 18, panel.y + 176, panel.w - 36, 82)
+}
+
+fn launcher_scroll_max(panel: Rect, count: usize) -> i32 {
+    ((count as i32 * 232 - 12) - launcher_viewport(panel).w).max(0)
 }
 
 fn title_buttons(rect: Rect) -> (Rect, Rect, Rect) {
@@ -388,6 +394,7 @@ pub struct Desktop {
     drag: Option<Drag>,
     launcher: bool,
     launcher_selected: usize,
+    launcher_scroll_x: i32,
     launcher_search: String,
     launcher_search_active: bool,
     cursor: Point,
@@ -420,6 +427,7 @@ impl Desktop {
             drag: None,
             launcher: false,
             launcher_selected: 0,
+            launcher_scroll_x: 0,
             launcher_search: String::new(),
             launcher_search_active: false,
             cursor: Point::new(cursor_x, cursor_y),
@@ -748,12 +756,21 @@ impl Desktop {
                 self.launcher_search_active = true;
                 return true;
             }
+            let matches = self.launcher_matches();
+            let track = Rect::new(panel.x + 22, panel.bottom() - 28, panel.w - 44, 6);
+            if track.contains(point) {
+                let max_scroll = launcher_scroll_max(panel, matches.len());
+                if max_scroll > 0 {
+                    let fraction = ((point.x - track.x) as f32 / track.w.max(1) as f32).clamp(0.0, 1.0);
+                    self.launcher_scroll_x = (fraction * max_scroll as f32) as i32;
+                }
+                return true;
+            }
             let elapsed = zirvstdlib::time::monotonic_ms().saturating_sub(self.launcher_started);
             let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
             let eased = progress * progress * (3.0 - 2.0 * progress);
-            let matches = self.launcher_matches();
             for (i, kind) in matches.iter().enumerate() {
-                let mut rect = launch_row_rect(panel, i);
+                let mut rect = launch_card_rect(panel, i, self.launcher_scroll_x);
                 rect.x -= ((1.0 - eased) * 28.0) as i32;
                 if rect.contains(point) {
                     self.launcher = false;
@@ -953,6 +970,13 @@ impl Desktop {
                 had_drag
             }
             InputKind::Scroll => {
+                if self.launcher {
+                    let panel = launch_panel_rect(self.width, self.height);
+                    let count = self.launcher_matches().len();
+                    self.launcher_scroll_x = (self.launcher_scroll_x + event.value * 232)
+                        .clamp(0, launcher_scroll_max(panel, count));
+                    return true;
+                }
                 let point = Point::new(event.x, event.y);
                 let target = self.target_at(point);
                 if let Target::Content(id) = target
@@ -982,6 +1006,7 @@ impl Desktop {
         if code == key::SUPER {
             self.launcher = !self.launcher;
             self.launcher_selected = 0;
+            self.launcher_scroll_x = 0;
             self.launcher_search.clear();
             self.launcher_search_active = self.launcher;
             if self.launcher {
@@ -1048,6 +1073,21 @@ impl Desktop {
                     let count = self.launcher_matches().len();
                     if count > 0 {
                         self.launcher_selected = (self.launcher_selected + 1).min(count - 1);
+                    }
+                    return true;
+                }
+                key::LEFT => {
+                    self.launcher_selected = self.launcher_selected.saturating_sub(1);
+                    self.launcher_scroll_x = (self.launcher_scroll_x - 232).max(0);
+                    return true;
+                }
+                key::RIGHT => {
+                    let count = self.launcher_matches().len();
+                    if count > 0 {
+                        self.launcher_selected = (self.launcher_selected + 1).min(count - 1);
+                        let panel = launch_panel_rect(self.width, self.height);
+                        self.launcher_scroll_x = (self.launcher_selected as i32 * 232)
+                            .min(launcher_scroll_max(panel, count));
                     }
                     return true;
                 }
@@ -1300,8 +1340,10 @@ impl Desktop {
         display.text(panel.x + 22, panel.y + 140, "Applications", 10, true, self.theme.text());
 
         let matches = self.launcher_matches();
+        let viewport = launcher_viewport(panel);
+        display.push_clip(viewport);
         for (index, kind) in matches.iter().enumerate() {
-            let mut rect = launch_row_rect(panel, index);
+            let mut rect = launch_card_rect(panel, index, self.launcher_scroll_x);
             rect.x -= ((1.0 - eased) * 28.0) as i32;
             display.fill_rounded(rect, 12, if index == self.launcher_selected || self.focused_kind() == Some(*kind) {
                 self.theme.accent_soft(72)
@@ -1309,13 +1351,34 @@ impl Desktop {
                 self.theme.well()
             });
             widgets::icon(display, Rect::new(rect.x + 15, rect.y + 17, 32, 32), kind.icon(), self.theme.accent);
-            display.text(rect.x + 60, rect.y + 16, kind.title(), 10, true, self.theme.text());
-            display.text(rect.x + 60, rect.y + 37, kind.subtitle(), 8, false, self.theme.text_muted());
+            display.text_ellipsized(rect.x + 60, rect.y + 16, kind.title(), rect.w - 72, 10, true, self.theme.text());
+            display.text_ellipsized(rect.x + 60, rect.y + 37, kind.subtitle(), rect.w - 72, 8, false, self.theme.text_muted());
         }
+        display.pop_clip();
         if matches.is_empty() {
             display.text(panel.x + 22, panel.y + 190, "No matching apps", 11, true, self.theme.text());
             display.text(panel.x + 22, panel.y + 214, "Try another name or keyword.", 9, false, self.theme.text_muted());
         }
+        let track = Rect::new(panel.x + 22, panel.bottom() - 28, panel.w - 44, 6);
+        display.fill_rounded(track, 3, self.theme.well());
+        let max_scroll = launcher_scroll_max(panel, matches.len());
+        let thumb_width = if max_scroll == 0 {
+            track.w
+        } else {
+            (((track.w as i64 * launcher_viewport(panel).w as i64)
+                / (matches.len() as i64 * 232 - 12).max(1))
+                .clamp(52, track.w as i64)) as i32
+        };
+        let thumb_x = if max_scroll == 0 {
+            track.x
+        } else {
+            track.x + ((track.w - thumb_width) as i64 * self.launcher_scroll_x as i64 / max_scroll as i64) as i32
+        };
+        display.fill_rounded(
+            Rect::new(thumb_x, track.y, thumb_width, track.h),
+            3,
+            self.theme.accent,
+        );
 
         if self.start_power_open {
             let power_panel = Rect::new(panel.right() - 194, panel.y + 72, 176, 148);
