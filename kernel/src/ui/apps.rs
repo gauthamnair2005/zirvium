@@ -829,6 +829,7 @@ impl Files {
 
 #[derive(Clone, Copy)]
 enum Action {
+    Category(usize),
     Wallpaper(u8),
     Accent(usize),
     StartColor(usize),
@@ -887,7 +888,7 @@ impl Settings {
                 display.fill_rect(Rect::new(r.x, r.y, 3, r.h), theme.accent);
             }
             display.text(r.x + 12, r.y + 7, name, 12, false, if *cat == self.category { TEXT_STRONG } else { TEXT });
-            self.hits.push(Hit { rect: r, action: Action::AddPeer }); // placeholder
+            self.hits.push(Hit { rect: r, action: Action::Category(i) });
         }
         // We'll handle category clicks differently
         let inner = Rect::new(content.x + 216, content.y + 16, content.w - 232, content.h - 32);
@@ -1165,6 +1166,17 @@ impl Settings {
                         theme.start_color = rgb(colors[idx]);
                     }
                     return Response::THEME;
+                }
+                Action::Category(idx) => {
+                    self.category = match idx {
+                        0 => Category::System,
+                        1 => Category::Personalization,
+                        2 => Category::Devices,
+                        3 => Category::Network,
+                        4 => Category::About,
+                        _ => Category::System,
+                    };
+                    return Response::REDRAW;
                 }
                 _ => {}
             }
