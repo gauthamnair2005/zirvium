@@ -1,4 +1,4 @@
-//! Colours and metrics for the Zirvium desktop.
+//! Colours and metrics for ZirvUI, the Zirvium desktop shell.
 //!
 //! All colours are packed `0xAARRGGBB`, matching DisplayJet's surface format.
 //! The palette is deliberately cool and low-chroma so that the accent can be
@@ -20,31 +20,31 @@ pub const fn argb(alpha: u32, value: u32) -> u32 {
 // Metrics
 // ---------------------------------------------------------------------------
 
-pub const TOP_BAR_HEIGHT: i32 = 28;
-pub const DOCK_HEIGHT: i32 = 52;
-pub const DOCK_ICON: i32 = 32;
-pub const TITLE_HEIGHT: i32 = 30;
-pub const WINDOW_RADIUS: i32 = 0;
-pub const CONTENT_PADDING: i32 = 18;
+pub const TOP_BAR_HEIGHT: i32 = 44;
+pub const DOCK_HEIGHT: i32 = 68;
+pub const DOCK_ICON: i32 = 40;
+pub const TITLE_HEIGHT: i32 = 38;
+pub const WINDOW_RADIUS: i32 = 14;
+pub const CONTENT_PADDING: i32 = 22;
 
 // ---------------------------------------------------------------------------
 // Surfaces
 // ---------------------------------------------------------------------------
 
-pub const BACKDROP: u32 = rgb(0x070a11);
-pub const TOP_BAR: u32 = argb(0xe8, 0x0c0f16);
-pub const TOP_BAR_BORDER: u32 = argb(0xff, 0x1e2432);
-pub const PANEL: u32 = argb(0xf7, 0x11141c);
-pub const PANEL_SOFT: u32 = argb(0xff, 0x181c26);
-pub const PANEL_RAISED: u32 = argb(0xff, 0x212734);
-pub const PANEL_GLASS: u32 = argb(0xdf, 0x0f131c);
-pub const BORDER: u32 = argb(0xff, 0x2b3343);
-pub const BORDER_SOFT: u32 = argb(0xff, 0x212836);
-pub const WINDOW_BG: u32 = argb(0xff, 0x10131b);
-pub const WINDOW_BG_DEEP: u32 = argb(0xff, 0x0b0e15);
-pub const TITLE_BG: u32 = argb(0xff, 0x181c26);
-pub const TITLE_BG_FOCUS: u32 = argb(0xff, 0x1e2432);
-pub const SHADOW: u32 = argb(0xc0, 0x000000);
+pub const BACKDROP: u32 = rgb(0x070a12);
+pub const TOP_BAR: u32 = argb(0xe8, 0x111827);
+pub const TOP_BAR_BORDER: u32 = argb(0xff, 0x26334a);
+pub const PANEL: u32 = argb(0xf7, 0x101827);
+pub const PANEL_SOFT: u32 = argb(0xff, 0x172235);
+pub const PANEL_RAISED: u32 = argb(0xff, 0x22304a);
+pub const PANEL_GLASS: u32 = argb(0xdf, 0x121c2d);
+pub const BORDER: u32 = argb(0xff, 0x30405b);
+pub const BORDER_SOFT: u32 = argb(0xff, 0x263650);
+pub const WINDOW_BG: u32 = argb(0xff, 0x101827);
+pub const WINDOW_BG_DEEP: u32 = argb(0xff, 0x0a111e);
+pub const TITLE_BG: u32 = argb(0xff, 0x152137);
+pub const TITLE_BG_FOCUS: u32 = argb(0xff, 0x1e2c46);
+pub const SHADOW: u32 = argb(0xd0, 0x000000);
 
 // ---------------------------------------------------------------------------
 // Type
@@ -109,7 +109,7 @@ impl Default for Theme {
             mode: ColorMode::Dark,
             accent: rgb(0x00aaff),
             accent_alt: rgb(0x66ccff),
-            start_color: rgb(0x0078d7),
+            start_color: rgb(0x182b55),
             wallpaper: 0,
             show_seconds: true,
             animations: true,

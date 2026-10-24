@@ -1,4 +1,4 @@
-//! The Zirvium desktop.
+//! ZirvUI: the Zirvium desktop shell.
 //!
 //! The desktop is the first DisplayJet client: it owns the wallpaper cache,
 //! the window stack, the top bar, the dock and the launcher, and it routes
@@ -435,8 +435,8 @@ impl Desktop {
             start_power_open: false,
         };
         desktop.notify(
-            "Welcome to Zirvium 2.0",
-            "Press Start or click the logo to open the Start screen.",
+            "Welcome to ZirvUI",
+            "Open the launcher to reach your apps and workspace.",
             9000,
         );
         // Boot into the desktop after the splash; Start remains one click away.
@@ -1165,6 +1165,7 @@ impl Desktop {
                 }
                 draw_window(display, window, &theme, focused == Some(window.id), hover);
             }
+            self.draw_top_bar(display);
             self.draw_taskbar(display);
             self.draw_notifications(display);
         }
@@ -1176,6 +1177,26 @@ impl Desktop {
         let cursor = self.cursor;
         display.cursor_show_with_style(cursor.x, cursor.y, self.cursor_style);
         display.present();
+    }
+
+    fn draw_top_bar(&self, display: &mut Display) {
+        let bar = Rect::new(0, 0, self.width, TOP_BAR_HEIGHT);
+        display.fill_rect(bar, TOP_BAR);
+        display.fill_rect(Rect::new(0, TOP_BAR_HEIGHT - 1, self.width, 1), TOP_BAR_BORDER);
+        widgets::logo(display, Rect::new(18, 10, 24, 24));
+        display.text(52, 13, "ZirvUI", 12, true, self.theme.text());
+        let status = crate::net::status();
+        let right = Rect::new(self.width - 350, 8, 332, 28);
+        display.fill_rounded(right, 14, argb(0x32, 0xffffff));
+        display.fill_circle(Point::new(right.x + 14, right.y + 14), 3, self.theme.accent);
+        display.text(right.x + 25, right.y + 8, if status.ethernet { "Connected" } else { "Ready" }, 9, false, self.theme.text_muted());
+        let now = crate::time::now();
+        let clock = if self.theme.show_seconds {
+            alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second)
+        } else {
+            alloc::format!("{:02}:{:02}", now.hour, now.minute)
+        };
+        display.text(right.right() - 80, right.y + 8, &clock, 9, true, self.theme.text());
     }
 
     fn draw_context_menu(&self, display: &mut Display, origin: Point) {
@@ -1207,15 +1228,15 @@ impl Desktop {
         let chrome = self.theme.chrome();
         let line = self.theme.line();
         let bar = Rect::new(0, height - DOCK_HEIGHT, width, DOCK_HEIGHT);
-        display.fill_rect(bar, chrome);
+        display.fill_rect(bar, argb(0xd8, chrome & 0x00ff_ffff));
         display.fill_rect(Rect::new(0, height - DOCK_HEIGHT, width, 1), line);
 
-        let start = Rect::new(4, height - DOCK_HEIGHT + 4, 44, 44);
+        let start = Rect::new(18, height - DOCK_HEIGHT + 14, 40, 40);
         let start_hot = self.hover == Target::Start || self.launcher;
         if start_hot {
             display.fill_rect(start, self.theme.accent_soft(40));
         }
-        widgets::logo(display, Rect::new(start.x + 10, start.y + 10, 24, 24));
+        widgets::logo(display, Rect::new(start.x + 8, start.y + 8, 24, 24));
 
         let apps = self.taskbar_apps();
         let dock = dock_panel(width, height, apps.len());
@@ -1249,32 +1270,19 @@ impl Desktop {
             }
         }
 
-        let power = Rect::new(width - 48, height - DOCK_HEIGHT + 4, 44, 44);
+        let power = Rect::new(width - 58, height - DOCK_HEIGHT + 14, 40, 40);
         let power_hot = self.hover == Target::Power;
         if power_hot {
             display.fill_rect(power, argb(0x40, 0xe81123));
         }
         widgets::icon(
             display,
-            Rect::new(power.x + 10, power.y + 10, 24, 24),
+            Rect::new(power.x + 8, power.y + 8, 24, 24),
             Icon::Close,
             if power_hot { rgb(0xe81123) } else { self.theme.text_dim() },
         );
 
-        let now = crate::time::now();
-        let clock = if self.theme.show_seconds {
-            alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second)
-        } else {
-            alloc::format!("{:02}:{:02}", now.hour, now.minute)
-        };
-        display.text(
-            width - 110,
-            height - DOCK_HEIGHT + 18,
-            &clock,
-            9,
-            false,
-            self.theme.text_muted(),
-        );
+        display.text(width - 142, height - DOCK_HEIGHT + 22, "liveuser", 9, true, self.theme.text_muted());
     }
 
     fn draw_dock(&self, _display: &mut Display) {}
@@ -1322,26 +1330,22 @@ impl Desktop {
         let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
         let eased = progress * progress * (3.0 - 2.0 * progress);
         let screen = Rect::new(0, 0, self.width, self.height);
-        let base = self.theme.start_color;
-        let dark = {
-            let r = ((base >> 16) & 0xff) * 58 / 100;
-            let g = ((base >> 8) & 0xff) * 58 / 100;
-            let b = (base & 0xff) * 64 / 100;
-            rgb((r << 16) | (g << 8) | b)
-        };
-        display.vertical_gradient(screen, base, dark);
+        display.vertical_gradient(screen, rgb(0x152b55), rgb(0x070d19));
+        display.fill_circle(Point::new(self.width - 80, 92), 220, argb(0x12, 0x5aa2ff));
+        display.fill_circle(Point::new(90, self.height - 80), 180, argb(0x0c, 0x9b7bff));
 
         // Header.
         let slide = ((1.0 - eased) * 72.0) as i32;
         widgets::logo(display, Rect::new(58 - slide, 42, 44, 44));
-        display.text(120 - slide, 44, "Start", 40, true, rgb(0xffffff));
+        display.text(120 - slide, 44, "Workspace", 32, true, rgb(0xffffff));
+        display.text(122 - slide, 82, "Everything you need, one calm surface.", 10, false, argb(0xb0, 0xffffff));
 
-        let search = Rect::new(60, 130, 340, 34);
+        let search = Rect::new(60, 122, 420, 42);
         let search = Rect::new(search.x - slide, search.y, search.w, search.h);
-        display.fill_rect(search, argb(0x28, 0x000000));
-        display.stroke_rounded(search, 0, 1, argb(0x90, 0xffffff));
-        widgets::icon(display, Rect::new(search.x + 12, search.y + 10, 14, 14), Icon::Search, argb(0xc0, 0xffffff));
-        display.text(search.x + 38, search.y + 10, "Search apps and settings", 10, false, argb(0xa0, 0xffffff));
+        display.fill_rounded(search, 12, argb(0x28, 0xffffff));
+        display.stroke_rounded(search, 12, 1, argb(0x70, 0xffffff));
+        widgets::icon(display, Rect::new(search.x + 14, search.y + 13, 16, 16), Icon::Search, argb(0xc0, 0xffffff));
+        display.text(search.x + 42, search.y + 13, "Search apps, files and settings", 10, false, argb(0xb0, 0xffffff));
 
         // Account controls.
         let user = Rect::new(self.width - 238 - slide, 42, 118, 38);
@@ -1352,9 +1356,12 @@ impl Desktop {
         display.fill_rounded(power, 9, if self.start_power_open { argb(0x58, 0xffffff) } else { argb(0x24, 0xffffff) });
         widgets::icon(display, Rect::new(power.x + 11, power.y + 10, 22, 22), Icon::Power, rgb(0xffffff));
 
-        // Live tiles.
+        display.text(60 - slide, 188, "Your apps", 11, true, argb(0xd0, 0xffffff));
+        display.text(self.width - 260 - slide, 188, "Today", 11, true, argb(0xd0, 0xffffff));
+
+        // App cards.
         let mut x = 60;
-        let mut y = 190;
+        let mut y = 208;
         let now = crate::time::now();
         for (index, kind) in START_APPS.iter().enumerate() {
             let (tw, th) = match index {
@@ -1364,16 +1371,16 @@ impl Desktop {
                 _ => (110, 110),
             };
             let rect = Rect::new(x - slide, y, tw, th);
-            let tint = if index % 3 == 0 { 0x46 } else if index % 3 == 1 { 0x34 } else { 0x28 };
-            display.fill_rect(rect, argb(tint, 0xffffff));
-            display.stroke_rounded(rect, 0, 1, argb(0x60, 0xffffff));
+            let tint = if index % 3 == 0 { 0x38 } else if index % 3 == 1 { 0x2d } else { 0x24 };
+            display.fill_rounded(rect, 14, argb(tint, 0xffffff));
+            display.stroke_rounded(rect, 14, 1, argb(0x44, 0xffffff));
             if index == 0 {
                 // Live tile - shows time
-                display.text(rect.x + 16, rect.y + 16, &alloc::format!("{:02}:{:02}", now.hour, now.minute), 28, true, rgb(0xffffff));
-                display.text(rect.x + 16, rect.y + 56, kind.title(), 12, true, rgb(0xffffff));
-                display.text(rect.x + 16, rect.y + 76, "Desktop", 9, false, argb(0xb0, 0xffffff));
+                display.text(rect.x + 18, rect.y + 16, &alloc::format!("{:02}:{:02}", now.hour, now.minute), 28, true, rgb(0xffffff));
+                display.text(rect.x + 18, rect.y + 58, "Good afternoon, liveuser", 11, true, rgb(0xffffff));
+                display.text(rect.x + 18, rect.y + 80, "Your workspace is ready.", 9, false, argb(0xb0, 0xffffff));
             } else if index == 2 {
-                display.text(rect.x + 14, rect.y + 14, "System", 12, true, rgb(0xffffff));
+                display.text(rect.x + 14, rect.y + 14, "System", 11, true, rgb(0xffffff));
                 display.text(rect.x + 14, rect.y + 42, "Ready", 22, true, rgb(0xffffff));
                 display.text(rect.x + 14, rect.y + 72, "All services online", 9, false, argb(0xa0, 0xffffff));
             } else if index == 4 {
@@ -1396,7 +1403,7 @@ impl Desktop {
                 );
             }
 
-            display.fill_rect(Rect::new(rect.x + 10, rect.bottom() - 5, 30, 2), argb(0x80, 0xffffff));
+            display.fill_rounded(Rect::new(rect.x + 14, rect.bottom() - 8, 34, 3), 2, argb(0x90, 0xffffff));
             if tw == 236 {
                 x += 252;
             } else {
@@ -1410,8 +1417,9 @@ impl Desktop {
 
         if self.start_power_open {
             let power_panel = Rect::new(self.width - 238, 88, 176, 148);
-            display.fill_rounded(power_panel, 10, argb(0xe8, 0x10131a));
-            display.stroke_rounded(power_panel, 10, 1, argb(0x70, 0xffffff));
+            display.drop_shadow(power_panel, 0, 16, argb(0x70, 0x000000));
+            display.fill_rounded(power_panel, 14, argb(0xf0, 0x101827));
+            display.stroke_rounded(power_panel, 14, 1, argb(0x70, 0xffffff));
             display.text(power_panel.x + 14, power_panel.y + 12, "Power", 11, true, rgb(0xffffff));
             let shutdown = Rect::new(power_panel.x + 12, power_panel.y + 34, power_panel.w - 24, 30);
             display.fill_rounded(shutdown, 6, argb(0x50, 0xe81123));
@@ -1496,17 +1504,14 @@ fn draw_window(
         return;
     }
     display.reset_clip();
-    display.drop_shadow(rect, 0, 10, argb(0x50, 0x000000));
-    display.fill_rounded(rect, 8, theme.surface());
-    display.stroke_rounded(rect, 8, 1, if focused { theme.accent } else { theme.line() });
+    display.drop_shadow(rect, 0, 18, argb(0x60, 0x000000));
+    display.fill_rounded(rect, WINDOW_RADIUS, theme.surface());
+    display.stroke_rounded(rect, WINDOW_RADIUS, 1, if focused { theme.accent } else { theme.line() });
 
     let title_rect = Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT);
-    display.fill_rounded(title_rect, 8, if focused { theme.card() } else { theme.chrome() });
-    display.fill_rect(
-        Rect::new(rect.x, rect.y + 8, rect.w, TITLE_HEIGHT - 8),
-        if focused { theme.card() } else { theme.chrome() },
-    );
-    display.fill_rect(Rect::new(rect.x, rect.y + TITLE_HEIGHT - 1, rect.w, 1), if focused { theme.accent } else { theme.line() });
+    display.fill_rounded(title_rect, WINDOW_RADIUS, if focused { TITLE_BG_FOCUS } else { TITLE_BG });
+    display.fill_rect(Rect::new(rect.x, rect.y + WINDOW_RADIUS, rect.w, TITLE_HEIGHT - WINDOW_RADIUS), if focused { TITLE_BG_FOCUS } else { TITLE_BG });
+    display.fill_rect(Rect::new(rect.x + 18, rect.y + TITLE_HEIGHT - 1, rect.w - 36, 1), if focused { theme.accent } else { theme.line() });
 
     let kind = window.app.kind();
     widgets::icon(display, Rect::new(rect.x + 6, rect.y + 7, 16, 16), kind.icon(), if focused { theme.accent } else { theme.text_dim() });
@@ -1536,7 +1541,7 @@ fn draw_window(
         display.pop_clip();
         display.reset_clip();
     }
-    display.stroke_rounded(rect, 8, 1, if focused { theme.accent } else { theme.line() });
+    display.stroke_rounded(rect, WINDOW_RADIUS, 1, if focused { theme.accent } else { theme.line() });
 }
 
 // ---------------------------------------------------------------------------
