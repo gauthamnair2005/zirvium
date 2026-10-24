@@ -1483,99 +1483,41 @@ pub fn splash(display: &mut Display) {
     let screen = display.screen();
     let (width, height) = (screen.w, screen.h);
     display.reset_clip();
-    display.vertical_gradient(screen, rgb(0x04060c), rgb(0x0a1524));
+    display.vertical_gradient(screen, rgb(0x050608), rgb(0x0a0d14));
 
     let center_x = width / 2;
     let center_y = height / 2;
 
-    // Ambient light: two accent pools and a soft white core behind the mark.
-    display.radial_glow(
-        Point::new(width * 22 / 100, height * 26 / 100),
-        (width.max(height) as f32 * 0.55) as i32,
-        theme.accent_soft(255),
-        0.34,
-    );
-    display.radial_glow(
-        Point::new(width * 80 / 100, height * 76 / 100),
-        (width.max(height) as f32 * 0.62) as i32,
-        theme.accent_alt_soft(255),
-        0.30,
-    );
-    display.radial_glow(
-        Point::new(center_x, center_y - 96),
-        240,
-        rgb(0xffffff),
-        0.055,
-    );
-
-    let mark = Rect::new(center_x - 48, center_y - 154, 96, 96);
-    display.radial_glow(mark.center(), 150, theme.accent_soft(255), 0.42);
-    display.drop_shadow(mark, 26, 22, argb(0xb0, 0x000000));
-    display.fill_rounded_vertical(mark, 26, theme.accent_soft(78), theme.accent_alt_soft(34));
-    display.stroke_rounded(mark, 26, 1, theme.accent_soft(205));
-    display.stroke_rounded(mark.inset(1), 25, 1, argb(0x50, 0xffffff));
-    display.fill_rounded(
-        Rect::new(mark.x + 22, mark.y + 1, mark.w - 44, 1),
-        1,
-        argb(0x60, 0xffffff),
-    );
-    widgets::icon(display, mark.inset(25), Icon::Logo, rgb(0xffffff));
-    display.stroke_rounded(
-        Rect::new(mark.x - 12, mark.y - 12, mark.w + 24, mark.h + 24),
-        36,
-        1,
-        theme.accent_soft(36),
-    );
+    let cx = center_x;
+    let cy = center_y - 48;
+    let size = 42;
+    // Diamond logo
+    for y in 0..size {
+        let h = if y < size / 2 { y * 2 + 2 } else { (size - y) * 2 };
+        display.fill_rect(Rect::new(cx - h / 2, cy - size / 2 + y, h, 1), rgb(0x6aa6ff));
+    }
+    display.fill_rect(Rect::new(cx - 1, cy - 6, 2, 12), rgb(0xa9c8ff));
 
     widgets::text_shadow(
         display,
-        center_x - widgets::text_width("Zirvium", 40, true) / 2,
-        center_y - 44,
+        cx - widgets::text_width("Zirvium", 28, true) / 2,
+        cy + 28,
         "Zirvium",
-        40,
+        28,
         true,
         TEXT_STRONG,
     );
     display.text_centered(
-        Rect::new(0, center_y + 4, width, 24),
-        "one cluster, one display",
-        14,
-        false,
-        theme.accent,
-    );
-    display.text_centered(
-        Rect::new(0, center_y + 32, width, 18),
-        "2.0 · MOSIX + DisplayJet · 64-bit Rust and assembly",
+        Rect::new(0, cy + 62, width, 14),
+        "64-bit Rust OS",
         10,
         false,
-        TEXT_DIM,
+        TEXT_MUTED,
     );
 
-    let bar = Rect::new(center_x - 120, center_y + 88, 240, 4);
-    display.fill_rounded(bar, 2, argb(0x38, 0xffffff));
-    display.fill_rounded(
-        Rect::new(bar.x, bar.y, 164, bar.h),
-        2,
-        theme.accent_soft(235),
-    );
-    display.fill_rounded(
-        Rect::new(bar.x + 2, bar.y + 1, 160, 1),
-        1,
-        argb(0x70, 0xffffff),
-    );
-    display.fill_circle(Point::new(bar.x + 164, bar.center().y), 4, rgb(0xffffff));
-    display.fill_circle(
-        Point::new(bar.x + 164, bar.center().y),
-        7,
-        theme.accent_soft(70),
-    );
-    display.text_centered(
-        Rect::new(0, center_y + 104, width, 16),
-        "initialising DisplayJet scanout",
-        9,
-        false,
-        TEXT_FAINT,
-    );
+    let bar = Rect::new(cx - 80, cy + 98, 160, 2);
+    display.fill_rounded(bar, 1, argb(0x28, 0xffffff));
+    display.fill_rounded(Rect::new(bar.x, bar.y, 110, bar.h), 1, rgb(0x6aa6ff));
 
     display.present_all();
 }
@@ -1596,94 +1538,6 @@ pub fn run(display: &mut Display) -> ! {
     );
     let mut desktop = Desktop::new(display);
     desktop.draw(display);
-
-    {
-        use zirvstdlib::geometry::Rect;
-        crate::arch::cpu::sti();
-        let screen = Rect::new(0, 0, display.width, display.height);
-        let t = zirvstdlib::time::monotonic_ms();
-        for _ in 0..20 {
-            display.fill_rect(screen, 0xff102030);
-        }
-        let opaque = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for _ in 0..20 {
-            display.fill_rect(screen, 0x40102030);
-        }
-        let translucent = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for _ in 0..20 {
-            display.fill_rounded_vertical(screen, 0, 0xf0102030, 0xe0203040);
-        }
-        let gradient = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for _ in 0..20 {
-            display.fill_rounded(screen, 14, 0xff102030);
-        }
-        let rounded = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for _ in 0..20 {
-            display.horizontal_gradient(screen, 0xff203040, 0x10304050);
-        }
-        let hgrad = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for _ in 0..20 {
-            display.fill_rect(screen, 0xff203040);
-        }
-        let opaque2 = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for _ in 0..20 {
-            display.fill_rect(screen, 0xfe203040);
-        }
-        let nearly_opaque = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        let mut acc = 0.0f32;
-        for i in 0..1_000_000 {
-            acc += (i as f32) * 1.0000001;
-        }
-        let float_ms = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for i in 0..1_000_000 {
-            acc += zirvstdlib::math::sqrt(i as f32 + 1.0);
-        }
-        let sqrt_ms = zirvstdlib::time::monotonic_ms() - t;
-        let t = zirvstdlib::time::monotonic_ms();
-        for i in 0..1_000_000 {
-            acc += zirvstdlib::math::rounded_rect_sdf(
-                (i % 200) as f32,
-                (i % 130) as f32,
-                10.0,
-                10.0,
-                800.0,
-                500.0,
-                14.0,
-            );
-        }
-        let sdf_ms = zirvstdlib::time::monotonic_ms() - t;
-        crate::sprintln!(
-            "BENCH 1M float={}ms sqrt={}ms sdf={}ms acc={}",
-            float_ms,
-            sqrt_ms,
-            sdf_ms,
-            acc
-        );
-        let t = zirvstdlib::time::monotonic_ms();
-        let mut sink = 0u64;
-        for i in 0..100_000_000u64 {
-            sink = sink.wrapping_add(i ^ (sink >> 3));
-        }
-        let compute = zirvstdlib::time::monotonic_ms() - t;
-        crate::sprintln!(
-            "BENCH compute 100M loops={}ms sink={} hypervisor={} avx2={}",
-            compute,
-            sink,
-            crate::arch::cpu::features().hypervisor,
-            crate::arch::cpu::features().avx2
-        );
-        crate::sprintln!(
-            "BENCH 20x fullscreen: opaque={opaque}ms translucent={translucent}ms gradient={gradient}ms rounded={rounded}ms hgrad={hgrad}ms opaque2={opaque2}ms nearly={nearly_opaque}ms"
-        );
-    }
 
     let mut events = [InputEvent::key(InputKind::KeyDown, key::NONE, 0); 64];
     loop {
