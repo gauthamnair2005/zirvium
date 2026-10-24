@@ -847,9 +847,19 @@ struct Hit {
     action: Action,
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum Category {
+    System,
+    Personalization,
+    Devices,
+    Network,
+    About,
+}
+
 pub struct Settings {
     hits: Vec<Hit>,
     scroll: i32,
+    category: Category,
 }
 
 impl Settings {
@@ -857,12 +867,30 @@ impl Settings {
         Self {
             hits: Vec::new(),
             scroll: 0,
+            category: Category::System,
         }
     }
 
     pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
         self.hits.clear();
-        let inner = content.inset(16);
+        if content.w < 400 {
+            return;
+        }
+        let sidebar = Rect::new(content.x, content.y, 200, content.h);
+        display.fill_rect(sidebar, argb(0x20, 0xffffff));
+        display.fill_rect(Rect::new(sidebar.right(), content.y, 1, content.h), BORDER);
+        let cats = [(Category::System, "System"), (Category::Personalization, "Personalization"), (Category::Devices, "Devices"), (Category::Network, "Network"), (Category::About, "About")];
+        for (i, (cat, name)) in cats.iter().enumerate() {
+            let r = Rect::new(sidebar.x + 8, sidebar.y + 40 + i as i32 * 32, sidebar.w - 16, 28);
+            if *cat == self.category {
+                display.fill_rect(r, theme.accent_soft(40));
+                display.fill_rect(Rect::new(r.x, r.y, 3, r.h), theme.accent);
+            }
+            display.text(r.x + 12, r.y + 7, name, 12, false, if *cat == self.category { TEXT_STRONG } else { TEXT });
+            self.hits.push(Hit { rect: r, action: Action::AddPeer }); // placeholder
+        }
+        // We'll handle category clicks differently
+        let inner = Rect::new(content.x + 216, content.y + 16, content.w - 232, content.h - 32);
         if inner.w < 260 {
             return;
         }
