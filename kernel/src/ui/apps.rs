@@ -2247,7 +2247,7 @@ impl Network {
         display.text(
             summary.x + 12,
             summary.y + 32,
-            "No external interfaces configured",
+            if crate::net::status().ethernet { "Ethernet is connected" } else { "No external link detected" },
             9,
             false,
             theme.text_muted(),
@@ -2257,11 +2257,83 @@ impl Network {
         let r = Rect::new(inner.x, y, inner.w, 46);
         display.fill_rect(r, theme.card());
         display.stroke_rounded(r, 0, 1, theme.line());
-        display.fill_rect(Rect::new(r.x + 12, r.y + 18, 8, 8), rgb(0xf7c95c));
+        let status = crate::net::status();
+        display.fill_rect(Rect::new(r.x + 12, r.y + 18, 8, 8), if status.link_up { SUCCESS } else { WARNING });
         display.text(r.x + 32, r.y + 10, "External network", 11, true, theme.text());
-        display.text(r.x + 32, r.y + 27, "Network support is not available in this build", 8, false, theme.text_dim());
+        display.text(r.x + 32, r.y + 27, &format!("{} · {}", crate::net::address_string(status.address), if status.link_up { "ready" } else { "offline" }), 8, false, theme.text_dim());
+    }
+}
+
+pub struct Calendar;
+
+impl Calendar {
+    pub fn new() -> Self { Self }
+
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+            let inner = content.inset(18);
+            display.fill_rect(inner, theme.surface());
+            display.text(inner.x, inner.y, "Calendar", 20, true, theme.text());
+            display.text(inner.x, inner.y + 30, "Plan your days at a glance", 10, false, theme.text_muted());
+            let now = crate::time::now();
+            let months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December",
+            ];
+            let title = format!("{}  {}", months[now.month.saturating_sub(1) as usize], now.year);
+            let header = Rect::new(inner.x, inner.y + 62, inner.w, 44);
+            display.fill_rect(header, theme.card());
+            display.text(header.x + 14, header.y + 13, &title, 14, true, theme.text());
+            display.text(header.right() - 100, header.y + 15, "Today", 10, false, theme.accent);
+            let grid = Rect::new(inner.x, header.bottom() + 14, inner.w, 210);
+            let cell_w = (grid.w / 7).max(1);
+            let cell_h = 34;
+            for (index, label) in ["M", "T", "W", "T", "F", "S", "S"].iter().enumerate() {
+                display.text_centered(Rect::new(grid.x + index as i32 * cell_w, grid.y, cell_w, 22), label, 10, true, theme.text_muted());
+            }
+            for day in 1..=31 {
+                let index = day - 1;
+                let row = index / 7;
+                let col = index % 7;
+                let cell = Rect::new(grid.x + col as i32 * cell_w, grid.y + 26 + row as i32 * cell_h, cell_w, cell_h);
+                if day == now.day {
+                    display.fill_rounded(cell.inset(3), 6, theme.accent_soft(48));
+                }
+                display.text_centered(cell, &format!("{}", day), 10, day == now.day, if day == now.day { theme.accent } else { theme.text() });
+            }
+            display.text(inner.x, grid.bottom() + 18, "Use the notes app for longer reminders.", 10, false, theme.text_dim());
     }
 
+    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
+    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
+    pub fn scroll(&mut self, _point: Point, _content: Rect, _amount: i32) {}
+    pub fn tick(&mut self) -> bool { false }
+}
+
+pub struct Clock;
+
+impl Clock {
+    pub fn new() -> Self { Self }
+
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+            let inner = content.inset(18);
+            display.fill_rect(inner, theme.surface());
+            let now = crate::time::now();
+            let time = format!("{:02}:{:02}", now.hour, now.minute);
+            display.text_centered(Rect::new(inner.x, inner.y + 38, inner.w, 64), &time, 40, true, theme.text());
+            display.text_centered(Rect::new(inner.x, inner.y + 108, inner.w, 24), &format!("{:02} seconds", now.second), 11, false, theme.text_muted());
+            let dial = Rect::new(inner.center().x - 72, inner.y + 154, 144, 144);
+            display.stroke_rounded(dial, 72, 2, theme.accent);
+            display.fill_circle(inner.center(), 4, theme.accent);
+            display.text_centered(Rect::new(inner.x, dial.bottom() + 16, inner.w, 24), "Local time", 11, false, theme.text_dim());
+    }
+
+    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
+    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
+    pub fn scroll(&mut self, _point: Point, _content: Rect, _amount: i32) {}
+    pub fn tick(&mut self) -> bool { true }
+}
+
+impl Network {
     pub fn pointer(&mut self, point: Point, _content: Rect, _theme: &mut Theme) -> Response {
         let _ = point;
         Response::NONE

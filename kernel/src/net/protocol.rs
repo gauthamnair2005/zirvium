@@ -5,6 +5,7 @@ use alloc::vec::Vec;
 pub const ETHERTYPE_IPV4: u16 = 0x0800;
 pub const ETHERTYPE_ARP: u16 = 0x0806;
 pub const IPPROTO_ICMP: u8 = 1;
+pub const IPPROTO_UDP: u8 = 17;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Mac(pub [u8; 6]);
@@ -37,14 +38,38 @@ pub fn parse_icmp_echo_reply(packet: &[u8]) -> Option<(Ipv4, u16, u16)> {
     if packet.len() < 28 || packet[0] >> 4 != 4 || packet[9] != IPPROTO_ICMP {
         return None;
     }
+
     let header_len = ((packet[0] & 0x0f) * 4) as usize;
     if packet.len() < header_len + 8 || packet[header_len] != 0 {
         return None;
     }
+
     Some((
         Ipv4(packet[12..16].try_into().ok()?),
         u16::from_be_bytes([packet[header_len + 4], packet[header_len + 5]]),
         u16::from_be_bytes([packet[header_len + 6], packet[header_len + 7]]),
+    ))
+}
+
+pub fn parse_udp(packet: &[u8]) -> Option<(Ipv4, Ipv4, u16, u16, &[u8])> {
+    if packet.len() < 28 || packet[0] >> 4 != 4 {
+        return None;
+    }
+    let header_len = ((packet[0] & 0x0f) * 4) as usize;
+    if packet.len() < header_len + 8 || packet[9] != IPPROTO_UDP {
+        return None;
+    }
+    let udp = &packet[header_len..];
+    let length = u16::from_be_bytes([udp[4], udp[5]]) as usize;
+    if length < 8 || udp.len() < length {
+        return None;
+    }
+    Some((
+        Ipv4(packet[12..16].try_into().ok()?),
+        Ipv4(packet[16..20].try_into().ok()?),
+        u16::from_be_bytes([udp[0], udp[1]]),
+        u16::from_be_bytes([udp[2], udp[3]]),
+        &udp[8..length],
     ))
 }
 
@@ -111,18 +136,37 @@ pub fn icmp_echo_request(identifier: u16, sequence: u16, payload: &[u8]) -> Vec<
 }
 
 pub fn ipv4_packet(source: Ipv4, destination: Ipv4, payload: &[u8]) -> Vec<u8> {
+    ipv4_packet_with_protocol(source, destination, IPPROTO_ICMP, payload)
+}
+
+pub fn ipv4_packet_with_protocol(
+    source: Ipv4,
+    destination: Ipv4,
+    protocol: u8,
+    payload: &[u8],
+) -> Vec<u8> {
     let total = 20 + payload.len();
     let mut packet = Vec::with_capacity(total);
     packet.extend_from_slice(&[0x45, 0]);
     packet.extend_from_slice(&(total as u16).to_be_bytes());
     packet.extend_from_slice(&[0, 0, 0, 0]);
     packet.push(64);
-    packet.push(IPPROTO_ICMP);
+    packet.push(protocol);
     packet.extend_from_slice(&[0, 0]);
     packet.extend_from_slice(&source.0);
     packet.extend_from_slice(&destination.0);
     let sum = checksum(&packet[..20]);
     packet[10..12].copy_from_slice(&sum.to_be_bytes());
+    packet.extend_from_slice(payload);
+    packet
+}
+
+pub fn udp_packet(source_port: u16, destination_port: u16, payload: &[u8]) -> Vec<u8> {
+    let mut packet = Vec::with_capacity(8 + payload.len());
+    packet.extend_from_slice(&source_port.to_be_bytes());
+    packet.extend_from_slice(&destination_port.to_be_bytes());
+    packet.extend_from_slice(&((8 + payload.len()) as u16).to_be_bytes());
+    packet.extend_from_slice(&[0, 0]);
     packet.extend_from_slice(payload);
     packet
 }

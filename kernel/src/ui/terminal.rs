@@ -122,7 +122,7 @@ impl Terminal {
                 self.push(String::from("  drivers              detected hardware drivers"));
                 self.push(String::from("  net                  network status"));
                 self.push(String::from("  sound                audio device and output status"));
-                self.push(String::from("  ping HOST             test loopback or network reachability"));
+                self.push(String::from("  ping HOST             ping an IP address or hostname"));
                 self.push(String::from("  browse URL            open a text page"));
                 self.push(String::from("  fonts                loaded font faces"));
                 self.push(String::from("  dmesg                boot log"));

@@ -80,19 +80,231 @@ pub struct PingResult {
     pub elapsed_ms: u32,
 }
 
+fn parse_ipv4(host: &str) -> Option<[u8; 4]> {
+    let mut parts = [0u8; 4];
+    let mut count = 0;
+    for part in host.split('.') {
+        if count >= 4 || part.is_empty() {
+            return None;
+        }
+        parts[count] = part.parse().ok()?;
+        count += 1;
+    }
+    (count == 4).then_some(parts)
+}
+
+fn resolve(host: &str) -> Result<[u8; 4], &'static str> {
+    if host.is_empty() || host.len() > 253 {
+        return Err("invalid hostname");
+    }
+    let state = crate::drivers::e1000::state().ok_or("network device is unavailable")?;
+    if !state.ready || !state.link_up {
+        return Err("network link is down");
+    }
+    let mut query = alloc::vec::Vec::new();
+    query.extend_from_slice(&0x5a52u16.to_be_bytes());
+    query.extend_from_slice(&0x0100u16.to_be_bytes());
+    query.extend_from_slice(&1u16.to_be_bytes());
+    query.extend_from_slice(&[0, 0, 0, 0]);
+    for label in host.split('.') {
+        if label.is_empty() || label.len() > 63 {
+            return Err("invalid hostname");
+        }
+        query.push(label.len() as u8);
+        query.extend_from_slice(label.as_bytes());
+    }
+    query.push(0);
+    query.extend_from_slice(&1u16.to_be_bytes());
+    query.extend_from_slice(&1u16.to_be_bytes());
+    let source = Ipv4([10, 0, 2, 15]);
+    let dns = Ipv4([10, 0, 2, 3]);
+    let gateway = resolve_gateway(state, source)?;
+    let udp = protocol::udp_packet(49152, 53, &query);
+    let packet = protocol::ipv4_packet_with_protocol(source, dns, protocol::IPPROTO_UDP, &udp);
+    let frame = protocol::ethernet_frame(gateway, Mac(state.mac), protocol::ETHERTYPE_IPV4, &packet);
+    crate::drivers::e1000::transmit(&frame)?;
+    let start = crate::arch::pit::uptime_ms();
+    let mut buffer = [0u8; 2048];
+    while crate::arch::pit::uptime_ms().saturating_sub(start) < 1500 {
+        if let Some(length) = crate::drivers::e1000::receive(&mut buffer)
+            && let Some((_, destination, source_port, _, payload)) =
+                protocol::parse_udp(&buffer[..length])
+            && destination.0 == source.0
+            && source_port == 53
+            && payload.len() >= 12
+            && u16::from_be_bytes([payload[0], payload[1]]) == 0x5a52
+            && payload[3] & 0x0f == 0
+        {
+            let answers = u16::from_be_bytes([payload[6], payload[7]]);
+            let mut offset = 12;
+            while offset < payload.len() && payload[offset] != 0 {
+                offset += 1 + payload[offset] as usize;
+            }
+            offset += 5;
+            for _ in 0..answers {
+                if offset + 12 > payload.len() {
+                    break;
+                }
+                offset += if payload[offset] & 0xc0 == 0xc0 {
+                    2
+                } else {
+                    while offset < payload.len() && payload[offset] != 0 {
+                        offset += 1 + payload[offset] as usize;
+                    }
+                    1
+                };
+                if offset + 10 > payload.len() {
+                    break;
+                }
+                let record_type = u16::from_be_bytes([payload[offset], payload[offset + 1]]);
+                let class = u16::from_be_bytes([payload[offset + 2], payload[offset + 3]]);
+                let length = u16::from_be_bytes([payload[offset + 8], payload[offset + 9]]) as usize;
+                offset += 10;
+                if record_type == 1 && class == 1 && length == 4 && offset + 4 <= payload.len() {
+                    return Ok(payload[offset..offset + 4].try_into().unwrap_or([0; 4]));
+                }
+                offset += length;
+            }
+        }
+    }
+    Err("DNS query timed out")
+}
+
+fn resolve_gateway(state: crate::drivers::e1000::E1000State, source: Ipv4) -> Result<Mac, &'static str> {
+    let gateway = Ipv4([10, 0, 2, 2]);
+    crate::drivers::e1000::transmit(&protocol::arp_request(Mac(state.mac), source, gateway))?;
+    let start = crate::arch::pit::uptime_ms();
+    let mut buffer = [0u8; 2048];
+    while crate::arch::pit::uptime_ms().saturating_sub(start) < 1000 {
+        if let Some(length) = crate::drivers::e1000::receive(&mut buffer)
+            && let Some((header, payload)) = protocol::parse_ethernet(&buffer[..length])
+            && header.ethertype == protocol::ETHERTYPE_ARP
+            && let Some(mac) = protocol::parse_arp_reply(payload, source)
+        {
+            return Ok(mac);
+        }
+    }
+    Err("ARP resolution timed out")
+}
+
 pub fn ping(host: &str, sequence: u32) -> Result<PingResult, &'static str> {
-    let address = match host {
-        "localhost" | "127.0.0.1" => [127, 0, 0, 1],
-        "gateway" | "10.0.2.2" => [10, 0, 2, 2],
-        _ => return Err("unknown host; supported names are localhost and gateway"),
-    };
+    let address = parse_ipv4(host)
+        .or_else(|| resolve(host).ok())
+        .ok_or("could not resolve host")?;
     if address != [127, 0, 0, 1] {
         let state = crate::drivers::e1000::state().ok_or("network device is unavailable")?;
         if !state.ready || !state.link_up {
             return Err("network link is down");
         }
+
+        fn parse_ipv4(host: &str) -> Option<[u8; 4]> {
+            let mut parts = [0u8; 4];
+            let mut count = 0;
+            for part in host.split('.') {
+                if count >= 4 || part.is_empty() {
+                    return None;
+                }
+                parts[count] = part.parse().ok()?;
+                count += 1;
+            }
+            (count == 4).then_some(parts)
+        }
+
+        fn resolve(host: &str) -> Result<[u8; 4], &'static str> {
+            if host.is_empty() || host.len() > 253 {
+                return Err("invalid hostname");
+            }
+            let state = crate::drivers::e1000::state().ok_or("network device is unavailable")?;
+            if !state.ready || !state.link_up {
+                return Err("network link is down");
+            }
+            let mut query = alloc::vec::Vec::new();
+            query.extend_from_slice(&0x5a52u16.to_be_bytes());
+            query.extend_from_slice(&0x0100u16.to_be_bytes());
+            query.extend_from_slice(&1u16.to_be_bytes());
+            query.extend_from_slice(&[0, 0, 0, 0]);
+            for label in host.split('.') {
+                if label.is_empty() || label.len() > 63 {
+                    return Err("invalid hostname");
+                }
+                query.push(label.len() as u8);
+                query.extend_from_slice(label.as_bytes());
+            }
+            query.push(0);
+            query.extend_from_slice(&1u16.to_be_bytes());
+            query.extend_from_slice(&1u16.to_be_bytes());
+            let source = Ipv4([10, 0, 2, 15]);
+            let dns = Ipv4([10, 0, 2, 3]);
+            let gateway = resolve_gateway(state, source)?;
+            let udp = protocol::udp_packet(49152, 53, &query);
+            let packet = protocol::ipv4_packet_with_protocol(source, dns, protocol::IPPROTO_UDP, &udp);
+            let frame = protocol::ethernet_frame(gateway, Mac(state.mac), protocol::ETHERTYPE_IPV4, &packet);
+            crate::drivers::e1000::transmit(&frame)?;
+            let start = crate::arch::pit::uptime_ms();
+            let mut buffer = [0u8; 2048];
+            while crate::arch::pit::uptime_ms().saturating_sub(start) < 1500 {
+                if let Some(length) = crate::drivers::e1000::receive(&mut buffer)
+                    && let Some((_, destination, source_port, _, payload)) =
+                        protocol::parse_udp(&buffer[..length])
+                    && destination.0 == source.0
+                    && source_port == 53
+                    && payload.len() >= 12
+                    && u16::from_be_bytes([payload[0], payload[1]]) == 0x5a52
+                    && payload[3] & 0x0f == 0
+                {
+                    let answers = u16::from_be_bytes([payload[6], payload[7]]);
+                    let mut offset = 12;
+                    while offset < payload.len() && payload[offset] != 0 {
+                        offset += 1 + payload[offset] as usize;
+                    }
+                    offset += 5;
+                    for _ in 0..answers {
+                        if offset + 12 > payload.len() {
+                            break;
+                        }
+                        if payload[offset] & 0xc0 == 0xc0 {
+                            offset += 2;
+                        } else {
+                            while offset < payload.len() && payload[offset] != 0 {
+                                offset += 1 + payload[offset] as usize;
+                            }
+                            offset += 1;
+                        }
+                        if offset + 10 > payload.len() {
+                            break;
+                        }
+                        let record_type = u16::from_be_bytes([payload[offset], payload[offset + 1]]);
+                        let class = u16::from_be_bytes([payload[offset + 2], payload[offset + 3]]);
+                        let length = u16::from_be_bytes([payload[offset + 8], payload[offset + 9]]) as usize;
+                        offset += 10;
+                        if record_type == 1 && class == 1 && length == 4 && offset + 4 <= payload.len() {
+                            return Ok(payload[offset..offset + 4].try_into().unwrap_or([0; 4]));
+                        }
+                        offset += length;
+                    }
+                }
+            }
+            Err("DNS query timed out")
+        }
+
+        fn resolve_gateway(state: crate::drivers::e1000::E1000State, source: Ipv4) -> Result<Mac, &'static str> {
+            let gateway = Ipv4([10, 0, 2, 2]);
+            crate::drivers::e1000::transmit(&protocol::arp_request(Mac(state.mac), source, gateway))?;
+            let start = crate::arch::pit::uptime_ms();
+            let mut buffer = [0u8; 2048];
+            while crate::arch::pit::uptime_ms().saturating_sub(start) < 1000 {
+                if let Some(length) = crate::drivers::e1000::receive(&mut buffer)
+                    && let Some((header, payload)) = protocol::parse_ethernet(&buffer[..length])
+                    && header.ethertype == protocol::ETHERTYPE_ARP
+                    && let Some(mac) = protocol::parse_arp_reply(payload, source)
+                {
+                    return Ok(mac);
+                }
+            }
+            Err("ARP resolution timed out")
+        }
         let source_ip = Ipv4([10, 0, 2, 15]);
-        let gateway_ip = Ipv4(address);
+        let gateway_ip = Ipv4([10, 0, 2, 2]);
         let arp = protocol::arp_request(Mac(state.mac), source_ip, gateway_ip);
         crate::drivers::e1000::transmit(&arp)?;
         let start = crate::arch::pit::uptime_ms();
@@ -113,7 +325,7 @@ pub fn ping(host: &str, sequence: u32) -> Result<PingResult, &'static str> {
         let request = protocol::icmp_echo_request(0x5a52, sequence as u16, b"zirvium");
         let packet = protocol::ipv4_packet(
             source_ip,
-            gateway_ip,
+            Ipv4(address),
             &request,
         );
         let frame = protocol::ethernet_frame(
@@ -139,6 +351,7 @@ pub fn ping(host: &str, sequence: u32) -> Result<PingResult, &'static str> {
                     elapsed_ms: crate::arch::pit::uptime_ms().saturating_sub(start) as u32,
                 });
             }
+
         }
         return Err("ping timed out");
     }

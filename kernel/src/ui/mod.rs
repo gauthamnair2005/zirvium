@@ -44,10 +44,12 @@ pub enum AppKind {
     Calculator,
     Notes,
     Network,
+    Calendar,
+    Clock,
 }
 
 /// Applications shown by the application navigator.
-const NAVIGATOR_APPS: [AppKind; 7] = [
+const NAVIGATOR_APPS: [AppKind; 9] = [
     AppKind::Terminal,
     AppKind::Files,
     AppKind::Monitor,
@@ -55,6 +57,8 @@ const NAVIGATOR_APPS: [AppKind; 7] = [
     AppKind::Calculator,
     AppKind::Notes,
     AppKind::Network,
+    AppKind::Calendar,
+    AppKind::Clock,
 ];
 
 impl AppKind {
@@ -67,6 +71,8 @@ impl AppKind {
             AppKind::Calculator => "Calculator",
             AppKind::Notes => "Notes",
             AppKind::Network => "Network",
+            AppKind::Calendar => "Calendar",
+            AppKind::Clock => "Clock",
         }
     }
 
@@ -79,6 +85,8 @@ impl AppKind {
             AppKind::Calculator => "Quick arithmetic",
             AppKind::Notes => "Text notes and scratchpad",
             AppKind::Network => "Wi-Fi and connections",
+            AppKind::Calendar => "Dates and planning",
+            AppKind::Clock => "Time and alarms",
         }
     }
 
@@ -91,6 +99,8 @@ impl AppKind {
             AppKind::Calculator => Icon::Plus,
             AppKind::Notes => Icon::Document,
             AppKind::Network => Icon::Nodes,
+            AppKind::Calendar => Icon::Document,
+            AppKind::Clock => Icon::Clock,
         }
     }
 
@@ -103,6 +113,8 @@ impl AppKind {
             AppKind::Calculator => (320, 430),
             AppKind::Notes => (640, 460),
             AppKind::Network => (620, 500),
+            AppKind::Calendar => (560, 460),
+            AppKind::Clock => (440, 360),
         }
     }
 }
@@ -115,6 +127,8 @@ enum App {
     Calculator(apps::Calculator),
     Notes(apps::Notes),
     Network(apps::Network),
+    Calendar(apps::Calendar),
+    Clock(apps::Clock),
 }
 
 impl App {
@@ -127,6 +141,8 @@ impl App {
             AppKind::Calculator => App::Calculator(apps::Calculator::new()),
             AppKind::Notes => App::Notes(apps::Notes::new()),
             AppKind::Network => App::Network(apps::Network::new()),
+            AppKind::Calendar => App::Calendar(apps::Calendar::new()),
+            AppKind::Clock => App::Clock(apps::Clock::new()),
         }
     }
 
@@ -139,6 +155,8 @@ impl App {
             App::Calculator(_) => AppKind::Calculator,
             App::Notes(_) => AppKind::Notes,
             App::Network(_) => AppKind::Network,
+            App::Calendar(_) => AppKind::Calendar,
+            App::Clock(_) => AppKind::Clock,
         }
     }
 
@@ -151,6 +169,8 @@ impl App {
             App::Calculator(app) => app.draw(display, content, theme, focused),
             App::Notes(app) => app.draw(display, content, theme, focused),
             App::Network(app) => app.draw(display, content, theme, focused),
+            App::Calendar(app) => app.draw(display, content, theme, focused),
+            App::Clock(app) => app.draw(display, content, theme, focused),
         }
     }
 
@@ -169,6 +189,8 @@ impl App {
             App::Calculator(app) => app.pointer(point, content, theme),
             App::Notes(app) => app.pointer(point, content, theme),
             App::Network(app) => app.pointer(point, content, theme),
+            App::Calendar(app) => app.pointer(point, content, theme),
+            App::Clock(app) => app.pointer(point, content, theme),
         }
     }
 
@@ -181,6 +203,8 @@ impl App {
             App::Calculator(app) => app.key(code, event_modifiers),
             App::Notes(app) => app.key(code, event_modifiers),
             App::Network(_) => false,
+            App::Calendar(app) => app.key(code, event_modifiers),
+            App::Clock(app) => app.key(code, event_modifiers),
         }
     }
 
@@ -217,6 +241,8 @@ impl App {
             App::Calculator(app) => app.scroll(point, content, amount),
             App::Notes(app) => app.scroll(point, content, amount),
             App::Network(app) => app.scroll(point, content, amount),
+            App::Calendar(app) => app.scroll(point, content, amount),
+            App::Clock(app) => app.scroll(point, content, amount),
         }
     }
 
@@ -226,6 +252,8 @@ impl App {
             App::Calculator(app) => app.tick(),
             App::Notes(app) => app.tick(),
             App::Network(app) => app.tick(),
+            App::Calendar(app) => app.tick(),
+            App::Clock(app) => app.tick(),
             _ => false,
         }
     }
