@@ -325,11 +325,31 @@ fn launch_panel_rect(width: i32, height: i32) -> Rect {
     )
 }
 
-fn launch_card_rect(panel: Rect, index: usize, scroll: i32) -> Rect {
+const LAUNCH_CARD_GAP: i32 = 12;
+const LAUNCH_CARD_MIN_WIDTH: i32 = 220;
+
+fn launcher_card_width(panel: Rect, count: usize) -> i32 {
+    if count == 0 {
+        return 0;
+    }
+    let gaps = LAUNCH_CARD_GAP * count.saturating_sub(1) as i32;
+    ((launcher_viewport(panel).w - gaps) / count as i32).max(LAUNCH_CARD_MIN_WIDTH)
+}
+
+fn launcher_content_width(panel: Rect, count: usize) -> i32 {
+    if count == 0 {
+        return 0;
+    }
+    count as i32 * launcher_card_width(panel, count)
+        + LAUNCH_CARD_GAP * count.saturating_sub(1) as i32
+}
+
+fn launch_card_rect(panel: Rect, index: usize, count: usize, scroll: i32) -> Rect {
+    let card_width = launcher_card_width(panel, count);
     Rect::new(
-        panel.x + 22 + index as i32 * 232 - scroll,
+        panel.x + 22 + index as i32 * (card_width + LAUNCH_CARD_GAP) - scroll,
         panel.y + 184,
-        220,
+        card_width,
         68,
     )
 }
@@ -339,7 +359,7 @@ fn launcher_viewport(panel: Rect) -> Rect {
 }
 
 fn launcher_scroll_max(panel: Rect, count: usize) -> i32 {
-    ((count as i32 * 232 - 12) - launcher_viewport(panel).w).max(0)
+    (launcher_content_width(panel, count) - launcher_viewport(panel).w).max(0)
 }
 
 fn title_buttons(rect: Rect) -> (Rect, Rect, Rect) {
@@ -758,19 +778,17 @@ impl Desktop {
             }
             let matches = self.launcher_matches();
             let track = Rect::new(panel.x + 22, panel.bottom() - 28, panel.w - 44, 6);
-            if track.contains(point) {
-                let max_scroll = launcher_scroll_max(panel, matches.len());
-                if max_scroll > 0 {
-                    let fraction = ((point.x - track.x) as f32 / track.w.max(1) as f32).clamp(0.0, 1.0);
-                    self.launcher_scroll_x = (fraction * max_scroll as f32) as i32;
-                }
+            let max_scroll = launcher_scroll_max(panel, matches.len());
+            if max_scroll > 0 && track.contains(point) {
+                let fraction = ((point.x - track.x) as f32 / track.w.max(1) as f32).clamp(0.0, 1.0);
+                self.launcher_scroll_x = (fraction * max_scroll as f32) as i32;
                 return true;
             }
             let elapsed = zirvstdlib::time::monotonic_ms().saturating_sub(self.launcher_started);
             let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
             let eased = progress * progress * (3.0 - 2.0 * progress);
             for (i, kind) in matches.iter().enumerate() {
-                let mut rect = launch_card_rect(panel, i, self.launcher_scroll_x);
+                let mut rect = launch_card_rect(panel, i, matches.len(), self.launcher_scroll_x);
                 rect.x -= ((1.0 - eased) * 28.0) as i32;
                 if rect.contains(point) {
                     self.launcher = false;
@@ -973,7 +991,8 @@ impl Desktop {
                 if self.launcher {
                     let panel = launch_panel_rect(self.width, self.height);
                     let count = self.launcher_matches().len();
-                    self.launcher_scroll_x = (self.launcher_scroll_x + event.value * 232)
+                    let step = launcher_card_width(panel, count) + LAUNCH_CARD_GAP;
+                    self.launcher_scroll_x = (self.launcher_scroll_x + event.value * step)
                         .clamp(0, launcher_scroll_max(panel, count));
                     return true;
                 }
@@ -1063,6 +1082,7 @@ impl Desktop {
                 key::BACKSPACE => {
                     self.launcher_search.pop();
                     self.launcher_selected = 0;
+                    self.launcher_scroll_x = 0;
                     return true;
                 }
                 key::UP => {
@@ -1078,7 +1098,10 @@ impl Desktop {
                 }
                 key::LEFT => {
                     self.launcher_selected = self.launcher_selected.saturating_sub(1);
-                    self.launcher_scroll_x = (self.launcher_scroll_x - 232).max(0);
+                    let panel = launch_panel_rect(self.width, self.height);
+                    let count = self.launcher_matches().len();
+                    let step = launcher_card_width(panel, count) + LAUNCH_CARD_GAP;
+                    self.launcher_scroll_x = (self.launcher_scroll_x - step).max(0);
                     return true;
                 }
                 key::RIGHT => {
@@ -1086,7 +1109,8 @@ impl Desktop {
                     if count > 0 {
                         self.launcher_selected = (self.launcher_selected + 1).min(count - 1);
                         let panel = launch_panel_rect(self.width, self.height);
-                        self.launcher_scroll_x = (self.launcher_selected as i32 * 232)
+                        let step = launcher_card_width(panel, count) + LAUNCH_CARD_GAP;
+                        self.launcher_scroll_x = (self.launcher_selected as i32 * step)
                             .min(launcher_scroll_max(panel, count));
                     }
                     return true;
@@ -1107,6 +1131,7 @@ impl Desktop {
                     {
                         self.launcher_search.push(character);
                         self.launcher_selected = 0;
+                        self.launcher_scroll_x = 0;
                         return true;
                     }
                     return false;
@@ -1343,7 +1368,7 @@ impl Desktop {
         let viewport = launcher_viewport(panel);
         display.push_clip(viewport);
         for (index, kind) in matches.iter().enumerate() {
-            let mut rect = launch_card_rect(panel, index, self.launcher_scroll_x);
+            let mut rect = launch_card_rect(panel, index, matches.len(), self.launcher_scroll_x);
             rect.x -= ((1.0 - eased) * 28.0) as i32;
             display.fill_rounded(rect, 12, if index == self.launcher_selected || self.focused_kind() == Some(*kind) {
                 self.theme.accent_soft(72)
@@ -1359,26 +1384,24 @@ impl Desktop {
             display.text(panel.x + 22, panel.y + 190, "No matching apps", 11, true, self.theme.text());
             display.text(panel.x + 22, panel.y + 214, "Try another name or keyword.", 9, false, self.theme.text_muted());
         }
-        let track = Rect::new(panel.x + 22, panel.bottom() - 28, panel.w - 44, 6);
-        display.fill_rounded(track, 3, self.theme.well());
         let max_scroll = launcher_scroll_max(panel, matches.len());
-        let thumb_width = if max_scroll == 0 {
-            track.w
-        } else {
-            (((track.w as i64 * launcher_viewport(panel).w as i64)
-                / (matches.len() as i64 * 232 - 12).max(1))
-                .clamp(52, track.w as i64)) as i32
-        };
-        let thumb_x = if max_scroll == 0 {
-            track.x
-        } else {
-            track.x + ((track.w - thumb_width) as i64 * self.launcher_scroll_x as i64 / max_scroll as i64) as i32
-        };
-        display.fill_rounded(
-            Rect::new(thumb_x, track.y, thumb_width, track.h),
-            3,
-            self.theme.accent,
-        );
+        if max_scroll > 0 {
+            let track = Rect::new(panel.x + 22, panel.bottom() - 28, panel.w - 44, 6);
+            display.fill_rounded(track, 3, self.theme.well());
+            let thumb_width = {
+                (((track.w as i64 * launcher_viewport(panel).w as i64)
+                    / launcher_content_width(panel, matches.len()).max(1) as i64)
+                    .clamp(52, track.w as i64)) as i32
+            };
+            let thumb_x = track.x
+                + ((track.w - thumb_width) as i64 * self.launcher_scroll_x as i64
+                    / max_scroll as i64) as i32;
+            display.fill_rounded(
+                Rect::new(thumb_x, track.y, thumb_width, track.h),
+                3,
+                self.theme.accent,
+            );
+        }
 
         if self.start_power_open {
             let power_panel = Rect::new(panel.right() - 194, panel.y + 72, 176, 148);
