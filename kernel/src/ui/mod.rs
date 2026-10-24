@@ -1169,21 +1169,22 @@ impl Desktop {
         display.vertical_gradient(screen, base, dark);
 
         // Header.
-        widgets::logo(display, Rect::new(58, 42, 44, 44));
-        display.text(118, 44, "Start", 40, true, rgb(0xffffff));
-        display.text(120, 96, "Zirvium 2.0 \u{00b7} Windows 8.1 style \u{00b7} one cluster, one display", 11, false, argb(0xc0, 0xffffff));
+        let slide = ((1.0 - eased) * 72.0) as i32;
+        widgets::logo(display, Rect::new(58 - slide, 42, 44, 44));
+        display.text(120 - slide, 44, "Start", 40, true, rgb(0xffffff));
 
         let search = Rect::new(60, 130, 340, 34);
+        let search = Rect::new(search.x - slide, search.y, search.w, search.h);
         display.fill_rect(search, argb(0x28, 0x000000));
         display.stroke_rounded(search, 0, 1, argb(0x90, 0xffffff));
         widgets::icon(display, Rect::new(search.x + 12, search.y + 10, 14, 14), Icon::Search, argb(0xc0, 0xffffff));
         display.text(search.x + 38, search.y + 10, "Search apps and settings", 10, false, argb(0xa0, 0xffffff));
 
         // User tile.
-        let user = Rect::new(self.width - 260, 50, 200, 32);
+        let user = Rect::new(self.width - 260 - slide, 50, 200, 32);
         display.text(user.right() - widgets::text_width("liveuser@zirvium", 10, false), user.y + 8, "liveuser@zirvium", 10, false, argb(0xd0, 0xffffff));
 
-        // Live tiles - Windows 8 style grid
+        // Live tiles.
         let mut x = 60;
         let mut y = 190;
         let now = crate::time::now();
@@ -1194,7 +1195,7 @@ impl Desktop {
                 2 => (110, 110),
                 _ => (110, 110),
             };
-            let rect = Rect::new(x, y, tw, th);
+            let rect = Rect::new(x - slide, y, tw, th);
             let tint = if index % 3 == 0 { 0x46 } else if index % 3 == 1 { 0x34 } else { 0x28 };
             display.fill_rect(rect, argb(tint, 0xffffff));
             display.stroke_rounded(rect, 0, 1, argb(0x60, 0xffffff));
@@ -1202,7 +1203,7 @@ impl Desktop {
                 // Live tile - shows time
                 display.text(rect.x + 16, rect.y + 16, &alloc::format!("{:02}:{:02}", now.hour, now.minute), 28, true, rgb(0xffffff));
                 display.text(rect.x + 16, rect.y + 56, kind.title(), 12, true, rgb(0xffffff));
-                display.text(rect.x + 16, rect.y + 76, "Zirvium OS", 9, false, argb(0xb0, 0xffffff));
+                display.text(rect.x + 16, rect.y + 76, "Desktop", 9, false, argb(0xb0, 0xffffff));
             } else if index == 3 {
                 // Live tile - cluster info
                 display.text(rect.x + 14, rect.y + 14, &alloc::format!("{}", crate::mosix::node_count()), 22, true, rgb(0xffffff));
@@ -1395,7 +1396,7 @@ fn draw_splash_frame(display: &mut Display, frame: usize) {
     );
     display.text_centered(
         Rect::new(0, cy + 78, width, 14),
-        "64-bit Rust OS  ·  Starting services",
+        "Loading desktop",
         10,
         false,
         TEXT_MUTED,
