@@ -460,6 +460,26 @@ pub fn remove(path: &str) -> bool {
     files.len() != before
 }
 
+/// Rename a file within its existing parent directory.
+pub fn rename(path: &str, new_name: &str) -> bool {
+    let path = normalize(path);
+    let name = new_name.trim();
+    if path == "/" || name.is_empty() || name.contains('/') || is_dir(&path) {
+        return false;
+    }
+    let target = normalize(&alloc::format!("{}/{}", parent(&path), name));
+    if exists(&target) {
+        return false;
+    }
+    let vfs = VFS.call_once(initialise);
+    let mut files = vfs.files.lock();
+    if let Some(file) = files.iter_mut().find(|file| file.path == path) {
+        file.path = target;
+        return true;
+    }
+    false
+}
+
 /// File size, or zero when the file does not exist.
 pub fn size(path: &str) -> u64 {
     read(path).map(|content| content.len() as u64).unwrap_or(0)

@@ -420,6 +420,8 @@ pub struct Files {
     preview_scroll: i32,
     scroll: usize,
     status: String,
+    context_menu: Option<Point>,
+    confirm_delete: Option<String>,
 }
 
 impl Files {
@@ -432,6 +434,8 @@ impl Files {
             preview_scroll: 0,
             scroll: 0,
             status: String::new(),
+            context_menu: None,
+            confirm_delete: None,
         };
         files.reload();
         files
@@ -665,6 +669,30 @@ impl Files {
             widgets::card(display, preview, theme);
             self.draw_preview(display, preview, theme);
         }
+        if let Some(origin) = self.context_menu {
+            let menu = Rect::new(origin.x.clamp(8, content.right() - 198), origin.y.clamp(8, content.bottom() - 164), 190, 156);
+            display.fill_rounded(menu, 10, theme.card());
+            display.text(menu.x + 14, menu.y + 12, "File actions", 11, true, theme.text());
+            for (index, label) in ["Share text", "Copy path", "Rename", "Delete"].iter().enumerate() {
+                let row = Rect::new(menu.x + 8, menu.y + 30 + index as i32 * 30, menu.w - 16, 26);
+                display.fill_rounded(row, 6, if self.context_item(self.context_menu.unwrap()) == Some(index) {
+                    theme.accent_soft(34)
+                } else {
+                    theme.card()
+                });
+                display.text(row.x + 10, row.y + 7, label, 10, false, theme.text());
+            }
+        }
+        if self.confirm_delete.is_some() {
+            let dialog = Rect::new(content.center().x - 150, content.center().y - 72, 300, 144);
+            display.fill_rounded(dialog, 12, theme.card());
+            display.text(dialog.x + 18, dialog.y + 16, "Delete file?", 13, true, theme.text());
+            display.text_ellipsized(dialog.x + 18, dialog.y + 44, self.confirm_delete.as_deref().unwrap_or(""), dialog.w - 36, 10, false, theme.text_muted());
+            let cancel = Rect::new(dialog.x + 18, dialog.bottom() - 42, 112, 28);
+            let delete = Rect::new(dialog.right() - 130, dialog.bottom() - 42, 112, 28);
+            widgets::button(display, cancel, "Cancel", theme, widgets::ButtonStyle::Subtle, false, true);
+            widgets::button(display, delete, "Delete", theme, widgets::ButtonStyle::Danger, false, true);
+        }
     }
 
     fn draw_preview(&mut self, display: &mut Display, rect: Rect, theme: &Theme) {
@@ -758,6 +786,30 @@ impl Files {
     }
 
     pub fn pointer(&mut self, point: Point, content: Rect, _theme: &mut Theme) -> Response {
+        if let Some(path) = self.confirm_delete.clone() {
+            let dialog = Rect::new(content.center().x - 150, content.center().y - 72, 300, 144);
+            let cancel = Rect::new(dialog.x + 18, dialog.bottom() - 42, 112, 28);
+            let delete = Rect::new(dialog.right() - 130, dialog.bottom() - 42, 112, 28);
+            if cancel.contains(point) {
+                self.confirm_delete = None;
+            } else if delete.contains(point) {
+                if vfs::remove(&path) {
+                    self.status = format!("Deleted {}", path.rsplit('/').next().unwrap_or("file"));
+                    self.reload();
+                } else {
+                    self.status = "Delete unavailable".to_string();
+                }
+                self.confirm_delete = None;
+            }
+            return Response::REDRAW;
+        }
+        if let Some(index) = self.context_item(point) {
+            return self.context_action(index);
+        }
+        if self.context_menu.is_some() {
+            self.context_menu = None;
+            return Response::REDRAW;
+        }
         let (header, list, _preview, row_height) = self.layout(content);
         let up = Rect::new(header.x, header.y, 62, 34);
         if up.contains(point) && self.cwd != "/" {
@@ -780,6 +832,65 @@ impl Files {
             }
         }
         Response::NONE
+    }
+
+    fn context_item(&self, point: Point) -> Option<usize> {
+        let origin = self.context_menu?;
+        let menu = Rect::new(origin.x, origin.y, 190, 156);
+        if !menu.contains(point) {
+            return None;
+        }
+        let index = ((point.y - menu.y - 30) / 30) as usize;
+        (index < 4).then_some(index)
+    }
+
+    fn context_action(&mut self, index: usize) -> Response {
+        let Some(selected) = self.selected.and_then(|i| self.entries.get(i).cloned()) else {
+            self.context_menu = None;
+            return Response::REDRAW;
+        };
+        match index {
+            0 => {
+                if !selected.is_dir {
+                    self.preview = vfs::read_limited(&selected.path, 64 * 1024);
+                    self.status = format!("{} · ready to share", selected.name);
+                }
+            }
+            1 => {
+                self.status = selected.path;
+            }
+            2 => {
+                let renamed = format!("{}.copy", selected.name);
+                if vfs::rename(&selected.path, &renamed) {
+                    self.status = format!("Renamed to {}", renamed);
+                    self.reload();
+                } else {
+                    self.status = "Rename unavailable".to_string();
+                }
+            }
+            3 => {
+                self.confirm_delete = Some(selected.path);
+            }
+            _ => {}
+        }
+        self.context_menu = None;
+        Response::REDRAW
+    }
+
+    pub fn right_click(&mut self, point: Point, content: Rect) -> bool {
+        if content.contains(point) {
+            self.context_menu = Some(point);
+            true
+        } else {
+            false
+        }
+    }
+
+    pub fn clipboard_copy(&self) -> String {
+        self.selected
+            .and_then(|index| self.entries.get(index))
+            .and_then(|entry| if entry.is_dir { None } else { vfs::read(&entry.path) })
+            .unwrap_or_default()
     }
 
     pub fn scroll(&mut self, point: Point, content: Rect, amount: i32) {

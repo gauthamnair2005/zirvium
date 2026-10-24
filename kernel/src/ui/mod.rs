@@ -194,6 +194,13 @@ impl App {
         }
     }
 
+    fn right_click(&mut self, point: Point, content: Rect) -> bool {
+        match self {
+            App::Files(app) => app.right_click(point, content),
+            _ => false,
+        }
+    }
+
     fn key(&mut self, code: u32, event_modifiers: u16) -> bool {
         match self {
             App::Terminal(app) => app.key(code, event_modifiers),
@@ -211,6 +218,7 @@ impl App {
     fn clipboard_copy(&self) -> String {
         match self {
             App::Terminal(app) => app.clipboard_copy(),
+            App::Files(app) => app.clipboard_copy(),
             App::Notes(app) => app.clipboard_copy(),
             _ => String::new(),
         }
@@ -962,6 +970,18 @@ impl Desktop {
                     self.pointer_down(self.cursor)
                 } else if event.buttons & buttons::RIGHT != 0 {
                     if self.logged_in && !self.launcher {
+                        if let Target::Content(id) = self.target_at(self.cursor) {
+                            let content = self.window(id).map(|window| window.content());
+                            if let Some(content) = content {
+                                let point = self.cursor;
+                                self.focus(id);
+                                if let Some(window) = self.window_mut(id)
+                                    && window.app.right_click(point, content)
+                                {
+                                    return true;
+                                }
+                            }
+                        }
                         self.context_menu = Some(self.cursor);
                         true
                     } else {
