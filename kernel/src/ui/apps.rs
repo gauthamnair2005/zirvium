@@ -854,7 +854,6 @@ enum SettingsPage {
     Personalization,
     Devices,
     Network,
-    Privacy,
     Update,
     About,
 }
@@ -867,7 +866,6 @@ impl SettingsPage {
             SettingsPage::Personalization => "Personalization",
             SettingsPage::Devices => "Devices",
             SettingsPage::Network => "Network & Internet",
-            SettingsPage::Privacy => "Privacy",
             SettingsPage::Update => "Update & Security",
             SettingsPage::About => "About",
         }
@@ -880,7 +878,6 @@ impl SettingsPage {
             SettingsPage::Personalization => "Colors, Start and wallpaper",
             SettingsPage::Devices => "Hardware attached to this machine",
             SettingsPage::Network => "Cluster links and diagnostics",
-            SettingsPage::Privacy => "Permissions and diagnostics",
             SettingsPage::Update => "Version, build and recovery",
             SettingsPage::About => "The design behind Zirvium",
         }
@@ -940,21 +937,16 @@ impl Settings {
             Rect::new(sidebar.right() - 1, sidebar.y, 1, sidebar.h),
             theme.line(),
         );
-        display.fill_rect(
-            Rect::new(sidebar.x + 16, sidebar.y + 14, 22, 22),
-            theme.accent,
-        );
-        display.text(sidebar.x + 16, sidebar.y + 18, "Z", 13, true, theme.on_color(theme.accent));
+        widgets::logo(display, Rect::new(sidebar.x + 16, sidebar.y + 14, 22, 22));
         display.text(sidebar.x + 46, sidebar.y + 15, "Settings", 16, true, theme.text());
         display.text(sidebar.x + 46, sidebar.y + 35, "Zirvium 2.0", 9, false, theme.text_dim());
 
-        let nav: [(SettingsPage, &str, widgets::Icon); 8] = [
+        let nav: [(SettingsPage, &str, widgets::Icon); 7] = [
             (SettingsPage::Home, "Home", widgets::Icon::About),
             (SettingsPage::System, "System", widgets::Icon::Monitor),
             (SettingsPage::Personalization, "Personalization", widgets::Icon::Spark),
             (SettingsPage::Devices, "Devices", widgets::Icon::Cpu),
             (SettingsPage::Network, "Network & Internet", widgets::Icon::Nodes),
-            (SettingsPage::Privacy, "Privacy", widgets::Icon::Check),
             (SettingsPage::Update, "Update & Security", widgets::Icon::Power),
             (SettingsPage::About, "About", widgets::Icon::Logo),
         ];
@@ -1019,7 +1011,6 @@ impl Settings {
             SettingsPage::Personalization => self.draw_personalization(display, page_area, theme),
             SettingsPage::Devices => self.draw_devices(display, page_area, theme),
             SettingsPage::Network => self.draw_network(display, page_area, theme),
-            SettingsPage::Privacy => self.draw_privacy(display, page_area, theme),
             SettingsPage::Update => self.draw_update(display, page_area, theme),
             SettingsPage::About => self.draw_about(display, page_area, theme),
         }
@@ -1110,8 +1101,7 @@ impl Settings {
         let intro = Rect::new(area.x, area.y, area.w, intro_h);
         self.card(display, intro, theme);
         let mark = Rect::new(intro.x + 14, intro.y + 14, 64, 64);
-        display.fill_rect(mark, theme.accent);
-        widgets::icon(display, mark.inset(12), widgets::Icon::Logo, theme.on_color(theme.accent));
+        widgets::logo(display, mark);
         display.text(intro.x + 92, intro.y + 14, "Zirvium 2.0", 18, true, theme.text());
         display.text(
             intro.x + 92,
@@ -1138,12 +1128,11 @@ impl Settings {
         });
 
         // Tiles.
-        let tiles: [(SettingsPage, &str, &str); 6] = [
+        let tiles: [(SettingsPage, &str, &str); 5] = [
             (SettingsPage::System, "System", "Display and power"),
             (SettingsPage::Personalization, "Personalization", "Colors and Start"),
             (SettingsPage::Devices, "Devices", "Hardware"),
             (SettingsPage::Network, "Network", "Cluster links"),
-            (SettingsPage::Privacy, "Privacy", "Permissions"),
             (SettingsPage::Update, "Update", "Version and build"),
         ];
         let top = intro.bottom() + 14;
@@ -1361,30 +1350,6 @@ impl Settings {
         }
     }
 
-    fn draw_privacy(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
-        let mut y = area.y;
-        self.section(display, area.x, y, "Permissions", theme);
-        y += 22;
-        let rows = [
-            ("Diagnostics", "Share anonymous crash and performance data"),
-            ("Usage history", "Remember recently opened applications"),
-            ("Notifications", "Allow apps to show desktop toasts"),
-            ("Network discovery", "Let peers find this node automatically"),
-        ];
-        for (index, (title, detail)) in rows.iter().enumerate() {
-            let r = Rect::new(area.x, y, area.w, 50);
-            self.toggle_row(display, r, index, title, detail, theme);
-            y += 58;
-        }
-        display.text(
-            area.x,
-            y + 6,
-            "Zirvium never sends data off this machine. These switches only change local behavior.",
-            9,
-            false,
-            theme.text_dim(),
-        );
-    }
 
     fn draw_update(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
         let mut y = area.y;
@@ -1452,8 +1417,7 @@ impl Settings {
 
     fn draw_about(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
         let mark = Rect::new(area.x, area.y, 72, 72);
-        display.fill_rect(mark, theme.accent);
-        widgets::icon(display, mark.inset(14), widgets::Icon::Logo, theme.on_color(theme.accent));
+        widgets::logo(display, mark);
         display.text(area.x + 90, area.y + 4, "Zirvium 2.0", 24, true, theme.text());
         display.text(area.x + 90, area.y + 34, "one cluster, one display", 11, false, theme.accent);
         display.text(

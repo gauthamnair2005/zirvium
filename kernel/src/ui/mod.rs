@@ -995,12 +995,11 @@ impl Desktop {
         if start_hot {
             display.fill_rect(start, self.theme.accent_soft(40));
         }
-        widgets::icon(
-            display,
-            Rect::new(start.x + 10, start.y + 10, 24, 24),
-            Icon::Logo,
-            if start_hot { self.theme.accent } else { self.theme.text_muted() },
-        );
+        if start_hot {
+            widgets::logo(display, Rect::new(start.x + 10, start.y + 10, 24, 24));
+        } else {
+            widgets::logo(display, Rect::new(start.x + 10, start.y + 10, 24, 24));
+        }
 
         for (index, kind) in DOCK_APPS.iter().enumerate() {
             let rect = Rect::new(52 + index as i32 * 48, height - DOCK_HEIGHT + 4, 44, 44);
@@ -1103,66 +1102,94 @@ impl Desktop {
         let screen = Rect::new(0, 0, self.width, self.height);
         let base = self.theme.start_color;
         let dark = {
-            let r = ((base >> 16) & 0xff) * 62 / 100;
-            let g = ((base >> 8) & 0xff) * 62 / 100;
-            let b = (base & 0xff) * 68 / 100;
+            let r = ((base >> 16) & 0xff) * 58 / 100;
+            let g = ((base >> 8) & 0xff) * 58 / 100;
+            let b = (base & 0xff) * 64 / 100;
             rgb((r << 16) | (g << 8) | b)
         };
         display.vertical_gradient(screen, base, dark);
 
         // Header.
-        display.text(60, 44, "Start", 40, true, rgb(0xffffff));
-        display.text(62, 96, "Zirvium 2.0 \u{00b7} one cluster, one display", 11, false, argb(0xc0, 0xffffff));
+        widgets::logo(display, Rect::new(58, 42, 44, 44));
+        display.text(118, 44, "Start", 40, true, rgb(0xffffff));
+        display.text(120, 96, "Zirvium 2.0 \u{00b7} Windows 8.1 style \u{00b7} one cluster, one display", 11, false, argb(0xc0, 0xffffff));
 
-        let search = Rect::new(60, 124, 320, 32);
-        display.fill_rect(search, argb(0x30, 0x000000));
-        display.stroke_rounded(search, 0, 1, argb(0x80, 0xffffff));
-        widgets::icon(display, Rect::new(search.x + 10, search.y + 9, 14, 14), Icon::Search, argb(0xc0, 0xffffff));
-        display.text(search.x + 32, search.y + 9, "Search apps and settings", 10, false, argb(0x90, 0xffffff));
+        let search = Rect::new(60, 130, 340, 34);
+        display.fill_rect(search, argb(0x28, 0x000000));
+        display.stroke_rounded(search, 0, 1, argb(0x90, 0xffffff));
+        widgets::icon(display, Rect::new(search.x + 12, search.y + 10, 14, 14), Icon::Search, argb(0xc0, 0xffffff));
+        display.text(search.x + 38, search.y + 10, "Search apps and settings", 10, false, argb(0xa0, 0xffffff));
 
         // User tile.
-        let user = Rect::new(self.width - 240, 44, 180, 32);
+        let user = Rect::new(self.width - 260, 50, 200, 32);
         display.text(user.right() - widgets::text_width("gautham@zirvium", 10, false), user.y + 8, "gautham@zirvium", 10, false, argb(0xd0, 0xffffff));
 
-        // Live tiles.
+        // Live tiles - Windows 8 style grid
         let mut x = 60;
-        let mut y = 180;
+        let mut y = 190;
+        let now = crate::time::now();
         for (index, kind) in START_APPS.iter().enumerate() {
-            let rect = Rect::new(x, y, 110, 110);
-            let tint = if index % 2 == 0 { 0x40 } else { 0x2c };
+            let (tw, th) = match index {
+                0 => (236, 110), // wide tile
+                1 => (110, 110),
+                2 => (110, 110),
+                _ => (110, 110),
+            };
+            let rect = Rect::new(x, y, tw, th);
+            let tint = if index % 3 == 0 { 0x46 } else if index % 3 == 1 { 0x34 } else { 0x28 };
             display.fill_rect(rect, argb(tint, 0xffffff));
-            display.stroke_rounded(rect, 0, 1, argb(0x50, 0xffffff));
-            display.fill_rect(Rect::new(rect.x + 10, rect.bottom() - 6, 34, 3), rgb(0xffffff));
-            widgets::icon(
-                display,
-                Rect::new(rect.x + 36, rect.y + 28, 38, 38),
-                kind.icon(),
-                rgb(0xffffff),
-            );
-            display.text_centered(
-                Rect::new(rect.x, rect.bottom() - 34, rect.w, 16),
-                kind.title(),
-                10,
-                false,
-                rgb(0xffffff),
-            );
-            x += 126;
-            if (index + 1) % 6 == 0 {
+            display.stroke_rounded(rect, 0, 1, argb(0x60, 0xffffff));
+            if index == 0 {
+                // Live tile - shows time
+                display.text(rect.x + 16, rect.y + 16, &alloc::format!("{:02}:{:02}", now.hour, now.minute), 28, true, rgb(0xffffff));
+                display.text(rect.x + 16, rect.y + 56, kind.title(), 12, true, rgb(0xffffff));
+                display.text(rect.x + 16, rect.y + 76, "Zirvium OS", 9, false, argb(0xb0, 0xffffff));
+            } else if index == 3 {
+                // Live tile - cluster info
+                display.text(rect.x + 14, rect.y + 14, &alloc::format!("{}", crate::mosix::node_count()), 22, true, rgb(0xffffff));
+                display.text(rect.x + 14, rect.y + 44, "Nodes", 10, false, argb(0xc0, 0xffffff));
+                display.text(rect.x + 14, rect.y + 66, &alloc::format!("{} procs", crate::mosix::process_count()), 9, false, argb(0xa0, 0xffffff));
+            } else if index == 4 {
+                display.text(rect.x + 14, rect.y + 16, "Settings", 11, true, rgb(0xffffff));
+                display.fill_rect(Rect::new(rect.x + 14, rect.y + 42, rect.w - 28, 3), argb(0x70, 0xffffff));
+                display.text(rect.x + 14, rect.y + 58, "Personalize", 9, false, argb(0xb0, 0xffffff));
+            } else {
+                widgets::icon(
+                    display,
+                    Rect::new(rect.x + (tw - 38) / 2, rect.y + 22, 38, 38),
+                    kind.icon(),
+                    rgb(0xffffff),
+                );
+                display.text_centered(
+                    Rect::new(rect.x, rect.bottom() - 28, rect.w, 16),
+                    kind.title(),
+                    9,
+                    false,
+                    rgb(0xffffff),
+                );
+            }
+            display.fill_rect(Rect::new(rect.x + 10, rect.bottom() - 5, 30, 2), argb(0x80, 0xffffff));
+            if tw == 236 {
+                x += 252;
+            } else {
+                x += 126;
+            }
+            if x > 60 + 340 {
                 x = 60;
                 y += 126;
             }
         }
 
-        // Power panel matches the hitboxes in pointer_down.
-        let power_panel = Rect::new(self.width - 220, self.height - 200, 160, 140);
-        display.fill_rect(power_panel, argb(0x50, 0x000000));
-        display.stroke_rounded(power_panel, 0, 1, argb(0x60, 0xffffff));
-        display.text(power_panel.x + 16, power_panel.y + 14, "Power", 12, true, rgb(0xffffff));
-        let shutdown = Rect::new(power_panel.x + 16, power_panel.y + 48, power_panel.w - 32, 38);
-        display.fill_rect(shutdown, argb(0x40, 0xe81123));
+        // Power panel
+        let power_panel = Rect::new(self.width - 210, self.height - 190, 150, 130);
+        display.fill_rect(power_panel, argb(0x40, 0x000000));
+        display.stroke_rounded(power_panel, 0, 1, argb(0x70, 0xffffff));
+        display.text(power_panel.x + 16, power_panel.y + 14, "Power", 11, true, rgb(0xffffff));
+        let shutdown = Rect::new(power_panel.x + 14, power_panel.y + 44, power_panel.w - 28, 36);
+        display.fill_rect(shutdown, argb(0x50, 0xe81123));
         display.text_centered(shutdown, "Shut down", 10, false, rgb(0xffffff));
-        let reboot = Rect::new(power_panel.x + 16, power_panel.y + 96, power_panel.w - 32, 38);
-        display.fill_rect(reboot, argb(0x20, 0xffffff));
+        let reboot = Rect::new(power_panel.x + 14, power_panel.y + 90, power_panel.w - 28, 36);
+        display.fill_rect(reboot, argb(0x30, 0xffffff));
         display.text_centered(reboot, "Restart", 10, false, rgb(0xffffff));
     }
 }
@@ -1312,3 +1339,4 @@ pub fn run(display: &mut Display) -> ! {
         crate::arch::cpu::halt();
     }
 }
+pub mod logo_data;
