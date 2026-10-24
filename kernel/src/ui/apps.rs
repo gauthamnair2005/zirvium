@@ -1274,7 +1274,7 @@ impl Settings {
     fn draw_devices(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
         let rows = [
             ("Processor", "x86-64 CPU \u{00b7} UEFI boot", "Ready"),
-            ("Graphics", "DisplayJet \u{00b7} GPU accelerated", "Active"),
+            ("Graphics", "Hardware scanout \u{00b7} smooth compositing", "Active"),
             ("Memory", "Unified system memory", "Managed"),
             ("Storage", "In-memory virtual filesystem", "Mounted"),
             ("Input", "PS/2 keyboard and pointer", "Connected"),

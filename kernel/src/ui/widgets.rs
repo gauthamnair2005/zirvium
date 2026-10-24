@@ -131,37 +131,72 @@ pub enum Icon {
 
 /// Draw a vector icon inside `rect`.
 
-/// Draw the Zirvium logo.
+fn logo_segment(
+    display: &mut Display,
+    rect: Rect,
+    start: (f32, f32),
+    end: (f32, f32),
+    color_start: u32,
+    color_end: u32,
+    width: f32,
+) {
+    let sx = rect.x as f32 + start.0 * rect.w as f32 / 128.0;
+    let sy = rect.y as f32 + start.1 * rect.h as f32 / 128.0;
+    let ex = rect.x as f32 + end.0 * rect.w as f32 / 128.0;
+    let ey = rect.y as f32 + end.1 * rect.h as f32 / 128.0;
+    let dx = ex - sx;
+    let dy = ey - sy;
+    let length_squared = dx * dx + dy * dy;
+    let radius = width * 0.5;
+    let left = (sx.min(ex) - radius - 1.0) as i32;
+    let right = (sx.max(ex) + radius + 2.0) as i32;
+    let top = (sy.min(ey) - radius - 1.0) as i32;
+    let bottom = (sy.max(ey) + radius + 2.0) as i32;
+
+    for y in top..bottom {
+        for x in left..right {
+            let px = x as f32 + 0.5;
+            let py = y as f32 + 0.5;
+            let projection = if length_squared == 0.0 {
+                0.0
+            } else {
+                (((px - sx) * dx + (py - sy) * dy) / length_squared).clamp(0.0, 1.0)
+            };
+            let nearest_x = sx + dx * projection;
+            let nearest_y = sy + dy * projection;
+            let distance = math::sqrt((px - nearest_x) * (px - nearest_x) + (py - nearest_y) * (py - nearest_y));
+            let coverage = (radius + 0.65 - distance).clamp(0.0, 1.0);
+            if coverage <= 0.0 {
+                continue;
+            }
+            let color = lerp_color(color_start, color_end, projection);
+            let alpha = (((color >> 24) & 0xff) as f32 * coverage) as u32;
+            display.fill_rect(Rect::new(x, y, 1, 1), argb(alpha, color & 0x00ff_ffff));
+        }
+    }
+}
+
+/// Draw the Zirvium logo as a resolution-independent, anti-aliased mark.
 pub fn logo(display: &mut Display, rect: Rect) {
-    use crate::ui::logo_data;
     if rect.w <= 0 || rect.h <= 0 {
         return;
     }
 
-    // The source bitmap includes transparent padding. Crop it before scaling
-    // so the mark remains legible in compact surfaces such as the taskbar.
-    const LEFT: i32 = 12;
-    const TOP: i32 = 10;
-    const RIGHT: i32 = 53;
-    const BOTTOM: i32 = 54;
-    let source_w = RIGHT - LEFT;
-    let source_h = BOTTOM - TOP;
-    let scale = (rect.w * 1024 / source_w).min(rect.h * 1024 / source_h);
-    let draw_w = (source_w * scale / 1024).max(1);
-    let draw_h = (source_h * scale / 1024).max(1);
-    let offset_x = rect.x + (rect.w - draw_w) / 2;
-    let offset_y = rect.y + (rect.h - draw_h) / 2;
-
-    for dy in 0..draw_h {
-        let sy = TOP + dy * source_h / draw_h;
-        for dx in 0..draw_w {
-            let sx = LEFT + dx * source_w / draw_w;
-            let color = logo_data::LOGO[(sy * logo_data::LOGO_W + sx) as usize];
-            if color >> 24 != 0 {
-                display.fill_rect(Rect::new(offset_x + dx, offset_y + dy, 1, 1), color);
-            }
-        }
-    }
+    let accent = rgb(0x00aaff);
+    let highlight = rgb(0x66ccff);
+    let stroke = (rect.w.min(rect.h) as f32 * 0.075).max(1.4);
+    logo_segment(display, rect, (64.0, 20.0), (104.0, 54.0), accent, highlight, stroke);
+    logo_segment(display, rect, (104.0, 54.0), (84.0, 54.0), highlight, highlight, stroke);
+    logo_segment(display, rect, (84.0, 54.0), (64.0, 38.0), highlight, accent, stroke);
+    logo_segment(display, rect, (64.0, 38.0), (44.0, 54.0), accent, highlight, stroke);
+    logo_segment(display, rect, (44.0, 54.0), (24.0, 54.0), highlight, accent, stroke);
+    logo_segment(display, rect, (24.0, 54.0), (64.0, 20.0), accent, highlight, stroke);
+    logo_segment(display, rect, (64.0, 38.0), (84.0, 54.0), highlight, accent, stroke);
+    logo_segment(display, rect, (84.0, 54.0), (84.0, 90.0), accent, highlight, stroke);
+    logo_segment(display, rect, (84.0, 90.0), (64.0, 106.0), highlight, accent, stroke);
+    logo_segment(display, rect, (64.0, 106.0), (44.0, 90.0), accent, highlight, stroke);
+    logo_segment(display, rect, (44.0, 90.0), (44.0, 54.0), highlight, accent, stroke);
+    logo_segment(display, rect, (64.0, 38.0), (64.0, 106.0), highlight, highlight, stroke);
 }
 
 pub fn icon(display: &mut Display, rect: Rect, kind: Icon, color: u32) {

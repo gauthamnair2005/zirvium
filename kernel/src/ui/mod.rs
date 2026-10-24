@@ -1328,11 +1328,16 @@ fn draw_window(
         return;
     }
     display.reset_clip();
-    display.fill_rect(rect, theme.surface());
-    display.stroke_rounded(rect, 0, 1, if focused { theme.accent } else { theme.line() });
+    display.drop_shadow(rect, 0, 10, argb(0x50, 0x000000));
+    display.fill_rounded(rect, 8, theme.surface());
+    display.stroke_rounded(rect, 8, 1, if focused { theme.accent } else { theme.line() });
 
     let title_rect = Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT);
-    display.fill_rect(title_rect, if focused { theme.card() } else { theme.chrome() });
+    display.fill_rounded(title_rect, 8, if focused { theme.card() } else { theme.chrome() });
+    display.fill_rect(
+        Rect::new(rect.x, rect.y + 8, rect.w, TITLE_HEIGHT - 8),
+        if focused { theme.card() } else { theme.chrome() },
+    );
     display.fill_rect(Rect::new(rect.x, rect.y + TITLE_HEIGHT - 1, rect.w, 1), if focused { theme.accent } else { theme.line() });
 
     let kind = window.app.kind();
@@ -1346,14 +1351,14 @@ fn draw_window(
     let close = Rect::new(rect.right() - 28, rect.y + 6, 22, 18);
     let min = Rect::new(rect.right() - 54, rect.y + 6, 22, 18);
     let max = Rect::new(rect.right() - 80, rect.y + 6, 22, 18);
-    display.fill_rect(min, if hot_min { theme.well() } else { theme.card() });
-    display.stroke_rounded(min, 0, 1, if hot_min { theme.accent } else { theme.line() });
+    display.fill_rounded(min, 4, if hot_min { theme.well() } else { theme.card() });
+    display.stroke_rounded(min, 4, 1, if hot_min { theme.accent } else { theme.line() });
     display.text_centered(min, "–", 12, false, if hot_min { theme.text() } else { theme.text_muted() });
-    display.fill_rect(max, if hot_max { theme.well() } else { theme.card() });
-    display.stroke_rounded(max, 0, 1, if hot_max { theme.accent } else { theme.line() });
+    display.fill_rounded(max, 4, if hot_max { theme.well() } else { theme.card() });
+    display.stroke_rounded(max, 4, 1, if hot_max { theme.accent } else { theme.line() });
     display.text_centered(max, "□", 10, false, if hot_max { theme.text() } else { theme.text_muted() });
-    display.fill_rect(close, if hot_close { rgb(0xe81123) } else { theme.card() });
-    display.stroke_rounded(close, 0, 1, if hot_close { rgb(0xff3344) } else { theme.line() });
+    display.fill_rounded(close, 4, if hot_close { rgb(0xe81123) } else { theme.card() });
+    display.stroke_rounded(close, 4, 1, if hot_close { rgb(0xff3344) } else { theme.line() });
     display.text_centered(close, "×", 14, false, if hot_close { rgb(0xffffff) } else { theme.text_muted() });
 
     let content = window.content();
@@ -1363,7 +1368,7 @@ fn draw_window(
         display.pop_clip();
         display.reset_clip();
     }
-    display.stroke_rounded(rect, 0, 1, if focused { theme.accent } else { theme.line() });
+    display.stroke_rounded(rect, 8, 1, if focused { theme.accent } else { theme.line() });
 }
 
 // ---------------------------------------------------------------------------

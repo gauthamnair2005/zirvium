@@ -24,7 +24,7 @@ VERSION = 1
 REGULAR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
-SIZES = [12, 14, 16, 18, 22, 28, 40]
+SIZES = [9, 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 28, 32, 36, 40]
 WEIGHTS = [(0, REGULAR), (1, BOLD)]
 
 # Every glyph the desktop can ask for.  ASCII is always present (the renderer
