@@ -625,6 +625,12 @@ impl Desktop {
     fn pointer_down(&mut self, point: Point) -> bool {
         if self.launcher {
             let screen_w = self.width;
+            // Click logo to close
+            let logo = Rect::new(58, 42, 44, 44);
+            if logo.contains(point) {
+                self.launcher = false;
+                return true;
+            }
             let mut x = 60i32;
             let mut y = 190i32;
             let mut i = 0;
@@ -663,7 +669,6 @@ impl Desktop {
                 crate::sprintln!("UI: reboot requested");
                 return true;
             }
-            self.launcher = false;
             return true;
         }
 

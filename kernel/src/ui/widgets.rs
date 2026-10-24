@@ -131,24 +131,24 @@ pub enum Icon {
 
 /// Draw a vector icon inside `rect`.
 
-/// Draw the Zirvium SVG logo.
+/// Draw the Zirvium logo.
 pub fn logo(display: &mut Display, rect: Rect) {
     use crate::ui::logo_data;
-    let mut x = 0;
-    let mut y = 0;
-    for &color in logo_data::LOGO.iter() {
-        let px = rect.x + x * (rect.w / logo_data::LOGO_W);
-        let py = rect.y + y * (rect.h / logo_data::LOGO_H);
-        let pw = (rect.w / logo_data::LOGO_W).max(1);
-        let ph = (rect.h / logo_data::LOGO_H).max(1);
-        display.fill_rect(Rect::new(px, py, pw, ph), color);
-        x += 1;
-        if x >= logo_data::LOGO_W {
-            x = 0;
-            y += 1;
-            if y >= logo_data::LOGO_H {
-                break;
+    let mut scale_x = rect.w / logo_data::LOGO_W;
+    let mut scale_y = rect.h / logo_data::LOGO_H;
+    if scale_x < 1 { scale_x = 1; }
+    if scale_y < 1 { scale_y = 1; }
+    let mut idx = 0;
+    for y in 0..logo_data::LOGO_H {
+        for x in 0..logo_data::LOGO_W {
+            let color = logo_data::LOGO[idx];
+            idx += 1;
+            if (color >> 24) == 0 {
+                continue;
             }
+            let px = rect.x + x * scale_x;
+            let py = rect.y + y * scale_y;
+            display.fill_rect(Rect::new(px, py, scale_x, scale_y), color);
         }
     }
 }
