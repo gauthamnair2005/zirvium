@@ -8,6 +8,7 @@
 //! lets the UI use the same renderer on CPU and on a future GPU backend.
 
 use alloc::vec::Vec;
+use core::sync::atomic::{AtomicU32, Ordering};
 
 use zirvstdlib::sync::Once;
 
@@ -103,6 +104,28 @@ pub struct FontSet {
 }
 
 static FONTS: Once<FontSet> = Once::new();
+static SCALE_PERCENT: AtomicU32 = AtomicU32::new(100);
+
+pub fn set_scale(percent: u32) {
+    SCALE_PERCENT.store(percent.clamp(80, 180), Ordering::Relaxed);
+}
+
+pub fn scale() -> u32 {
+    SCALE_PERCENT.load(Ordering::Relaxed)
+}
+
+pub fn set_scale_for_resolution(width: i32, height: i32) {
+    let percent = if width >= 1600 || height >= 1000 {
+        140
+    } else if width >= 1200 || height >= 800 {
+        125
+    } else if width >= 1000 || height >= 700 {
+        115
+    } else {
+        100
+    };
+    set_scale(percent);
+}
 
 fn read_u32(bytes: &[u8], offset: usize) -> u32 {
     let mut value = [0u8; 4];
@@ -187,6 +210,7 @@ pub fn init() {
 /// Select the face closest to the requested size and weight.
 pub fn face(size: u32, bold: bool) -> &'static Face {
     let set = FONTS.get().unwrap_or_else(|| FONTS.call_once(parse));
+    let size = (size.saturating_mul(scale()) / 100).max(8);
     let mut best: Option<&Face> = None;
     let mut best_score = i32::MAX;
     for candidate in &set.faces {

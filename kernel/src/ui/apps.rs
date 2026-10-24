@@ -891,6 +891,7 @@ enum SettingAction {
     Seconds,
     Animations,
     Grid,
+    TextScale(u32),
     Toggle(usize),
     CheckUpdate,
     Reset,
@@ -1154,6 +1155,41 @@ impl Settings {
 
         self.section(display, area.x, y, "Display", theme);
         y += 22;
+        let resolution = Rect::new(area.x, y, area.w, 64);
+        self.card(display, resolution, theme);
+        let resolution_label = format!(
+            "{} × {}",
+            crate::ui::WIDTH_HINT.load(core::sync::atomic::Ordering::Relaxed),
+            crate::ui::HEIGHT_HINT.load(core::sync::atomic::Ordering::Relaxed)
+        );
+        display.text(resolution.x + 14, resolution.y + 12, "Resolution", 11, true, theme.text());
+        display.text(resolution.x + 14, resolution.y + 32, &resolution_label, 10, false, theme.text_muted());
+        display.text(
+            resolution.right() - 190,
+            resolution.y + 22,
+            "Firmware-selected native mode",
+            9,
+            false,
+            theme.text_dim(),
+        );
+        y = resolution.bottom() + 14;
+
+        self.section(display, area.x, y, "Scale", theme);
+        y += 22;
+        let scale_card = Rect::new(area.x, y, area.w, 64);
+        self.card(display, scale_card, theme);
+        display.text(scale_card.x + 14, scale_card.y + 12, "Interface scale", 11, true, theme.text());
+        display.text(scale_card.x + 14, scale_card.y + 32, "Applies immediately to all UI text", 9, false, theme.text_dim());
+        for (index, value) in [100u32, 115, 125, 140].iter().enumerate() {
+            let button = Rect::new(scale_card.right() - 196 + index as i32 * 46, scale_card.y + 18, 40, 28);
+            let selected = theme.text_scale == *value;
+            display.fill_rounded(button, 8, if selected { theme.accent } else { theme.well() });
+            display.stroke_rounded(button, 8, 1, if selected { theme.accent } else { theme.line() });
+            display.text_centered(button, &format!("{}%", value), 8, selected, if selected { theme.on_color(theme.accent) } else { theme.text_muted() });
+            self.hits.push(SettingHit { rect: button, action: SettingAction::TextScale(*value) });
+        }
+        y = scale_card.bottom() + 14;
+
         let wallpaper = Rect::new(area.x, y, area.w, 78);
         self.card(display, wallpaper, theme);
         display.text(wallpaper.x + 14, wallpaper.y + 14, "Wallpaper", 11, true, theme.text());
@@ -1489,6 +1525,11 @@ impl Settings {
                 }
                 SettingAction::Grid => {
                     theme.show_grid = !theme.show_grid;
+                    return Response::THEME;
+                }
+                SettingAction::TextScale(value) => {
+                    theme.text_scale = value;
+                    crate::displayjet::font::set_scale(value);
                     return Response::THEME;
                 }
                 SettingAction::Toggle(index) => {

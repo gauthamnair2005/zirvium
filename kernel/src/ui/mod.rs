@@ -394,6 +394,8 @@ impl Desktop {
             cursor_style: CursorStyle::Pointer,
             start_power_open: false,
         };
+        crate::displayjet::font::set_scale_for_resolution(width, height);
+        desktop.theme.text_scale = crate::displayjet::font::scale();
         desktop.notify(
             "Welcome to ZirvUI",
             "Open the launcher to reach your apps and workspace.",
