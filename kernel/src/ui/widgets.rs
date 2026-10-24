@@ -88,8 +88,13 @@ pub fn panel(display: &mut Display, rect: Rect, radius: i32, fill: u32, border: 
 
 /// A rounded, tinted card with a hairline border and a faint accent edge.
 pub fn card(display: &mut Display, rect: Rect, theme: &Theme) {
-    display.fill_rounded_vertical(rect, 11, PANEL_SOFT, argb(0xff, 0x141821));
-    display.stroke_rounded(rect, 11, 1, BORDER_SOFT);
+    if theme.is_light() {
+        display.fill_rounded_vertical(rect, 4, theme.card(), argb(0xff, 0xfafafa));
+        display.stroke_rounded(rect, 4, 1, theme.line());
+    } else {
+        display.fill_rounded_vertical(rect, 11, PANEL_SOFT, argb(0xff, 0x141821));
+        display.stroke_rounded(rect, 11, 1, BORDER_SOFT);
+    }
     display.horizontal_gradient(
         Rect::new(rect.x + 12, rect.y + 1, (rect.w - 24).max(1), 1),
         theme.accent_soft(70),
@@ -526,9 +531,9 @@ pub fn section_header(
     subtitle: &str,
     theme: &Theme,
 ) {
-    display.text(x, y, title, 19, true, TEXT);
+    display.text(x, y, title, 19, true, theme.text());
     if !subtitle.is_empty() {
-        display.text(x, y + 26, subtitle, 12, false, TEXT_MUTED);
+        display.text(x, y + 26, subtitle, 12, false, theme.text_muted());
     }
     let underline = Rect::new(x, y + 47, 38, 3);
     display.fill_rounded(underline, 2, theme.accent_soft(235));
@@ -557,12 +562,21 @@ pub fn button(
     enabled: bool,
 ) {
     let (fill, fill_bottom, border, text_color) = if !enabled {
-        (
-            argb(0x40, 0x2a2f3a),
-            argb(0x30, 0x222732),
-            BORDER_SOFT,
-            TEXT_FAINT,
-        )
+        if theme.is_light() {
+            (
+                argb(0xff, 0xeceae6),
+                argb(0xff, 0xe4e1dc),
+                theme.line(),
+                theme.text_dim(),
+            )
+        } else {
+            (
+                argb(0x40, 0x2a2f3a),
+                argb(0x30, 0x222732),
+                BORDER_SOFT,
+                TEXT_FAINT,
+            )
+        }
     } else {
         match style {
             ButtonStyle::Primary => (
@@ -579,29 +593,48 @@ pub fn button(
                 argb(0, 0),
                 rgb(0x06101f),
             ),
-            ButtonStyle::Subtle => (
-                if hovered { PANEL_RAISED } else { PANEL_SOFT },
-                if hovered {
-                    argb(0xff, 0x1d222d)
+            ButtonStyle::Subtle => {
+                if theme.is_light() {
+                    (
+                        if hovered { argb(0xff, 0xe9e7e3) } else { argb(0xff, 0xf4f2ee) },
+                        if hovered { argb(0xff, 0xe2dfda) } else { argb(0xff, 0xedebe6) },
+                        theme.line(),
+                        theme.text(),
+                    )
                 } else {
-                    argb(0xff, 0x151923)
-                },
-                BORDER,
-                TEXT,
-            ),
+                    (
+                        if hovered { PANEL_RAISED } else { PANEL_SOFT },
+                        if hovered {
+                            argb(0xff, 0x1d222d)
+                        } else {
+                            argb(0xff, 0x151923)
+                        },
+                        BORDER,
+                        TEXT,
+                    )
+                }
+            }
             ButtonStyle::Ghost => (
                 if hovered {
-                    argb(0x36, 0xffffff)
+                    if theme.is_light() {
+                        argb(0x1e, 0x000000)
+                    } else {
+                        argb(0x36, 0xffffff)
+                    }
                 } else {
                     argb(0, 0)
                 },
                 if hovered {
-                    argb(0x18, 0xffffff)
+                    if theme.is_light() {
+                        argb(0x10, 0x000000)
+                    } else {
+                        argb(0x18, 0xffffff)
+                    }
                 } else {
                     argb(0, 0)
                 },
                 argb(0, 0),
-                TEXT_MUTED,
+                theme.text_muted(),
             ),
             ButtonStyle::Danger => (
                 if hovered {

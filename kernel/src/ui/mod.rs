@@ -42,23 +42,30 @@ pub enum AppKind {
     Monitor,
     Nodes,
     Settings,
-    About,
     Calculator,
     Notes,
     Network,
 }
 
-/// Dock order, also the launcher order.
-const DOCK_APPS: [AppKind; 9] = [
+/// Apps pinned to the taskbar.
+const DOCK_APPS: [AppKind; 5] = [
     AppKind::Terminal,
     AppKind::Files,
     AppKind::Monitor,
     AppKind::Nodes,
-    AppKind::Network,
+    AppKind::Settings,
+];
+
+/// Apps shown on the Start screen. The taskbar only carries the essentials.
+const START_APPS: [AppKind; 8] = [
+    AppKind::Terminal,
+    AppKind::Files,
+    AppKind::Monitor,
+    AppKind::Nodes,
+    AppKind::Settings,
     AppKind::Calculator,
     AppKind::Notes,
-    AppKind::Settings,
-    AppKind::About,
+    AppKind::Network,
 ];
 
 impl AppKind {
@@ -69,7 +76,6 @@ impl AppKind {
             AppKind::Monitor => "System Monitor",
             AppKind::Nodes => "MOSIX Nodes",
             AppKind::Settings => "Settings",
-            AppKind::About => "About Zirvium",
             AppKind::Calculator => "Calculator",
             AppKind::Notes => "Notes",
             AppKind::Network => "Network",
@@ -82,11 +88,10 @@ impl AppKind {
             AppKind::Files => "Browse the virtual filesystem",
             AppKind::Monitor => "CPU, memory and process telemetry",
             AppKind::Nodes => "Cluster members and migration",
-            AppKind::Settings => "Wallpaper, accent and display",
-            AppKind::About => "The design behind Zirvium",
+            AppKind::Settings => "System, colors and Start",
             AppKind::Calculator => "Quick arithmetic",
             AppKind::Notes => "Text notes and scratchpad",
-            AppKind::Network => "Connections and diagnostics",
+            AppKind::Network => "Wi-Fi and cluster links",
         }
     }
 
@@ -97,9 +102,8 @@ impl AppKind {
             AppKind::Monitor => Icon::Monitor,
             AppKind::Nodes => Icon::Nodes,
             AppKind::Settings => Icon::Settings,
-            AppKind::About => Icon::About,
-            AppKind::Calculator => Icon::Settings,
-            AppKind::Notes => Icon::Files,
+            AppKind::Calculator => Icon::Plus,
+            AppKind::Notes => Icon::Document,
             AppKind::Network => Icon::Nodes,
         }
     }
@@ -110,11 +114,10 @@ impl AppKind {
             AppKind::Files => (830, 520),
             AppKind::Monitor => (760, 540),
             AppKind::Nodes => (820, 590),
-            AppKind::Settings => (700, 600),
-            AppKind::About => (600, 470),
-            AppKind::Calculator => (320, 380),
+            AppKind::Settings => (860, 640),
+            AppKind::Calculator => (320, 430),
             AppKind::Notes => (640, 460),
-            AppKind::Network => (680, 520),
+            AppKind::Network => (620, 500),
         }
     }
 }
@@ -125,7 +128,6 @@ enum App {
     Monitor(apps::Monitor),
     Nodes(apps::Nodes),
     Settings(apps::Settings),
-    About(apps::About),
     Calculator(apps::Calculator),
     Notes(apps::Notes),
     Network(apps::Network),
@@ -139,7 +141,6 @@ impl App {
             AppKind::Monitor => App::Monitor(apps::Monitor::new()),
             AppKind::Nodes => App::Nodes(apps::Nodes::new()),
             AppKind::Settings => App::Settings(apps::Settings::new()),
-            AppKind::About => App::About(apps::About::new()),
             AppKind::Calculator => App::Calculator(apps::Calculator::new()),
             AppKind::Notes => App::Notes(apps::Notes::new()),
             AppKind::Network => App::Network(apps::Network::new()),
@@ -153,7 +154,6 @@ impl App {
             App::Monitor(_) => AppKind::Monitor,
             App::Nodes(_) => AppKind::Nodes,
             App::Settings(_) => AppKind::Settings,
-            App::About(_) => AppKind::About,
             App::Calculator(_) => AppKind::Calculator,
             App::Notes(_) => AppKind::Notes,
             App::Network(_) => AppKind::Network,
@@ -166,8 +166,7 @@ impl App {
             App::Files(app) => app.draw(display, content, theme, focused),
             App::Monitor(app) => app.draw(display, content, theme, focused),
             App::Nodes(app) => app.draw(display, content, theme, focused),
-            App::Settings(app) => app.draw(display, content, theme, focused),
-            App::About(app) => app.draw(display, content, theme, focused),
+            App::Settings(app) => { let _ = focused; app.draw(display, content, theme); },
             App::Calculator(app) => app.draw(display, content, theme, focused),
             App::Notes(app) => app.draw(display, content, theme, focused),
             App::Network(app) => app.draw(display, content, theme, focused),
@@ -187,7 +186,6 @@ impl App {
             App::Monitor(_) => Response::NONE,
             App::Nodes(app) => app.pointer(point, content, theme),
             App::Settings(app) => app.pointer(point, content, theme),
-            App::About(_) => Response::NONE,
             App::Calculator(app) => app.pointer(point, content, theme),
             App::Notes(app) => app.pointer(point, content, theme),
             App::Network(app) => app.pointer(point, content, theme),
@@ -201,7 +199,6 @@ impl App {
             App::Monitor(_) => false,
             App::Nodes(_) => false,
             App::Settings(_) => false,
-            App::About(_) => false,
             App::Calculator(app) => app.key(code, event_modifiers),
             App::Notes(app) => app.key(code, event_modifiers),
             App::Network(_) => false,
@@ -215,13 +212,9 @@ impl App {
             App::Monitor(_) => {}
             App::Nodes(_) => {}
             App::Settings(app) => app.scroll(point, content, amount),
-            App::About(_) => {}
-            App::Calculator(_) => {}
-            App::Notes(app) => {
-                let _ = (point, content);
-                app.scroll = (app.scroll - amount * 24).max(0);
-            }
-            App::Network(_) => {}
+            App::Calculator(app) => app.scroll(point, content, amount),
+            App::Notes(app) => app.scroll(point, content, amount),
+            App::Network(app) => app.scroll(point, content, amount),
         }
     }
 
@@ -636,7 +629,7 @@ impl Desktop {
             let mut x = 60i32;
             let mut y = 180i32;
             let mut i = 0;
-            for kind in DOCK_APPS.iter() {
+            for kind in START_APPS.iter() {
                 let rect = Rect::new(x, y, 110, 110);
                 if rect.contains(point) {
                     self.launcher = false;
@@ -991,40 +984,80 @@ impl Desktop {
     fn draw_taskbar(&self, display: &mut Display) {
         let width = self.width;
         let height = self.height;
+        let chrome = self.theme.chrome();
+        let line = self.theme.line();
         let bar = Rect::new(0, height - DOCK_HEIGHT, width, DOCK_HEIGHT);
-        display.fill_rect(bar, rgb(0x000000));
-        display.fill_rect(Rect::new(0, height - DOCK_HEIGHT, width, 1), rgb(0x333333));
+        display.fill_rect(bar, chrome);
+        display.fill_rect(Rect::new(0, height - DOCK_HEIGHT, width, 1), line);
 
         let start = Rect::new(4, height - DOCK_HEIGHT + 4, 44, 44);
         let start_hot = self.hover == Target::Start || self.launcher;
-        display.fill_rect(start, if start_hot { rgb(0x202020) } else { rgb(0x000000) });
-        display.stroke_rounded(start, 1, 1, if start_hot { self.theme.accent } else { rgb(0x333333) });
-        widgets::icon(display, Rect::new(start.x + 10, start.y + 10, 24, 24), Icon::Logo, if start_hot { self.theme.accent } else { rgb(0xe0e0e0) });
+        if start_hot {
+            display.fill_rect(start, self.theme.accent_soft(40));
+        }
+        widgets::icon(
+            display,
+            Rect::new(start.x + 10, start.y + 10, 24, 24),
+            Icon::Logo,
+            if start_hot { self.theme.accent } else { self.theme.text_muted() },
+        );
 
         for (index, kind) in DOCK_APPS.iter().enumerate() {
             let rect = Rect::new(52 + index as i32 * 48, height - DOCK_HEIGHT + 4, 44, 44);
             let hot = self.hover == Target::Dock(*kind);
             let open = self.windows.iter().any(|w| w.app.kind() == *kind && !w.minimized);
             let focused = self.focused_kind() == Some(*kind);
-            display.fill_rect(rect, if focused { rgb(0x1a1a1a) } else if hot { rgb(0x181818) } else { rgb(0x000000) });
-            if focused || hot {
-                display.stroke_rounded(rect, 1, 1, if focused { self.theme.accent } else { rgb(0x444444) });
+            if focused {
+                display.fill_rect(rect, self.theme.accent_soft(34));
+            } else if hot {
+                display.fill_rect(rect, self.theme.card());
             }
-            widgets::icon(display, Rect::new(rect.x + 10, rect.y + 10, 24, 24), kind.icon(), if focused { self.theme.accent } else if hot { rgb(0xffffff) } else if open { rgb(0xe0e0e0) } else { rgb(0x808080) });
+            widgets::icon(
+                display,
+                Rect::new(rect.x + 10, rect.y + 10, 24, 24),
+                kind.icon(),
+                if focused {
+                    self.theme.accent
+                } else if hot || open {
+                    self.theme.text()
+                } else {
+                    self.theme.text_dim()
+                },
+            );
             if open {
-                display.fill_rect(Rect::new(rect.x + 12, rect.bottom() - 2, 20, 2), if focused { self.theme.accent } else { rgb(0x606060) });
+                display.fill_rect(
+                    Rect::new(rect.x + 12, rect.bottom() - 2, 20, 2),
+                    if focused { self.theme.accent } else { self.theme.text_dim() },
+                );
             }
         }
 
         let power = Rect::new(width - 48, height - DOCK_HEIGHT + 4, 44, 44);
         let power_hot = self.hover == Target::Power;
-        display.fill_rect(power, if power_hot { rgb(0x2a0000) } else { rgb(0x000000) });
-        display.stroke_rounded(power, 1, 1, if power_hot { rgb(0xb00000) } else { rgb(0x333333) });
-        widgets::icon(display, Rect::new(power.x + 10, power.y + 10, 24, 24), Icon::Close, if power_hot { rgb(0xff4444) } else { rgb(0x808080) });
+        if power_hot {
+            display.fill_rect(power, argb(0x40, 0xe81123));
+        }
+        widgets::icon(
+            display,
+            Rect::new(power.x + 10, power.y + 10, 24, 24),
+            Icon::Close,
+            if power_hot { rgb(0xe81123) } else { self.theme.text_dim() },
+        );
 
         let now = crate::time::now();
-        let clock = if self.theme.show_seconds { alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second) } else { alloc::format!("{:02}:{:02}", now.hour, now.minute) };
-        display.text(width - 110, height - DOCK_HEIGHT + 18, &clock, 9, false, rgb(0xc0c0c0));
+        let clock = if self.theme.show_seconds {
+            alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second)
+        } else {
+            alloc::format!("{:02}:{:02}", now.hour, now.minute)
+        };
+        display.text(
+            width - 110,
+            height - DOCK_HEIGHT + 18,
+            &clock,
+            9,
+            false,
+            self.theme.text_muted(),
+        );
     }
 
     fn draw_dock(&self, _display: &mut Display) {}
@@ -1046,56 +1079,91 @@ impl Desktop {
             let fade = if remaining < 600 { 160 } else { 246 };
             let rise = if remaining < 240 { ((240 - remaining) / 12) as i32 } else { 0 };
             let rect = Rect::new(rect.x, rect.y + rise, rect.w, rect.h);
-            display.drop_shadow(rect, 12, 12, argb(0x90, 0x000000));
-            display.fill_rounded_vertical(rect, 12, argb(fade, 0x151925), argb(fade.saturating_sub(10), 0x0c1018));
-            display.stroke_rounded(rect, 12, 1, argb(0xff, 0x2a3346));
-            display.fill_rounded(Rect::new(rect.x + 10, rect.y + 12, 3, rect.h - 24), 2, self.theme.accent);
-            let badge = Rect::new(rect.x + 22, rect.y + 14, 28, 28);
-            display.fill_rounded(badge, 8, self.theme.accent_soft(38));
-            widgets::icon(display, badge.inset(7), Icon::Spark, self.theme.accent);
-            display.text(rect.x + 58, rect.y + 13, &note.title, 12, true, TEXT);
-            display.text_ellipsized(rect.x + 58, rect.y + 33, &note.body, rect.w - 74, 11, false, TEXT_MUTED);
+            display.drop_shadow(rect, 0, 12, argb(0x60, 0x000000));
+            display.fill_rect(rect, argb(fade, self.theme.card() & 0x00ff_ffff));
+            display.stroke_rounded(rect, 0, 1, self.theme.line());
+            display.fill_rect(Rect::new(rect.x + 10, rect.y + 12, 3, rect.h - 24), self.theme.accent);
+            display.text(rect.x + 22, rect.y + 13, &note.title, 12, true, self.theme.text());
+            display.text_ellipsized(rect.x + 22, rect.y + 33, &note.body, rect.w - 38, 11, false, self.theme.text_muted());
             let ratio = if note.life == 0 { 0.0 } else { remaining as f32 / note.life as f32 };
-            display.fill_rounded(Rect::new(rect.x + 58, rect.bottom() - 14, rect.w - 78, 2), 1, argb(0x2e, 0xffffff));
-            display.fill_rounded(Rect::new(rect.x + 58, rect.bottom() - 14, (((rect.w - 78) as f32 * ratio) as i32).max(2), 2), 1, self.theme.accent_soft(200));
+            display.fill_rect(Rect::new(rect.x + 22, rect.bottom() - 14, rect.w - 38, 2), self.theme.line());
+            display.fill_rect(
+                Rect::new(
+                    rect.x + 22,
+                    rect.bottom() - 14,
+                    (((rect.w - 38) as f32 * ratio) as i32).max(2),
+                    2,
+                ),
+                self.theme.accent,
+            );
         }
     }
 
     fn draw_start_screen(&self, display: &mut Display) {
         let screen = Rect::new(0, 0, self.width, self.height);
-        display.fill_rect(screen, rgb(0x000000));
-        display.text(60, 70, "Start", 48, true, rgb(0xffffff));
-        display.text(60, 130, "Apps", 11, true, rgb(0x808080));
+        let base = self.theme.start_color;
+        let dark = {
+            let r = ((base >> 16) & 0xff) * 62 / 100;
+            let g = ((base >> 8) & 0xff) * 62 / 100;
+            let b = (base & 0xff) * 68 / 100;
+            rgb((r << 16) | (g << 8) | b)
+        };
+        display.vertical_gradient(screen, base, dark);
 
+        // Header.
+        display.text(60, 44, "Start", 40, true, rgb(0xffffff));
+        display.text(62, 96, "Zirvium 2.0 \u{00b7} one cluster, one display", 11, false, argb(0xc0, 0xffffff));
+
+        let search = Rect::new(60, 124, 320, 32);
+        display.fill_rect(search, argb(0x30, 0x000000));
+        display.stroke_rounded(search, 0, 1, argb(0x80, 0xffffff));
+        widgets::icon(display, Rect::new(search.x + 10, search.y + 9, 14, 14), Icon::Search, argb(0xc0, 0xffffff));
+        display.text(search.x + 32, search.y + 9, "Search apps and settings", 10, false, argb(0x90, 0xffffff));
+
+        // User tile.
+        let user = Rect::new(self.width - 240, 44, 180, 32);
+        display.text(user.right() - widgets::text_width("gautham@zirvium", 10, false), user.y + 8, "gautham@zirvium", 10, false, argb(0xd0, 0xffffff));
+
+        // Live tiles.
         let mut x = 60;
-        let mut y = 170;
-        let mut i = 0;
-        for kind in &DOCK_APPS {
-            let rect = Rect::new(x, y, 100, 100);
-            display.fill_rect(rect, rgb(0x111111));
-            display.stroke_rounded(rect, 1, 1, rgb(0x252525));
-            widgets::icon(display, Rect::new(rect.x + 34, rect.y + 28, 32, 32), kind.icon(), self.theme.accent);
-            display.text_centered(Rect::new(rect.x, rect.bottom() - 28, rect.w, 16), kind.title(), 9, false, rgb(0xd0d0d0));
-            x += 116;
-            i += 1;
-            if i % 6 == 0 {
+        let mut y = 180;
+        for (index, kind) in START_APPS.iter().enumerate() {
+            let rect = Rect::new(x, y, 110, 110);
+            let tint = if index % 2 == 0 { 0x40 } else { 0x2c };
+            display.fill_rect(rect, argb(tint, 0xffffff));
+            display.stroke_rounded(rect, 0, 1, argb(0x50, 0xffffff));
+            display.fill_rect(Rect::new(rect.x + 10, rect.bottom() - 6, 34, 3), rgb(0xffffff));
+            widgets::icon(
+                display,
+                Rect::new(rect.x + 36, rect.y + 28, 38, 38),
+                kind.icon(),
+                rgb(0xffffff),
+            );
+            display.text_centered(
+                Rect::new(rect.x, rect.bottom() - 34, rect.w, 16),
+                kind.title(),
+                10,
+                false,
+                rgb(0xffffff),
+            );
+            x += 126;
+            if (index + 1) % 6 == 0 {
                 x = 60;
-                y += 116;
+                y += 126;
             }
         }
 
-        let power_panel = Rect::new(self.width - 170, self.height - 150, 120, 100);
-        display.fill_rect(power_panel, rgb(0x111111));
-        display.stroke_rounded(power_panel, 1, 1, rgb(0x252525));
-        display.text(power_panel.x + 10, power_panel.y + 10, "Power", 11, true, rgb(0xffffff));
-        let shutdown = Rect::new(power_panel.x + 10, power_panel.y + 38, power_panel.w - 20, 26);
-        display.fill_rect(shutdown, rgb(0x250000));
-        display.stroke_rounded(shutdown, 1, 1, rgb(0x600000));
-        display.text_centered(shutdown, "Shutdown", 9, false, rgb(0xff5555));
-        let reboot = Rect::new(power_panel.x + 10, power_panel.y + 72, power_panel.w - 20, 26);
-        display.fill_rect(reboot, rgb(0x111111));
-        display.stroke_rounded(reboot, 1, 1, rgb(0x333333));
-        display.text_centered(reboot, "Restart", 9, false, rgb(0xd0d0d0));
+        // Power panel matches the hitboxes in pointer_down.
+        let power_panel = Rect::new(self.width - 220, self.height - 200, 160, 140);
+        display.fill_rect(power_panel, argb(0x50, 0x000000));
+        display.stroke_rounded(power_panel, 0, 1, argb(0x60, 0xffffff));
+        display.text(power_panel.x + 16, power_panel.y + 14, "Power", 12, true, rgb(0xffffff));
+        let shutdown = Rect::new(power_panel.x + 16, power_panel.y + 48, power_panel.w - 32, 38);
+        display.fill_rect(shutdown, argb(0x40, 0xe81123));
+        display.text_centered(shutdown, "Shut down", 10, false, rgb(0xffffff));
+        let reboot = Rect::new(power_panel.x + 16, power_panel.y + 96, power_panel.w - 32, 38);
+        display.fill_rect(reboot, argb(0x20, 0xffffff));
+        display.text_centered(reboot, "Restart", 10, false, rgb(0xffffff));
     }
 }
 
@@ -1114,18 +1182,17 @@ fn draw_window(
     if rect.w < 160 || rect.h < 100 {
         return;
     }
-    let radius = WINDOW_RADIUS.min(rect.w / 2).min(rect.h / 2);
     display.reset_clip();
-    display.fill_rect(rect, rgb(0x0a0a0a));
-    display.stroke_rounded(rect, 1, 1, if focused { theme.accent } else { rgb(0x333333) });
+    display.fill_rect(rect, theme.surface());
+    display.stroke_rounded(rect, 0, 1, if focused { theme.accent } else { theme.line() });
 
     let title_rect = Rect::new(rect.x, rect.y, rect.w, TITLE_HEIGHT);
-    display.fill_rect(title_rect, if focused { rgb(0x1c1c1c) } else { rgb(0x151515) });
-    display.fill_rect(Rect::new(rect.x, rect.y + TITLE_HEIGHT - 1, rect.w, 1), if focused { theme.accent } else { rgb(0x2a2a2a) });
+    display.fill_rect(title_rect, if focused { theme.card() } else { theme.chrome() });
+    display.fill_rect(Rect::new(rect.x, rect.y + TITLE_HEIGHT - 1, rect.w, 1), if focused { theme.accent } else { theme.line() });
 
     let kind = window.app.kind();
-    widgets::icon(display, Rect::new(rect.x + 6, rect.y + 7, 16, 16), kind.icon(), if focused { theme.accent } else { rgb(0x909090) });
-    display.text_ellipsized(rect.x + 28, rect.y + 7, kind.title(), (rect.w - 150).max(30), 11, false, if focused { rgb(0xffffff) } else { rgb(0xc8c8c8) });
+    widgets::icon(display, Rect::new(rect.x + 6, rect.y + 7, 16, 16), kind.icon(), if focused { theme.accent } else { theme.text_dim() });
+    display.text_ellipsized(rect.x + 28, rect.y + 7, kind.title(), (rect.w - 150).max(30), 11, false, if focused { theme.text() } else { theme.text_muted() });
 
     let id = window.id;
     let hot_close = hover == Target::Close(id);
@@ -1134,15 +1201,15 @@ fn draw_window(
     let close = Rect::new(rect.right() - 28, rect.y + 6, 22, 18);
     let min = Rect::new(rect.right() - 54, rect.y + 6, 22, 18);
     let max = Rect::new(rect.right() - 80, rect.y + 6, 22, 18);
-    display.fill_rect(min, if hot_min { rgb(0x252525) } else { rgb(0x151515) });
-    display.stroke_rounded(min, 1, 1, if hot_min { rgb(0x505050) } else { rgb(0x2a2a2a) });
-    display.text_centered(min, "–", 12, false, if hot_min { rgb(0xffffff) } else { rgb(0xb0b0b0) });
-    display.fill_rect(max, if hot_max { rgb(0x252525) } else { rgb(0x151515) });
-    display.stroke_rounded(max, 1, 1, if hot_max { rgb(0x505050) } else { rgb(0x2a2a2a) });
-    display.text_centered(max, "□", 10, false, if hot_max { rgb(0xffffff) } else { rgb(0xb0b0b0) });
-    display.fill_rect(close, if hot_close { rgb(0xe81123) } else { rgb(0x151515) });
-    display.stroke_rounded(close, 1, 1, if hot_close { rgb(0xff3344) } else { rgb(0x2a2a2a) });
-    display.text_centered(close, "×", 14, false, if hot_close { rgb(0xffffff) } else { rgb(0xb0b0b0) });
+    display.fill_rect(min, if hot_min { theme.well() } else { theme.card() });
+    display.stroke_rounded(min, 0, 1, if hot_min { theme.accent } else { theme.line() });
+    display.text_centered(min, "–", 12, false, if hot_min { theme.text() } else { theme.text_muted() });
+    display.fill_rect(max, if hot_max { theme.well() } else { theme.card() });
+    display.stroke_rounded(max, 0, 1, if hot_max { theme.accent } else { theme.line() });
+    display.text_centered(max, "□", 10, false, if hot_max { theme.text() } else { theme.text_muted() });
+    display.fill_rect(close, if hot_close { rgb(0xe81123) } else { theme.card() });
+    display.stroke_rounded(close, 0, 1, if hot_close { rgb(0xff3344) } else { theme.line() });
+    display.text_centered(close, "×", 14, false, if hot_close { rgb(0xffffff) } else { theme.text_muted() });
 
     let content = window.content();
     if !content.is_empty() {
@@ -1151,7 +1218,7 @@ fn draw_window(
         display.pop_clip();
         display.reset_clip();
     }
-    display.stroke_rounded(rect, 1, 1, if focused { theme.accent } else { rgb(0x333333) });
+    display.stroke_rounded(rect, 0, 1, if focused { theme.accent } else { theme.line() });
 }
 
 // ---------------------------------------------------------------------------
@@ -1162,7 +1229,6 @@ fn draw_window(
 pub fn splash(display: &mut Display) {
     WIDTH_HINT.store(display.width.max(1) as u32, Ordering::Relaxed);
     HEIGHT_HINT.store(display.height.max(1) as u32, Ordering::Relaxed);
-    let theme = Theme::default();
     let screen = display.screen();
     let (width, height) = (screen.w, screen.h);
     display.reset_clip();

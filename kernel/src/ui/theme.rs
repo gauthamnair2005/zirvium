@@ -138,6 +138,92 @@ impl Theme {
         rgb(channel(16) | channel(8) | channel(0))
     }
 
+    /// True when the light palette is active.
+    pub fn is_light(&self) -> bool {
+        self.mode == ColorMode::Light
+    }
+
+    /// The base surface for application content.
+    pub fn surface(&self) -> u32 {
+        if self.is_light() {
+            rgb(0xf5f5f5)
+        } else {
+            rgb(0x101010)
+        }
+    }
+
+    /// A slightly raised surface used for cards and rows.
+    pub fn card(&self) -> u32 {
+        if self.is_light() {
+            rgb(0xffffff)
+        } else {
+            rgb(0x181818)
+        }
+    }
+
+    /// The deepest surface, used for well-like areas such as search fields.
+    pub fn well(&self) -> u32 {
+        if self.is_light() {
+            rgb(0xe8e8e8)
+        } else {
+            rgb(0x0c0c0c)
+        }
+    }
+
+    /// Border colour for cards and dividers.
+    pub fn line(&self) -> u32 {
+        if self.is_light() {
+            rgb(0xd6d6d6)
+        } else {
+            rgb(0x2a2a2a)
+        }
+    }
+
+    /// Primary text colour.
+    pub fn text(&self) -> u32 {
+        if self.is_light() {
+            rgb(0x1a1a1a)
+        } else {
+            rgb(0xffffff)
+        }
+    }
+
+    /// Secondary text colour.
+    pub fn text_muted(&self) -> u32 {
+        if self.is_light() {
+            rgb(0x5a5a5a)
+        } else {
+            rgb(0xa0a0a0)
+        }
+    }
+
+    /// Tertiary text colour.
+    pub fn text_dim(&self) -> u32 {
+        if self.is_light() {
+            rgb(0x808080)
+        } else {
+            rgb(0x6e6e6e)
+        }
+    }
+
+    /// The chrome colour for the taskbar and window title bars.
+    pub fn chrome(&self) -> u32 {
+        if self.is_light() {
+            rgb(0xf0f0f0)
+        } else {
+            rgb(0x000000)
+        }
+    }
+
+    /// The Start screen backdrop.
+    pub fn start_background(&self) -> u32 {
+        if self.is_light() {
+            self.start_color
+        } else {
+            self.start_color
+        }
+    }
+
     /// A colour guaranteed to contrast with `background`, used for text placed
     /// on top of accents and status pills.
     pub fn on_color(&self, background: u32) -> u32 {

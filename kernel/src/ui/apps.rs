@@ -9,7 +9,6 @@ use alloc::vec::Vec;
 
 use zirvstdlib::abi::{NodeState, key};
 use zirvstdlib::geometry::{Point, Rect};
-use zirvstdlib::math;
 
 use crate::displayjet::Display;
 use crate::mosix::vfs;
@@ -54,8 +53,8 @@ fn stat_card(
     display.fill_rounded(badge, 8, argb(0x2c, accent & 0x00ff_ffff));
     display.stroke_rounded(badge, 8, 1, argb(0x38, accent & 0x00ff_ffff));
     widgets::icon(display, badge.inset(5), icon, accent);
-    display.text(rect.x + 48, rect.y + 17, label, 10, true, TEXT_MUTED);
-    display.text(rect.x + 13, rect.y + 36, value, 23, true, TEXT_STRONG);
+    display.text(rect.x + 48, rect.y + 17, label, 10, true, theme.text_muted());
+    display.text(rect.x + 13, rect.y + 36, value, 23, true, theme.text());
     display.text_ellipsized(
         rect.x + 13,
         rect.y + 66,
@@ -63,7 +62,7 @@ fn stat_card(
         rect.w - 26,
         10,
         false,
-        TEXT_DIM,
+        theme.text_dim(),
     );
 }
 
@@ -199,7 +198,7 @@ impl Monitor {
 
     fn draw_graph(&mut self, display: &mut Display, rect: Rect, theme: &Theme, load: u32) {
         widgets::card(display, rect, theme);
-        display.text(rect.x + 16, rect.y + 13, "CPU load", 13, true, TEXT);
+        display.text(rect.x + 16, rect.y + 13, "CPU load", 13, true, theme.text());
         let value = format!("{}%", load / 10);
         display.text(
             rect.right() - 16 - widgets::text_width(&value, 15, true),
@@ -215,11 +214,17 @@ impl Monitor {
         }
         for step in 1..4 {
             let y = plot.y + plot.h * step / 4;
-            display.fill_rect(Rect::new(plot.x, y, plot.w, 1), argb(0x24, 0xffffff));
+            display.fill_rect(
+                Rect::new(plot.x, y, plot.w, 1),
+                if theme.is_light() { argb(0x22, 0x000000) } else { argb(0x24, 0xffffff) },
+            );
         }
         for step in 1..4 {
             let x = plot.x + plot.w * step / 4;
-            display.fill_rect(Rect::new(x, plot.y, 1, plot.h), argb(0x14, 0xffffff));
+            display.fill_rect(
+                Rect::new(x, plot.y, 1, plot.h),
+                if theme.is_light() { argb(0x14, 0x000000) } else { argb(0x14, 0xffffff) },
+            );
         }
 
         let count = self.samples.len();
@@ -263,7 +268,7 @@ impl Monitor {
         heap_ratio: f32,
     ) {
         widgets::card(display, rect, theme);
-        display.text(rect.x + 16, rect.y + 13, "Memory", 13, true, TEXT);
+        display.text(rect.x + 16, rect.y + 13, "Memory", 13, true, theme.text());
         let mut y = rect.y + 42;
         let physical_ratio = if stats.total_bytes == 0 {
             0.0
@@ -275,7 +280,7 @@ impl Monitor {
             ("Physical", physical_ratio, rgb(0x8b5cf6)),
         ];
         for (label, ratio, color) in rows {
-            display.text(rect.x + 16, y, label, 12, false, TEXT_MUTED);
+            display.text(rect.x + 16, y, label, 12, false, theme.text_muted());
             let value = format!("{:.0}%", ratio * 100.0);
             display.text(
                 rect.right() - 16 - widgets::text_width(&value, 12, true),
@@ -283,7 +288,7 @@ impl Monitor {
                 &value,
                 12,
                 true,
-                TEXT,
+                theme.text(),
             );
             widgets::progress(
                 display,
@@ -301,7 +306,7 @@ impl Monitor {
             rect.w - 32,
             11,
             false,
-            TEXT_MUTED,
+            theme.text_muted(),
         );
         display.text_ellipsized(
             rect.x + 16,
@@ -310,13 +315,13 @@ impl Monitor {
             rect.w - 32,
             10,
             false,
-            TEXT_DIM,
+            theme.text_dim(),
         );
     }
 
     fn draw_processes(&mut self, display: &mut Display, rect: Rect, theme: &Theme) {
         widgets::card(display, rect, theme);
-        display.text(rect.x + 14, rect.y + 12, "MOSIX processes", 12, true, TEXT);
+        display.text(rect.x + 14, rect.y + 12, "MOSIX processes", 12, true, theme.text());
         let count = crate::mosix::process_count();
         let label = format!("{count} total");
         display.text(
@@ -325,20 +330,20 @@ impl Monitor {
             &label,
             11,
             false,
-            TEXT_DIM,
+            theme.text_dim(),
         );
         if rect.h < 70 {
             return;
         }
         let header_y = rect.y + 36;
-        display.text(rect.x + 14, header_y, "PID", 10, true, TEXT_DIM);
-        display.text(rect.x + 56, header_y, "STATE", 10, true, TEXT_DIM);
-        display.text(rect.x + 132, header_y, "NAME", 10, true, TEXT_DIM);
-        display.text(rect.right() - 112, header_y, "NODE", 10, true, TEXT_DIM);
-        display.text(rect.right() - 62, header_y, "TICKS", 10, true, TEXT_DIM);
+        display.text(rect.x + 14, header_y, "PID", 10, true, theme.text_dim());
+        display.text(rect.x + 56, header_y, "STATE", 10, true, theme.text_dim());
+        display.text(rect.x + 132, header_y, "NAME", 10, true, theme.text_dim());
+        display.text(rect.right() - 112, header_y, "NODE", 10, true, theme.text_dim());
+        display.text(rect.right() - 62, header_y, "TICKS", 10, true, theme.text_dim());
         display.fill_rect(
             Rect::new(rect.x + 14, header_y + 16, rect.w - 28, 1),
-            BORDER_SOFT,
+            theme.line(),
         );
         let row_height = 24;
         let available = ((rect.bottom() - (header_y + 22)) / row_height).max(0) as usize;
@@ -347,7 +352,7 @@ impl Monitor {
             if index % 2 == 1 {
                 display.fill_rect(
                     Rect::new(rect.x + 10, y - 2, rect.w - 20, row_height - 2),
-                    argb(0x18, 0xffffff),
+                    if theme.is_light() { argb(0x10, 0x000000) } else { argb(0x18, 0xffffff) },
                 );
             }
             display.text(
@@ -360,11 +365,11 @@ impl Monitor {
             );
             let state_color = match process.state {
                 zirvstdlib::abi::ProcessState::Running => SUCCESS,
-                zirvstdlib::abi::ProcessState::Ready => TEXT,
-                zirvstdlib::abi::ProcessState::Sleeping => TEXT_DIM,
+                zirvstdlib::abi::ProcessState::Ready => theme.text(),
+                zirvstdlib::abi::ProcessState::Sleeping => theme.text_dim(),
                 zirvstdlib::abi::ProcessState::Blocked => WARNING,
                 zirvstdlib::abi::ProcessState::Migrating => theme.accent_alt,
-                _ => TEXT_FAINT,
+                _ => theme.text_dim(),
             };
             display.text(
                 rect.x + 56,
@@ -381,7 +386,7 @@ impl Monitor {
                 (rect.w - 132 - 120).max(40),
                 11,
                 false,
-                TEXT,
+                theme.text(),
             );
             display.text(
                 rect.right() - 112,
@@ -389,7 +394,7 @@ impl Monitor {
                 &format!("{}", process.current_node),
                 11,
                 false,
-                TEXT_MUTED,
+                theme.text_muted(),
             );
             display.text(
                 rect.right() - 62,
@@ -397,7 +402,7 @@ impl Monitor {
                 &format!("{}", process.cpu_ticks),
                 11,
                 false,
-                TEXT_MUTED,
+                theme.text_muted(),
             );
         }
     }
@@ -541,7 +546,7 @@ impl Files {
             display,
             Rect::new(up.x + 10, up.y + 10, 14, 14),
             Icon::Up,
-            TEXT_MUTED,
+            theme.text_muted(),
         );
         display.text_ellipsized(
             header.x + 76,
@@ -550,7 +555,7 @@ impl Files {
             (header.w - 220).max(40),
             15,
             true,
-            TEXT_STRONG,
+            theme.text(),
         );
         display.text(
             header.right() - widgets::text_width(&self.status, 11, false),
@@ -558,7 +563,7 @@ impl Files {
             &self.status,
             11,
             false,
-            TEXT_DIM,
+            theme.text_dim(),
         );
 
         // File list.
@@ -593,7 +598,7 @@ impl Files {
             let color = if entry.is_dir {
                 theme.accent
             } else {
-                TEXT_MUTED
+                theme.text_muted()
             };
             widgets::icon(display, icon_rect, icon, color);
             display.text_ellipsized(
@@ -603,7 +608,7 @@ impl Files {
                 row.w - 116,
                 14,
                 entry.is_dir,
-                TEXT,
+                theme.text(),
             );
             let detail = if entry.is_dir {
                 String::from("folder")
@@ -616,10 +621,10 @@ impl Files {
                 &detail,
                 10,
                 false,
-                TEXT_DIM,
+                theme.text_dim(),
             );
             if entry.is_dir {
-                widgets::row_chevron(display, row, TEXT_FAINT);
+                widgets::row_chevron(display, row, theme.text_dim());
             }
         }
         if self.entries.is_empty() {
@@ -629,12 +634,12 @@ impl Files {
                 "This folder is empty.",
                 12,
                 false,
-                TEXT_DIM,
+                theme.text_dim(),
             );
         }
         if self.entries.len() > visible {
             let track = Rect::new(list.right() - 7, list.y + 8, 3, list.h - 16);
-            display.fill_rounded(track, 2, argb(0x30, 0xffffff));
+            display.fill_rounded(track, 2, theme.line());
             let length =
                 ((track.h as f32) * visible as f32 / self.entries.len() as f32).max(18.0) as i32;
             let max_scroll = self.entries.len() - visible;
@@ -661,28 +666,28 @@ impl Files {
                 display,
                 Rect::new(inner.center().x - 22, inner.y + inner.h / 2 - 40, 44, 44),
                 Icon::Document,
-                TEXT_FAINT,
+                theme.text_dim(),
             );
             display.text_centered(
                 Rect::new(inner.x, inner.y + inner.h / 2 + 8, inner.w, 20),
                 "Select a file to preview",
                 12,
                 false,
-                TEXT_DIM,
+                theme.text_dim(),
             );
             return;
         };
         let Some(entry) = self.entries.get(index) else {
             return;
         };
-        display.text_ellipsized(inner.x, inner.y, &entry.name, inner.w, 16, true, TEXT);
+        display.text_ellipsized(inner.x, inner.y, &entry.name, inner.w, 16, true, theme.text());
         let meta = if entry.is_dir {
             String::from("Directory")
         } else {
             format!("{} · text", widgets::byte_size(entry.size))
         };
-        display.text(inner.x, inner.y + 24, &meta, 10, false, TEXT_DIM);
-        display.fill_rect(Rect::new(inner.x, inner.y + 42, inner.w, 1), BORDER_SOFT);
+        display.text(inner.x, inner.y + 24, &meta, 10, false, theme.text_dim());
+        display.fill_rect(Rect::new(inner.x, inner.y + 42, inner.w, 1), theme.line());
         let body = Rect::new(inner.x, inner.y + 52, inner.w, inner.h - 52);
         if entry.is_dir {
             let children = vfs::list(&entry.path);
@@ -704,7 +709,7 @@ impl Files {
                     display,
                     Rect::new(body.x, y + 1, 12, 12),
                     icon,
-                    if child.is_dir { theme.accent } else { TEXT_DIM },
+                    if child.is_dir { theme.accent } else { theme.text_dim() },
                 );
                 display.text_ellipsized(
                     body.x + 20,
@@ -713,7 +718,7 @@ impl Files {
                     body.w - 20,
                     12,
                     child.is_dir,
-                    TEXT,
+                    theme.text(),
                 );
                 y += 17;
             }
@@ -734,7 +739,7 @@ impl Files {
             for line in wrapped {
                 line_count += 1;
                 if y + line_height >= body.y && y < body.bottom() && drawn < max_lines + 2 {
-                    display.text_face(body.x, y + face.ascent, &line, face, TEXT_MUTED);
+                    display.text_face(body.x, y + face.ascent, &line, face, theme.text_muted());
                     drawn += 1;
                 }
                 y += line_height;
@@ -829,16 +834,6 @@ impl Files {
 
 #[derive(Clone, Copy)]
 enum Action {
-    Category(usize),
-    Wallpaper(u8),
-    Accent(usize),
-    StartColor(usize),
-    Seconds,
-    Animations,
-    Dock,
-    Grid,
-    LightMode,
-    DarkMode,
     AddPeer,
     Migrate(u32, u32),
 }
@@ -848,269 +843,646 @@ struct Hit {
     action: Action,
 }
 
+// ---------------------------------------------------------------------------
+// Settings
+// ---------------------------------------------------------------------------
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-enum Category {
+enum SettingsPage {
+    Home,
     System,
     Personalization,
     Devices,
     Network,
+    Privacy,
+    Update,
     About,
 }
 
+impl SettingsPage {
+    fn title(self) -> &'static str {
+        match self {
+            SettingsPage::Home => "Settings",
+            SettingsPage::System => "System",
+            SettingsPage::Personalization => "Personalization",
+            SettingsPage::Devices => "Devices",
+            SettingsPage::Network => "Network & Internet",
+            SettingsPage::Privacy => "Privacy",
+            SettingsPage::Update => "Update & Security",
+            SettingsPage::About => "About",
+        }
+    }
+
+    fn subtitle(self) -> &'static str {
+        match self {
+            SettingsPage::Home => "Zirvium 2.0 \u{00b7} one cluster, one display",
+            SettingsPage::System => "Display, sound and power",
+            SettingsPage::Personalization => "Colors, Start and wallpaper",
+            SettingsPage::Devices => "Hardware attached to this machine",
+            SettingsPage::Network => "Cluster links and diagnostics",
+            SettingsPage::Privacy => "Permissions and diagnostics",
+            SettingsPage::Update => "Version, build and recovery",
+            SettingsPage::About => "The design behind Zirvium",
+        }
+    }
+}
+
+#[derive(Clone, Copy)]
+enum SettingAction {
+    Page(SettingsPage),
+    ModeDark,
+    ModeLight,
+    Accent(usize),
+    Start(usize),
+    Wallpaper(usize),
+    Seconds,
+    Animations,
+    Grid,
+    Toggle(usize),
+    CheckUpdate,
+    Reset,
+}
+
+struct SettingHit {
+    rect: Rect,
+    action: SettingAction,
+}
+
 pub struct Settings {
-    hits: Vec<Hit>,
-    scroll: i32,
-    category: Category,
+    hits: Vec<SettingHit>,
+    page: SettingsPage,
+    toggles: [bool; 4],
+    update_checked: bool,
 }
 
 impl Settings {
     pub fn new() -> Self {
         Self {
             hits: Vec::new(),
-            scroll: 0,
-            category: Category::System,
+            page: SettingsPage::Home,
+            toggles: [true, false, true, true],
+            update_checked: false,
         }
     }
 
-    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme) {
         self.hits.clear();
-        if content.w < 400 {
+        if content.w < 430 || content.h < 260 {
             return;
         }
-        let sidebar = Rect::new(content.x, content.y, 200, content.h);
-        display.fill_rect(sidebar, argb(0x20, 0xffffff));
-        display.fill_rect(Rect::new(sidebar.right(), content.y, 1, content.h), BORDER);
-        let cats = [(Category::System, "System"), (Category::Personalization, "Personalization"), (Category::Devices, "Devices"), (Category::Network, "Network"), (Category::About, "About")];
-        for (i, (cat, name)) in cats.iter().enumerate() {
-            let r = Rect::new(sidebar.x + 8, sidebar.y + 40 + i as i32 * 32, sidebar.w - 16, 28);
-            if *cat == self.category {
-                display.fill_rect(r, theme.accent_soft(40));
-                display.fill_rect(Rect::new(r.x, r.y, 3, r.h), theme.accent);
-            }
-            display.text(r.x + 12, r.y + 7, name, 12, false, if *cat == self.category { TEXT_STRONG } else { TEXT });
-            self.hits.push(Hit { rect: r, action: Action::Category(i) });
-        }
-        // We'll handle category clicks differently
-        let inner = Rect::new(content.x + 216, content.y + 16, content.w - 232, content.h - 32);
-        if inner.w < 260 {
-            return;
-        }
-        let mut y = inner.y - self.scroll;
-        widgets::section_header(
-            display,
-            inner.x,
-            y,
-            "Settings",
-            "Make the desktop yours. Changes apply immediately.",
-            theme,
+        display.fill_rect(content, theme.surface());
+
+        // ---- Left navigation -------------------------------------------------
+        let sidebar_w = 196.min(content.w / 3);
+        let sidebar = Rect::new(content.x, content.y, sidebar_w, content.h);
+        display.fill_rect(sidebar, theme.card());
+        display.fill_rect(
+            Rect::new(sidebar.right() - 1, sidebar.y, 1, sidebar.h),
+            theme.line(),
         );
-        y += 62;
+        display.fill_rect(
+            Rect::new(sidebar.x + 16, sidebar.y + 14, 22, 22),
+            theme.accent,
+        );
+        display.text(sidebar.x + 16, sidebar.y + 18, "Z", 13, true, theme.on_color(theme.accent));
+        display.text(sidebar.x + 46, sidebar.y + 15, "Settings", 16, true, theme.text());
+        display.text(sidebar.x + 46, sidebar.y + 35, "Zirvium 2.0", 9, false, theme.text_dim());
 
-        // Wallpaper card.
-        let wall_card = Rect::new(inner.x, y, inner.w, 104);
-        widgets::card(display, wall_card, theme);
-        display.text(inner.x + 14, y + 12, "Wallpaper", 14, true, TEXT);
-        let option_width = (inner.w - 28 - 3 * 8) / 4;
-        for (index, name) in WALLPAPERS.iter().enumerate() {
-            let rect = Rect::new(
-                inner.x + 14 + index as i32 * (option_width + 8),
-                y + 32,
-                option_width,
-                58,
-            );
-            let selected = theme.wallpaper as usize == index;
-            let base = match index {
-                1 => rgb(0x0b2a30),
-                2 => rgb(0x171a21),
-                3 => rgb(0x2a1210),
-                _ => rgb(0x121a2c),
-            };
-            display.fill_rounded(rect, 7, base);
-            display.horizontal_gradient(
-                Rect::new(rect.x + 2, rect.y + 2, rect.w - 4, 30),
-                argb(0x50, theme.accent & 0x00ff_ffff),
-                argb(0x20, theme.accent_alt & 0x00ff_ffff),
-            );
-            display.stroke_rounded(
-                rect,
-                7,
-                if selected { 2 } else { 1 },
-                if selected { theme.accent } else { BORDER },
-            );
-            if selected {
-                display.fill_circle(Point::new(rect.right() - 11, rect.y + 11), 6, theme.accent);
-                widgets::icon(
-                    display,
-                    Rect::new(rect.right() - 15, rect.y + 7, 8, 8),
-                    Icon::Check,
-                    rgb(0x06101f),
-                );
+        let nav: [(SettingsPage, &str, widgets::Icon); 8] = [
+            (SettingsPage::Home, "Home", widgets::Icon::About),
+            (SettingsPage::System, "System", widgets::Icon::Monitor),
+            (SettingsPage::Personalization, "Personalization", widgets::Icon::Spark),
+            (SettingsPage::Devices, "Devices", widgets::Icon::Cpu),
+            (SettingsPage::Network, "Network & Internet", widgets::Icon::Nodes),
+            (SettingsPage::Privacy, "Privacy", widgets::Icon::Check),
+            (SettingsPage::Update, "Update & Security", widgets::Icon::Power),
+            (SettingsPage::About, "About", widgets::Icon::Logo),
+        ];
+        let mut ny = sidebar.y + 62;
+        for (page, label, icon) in nav {
+            let row = Rect::new(sidebar.x + 6, ny, sidebar.w - 12, 32);
+            if page == self.page {
+                display.fill_rect(row, theme.accent_soft(38));
+                display.fill_rect(Rect::new(row.x, row.y, 3, row.h), theme.accent);
             }
-            display.text_centered(
-                Rect::new(rect.x, rect.bottom() - 20, rect.w, 14),
-                name,
-                10,
-                selected,
-                if selected { TEXT } else { TEXT_MUTED },
+            widgets::icon(
+                display,
+                Rect::new(row.x + 12, row.y + 9, 14, 14),
+                icon,
+                if page == self.page { theme.accent } else { theme.text_dim() },
             );
-            self.hits.push(Hit {
-                rect,
-                action: Action::Wallpaper(index as u8),
-            });
-        }
-        y = wall_card.bottom() + 10;
-
-        // Accent card.
-        let accent_card = Rect::new(inner.x, y, inner.w, 76);
-        widgets::card(display, accent_card, theme);
-        display.text(inner.x + 14, y + 12, "Accent colour", 14, true, TEXT);
-        for (index, (value, name)) in ACCENTS.iter().enumerate() {
-            let center = Point::new(inner.x + 30 + index as i32 * 44, y + 46);
-            let color = rgb(*value);
-            let selected = (theme.accent & 0x00ff_ffff) == *value;
-            if selected {
-                display.fill_circle(center, 15, argb(0x50, *value));
-            }
-            display.fill_circle(center, 11, color);
-            if selected {
-                widgets::icon(
-                    display,
-                    Rect::new(center.x - 6, center.y - 6, 12, 12),
-                    Icon::Check,
-                    rgb(0x0a0c12),
-                );
-            }
             display.text(
-                center.x - widgets::text_width(name, 9, false) / 2,
-                y + 58,
-                name,
-                9,
-                false,
-                if selected { TEXT_MUTED } else { TEXT_FAINT },
+                row.x + 36,
+                row.y + 9,
+                label,
+                11,
+                page == self.page,
+                if page == self.page { theme.text() } else { theme.text_muted() },
             );
-            self.hits.push(Hit {
-                rect: Rect::new(center.x - 16, center.y - 16, 32, 32),
-                action: Action::Accent(index),
+            self.hits.push(SettingHit {
+                rect: row,
+                action: SettingAction::Page(page),
             });
+            ny += 34;
         }
-        y = accent_card.bottom() + 10;
 
-        // Behaviour rows.
-        let rows = [
-            (
-                "Show seconds in the clock",
-                theme.show_seconds,
-                Action::Seconds,
-            ),
-            (
-                "Animate window and dock changes",
-                theme.animations,
-                Action::Animations,
-            ),
-            (
-                "Magnify dock icons on hover",
-                theme.dock_magnification,
-                Action::Dock,
-            ),
-            (
-                "Show alignment grid on the desktop",
-                theme.show_grid,
-                Action::Grid,
-            ),
-        ];
-        let behaviour = Rect::new(inner.x, y, inner.w, 24 + rows.len() as i32 * 38);
-        widgets::card(display, behaviour, theme);
-        display.text(inner.x + 14, y + 12, "Behaviour", 14, true, TEXT);
-        for (index, (label, value, action)) in rows.iter().enumerate() {
-            let row_y = y + 32 + index as i32 * 38;
-            display.text(inner.x + 14, row_y + 8, label, 13, false, TEXT);
-            let toggle = Rect::new(inner.right() - 56, row_y + 3, 38, 21);
-            widgets::toggle(display, toggle, *value, theme);
-            self.hits.push(Hit {
-                rect: Rect::new(inner.x + 14, row_y, inner.w - 28, 30),
-                action: *action,
-            });
-        }
-        y = behaviour.bottom() + 10;
-
-        // Mode
-        let mode_card = Rect::new(inner.x, y, inner.w, 84);
-        widgets::card(display, mode_card, theme);
-        display.text(inner.x + 14, y + 12, "Color mode", 14, true, TEXT);
-        display.text(inner.x + 14, y + 34, "Light or dark appearance", 11, false, TEXT_MUTED);
-        let light = Rect::new(inner.x + 14, y + 56, 80, 26);
-        let dark = Rect::new(inner.x + 102, y + 56, 80, 26);
-        widgets::button(display, light, "Light", theme, widgets::ButtonStyle::Subtle, false, true);
-        widgets::button(display, dark, "Dark", theme, widgets::ButtonStyle::Subtle, false, true);
-        self.hits.push(Hit { rect: light, action: Action::LightMode });
-        self.hits.push(Hit { rect: dark, action: Action::DarkMode });
-        y = mode_card.bottom() + 10;
-
-        // Start screen color
-        let start_card = Rect::new(inner.x, y, inner.w, 90);
-        widgets::card(display, start_card, theme);
-        display.text(inner.x + 14, y + 12, "Start screen", 14, true, TEXT);
-        display.text(inner.x + 14, y + 34, "Accent color for Start", 11, false, TEXT_MUTED);
-        let start_colors = [(0x0078d7, 0), (0x464eb8, 1), (0x881798, 2), (0xc30052, 3), (0xe81123, 4), (0x107c10, 5)];
-        let mut sx = inner.x + 14;
-        for (c, idx) in start_colors {
-            let r = Rect::new(sx, y + 56, 24, 24);
-            display.fill_rect(r, rgb(c));
-            display.stroke_rounded(r, 0, 1, BORDER);
-            self.hits.push(Hit { rect: r, action: Action::StartColor(idx) });
-            sx += 32;
-        }
-        y = start_card.bottom() + 10;
-
-        // Display and system card.
-        let info = Rect::new(inner.x, y, inner.w, 132);
-        widgets::card(display, info, theme);
-        display.text(inner.x + 14, y + 12, "Display & system", 14, true, TEXT);
-        let width = crate::ui::WIDTH_HINT.load(core::sync::atomic::Ordering::Relaxed);
-        let height = crate::ui::HEIGHT_HINT.load(core::sync::atomic::Ordering::Relaxed);
-        let gpu = crate::drivers::pci::gpu();
-        let fields = [
-            ("Resolution", format!("{width} x {height}")),
-            ("Renderer", String::from("DisplayJet · CPU SIMD surface")),
-            ("GPU", gpu.name_str().to_string()),
-            (
-                "Cluster",
-                format!(
-                    "MOSIX · {} node(s) · {} process(es)",
-                    crate::mosix::node_count(),
-                    crate::mosix::process_count()
-                ),
-            ),
-        ];
-        for (index, (label, value)) in fields.iter().enumerate() {
-            let row_y = y + 36 + index as i32 * 23;
-            display.text(inner.x + 14, row_y, label, 11, false, TEXT_DIM);
-            display.text_ellipsized(inner.x + 110, row_y, value, inner.w - 124, 11, false, TEXT);
-        }
-        y = info.bottom() + 10;
-
+        display.fill_rect(
+            Rect::new(sidebar.x + 16, sidebar.bottom() - 40, sidebar.w - 32, 1),
+            theme.line(),
+        );
         display.text(
-            inner.x,
-            y,
-            "Zirvium 2.0 · Rust and x86-64 assembly · no C, no 32-bit code",
+            sidebar.x + 16,
+            sidebar.bottom() - 30,
+            concat!("v", env!("CARGO_PKG_VERSION")),
+            9,
+            false,
+            theme.text_dim(),
+        );
+
+        // ---- Page content ----------------------------------------------------
+        let body = Rect::new(
+            content.x + sidebar_w + 22,
+            content.y + 18,
+            content.w - sidebar_w - 44,
+            content.h - 36,
+        );
+        if body.w < 200 {
+            return;
+        }
+        display.text(body.x, body.y, self.page.title(), 24, true, theme.text());
+        display.text(body.x, body.y + 32, self.page.subtitle(), 10, false, theme.text_muted());
+        display.fill_rect(Rect::new(body.x, body.y + 50, body.w, 1), theme.line());
+        let page_area = Rect::new(body.x, body.y + 64, body.w, body.h - 64);
+        match self.page {
+            SettingsPage::Home => self.draw_home(display, page_area, theme),
+            SettingsPage::System => self.draw_system(display, page_area, theme),
+            SettingsPage::Personalization => self.draw_personalization(display, page_area, theme),
+            SettingsPage::Devices => self.draw_devices(display, page_area, theme),
+            SettingsPage::Network => self.draw_network(display, page_area, theme),
+            SettingsPage::Privacy => self.draw_privacy(display, page_area, theme),
+            SettingsPage::Update => self.draw_update(display, page_area, theme),
+            SettingsPage::About => self.draw_about(display, page_area, theme),
+        }
+    }
+
+    // -- Shared widgets --------------------------------------------------------
+
+    fn card(&self, display: &mut Display, rect: Rect, theme: &Theme) {
+        display.fill_rect(rect, theme.card());
+        display.stroke_rounded(rect, 0, 1, theme.line());
+    }
+
+    fn section(&self, display: &mut Display, x: i32, y: i32, text: &str, theme: &Theme) {
+        display.text(x, y, text, 12, true, theme.text());
+    }
+
+    fn toggle(&mut self, display: &mut Display, rect: Rect, on: bool, theme: &Theme) -> bool {
+        let w = 38;
+        let track = Rect::new(rect.right() - w, rect.y + (rect.h - 18) / 2, w, 18);
+        display.fill_rect(track, if on { theme.accent } else { theme.well() });
+        display.stroke_rounded(track, 0, 1, if on { theme.accent } else { theme.line() });
+        let knob = Rect::new(
+            if on { track.right() - 16 } else { track.x + 2 },
+            track.y + 2,
+            14,
+            14,
+        );
+        display.fill_rect(knob, if on { theme.on_color(theme.accent) } else { theme.text_dim() });
+        on
+    }
+
+    fn toggle_row(
+        &mut self,
+        display: &mut Display,
+        rect: Rect,
+        index: usize,
+        title: &str,
+        detail: &str,
+        theme: &Theme,
+    ) {
+        display.fill_rect(rect, theme.card());
+        display.stroke_rounded(rect, 0, 1, theme.line());
+        display.text(rect.x + 14, rect.y + 12, title, 11, true, theme.text());
+        display.text(rect.x + 14, rect.y + 30, detail, 9, false, theme.text_dim());
+        self.toggle(display, Rect::new(rect.right() - 60, rect.y, 50, rect.h), self.toggles[index], theme);
+        self.hits.push(SettingHit {
+            rect,
+            action: SettingAction::Toggle(index),
+        });
+    }
+
+    fn swatches(
+        &mut self,
+        display: &mut Display,
+        x: i32,
+        y: i32,
+        colors: &[u32],
+        selected: u32,
+        action_for: fn(usize) -> SettingAction,
+    ) {
+        let mut sx = x;
+        for (index, color) in colors.iter().enumerate() {
+            let r = Rect::new(sx, y, 30, 30);
+            display.fill_rect(r, rgb(*color));
+            display.stroke_rounded(
+                r,
+                0,
+                2,
+                if *color == (selected & 0x00ff_ffff) {
+                    rgb(0xffffff)
+                } else {
+                    argb(0x60, 0x000000)
+                },
+            );
+            self.hits.push(SettingHit {
+                rect: r,
+                action: action_for(index),
+            });
+            sx += 40;
+        }
+    }
+
+    // -- Pages -----------------------------------------------------------------
+
+    fn draw_home(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        // A short introduction that folds in the old About app.
+        let intro_h = 92;
+        let intro = Rect::new(area.x, area.y, area.w, intro_h);
+        self.card(display, intro, theme);
+        let mark = Rect::new(intro.x + 14, intro.y + 14, 64, 64);
+        display.fill_rect(mark, theme.accent);
+        widgets::icon(display, mark.inset(12), widgets::Icon::Logo, theme.on_color(theme.accent));
+        display.text(intro.x + 92, intro.y + 14, "Zirvium 2.0", 18, true, theme.text());
+        display.text(
+            intro.x + 92,
+            intro.y + 40,
+            "A 64-bit operating system written from scratch in Rust and x86-64 assembly.",
             10,
             false,
-            TEXT_FAINT,
+            theme.text_muted(),
         );
-        let total_height = (y + 20) - (inner.y - self.scroll);
-        let maximum = (total_height - inner.h).max(0);
-        self.scroll = self.scroll.min(maximum);
-        if total_height > inner.h {
-            let track = Rect::new(inner.right() - 3, inner.y, 3, inner.h);
-            display.fill_rounded(track, 2, argb(0x28, 0xffffff));
-            let length = ((inner.h as f32) * inner.h as f32 / total_height as f32).max(20.0) as i32;
-            let offset =
-                (((inner.h - length) as f32) * self.scroll as f32 / maximum.max(1) as f32) as i32;
-            display.fill_rounded(
-                Rect::new(track.x, track.y + offset, 3, length),
-                2,
-                theme.accent_soft(180),
+        display.text(
+            intro.x + 92,
+            intro.y + 58,
+            "One cluster, one display \u{00b7} no C, no libc, no 32-bit stage.",
+            9,
+            false,
+            theme.text_dim(),
+        );
+        let about_button = Rect::new(intro.right() - 92, intro.y + 34, 78, 26);
+        display.fill_rect(about_button, theme.accent);
+        display.text_centered(about_button, "About", 10, false, theme.on_color(theme.accent));
+        self.hits.push(SettingHit {
+            rect: about_button,
+            action: SettingAction::Page(SettingsPage::About),
+        });
+
+        // Tiles.
+        let tiles: [(SettingsPage, &str, &str); 6] = [
+            (SettingsPage::System, "System", "Display and power"),
+            (SettingsPage::Personalization, "Personalization", "Colors and Start"),
+            (SettingsPage::Devices, "Devices", "Hardware"),
+            (SettingsPage::Network, "Network", "Cluster links"),
+            (SettingsPage::Privacy, "Privacy", "Permissions"),
+            (SettingsPage::Update, "Update", "Version and build"),
+        ];
+        let top = intro.bottom() + 14;
+        let gap = 10;
+        let tile_w = (area.w - gap) / 2;
+        let tile_h = ((area.bottom() - top - gap * 2) / 3).max(52);
+        for (index, (page, title, detail)) in tiles.into_iter().enumerate() {
+            let col = (index % 2) as i32;
+            let row = (index / 2) as i32;
+            let r = Rect::new(area.x + col * (tile_w + gap), top + row * (tile_h + gap), tile_w, tile_h);
+            self.card(display, r, theme);
+            display.fill_rect(Rect::new(r.x, r.y, 3, r.h), theme.accent_soft(160));
+            display.text(r.x + 16, r.y + 12, title, 13, true, theme.text());
+            display.text(r.x + 16, r.y + 34, detail, 9, false, theme.text_dim());
+            self.hits.push(SettingHit {
+                rect: r,
+                action: SettingAction::Page(page),
+            });
+        }
+    }
+
+    fn draw_system(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        let row_h = 54;
+        let mut y = area.y;
+
+        self.section(display, area.x, y, "Display", theme);
+        y += 22;
+        let wallpaper = Rect::new(area.x, y, area.w, 78);
+        self.card(display, wallpaper, theme);
+        display.text(wallpaper.x + 14, wallpaper.y + 14, "Wallpaper", 11, true, theme.text());
+        display.text(wallpaper.x + 14, wallpaper.y + 34, "Choose a desktop backdrop", 9, false, theme.text_dim());
+        let names = ["Nebula", "Aurora", "Graphite", "Ember"];
+        let mut bx = wallpaper.x + 14;
+        for (index, name) in names.iter().enumerate() {
+            let b = Rect::new(bx, wallpaper.y + 50, 66, 20);
+            display.fill_rect(b, if theme.wallpaper as usize == index { theme.accent } else { theme.well() });
+            display.stroke_rounded(b, 0, 1, theme.line());
+            display.text_centered(
+                b,
+                name,
+                8,
+                false,
+                if theme.wallpaper as usize == index { theme.on_color(theme.accent) } else { theme.text_muted() },
             );
+            self.hits.push(SettingHit {
+                rect: b,
+                action: SettingAction::Wallpaper(index),
+            });
+            bx += 72;
+        }
+        y = wallpaper.bottom() + 14;
+
+        self.section(display, area.x, y, "Taskbar & effects", theme);
+        y += 22;
+        let labels = [
+            ("Show seconds in the clock", "Precise time in the taskbar"),
+            ("Animate window and dock changes", "Smooth transitions"),
+            ("Show the desktop grid", "Faint alignment grid"),
+        ];
+        let actions = [SettingAction::Seconds, SettingAction::Animations, SettingAction::Grid];
+        for (index, (title, detail)) in labels.iter().enumerate() {
+            let r = Rect::new(area.x, y, area.w, row_h);
+            display.fill_rect(r, theme.card());
+            display.stroke_rounded(r, 0, 1, theme.line());
+            display.text(r.x + 14, r.y + 12, title, 11, true, theme.text());
+            display.text(r.x + 14, r.y + 30, detail, 9, false, theme.text_dim());
+            let state = match actions[index] {
+                SettingAction::Seconds => theme.show_seconds,
+                SettingAction::Animations => theme.animations,
+                SettingAction::Grid => theme.show_grid,
+                _ => false,
+            };
+            self.toggle(display, Rect::new(r.right() - 60, r.y, 50, r.h), state, theme);
+            self.hits.push(SettingHit { rect: r, action: actions[index] });
+            y += row_h + 8;
+        }
+
+        if y + 48 <= area.bottom() {
+            let reset = Rect::new(area.x, y + 4, 140, 30);
+            display.fill_rect(reset, theme.well());
+            display.stroke_rounded(reset, 0, 1, theme.line());
+            display.text_centered(reset, "Reset all settings", 10, false, theme.text_muted());
+            self.hits.push(SettingHit { rect: reset, action: SettingAction::Reset });
+        }
+    }
+
+    fn draw_personalization(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        let mut y = area.y;
+        self.section(display, area.x, y, "Color mode", theme);
+        y += 22;
+        let modes = Rect::new(area.x, y, area.w, 62);
+        self.card(display, modes, theme);
+        display.text(modes.x + 14, modes.y + 12, "Choose your mode", 11, true, theme.text());
+        display.text(modes.x + 14, modes.y + 30, "Light is easier in bright rooms", 9, false, theme.text_dim());
+        let light = Rect::new(modes.right() - 176, modes.y + 18, 76, 26);
+        let dark = Rect::new(modes.right() - 92, modes.y + 18, 76, 26);
+        for (rect, label, selected) in [
+            (light, "Light", theme.is_light()),
+            (dark, "Dark", !theme.is_light()),
+        ] {
+            display.fill_rect(rect, if selected { theme.accent } else { theme.well() });
+            display.stroke_rounded(rect, 0, 1, if selected { theme.accent } else { theme.line() });
+            display.text_centered(rect, label, 10, selected, if selected { theme.on_color(theme.accent) } else { theme.text_muted() });
+        }
+        self.hits.push(SettingHit { rect: light, action: SettingAction::ModeLight });
+        self.hits.push(SettingHit { rect: dark, action: SettingAction::ModeDark });
+        y = modes.bottom() + 14;
+
+        self.section(display, area.x, y, "Accent color", theme);
+        y += 22;
+        let accent_card = Rect::new(area.x, y, area.w, 62);
+        self.card(display, accent_card, theme);
+        display.text(accent_card.x + 14, accent_card.y + 12, "Used for focus, selection and highlights", 9, false, theme.text_dim());
+        self.swatches(
+            display,
+            accent_card.x + 14,
+            accent_card.y + 26,
+            &[0x00aaff, 0x9b7bff, 0x35e0a1, 0xfb7185, 0xffc24d, 0xff8c00],
+            theme.accent,
+            SettingAction::Accent,
+        );
+        y = accent_card.bottom() + 14;
+
+        self.section(display, area.x, y, "Start screen", theme);
+        y += 22;
+        let start_card = Rect::new(area.x, y, area.w, 62);
+        self.card(display, start_card, theme);
+        display.text(start_card.x + 14, start_card.y + 12, "Background color of the Start screen", 9, false, theme.text_dim());
+        self.swatches(
+            display,
+            start_card.x + 14,
+            start_card.y + 26,
+            &[0x0078d7, 0x464eb8, 0x881798, 0xc30052, 0x107c10, 0x005a9e],
+            theme.start_color,
+            SettingAction::Start,
+        );
+    }
+
+    fn draw_devices(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        let rows = [
+            ("Processor", "x86-64 CPU \u{00b7} UEFI boot", "Ready"),
+            ("Graphics", "DisplayJet \u{00b7} GPU accelerated", "Active"),
+            ("Memory", "Unified system memory", "Managed"),
+            ("Storage", "In-memory virtual filesystem", "Mounted"),
+            ("Input", "PS/2 keyboard and pointer", "Connected"),
+        ];
+        let mut y = area.y;
+        self.section(display, area.x, y, "This PC", theme);
+        y += 22;
+        for (name, detail, state) in rows {
+            let r = Rect::new(area.x, y, area.w, 50);
+            self.card(display, r, theme);
+            widgets::icon(
+                display,
+                Rect::new(r.x + 14, r.y + 15, 18, 18),
+                widgets::Icon::Cpu,
+                theme.accent,
+            );
+            display.text(r.x + 44, r.y + 12, name, 11, true, theme.text());
+            display.text(r.x + 44, r.y + 30, detail, 9, false, theme.text_dim());
+            let pill_rect = Rect::new(r.right() - 92, r.y + 16, 78, 18);
+            display.fill_rect(pill_rect, theme.accent_soft(36));
+            display.text_centered(pill_rect, state, 8, true, theme.accent);
+            y += 58;
+        }
+    }
+
+    fn draw_network(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        let mut y = area.y;
+        self.section(display, area.x, y, "Cluster", theme);
+        y += 22;
+        let nodes = crate::mosix::node_count();
+        let processes = crate::mosix::process_count();
+        let migrations = crate::mosix::migrations();
+        let summary = Rect::new(area.x, y, area.w, 74);
+        self.card(display, summary, theme);
+        display.text(summary.x + 14, summary.y + 14, "MOSIX fabric", 12, true, theme.text());
+        display.text(
+            summary.x + 14,
+            summary.y + 34,
+            &alloc::format!(
+                "{} node(s) \u{00b7} {} process(es) \u{00b7} {} migration(s)",
+                nodes, processes, migrations
+            ),
+            9,
+            false,
+            theme.text_muted(),
+        );
+        display.text(
+            summary.x + 14,
+            summary.y + 52,
+            "A cluster is one pool of resources. Processes migrate, not their identity.",
+            9,
+            false,
+            theme.text_dim(),
+        );
+        y = summary.bottom() + 14;
+
+        self.section(display, area.x, y, "Interfaces", theme);
+        y += 22;
+        let rows = [
+            ("Local node", "Scheduler and process host", "Online"),
+            ("Peer link", if nodes > 1 { "Demo peer connected" } else { "No peer connected" }, if nodes > 1 { "Linked" } else { "Idle" }),
+            ("Loopback", "127.0.0.1 \u{00b7} internal services", "Up"),
+            ("MOSIX syscall gate", "int 0x80 \u{00b7} operational", "Up"),
+        ];
+        for (name, detail, state) in rows {
+            let r = Rect::new(area.x, y, area.w, 48);
+            self.card(display, r, theme);
+            display.fill_rect(Rect::new(r.x + 14, r.y + 18, 8, 8), if state == "Up" || state == "Online" || state == "Linked" { rgb(0x4ade9c) } else { theme.text_dim() });
+            display.text(r.x + 34, r.y + 10, name, 11, true, theme.text());
+            display.text(r.x + 34, r.y + 28, detail, 9, false, theme.text_dim());
+            display.text(r.right() - 14 - widgets::text_width(state, 9, false), r.y + 17, state, 9, false, theme.text_muted());
+            y += 54;
+        }
+    }
+
+    fn draw_privacy(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        let mut y = area.y;
+        self.section(display, area.x, y, "Permissions", theme);
+        y += 22;
+        let rows = [
+            ("Diagnostics", "Share anonymous crash and performance data"),
+            ("Usage history", "Remember recently opened applications"),
+            ("Notifications", "Allow apps to show desktop toasts"),
+            ("Network discovery", "Let peers find this node automatically"),
+        ];
+        for (index, (title, detail)) in rows.iter().enumerate() {
+            let r = Rect::new(area.x, y, area.w, 50);
+            self.toggle_row(display, r, index, title, detail, theme);
+            y += 58;
+        }
+        display.text(
+            area.x,
+            y + 6,
+            "Zirvium never sends data off this machine. These switches only change local behavior.",
+            9,
+            false,
+            theme.text_dim(),
+        );
+    }
+
+    fn draw_update(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        let mut y = area.y;
+        self.section(display, area.x, y, "Build", theme);
+        y += 22;
+        let build = Rect::new(area.x, y, area.w, 78);
+        self.card(display, build, theme);
+        display.text(build.x + 14, build.y + 14, "Zirvium 2.0", 13, true, theme.text());
+        display.text(
+            build.x + 14,
+            build.y + 36,
+            &alloc::format!(
+                "ABI {} \u{00b7} zirvstdlib {} \u{00b7} x86_64-unknown-uefi",
+                zirvstdlib::abi::ABI_VERSION,
+                zirvstdlib::VERSION
+            ),
+            9,
+            false,
+            theme.text_muted(),
+        );
+        display.text(
+            build.x + 14,
+            build.y + 54,
+            "Rust and x86-64 assembly \u{00b7} GPL-3.0-or-later",
+            9,
+            false,
+            theme.text_dim(),
+        );
+        y = build.bottom() + 14;
+
+        let status = if self.update_checked {
+            "You are running the latest build available on this machine."
+        } else {
+            "Check for a newer build of Zirvium."
+        };
+        let update = Rect::new(area.x, y, area.w, 76);
+        self.card(display, update, theme);
+        display.text(update.x + 14, update.y + 14, "Updates", 12, true, theme.text());
+        display.text_ellipsized(update.x + 14, update.y + 34, status, update.w - 150, 9, false, theme.text_muted());
+        let button = Rect::new(update.right() - 128, update.y + 24, 114, 28);
+        display.fill_rect(button, if self.update_checked { theme.well() } else { theme.accent });
+        display.stroke_rounded(button, 0, 1, theme.line());
+        display.text_centered(
+            button,
+            if self.update_checked { "Checked" } else { "Check now" },
+            9,
+            false,
+            if self.update_checked { theme.text_muted() } else { theme.on_color(theme.accent) },
+        );
+        self.hits.push(SettingHit { rect: button, action: SettingAction::CheckUpdate });
+        y = update.bottom() + 14;
+
+        self.section(display, area.x, y, "Recovery", theme);
+        y += 22;
+        let recovery = Rect::new(area.x, y, area.w, 58);
+        self.card(display, recovery, theme);
+        display.text(recovery.x + 14, recovery.y + 12, "Reset and restart", 11, true, theme.text());
+        display.text(recovery.x + 14, recovery.y + 30, "Restore the default theme and desktop state.", 9, false, theme.text_dim());
+        let reset = Rect::new(recovery.right() - 92, recovery.y + 15, 78, 26);
+        display.fill_rect(reset, theme.well());
+        display.stroke_rounded(reset, 0, 1, theme.line());
+        display.text_centered(reset, "Reset", 9, false, theme.text_muted());
+        self.hits.push(SettingHit { rect: reset, action: SettingAction::Reset });
+    }
+
+    fn draw_about(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
+        let mark = Rect::new(area.x, area.y, 72, 72);
+        display.fill_rect(mark, theme.accent);
+        widgets::icon(display, mark.inset(14), widgets::Icon::Logo, theme.on_color(theme.accent));
+        display.text(area.x + 90, area.y + 4, "Zirvium 2.0", 24, true, theme.text());
+        display.text(area.x + 90, area.y + 34, "one cluster, one display", 11, false, theme.accent);
+        display.text(
+            area.x + 90,
+            area.y + 52,
+            "A 64-bit operating system written from scratch.",
+            9,
+            false,
+            theme.text_muted(),
+        );
+
+        let mut y = area.y + 90;
+        let ideas = [
+            ("MOSIX", "The cluster is one computer. Processes keep a home node and a current node, and migrate without changing identity."),
+            ("DisplayJet", "The display is an engine: a damage-tracked ARGB surface, anti-aliased text and shapes, a hardware cursor, and a narrow GPU boundary."),
+            ("Rust and assembly", "Every component is Rust or x86-64 assembly. There is no C, no libc and no 32-bit stage anywhere in the tree."),
+        ];
+        for (title, body) in ideas {
+            display.text(area.x, y, title, 12, true, theme.text());
+            let lines = widgets::wrap(crate::displayjet::font::face(9, false), body, area.w);
+            for (index, line) in lines.iter().take(2).enumerate() {
+                display.text(area.x, y + 20 + index as i32 * 13, line, 9, false, theme.text_muted());
+            }
+            y += 54;
+        }
+
+        if area.bottom() - y > 40 {
+            display.fill_rect(Rect::new(area.x, area.bottom() - 32, area.w, 1), theme.line());
+            display.text(area.x, area.bottom() - 24, "GPL-3.0-or-later \u{00b7} github.com/gauthamnair2005/zirvium", 8, false, theme.text_dim());
         }
     }
 
@@ -1120,190 +1492,82 @@ impl Settings {
                 continue;
             }
             match hit.action {
-                Action::Wallpaper(style) => {
-                    if theme.wallpaper != style {
-                        theme.wallpaper = style;
-                        return Response::THEME;
-                    }
+                SettingAction::Page(p) => {
+                    self.page = p;
+                    return Response::REDRAW;
                 }
-                Action::Accent(index) => {
-                    if let Some((value, _)) = ACCENTS.get(index) {
-                        let color = rgb(*value);
-                        if theme.accent != color {
-                            theme.accent = color;
-                            theme.accent_alt = rgb(ACCENTS[(index + 1) % ACCENTS.len()].0);
-                            return Response::THEME;
-                        }
-                    }
-                }
-                Action::Seconds => {
-                    theme.show_seconds = !theme.show_seconds;
-                    return Response::THEME;
-                }
-                Action::Animations => {
-                    theme.animations = !theme.animations;
-                    return Response::THEME;
-                }
-                Action::Dock => {
-                    theme.dock_magnification = !theme.dock_magnification;
-                    return Response::THEME;
-                }
-                Action::Grid => {
-                    theme.show_grid = !theme.show_grid;
-                    return Response::THEME;
-                }
-                Action::LightMode => {
-                    theme.mode = crate::ui::theme::ColorMode::Light;
-                    return Response::THEME;
-                }
-                Action::DarkMode => {
+                SettingAction::ModeDark => {
                     theme.mode = crate::ui::theme::ColorMode::Dark;
                     return Response::THEME;
                 }
-                Action::StartColor(idx) => {
-                    let colors = [0x0078d7, 0x464eb8, 0x881798, 0xc30052, 0xe81123, 0x107c10];
-                    if idx < colors.len() {
-                        theme.start_color = rgb(colors[idx]);
+                SettingAction::ModeLight => {
+                    theme.mode = crate::ui::theme::ColorMode::Light;
+                    return Response::THEME;
+                }
+                SettingAction::Accent(i) => {
+                    let colors = [0x00aaff, 0x9b7bff, 0x35e0a1, 0xfb7185, 0xffc24d, 0xff8c00];
+                    if let Some(color) = colors.get(i) {
+                        theme.accent = rgb(*color);
+                        theme.accent_alt = rgb(*color);
                     }
                     return Response::THEME;
                 }
-                Action::Category(idx) => {
-                    self.category = match idx {
-                        0 => Category::System,
-                        1 => Category::Personalization,
-                        2 => Category::Devices,
-                        3 => Category::Network,
-                        4 => Category::About,
-                        _ => Category::System,
-                    };
+                SettingAction::Start(i) => {
+                    let colors = [0x0078d7, 0x464eb8, 0x881798, 0xc30052, 0x107c10, 0x005a9e];
+                    if let Some(color) = colors.get(i) {
+                        theme.start_color = rgb(*color);
+                    }
+                    return Response::THEME;
+                }
+                SettingAction::Wallpaper(i) => {
+                    theme.wallpaper = i as u8;
+                    return Response::THEME;
+                }
+                SettingAction::Seconds => {
+                    theme.show_seconds = !theme.show_seconds;
+                    return Response::THEME;
+                }
+                SettingAction::Animations => {
+                    theme.animations = !theme.animations;
+                    return Response::THEME;
+                }
+                SettingAction::Grid => {
+                    theme.show_grid = !theme.show_grid;
+                    return Response::THEME;
+                }
+                SettingAction::Toggle(index) => {
+                    if index < self.toggles.len() {
+                        self.toggles[index] = !self.toggles[index];
+                    }
                     return Response::REDRAW;
                 }
-                _ => {}
+                SettingAction::CheckUpdate => {
+                    self.update_checked = true;
+                    return Response::REDRAW;
+                }
+                SettingAction::Reset => {
+                    *theme = crate::ui::theme::Theme::default();
+                    self.toggles = [true, false, true, true];
+                    self.update_checked = false;
+                    return Response::THEME;
+                }
             }
-            return Response::REDRAW;
         }
         Response::NONE
     }
 
+    pub fn key(&mut self, _code: u32, _mods: u16) -> bool {
+        false
+    }
+
     pub fn scroll(&mut self, _point: Point, _content: Rect, amount: i32) {
-        self.scroll = (self.scroll - amount * 24).max(0);
+        let _ = amount;
+    }
+
+    pub fn tick(&mut self) -> bool {
+        false
     }
 }
-
-// ---------------------------------------------------------------------------
-// About
-// ---------------------------------------------------------------------------
-
-pub struct About;
-
-impl About {
-    pub fn new() -> Self {
-        Self
-    }
-
-    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
-        let inner = content.inset(22);
-        if inner.w < 320 || inner.h < 240 {
-            return;
-        }
-        let mark = Rect::new(inner.x, inner.y, 84, 84);
-        display.radial_glow(mark.center(), 110, theme.accent_soft(255), 0.30);
-        display.fill_rounded_vertical(mark, 20, theme.accent_soft(64), theme.accent_alt_soft(24));
-        display.stroke_rounded(mark, 20, 1, theme.accent_soft(170));
-        widgets::icon(display, mark.inset(19), Icon::Logo, theme.accent);
-        display.text(inner.x + 102, inner.y, "Zirvium 2.0", 28, true, TEXT_STRONG);
-        display.text(
-            inner.x + 104,
-            inner.y + 40,
-            "one cluster, one display",
-            14,
-            false,
-            theme.accent,
-        );
-        display.text(
-            inner.x + 104,
-            inner.y + 62,
-            "A 64-bit operating system written from scratch.",
-            11,
-            false,
-            TEXT_MUTED,
-        );
-        let mut y = inner.y + 104;
-        display.horizontal_gradient(
-            Rect::new(inner.x, y, inner.w, 1),
-            theme.accent_soft(120),
-            argb(0x20, 0xffffff),
-        );
-        y += 16;
-        let ideas = [
-            (
-                Icon::Nodes,
-                "MOSIX",
-                "The cluster is one computer. Processes keep a home node and a current node, and migrate without changing identity.",
-                rgb(0x8b5cf6),
-            ),
-            (
-                Icon::Gpu,
-                "DisplayJet",
-                "The display is an engine: a damage-tracked ARGB surface, anti-aliased text and shapes, a hardware cursor, and a narrow GPU boundary.",
-                theme.accent,
-            ),
-            (
-                Icon::Cpu,
-                "Rust and assembly",
-                "Every component is Rust or x86-64 assembly. There is no C, no libc and no 32-bit stage anywhere in the tree.",
-                SUCCESS,
-            ),
-        ];
-        for (icon, title, body, color) in ideas {
-            let badge = Rect::new(inner.x, y, 32, 32);
-            display.fill_rounded(badge, 9, argb(0x30, color & 0x00ff_ffff));
-            display.stroke_rounded(badge, 9, 1, argb(0x38, color & 0x00ff_ffff));
-            widgets::icon(display, badge.inset(7), icon, color);
-            display.text(inner.x + 44, y - 1, title, 14, true, TEXT);
-            let lines = widgets::wrap(crate::displayjet::font::face(12, false), body, inner.w - 44);
-            for (index, line) in lines.iter().take(2).enumerate() {
-                display.text(
-                    inner.x + 44,
-                    y + 19 + index as i32 * 16,
-                    line,
-                    12,
-                    false,
-                    TEXT_MUTED,
-                );
-            }
-            y += 60;
-        }
-        let footer = Rect::new(inner.x, inner.bottom() - 54, inner.w, 44);
-        if footer.y > y {
-            display.fill_rect(Rect::new(inner.x, footer.y - 10, inner.w, 1), BORDER_SOFT);
-            display.text(
-                inner.x,
-                footer.y,
-                "GPL-3.0-or-later · github.com/gauthamnair2005/zirvium",
-                10,
-                false,
-                TEXT_DIM,
-            );
-            display.text(
-                inner.x,
-                footer.y + 16,
-                &format!(
-                    "ABI {} · zirvstdlib {} · built with Rust for x86_64-unknown-uefi",
-                    zirvstdlib::abi::ABI_VERSION,
-                    zirvstdlib::VERSION
-                ),
-                10,
-                false,
-                TEXT_FAINT,
-            );
-        }
-    }
-}
-
-// ---------------------------------------------------------------------------
-// MOSIX nodes
-// ---------------------------------------------------------------------------
 
 pub struct Nodes {
     hits: Vec<Hit>,
@@ -1370,7 +1634,7 @@ impl Nodes {
                 NodeState::Busy => WARNING,
                 NodeState::Booting => theme.accent,
                 NodeState::Draining => rgb(0xf5a742),
-                NodeState::Offline => TEXT_DIM,
+                NodeState::Offline => theme.text_dim(),
             };
             display.fill_rounded(
                 Rect::new(rect.x + 14, rect.y + 14, 30, 30),
@@ -1383,7 +1647,7 @@ impl Nodes {
                 Icon::Nodes,
                 color,
             );
-            display.text(rect.x + 52, rect.y + 14, node.name_str(), 14, true, TEXT);
+            display.text(rect.x + 52, rect.y + 14, node.name_str(), 14, true, theme.text());
             widgets::pill(
                 display,
                 Point::new(rect.right() - 46, rect.y + 28),
@@ -1400,9 +1664,9 @@ impl Nodes {
                 ),
                 11,
                 false,
-                TEXT_MUTED,
+                theme.text_muted(),
             );
-            display.text(rect.x + 14, rect.y + 72, "load", 10, false, TEXT_DIM);
+            display.text(rect.x + 14, rect.y + 72, "load", 10, false, theme.text_dim());
             widgets::progress(
                 display,
                 Rect::new(rect.x + 46, rect.y + 78, rect.w - 60, 6),
@@ -1416,7 +1680,7 @@ impl Nodes {
                 &load,
                 10,
                 true,
-                TEXT,
+                theme.text(),
             );
             display.text(
                 rect.x + 14,
@@ -1428,7 +1692,7 @@ impl Nodes {
                 },
                 10,
                 false,
-                TEXT_FAINT,
+                theme.text_dim(),
             );
         }
         y += 122;
@@ -1442,7 +1706,7 @@ impl Nodes {
             "Migration changes current_node. home_node always records where the process was created.",
             11,
             false,
-            TEXT_MUTED,
+            theme.text_muted(),
         );
         display.text(
             inner.x + 14,
@@ -1455,7 +1719,7 @@ impl Nodes {
             ),
             10,
             false,
-            TEXT_DIM,
+            theme.text_dim(),
         );
         y += 66;
 
@@ -1465,7 +1729,7 @@ impl Nodes {
             return;
         }
         widgets::card(display, table, theme);
-        display.text(inner.x + 14, y + 11, "Processes", 12, true, TEXT);
+        display.text(inner.x + 14, y + 11, "Processes", 12, true, theme.text());
         let peer = nodes.iter().find(|node| node.id != 0).map(|node| node.id);
         let label = match peer {
             Some(id) => format!("migrate to node {id}"),
@@ -1477,22 +1741,22 @@ impl Nodes {
             &label,
             10,
             false,
-            TEXT_DIM,
+            theme.text_dim(),
         );
         let header_y = y + 34;
-        display.text(inner.x + 14, header_y, "PID", 10, true, TEXT_DIM);
-        display.text(inner.x + 56, header_y, "PROCESS", 10, true, TEXT_DIM);
+        display.text(inner.x + 14, header_y, "PID", 10, true, theme.text_dim());
+        display.text(inner.x + 56, header_y, "PROCESS", 10, true, theme.text_dim());
         display.text(
             inner.x + 250,
             header_y,
             "HOME → CURRENT",
             10,
             true,
-            TEXT_DIM,
+            theme.text_dim(),
         );
         display.fill_rect(
             Rect::new(inner.x + 14, header_y + 15, table.w - 28, 1),
-            BORDER_SOFT,
+            theme.line(),
         );
         let processes = crate::mosix::processes();
         let row_height = 28;
@@ -1502,7 +1766,7 @@ impl Nodes {
             if index % 2 == 1 {
                 display.fill_rect(
                     Rect::new(table.x + 10, row_y - 2, table.w - 20, row_height - 2),
-                    argb(0x14, 0xffffff),
+                    if theme.is_light() { argb(0x10, 0x000000) } else { argb(0x14, 0xffffff) },
                 );
             }
             display.text(
@@ -1520,7 +1784,7 @@ impl Nodes {
                 180,
                 11,
                 false,
-                TEXT,
+                theme.text(),
             );
             display.text(
                 inner.x + 250,
@@ -1531,7 +1795,7 @@ impl Nodes {
                 if process.current_node != process.home_node {
                     theme.accent_alt
                 } else {
-                    TEXT_MUTED
+                    theme.text_muted()
                 },
             );
             let target = if process.current_node == 0 {
@@ -1581,143 +1845,442 @@ impl Nodes {
                     crate::mosix::migrate(pid, target);
                     return Response::REDRAW;
                 }
-                _ => {}
             }
         }
         Response::NONE
     }
 }
 
-/// Tick sample for apps that need it.
-pub fn monitor_tick(monitor: &mut Monitor) -> bool {
-    monitor.tick()
-}
 
-/// A small helper used by the monitor and terminal.
-pub fn percentage(value: f32) -> i32 {
-    math::round(value * 100.0) as i32
-}
 
 // ---------------------------------------------------------------------------
 // Calculator
 // ---------------------------------------------------------------------------
 
-#[derive(Clone)]
+#[derive(Clone, Copy)]
+enum CalcKey {
+    Digit(char),
+    Dot,
+    Op(char),
+    Equals,
+    Clear,
+    Back,
+    Percent,
+    Negate,
+}
+
 pub struct Calculator {
-    buffer: String,
+    entry: String,
+    accumulator: f64,
+    op: Option<char>,
+    fresh: bool,
+    hits: Vec<(Rect, CalcKey)>,
 }
 
 impl Calculator {
     pub fn new() -> Self {
-        Self { buffer: String::from("0") }
-    }
-
-    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
-        let inner = content.inset(12);
-        widgets::card(display, inner, theme);
-        let screen = Rect::new(inner.x + 10, inner.y + 10, inner.w - 20, 48);
-        display.fill_rounded(screen, 8, argb(0x16, 0x0a0d14));
-        display.stroke_rounded(screen, 8, 1, BORDER);
-        display.text_ellipsized(screen.x + 10, screen.y + 14, &self.buffer, screen.w - 20, 22, true, TEXT_STRONG);
-        let keys = [["C","±","%","÷"],["7","8","9","×"],["4","5","6","-"],["1","2","3","+"],["0",".","=", " "]];
-        let mut y = screen.bottom() + 10;
-        for row in &keys {
-            let mut x = inner.x + 10;
-            let w = (inner.w - 20 - 2 * 8) / 4;
-            let mut i = 0;
-            while i < row.len() && row[i] != " " {
-                let k = row[i];
-                let kw = if k == "0" { w * 2 + 8 } else { w };
-                let rect = Rect::new(x, y, kw, 36);
-                let bg = if matches!(k, "+"|"-"|"×"|"÷"|"=") { theme.accent } else if matches!(k, "C"|"±"|"%" ) { argb(0x34, 0xffffff) } else { argb(0x22, 0xffffff) };
-                let fg = if matches!(k, "+"|"-"|"×"|"÷"|"=") { rgb(0x0a0c12) } else { TEXT };
-                display.fill_rounded(rect, 8, bg);
-                display.stroke_rounded(rect, 8, 1, BORDER_SOFT);
-                display.text_centered(rect, k, 14, true, fg);
-                x += kw + 8;
-                i += 1;
-                if k == "0" { break; }
-            }
-            y += 44;
+        Self {
+            entry: String::from("0"),
+            accumulator: 0.0,
+            op: None,
+            fresh: true,
+            hits: Vec::new(),
         }
     }
 
-    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
-    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
-    pub fn tick(&mut self) -> bool { false }
+    fn value(&self) -> f64 {
+        self.entry.parse::<f64>().unwrap_or(0.0)
+    }
+
+    fn show(&self) -> &str {
+        if self.entry.is_empty() { "0" } else { &self.entry }
+    }
+
+    fn push_digit(&mut self, digit: char) {
+        if self.fresh {
+            self.entry.clear();
+            self.fresh = false;
+        }
+        if self.entry.len() < 16 {
+            if digit == '0' && self.entry == "0" {
+                return;
+            }
+            if self.entry == "0" {
+                self.entry.clear();
+            }
+            self.entry.push(digit);
+        }
+    }
+
+    fn push_dot(&mut self) {
+        if self.fresh {
+            self.entry = String::from("0");
+            self.fresh = false;
+        }
+        if !self.entry.contains('.') {
+            if self.entry.is_empty() {
+                self.entry.push('0');
+            }
+            self.entry.push('.');
+        }
+    }
+
+    fn apply(&mut self, op: char, rhs: f64) {
+        let lhs = self.accumulator;
+        let result = match op {
+            '+' => lhs + rhs,
+            '-' => lhs - rhs,
+            '*' => lhs * rhs,
+            '/' => {
+                if rhs == 0.0 {
+                    self.entry = String::from("Error");
+                    self.accumulator = 0.0;
+                    self.fresh = true;
+                    self.op = None;
+                    return;
+                }
+                lhs / rhs
+            }
+            _ => rhs,
+        };
+        self.accumulator = result;
+        self.entry = alloc::format!("{}", result);
+        self.fresh = true;
+    }
+
+    fn press(&mut self, key: CalcKey) {
+        match key {
+            CalcKey::Digit(digit) => self.push_digit(digit),
+            CalcKey::Dot => self.push_dot(),
+            CalcKey::Op(op) => {
+                let value = self.value();
+                if let Some(previous) = self.op {
+                    self.apply(previous, value);
+                } else {
+                    self.accumulator = value;
+                    self.fresh = true;
+                }
+                self.op = Some(op);
+            }
+            CalcKey::Equals => {
+                if let Some(op) = self.op.take() {
+                    let value = self.value();
+                    self.apply(op, value);
+                }
+            }
+            CalcKey::Clear => {
+                self.entry = String::from("0");
+                self.accumulator = 0.0;
+                self.op = None;
+                self.fresh = true;
+            }
+            CalcKey::Back => {
+                if self.fresh {
+                    self.entry = String::from("0");
+                    self.fresh = true;
+                } else {
+                    self.entry.pop();
+                    if self.entry.is_empty() {
+                        self.entry.push('0');
+                        self.fresh = true;
+                    }
+                }
+            }
+            CalcKey::Percent => {
+                let value = self.value() / 100.0;
+                self.entry = alloc::format!("{}", value);
+                self.fresh = true;
+            }
+            CalcKey::Negate => {
+                if let Some(rest) = self.entry.strip_prefix('-') {
+                    self.entry = rest.to_string();
+                } else if self.entry != "0" {
+                    self.entry.insert(0, '-');
+                }
+            }
+        }
+    }
+
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+        self.hits.clear();
+        let inner = content.inset(12);
+        display.fill_rect(inner, theme.surface());
+        let pad = Rect::new(inner.x, inner.y, inner.w, 64);
+        display.fill_rect(pad, theme.card());
+        display.stroke_rounded(pad, 0, 1, theme.line());
+        display.text(pad.x + 12, pad.y + 10, "STANDARD", 8, true, theme.text_dim());
+        let shown = self.show();
+        display.text(
+            pad.right() - 12 - widgets::text_width(shown, 26, false),
+            pad.y + 22,
+            shown,
+            26,
+            false,
+            theme.text(),
+        );
+
+        let rows: [[(&str, CalcKey); 4]; 5] = [
+            [("C", CalcKey::Clear), ("±", CalcKey::Negate), ("%", CalcKey::Percent), ("÷", CalcKey::Op('/'))],
+            [("7", CalcKey::Digit('7')), ("8", CalcKey::Digit('8')), ("9", CalcKey::Digit('9')), ("×", CalcKey::Op('*'))],
+            [("4", CalcKey::Digit('4')), ("5", CalcKey::Digit('5')), ("6", CalcKey::Digit('6')), ("−", CalcKey::Op('-'))],
+            [("1", CalcKey::Digit('1')), ("2", CalcKey::Digit('2')), ("3", CalcKey::Digit('3')), ("+", CalcKey::Op('+'))],
+            [("0", CalcKey::Digit('0')), (".", CalcKey::Dot), ("=", CalcKey::Equals), ("⌫", CalcKey::Back)],
+        ];
+        let top = pad.bottom() + 8;
+        let gap = 6;
+        let cell_w = (inner.w - gap * 3) / 4;
+        let cell_h = ((inner.bottom() - top - gap * 4) / 5).max(28);
+        for (row, entries) in rows.iter().enumerate() {
+            for (col, (label, action)) in entries.iter().enumerate() {
+                let r = Rect::new(
+                    inner.x + col as i32 * (cell_w + gap),
+                    top + row as i32 * (cell_h + gap),
+                    cell_w,
+                    cell_h,
+                );
+                let accent = matches!(action, CalcKey::Equals | CalcKey::Op(_));
+                display.fill_rect(r, if accent { theme.accent_soft(50) } else { theme.card() });
+                display.stroke_rounded(r, 0, 1, theme.line());
+                display.text_centered(
+                    r,
+                    label,
+                    13,
+                    accent,
+                    if accent { theme.accent } else { theme.text() },
+                );
+                self.hits.push((r, *action));
+            }
+        }
+    }
+
+    pub fn pointer(&mut self, point: Point, _content: Rect, _theme: &mut Theme) -> Response {
+        for (rect, action) in &self.hits {
+            if rect.contains(point) {
+                self.press(*action);
+                return Response::REDRAW;
+            }
+        }
+        Response::NONE
+    }
+
+    pub fn key(&mut self, code: u32, _mods: u16) -> bool {
+        match code {
+            key::ENTER => self.press(CalcKey::Equals),
+            key::BACKSPACE => self.press(CalcKey::Back),
+            key::ESCAPE => self.press(CalcKey::Clear),
+            c if c == b'=' as u32 => self.press(CalcKey::Equals),
+            c if c == b'+' as u32 => self.press(CalcKey::Op('+')),
+            c if c == b'-' as u32 => self.press(CalcKey::Op('-')),
+            c if c == b'*' as u32 || c == b'x' as u32 => self.press(CalcKey::Op('*')),
+            c if c == b'/' as u32 => self.press(CalcKey::Op('/')),
+            c if c == b'%' as u32 => self.press(CalcKey::Percent),
+            c if c == b'.' as u32 || c == b',' as u32 => self.press(CalcKey::Dot),
+            _ => {
+                if let Some(character) = char::from_u32(code) {
+                    if character.is_ascii_digit() {
+                        self.press(CalcKey::Digit(character));
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        true
+    }
+
+    pub fn scroll(&mut self, _point: Point, _content: Rect, _amount: i32) {}
+    pub fn tick(&mut self) -> bool {
+        false
+    }
 }
 
 // ---------------------------------------------------------------------------
 // Notes
 // ---------------------------------------------------------------------------
 
-#[derive(Clone)]
 pub struct Notes {
     text: String,
-    pub scroll: i32,
+    scroll: i32,
 }
 
 impl Notes {
     pub fn new() -> Self {
-        Self { text: String::from("Zirvium Notes\n\nCapture ideas here.\n"), scroll: 0 }
-    }
-
-    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
-        let inner = content.inset(14);
-        widgets::card(display, inner, theme);
-        display.text(inner.x + 14, inner.y + 12, "Notes", 14, true, TEXT);
-        display.text(inner.x + 14, inner.y + 34, "Scratchpad", 11, false, TEXT_MUTED);
-        let area = Rect::new(inner.x + 14, inner.y + 58, inner.w - 28, inner.h - 72);
-        display.fill_rounded(area, 8, argb(0x14, 0x0a0d14));
-        display.stroke_rounded(area, 8, 1, BORDER);
-        let mut y = area.y + 10 - self.scroll;
-        for line in self.text.split('\n').take(40) {
-            display.text(area.x + 12, y, line, 12, false, TEXT);
-            y += 18;
+        Self {
+            text: String::from("Zirvium Notes\n\nCapture ideas here. Typing is saved for this session.\n"),
+            scroll: 0,
         }
     }
 
-    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
-    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
-    pub fn tick(&mut self) -> bool { false }
+    pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
+        let inner = content.inset(12);
+        display.fill_rect(inner, theme.surface());
+        let header = Rect::new(inner.x, inner.y, inner.w, 30);
+        display.fill_rect(header, theme.card());
+        display.text(header.x + 12, header.y + 9, "Notes", 12, true, theme.text());
+        display.text(header.right() - 120, header.y + 10, "session scratchpad", 9, false, theme.text_dim());
+
+        let area = Rect::new(inner.x, header.bottom() + 8, inner.w, inner.bottom() - header.bottom() - 8);
+        display.fill_rect(area, theme.card());
+        display.stroke_rounded(area, 0, 1, theme.line());
+        display.push_clip(area);
+        let face = crate::displayjet::font::face(11, false);
+        let mut y = area.y + 10 - self.scroll;
+        let width = area.w - 24;
+        for paragraph in self.text.split('\n') {
+            if paragraph.is_empty() {
+                y += face.line_height + 2;
+                continue;
+            }
+            for line in widgets::wrap(face, paragraph, width) {
+                display.text(area.x + 12, y, &line, 11, false, theme.text());
+                y += face.line_height + 2;
+            }
+        }
+        display.fill_rect(Rect::new(area.x + 12, y, 1, 13), theme.accent);
+        display.pop_clip();
+    }
+
+    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response {
+        Response::NONE
+    }
+
+    pub fn key(&mut self, code: u32, _mods: u16) -> bool {
+        match code {
+            key::BACKSPACE => {
+                self.text.pop();
+                true
+            }
+            key::ENTER => {
+                self.text.push('\n');
+                true
+            }
+            key::TAB => {
+                self.text.push_str("    ");
+                true
+            }
+            key::PAGE_UP => {
+                self.scroll = (self.scroll - 24).max(0);
+                true
+            }
+            key::PAGE_DOWN => {
+                self.scroll += 24;
+                true
+            }
+            key::ESCAPE => false,
+            _ => {
+                if code >= 0x20
+                    && code != 0x7f
+                    && let Some(character) = char::from_u32(code)
+                {
+                    if self.text.len() < 64 * 1024 {
+                        self.text.push(character);
+                    }
+                    return true;
+                }
+                false
+            }
+        }
+    }
+
+    pub fn scroll(&mut self, _point: Point, _content: Rect, amount: i32) {
+        self.scroll = (self.scroll - amount * 24).max(0);
+    }
+
+    pub fn tick(&mut self) -> bool {
+        false
+    }
 }
 
 // ---------------------------------------------------------------------------
 // Network
 // ---------------------------------------------------------------------------
 
-#[derive(Clone)]
 pub struct Network {
-    _hits: Vec<(Rect, u8)>,
+    add: Option<Rect>,
 }
 
 impl Network {
     pub fn new() -> Self {
-        Self { _hits: Vec::new() }
+        Self { add: None }
     }
 
     pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
-        self._hits.clear();
-        let inner = content.inset(16);
-        widgets::section_header(display, inner.x, inner.y, "Network", "Interfaces and connectivity", theme);
-        let mut y = inner.y + 62;
-        let items = [("Ethernet", "Connected · 10.0.2.15/24", SUCCESS), ("Loopback", "Up · 127.0.0.1/8", TEXT_MUTED), ("DNS", "Resolver online · 8.8.8.8", theme.accent)];
-        for (label, value, color) in items {
-            let rect = Rect::new(inner.x, y, inner.w, 64);
-            widgets::card(display, rect, theme);
-            display.fill_circle(Point::new(rect.x + 20, rect.y + 32), 6, color);
-            display.text(rect.x + 40, rect.y + 16, label, 14, true, TEXT);
-            display.text(rect.x + 40, rect.y + 36, value, 11, false, TEXT_MUTED);
-            y += 72;
+        self.add = None;
+        let inner = content.inset(12);
+        display.fill_rect(inner, theme.surface());
+        display.text(inner.x, inner.y, "Network & Internet", 18, true, theme.text());
+        display.text(inner.x, inner.y + 26, "Cluster links and local diagnostics", 10, false, theme.text_muted());
+
+        let nodes = crate::mosix::nodes();
+        let summary = Rect::new(inner.x, inner.y + 52, inner.w, 60);
+        display.fill_rect(summary, theme.card());
+        display.stroke_rounded(summary, 0, 1, theme.line());
+        display.text(summary.x + 12, summary.y + 12, "MOSIX fabric", 11, true, theme.text());
+        display.text(
+            summary.x + 12,
+            summary.y + 32,
+            &alloc::format!(
+                "{} node(s) \u{00b7} {} process(es) \u{00b7} {} migration(s)",
+                crate::mosix::node_count(),
+                crate::mosix::process_count(),
+                crate::mosix::migrations()
+            ),
+            9,
+            false,
+            theme.text_muted(),
+        );
+
+        let mut y = summary.bottom() + 12;
+        for node in nodes.iter() {
+            let r = Rect::new(inner.x, y, inner.w, 46);
+            display.fill_rect(r, theme.card());
+            display.stroke_rounded(r, 0, 1, theme.line());
+            display.fill_rect(Rect::new(r.x + 12, r.y + 18, 8, 8), if node.load_permille < 700 { rgb(0x4ade9c) } else { rgb(0xf7c95c) });
+            display.text(r.x + 32, r.y + 10, node.name_str(), 11, true, theme.text());
+            display.text(
+                r.x + 32,
+                r.y + 27,
+                &alloc::format!("{} CPU \u{00b7} {} MiB \u{00b7} load {}%", node.cpu_count, node.memory_mib, node.load_permille / 10),
+                8,
+                false,
+                theme.text_dim(),
+            );
+            let state = crate::mosix::state_name(node.state);
+            display.text(r.right() - 12 - widgets::text_width(state, 9, false), r.y + 16, state, 9, false, theme.accent);
+            y += 52;
         }
-        let diag = Rect::new(inner.x, y, inner.w, 80);
-        widgets::card(display, diag, theme);
-        display.text(inner.x + 14, y + 12, "Diagnostics", 14, true, TEXT);
-        display.text(inner.x + 14, y + 36, "All checks passed", 11, false, SUCCESS);
-        display.text(inner.x + 14, y + 56, "Network stack healthy", 11, false, TEXT_MUTED);
+
+        if crate::mosix::node_count() < 2 && y + 36 < inner.bottom() {
+            let button = Rect::new(inner.x, y, 150, 30);
+            display.fill_rect(button, theme.accent);
+            display.text_centered(button, "Add demo peer", 10, false, theme.on_color(theme.accent));
+            self.add = Some(button);
+        }
     }
 
-    pub fn pointer(&mut self, _point: Point, _content: Rect, _theme: &mut Theme) -> Response { Response::NONE }
-    pub fn key(&mut self, _code: u32, _mods: u16) -> bool { false }
-    pub fn tick(&mut self) -> bool { false }
+    pub fn pointer(&mut self, point: Point, _content: Rect, _theme: &mut Theme) -> Response {
+        if let Some(button) = self.add {
+            if button.contains(point) && crate::mosix::node_count() < 2 {
+                let id = crate::mosix::register_node(
+                    "zirvium-1-demo",
+                    8,
+                    8192,
+                    NodeState::Online,
+                );
+                crate::mosix::update_node_load(id, 218);
+                return Response::REDRAW;
+            }
+        }
+        Response::NONE
+    }
+
+    pub fn key(&mut self, _code: u32, _mods: u16) -> bool {
+        false
+    }
+
+    pub fn scroll(&mut self, _point: Point, _content: Rect, _amount: i32) {}
+
+    pub fn tick(&mut self) -> bool {
+        false
+    }
 }
