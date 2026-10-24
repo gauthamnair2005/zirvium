@@ -5,6 +5,8 @@
 //! use this boundary instead of pretending that an unavailable Ethernet device
 //! is online.
 
+pub mod protocol;
+
 use alloc::string::String;
 
 use zirvstdlib::sync::Once;
