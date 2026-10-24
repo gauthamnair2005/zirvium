@@ -92,7 +92,7 @@ pub fn init(cpu_count: u32, memory_mib: u32) {
     let pid = cluster.next_pid;
     *CLUSTER.lock() = Some(cluster);
     crate::sprintln!(
-        "MOSIX: local node online, {} processes",
+        "SERVICES: local process manager online, {} processes",
         pid.saturating_sub(1)
     );
 }

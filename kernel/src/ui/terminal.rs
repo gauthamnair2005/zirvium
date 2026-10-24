@@ -40,7 +40,7 @@ impl Terminal {
             history: Vec::new(),
             history_position: None,
         };
-        terminal.push(String::from("Zirvium 2.0 — DisplayJet terminal"));
+        terminal.push(String::from("Zirvium 2.0 — Terminal"));
         terminal.push(format!(
             "Kernel booted in {} on {} logical processor(s).",
             uptime,
@@ -117,9 +117,7 @@ impl Terminal {
                 self.push(String::from("Zirvium shell commands"));
                 self.push(String::from("  help                 this list"));
                 self.push(String::from("  neofetch             system summary"));
-                self.push(String::from("  ps                   MOSIX processes"));
-                self.push(String::from("  nodes                cluster members"));
-                self.push(String::from("  migrate PID NODE     move a process"));
+                self.push(String::from("  ps                   running processes"));
                 self.push(String::from("  spawn NAME           create a process"));
                 self.push(String::from("  kill PID             remove a process"));
                 self.push(String::from("  gpu                  display adapter"));
@@ -133,7 +131,7 @@ impl Terminal {
                 self.push(String::from("  mem                  memory usage"));
                 self.push(String::from("  uname | uptime | date"));
                 self.push(String::from("  echo TEXT | clear | history"));
-                self.push(String::from("  about                DisplayJet and MOSIX"));
+                self.push(String::from("  about                system information"));
             }
             "neofetch" => {
                 let gpu = crate::drivers::pci::gpu();
@@ -142,7 +140,6 @@ impl Terminal {
                 let rows = [
                     ("OS", format!("Zirvium {} (64-bit)", zirvstdlib::VERSION)),
                     ("Host", String::from("UEFI / x86_64")),
-                    ("Kernel", String::from("Rust + assembly, no libc")),
                     (
                         "CPU",
                         format!(
@@ -155,7 +152,7 @@ impl Terminal {
                     (
                         "Display",
                         format!(
-                            "DisplayJet {}x{} SIMD compositor",
+                            "Smooth compositor {}x{}",
                             crate::ui::WIDTH_HINT.load(core::sync::atomic::Ordering::Relaxed),
                             crate::ui::HEIGHT_HINT.load(core::sync::atomic::Ordering::Relaxed)
                         ),
@@ -164,14 +161,7 @@ impl Terminal {
                         "Memory",
                         format!("{} free", widgets::byte_size(memory.free_bytes)),
                     ),
-                    (
-                        "Cluster",
-                        format!(
-                            "MOSIX node 0 of {} ({} processes)",
-                            crate::mosix::node_count(),
-                            crate::mosix::process_count()
-                        ),
-                    ),
+                    ("Processes", format!("{}", crate::mosix::process_count())),
                     ("Uptime", thrust.to_string()),
                 ];
                 let logo = [
@@ -188,7 +178,7 @@ impl Terminal {
                     self.push(format!("{art}  {:<8} {}", row.0, row.1));
                 }
                 self.push(String::from(
-                    "                  Zirvium: one cluster, one display.",
+                    "                  Zirvium: one focused desktop.",
                 ));
             }
             "ps" => {
@@ -276,7 +266,7 @@ impl Terminal {
                 ));
                 self.push(format!("backend   {:?}", gpu.driver));
                 self.push(String::from(
-                    "path      DisplayJet ARGB surface -> firmware scanout",
+                    "path      desktop surface -> firmware scanout",
                 ));
             }
             "fonts" => {
@@ -415,24 +405,12 @@ impl Terminal {
                 }
             }
             "whoami" => self.push(String::from("zirvium")),
-            "about" | "displayjet" | "mosix" => {
+            "about" => {
                 self.push(String::from(
-                    "Zirvium is built around two ideas from earlier systems:",
+                    "Zirvium is a focused desktop built for clarity and reliability.",
                 ));
                 self.push(String::from(
-                    "  MOSIX      the cluster is one pool of resources; processes",
-                ));
-                self.push(String::from(
-                    "             have a home node and a current node and migrate.",
-                ));
-                self.push(String::from(
-                    "  DisplayJet the display is a first-class engine with damage,",
-                ));
-                self.push(String::from(
-                    "             anti-aliased text and a hardware-boundary blit.",
-                ));
-                self.push(String::from(
-                    "Every line of this system is Rust or x86-64 assembly.",
+                    "Use Settings to explore system information and available features.",
                 ));
             }
             "version" => self.push(format!(

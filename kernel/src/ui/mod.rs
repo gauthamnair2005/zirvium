@@ -40,7 +40,6 @@ pub enum AppKind {
     Terminal,
     Files,
     Monitor,
-    Nodes,
     Settings,
     Calculator,
     Notes,
@@ -52,16 +51,15 @@ const DOCK_APPS: [AppKind; 5] = [
     AppKind::Terminal,
     AppKind::Files,
     AppKind::Monitor,
-    AppKind::Nodes,
     AppKind::Settings,
+    AppKind::Network,
 ];
 
 /// Apps shown on the Start screen. The taskbar only carries the essentials.
-const START_APPS: [AppKind; 8] = [
+const START_APPS: [AppKind; 7] = [
     AppKind::Terminal,
     AppKind::Files,
     AppKind::Monitor,
-    AppKind::Nodes,
     AppKind::Settings,
     AppKind::Calculator,
     AppKind::Notes,
@@ -74,7 +72,6 @@ impl AppKind {
             AppKind::Terminal => "Terminal",
             AppKind::Files => "Files",
             AppKind::Monitor => "System Monitor",
-            AppKind::Nodes => "MOSIX Nodes",
             AppKind::Settings => "Settings",
             AppKind::Calculator => "Calculator",
             AppKind::Notes => "Notes",
@@ -84,14 +81,13 @@ impl AppKind {
 
     pub fn subtitle(self) -> &'static str {
         match self {
-            AppKind::Terminal => "MOSIX shell and diagnostics",
+            AppKind::Terminal => "Shell and diagnostics",
             AppKind::Files => "Browse the virtual filesystem",
             AppKind::Monitor => "CPU, memory and process telemetry",
-            AppKind::Nodes => "Cluster members and migration",
             AppKind::Settings => "System, colors and Start",
             AppKind::Calculator => "Quick arithmetic",
             AppKind::Notes => "Text notes and scratchpad",
-            AppKind::Network => "Wi-Fi and cluster links",
+            AppKind::Network => "Wi-Fi and connections",
         }
     }
 
@@ -100,7 +96,6 @@ impl AppKind {
             AppKind::Terminal => Icon::Terminal,
             AppKind::Files => Icon::Files,
             AppKind::Monitor => Icon::Monitor,
-            AppKind::Nodes => Icon::Nodes,
             AppKind::Settings => Icon::Settings,
             AppKind::Calculator => Icon::Plus,
             AppKind::Notes => Icon::Document,
@@ -113,7 +108,6 @@ impl AppKind {
             AppKind::Terminal => (780, 470),
             AppKind::Files => (830, 520),
             AppKind::Monitor => (760, 540),
-            AppKind::Nodes => (820, 590),
             AppKind::Settings => (860, 640),
             AppKind::Calculator => (320, 430),
             AppKind::Notes => (640, 460),
@@ -126,7 +120,6 @@ enum App {
     Terminal(terminal::Terminal),
     Files(apps::Files),
     Monitor(apps::Monitor),
-    Nodes(apps::Nodes),
     Settings(apps::Settings),
     Calculator(apps::Calculator),
     Notes(apps::Notes),
@@ -139,7 +132,6 @@ impl App {
             AppKind::Terminal => App::Terminal(terminal::Terminal::new()),
             AppKind::Files => App::Files(apps::Files::new()),
             AppKind::Monitor => App::Monitor(apps::Monitor::new()),
-            AppKind::Nodes => App::Nodes(apps::Nodes::new()),
             AppKind::Settings => App::Settings(apps::Settings::new()),
             AppKind::Calculator => App::Calculator(apps::Calculator::new()),
             AppKind::Notes => App::Notes(apps::Notes::new()),
@@ -152,7 +144,6 @@ impl App {
             App::Terminal(_) => AppKind::Terminal,
             App::Files(_) => AppKind::Files,
             App::Monitor(_) => AppKind::Monitor,
-            App::Nodes(_) => AppKind::Nodes,
             App::Settings(_) => AppKind::Settings,
             App::Calculator(_) => AppKind::Calculator,
             App::Notes(_) => AppKind::Notes,
@@ -165,7 +156,6 @@ impl App {
             App::Terminal(app) => app.draw(display, content, theme, focused),
             App::Files(app) => app.draw(display, content, theme, focused),
             App::Monitor(app) => app.draw(display, content, theme, focused),
-            App::Nodes(app) => app.draw(display, content, theme, focused),
             App::Settings(app) => { let _ = focused; app.draw(display, content, theme); },
             App::Calculator(app) => app.draw(display, content, theme, focused),
             App::Notes(app) => app.draw(display, content, theme, focused),
@@ -184,7 +174,6 @@ impl App {
             }
             App::Files(app) => app.pointer(point, content, theme),
             App::Monitor(_) => Response::NONE,
-            App::Nodes(app) => app.pointer(point, content, theme),
             App::Settings(app) => app.pointer(point, content, theme),
             App::Calculator(app) => app.pointer(point, content, theme),
             App::Notes(app) => app.pointer(point, content, theme),
@@ -197,7 +186,6 @@ impl App {
             App::Terminal(app) => app.key(code, event_modifiers),
             App::Files(app) => app.key(code, event_modifiers),
             App::Monitor(_) => false,
-            App::Nodes(_) => false,
             App::Settings(_) => false,
             App::Calculator(app) => app.key(code, event_modifiers),
             App::Notes(app) => app.key(code, event_modifiers),
@@ -210,7 +198,6 @@ impl App {
             App::Terminal(app) => app.scroll(amount),
             App::Files(app) => app.scroll(point, content, amount),
             App::Monitor(_) => {}
-            App::Nodes(_) => {}
             App::Settings(app) => app.scroll(point, content, amount),
             App::Calculator(app) => app.scroll(point, content, amount),
             App::Notes(app) => app.scroll(point, content, amount),
@@ -1204,11 +1191,10 @@ impl Desktop {
                 display.text(rect.x + 16, rect.y + 16, &alloc::format!("{:02}:{:02}", now.hour, now.minute), 28, true, rgb(0xffffff));
                 display.text(rect.x + 16, rect.y + 56, kind.title(), 12, true, rgb(0xffffff));
                 display.text(rect.x + 16, rect.y + 76, "Desktop", 9, false, argb(0xb0, 0xffffff));
-            } else if index == 3 {
-                // Live tile - cluster info
-                display.text(rect.x + 14, rect.y + 14, &alloc::format!("{}", crate::mosix::node_count()), 22, true, rgb(0xffffff));
-                display.text(rect.x + 14, rect.y + 44, "Nodes", 10, false, argb(0xc0, 0xffffff));
-                display.text(rect.x + 14, rect.y + 66, &alloc::format!("{} procs", crate::mosix::process_count()), 9, false, argb(0xa0, 0xffffff));
+            } else if index == 2 {
+                display.text(rect.x + 14, rect.y + 14, "System", 12, true, rgb(0xffffff));
+                display.text(rect.x + 14, rect.y + 42, "Ready", 22, true, rgb(0xffffff));
+                display.text(rect.x + 14, rect.y + 72, "All services online", 9, false, argb(0xa0, 0xffffff));
             } else if index == 4 {
                 display.text(rect.x + 14, rect.y + 16, "Settings", 11, true, rgb(0xffffff));
                 display.fill_rect(Rect::new(rect.x + 14, rect.y + 42, rect.w - 28, 3), argb(0x70, 0xffffff));

@@ -124,7 +124,7 @@ impl Monitor {
                 Icon::Cpu,
                 "COMPOSITOR",
                 format!("{}%", load / 10),
-                String::from("DisplayJet frame load"),
+                String::from("Current system load"),
                 theme.accent,
             ),
             (
@@ -311,7 +311,7 @@ impl Monitor {
         display.text_ellipsized(
             rect.x + 16,
             y + 22,
-            "DisplayJet ARGB · CPU SIMD",
+            "Smooth system rendering",
             rect.w - 32,
             10,
             false,
@@ -321,7 +321,7 @@ impl Monitor {
 
     fn draw_processes(&mut self, display: &mut Display, rect: Rect, theme: &Theme) {
         widgets::card(display, rect, theme);
-        display.text(rect.x + 14, rect.y + 12, "MOSIX processes", 12, true, theme.text());
+        display.text(rect.x + 14, rect.y + 12, "Running processes", 12, true, theme.text());
         let count = crate::mosix::process_count();
         let label = format!("{count} total");
         display.text(
@@ -843,10 +843,6 @@ struct Hit {
     action: Action,
 }
 
-// ---------------------------------------------------------------------------
-// Settings
-// ---------------------------------------------------------------------------
-
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum SettingsPage {
     Home,
@@ -873,11 +869,11 @@ impl SettingsPage {
 
     fn subtitle(self) -> &'static str {
         match self {
-            SettingsPage::Home => "Zirvium 2.0 \u{00b7} one cluster, one display",
+            SettingsPage::Home => "Zirvium 2.0 \u{00b7} one calm desktop",
             SettingsPage::System => "Display, sound and power",
             SettingsPage::Personalization => "Colors, Start and wallpaper",
             SettingsPage::Devices => "Hardware attached to this machine",
-            SettingsPage::Network => "Cluster links and diagnostics",
+            SettingsPage::Network => "Connections and diagnostics",
             SettingsPage::Update => "Version, build and recovery",
             SettingsPage::About => "The design behind Zirvium",
         }
@@ -1114,7 +1110,7 @@ impl Settings {
         display.text(
             intro.x + 92,
             intro.y + 58,
-            "One cluster, one display \u{00b7} no C, no libc, no 32-bit stage.",
+            "A focused desktop with thoughtful, responsive tools.",
             9,
             false,
             theme.text_dim(),
@@ -1132,7 +1128,7 @@ impl Settings {
             (SettingsPage::System, "System", "Display and power"),
             (SettingsPage::Personalization, "Personalization", "Colors and Start"),
             (SettingsPage::Devices, "Devices", "Hardware"),
-            (SettingsPage::Network, "Network", "Cluster links"),
+            (SettingsPage::Network, "Network", "Connections"),
             (SettingsPage::Update, "Update", "Version and build"),
         ];
         let top = intro.bottom() + 14;
@@ -1302,20 +1298,18 @@ impl Settings {
 
     fn draw_network(&mut self, display: &mut Display, area: Rect, theme: &Theme) {
         let mut y = area.y;
-        self.section(display, area.x, y, "Cluster", theme);
+        self.section(display, area.x, y, "System services", theme);
         y += 22;
-        let nodes = crate::mosix::node_count();
         let processes = crate::mosix::process_count();
-        let migrations = crate::mosix::migrations();
         let summary = Rect::new(area.x, y, area.w, 74);
         self.card(display, summary, theme);
-        display.text(summary.x + 14, summary.y + 14, "MOSIX fabric", 12, true, theme.text());
+        display.text(summary.x + 14, summary.y + 14, "Local services", 12, true, theme.text());
         display.text(
             summary.x + 14,
             summary.y + 34,
             &alloc::format!(
-                "{} node(s) \u{00b7} {} process(es) \u{00b7} {} migration(s)",
-                nodes, processes, migrations
+                "{} service(s) \u{00b7} {} active task(s)",
+                1, processes
             ),
             9,
             false,
@@ -1324,7 +1318,7 @@ impl Settings {
         display.text(
             summary.x + 14,
             summary.y + 52,
-            "A cluster is one pool of resources. Processes migrate, not their identity.",
+            "Core services share system resources and remain available while apps run.",
             9,
             false,
             theme.text_dim(),
@@ -1334,10 +1328,10 @@ impl Settings {
         self.section(display, area.x, y, "Interfaces", theme);
         y += 22;
         let rows = [
-            ("Local node", "Scheduler and process host", "Online"),
-            ("Peer link", if nodes > 1 { "Demo peer connected" } else { "No peer connected" }, if nodes > 1 { "Linked" } else { "Idle" }),
+            ("System services", "Core background services", "Online"),
+            ("Local connection", "Internal application services", "Ready"),
             ("Loopback", "127.0.0.1 \u{00b7} internal services", "Up"),
-            ("MOSIX syscall gate", "int 0x80 \u{00b7} operational", "Up"),
+            ("Session", "User applications and desktop", "Active"),
         ];
         for (name, detail, state) in rows {
             let r = Rect::new(area.x, y, area.w, 48);
@@ -1419,7 +1413,7 @@ impl Settings {
         let mark = Rect::new(area.x, area.y, 72, 72);
         widgets::logo(display, mark);
         display.text(area.x + 90, area.y + 4, "Zirvium 2.0", 24, true, theme.text());
-        display.text(area.x + 90, area.y + 34, "one cluster, one display", 11, false, theme.accent);
+        display.text(area.x + 90, area.y + 34, "A focused desktop experience", 11, false, theme.accent);
         display.text(
             area.x + 90,
             area.y + 52,
@@ -1431,9 +1425,9 @@ impl Settings {
 
         let mut y = area.y + 90;
         let ideas = [
-            ("MOSIX", "The cluster is one computer. Processes keep a home node and a current node, and migrate without changing identity."),
-            ("DisplayJet", "The display is an engine: a damage-tracked ARGB surface, anti-aliased text and shapes, a hardware cursor, and a narrow GPU boundary."),
-            ("Rust and assembly", "Every component is Rust or x86-64 assembly. There is no C, no libc and no 32-bit stage anywhere in the tree."),
+            ("Designed for clarity", "A calm interface with readable typography, soft surfaces and focused workflows."),
+            ("Built for reliability", "Core services are isolated and the desktop keeps working when optional features are unavailable."),
+            ("Ready to grow", "The system is designed to gain more apps, hardware support and personalization over time."),
         ];
         for (title, body) in ideas {
             display.text(area.x, y, title, 12, true, theme.text());
@@ -2160,81 +2154,43 @@ impl Notes {
 // ---------------------------------------------------------------------------
 
 pub struct Network {
-    add: Option<Rect>,
 }
 
 impl Network {
     pub fn new() -> Self {
-        Self { add: None }
+        Self {}
     }
 
     pub fn draw(&mut self, display: &mut Display, content: Rect, theme: &Theme, _focused: bool) {
-        self.add = None;
         let inner = content.inset(12);
         display.fill_rect(inner, theme.surface());
         display.text(inner.x, inner.y, "Network & Internet", 18, true, theme.text());
-        display.text(inner.x, inner.y + 26, "Cluster links and local diagnostics", 10, false, theme.text_muted());
+        display.text(inner.x, inner.y + 26, "Connection status and local diagnostics", 10, false, theme.text_muted());
 
-        let nodes = crate::mosix::nodes();
         let summary = Rect::new(inner.x, inner.y + 52, inner.w, 60);
         display.fill_rect(summary, theme.card());
         display.stroke_rounded(summary, 0, 1, theme.line());
-        display.text(summary.x + 12, summary.y + 12, "MOSIX fabric", 11, true, theme.text());
+        display.text(summary.x + 12, summary.y + 12, "Network status", 11, true, theme.text());
         display.text(
             summary.x + 12,
             summary.y + 32,
-            &alloc::format!(
-                "{} node(s) \u{00b7} {} process(es) \u{00b7} {} migration(s)",
-                crate::mosix::node_count(),
-                crate::mosix::process_count(),
-                crate::mosix::migrations()
-            ),
+            "No external interfaces configured",
             9,
             false,
             theme.text_muted(),
         );
 
-        let mut y = summary.bottom() + 12;
-        for node in nodes.iter() {
-            let r = Rect::new(inner.x, y, inner.w, 46);
-            display.fill_rect(r, theme.card());
-            display.stroke_rounded(r, 0, 1, theme.line());
-            display.fill_rect(Rect::new(r.x + 12, r.y + 18, 8, 8), if node.load_permille < 700 { rgb(0x4ade9c) } else { rgb(0xf7c95c) });
-            display.text(r.x + 32, r.y + 10, node.name_str(), 11, true, theme.text());
-            display.text(
-                r.x + 32,
-                r.y + 27,
-                &alloc::format!("{} CPU \u{00b7} {} MiB \u{00b7} load {}%", node.cpu_count, node.memory_mib, node.load_permille / 10),
-                8,
-                false,
-                theme.text_dim(),
-            );
-            let state = crate::mosix::state_name(node.state);
-            display.text(r.right() - 12 - widgets::text_width(state, 9, false), r.y + 16, state, 9, false, theme.accent);
-            y += 52;
-        }
-
-        if crate::mosix::node_count() < 2 && y + 36 < inner.bottom() {
-            let button = Rect::new(inner.x, y, 150, 30);
-            display.fill_rect(button, theme.accent);
-            display.text_centered(button, "Add demo peer", 10, false, theme.on_color(theme.accent));
-            self.add = Some(button);
-        }
+        let y = summary.bottom() + 12;
+        let r = Rect::new(inner.x, y, inner.w, 46);
+        display.fill_rect(r, theme.card());
+        display.stroke_rounded(r, 0, 1, theme.line());
+        display.fill_rect(Rect::new(r.x + 12, r.y + 18, 8, 8), rgb(0xf7c95c));
+        display.text(r.x + 32, r.y + 10, "External network", 11, true, theme.text());
+        display.text(r.x + 32, r.y + 27, "Network support is not available in this build", 8, false, theme.text_dim());
     }
 
     pub fn pointer(&mut self, point: Point, _content: Rect, _theme: &mut Theme) -> Response {
-        if let Some(button) = self.add {
-            if button.contains(point) && crate::mosix::node_count() < 2 {
-                let id = crate::mosix::register_node(
-                    "zirvium-1-demo",
-                    8,
-                    8192,
-                    NodeState::Online,
-                );
-                crate::mosix::update_node_load(id, 218);
-                return Response::REDRAW;
-            }
-        }
+        let _ = point;
         Response::NONE
     }
 
