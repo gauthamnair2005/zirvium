@@ -381,6 +381,7 @@ pub struct Desktop {
     last_second: u64,
     last_title_click: (u32, u64),
     launcher_started: u64,
+    logged_in: bool,
 }
 
 impl Desktop {
@@ -406,6 +407,7 @@ impl Desktop {
             last_second: 0,
             last_title_click: (0, 0),
             launcher_started: zirvstdlib::time::monotonic_ms(),
+            logged_in: false,
         };
         desktop.notify(
             "Welcome to Zirvium 2.0",
@@ -566,6 +568,9 @@ impl Desktop {
     // -- Input --------------------------------------------------------------
 
     fn target_at(&self, point: Point) -> Target {
+        if !self.logged_in {
+            return Target::Nothing;
+        }
         if self.launcher {
             return Target::Nothing;
         }
@@ -626,6 +631,15 @@ impl Desktop {
     }
 
     fn pointer_down(&mut self, point: Point) -> bool {
+        if !self.logged_in {
+            let button = Rect::new(self.width / 2 - 92, self.height / 2 + 92, 184, 38);
+            if button.contains(point) {
+                self.logged_in = true;
+                self.notify("Welcome back", "Signed in as liveuser.", 5000);
+                return true;
+            }
+            return false;
+        }
         if self.launcher {
             let screen_w = self.width;
             // Click logo to close
@@ -659,7 +673,7 @@ impl Desktop {
                     y += 126;
                 }
             }
-            let power_panel = Rect::new(screen_w - 210, self.height - 190, 150, 130);
+            let power_panel = Rect::new(screen_w - 210, self.height - 236, 150, 176);
             let shutdown = Rect::new(power_panel.x + 14, power_panel.y + 44, power_panel.w - 28, 36);
             let reboot = Rect::new(power_panel.x + 14, power_panel.y + 90, power_panel.w - 28, 36);
             if shutdown.contains(point) {
@@ -670,6 +684,15 @@ impl Desktop {
             if reboot.contains(point) {
                 self.launcher = false;
                 crate::sprintln!("UI: reboot requested");
+                return true;
+            }
+            let logout = Rect::new(power_panel.x + 14, power_panel.y + 136, power_panel.w - 28, 36);
+            if logout.contains(point) {
+                self.logged_in = false;
+                self.launcher = false;
+                self.focused = None;
+                self.drag = None;
+                crate::sprintln!("UI: user logged out");
                 return true;
             }
             return true;
@@ -877,6 +900,14 @@ impl Desktop {
     }
 
     fn handle_key(&mut self, code: u32, event_modifiers: u16) -> bool {
+        if !self.logged_in {
+            if code == key::ENTER {
+                self.logged_in = true;
+                self.notify("Welcome back", "Signed in as liveuser.", 5000);
+                return true;
+            }
+            return false;
+        }
         if code == key::SUPER {
             self.launcher = !self.launcher;
             self.launcher_selected = 0;
@@ -976,6 +1007,10 @@ impl Desktop {
     // -- Drawing ------------------------------------------------------------
 
     fn draw(&mut self, display: &mut Display) {
+        if !self.logged_in {
+            self.draw_login(display);
+            return;
+        }
         self.ensure_wallpaper();
         display.cursor_hide();
         display.reset_clip();
@@ -1146,7 +1181,7 @@ impl Desktop {
 
         // User tile.
         let user = Rect::new(self.width - 260, 50, 200, 32);
-        display.text(user.right() - widgets::text_width("gautham@zirvium", 10, false), user.y + 8, "gautham@zirvium", 10, false, argb(0xd0, 0xffffff));
+        display.text(user.right() - widgets::text_width("liveuser@zirvium", 10, false), user.y + 8, "liveuser@zirvium", 10, false, argb(0xd0, 0xffffff));
 
         // Live tiles - Windows 8 style grid
         let mut x = 60;
@@ -1206,7 +1241,7 @@ impl Desktop {
         }
 
         // Power panel
-        let power_panel = Rect::new(self.width - 210, self.height - 190, 150, 130);
+        let power_panel = Rect::new(self.width - 210, self.height - 236, 150, 176);
         display.fill_rect(power_panel, argb(0x40, 0x000000));
         display.stroke_rounded(power_panel, 0, 1, argb(0x70, 0xffffff));
         display.text(power_panel.x + 16, power_panel.y + 14, "Power", 11, true, rgb(0xffffff));
@@ -1216,6 +1251,9 @@ impl Desktop {
         let reboot = Rect::new(power_panel.x + 14, power_panel.y + 90, power_panel.w - 28, 36);
         display.fill_rect(reboot, argb(0x30, 0xffffff));
         display.text_centered(reboot, "Restart", 10, false, rgb(0xffffff));
+        let logout = Rect::new(power_panel.x + 14, power_panel.y + 136, power_panel.w - 28, 36);
+        display.fill_rect(logout, argb(0x30, 0xffffff));
+        display.text_centered(logout, "Log out", 10, false, rgb(0xffffff));
 
         if eased < 1.0 {
             display.fill_rect(
@@ -1223,6 +1261,53 @@ impl Desktop {
                 argb(((1.0 - eased) * 190.0) as u32, 0x000000),
             );
         }
+
+    }
+
+    fn draw_login(&self, display: &mut Display) {
+        let screen = Rect::new(0, 0, self.width, self.height);
+        display.clear(rgb(0x030405));
+        display.vertical_gradient(screen, rgb(0x05070b), rgb(0x0d1420));
+
+        let card = Rect::new(self.width / 2 - 176, self.height / 2 - 152, 352, 330);
+        display.drop_shadow(card, 0, 18, argb(0x80, 0x000000));
+        display.fill_rounded(card, 12, argb(0xf0, 0x111722));
+        display.stroke_rounded(card, 12, 1, argb(0xff, 0x2b3850));
+        widgets::logo(display, Rect::new(self.width / 2 - 38, card.y + 28, 76, 76));
+        display.text_centered(
+            Rect::new(card.x, card.y + 116, card.w, 26),
+            "Welcome to Zirvium",
+            18,
+            true,
+            TEXT_STRONG,
+        );
+        display.text_centered(
+            Rect::new(card.x, card.y + 148, card.w, 16),
+            "Sign in to continue",
+            10,
+            false,
+            TEXT_MUTED,
+        );
+        let user = Rect::new(card.x + 42, card.y + 184, card.w - 84, 36);
+        display.fill_rect(user, argb(0xff, 0x202938));
+        display.stroke_rounded(user, 5, 1, argb(0xff, 0x3a4962));
+        widgets::icon(
+            display,
+            Rect::new(user.x + 10, user.y + 10, 16, 16),
+            Icon::About,
+            TEXT_MUTED,
+        );
+        display.text(user.x + 36, user.y + 11, "liveuser", 11, true, TEXT);
+        let button = Rect::new(self.width / 2 - 92, self.height / 2 + 92, 184, 38);
+        display.fill_rounded(button, 5, rgb(0x5aa2ff));
+        display.text_centered(button, "Sign in", 11, true, rgb(0x07101d));
+        display.text_centered(
+            Rect::new(card.x, card.bottom() - 28, card.w, 14),
+            "Press Enter or click Sign in",
+            9,
+            false,
+            TEXT_DIM,
+        );
     }
 }
 
@@ -1337,13 +1422,10 @@ fn draw_splash_frame(display: &mut Display, frame: usize) {
 
 /// Paint a black boot splash with a custom Zirvium loading animation.
 pub fn splash(display: &mut Display) {
-    for frame in 0..12 {
+    crate::arch::cpu::sti();
+    for frame in 0..70 {
         draw_splash_frame(display, frame);
-        // The PIT is initialized later in boot, so timer-based sleeps would
-        // block here. A bounded CPU delay keeps the animation early-boot safe.
-        for _ in 0..1_500_000 {
-            core::hint::spin_loop();
-        }
+        crate::arch::pit::spin_wait_ms(100);
     }
 }
 
