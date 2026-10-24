@@ -407,10 +407,10 @@ impl Desktop {
         };
         desktop.notify(
             "Welcome to Zirvium 2.0",
-            "Super or the top-left button opens the launcher.",
+            "Press Start or click the logo to open the Start screen.",
             9000,
         );
-        desktop.open(AppKind::Terminal);
+        desktop.launcher = true;
         desktop
     }
 
@@ -564,7 +564,6 @@ impl Desktop {
 
     fn target_at(&self, point: Point) -> Target {
         if self.launcher {
-            // Start screen covers most of screen
             return Target::Nothing;
         }
 
@@ -627,25 +626,33 @@ impl Desktop {
         if self.launcher {
             let screen_w = self.width;
             let mut x = 60i32;
-            let mut y = 180i32;
+            let mut y = 190i32;
             let mut i = 0;
             for kind in START_APPS.iter() {
-                let rect = Rect::new(x, y, 110, 110);
+                let (tw, th) = match i {
+                    0 => (236, 110),
+                    _ => (110, 110),
+                };
+                let rect = Rect::new(x, y, tw, th);
                 if rect.contains(point) {
                     self.launcher = false;
                     self.open(*kind);
                     return true;
                 }
-                x += 126;
+                if tw == 236 {
+                    x += 252;
+                } else {
+                    x += 126;
+                }
                 i += 1;
-                if i % 6 == 0 {
+                if x > 60 + 340 {
                     x = 60;
                     y += 126;
                 }
             }
-            let power_panel = Rect::new(screen_w - 220, self.height - 200, 160, 140);
-            let shutdown = Rect::new(power_panel.x + 16, power_panel.y + 48, power_panel.w - 32, 38);
-            let reboot = Rect::new(power_panel.x + 16, power_panel.y + 96, power_panel.w - 32, 38);
+            let power_panel = Rect::new(screen_w - 210, self.height - 190, 150, 130);
+            let shutdown = Rect::new(power_panel.x + 14, power_panel.y + 44, power_panel.w - 28, 36);
+            let reboot = Rect::new(power_panel.x + 14, power_panel.y + 90, power_panel.w - 28, 36);
             if shutdown.contains(point) {
                 self.launcher = false;
                 crate::sprintln!("UI: shutdown requested");
