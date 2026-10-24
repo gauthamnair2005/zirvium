@@ -380,6 +380,7 @@ pub struct Desktop {
     notifications: Vec<Notification>,
     last_second: u64,
     last_title_click: (u32, u64),
+    launcher_started: u64,
 }
 
 impl Desktop {
@@ -404,13 +405,15 @@ impl Desktop {
             notifications: Vec::new(),
             last_second: 0,
             last_title_click: (0, 0),
+            launcher_started: zirvstdlib::time::monotonic_ms(),
         };
         desktop.notify(
             "Welcome to Zirvium 2.0",
             "Press Start or click the logo to open the Start screen.",
             9000,
         );
-        desktop.launcher = true;
+        // Boot into the desktop after the splash; Start remains one click away.
+        desktop.launcher = false;
         desktop
     }
 
@@ -679,12 +682,14 @@ impl Desktop {
                 self.launcher = !self.launcher;
                 if self.launcher {
                     self.launcher_selected = 0;
+                    self.launcher_started = zirvstdlib::time::monotonic_ms();
                 }
             }
             Target::Power => {
                 self.launcher = !self.launcher;
                 if self.launcher {
                     self.launcher_selected = 0;
+                    self.launcher_started = zirvstdlib::time::monotonic_ms();
                 }
             }
             Target::Dock(kind) => {
@@ -875,6 +880,9 @@ impl Desktop {
         if code == key::SUPER {
             self.launcher = !self.launcher;
             self.launcher_selected = 0;
+            if self.launcher {
+                self.launcher_started = zirvstdlib::time::monotonic_ms();
+            }
             return true;
         }
         // Right click simulation via shift+click not needed, handle via events later; keep simple
@@ -908,6 +916,10 @@ impl Desktop {
         let now_ms = zirvstdlib::time::monotonic_ms();
         let second = now_ms / 1000;
         let mut redraw = false;
+
+        if self.launcher && now_ms.saturating_sub(self.launcher_started) < 420 {
+            redraw = true;
+        }
 
         if second != self.last_second {
             self.last_second = second;
@@ -1107,6 +1119,10 @@ impl Desktop {
     }
 
     fn draw_start_screen(&self, display: &mut Display) {
+        let now = zirvstdlib::time::monotonic_ms();
+        let elapsed = now.saturating_sub(self.launcher_started);
+        let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
+        let eased = progress * progress * (3.0 - 2.0 * progress);
         let screen = Rect::new(0, 0, self.width, self.height);
         let base = self.theme.start_color;
         let dark = {
@@ -1176,6 +1192,7 @@ impl Desktop {
                     rgb(0xffffff),
                 );
             }
+
             display.fill_rect(Rect::new(rect.x + 10, rect.bottom() - 5, 30, 2), argb(0x80, 0xffffff));
             if tw == 236 {
                 x += 252;
@@ -1199,6 +1216,13 @@ impl Desktop {
         let reboot = Rect::new(power_panel.x + 14, power_panel.y + 90, power_panel.w - 28, 36);
         display.fill_rect(reboot, argb(0x30, 0xffffff));
         display.text_centered(reboot, "Restart", 10, false, rgb(0xffffff));
+
+        if eased < 1.0 {
+            display.fill_rect(
+                screen,
+                argb(((1.0 - eased) * 190.0) as u32, 0x000000),
+            );
+        }
     }
 }
 
@@ -1260,44 +1284,67 @@ fn draw_window(
 // Boot splash and event loop
 // ---------------------------------------------------------------------------
 
-/// Paint a boot splash before the desktop takes over.
-pub fn splash(display: &mut Display) {
+fn draw_splash_frame(display: &mut Display, frame: usize) {
     WIDTH_HINT.store(display.width.max(1) as u32, Ordering::Relaxed);
     HEIGHT_HINT.store(display.height.max(1) as u32, Ordering::Relaxed);
     let screen = display.screen();
     let (width, height) = (screen.w, screen.h);
     display.reset_clip();
-    display.vertical_gradient(screen, rgb(0x050608), rgb(0x0a0d14));
+    display.clear(rgb(0x000000));
 
     let center_x = width / 2;
     let center_y = height / 2;
 
     let cx = center_x;
-    let cy = center_y - 48;
+    let cy = center_y - 58;
     widgets::logo(display, Rect::new(cx - 34, cy - 34, 68, 68));
 
     widgets::text_shadow(
         display,
         cx - widgets::text_width("Zirvium", 28, true) / 2,
-        cy + 38,
+        cy + 42,
         "Zirvium",
         28,
         true,
         TEXT_STRONG,
     );
     display.text_centered(
-        Rect::new(0, cy + 76, width, 14),
+        Rect::new(0, cy + 78, width, 14),
         "64-bit Rust OS  ·  Starting services",
         10,
         false,
         TEXT_MUTED,
     );
 
-    let bar = Rect::new(cx - 100, cy + 112, 200, 4);
-    display.fill_rounded(bar, 2, argb(0x38, 0xffffff));
-    display.fill_rounded(Rect::new(bar.x, bar.y, 132, bar.h), 2, rgb(0x5aa2ff));
+    let dots_y = cy + 116;
+    for index in 0..8 {
+        let distance = (index as isize - (frame % 8) as isize).unsigned_abs();
+        let alpha = match distance {
+            0 => 255,
+            1 => 190,
+            2 => 130,
+            _ => 70,
+        };
+        display.fill_circle(
+            Point::new(cx - 28 + index as i32 * 8, dots_y),
+            if distance == 0 { 3 } else { 2 },
+            argb(alpha, 0xffffff),
+        );
+    }
 
     display.present_all();
+}
+
+/// Paint a black boot splash with a custom Zirvium loading animation.
+pub fn splash(display: &mut Display) {
+    for frame in 0..12 {
+        draw_splash_frame(display, frame);
+        // The PIT is initialized later in boot, so timer-based sleeps would
+        // block here. A bounded CPU delay keeps the animation early-boot safe.
+        for _ in 0..1_500_000 {
+            core::hint::spin_loop();
+        }
+    }
 }
 
 static FRAMES: core::sync::atomic::AtomicU64 = core::sync::atomic::AtomicU64::new(0);
