@@ -2,7 +2,13 @@
 target = "x86_64-unknown-uefi"
 
 [target.x86_64-unknown-uefi]
-# The Rust UEFI target already emits a PE32+ EFI application and sets the
-# entry point to efi_main.  Keep the firmware-facing image self contained and
-# give ourselves a roomy boot stack for the early Rust code.
-rustflags = ["-C", "link-arg=/STACK:2097152"]
+# The Rust UEFI target only enables `fxsr`, which makes the compiler lower every
+# scalar float operation to a compiler-rt soft-float call. Enable SSE/SSE2
+# hardware float to get orders-of-magnitude better rendering performance.
+# `-soft-float` explicitly disables the soft float ABI/lowering.
+rustflags = [
+    "-C",
+    "target-feature=+sse,+sse2,+fxsr,-soft-float",
+    "-C",
+    "link-arg=/STACK:2097152",
+]

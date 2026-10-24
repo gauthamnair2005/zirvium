@@ -1108,7 +1108,6 @@ impl Desktop {
                 );
             }
         }
-
         // Tooltip: the dock is icon-only, so hovering names the target.
         if !self.launcher
             && let Target::Dock(kind) = self.hover
@@ -1437,7 +1436,6 @@ fn draw_window(
         display.pop_clip();
         display.reset_clip();
     }
-
     if focused {
         // Inner sparkle: a faint accent line just inside the window edge.
         display.stroke_rounded(rect.inset(1), radius - 1, 1, theme.accent_soft(34));
@@ -1582,6 +1580,9 @@ pub fn splash(display: &mut Display) {
     display.present_all();
 }
 
+static FRAMES: core::sync::atomic::AtomicU64 = core::sync::atomic::AtomicU64::new(0);
+static FRAME_MS: core::sync::atomic::AtomicU64 = core::sync::atomic::AtomicU64::new(0);
+
 /// Run the desktop.  This never returns: the kernel has no idle task yet.
 pub fn run(display: &mut Display) -> ! {
     WIDTH_HINT.store(display.width.max(1) as u32, Ordering::Relaxed);
@@ -1595,6 +1596,94 @@ pub fn run(display: &mut Display) -> ! {
     );
     let mut desktop = Desktop::new(display);
     desktop.draw(display);
+
+    {
+        use zirvstdlib::geometry::Rect;
+        crate::arch::cpu::sti();
+        let screen = Rect::new(0, 0, display.width, display.height);
+        let t = zirvstdlib::time::monotonic_ms();
+        for _ in 0..20 {
+            display.fill_rect(screen, 0xff102030);
+        }
+        let opaque = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for _ in 0..20 {
+            display.fill_rect(screen, 0x40102030);
+        }
+        let translucent = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for _ in 0..20 {
+            display.fill_rounded_vertical(screen, 0, 0xf0102030, 0xe0203040);
+        }
+        let gradient = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for _ in 0..20 {
+            display.fill_rounded(screen, 14, 0xff102030);
+        }
+        let rounded = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for _ in 0..20 {
+            display.horizontal_gradient(screen, 0xff203040, 0x10304050);
+        }
+        let hgrad = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for _ in 0..20 {
+            display.fill_rect(screen, 0xff203040);
+        }
+        let opaque2 = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for _ in 0..20 {
+            display.fill_rect(screen, 0xfe203040);
+        }
+        let nearly_opaque = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        let mut acc = 0.0f32;
+        for i in 0..1_000_000 {
+            acc += (i as f32) * 1.0000001;
+        }
+        let float_ms = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for i in 0..1_000_000 {
+            acc += zirvstdlib::math::sqrt(i as f32 + 1.0);
+        }
+        let sqrt_ms = zirvstdlib::time::monotonic_ms() - t;
+        let t = zirvstdlib::time::monotonic_ms();
+        for i in 0..1_000_000 {
+            acc += zirvstdlib::math::rounded_rect_sdf(
+                (i % 200) as f32,
+                (i % 130) as f32,
+                10.0,
+                10.0,
+                800.0,
+                500.0,
+                14.0,
+            );
+        }
+        let sdf_ms = zirvstdlib::time::monotonic_ms() - t;
+        crate::sprintln!(
+            "BENCH 1M float={}ms sqrt={}ms sdf={}ms acc={}",
+            float_ms,
+            sqrt_ms,
+            sdf_ms,
+            acc
+        );
+        let t = zirvstdlib::time::monotonic_ms();
+        let mut sink = 0u64;
+        for i in 0..100_000_000u64 {
+            sink = sink.wrapping_add(i ^ (sink >> 3));
+        }
+        let compute = zirvstdlib::time::monotonic_ms() - t;
+        crate::sprintln!(
+            "BENCH compute 100M loops={}ms sink={} hypervisor={} avx2={}",
+            compute,
+            sink,
+            crate::arch::cpu::features().hypervisor,
+            crate::arch::cpu::features().avx2
+        );
+        crate::sprintln!(
+            "BENCH 20x fullscreen: opaque={opaque}ms translucent={translucent}ms gradient={gradient}ms rounded={rounded}ms hgrad={hgrad}ms opaque2={opaque2}ms nearly={nearly_opaque}ms"
+        );
+    }
 
     let mut events = [InputEvent::key(InputKind::KeyDown, key::NONE, 0); 64];
     loop {

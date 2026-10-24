@@ -628,7 +628,9 @@ impl Display {
         }
         let radius_f = radius as f32;
         let radius_squared = radius_f * radius_f;
-        let base = (color >> 24) as f32;
+        let base = ((color >> 24) as f32) * strength;
+        let inv_radius_squared = 1.0 / radius_squared;
+        let color_rgb = color & 0x00ff_ffff;
         for y in clipped.y..clipped.bottom() {
             let dy = y as f32 + 0.5 - center.y as f32;
             let row_start = (y * self.width) as usize;
@@ -638,13 +640,17 @@ impl Display {
                 if distance_squared >= radius_squared {
                     continue;
                 }
-                let falloff = 1.0 - distance_squared / radius_squared;
-                let alpha = (base * falloff * falloff * strength) as u32;
+                let falloff = 1.0 - distance_squared * inv_radius_squared;
+                let alpha_f = base * falloff * falloff;
+                if alpha_f < 0.5 {
+                    continue;
+                }
+                let alpha = alpha_f as u32;
                 if alpha == 0 {
                     continue;
                 }
                 let index = row_start + x as usize;
-                let source = (color & 0x00ff_ffff) | (alpha.min(255) << 24);
+                let source = color_rgb | ((alpha.min(255)) << 24);
                 self.pixels[index] = blend_argb(source, self.pixels[index]);
             }
         }
@@ -965,8 +971,14 @@ impl Display {
 // ---------------------------------------------------------------------------
 
 fn fill_row(row: &mut [u32], color: u32) {
-    // `fill` compiles to a vectorised store loop with the baseline SSE2 target.
-    row.fill(color);
+    // An explicit loop lets LLVM emit SSE2 stores directly.  `slice::fill`
+    // lowers to a `memset`-shaped loop which, in this freestanding kernel,
+    // ended up far slower than the blended path for large spans.
+    let mut index = 0;
+    while index < row.len() {
+        row[index] = color;
+        index += 1;
+    }
 }
 
 fn lerp_argb(first: u32, second: u32, t: u32) -> u32 {
