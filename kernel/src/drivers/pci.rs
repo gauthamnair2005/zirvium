@@ -38,6 +38,10 @@ impl PciDevice {
         self.class == 0x02
     }
 
+    pub fn is_audio(&self) -> bool {
+        self.class == 0x04
+    }
+
     pub fn enable_bus_mastering(&self) {
         let mut command = config_read(self.bus, self.slot, self.function, 0x04) & 0xffff;
         command |= 1 << 1;

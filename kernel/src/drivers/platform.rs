@@ -22,6 +22,8 @@ pub enum DriverKind {
     VirtualBoxNet,
     GenericDisplay,
     GenericNetwork,
+    IntelHda,
+    GenericAudio,
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -47,8 +49,10 @@ fn identify(device: &PciDevice) -> Option<DriverInfo> {
         (0x15ad, 0x07b0, 0x02) => DriverKind::VmwareNet,
         (0x80ee, 0xbeef, 0x03) => DriverKind::VirtualBoxVga,
         (0x80ee, 0xcafe, 0x02) => DriverKind::VirtualBoxNet,
+        (0x8086, 0x2668, 0x04) => DriverKind::IntelHda,
         _ if device.is_display() => DriverKind::GenericDisplay,
         _ if device.is_network() => DriverKind::GenericNetwork,
+        _ if device.is_audio() => DriverKind::GenericAudio,
         _ => return None,
     };
     Some(DriverInfo {
@@ -83,6 +87,7 @@ pub fn init() {
                     );
                     state.ready
                 }
+                DriverKind::IntelHda | DriverKind::GenericAudio => false,
                 _ => false,
             };
             let driver = DriverInfo { ready, ..driver };
@@ -99,6 +104,9 @@ pub fn init() {
             found.push(driver);
         }
     }
+    super::sound::init(found.iter().any(|driver| {
+        matches!(driver.kind, DriverKind::IntelHda | DriverKind::GenericAudio)
+    }));
     DRIVERS.call_once(|| found);
 }
 

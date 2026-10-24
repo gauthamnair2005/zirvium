@@ -46,15 +46,6 @@ pub enum AppKind {
     Network,
 }
 
-/// Apps pinned to the taskbar.
-const DOCK_APPS: [AppKind; 5] = [
-    AppKind::Terminal,
-    AppKind::Files,
-    AppKind::Monitor,
-    AppKind::Settings,
-    AppKind::Network,
-];
-
 /// Apps shown on the Start screen. The taskbar only carries the essentials.
 const START_APPS: [AppKind; 7] = [
     AppKind::Terminal,
@@ -307,8 +298,8 @@ fn clock_rect(width: i32) -> Rect {
     Rect::new((width - 196).max(0), 0, 192, TOP_BAR_HEIGHT)
 }
 
-fn dock_panel(width: i32, height: i32) -> Rect {
-    let count = DOCK_APPS.len() as i32;
+fn dock_panel(width: i32, height: i32, count: usize) -> Rect {
+    let count = count as i32;
     let panel_width = count * DOCK_ICON + (count - 1) * DOCK_GAP + 34;
     Rect::new(
         (width - panel_width) / 2,
@@ -327,8 +318,23 @@ fn dock_icon_rect(panel: Rect, index: usize) -> Rect {
     )
 }
 
+fn start_tile_rect(index: usize, slide: i32) -> Rect {
+    let mut x = 60;
+    let mut y = 190;
+    for current in 0..index {
+        let width = if current == 0 { 236 } else { 110 };
+        x += if width == 236 { 252 } else { 126 };
+        if x > 60 + 340 {
+            x = 60;
+            y += 126;
+        }
+    }
+    let (width, height) = if index == 0 { (236, 110) } else { (110, 110) };
+    Rect::new(x - slide, y, width, height)
+}
+
 fn launch_panel_rect() -> Rect {
-    let rows = DOCK_APPS.len() as i32;
+    let rows = START_APPS.len() as i32;
     Rect::new(14, TOP_BAR_HEIGHT + 10, 306, 60 + rows * 50 + 34)
 }
 
@@ -570,6 +576,18 @@ impl Desktop {
             .map(|window| window.app.kind())
     }
 
+    fn taskbar_apps(&self) -> Vec<AppKind> {
+        self.windows
+            .iter()
+            .map(|window| window.app.kind())
+            .fold(Vec::new(), |mut apps, kind| {
+                if !apps.contains(&kind) {
+                    apps.push(kind);
+                }
+                apps
+            })
+    }
+
     // -- Notifications ------------------------------------------------------
 
     fn notify(&mut self, title: &str, body: &str, life: u64) {
@@ -644,9 +662,10 @@ impl Desktop {
         }
 
         if point.y >= self.height - DOCK_HEIGHT {
-            let dock = dock_panel(self.width, self.height);
+            let apps = self.taskbar_apps();
+            let dock = dock_panel(self.width, self.height, apps.len());
             if dock.contains(point) {
-                for (index, kind) in DOCK_APPS.iter().enumerate() {
+                for (index, kind) in apps.iter().enumerate() {
                     if dock_icon_rect(dock, index).contains(point) {
                         return Target::Dock(*kind);
                     }
@@ -737,29 +756,16 @@ impl Desktop {
                 self.start_power_open = !self.start_power_open;
                 return true;
             }
-            let mut x = 60i32;
-            let mut y = 190i32;
-            let mut i = 0;
-            for kind in START_APPS.iter() {
-                let (tw, th) = match i {
-                    0 => (236, 110),
-                    _ => (110, 110),
-                };
-                let rect = Rect::new(x, y, tw, th);
+            let elapsed = zirvstdlib::time::monotonic_ms().saturating_sub(self.launcher_started);
+            let progress = (elapsed as f32 / 420.0).clamp(0.0, 1.0);
+            let eased = progress * progress * (3.0 - 2.0 * progress);
+            let slide = ((1.0 - eased) * 72.0) as i32;
+            for (i, kind) in START_APPS.iter().enumerate() {
+                let rect = start_tile_rect(i, slide);
                 if rect.contains(point) {
                     self.launcher = false;
                     self.open(*kind);
                     return true;
-                }
-                if tw == 236 {
-                    x += 252;
-                } else {
-                    x += 126;
-                }
-                i += 1;
-                if x > 60 + 340 {
-                    x = 60;
-                    y += 126;
                 }
             }
             if !self.start_power_open {
@@ -1211,8 +1217,10 @@ impl Desktop {
         }
         widgets::logo(display, Rect::new(start.x + 10, start.y + 10, 24, 24));
 
-        for (index, kind) in DOCK_APPS.iter().enumerate() {
-            let rect = Rect::new(52 + index as i32 * 48, height - DOCK_HEIGHT + 4, 44, 44);
+        let apps = self.taskbar_apps();
+        let dock = dock_panel(width, height, apps.len());
+        for (index, kind) in apps.iter().enumerate() {
+            let rect = dock_icon_rect(dock, index);
             let hot = self.hover == Target::Dock(*kind);
             let open = self.windows.iter().any(|w| w.app.kind() == *kind && !w.minimized);
             let focused = self.focused_kind() == Some(*kind);

@@ -17,9 +17,10 @@ QEMU        ?= qemu-system-x86_64
 
 OVMF_CODE   ?= /usr/share/OVMF/OVMF_CODE_4M.fd
 OVMF_VARS   ?= /usr/share/OVMF/OVMF_VARS_4M.fd
-QEMU_MEMORY ?= 512M
+QEMU_MEMORY ?= 2G
+QEMU_SMP    ?= 8
 QEMU_DISPLAY ?= gtk
-QEMU_CPU    ?= qemu64
+QEMU_CPU    ?= max
 
 .PHONY: all build esp iso run run-headless clean fmt clippy check test
 
@@ -87,11 +88,13 @@ define qemu_common
 		-machine q35,accel=kvm:tcg \
 		-cpu $(QEMU_CPU) \
 		-m $(QEMU_MEMORY) \
-		-smp 4 \
+		-smp $(QEMU_SMP),sockets=1,dies=1 \
 		-drive if=pflash,format=raw,readonly=on,file=$(OVMF_CODE) \
 		-drive if=pflash,format=raw,file=$(BUILD)/OVMF_VARS.fd \
 		-drive format=raw,file=$(ESP) \
 		-device virtio-vga \
+		-device ich9-intel-hda \
+		-device hda-duplex \
 		-netdev user,id=zirvium-net \
 		-device e1000,netdev=zirvium-net
 endef
@@ -99,7 +102,7 @@ endef
 run: esp $(BUILD)/OVMF_VARS.fd
 	$(qemu_common) \
 		-serial stdio \
-		-display $(QEMU_DISPLAY)
+		-display $(QEMU_DISPLAY),gl=on
 
 run-headless: esp $(BUILD)/OVMF_VARS.fd
 	$(qemu_common) \

@@ -121,6 +121,7 @@ impl Terminal {
                 self.push(String::from("  gpu                  display adapter"));
                 self.push(String::from("  drivers              detected hardware drivers"));
                 self.push(String::from("  net                  network status"));
+                self.push(String::from("  sound                audio device and output status"));
                 self.push(String::from("  ping HOST             test loopback or network reachability"));
                 self.push(String::from("  browse URL            open a text page"));
                 self.push(String::from("  fonts                loaded font faces"));
@@ -298,7 +299,7 @@ impl Terminal {
                 self.push(format!(
                     "ethernet  {}",
                     if status.driver_count > 0 {
-                        "driver detected; protocol unavailable"
+                        if status.ethernet { "online" } else { "driver detected; protocol unavailable" }
                     } else {
                         "not detected"
                     }
@@ -316,6 +317,21 @@ impl Terminal {
                     status.mac[3],
                     status.mac[4],
                     status.mac[5]
+                ));
+            }
+            "sound" | "audio" => {
+                let sound = crate::drivers::sound::status();
+                self.push(format!(
+                    "audio     {}",
+                    if sound.detected { "device detected" } else { "no device detected" }
+                ));
+                self.push(format!(
+                    "output    {}",
+                    if sound.output_ready { "ready" } else { "protocol not enabled" }
+                ));
+                self.push(format!(
+                    "format    {} Hz, {} channels",
+                    sound.sample_rate, sound.channels
                 ));
             }
             "ping" => {

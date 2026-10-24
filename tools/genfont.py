@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Zirvium anti-aliased font atlas.
+"""Generate the Zirvium hinted, anti-aliased font atlas.
 
 The output is a compact binary consumed by DisplayJet at boot.  It contains
 ASCII 0x20..0x7e plus the Latin-1 letters, typographic punctuation and arrows
