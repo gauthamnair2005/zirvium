@@ -243,6 +243,7 @@ struct Window {
     /// Geometry to restore when leaving the maximised state.
     restore: Option<Rect>,
     minimized: bool,
+    maximized: bool,
 }
 
 impl Window {
@@ -263,8 +264,8 @@ impl Window {
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 enum Target {
     Nothing,
-    Launcher,
-    Clock,
+    Start,
+    Power,
     Dock(AppKind),
     Close(u32),
     Minimize(u32),
@@ -272,6 +273,7 @@ enum Target {
     Title(u32),
     Content(u32),
     Resize(u32),
+    Desktop,
 }
 
 #[derive(Clone, Copy)]
@@ -482,6 +484,7 @@ impl Desktop {
             rect: Rect::new(x, y, w, h),
             restore: None,
             minimized: false,
+            maximized: false,
         });
         self.focused = Some(id);
     }
@@ -512,12 +515,15 @@ impl Desktop {
     fn toggle_maximize(&mut self, id: u32) {
         let (width, height) = (self.width, self.height);
         if let Some(window) = self.window_mut(id) {
-            if let Some(restore) = window.restore.take() {
-                window.rect = restore;
+            if window.maximized {
+                if let Some(restore) = window.restore.take() {
+                    window.rect = restore;
+                }
+                window.maximized = false;
             } else {
                 window.restore = Some(window.rect);
-                window.rect =
-                    Rect::new(0, TOP_BAR_HEIGHT, width, (height - TOP_BAR_HEIGHT).max(160));
+                window.rect = Rect::new(0, TOP_BAR_HEIGHT, width, (height - TOP_BAR_HEIGHT - DOCK_HEIGHT).max(160));
+                window.maximized = true;
             }
             self.focused = Some(id);
         }
@@ -565,34 +571,30 @@ impl Desktop {
 
     fn target_at(&self, point: Point) -> Target {
         if self.launcher {
-            let panel = launch_panel_rect();
-            if panel.contains(point) {
-                for (index, app) in DOCK_APPS.iter().enumerate() {
-                    if launch_row_rect(index).contains(point) {
-                        return Target::Dock(*app);
+            // Start screen covers most of screen
+            return Target::Nothing;
+        }
+
+        if point.y >= self.height - DOCK_HEIGHT {
+            let dock = dock_panel(self.width, self.height);
+            if dock.contains(point) {
+                for (index, kind) in DOCK_APPS.iter().enumerate() {
+                    if dock_icon_rect(dock, index).contains(point) {
+                        return Target::Dock(*kind);
                     }
                 }
                 return Target::Nothing;
             }
-        }
-
-        let dock = dock_panel(self.width, self.height);
-        if dock.contains(point) {
-            for (index, kind) in DOCK_APPS.iter().enumerate() {
-                if dock_icon_rect(dock, index).contains(point) {
-                    return Target::Dock(*kind);
-                }
+            if Rect::new(8, self.height - DOCK_HEIGHT + 6, 52, 60).contains(point) {
+                return Target::Start;
+            }
+            if Rect::new(self.width - 60, self.height - DOCK_HEIGHT + 6, 52, 60).contains(point) {
+                return Target::Power;
             }
             return Target::Nothing;
         }
 
         if point.y < TOP_BAR_HEIGHT {
-            if launcher_button_rect().contains(point) {
-                return Target::Launcher;
-            }
-            if clock_rect(self.width).contains(point) {
-                return Target::Clock;
-            }
             return Target::Nothing;
         }
 
@@ -614,7 +616,7 @@ impl Desktop {
             if maximize.contains(point) {
                 return Target::Maximize(window.id);
             }
-            if window.restore.is_none()
+            if !window.maximized
                 && rect.bottom() - point.y <= 16
                 && rect.right() - point.x <= 16
             {
@@ -625,21 +627,41 @@ impl Desktop {
             }
             return Target::Content(window.id);
         }
-        Target::Nothing
+        Target::Desktop
     }
 
     fn pointer_down(&mut self, point: Point) -> bool {
         if self.launcher {
-            if let Some(index) =
-                (0..DOCK_APPS.len()).find(|index| launch_row_rect(*index).contains(point))
-            {
-                let kind = DOCK_APPS[index];
+            let screen_w = self.width;
+            let mut x = 60i32;
+            let mut y = 180i32;
+            let mut i = 0;
+            for kind in DOCK_APPS.iter() {
+                let rect = Rect::new(x, y, 110, 110);
+                if rect.contains(point) {
+                    self.launcher = false;
+                    self.open(*kind);
+                    return true;
+                }
+                x += 126;
+                i += 1;
+                if i % 6 == 0 {
+                    x = 60;
+                    y += 126;
+                }
+            }
+            let power_panel = Rect::new(screen_w - 220, self.height - 200, 160, 140);
+            let shutdown = Rect::new(power_panel.x + 16, power_panel.y + 48, power_panel.w - 32, 38);
+            let reboot = Rect::new(power_panel.x + 16, power_panel.y + 96, power_panel.w - 32, 38);
+            if shutdown.contains(point) {
                 self.launcher = false;
-                self.open(kind);
+                crate::sprintln!("UI: shutdown requested");
                 return true;
             }
-            if launch_panel_rect().contains(point) {
-                return false;
+            if reboot.contains(point) {
+                self.launcher = false;
+                crate::sprintln!("UI: reboot requested");
+                return true;
             }
             self.launcher = false;
             return true;
@@ -648,13 +670,18 @@ impl Desktop {
         let target = self.target_at(point);
         let mut redraw = true;
         match target {
-            Target::Launcher => {
+            Target::Start => {
                 self.launcher = !self.launcher;
                 if self.launcher {
                     self.launcher_selected = 0;
                 }
             }
-            Target::Clock => self.open(AppKind::Settings),
+            Target::Power => {
+                self.launcher = !self.launcher;
+                if self.launcher {
+                    self.launcher_selected = 0;
+                }
+            }
             Target::Dock(kind) => {
                 let focused_same = self.focused_kind() == Some(kind);
                 let existing = self
@@ -740,6 +767,11 @@ impl Desktop {
                     let _ = changed;
                     redraw = true;
                 }
+            }
+            Target::Desktop => {
+                self.launcher = false;
+                self.drag = None;
+                redraw = true;
             }
             Target::Resize(id) => {
                 let rect = self.window(id).map(|window| window.rect);
@@ -840,6 +872,7 @@ impl Desktop {
             self.launcher_selected = 0;
             return true;
         }
+        // Right click simulation via shift+click not needed, handle via events later; keep simple
         if event_modifiers & modifiers::ALT != 0 && code == key::TAB {
             self.cycle_windows();
             return true;
@@ -850,25 +883,10 @@ impl Desktop {
                     self.launcher = false;
                     return true;
                 }
-                key::UP => {
-                    if self.launcher_selected > 0 {
-                        self.launcher_selected -= 1;
-                    }
-                    return true;
-                }
-                key::DOWN => {
-                    if self.launcher_selected + 1 < DOCK_APPS.len() {
-                        self.launcher_selected += 1;
-                    }
-                    return true;
-                }
-                key::ENTER => {
-                    let kind = DOCK_APPS[self.launcher_selected.min(DOCK_APPS.len() - 1)];
+                _ => {
                     self.launcher = false;
-                    self.open(kind);
                     return true;
                 }
-                _ => return false,
             }
         }
         let Some(id) = self.focused else {
@@ -945,352 +963,79 @@ impl Desktop {
         display.cursor_hide();
         display.reset_clip();
         display.copy_surface(&self.wallpaper);
-        if self.theme.show_grid {
+        if self.theme.show_grid && !self.launcher {
             draw_grid(display, self.width, self.height, &self.theme);
         }
 
-        let theme = self.theme;
-        let focused = self.focused;
-        let hover = self.hover;
-        for window in self.windows.iter_mut() {
-            if window.minimized {
-                continue;
-            }
-            draw_window(display, window, &theme, focused == Some(window.id), hover);
-        }
-
-        self.draw_dock(display);
-        self.draw_top_bar(display);
         if self.launcher {
-            self.draw_launcher(display);
+            self.draw_start_screen(display);
+        } else {
+            let theme = self.theme;
+            let focused = self.focused;
+            let hover = self.hover;
+            for window in self.windows.iter_mut() {
+                if window.minimized {
+                    continue;
+                }
+                draw_window(display, window, &theme, focused == Some(window.id), hover);
+            }
+            self.draw_taskbar(display);
+            self.draw_notifications(display);
         }
-        self.draw_notifications(display);
 
         let cursor = self.cursor;
         display.cursor_show(cursor.x, cursor.y);
         display.present();
     }
 
-    fn draw_top_bar(&self, display: &mut Display) {
+    fn draw_taskbar(&self, display: &mut Display) {
         let width = self.width;
-        let bar = Rect::new(0, 0, width, TOP_BAR_HEIGHT);
-        display.fill_rounded_vertical(bar, 0, argb(0xf4, 0x0d1018), argb(0xe2, 0x090c12));
-        display.fill_rect(Rect::new(0, TOP_BAR_HEIGHT - 1, width, 1), TOP_BAR_BORDER);
-        // The menubar's only saturated element is the launcher chip, so the
-        // eye always knows where to start.
-        let button = launcher_button_rect();
-        let hot = self.hover == Target::Launcher || self.launcher;
-        display.fill_rounded_vertical(
-            button,
-            8,
-            if hot {
-                self.theme.accent_soft(66)
-            } else {
-                argb(0x22, 0xffffff)
-            },
-            if hot {
-                self.theme.accent_soft(30)
-            } else {
-                argb(0x10, 0xffffff)
-            },
-        );
-        display.stroke_rounded(
-            button,
-            8,
-            1,
-            if hot {
-                self.theme.accent_soft(150)
-            } else {
-                argb(0x28, 0xffffff)
-            },
-        );
-        widgets::icon(
-            display,
-            Rect::new(button.x + 8, button.y + 4, 16, 16),
-            Icon::Logo,
-            if hot { self.theme.accent } else { TEXT_MUTED },
-        );
-        display.text(
-            button.x + 32,
-            button.y + 4,
-            "Zirvium",
-            12,
-            true,
-            if hot { TEXT_STRONG } else { TEXT_MUTED },
-        );
+        let height = self.height;
+        let bar = Rect::new(0, height - DOCK_HEIGHT, width, DOCK_HEIGHT);
+        display.fill_rounded_vertical(bar, 0, argb(0xf6, 0x080b14), argb(0xe8, 0x06080f));
+        display.fill_rect(Rect::new(0, height - DOCK_HEIGHT, width, 1), argb(0x40, 0xffffff));
 
-        let title = self
-            .focused
-            .and_then(|id| self.window(id))
-            .map(|window| window.app.kind().title())
-            .unwrap_or("Desktop");
-        let center = Rect::new(148, 0, (width - 440).max(80), TOP_BAR_HEIGHT);
-        display.text_centered(center, title, 11, false, TEXT_DIM);
+        // Start button
+        let start = Rect::new(8, height - DOCK_HEIGHT + 8, 56, 56);
+        let start_hot = self.hover == Target::Start || self.launcher;
+        display.fill_rounded_vertical(start, 8, if start_hot { self.theme.accent_soft(60) } else { argb(0x18, 0xffffff) }, if start_hot { self.theme.accent_soft(24) } else { argb(0x10, 0xffffff) });
+        display.stroke_rounded(start, 8, 1, if start_hot { self.theme.accent_soft(140) } else { argb(0x28, 0xffffff) });
+        widgets::icon(display, Rect::new(start.x + 16, start.y + 16, 24, 24), Icon::Logo, if start_hot { self.theme.accent } else { TEXT });
 
-        // Right cluster: cluster status, date and time, separated by hairlines.
-        let now = crate::time::now();
-        let clock = if self.theme.show_seconds {
-            alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second)
-        } else {
-            alloc::format!("{:02}:{:02}", now.hour, now.minute)
-        };
-        let clock_width = widgets::text_width(&clock, 13, true);
-        let clock_x = width - 16 - clock_width;
-        display.text(clock_x, 8, &clock, 13, true, TEXT);
-
-        let date = alloc::format!("{} {}", now.month_name(), now.day);
-        let date_width = widgets::text_width(&date, 11, false);
-        let date_x = clock_x - 14 - date_width;
-        display.text(date_x, 10, &date, 11, false, TEXT_DIM);
-        display.fill_rect(
-            Rect::new(date_x - 12, 12, 1, TOP_BAR_HEIGHT - 24),
-            argb(0x40, 0xffffff),
-        );
-
-        let processes = crate::mosix::process_count();
-        let status = alloc::format!("{processes} proc");
-        let status_width = widgets::text_width(&status, 10, true);
-        let status_x = date_x - 24 - status_width;
-        display.fill_circle(
-            Point::new(status_x - 9, TOP_BAR_HEIGHT / 2),
-            6,
-            self.theme.accent_soft(36),
-        );
-        display.fill_circle(
-            Point::new(status_x - 9, TOP_BAR_HEIGHT / 2),
-            3,
-            self.theme.accent,
-        );
-        display.text(status_x, 11, &status, 10, true, TEXT_MUTED);
-    }
-
-    fn draw_dock(&self, display: &mut Display) {
-        let panel = dock_panel(self.width, self.height);
-        display.radial_glow(
-            Point::new(panel.center().x, panel.center().y),
-            panel.w / 2 + 26,
-            self.theme.accent_soft(60),
-            0.55,
-        );
-        display.drop_shadow(panel, 20, 18, argb(0xb0, 0x000000));
-        display.fill_rounded_vertical(panel, 20, argb(0xf2, 0x141925), argb(0xd8, 0x0a0d14));
-        display.stroke_rounded(panel, 20, 1, argb(0xff, 0x2a3242));
-        display.fill_rounded(
-            Rect::new(panel.x + 18, panel.y + 1, panel.w - 36, 1),
-            1,
-            argb(0x24, 0xffffff),
-        );
-
+        // Pinned apps
         for (index, kind) in DOCK_APPS.iter().enumerate() {
-            let base = dock_icon_rect(panel, index);
-            let hot = !self.launcher && self.hover == Target::Dock(*kind);
-            let open = self.windows.iter().any(|window| window.app.kind() == *kind);
-            let focused = self.focused_kind() == Some(*kind);
-            let rect = if hot && self.theme.dock_magnification {
-                Rect::new(base.x - 3, base.y - 7, base.w + 6, base.h + 6)
-            } else {
-                base
-            };
-            if hot {
-                display.fill_rounded(rect, 13, self.theme.accent_soft(26));
-            }
-            display.fill_rounded_vertical(
-                rect,
-                13,
-                if open {
-                    argb(0xff, 0x232a39)
-                } else {
-                    argb(0xd0, 0x171c27)
-                },
-                if open {
-                    argb(0xff, 0x161b25)
-                } else {
-                    argb(0xb0, 0x10141d)
-                },
-            );
-            display.stroke_rounded(
-                rect,
-                13,
-                1,
-                if hot {
-                    self.theme.accent_soft(190)
-                } else if open {
-                    argb(0xff, 0x354052)
-                } else {
-                    BORDER_SOFT
-                },
-            );
-            if hot {
-                // A soft inner glow gives the magnified tile a pressed-glass
-                // feel without a second border.
-                display.stroke_rounded(rect.inset(1), 12, 1, self.theme.accent_soft(60));
-            }
-            widgets::icon(
-                display,
-                rect.inset(if hot { 12 } else { 11 }),
-                kind.icon(),
-                if focused {
-                    self.theme.accent
-                } else if hot {
-                    TEXT_STRONG
-                } else if open {
-                    TEXT
-                } else {
-                    TEXT_MUTED
-                },
-            );
-            if open {
-                let dot = Point::new(rect.center().x, panel.bottom() - 7);
-                display.fill_circle(dot, 4, self.theme.accent_soft(34));
-                display.fill_circle(
-                    dot,
-                    2,
-                    if focused {
-                        self.theme.accent
-                    } else {
-                        TEXT_FAINT
-                    },
-                );
-            }
-        }
-        // Tooltip: the dock is icon-only, so hovering names the target.
-        if !self.launcher
-            && let Target::Dock(kind) = self.hover
-            && let Some(index) = DOCK_APPS.iter().position(|candidate| *candidate == kind)
-        {
-            let base = dock_icon_rect(panel, index);
-            let face = crate::displayjet::font::face(11, true);
-            let label = kind.title();
-            let width = face.width(label) + 20;
-            let rect = Rect::new(
-                (base.center().x - width / 2).clamp(8, self.width - width - 8),
-                panel.y - 30,
-                width,
-                22,
-            );
-            display.drop_shadow(rect, 7, 6, argb(0x80, 0x000000));
-            widgets::panel(display, rect, 7, argb(0xf8, 0x151a24), BORDER);
-            display.text_centered(rect, label, 11, true, TEXT);
-        }
-    }
-
-    fn draw_launcher(&self, display: &mut Display) {
-        let panel = launch_panel_rect();
-        display.radial_glow(
-            Point::new(panel.x + 70, panel.y + 20),
-            180,
-            self.theme.accent_soft(50),
-            0.5,
-        );
-        display.drop_shadow(panel, 18, 22, argb(0xb0, 0x000000));
-        display.fill_rounded_vertical(panel, 18, argb(0xfa, 0x161b26), argb(0xec, 0x0c0f16));
-        display.stroke_rounded(panel, 18, 1, argb(0xff, 0x303a4c));
-        display.horizontal_gradient(
-            Rect::new(panel.x + 18, panel.y + 1, panel.w - 36, 1),
-            self.theme.accent_soft(210),
-            self.theme.accent_alt_soft(40),
-        );
-
-        display.text(panel.x + 20, panel.y + 14, "Applications", 15, true, TEXT);
-        let hint = "Super";
-        let hint_width = widgets::text_width(hint, 10, true);
-        let hint_rect = Rect::new(
-            panel.right() - 18 - hint_width - 16,
-            panel.y + 16,
-            hint_width + 16,
-            18,
-        );
-        display.fill_rounded(hint_rect, 9, argb(0x24, 0xffffff));
-        display.text_centered(hint_rect, hint, 10, true, TEXT_DIM);
-
-        for (index, kind) in DOCK_APPS.iter().enumerate() {
-            let row = launch_row_rect(index);
-            let selected = index == self.launcher_selected;
+            let rect = Rect::new(80 + index as i32 * 64, height - DOCK_HEIGHT + 8, 56, 56);
             let hot = self.hover == Target::Dock(*kind);
-            if selected || hot {
-                display.fill_rounded_vertical(
-                    row,
-                    10,
-                    if selected {
-                        self.theme.accent_soft(46)
-                    } else {
-                        argb(0x28, 0xffffff)
-                    },
-                    if selected {
-                        self.theme.accent_soft(18)
-                    } else {
-                        argb(0x10, 0xffffff)
-                    },
-                );
-                display.stroke_rounded(
-                    row,
-                    10,
-                    1,
-                    self.theme.accent_soft(if selected { 120 } else { 50 }),
-                );
-                if selected {
-                    display.fill_rounded(
-                        Rect::new(row.x + 5, row.y + 11, 3, row.h - 22),
-                        2,
-                        self.theme.accent,
-                    );
-                }
+            let open = self.windows.iter().any(|w| w.app.kind() == *kind && !w.minimized);
+            let focused = self.focused_kind() == Some(*kind);
+            if hot || focused {
+                display.fill_rounded_vertical(rect, 10, if focused { self.theme.accent_soft(40) } else { argb(0x24, 0xffffff) }, if focused { self.theme.accent_soft(16) } else { argb(0x12, 0xffffff) });
+                display.stroke_rounded(rect, 10, 1, self.theme.accent_soft(if focused { 120 } else { 60 }));
             }
-            let badge = Rect::new(row.x + 14, row.y + 7, 32, 32);
-            display.fill_rounded_vertical(
-                badge,
-                9,
-                if selected {
-                    self.theme.accent_soft(76)
-                } else {
-                    argb(0x38, 0xffffff)
-                },
-                if selected {
-                    self.theme.accent_soft(28)
-                } else {
-                    argb(0x16, 0xffffff)
-                },
-            );
-            display.stroke_rounded(badge, 9, 1, argb(0x30, 0xffffff));
-            widgets::icon(
-                display,
-                badge.inset(8),
-                kind.icon(),
-                if selected {
-                    self.theme.accent
-                } else {
-                    TEXT_MUTED
-                },
-            );
-            display.text(row.x + 58, row.y + 6, kind.title(), 13, true, TEXT);
-            display.text_ellipsized(
-                row.x + 58,
-                row.y + 26,
-                kind.subtitle(),
-                row.w - 94,
-                11,
-                false,
-                TEXT_DIM,
-            );
-            if selected {
-                widgets::icon(
-                    display,
-                    Rect::new(row.right() - 26, row.y + 16, 13, 13),
-                    Icon::Right,
-                    self.theme.accent,
-                );
-            } else if self.windows.iter().any(|window| window.app.kind() == *kind) {
-                display.fill_circle(Point::new(row.right() - 18, row.center().y), 3, TEXT_FAINT);
+            widgets::icon(display, Rect::new(rect.x + 16, rect.y + 16, 24, 24), kind.icon(), if focused { self.theme.accent } else if hot { TEXT_STRONG } else if open { TEXT } else { TEXT_MUTED });
+            if open {
+                display.fill_rounded(Rect::new(rect.x + 20, rect.bottom() - 4, 16, 2), 1, if focused { self.theme.accent } else { TEXT_FAINT });
             }
         }
-        display.text_centered(
-            Rect::new(panel.x, panel.bottom() - 28, panel.w, 20),
-            "↑ ↓ select    Enter open    Esc close",
-            10,
-            false,
-            TEXT_FAINT,
-        );
+
+        // Power button
+        let power = Rect::new(width - 64, height - DOCK_HEIGHT + 8, 56, 56);
+        let power_hot = self.hover == Target::Power;
+        display.fill_rounded_vertical(power, 10, if power_hot { argb(0x44, 0xff5f5f) } else { argb(0x18, 0xffffff) }, if power_hot { argb(0x28, 0xff3f3f) } else { argb(0x10, 0xffffff) });
+        display.stroke_rounded(power, 10, 1, if power_hot { argb(0xcc, 0xff6f6f) } else { argb(0x28, 0xffffff) });
+        widgets::icon(display, Rect::new(power.x + 16, power.y + 16, 24, 24), Icon::Close, if power_hot { rgb(0xff7f7f) } else { TEXT_MUTED });
+
+        // Clock
+        let now = crate::time::now();
+        let clock = if self.theme.show_seconds { alloc::format!("{:02}:{:02}:{:02}", now.hour, now.minute, now.second) } else { alloc::format!("{:02}:{:02}", now.hour, now.minute) };
+        let date = alloc::format!("{:02}/{:02}/{}", now.month, now.day, now.year % 100);
+        display.text(width - 160, height - DOCK_HEIGHT + 16, &clock, 12, true, TEXT);
+        display.text(width - 160, height - DOCK_HEIGHT + 34, &date, 10, false, TEXT_DIM);
     }
+
+    fn draw_dock(&self, _display: &mut Display) {}
+
+    fn draw_launcher(&self, _display: &mut Display) {}
 
     fn draw_notifications(&self, display: &mut Display) {
         if self.notifications.is_empty() {
@@ -1305,60 +1050,59 @@ impl Desktop {
             let now = zirvstdlib::time::monotonic_ms();
             let remaining = note.life.saturating_sub(now.saturating_sub(note.born));
             let fade = if remaining < 600 { 160 } else { 246 };
-            let rise = if remaining < 240 {
-                ((240 - remaining) / 12) as i32
-            } else {
-                0
-            };
+            let rise = if remaining < 240 { ((240 - remaining) / 12) as i32 } else { 0 };
             let rect = Rect::new(rect.x, rect.y + rise, rect.w, rect.h);
-            display.drop_shadow(rect, 14, 14, argb(0xa0, 0x000000));
-            display.fill_rounded_vertical(
-                rect,
-                14,
-                argb(fade, 0x1a1f2b),
-                argb(fade.saturating_sub(12), 0x10141c),
-            );
-            display.stroke_rounded(rect, 14, 1, argb(0xff, 0x333d50));
-            display.fill_rounded(
-                Rect::new(rect.x + 10, rect.y + 12, 3, rect.h - 24),
-                2,
-                self.theme.accent,
-            );
-            let badge = Rect::new(rect.x + 22, rect.y + 14, 30, 30);
-            display.fill_rounded(badge, 9, self.theme.accent_soft(38));
-            widgets::icon(display, badge.inset(8), Icon::Spark, self.theme.accent);
-            display.text(rect.x + 62, rect.y + 13, &note.title, 12, true, TEXT);
-            display.text_ellipsized(
-                rect.x + 62,
-                rect.y + 33,
-                &note.body,
-                rect.w - 78,
-                11,
-                false,
-                TEXT_MUTED,
-            );
-            // A hairline shows how long the toast will stay.
-            let ratio = if note.life == 0 {
-                0.0
-            } else {
-                remaining as f32 / note.life as f32
-            };
-            display.fill_rounded(
-                Rect::new(rect.x + 62, rect.bottom() - 15, rect.w - 84, 2),
-                1,
-                argb(0x2e, 0xffffff),
-            );
-            display.fill_rounded(
-                Rect::new(
-                    rect.x + 62,
-                    rect.bottom() - 15,
-                    (((rect.w - 84) as f32 * ratio) as i32).max(2),
-                    2,
-                ),
-                1,
-                self.theme.accent_soft(205),
-            );
+            display.drop_shadow(rect, 12, 12, argb(0x90, 0x000000));
+            display.fill_rounded_vertical(rect, 12, argb(fade, 0x151925), argb(fade.saturating_sub(10), 0x0c1018));
+            display.stroke_rounded(rect, 12, 1, argb(0xff, 0x2a3346));
+            display.fill_rounded(Rect::new(rect.x + 10, rect.y + 12, 3, rect.h - 24), 2, self.theme.accent);
+            let badge = Rect::new(rect.x + 22, rect.y + 14, 28, 28);
+            display.fill_rounded(badge, 8, self.theme.accent_soft(38));
+            widgets::icon(display, badge.inset(7), Icon::Spark, self.theme.accent);
+            display.text(rect.x + 58, rect.y + 13, &note.title, 12, true, TEXT);
+            display.text_ellipsized(rect.x + 58, rect.y + 33, &note.body, rect.w - 74, 11, false, TEXT_MUTED);
+            let ratio = if note.life == 0 { 0.0 } else { remaining as f32 / note.life as f32 };
+            display.fill_rounded(Rect::new(rect.x + 58, rect.bottom() - 14, rect.w - 78, 2), 1, argb(0x2e, 0xffffff));
+            display.fill_rounded(Rect::new(rect.x + 58, rect.bottom() - 14, (((rect.w - 78) as f32 * ratio) as i32).max(2), 2), 1, self.theme.accent_soft(200));
         }
+    }
+
+    fn draw_start_screen(&self, display: &mut Display) {
+        let screen = Rect::new(0, 0, self.width, self.height);
+        display.vertical_gradient(screen, rgb(0x06080f), rgb(0x0a0d16));
+        display.text(60, 80, "Start", 42, true, TEXT_STRONG);
+        display.text(60, 140, "Pinned", 14, true, TEXT_MUTED);
+
+        let mut x = 60;
+        let mut y = 180;
+        let mut i = 0;
+        for kind in &DOCK_APPS {
+            let rect = Rect::new(x, y, 110, 110);
+            display.fill_rounded_vertical(rect, 12, argb(0x28, 0xffffff), argb(0x14, 0xffffff));
+            display.stroke_rounded(rect, 12, 1, argb(0x38, 0xffffff));
+            widgets::icon(display, Rect::new(rect.x + 38, rect.y + 28, 34, 34), kind.icon(), self.theme.accent);
+            display.text_centered(Rect::new(rect.x, rect.bottom() - 32, rect.w, 20), kind.title(), 11, true, TEXT);
+            x += 126;
+            i += 1;
+            if i % 6 == 0 {
+                x = 60;
+                y += 126;
+            }
+        }
+
+        // Power panel
+        let power_panel = Rect::new(self.width - 220, self.height - 200, 160, 140);
+        display.fill_rounded_vertical(power_panel, 12, argb(0x32, 0xffffff), argb(0x18, 0xffffff));
+        display.stroke_rounded(power_panel, 12, 1, argb(0x44, 0xffffff));
+        display.text(power_panel.x + 16, power_panel.y + 14, "Power", 14, true, TEXT);
+        let shutdown = Rect::new(power_panel.x + 16, power_panel.y + 48, power_panel.w - 32, 38);
+        display.fill_rounded_vertical(shutdown, 10, argb(0x44, 0xff5f5f), argb(0x28, 0xff3f3f));
+        display.stroke_rounded(shutdown, 10, 1, argb(0xcc, 0xff6f6f));
+        display.text_centered(shutdown, "Shut down", 12, true, rgb(0xffe0e0));
+        let reboot = Rect::new(power_panel.x + 16, power_panel.y + 96, power_panel.w - 32, 38);
+        display.fill_rounded_vertical(reboot, 10, argb(0x28, 0xffffff), argb(0x14, 0xffffff));
+        display.stroke_rounded(reboot, 10, 1, argb(0x38, 0xffffff));
+        display.text_centered(reboot, "Restart", 12, true, TEXT);
     }
 }
 
