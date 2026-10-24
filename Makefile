@@ -21,7 +21,7 @@ QEMU_MEMORY ?= 2G
 QEMU_SMP    ?= 8
 QEMU_DISPLAY ?= gtk
 QEMU_CPU    ?= max
-QEMU_VIDEO  ?= VGA
+QEMU_VIDEO  ?= std
 
 .PHONY: all build esp iso run run-gui run-headless clean fmt clippy check test
 
@@ -93,7 +93,7 @@ define qemu_common
 		-drive if=pflash,format=raw,readonly=on,file=$(OVMF_CODE) \
 		-drive if=pflash,format=raw,file=$(BUILD)/OVMF_VARS.fd \
 		-drive format=raw,file=$(ESP) \
-		-device $(QEMU_VIDEO) \
+		-vga $(QEMU_VIDEO) \
 		-device ich9-intel-hda \
 		-device hda-duplex \
 		-netdev user,id=zirvium-net \
