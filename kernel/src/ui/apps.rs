@@ -1004,6 +1004,35 @@ impl Settings {
         }
         y = behaviour.bottom() + 10;
 
+        // Mode
+        let mode_card = Rect::new(inner.x, y, inner.w, 84);
+        widgets::card(display, mode_card, theme);
+        display.text(inner.x + 14, y + 12, "Color mode", 14, true, TEXT);
+        display.text(inner.x + 14, y + 34, "Light or dark appearance", 11, false, TEXT_MUTED);
+        let light = Rect::new(inner.x + 14, y + 56, 80, 26);
+        let dark = Rect::new(inner.x + 102, y + 56, 80, 26);
+        widgets::button(display, light, "Light", theme, widgets::ButtonStyle::Subtle, false, true);
+        widgets::button(display, dark, "Dark", theme, widgets::ButtonStyle::Subtle, false, true);
+        self.hits.push(Hit { rect: light, action: Action::LightMode });
+        self.hits.push(Hit { rect: dark, action: Action::DarkMode });
+        y = mode_card.bottom() + 10;
+
+        // Start screen color
+        let start_card = Rect::new(inner.x, y, inner.w, 90);
+        widgets::card(display, start_card, theme);
+        display.text(inner.x + 14, y + 12, "Start screen", 14, true, TEXT);
+        display.text(inner.x + 14, y + 34, "Accent color for Start", 11, false, TEXT_MUTED);
+        let start_colors = [(0x0078d7, 0), (0x464eb8, 1), (0x881798, 2), (0xc30052, 3), (0xe81123, 4), (0x107c10, 5)];
+        let mut sx = inner.x + 14;
+        for (c, idx) in start_colors {
+            let r = Rect::new(sx, y + 56, 24, 24);
+            display.fill_rect(r, rgb(c));
+            display.stroke_rounded(r, 0, 1, BORDER);
+            self.hits.push(Hit { rect: r, action: Action::StartColor(idx) });
+            sx += 32;
+        }
+        y = start_card.bottom() + 10;
+
         // Display and system card.
         let info = Rect::new(inner.x, y, inner.w, 132);
         widgets::card(display, info, theme);
@@ -1092,6 +1121,21 @@ impl Settings {
                 }
                 Action::Grid => {
                     theme.show_grid = !theme.show_grid;
+                    return Response::THEME;
+                }
+                Action::LightMode => {
+                    theme.mode = crate::ui::theme::ColorMode::Light;
+                    return Response::THEME;
+                }
+                Action::DarkMode => {
+                    theme.mode = crate::ui::theme::ColorMode::Dark;
+                    return Response::THEME;
+                }
+                Action::StartColor(idx) => {
+                    let colors = [0x0078d7, 0x464eb8, 0x881798, 0xc30052, 0xe81123, 0x107c10];
+                    if idx < colors.len() {
+                        theme.start_color = rgb(colors[idx]);
+                    }
                     return Response::THEME;
                 }
                 _ => {}
